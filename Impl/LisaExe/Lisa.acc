@@ -19,6 +19,7 @@
                     <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>LisaPages/ProductCollectionCommands</Value>
                                 <Value>LisaPages/LicensesCommands</Value>
                                 <Value>Dummy</Value>
                                 <Value>Dummy</Value>

@@ -56,6 +56,7 @@
                     <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>ProductCollectionGui/VisualStatus</Value>
                                 <Value>Licenses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
@@ -65,6 +66,7 @@
                     <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>ProductCollectionGui</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -77,6 +79,7 @@
                     <AttributeInfo Id="Names" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Products</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -86,6 +89,7 @@
                     <AttributeInfo Id="PageIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Products</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -94,6 +98,27 @@
                     </AttributeInfo>
                     <AttributeInfo Id="SupressPageTitle" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductCollectionGui" PackageId="LisaVoce" ComponentId="ProductCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -108,5 +133,6 @@
         <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
+        <Component ExportedId="ProductCollectionCommands" ComponentId="ProductCollectionGui/Commands"/>
     </ExportedComponents>
 </Acf>
