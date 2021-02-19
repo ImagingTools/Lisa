@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="0" Number="4900" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -19,7 +19,7 @@
                     <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Dummy</Value>
+                                <Value>LisaPages/LicensesCommands</Value>
                                 <Value>Dummy</Value>
                                 <Value>Dummy</Value>
                             </Values>
@@ -38,7 +38,7 @@
                         <Data IsEnabled="true" Value="MenuPanel"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LegalCopyright" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="(C) 2020 ImagingTools GmbH. All rights reserved."/>
+                        <Data IsEnabled="true" Value="(C) 2021 ImagingTools GmbH. All rights reserved."/>
                     </AttributeInfo>
                     <AttributeInfo Id="Login" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Rights"/>
@@ -50,7 +50,7 @@
                         <Data IsEnabled="true" Value="LisaPages"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1978"/>
+                        <Data IsEnabled="true" Value="1983"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Rights" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Rights"/>
@@ -77,7 +77,11 @@
         </Element>
         <Element Id="LisaPages" PackageId="LisaVoce" ComponentId="LisaPages">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationFramework/SettingsProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="MenuPanel" PackageId="ImtGuiPck" ComponentId="MenuPanel">
