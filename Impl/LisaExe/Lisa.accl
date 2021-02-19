@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="ApplicationFramework" X="350" Y="225" Note=""/>
+        <Element ComponentName="Dummy" X="350" Y="75" Note=""/>
+        <Element ComponentName="LisaPages" X="1100" Y="775" Note=""/>
+        <Element ComponentName="MenuPanel" X="650" Y="450" Note=""/>
+        <Element ComponentName="MonitorInfoProvider" X="650" Y="575" Note=""/>
+        <Element ComponentName="Rights" X="100" Y="75" Note=""/>
+        <Element ComponentName="VersionInfo" X="1100" Y="100" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="Rights">
+            <PositionMap>
+                <Element ComponentName="1Rights" X="425" Y="450" Note=""/>
+                <Element ComponentName="AdminRights" X="450" Y="175" Note=""/>
+                <Element ComponentName="NoLoggedInRights" X="175" Y="450" Note=""/>
+                <Element ComponentName="SimpleLogin" X="450" Y="325" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description></Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="Help" PackageId="LisaVoce" ComponentId="Help">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="LicenseInfoManager" PackageId="ImtLicensePck" ComponentId="LicenseInfoManager">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="Licenses" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Licenses" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LicenseInfoManager"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Log" PackageId="QtGuiPck" ComponentId="LogGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AllowDiagnosticMessages" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/ColorIcons/Log"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="MainPages" PackageId="QtGuiPck" ComponentId="ComposedGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DesignType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="4"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Licenses/VisualStatus</Value>
+                                <Value>Log/VisualStatus</Value>
+                                <Value>Help/VisualStatus</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Licenses</Value>
+                                <Value>Log</Value>
+                                <Value>Help</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LazyPagesInitialization" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Names" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Licenses</Value>
+                                <Value>System</Value>
+                                <Value>Help</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Licenses</Value>
+                                <Value>System</Value>
+                                <Value>Help</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SupressPageTitle" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList/>
+    <ExportedInterfaces>
+        <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="MainPages"/>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
+    </ExportedInterfaces>
+    <ExportedComponents>
+        <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
+        <Component ExportedId="Log" ComponentId="Log"/>
+        <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
+    </ExportedComponents>
+</Acf>

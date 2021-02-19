@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file alias="AculaSplashScreen">Resources/Images/AculaSplashScreen.svg</file>
+    </qresource>
+    <qresource prefix="/Icons">
+        <file alias="AculaIcon">Resources/Icons/AculaIcon.svg</file>
+    </qresource>
+    <qresource prefix="/qml">
+        <file alias="marker.png">Resources/qml/marker.png</file>
+        <file alias="places_map.qml">Resources/qml/places_map.qml</file>
+        <file alias="Rectangle.qml">Resources/qml/Rectangle.qml</file>
+    </qresource>
+</RCC>

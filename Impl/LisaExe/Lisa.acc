@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description></Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="ApplicationFramework" PackageId="ImtCoreVoce" ComponentId="CoreApplicationFramework">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Dummy</Value>
+                                <Value>Dummy</Value>
+                                <Value>Dummy</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandSelector" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages/PageModel"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="ImagingTools GmbH"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPageIndex" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LeftMenuPanel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MenuPanel"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LegalCopyright" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="(C) 2020 ImagingTools GmbH. All rights reserved."/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Login" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Rights"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MainPageModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages/PageModel"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MainUiPages" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1978"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Rights" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Rights"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StyleSheet" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Styles/ImtLightStyle"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UiStartMode" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UseFullScreenBorderOnWindows" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Dummy" PackageId="ImtGuiPck" ComponentId="DelegatedCommandsProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="LisaPages" PackageId="LisaVoce" ComponentId="LisaPages">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="MenuPanel" PackageId="ImtGuiPck" ComponentId="MenuPanel">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages/PageModel"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuPanelVisibility" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationFramework/MenuPanelVisibility"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MonitorInfoProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MonitorInfoProvider"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MouseOverColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#00CDFF"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MouseOverSelectedColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#00ACDC"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MouseOverSelectedTextColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#FFFFFF"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MouseOverTextColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#FFFFFF"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SelectedColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#FFFFFF"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SelectedContourColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#4D71A3"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ShowOver" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TextColor" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="#335777"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WidgetProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationFramework"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="MonitorInfoProvider" PackageId="ImtGuiPck" ComponentId="MonitorInfoProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="Rights" PackageId="" ComponentId="Rights">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="Rights">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="1Rights" PackageId="AuthorizationPck" ComponentId="StaticRightsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultRight" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RightsOff" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ProductionModeSwitch</Value>
+                                            <Value>Camera</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RightsOn" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ResetCounters</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="AdminRights" PackageId="AuthorizationPck" ComponentId="StaticRightsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultRight" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RightsOn" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ResetCounters</Value>
+                                            <Value>ProductionModeSwitch</Value>
+                                            <Value>Camera</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="NoLoggedInRights" PackageId="AuthorizationPck" ComponentId="StaticRightsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultRight" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RightsOff" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ResetCounters</Value>
+                                            <Value>ProductionModeSwitch</Value>
+                                            <Value>Camera</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SimpleLogin" PackageId="AuthorizationPck" ComponentId="SimpleLogin">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultUserLevels" Type="Integer[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>0</Value>
+                                            <Value>1</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultUserPasswords" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>1</Value>
+                                            <Value></Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultUsers" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>1</Value>
+                                            <Value>Admin</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UserLevels" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>NoLoggedInRights</Value>
+                                            <Value>1Rights</Value>
+                                            <Value>AdminRights</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="iauth::ILogin" ComponentId="SimpleLogin"/>
+                    <Interface InterfaceId="iauth::IRightsProvider" ComponentId="SimpleLogin"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="SimpleLogin"/>
+                    <Interface InterfaceId="iser::ISerializable" ComponentId="SimpleLogin"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="SimpleLogin"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="SimpleLogin"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
+    <ExportedInterfaces>
+        <Interface InterfaceId="ibase::IApplication" ComponentId="ApplicationFramework"/>
+    </ExportedInterfaces>
+    <ExportedComponents/>
+</Acf>
