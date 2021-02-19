@@ -1,7 +1,7 @@
-# Root of Acula project
+# Root of Lisa project
 include ($(ACFDIR)/Config/QMake/Solution.pri)
 
 # Application
-SUBDIRS += Acula
-Acula.file = ../../Impl/LisaExe/QMake/Lisa.pro
-Acula.depends =
+SUBDIRS += Lisa
+Lisa.file = ../../Impl/LisaExe/QMake/Lisa.pro
+
