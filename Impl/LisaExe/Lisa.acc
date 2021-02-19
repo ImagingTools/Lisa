@@ -67,6 +67,9 @@
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="WelcomeText" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Welcome to Lisa"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
