@@ -23,6 +23,9 @@
         <Element Id="Licenses" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/ColorIcons/Checkup"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Licenses" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LicenseInfoManager"/>
                     </AttributeInfo>
