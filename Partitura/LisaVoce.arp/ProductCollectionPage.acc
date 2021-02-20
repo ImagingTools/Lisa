@@ -198,7 +198,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtRepoGuiPck" ComponentId="DocumentBasedFileCollectionDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoCollectionViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
