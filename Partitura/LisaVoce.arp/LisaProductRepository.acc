@@ -35,6 +35,13 @@
                     <AttributeInfo Id="Login" Type="Reference" ExportId="LoginModel">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ProductLicensingInfoMetaInfoCreator</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectFactoryList" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -128,6 +135,15 @@
         <Element Id="ProductLicensingInfo" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="ProductLicensingInfoMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfoMetaInfoCreator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="RepositoryFolder" PackageId="FilePck" ComponentId="RelativeFileNameParam">

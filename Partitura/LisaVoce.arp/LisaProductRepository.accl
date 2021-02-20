@@ -13,7 +13,8 @@
         <Element ComponentName="OptionsListAdapter" X="575" Y="575" Note=""/>
         <Element ComponentName="Persistence" X="925" Y="575" Note=""/>
         <Element ComponentName="ProductLicensingFolder" X="900" Y="75" Note=""/>
-        <Element ComponentName="ProductLicensingInfo" X="175" Y="425" Note=""/>
+        <Element ComponentName="ProductLicensingInfo" X="100" Y="400" Note=""/>
+        <Element ComponentName="ProductLicensingInfoMetaInfoCreator" X="275" Y="575" Note=""/>
         <Element ComponentName="RepositoryFolder" X="900" Y="175" Note=""/>
         <Element ComponentName="ResourceTypes" X="200" Y="150" Note=""/>
     </PositionMap>

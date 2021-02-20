@@ -17,19 +17,19 @@
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="CollectionView">
-            <PositionMap>
-                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
-                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
-                <Element ComponentName="ProductLicensingInfoCollectionViewDelegate" X="525" Y="300" Note=""/>
-                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="ProductLicensingInfoEditor">
             <PositionMap>
                 <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
                 <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
+                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
+                <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
