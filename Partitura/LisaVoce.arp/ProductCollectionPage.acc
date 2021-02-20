@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="0" Number="4900" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -58,7 +58,7 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
+                        <Data IsEnabled="true" Value="ProductLicensingInfoEditor"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -105,7 +105,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
+        <Element Id="ProductLicensingInfoEditor" PackageId="" ComponentId="ProductLicensingInfoEditor">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
             </Data>
@@ -230,6 +230,39 @@
                     <Component ExportedId="Persistence" ComponentId="ViewDelegate/CollectionPersistence"/>
                     <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
                     <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="ProductLicensingInfoEditor">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="LicenseCollectionView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseManagerGui"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="imod::IModelEditor" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="imod::IObserver" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="ProductLicensingInfoGui"/>
+                </ExportedInterfaces>
+                <ExportedComponents>
+                    <Component ExportedId="VisualStatus" ComponentId="ProductLicensingInfoGui/VisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>

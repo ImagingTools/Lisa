@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="0" Number="4900" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -12,9 +12,9 @@
         <Element ComponentName="Document" X="1050" Y="575" Note=""/>
         <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
         <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
-        <Element ComponentName="ProductLicensingInfoGui" X="675" Y="575" Note=""/>
+        <Element ComponentName="ProductLicensingInfoEditor" X="475" Y="575" Note=""/>
         <Element ComponentName="Repository" X="225" Y="50" Note=""/>
-        <Element ComponentName="UndoManager" X="400" Y="450" Note=""/>
+        <Element ComponentName="UndoManager" X="250" Y="425" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="CollectionView">
@@ -23,6 +23,13 @@
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
                 <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="575" Y="250" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="ProductLicensingInfoEditor">
+            <PositionMap>
+                <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
+                <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
