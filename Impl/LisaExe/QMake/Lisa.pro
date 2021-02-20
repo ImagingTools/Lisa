@@ -2,10 +2,7 @@ TARGET = Lisa
 
 include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
 include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
-include($(IACFDIR)/Config/QMake/OpenCV_3_3_1.pri)
 include($(LISADIR)/Config/QMake/Lisa.pri)
-include($(LISADIR)/Config/QMake/GevDevice.pri)
-include($(IACFDIR)/Config/QMake/Qwt.pri)
 include($(IMTROOTDIR)/Config/QMake/Quazip.pri)
 
 INCLUDEPATH += ../../../Include
