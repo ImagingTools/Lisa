@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4900" Description="ACF"/>
+            <Version Id="0" Number="4902" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="330758" Description="Qt Framework"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -58,7 +58,7 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="View"/>
+                        <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -105,6 +105,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="Repository" PackageId="LisaVoce" ComponentId="LisaProductRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -134,11 +139,6 @@
             </Data>
         </Element>
         <Element Id="UndoManager" PackageId="BasePck" ComponentId="SerializedUndoManager">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="View" PackageId="AculaInspectionVoce" ComponentId="InspectionAppGui">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
             </Data>
