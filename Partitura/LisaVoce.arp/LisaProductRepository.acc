@@ -158,7 +158,7 @@
                     <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Product</Value>
+                                <Value>ProductLicensingInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
