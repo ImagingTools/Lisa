@@ -2,34 +2,25 @@ TARGET = Lisa
 
 include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
 include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
-include($(LISADIR)/Config/QMake/Lisa.pri)
+include(../../../Config/QMake/Lisa.pri)
 include($(IMTROOTDIR)/Config/QMake/Quazip.pri)
-
-INCLUDEPATH += ../../../Include
-INCLUDEPATH += ../../../Impl
-INCLUDEPATH +=  $$AUXINCLUDEDIR
 
 RESOURCES += $$_PRO_FILE_PWD_/../*.qrc
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liqtinsp -liproc -liinsp -liipr -liprocgui -lisig -liqtsig -licalibgui -licalib -licam -liqtcam -lAcfSlnLoc -lAcfLoc -liedge -liedgegui -limtrepo -limtrepogui
 LIBS +=  -limtbase -limtgui -limtqml -limtlog -limtloggui -limtwidgets -limtrest -limt3d -limtlic -limtlicgui -limt3dgui -limt3dview -lImtCoreLoc
 
-LIBS += -liocv
-
 HEADERS =
 
-QT += xml network quick qml positioning location
-
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += printsupport
+QT += xml network
 
 # Set OS-specific build options:
 win32-msvc*{
 	QMAKE_CXXFLAGS += /wd4264
 
 	# copying all Qt DLLs to destination directory
-#        greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ $$DESTDIR
-		greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ --qmldir=$$PWD\..\Resources\qml\ $$DESTDIR
+#	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ $$DESTDIR
+	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ --qmldir=$$PWD\..\Resources\qml\ $$DESTDIR
 }
 
 !macx-ios*{
