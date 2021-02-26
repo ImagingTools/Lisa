@@ -206,6 +206,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="Applications" ComponentId="OptionsListAdapter"/>
-        <Component ExportedId="FeatureInfoProviderPersistence" ComponentId="Persistence"/>
+        <Component ExportedId="FeatureCollectionPersistence" ComponentId="Persistence"/>
     </ExportedComponents>
 </Acf>

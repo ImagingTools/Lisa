@@ -19,8 +19,8 @@
                     <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="FeatureInfoProviderPersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/FeatureInfoProviderPersistence"/>
+                    <AttributeInfo Id="FeatureCollectionPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository/FeatureCollectionPersistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
@@ -62,14 +62,18 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollectionGui"/>
+                        <Data IsEnabled="true" Value="FeatureCollectionEditor"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionGui">
+        <Element Id="FeatureCollectionEditor" PackageId="" ComponentId="FeatureCollectionEditor">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository/FeatureCollectionPersistence"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="MultiDocWorkspaceGui" PackageId="ImtGuiPck" ComponentId="DocumentWorkspaceGui">
@@ -204,7 +208,7 @@
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureInfoProviderPersistence">
+                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureCollectionPersistence">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
@@ -234,6 +238,68 @@
                     <Component ExportedId="Persistence" ComponentId="ViewDelegate/CollectionPersistence"/>
                     <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
                     <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="FeatureCollectionEditor">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ObjectCollectionView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ObjectCollectionView"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureCollectionViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FilePersistence">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollection"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ObjectCollectionView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ColumnSettingsKey" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionView"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="FeatureCollectionModel">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>FeatureCollectionViewDelegate</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="imod::IModelEditor" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="imod::IObserver" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="FeatureCollectionGui"/>
+                </ExportedInterfaces>
+                <ExportedComponents>
+                    <Component ExportedId="VisualStatus" ComponentId="FeatureCollectionGui/VisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
