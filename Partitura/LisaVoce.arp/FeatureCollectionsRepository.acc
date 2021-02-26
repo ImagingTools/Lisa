@@ -10,11 +10,20 @@
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
     <Keywords>Inspection Application Product Workflow</Keywords>
     <ElementsList>
-        <Element Id="FeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+        <Element Id="FeatureCollection" PackageId="ImtLicensePck" ComponentId="FeatureCollection">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
                     <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FileCollection"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureCollectionMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeatureCollectonMetaInfoCreator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureCollection"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -47,14 +56,14 @@
                     <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ProductLicensingInfoMetaInfoCreator</Value>
+                                <Value>FeatureCollectionMetaInfoCreator</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactoryList" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureInfoProvider</Value>
+                                <Value>FeatureCollection</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -119,7 +128,7 @@
                     <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Product Licensing Files</Value>
+                                <Value>Feature Collection Files</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -129,38 +138,17 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductLicensingFolder" PackageId="FilePck" ComponentId="SystemLocation">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="103"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ProductLicensingInfoMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfoMetaInfoCreator">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="RepositoryFolder" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureProviders"/>
+                        <Data IsEnabled="true" Value="FeatureCollections"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="2"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ReferencePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingFolder"/>
+                        <Data IsEnabled="true" Value="SystemLocation"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -171,23 +159,35 @@
                     <AttributeInfo Id="OptionDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature info provider</Value>
+                                <Value>Feature collection</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureInfoProvider</Value>
+                                <Value>FeatureCollection</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureInfoProvider</Value>
+                                <Value>FeatureCollection</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="103"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

@@ -10,9 +10,21 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="FeatureInfoProviderCollectionGui" PackageId="LisaVoce" ComponentId="FeatureInfoProviderCollectionPage">
+        <Element Id="FeatureCollectionsGui" PackageId="LisaVoce" ComponentId="FeatureCollectionsPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -65,7 +77,7 @@
                     <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureInfoProviderCollectionGui/VisualStatus</Value>
+                                <Value>FeatureCollectionsGui/VisualStatus</Value>
                                 <Value>ProductCollectionGui/VisualStatus</Value>
                                 <Value>Licenses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
@@ -76,7 +88,7 @@
                     <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureInfoProviderCollectionGui</Value>
+                                <Value>FeatureCollectionsGui</Value>
                                 <Value>ProductCollectionGui</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
@@ -143,7 +155,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="FeatureInfoProviderCollectionGui/Commands"/>
+        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="FeatureCollectionsGui/Commands"/>
         <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>

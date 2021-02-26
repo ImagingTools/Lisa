@@ -11,32 +11,18 @@
         <Element ComponentName="CollectionView" X="800" Y="50" Note=""/>
         <Element ComponentName="Document" X="225" Y="450" Note=""/>
         <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
-        <Element ComponentName="FeatureInfoProviderGui" X="800" Y="550" Note=""/>
+        <Element ComponentName="FeatureCollectionGui" X="800" Y="550" Note=""/>
         <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
         <Element ComponentName="Repository" X="225" Y="50" Note=""/>
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="ProductLicensingInfoEditor">
-            <PositionMap>
-                <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
-                <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="CollectionView">
             <PositionMap>
                 <Element ComponentName="Icons" X="175" Y="475" Note=""/>
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
                 <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="525" Y="275" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="FeatureInfoProviderEditor">
-            <PositionMap>
-                <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
-                <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

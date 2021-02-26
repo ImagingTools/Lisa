@@ -28,7 +28,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="FeatureCollection">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
                     <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
@@ -47,10 +47,10 @@
                         <Data IsEnabled="true" Value="CollectionView/Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                        <Data IsEnabled="true" Value="FeatureCollection"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Feature info provider"/>
+                        <Data IsEnabled="true" Value="Feature collection"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IsEditSupported" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
@@ -62,12 +62,12 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureInfoProviderGui"/>
+                        <Data IsEnabled="true" Value="FeatureCollectionGui"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureInfoProviderGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoProviderGui">
+        <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionGui">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
             </Data>
@@ -84,7 +84,7 @@
                     <AttributeInfo Id="FixedViewNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Products</Value>
+                                <Value>Feature collections</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -114,7 +114,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Repository" PackageId="LisaVoce" ComponentId="FeatureInfoProviderRepository">
+        <Element Id="Repository" PackageId="LisaVoce" ComponentId="FeatureCollectionsRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -198,7 +198,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoProviderCollectionViewDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
@@ -211,7 +211,7 @@
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                                    <Data IsEnabled="true" Value="FeatureCollection"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
@@ -234,72 +234,6 @@
                     <Component ExportedId="Persistence" ComponentId="ViewDelegate/CollectionPersistence"/>
                     <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
                     <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
-                </ExportedComponents>
-            </Data>
-        </EmbeddedRegistry>
-        <EmbeddedRegistry Id="FeatureInfoProviderEditor">
-            <Data Description="" Keywords="">
-                <ElementsList>
-                    <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="LicenseCollectionView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="LicenseManagerGui"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                </ElementsList>
-                <EmbeddedRegistriesList/>
-                <ExportedInterfaces>
-                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="imod::IModel" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="imod::IModelEditor" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="imod::IObserver" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="istd::IChangeable" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="ProductLicensingInfoGui"/>
-                </ExportedInterfaces>
-                <ExportedComponents>
-                    <Component ExportedId="VisualStatus" ComponentId="ProductLicensingInfoGui/VisualStatus"/>
-                </ExportedComponents>
-            </Data>
-        </EmbeddedRegistry>
-        <EmbeddedRegistry Id="ProductLicensingInfoEditor">
-            <Data Description="" Keywords="">
-                <ElementsList>
-                    <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="LicenseCollectionView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="LicenseManagerGui"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                </ElementsList>
-                <EmbeddedRegistriesList/>
-                <ExportedInterfaces>
-                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="imod::IModel" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="imod::IModelEditor" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="imod::IObserver" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="istd::IChangeable" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="ProductLicensingInfoGui"/>
-                </ExportedInterfaces>
-                <ExportedComponents>
-                    <Component ExportedId="VisualStatus" ComponentId="ProductLicensingInfoGui/VisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
