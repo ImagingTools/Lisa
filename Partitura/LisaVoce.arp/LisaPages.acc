@@ -2,14 +2,23 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4900" Description="ACF"/>
+            <Version Id="0" Number="4902" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="330758" Description="Qt Framework"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="FeatureInfoProviderCollectionGui" PackageId="LisaVoce" ComponentId="FeatureInfoProviderCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Help" PackageId="LisaVoce" ComponentId="Help">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
@@ -56,6 +65,7 @@
                     <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>FeatureInfoProviderCollectionGui/VisualStatus</Value>
                                 <Value>ProductCollectionGui/VisualStatus</Value>
                                 <Value>Licenses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
@@ -66,6 +76,7 @@
                     <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>FeatureInfoProviderCollectionGui</Value>
                                 <Value>ProductCollectionGui</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
@@ -79,6 +90,7 @@
                     <AttributeInfo Id="Names" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Features</Value>
                                 <Value>Products</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
@@ -89,6 +101,7 @@
                     <AttributeInfo Id="PageIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Features</Value>
                                 <Value>Products</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
@@ -130,6 +143,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="FeatureInfoProviderCollectionGui/Commands"/>
         <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>

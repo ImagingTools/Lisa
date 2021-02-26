@@ -19,8 +19,8 @@
                     <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ProductLicensingInfoPersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/ProductLicensingInfoPersistence"/>
+                    <AttributeInfo Id="FeatureInfoProviderPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository/FeatureInfoProviderPersistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
@@ -28,10 +28,10 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfo">
+        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ProductCollectionInfo" Type="Reference" ExportId="">
+                    <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repository"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -47,10 +47,10 @@
                         <Data IsEnabled="true" Value="CollectionView/Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                        <Data IsEnabled="true" Value="FeatureInfoProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Product Licensing"/>
+                        <Data IsEnabled="true" Value="Feature info provider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IsEditSupported" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
@@ -62,9 +62,14 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfoEditor"/>
+                        <Data IsEnabled="true" Value="FeatureInfoProviderGui"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureInfoProviderGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoProviderGui">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="MultiDocWorkspaceGui" PackageId="ImtGuiPck" ComponentId="DocumentWorkspaceGui">
@@ -109,12 +114,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductLicensingInfoEditor" PackageId="" ComponentId="ProductLicensingInfoEditor">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="Repository" PackageId="LisaVoce" ComponentId="ProductRepository">
+        <Element Id="Repository" PackageId="LisaVoce" ComponentId="FeatureInfoProviderRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -198,20 +198,20 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoCollectionViewDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoProviderCollectionViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="ProductLicensingInfoPersistence">
+                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureInfoProviderPersistence">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
@@ -234,6 +234,39 @@
                     <Component ExportedId="Persistence" ComponentId="ViewDelegate/CollectionPersistence"/>
                     <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
                     <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="FeatureInfoProviderEditor">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="LicenseCollectionView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseManagerGui"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="imod::IModelEditor" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="imod::IObserver" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="ProductLicensingInfoGui"/>
+                </ExportedInterfaces>
+                <ExportedComponents>
+                    <Component ExportedId="VisualStatus" ComponentId="ProductLicensingInfoGui/VisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>

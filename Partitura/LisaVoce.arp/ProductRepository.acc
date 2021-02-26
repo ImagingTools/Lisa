@@ -150,7 +150,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensing"/>
+                        <Data IsEnabled="true" Value="Products"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="2"/>
@@ -201,7 +201,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="FileCollection"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="Applications" ComponentId="OptionsListAdapter"/>
         <Component ExportedId="ProductLicensingInfoPersistence" ComponentId="Persistence"/>
+        <Component ExportedId="Products" ComponentId="OptionsListAdapter"/>
     </ExportedComponents>
 </Acf>
