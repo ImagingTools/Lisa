@@ -3,7 +3,7 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -80,7 +80,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/WorkflowHighlight"/>
+                        <Data IsEnabled="true" Value=":/ColorIcons/Workflow"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -88,7 +88,7 @@
                     <AttributeInfo Id="FixedViewNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature collections</Value>
+                                <Value>Packages</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -244,6 +244,20 @@
         <EmbeddedRegistry Id="FeatureCollectionEditor">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="CommandsBinder" PackageId="QtGuiPck" ComponentId="CommandsBinder">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>FeatureCollectionGui</Value>
+                                            <Value>ObjectCollectionView/Commands</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -290,13 +304,13 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="FeatureCollectionGui"/>
-                    <Interface InterfaceId="imod::IModel" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="CommandsBinder"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="CommandsBinder"/>
                     <Interface InterfaceId="imod::IModelEditor" ComponentId="FeatureCollectionGui"/>
                     <Interface InterfaceId="imod::IObserver" ComponentId="FeatureCollectionGui"/>
                     <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="FeatureCollectionGui"/>
-                    <Interface InterfaceId="istd::IChangeable" ComponentId="FeatureCollectionGui"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="FeatureCollectionGui"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="CommandsBinder"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandsBinder"/>
                 </ExportedInterfaces>
                 <ExportedComponents>
                     <Component ExportedId="VisualStatus" ComponentId="FeatureCollectionGui/VisualStatus"/>
