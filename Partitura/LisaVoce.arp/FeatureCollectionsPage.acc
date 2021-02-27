@@ -267,18 +267,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FeatureCollectionViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FilePersistence">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollection"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="ObjectCollectionView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -294,9 +282,18 @@
                                 <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>FeatureCollectionViewDelegate</Value>
+                                            <Value>StandardCollectionViewDelegate</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="StandardCollectionViewDelegate" PackageId="ImtGuiPck" ComponentId="StandardCollectionViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfo"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

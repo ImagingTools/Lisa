@@ -30,8 +30,8 @@
             <PositionMap>
                 <Element ComponentName="CommandsBinder" X="250" Y="150" Note=""/>
                 <Element ComponentName="FeatureCollectionGui" X="850" Y="150" Note=""/>
-                <Element ComponentName="FeatureCollectionViewDelegate" X="575" Y="525" Note=""/>
                 <Element ComponentName="ObjectCollectionView" X="550" Y="375" Note=""/>
+                <Element ComponentName="StandardCollectionViewDelegate" X="550" Y="550" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
