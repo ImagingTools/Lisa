@@ -80,7 +80,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/Workflow"/>
+                        <Data IsEnabled="true" Value=":/ColorIcons/FeaturePackage"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -187,7 +187,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value=":/Icons/Workflow"/>
+                                    <Data IsEnabled="true" Value=":/Icons/FeaturePackage"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>

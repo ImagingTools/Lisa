@@ -3,14 +3,14 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="FeatureCollectionsGui" PackageId="LisaVoce" ComponentId="FeatureCollectionsPage">
+        <Element Id="Features" PackageId="LisaVoce" ComponentId="FeatureCollectionsPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -45,7 +45,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/Checkup"/>
+                        <Data IsEnabled="true" Value=":/ColorIcons/License"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Licenses" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LicenseInfoManager"/>
@@ -77,8 +77,8 @@
                     <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollectionsGui/VisualStatus</Value>
-                                <Value>ProductCollectionGui/VisualStatus</Value>
+                                <Value>Features/VisualStatus</Value>
+                                <Value>Products/VisualStatus</Value>
                                 <Value>Licenses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
@@ -88,8 +88,8 @@
                     <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollectionsGui</Value>
-                                <Value>ProductCollectionGui</Value>
+                                <Value>Features</Value>
+                                <Value>Products</Value>
                                 <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -127,7 +127,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductCollectionGui" PackageId="LisaVoce" ComponentId="ProductCollectionPage">
+        <Element Id="Products" PackageId="LisaVoce" ComponentId="ProductCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -155,10 +155,10 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="FeatureCollectionsGui/Commands"/>
+        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="Features/Commands"/>
         <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
-        <Component ExportedId="ProductCollectionCommands" ComponentId="ProductCollectionGui/Commands"/>
+        <Component ExportedId="ProductCollectionCommands" ComponentId="Products/Commands"/>
     </ExportedComponents>
 </Acf>
