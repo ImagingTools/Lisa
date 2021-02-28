@@ -10,11 +10,9 @@
     <PositionMap>
         <Element ComponentName="Features" X="200" Y="325" Note=""/>
         <Element ComponentName="Help" X="1101" Y="54" Note=""/>
-        <Element ComponentName="LicenseInfoManager" X="600" Y="425" Note=""/>
-        <Element ComponentName="Licenses" X="575" Y="325" Note=""/>
         <Element ComponentName="Log" X="100" Y="50" Note=""/>
         <Element ComponentName="MainPages" X="600" Y="175" Note=""/>
-        <Element ComponentName="Products" X="875" Y="325" Note=""/>
+        <Element ComponentName="Products" X="600" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

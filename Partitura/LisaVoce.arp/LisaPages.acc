@@ -36,26 +36,6 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="LicenseInfoManager" PackageId="ImtLicensePck" ComponentId="LicenseInfoManager">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="Licenses" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/License"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Licenses" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LicenseInfoManager"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Log" PackageId="QtGuiPck" ComponentId="LogGui">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -79,7 +59,6 @@
                             <Values>
                                 <Value>Features/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
-                                <Value>Licenses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
                             </Values>
@@ -90,7 +69,6 @@
                             <Values>
                                 <Value>Features</Value>
                                 <Value>Products</Value>
-                                <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -104,7 +82,6 @@
                             <Values>
                                 <Value>Features</Value>
                                 <Value>Products</Value>
-                                <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -115,7 +92,6 @@
                             <Values>
                                 <Value>Features</Value>
                                 <Value>Products</Value>
-                                <Value>Licenses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -156,7 +132,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="Features/Commands"/>
-        <Component ExportedId="LicensesCommands" ComponentId="Licenses/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
         <Component ExportedId="ProductCollectionCommands" ComponentId="Products/Commands"/>

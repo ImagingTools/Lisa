@@ -3,7 +3,7 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -142,7 +142,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollections"/>
+                        <Data IsEnabled="true" Value="FeaturePackages"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="2"/>
