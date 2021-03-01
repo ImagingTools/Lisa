@@ -9,7 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="FeatureCollection" X="125" Y="400" Note=""/>
-        <Element ComponentName="FeatureCollectionMetaInfoCreator" X="275" Y="575" Note=""/>
+        <Element ComponentName="FeaturePackageMetaInfoCreator" X="275" Y="575" Note=""/>
         <Element ComponentName="FileCollection" X="575" Y="400" Note=""/>
         <Element ComponentName="FileCompressor" X="575" Y="150" Note=""/>
         <Element ComponentName="OptionsListAdapter" X="575" Y="575" Note=""/>

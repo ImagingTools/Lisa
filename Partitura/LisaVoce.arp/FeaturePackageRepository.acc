@@ -19,7 +19,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureCollectionMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeaturePackageMetaInfoCreator">
+        <Element Id="FeaturePackageMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeaturePackageMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
@@ -56,7 +56,7 @@
                     <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollectionMetaInfoCreator</Value>
+                                <Value>FeaturePackageMetaInfoCreator</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

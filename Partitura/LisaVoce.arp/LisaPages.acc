@@ -10,7 +10,7 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="Features" PackageId="LisaVoce" ComponentId="FeaturePackagePage">
+        <Element Id="FeaturePackages" PackageId="LisaVoce" ComponentId="FeaturePackagePage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -54,7 +54,7 @@
                     <AttributeInfo Id="GuiVisualInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Features/VisualStatus</Value>
+                                <Value>FeaturePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
@@ -64,7 +64,7 @@
                     <AttributeInfo Id="Guis" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Features</Value>
+                                <Value>FeaturePackages</Value>
                                 <Value>Products</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -77,7 +77,7 @@
                     <AttributeInfo Id="Names" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Features</Value>
+                                <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -87,7 +87,7 @@
                     <AttributeInfo Id="PageIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Features</Value>
+                                <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
@@ -128,7 +128,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="Features/Commands"/>
+        <Component ExportedId="FeatureInfoProviderCollectionCommands" ComponentId="FeaturePackages/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
         <Component ExportedId="ProductCollectionCommands" ComponentId="Products/Commands"/>
