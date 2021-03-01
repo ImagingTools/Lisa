@@ -341,6 +341,7 @@
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
     <ExportedInterfaces>
+        <Interface InterfaceId="imtbase::IObjectCollection" ComponentId="Repository"/>
         <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="MultiDocWorkspaceGui"/>
     </ExportedInterfaces>
     <ExportedComponents>

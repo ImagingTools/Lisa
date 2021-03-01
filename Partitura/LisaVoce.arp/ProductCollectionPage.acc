@@ -111,7 +111,11 @@
         </Element>
         <Element Id="ProductLicensingInfoEditor" PackageId="" ComponentId="ProductLicensingInfoEditor">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="Repository" PackageId="LisaVoce" ComponentId="ProductRepository">
@@ -242,7 +246,11 @@
                 <ElementsList>
                     <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
