@@ -3,14 +3,14 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
     <Keywords>Inspection Application Product Workflow</Keywords>
     <ElementsList>
-        <Element Id="FeatureCollection" PackageId="ImtLicensePck" ComponentId="FeatureCollection">
+        <Element Id="FeatureCollection" PackageId="ImtLicensePck" ComponentId="FeaturePackage">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
                     <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
@@ -19,11 +19,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureCollectionMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeatureCollectonMetaInfoCreator">
+        <Element Id="FeatureCollectionMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeaturePackageMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollection"/>
+                        <Data IsEnabled="true" Value="FeaturePackage"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -118,7 +118,7 @@
                     <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>pic</Value>
+                                <Value>fpkg</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -128,7 +128,7 @@
                     <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature Collection Files</Value>
+                                <Value>Feature Package Files</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -159,21 +159,21 @@
                     <AttributeInfo Id="OptionDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature collection</Value>
+                                <Value>Feature package</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollection</Value>
+                                <Value>FeaturePackage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollection</Value>
+                                <Value>FeaturePackage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

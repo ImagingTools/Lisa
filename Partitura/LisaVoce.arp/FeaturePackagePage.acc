@@ -3,7 +3,7 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -28,7 +28,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="FeatureCollection">
+        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="FeaturePackage">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
                     <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
@@ -47,10 +47,10 @@
                         <Data IsEnabled="true" Value="CollectionView/Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollection"/>
+                        <Data IsEnabled="true" Value="FeaturePackage"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Feature collection"/>
+                        <Data IsEnabled="true" Value="Feature package"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IsEditSupported" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
@@ -62,12 +62,12 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollectionEditor"/>
+                        <Data IsEnabled="true" Value="FeaturePackageEditor"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureCollectionEditor" PackageId="" ComponentId="FeatureCollectionEditor">
+        <Element Id="FeaturePackageEditor" PackageId="" ComponentId="FeaturePackageEditor">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
                     <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="">
@@ -118,7 +118,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Repository" PackageId="LisaVoce" ComponentId="FeatureCollectionsRepository">
+        <Element Id="Repository" PackageId="LisaVoce" ComponentId="FeaturePackageRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -202,7 +202,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeaturePackageViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
@@ -215,7 +215,7 @@
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollection"/>
+                                    <Data IsEnabled="true" Value="FeaturePackage"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
@@ -241,7 +241,7 @@
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
-        <EmbeddedRegistry Id="FeatureCollectionEditor">
+        <EmbeddedRegistry Id="FeaturePackageEditor">
             <Data Description="" Keywords="">
                 <ElementsList>
                     <Element Id="CommandsBinder" PackageId="QtGuiPck" ComponentId="CommandsBinder">
@@ -258,11 +258,45 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionGui">
+                    <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeaturePackageGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ObjectCollectionView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ObjectCollectionView"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureCollectionViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="EditDialog" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ModelDialogGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfo"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
+                        <Data IsEnabled="true" Flags="2">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureInfoEditorGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoEditorGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="ModelDialogGui" PackageId="QtGuiPck" ComponentId="ModelDialogGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Gui" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfoEditorGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WorkingDataFactory" Type="Factory" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfo"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -282,18 +316,9 @@
                                 <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>StandardCollectionViewDelegate</Value>
+                                            <Value>FeatureCollectionViewDelegate</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="StandardCollectionViewDelegate" PackageId="ImtGuiPck" ComponentId="StandardCollectionViewDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureInfo"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
