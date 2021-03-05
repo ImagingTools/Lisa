@@ -70,8 +70,8 @@
         <Element Id="FeaturePackageEditor" PackageId="" ComponentId="FeaturePackageEditor">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/FeatureCollectionPersistence"/>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -281,7 +281,11 @@
                     </Element>
                     <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
                         <Data IsEnabled="true" Flags="2">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackage" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui/FeaturePackageProxy"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="FeatureInfoEditorGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoEditorGui">
@@ -312,9 +316,6 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ColumnSettingsKey" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="FeatureCollectionView"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="FeatureCollectionModel">
-                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>
