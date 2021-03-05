@@ -8,13 +8,13 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CollectionView" X="800" Y="50" Note=""/>
-        <Element ComponentName="Document" X="225" Y="475" Note=""/>
-        <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
-        <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
-        <Element ComponentName="ProductLicensingInfoEditor" X="800" Y="550" Note=""/>
-        <Element ComponentName="Repository" X="225" Y="50" Note=""/>
-        <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
+        <Element ComponentName="CollectionView" X="725" Y="50" Note=""/>
+        <Element ComponentName="Document" X="325" Y="550" Note=""/>
+        <Element ComponentName="DocumentTemplate" X="725" Y="450" Note=""/>
+        <Element ComponentName="MultiDocWorkspaceGui" X="475" Y="275" Note=""/>
+        <Element ComponentName="ProductInstanceInfoEditor" X="725" Y="550" Note=""/>
+        <Element ComponentName="Repository" X="275" Y="50" Note=""/>
+        <Element ComponentName="UndoManager" X="1075" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="CollectionView">
@@ -23,13 +23,6 @@
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
                 <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="ProductLicensingInfoEditor">
-            <PositionMap>
-                <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
-                <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

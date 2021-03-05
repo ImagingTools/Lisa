@@ -3,13 +3,14 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="FeaturePackages" X="225" Y="325" Note=""/>
         <Element ComponentName="Help" X="1101" Y="54" Note=""/>
+        <Element ComponentName="Instances" X="925" Y="325" Note=""/>
         <Element ComponentName="Log" X="100" Y="50" Note=""/>
         <Element ComponentName="MainPages" X="600" Y="175" Note=""/>
         <Element ComponentName="Products" X="600" Y="325" Note=""/>
