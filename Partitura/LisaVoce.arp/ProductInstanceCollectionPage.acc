@@ -74,7 +74,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/Performance"/>
+                        <Data IsEnabled="true" Value=":/ColorIcons/Deployment"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -195,7 +195,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value=":/Icons/Workflow"/>
+                                    <Data IsEnabled="true" Value=":/Icons/Deployment"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>
