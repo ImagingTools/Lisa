@@ -3,8 +3,8 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Repository containing instances of selled products</Description>
@@ -34,6 +34,13 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Login" Type="Reference" ExportId="LoginModel">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ProductInstanceMetaInfoCreator</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactoryList" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
@@ -121,6 +128,15 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductInstanceMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="ProductInstanceMetaInfoCreator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ProductInstanceInfo"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
