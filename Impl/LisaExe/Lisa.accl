@@ -9,6 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationFramework" X="350" Y="225" Note=""/>
+        <Element ComponentName="ApplicationSwitchCommand" X="200" Y="425" Note=""/>
         <Element ComponentName="Dummy" X="350" Y="75" Note=""/>
         <Element ComponentName="LisaPages" X="1100" Y="775" Note=""/>
         <Element ComponentName="MenuPanel" X="650" Y="450" Note=""/>
