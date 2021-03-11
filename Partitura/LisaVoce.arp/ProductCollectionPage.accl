@@ -3,8 +3,8 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -28,8 +28,13 @@
         </EmbededRegistry>
         <EmbededRegistry Id="ProductLicensingInfoEditor">
             <PositionMap>
-                <Element ComponentName="LicenseManagerGui" X="500" Y="425" Note=""/>
-                <Element ComponentName="ProductLicensingInfoGui" X="500" Y="225" Note=""/>
+                <Element ComponentName="CommandsBinder" X="225" Y="100" Note=""/>
+                <Element ComponentName="LicenseInfo" X="900" Y="600" Note=""/>
+                <Element ComponentName="LicenseInfoEditorGui" X="225" Y="600" Note=""/>
+                <Element ComponentName="LicenseManagerViewDelegate" X="550" Y="375" Note=""/>
+                <Element ComponentName="ModelDialogGui" X="550" Y="500" Note=""/>
+                <Element ComponentName="ObjectCollectionView" X="550" Y="250" Note=""/>
+                <Element ComponentName="ProductLicensingInfoGui" X="900" Y="100" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

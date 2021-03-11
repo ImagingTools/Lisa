@@ -3,8 +3,8 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -244,8 +244,22 @@
         <EmbeddedRegistry Id="ProductLicensingInfoEditor">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="LicenseManagerGui" PackageId="ImtLicenseVoce" ComponentId="LicenseManagerGui">
+                    <Element Id="CommandsBinder" PackageId="QtGuiPck" ComponentId="CommandsBinder">
                         <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ProductLicensingInfoGui</Value>
+                                            <Value>ObjectCollectionView/Commands</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="LicenseInfo" PackageId="ImtLicensePck" ComponentId="LicenseInfo">
+                        <Data IsEnabled="true" Flags="2">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
                                     <Data IsEnabled="false"/>
@@ -253,11 +267,86 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="LicenseInfoEditorGui" PackageId="ImtLicenseGuiPck" ComponentId="LicenseInfoEditorGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="LicenseManagerViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="LicenseManagerViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultLicenseId" Type="Id" ExportId="DefaultLicenseId">
+                                    <Data IsEnabled="true" Value="00.0000"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultLicenseName" Type="String" ExportId="DefaultLicenseName">
+                                    <Data IsEnabled="true" Value="Standard"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EditDialog" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ModelDialogGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseInfo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="StatusIcons">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ModelDialogGui" PackageId="QtGuiPck" ComponentId="ModelDialogGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DialogSize" Type="Real" ExportId="">
+                                    <Data IsEnabled="true" Value="0.5"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DialogTitle" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Edit License"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Gui" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseInfoEditorGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MenuName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Edit License"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Edit"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WorkingDataFactory" Type="Factory" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseInfo"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ObjectCollectionView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="Licenses">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="DefaultStatusIcon">
+                                    <Data IsEnabled="true" Value=":/Icons/License"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>LicenseManagerViewDelegate</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductLicensingInfoGui" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="LicenseCollectionView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="LicenseManagerGui"/>
+                                <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollectionView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ObjectCollectionView"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -265,13 +354,13 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="imod::IModel" ComponentId="LicenseManagerGui/Commands"/>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="CommandsBinder"/>
+                    <Interface InterfaceId="imod::IModel" ComponentId="CommandsBinder"/>
                     <Interface InterfaceId="imod::IModelEditor" ComponentId="ProductLicensingInfoGui"/>
                     <Interface InterfaceId="imod::IObserver" ComponentId="ProductLicensingInfoGui"/>
                     <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="ProductLicensingInfoGui"/>
-                    <Interface InterfaceId="istd::IChangeable" ComponentId="LicenseManagerGui/Commands"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="ProductLicensingInfoGui"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="CommandsBinder"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandsBinder"/>
                 </ExportedInterfaces>
                 <ExportedComponents>
                     <Component ExportedId="VisualStatus" ComponentId="ProductLicensingInfoGui/VisualStatus"/>
