@@ -258,6 +258,15 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="FeatureTreeGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureTreeGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="LicenseInfo" PackageId="ImtLicensePck" ComponentId="LicenseInfo">
                         <Data IsEnabled="true" Flags="2">
                             <AttributeInfoMap>
@@ -344,6 +353,9 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureTreeView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureTreeGui"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollectionView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ObjectCollectionView"/>

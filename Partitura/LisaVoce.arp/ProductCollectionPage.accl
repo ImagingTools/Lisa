@@ -29,6 +29,7 @@
         <EmbededRegistry Id="ProductLicensingInfoEditor">
             <PositionMap>
                 <Element ComponentName="CommandsBinder" X="225" Y="100" Note=""/>
+                <Element ComponentName="FeatureTreeGui" X="900" Y="200" Note=""/>
                 <Element ComponentName="LicenseInfo" X="900" Y="600" Note=""/>
                 <Element ComponentName="LicenseInfoEditorGui" X="225" Y="600" Note=""/>
                 <Element ComponentName="LicenseManagerViewDelegate" X="550" Y="375" Note=""/>
