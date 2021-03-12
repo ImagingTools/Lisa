@@ -2,14 +2,23 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="0" Number="4900" Description="ACF"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="AculaPath" PackageId="FilePck" ComponentId="FileNameParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Acula"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ApplicationFramework" PackageId="ImtCoreVoce" ComponentId="CoreApplicationFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -84,14 +93,14 @@
                     <AttributeInfo Id="ActionIcon" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value=":/Icons/Switch"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ExecutablePath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AculaPath"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="MenuDescription" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Switch to Acula application"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MenuName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Switch to Acula"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProcessTitle" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Acula"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="General"/>
