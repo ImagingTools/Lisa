@@ -264,6 +264,12 @@
                                 <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="FeatureSelectionModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/SelectedFeatures"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureStateModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/DisabledFeatures"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
