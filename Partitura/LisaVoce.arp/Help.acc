@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4839" Description="ACF"/>
-            <Version Id="1" Number="2119" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,7 +13,7 @@
         <Element Id="HtmlHelpGui" PackageId="QtGuiPck" ComponentId="HtmlHelpGui">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
+                    <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="HelpIcon">
                         <Data IsEnabled="true" Value=":/ColorIcons/Manual"/>
                     </AttributeInfo>
                     <AttributeInfo Id="HelpFileProvider" Type="Reference" ExportId="">

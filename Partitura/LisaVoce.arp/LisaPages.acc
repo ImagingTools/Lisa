@@ -30,7 +30,11 @@
         </Element>
         <Element Id="Help" PackageId="LisaVoce" ComponentId="Help">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="HelpIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Icons/Manual"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="Instances" PackageId="LisaVoce" ComponentId="ProductInstanceCollectionPage">
@@ -64,7 +68,7 @@
                         <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/Log"/>
+                        <Data IsEnabled="true" Value=":/Icons/Log"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

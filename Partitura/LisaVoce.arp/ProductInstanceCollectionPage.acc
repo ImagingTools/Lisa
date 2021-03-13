@@ -74,7 +74,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/ColorIcons/Deployment"/>
+                        <Data IsEnabled="true" Value=":/Icons/Deployment"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
