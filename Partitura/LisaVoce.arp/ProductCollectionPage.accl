@@ -9,7 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="CollectionView" X="800" Y="50" Note=""/>
-        <Element ComponentName="Document" X="225" Y="475" Note=""/>
+        <Element ComponentName="Document" X="225" Y="450" Note=""/>
         <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
         <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
         <Element ComponentName="ProductLicensingInfoEditor" X="800" Y="550" Note=""/>

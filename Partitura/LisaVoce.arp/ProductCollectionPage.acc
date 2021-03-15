@@ -192,6 +192,9 @@
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="UseAsyncRead" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
