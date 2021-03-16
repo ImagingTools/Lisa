@@ -264,14 +264,17 @@
                     <Element Id="FeatureTreeGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureTreeGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/FeatureTreeModel"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeatureSelectionModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/SelectedFeatures"/>
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/SelectedFeaturesModel"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeatureStateModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/DisabledFeatures"/>
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/DisabledFeaturesModel"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
