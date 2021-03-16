@@ -253,7 +253,6 @@
                                 <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ProductLicensingInfoGui</Value>
                                             <Value>ObjectCollectionView/Commands</Value>
                                         </Values>
                                     </Data>

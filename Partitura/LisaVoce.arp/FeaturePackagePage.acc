@@ -70,6 +70,9 @@
         <Element Id="FeaturePackageEditor" PackageId="" ComponentId="FeaturePackageEditor">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -253,7 +256,6 @@
                                 <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>FeatureCollectionGui</Value>
                                             <Value>ObjectCollectionView/Commands</Value>
                                         </Values>
                                     </Data>
@@ -264,6 +266,12 @@
                     <Element Id="FeatureCollectionGui" PackageId="ImtLicenseGuiPck" ComponentId="FeaturePackageGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureTreeView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureTreeGui"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollectionView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ObjectCollectionView"/>
                                 </AttributeInfo>
@@ -294,6 +302,24 @@
                     <Element Id="FeatureInfoEditorGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoEditorGui">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureTreeGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureTreeGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui/FeatureTreeModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureSelectionModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui/SelectedFeaturesModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureStateModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui/DisabledFeaturesModel"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="ModelDialogGui" PackageId="QtGuiPck" ComponentId="ModelDialogGui">
