@@ -308,16 +308,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollectionGui/FeatureTreeModel"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollectionGui"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureSelectionModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollectionGui/SelectedFeaturesModel"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureStateModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollectionGui/DisabledFeaturesModel"/>
+                                    <Data IsEnabled="true" Value="FeatureCollectionGui/ItemTree"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
