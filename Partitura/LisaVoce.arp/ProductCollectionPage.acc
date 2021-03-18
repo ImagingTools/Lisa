@@ -264,16 +264,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/FeatureTreeModel"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureItemStateHandler" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureSelectionModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/SelectedFeaturesModel"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureStateModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/DisabledFeaturesModel"/>
+                                    <Data IsEnabled="true" Value="ProductLicensingInfoGui/ItemTree"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -317,7 +308,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DialogSize" Type="Real" ExportId="">
-                                    <Data IsEnabled="true" Value="0.5"/>
+                                    <Data IsEnabled="true" Value="0.25"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DialogTitle" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Edit License"/>
