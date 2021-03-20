@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4902" Description="ACF"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description>Product licensing collection page</Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="CollectionView" PackageId="" ComponentId="CollectionView">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductLicensingInfoPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository/AddressPersistence"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeaturePackage" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureCollectionGui/FeaturePackageProxy"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureInfoEditorGui" PackageId="ImtLicenseGuiPck" ComponentId="FeatureInfoEditorGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="FileObjectCollectionViewDelegate" PackageId="ImtRepoGuiPck" ComponentId="FileObjectCollectionViewDelegate">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="Icons" PackageId="QtGuiPck" ComponentId="IconProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="IconFiles" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Add</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="IconsPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Icons"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ModelDialogGui" PackageId="QtGuiPck" ComponentId="ModelDialogGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DialogSize" Type="Real" ExportId="">
+                        <Data IsEnabled="true" Value="0.25"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DialogTitle" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Edit Feature"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Gui" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureInfoEditorGui"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WorkingDataFactory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ObjectCollectionView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ColumnSettingsKey" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureCollectionView"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UseAsyncRead" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>FileObjectCollectionViewDelegate</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Repository" PackageId="LisaVoce" ComponentId="AddressRepository">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionProgressManagers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>CollectionView</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="CollectionView">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="Icons" PackageId="QtGuiPck" ComponentId="IconProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="IconFiles" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="IconsPath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value=":/Icons"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="MetaInfoView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionMetaInfoView">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="RepositoryView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ColumnSettingsKey" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductCollection"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="DefaultModel">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value=":/Icons/Workflow"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UseAsyncRead" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ViewDelegate</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ViewDelegate" PackageId="ImtGuiPck" ComponentId="StandardCollectionViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Icons"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="ibase::ICommandsProvider" ComponentId="RepositoryView/Commands"/>
+                    <Interface InterfaceId="ibase::IProgressManager" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="imod::IModelEditor" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="imod::IObserver" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="imtbase::IObjectCollectionEventHandler" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="RepositoryView"/>
+                </ExportedInterfaces>
+                <ExportedComponents>
+                    <Component ExportedId="Persistence" ComponentId="ViewDelegate/CollectionPersistence"/>
+                    <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
+                    <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
+    <ExportedInterfaces/>
+    <ExportedComponents>
+        <Component ExportedId="Commands" ComponentId="MultiDocWorkspaceGui/Commands"/>
+        <Component ExportedId="Repository" ComponentId="Repository"/>
+        <Component ExportedId="VisualStatus" ComponentId="MultiDocWorkspaceGui/VisualStatus"/>
+    </ExportedComponents>
+</Acf>

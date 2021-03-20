@@ -3,13 +3,23 @@
     <AcfHeader>
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2134" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="Accounts" PackageId="LisaVoce" ComponentId="AccountCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="Addresses" PackageId="LisaVoce" ComponentId="AddressCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="FeaturePackages" PackageId="LisaVoce" ComponentId="FeaturePackagePage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -85,6 +95,7 @@
                                 <Value>FeaturePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
+                                <Value>Addresses/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
                             </Values>
@@ -96,6 +107,7 @@
                                 <Value>FeaturePackages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
+                                <Value>Addresses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -110,6 +122,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
+                                <Value>Addresses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -121,6 +134,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
+                                <Value>Addresses</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -128,6 +142,15 @@
                     </AttributeInfo>
                     <AttributeInfo Id="SupressPageTitle" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Persons" PackageId="LisaVoce" ComponentId="PersonCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AddressProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AddressProvider"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
