@@ -32,9 +32,6 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Login" Type="Reference" ExportId="LoginModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -138,7 +135,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackages"/>
+                        <Data IsEnabled="true" Value="Persons"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="2"/>
@@ -202,6 +199,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="Applications" ComponentId="OptionsListAdapter"/>
-        <Component ExportedId="FeatureCollectionPersistence" ComponentId="Persistence"/>
+        <Component ExportedId="ProductLicensingInfoPersistence" ComponentId="Persistence"/>
     </ExportedComponents>
 </Acf>

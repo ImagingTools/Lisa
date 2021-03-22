@@ -205,7 +205,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoCollectionViewDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">

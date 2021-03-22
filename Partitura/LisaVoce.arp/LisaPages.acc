@@ -15,11 +15,6 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="Addresses" PackageId="LisaVoce" ComponentId="AddressCollectionPage">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="FeaturePackages" PackageId="LisaVoce" ComponentId="FeaturePackagePage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -95,7 +90,7 @@
                                 <Value>FeaturePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
-                                <Value>Addresses/VisualStatus</Value>
+                                <Value>Persons/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
                             </Values>
@@ -107,7 +102,7 @@
                                 <Value>FeaturePackages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
-                                <Value>Addresses</Value>
+                                <Value>Persons</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -122,7 +117,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
-                                <Value>Addresses</Value>
+                                <Value>Persons</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -134,7 +129,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Instances</Value>
-                                <Value>Addresses</Value>
+                                <Value>Persons</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -149,8 +144,17 @@
         <Element Id="Persons" PackageId="LisaVoce" ComponentId="PersonCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AddressProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AddressProvider"/>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -190,6 +194,7 @@
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
+        <Component ExportedId="PersonsCommands" ComponentId="Persons/Commands"/>
         <Component ExportedId="ProductsCommands" ComponentId="Products/Commands"/>
     </ExportedComponents>
 </Acf>

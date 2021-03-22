@@ -22,7 +22,7 @@
                 <Element ComponentName="Icons" X="175" Y="475" Note=""/>
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
                 <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
-                <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
+                <Element ComponentName="ViewDelegate" X="550" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
