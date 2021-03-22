@@ -10,6 +10,15 @@
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
     <Keywords>Inspection Application Product Workflow</Keywords>
     <ElementsList>
+        <Element Id="ContactInfoMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="ContactInfoMetaInfoCreator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ContactInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="FileCollection" PackageId="ImtRepoPck" ComponentId="FileCollection">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -35,7 +44,7 @@
                     <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PersonInfoMetaInfoCreator</Value>
+                                <Value>ContactInfoMetaInfoCreator</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -97,7 +106,7 @@
                     <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>fpkg</Value>
+                                <Value>contact</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -107,7 +116,7 @@
                     <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature Package Files</Value>
+                                <Value>Contact Files</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -117,25 +126,16 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PersonInfo" PackageId="ImtAuthPck" ComponentId="PersonInfo">
+        <Element Id="PersonInfo" PackageId="ImtAuthPck" ComponentId="ContactInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="PersonInfoMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="PersonInfoMetaInfoCreator">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="PersonInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="RepositoryFolder" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Persons"/>
+                        <Data IsEnabled="true" Value="Contacts"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="2"/>
@@ -152,14 +152,14 @@
                     <AttributeInfo Id="OptionDescriptions" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Person info</Value>
+                                <Value>Contact info</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PersonInfo</Value>
+                                <Value>ContactInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -199,6 +199,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="Applications" ComponentId="OptionsListAdapter"/>
-        <Component ExportedId="ProductLicensingInfoPersistence" ComponentId="Persistence"/>
+        <Component ExportedId="ContactInfoPersistence" ComponentId="Persistence"/>
     </ExportedComponents>
 </Acf>
