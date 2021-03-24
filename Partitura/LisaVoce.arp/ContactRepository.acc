@@ -10,7 +10,12 @@
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
     <Keywords>Inspection Application Product Workflow</Keywords>
     <ElementsList>
-        <Element Id="ContactInfoMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="ContactInfoMetaInfoCreator">
+        <Element Id="ContactInfo" PackageId="ImtAuthPck" ComponentId="ContactInfo">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="ContacttInfoMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="ContactInfoMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
@@ -44,14 +49,14 @@
                     <AttributeInfo Id="MetaInfoCreatorList" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ContactInfoMetaInfoCreator</Value>
+                                <Value>ContacttInfoMetaInfoCreator</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactoryList" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PersonInfo</Value>
+                                <Value>ContactInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -126,11 +131,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PersonInfo" PackageId="ImtAuthPck" ComponentId="ContactInfo">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="RepositoryFolder" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -166,7 +166,7 @@
                     <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PersonInfo</Value>
+                                <Value>ContactInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -13,14 +13,14 @@
         <Element Id="CollectionView" PackageId="" ComponentId="CollectionView">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AccountInfoPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repository/AccountInfoPersistence"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProductLicensingInfoPersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/ProductLicensingInfoPersistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
@@ -28,11 +28,20 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Document" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfo">
+        <Element Id="Document" PackageId="ImtAuthPck" ComponentId="AccountInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ProductCollectionInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository"/>
+                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="DocumentEditor" PackageId="" ComponentId="DocumentEditor">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -47,10 +56,10 @@
                         <Data IsEnabled="true" Value="CollectionView/Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                        <Data IsEnabled="true" Value="AccountInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Product Licensing"/>
+                        <Data IsEnabled="true" Value="Account info"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IsEditSupported" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
@@ -62,7 +71,7 @@
                         <Data IsEnabled="true" Value="UndoManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ViewFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="ProductLicensingInfoEditor"/>
+                        <Data IsEnabled="true" Value="DocumentEditor"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -71,7 +80,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons/Product"/>
+                        <Data IsEnabled="true" Value=":/Icons/Remove"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -79,7 +88,7 @@
                     <AttributeInfo Id="FixedViewNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Products</Value>
+                                <Value>Accounts</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -109,15 +118,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductLicensingInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="AccountInfoEditor">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Repository" PackageId="LisaVoce" ComponentId="AccountRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -131,13 +131,13 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
@@ -181,7 +181,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ColumnSettingsKey" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductCollection"/>
+                                    <Data IsEnabled="true" Value="AccountCollection"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="DefaultModel">
                                     <Data IsEnabled="false"/>
@@ -205,20 +205,20 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoViewDelegate">
+                    <Element Id="ViewDelegate" PackageId="ImtAuthGuiPck" ComponentId="AccountInfoViewDelegate">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="ProductLicensingInfoPersistence">
+                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="AccountInfoPersistence">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                                    <Data IsEnabled="true" Value="AccountInfo"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
@@ -242,6 +242,53 @@
                     <Component ExportedId="ViewDelegate" ComponentId="ViewDelegate"/>
                     <Component ExportedId="VisualStatus" ComponentId="RepositoryView/VisualStatus"/>
                 </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="DocumentEditor">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="AccountInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="AccountInfoEditor">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="AccountPictureView" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ImageView"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="BitmapLoader" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="BitmapLoader"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountInfo"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="BitmapLoader" PackageId="BitmapPck" ComponentId="BitmapLoader">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="ImageView" PackageId="QtViewPck" ComponentId="ImageView">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FitMode" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="1"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ZoomToFitEnabled" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imod::IObserver" ComponentId="AccountInfoEditor"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="AccountInfoEditor"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>

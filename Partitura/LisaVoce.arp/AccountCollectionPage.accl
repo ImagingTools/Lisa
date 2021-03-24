@@ -9,19 +9,27 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="CollectionView" X="800" Y="50" Note=""/>
-        <Element ComponentName="Document" X="225" Y="450" Note=""/>
+        <Element ComponentName="Document" X="550" Y="450" Note=""/>
+        <Element ComponentName="DocumentEditor" X="800" Y="551" Note=""/>
         <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
         <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
-        <Element ComponentName="ProductLicensingInfoEditor" X="800" Y="550" Note=""/>
         <Element ComponentName="Repository" X="225" Y="50" Note=""/>
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="DocumentEditor">
+            <PositionMap>
+                <Element ComponentName="AccountInfoEditor" X="600" Y="375" Note=""/>
+                <Element ComponentName="BitmapLoader" X="375" Y="375" Note=""/>
+                <Element ComponentName="ImageView" X="600" Y="475" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="CollectionView">
             <PositionMap>
                 <Element ComponentName="Icons" X="175" Y="475" Note=""/>
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
-                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
+                <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>

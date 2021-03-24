@@ -67,7 +67,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons/Product"/>
+                        <Data IsEnabled="true" Value=":/Icons/Add"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -110,7 +110,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="Repository" PackageId="LisaVoce" ComponentId="PersonRepository">
+        <Element Id="Repository" PackageId="LisaVoce" ComponentId="ContactRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">

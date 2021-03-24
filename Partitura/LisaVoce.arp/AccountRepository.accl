@@ -16,7 +16,7 @@
         <Element ComponentName="Persistence" X="900" Y="575" Note=""/>
         <Element ComponentName="RepositoryFolder" X="900" Y="150" Note=""/>
         <Element ComponentName="ResourceTypes" X="275" Y="150" Note=""/>
-        <Element ComponentName="SystemLocation" X="900" Y="50" Note=""/>
+        <Element ComponentName="SystemLocation" X="892" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
