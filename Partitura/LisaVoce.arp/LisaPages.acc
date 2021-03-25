@@ -13,27 +13,6 @@
         <Element Id="Accounts" PackageId="LisaVoce" ComponentId="AccountCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Contacts/Repository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="Contacts" PackageId="LisaVoce" ComponentId="ContactCollectionPage">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -123,7 +102,6 @@
                             <Values>
                                 <Value>FeaturePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
-                                <Value>Contacts/VisualStatus</Value>
                                 <Value>Accounts/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
@@ -136,7 +114,6 @@
                             <Values>
                                 <Value>FeaturePackages</Value>
                                 <Value>Products</Value>
-                                <Value>Contacts</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
@@ -152,7 +129,6 @@
                             <Values>
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
-                                <Value>Contacts</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
@@ -165,7 +141,6 @@
                             <Values>
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
-                                <Value>Contacts</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>

@@ -30,20 +30,12 @@
         </Element>
         <Element Id="Document" PackageId="ImtAuthPck" ComponentId="AccountInfo">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="DocumentEditor" PackageId="" ComponentId="DocumentEditor">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="DocumentTemplate" PackageId="QtGuiPck" ComponentId="ExtendedDocumentTemplate">
@@ -80,7 +72,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons/Remove"/>
+                        <Data IsEnabled="true" Value=":/Icons/Account"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -131,9 +123,6 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -174,7 +163,16 @@
                     </Element>
                     <Element Id="MetaInfoView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionMetaInfoView">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="IgnoreIds" Type="Integer[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>5</Value>
+                                            <Value>8</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="RepositoryView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
@@ -256,8 +254,8 @@
                                 <AttributeInfo Id="BitmapLoader" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="BitmapLoader"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="ContactEditor" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ContactInfoEditor"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="AccountInfo"/>
@@ -266,6 +264,11 @@
                         </Data>
                     </Element>
                     <Element Id="BitmapLoader" PackageId="BitmapPck" ComponentId="BitmapLoader">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="ContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
                         </Data>

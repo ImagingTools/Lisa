@@ -33,7 +33,6 @@
                             <Values>
                                 <Value>LisaPages/FeaturePackagesCommands</Value>
                                 <Value>LisaPages/ProductsCommands</Value>
-                                <Value>LisaPages/ContactCommands</Value>
                                 <Value>LisaPages/AccountCommands</Value>
                                 <Value>LisaPages/InstancesCommands</Value>
                                 <Value>Dummy</Value>

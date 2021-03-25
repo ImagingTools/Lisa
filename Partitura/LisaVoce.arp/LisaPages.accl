@@ -8,8 +8,7 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Accounts" X="600" Y="300" Note=""/>
-        <Element ComponentName="Contacts" X="350" Y="300" Note=""/>
+        <Element ComponentName="Accounts" X="350" Y="300" Note=""/>
         <Element ComponentName="FeaturePackages" X="350" Y="500" Note=""/>
         <Element ComponentName="Help" X="1101" Y="54" Note=""/>
         <Element ComponentName="Instances" X="900" Y="500" Note=""/>

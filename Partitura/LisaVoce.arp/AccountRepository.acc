@@ -12,11 +12,7 @@
     <ElementsList>
         <Element Id="AccountInfo" PackageId="ImtAuthPck" ComponentId="AccountInfo">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ContactCollection" Type="Reference" ExportId="ContactCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="AccountInfoMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="AccountInfoMetaInfoCreator">
