@@ -21,8 +21,9 @@
             <PositionMap>
                 <Element ComponentName="AccountInfoEditor" X="600" Y="375" Note=""/>
                 <Element ComponentName="BitmapLoader" X="375" Y="375" Note=""/>
-                <Element ComponentName="ContactInfoEditor" X="850" Y="375" Note=""/>
+                <Element ComponentName="CompanyContactInfoEditor" X="875" Y="475" Note=""/>
                 <Element ComponentName="ImageView" X="600" Y="475" Note=""/>
+                <Element ComponentName="PersonContactInfoEditor" X="875" Y="275" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

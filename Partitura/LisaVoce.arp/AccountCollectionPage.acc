@@ -254,11 +254,14 @@
                                 <AttributeInfo Id="BitmapLoader" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="BitmapLoader"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ContactEditor" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ContactInfoEditor"/>
+                                <AttributeInfo Id="CompanyContactEditor" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CompanyContactInfoEditor"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="AccountInfo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PersonContactEditor" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PersonContactInfoEditor"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -268,9 +271,22 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
-                    <Element Id="ContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
+                    <Element Id="CompanyContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ShowAddressesEditor" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ShowBirthdayEditor" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ShowGenderEditor" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ShowNickameEditor" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="ImageView" PackageId="QtViewPck" ComponentId="ImageView">
@@ -283,6 +299,11 @@
                                     <Data IsEnabled="true" Value="true"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PersonContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                 </ElementsList>
