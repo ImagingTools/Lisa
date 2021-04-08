@@ -8,7 +8,17 @@ include($(IMTROOTDIR)/Config/QMake/Quazip.pri)
 RESOURCES += $$_PRO_FILE_PWD_/../*.qrc
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liqtinsp -liproc -liinsp -liipr -liprocgui -lisig -liqtsig -licalibgui -licalib -licam -liqtcam -lAcfSlnLoc -lAcfLoc -liedge -liedgegui -limtrepo -limtrepogui
-LIBS +=  -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets
+LIBS +=  -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtcrypt
+
+win32: {
+		contains(QMAKE_HOST.arch, x86_64) {
+		LIBS += -L../../../../3rdParty/openssl/1.1/lib/x64 -llibcrypto
+	} else {
+		LIBS += -L../../../../3rdParty/openssl/1.1/lib/x86 -llibcrypto
+	}
+}
+
+unix: LIBS += -lcrypto
 
 HEADERS =
 
