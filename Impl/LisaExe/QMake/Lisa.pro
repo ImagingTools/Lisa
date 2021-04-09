@@ -30,7 +30,7 @@ win32-msvc*{
 
 	# copying all Qt DLLs to destination directory
 #	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ $$DESTDIR
-	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ --qmldir=$$PWD\..\Resources\qml\ $$DESTDIR
+	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$$(QTDIR)\bin;%path% && $$(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ --qmldir=$$PWD\..\Resources\qml\ $$DESTDIR
 }
 
 !macx-ios*{
