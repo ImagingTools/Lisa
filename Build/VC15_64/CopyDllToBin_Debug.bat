@@ -1,1 +1,1 @@
-copy /Y %OPENSSL_DIR%\lib\x64\*.dll ..\..\Bin\DebugVC15_64
+copy /Y %OPENSSLDIR%\lib\x64\*.dll ..\..\Bin\DebugVC15_64
