@@ -4,7 +4,7 @@
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
@@ -36,6 +36,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="FileCompressor" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FileCompressor"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileTranformationStepsProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FileTransformationController"/>
                     </AttributeInfo>
                     <AttributeInfo Id="FileTypeInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -81,13 +84,13 @@
                         <Data IsEnabled="true" Value="RepositoryFolder"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RepositoryRevision" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
+                        <Data IsEnabled="true" Value="2"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ResourceTypes" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ResourceTypes"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="UseSubfolder" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
+                    <AttributeInfo Id="TransformationController" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FileTransformationController"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -98,6 +101,20 @@
         <Element Id="FileCompressor" PackageId="ImtZipPck" ComponentId="FileCompressor">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="FileTransformationController" PackageId="ImtRepoPck" ComponentId="FileTransformationController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FileTransformations" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>RepositoryFileTransformationCompBase_1_2</Value>
+                                <Value>RepositoryFileTransformationCompBase_2_3</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="OptionsListAdapter" PackageId="ImtCorePck" ComponentId="OptionsListAdapter">
@@ -134,6 +151,33 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RepositoryFileTransformationCompBase_1_2" PackageId="ImtRepoPck" ComponentId="RepositoryFileTransformationCompBase">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="MaxRevision" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MinRevision" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RepositoryFileTransformationCompBase_2_3" PackageId="ImtRepoPck" ComponentId="RepositoryFileTransformationCompBase">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MaxRevision" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="3"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MinRevision" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
