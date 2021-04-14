@@ -62,14 +62,8 @@
                     <AttributeInfo Id="RepositoryPath" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="RepositoryFolder"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RepositoryRevision" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ResourceTypes" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ResourceTypes"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseSubfolder" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>

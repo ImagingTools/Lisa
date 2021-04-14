@@ -83,9 +83,6 @@
                     <AttributeInfo Id="RepositoryPath" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="RepositoryFolder"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RepositoryRevision" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="2"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ResourceTypes" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ResourceTypes"/>
                     </AttributeInfo>
