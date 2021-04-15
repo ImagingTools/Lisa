@@ -143,6 +143,9 @@
                     <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="RightsProvider" Type="Reference" ExportId="RightsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>

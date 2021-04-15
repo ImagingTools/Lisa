@@ -37,6 +37,9 @@
                     <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="RightsProvider" Type="Reference" ExportId="RightsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -189,7 +192,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
-        <Component ExportedId="ContactCommands" ComponentId="Contacts/Commands"/>
         <Component ExportedId="FeaturePackagesCommands" ComponentId="FeaturePackages/Commands"/>
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>

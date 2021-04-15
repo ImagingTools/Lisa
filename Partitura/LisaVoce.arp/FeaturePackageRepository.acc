@@ -37,9 +37,6 @@
                     <AttributeInfo Id="FileCompressor" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FileCompressor"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="FileTranformationStepsProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="FileTransformationController"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="FileTypeInfos" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -85,6 +82,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ResourceTypes" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ResourceTypes"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RightsProvider" Type="Reference" ExportId="RightsProvider">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TransformationController" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FileTransformationController"/>
