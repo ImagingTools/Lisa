@@ -23,7 +23,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="AdditionalCommands" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationSwitchCommand"/>
+                        <Data IsEnabled="true" Value="CommandsBinder"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
@@ -45,6 +45,13 @@
                     </AttributeInfo>
                     <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="ImagingTools GmbH"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Preferences</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultPageIndex" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="0"/>
@@ -102,6 +109,20 @@
                     </AttributeInfo>
                     <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="General"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="CommandsBinder" PackageId="QtGuiPck" ComponentId="CommandsBinder">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ApplicationSwitchCommand</Value>
+                                <Value>PreferencesFramework/Command</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -177,6 +198,33 @@
         <Element Id="MonitorInfoProvider" PackageId="ImtGuiPck" ComponentId="MonitorInfoProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="Preferences" PackageId="ImtCoreVoce" ComponentId="Preferences">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationFramework/ApplicationInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages/Log"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationFramework/RuntimeStatus"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PreferencesFramework" PackageId="ImtCoreVoce" ComponentId="PreferencesFramework">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="GeneralPage" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Preferences/General"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="Rights" PackageId="" ComponentId="Rights">
