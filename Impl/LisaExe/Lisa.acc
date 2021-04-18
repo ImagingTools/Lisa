@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4909" Description="ACF"/>
+            <Version Id="1" Number="2137" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -55,6 +55,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultPageIndex" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HideHomeButton" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LeftMenuPanel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MenuPanel"/>
@@ -132,6 +135,18 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
+        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Preferences/SelectedLanguage"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaPages/Log"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="LisaPages" PackageId="LisaVoce" ComponentId="LisaPages">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -205,6 +220,9 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ApplicationFramework/ApplicationInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Languages" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaPages/Log"/>
