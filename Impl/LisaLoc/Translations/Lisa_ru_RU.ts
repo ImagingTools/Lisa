@@ -49,7 +49,7 @@
         <location line="-2"/>
         <location line="+38"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Учетные записи</translation>
     </message>
     <message>
         <location line="-34"/>
@@ -71,7 +71,7 @@
     <message>
         <location line="-2"/>
         <source>Contacts</source>
-        <translation type="unfinished"></translation>
+        <translation>Контакты</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -88,7 +88,7 @@
         <location line="-4"/>
         <location line="+14"/>
         <source>Packages</source>
-        <translation>Пакет</translation>
+        <translation>Пакеты</translation>
     </message>
     <message>
         <location line="-12"/>
