@@ -23,9 +23,9 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(Lisa);
 
-	imtwidgets::CImtStyle::Instance().setBaseStyle(QStyleFactory::create("fusion"));
+	imtwidgets::CImtStyle::GetInstance().setBaseStyle(QStyleFactory::create("fusion"));
 	
-	QApplication::setStyle(&imtwidgets::CImtStyle::Instance());
+	QApplication::setStyle(&imtwidgets::CImtStyle::GetInstance());
 	QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
 
 	CLisa instance;
