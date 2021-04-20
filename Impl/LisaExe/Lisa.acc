@@ -183,29 +183,8 @@
                     <AttributeInfo Id="MonitorInfoProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MonitorInfoProvider"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="MouseOverColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#00CDFF"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MouseOverSelectedColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#00ACDC"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MouseOverSelectedTextColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#FFFFFF"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MouseOverTextColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#FFFFFF"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SelectedColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#FFFFFF"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SelectedContourColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#4D71A3"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ShowOver" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TextColor" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="#335777"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TopPadding" Type="Real" ExportId="">
                         <Data IsEnabled="true" Value="0"/>
