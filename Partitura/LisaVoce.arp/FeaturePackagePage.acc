@@ -313,6 +313,9 @@
                                 <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeatureCollectionGui/ItemTree"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="HeaderLabel" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Features"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
