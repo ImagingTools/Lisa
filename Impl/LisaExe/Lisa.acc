@@ -123,7 +123,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>ApplicationSwitchCommand</Value>
-                                <Value>PreferencesFramework/Command</Value>
+                                <Value>PreferencesGui/Command</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -200,7 +200,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="Preferences" PackageId="ImtCoreVoce" ComponentId="Preferences">
+        <Element Id="Preferences" PackageId="LisaVoce" ComponentId="Preferences">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
@@ -221,7 +221,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PreferencesFramework" PackageId="ImtCoreVoce" ComponentId="PreferencesFramework">
+        <Element Id="PreferencesGui" PackageId="LisaVoce" ComponentId="PreferencesGui">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="GeneralPage" Type="Reference" ExportId="">
