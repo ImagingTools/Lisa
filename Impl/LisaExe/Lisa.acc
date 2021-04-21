@@ -35,7 +35,7 @@
                                 <Value>LisaPages/ProductsCommands</Value>
                                 <Value>LisaPages/AccountCommands</Value>
                                 <Value>LisaPages/InstancesCommands</Value>
-                                <Value>Dummy</Value>
+                                <Value>LisaPages/Log</Value>
                                 <Value>Dummy</Value>
                             </Values>
                         </Data>

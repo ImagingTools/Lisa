@@ -94,6 +94,9 @@
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/Icons/Log"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ShowPanel" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
