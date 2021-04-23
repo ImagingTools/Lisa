@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 	
 	imtStylePtr->setBaseStyle(QStyleFactory::create("fusion"));
 	QApplication::setStyle(imtStylePtr);
-
 	QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
 
 	CLisa instance;
