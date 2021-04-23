@@ -289,6 +289,52 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="ConsoleLog" PackageId="BasePck" ComponentId="ConsoleLog">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedHandler">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa/Views*"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HomePath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Z:\QMLExamples"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ConsoleLog"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ConsoleLog"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestHandlers" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>HttpHtmlFolderBasedHandler</Value>
+                                            <Value>JsonModelBasedHandler</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="http://localhost"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="7777"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ImageView" PackageId="QtViewPck" ComponentId="ImageView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -297,6 +343,18 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ZoomToFitEnabled" Type="Boolean" ExportId="">
                                     <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedHandler">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa/Models*"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ConsoleLog"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
