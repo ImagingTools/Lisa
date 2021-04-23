@@ -9,11 +9,12 @@
 #include <GeneratedFiles/Lisa/CLisa.h>
 
 // ImtCore includes
-#include <imtwidgets/CImtStyle.h>
+#include <imtstyle/CImtStyle.h>
 
 
 int main(int argc, char *argv[])
 {
+	Q_INIT_RESOURCE(imtstyle);
 	Q_INIT_RESOURCE(imtgui);
 	Q_INIT_RESOURCE(AcfLoc);
 	Q_INIT_RESOURCE(IacfLoc);
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Lisa);
 	Q_INIT_RESOURCE(imtresthtml);
 
-	imtwidgets::CImtStyle* imtStylePtr = imtwidgets::CImtStyle::GetInstance();
+	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
 	
 	imtStylePtr->setBaseStyle(QStyleFactory::create("fusion"));
