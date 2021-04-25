@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4918" Description="ACF"/>
+            <Version Id="1" Number="2138" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -115,6 +115,7 @@
                                 <Value>Instances/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
+                                <Value>ProductsSdi/VisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -127,6 +128,7 @@
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
+                                <Value>ProductsSdi</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -142,6 +144,7 @@
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
+                                <Value>Products SDI</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -154,6 +157,7 @@
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
+                                <Value>ProductsSdi</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -164,6 +168,30 @@
             </Data>
         </Element>
         <Element Id="Products" PackageId="LisaVoce" ComponentId="ProductCollectionPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeaturePackages/Repository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductsSdi" PackageId="LisaVoce" ComponentId="ProductCollectionPageSdi">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -199,6 +227,7 @@
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
+        <Component ExportedId="ProductSdiCommands" ComponentId="ProductsSdi/Commands"/>
         <Component ExportedId="ProductsCommands" ComponentId="Products/Commands"/>
     </ExportedComponents>
 </Acf>
