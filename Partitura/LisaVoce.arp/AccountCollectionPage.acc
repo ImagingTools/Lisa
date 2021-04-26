@@ -294,17 +294,29 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedHandler">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa/Views"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FileTemplatePath" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="IndexFilePath"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedHandler">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="AutoSolvePathsProblems" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Lisa/Views*"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="Z:\QMLExamples"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ConsoleLog"/>
+                                    <Data IsEnabled="true" Value="./QML_Data"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -320,6 +332,7 @@
                                         <Values>
                                             <Value>HttpHtmlFolderBasedHandler</Value>
                                             <Value>JsonModelBasedHandler</Value>
+                                            <Value>HttpFileBasedHandler</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -347,14 +360,23 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="./QML_Data/index.html"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PathType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="1"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedHandler">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Lisa/Models*"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ConsoleLog"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
