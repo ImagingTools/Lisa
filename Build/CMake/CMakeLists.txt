@@ -16,7 +16,7 @@ if(NOT DEFINED ACFDIR)
 endif()
 
 if(NOT DEFINED ACFSLNDIR)
-	message("NOT ACFDIR " "${ACFDIR}")
+	message("NOT ACFSLNDIR " "${ACFSLNDIR}")
 	if(DEFINED ENV{ACFSLNDIR})
 		set(ACFSLNDIR $ENV{ACFSLNDIR})
 	else()
@@ -24,6 +24,15 @@ if(NOT DEFINED ACFSLNDIR)
 	endif()
 endif()
 #set(ACFSLNDIR "${CMAKE_CURRENT_LIST_DIR}/../../../AcfSln")
+
+if(NOT DEFINED IACFDIR)
+	message("NOT IACFDIR " "${IACFDIR}")
+	if(DEFINED ENV{IACFDIR})
+		set(IACFDIR $ENV{IACFDIR})
+	else()
+		set(IACFDIR "${CMAKE_CURRENT_LIST_DIR}/../../../../AcfPublic/IAcf")
+	endif()
+endif()
 
 message("ACFDIR " "${ACFDIR}")
 
@@ -51,10 +60,11 @@ include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/AuxInclude/Qt${Q
 include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Include")
 include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Impl")
 
-link_directories("${ACFDIR}/Lib/${TARGETNAME}")
-link_directories("${ACFSLNDIR}/Lib/${TARGETNAME}")
-link_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Lib/${TARGETNAME}")
-link_directories(${QUAZIP}/lib/${TARGETNAME})
+link_directories("${ACFDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
+link_directories("${ACFSLNDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
+link_directories("${IACFDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
+link_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
+link_directories(${QUAZIP}/lib/${CMAKE_BUILD_TYPE}${TARGETNAME})
 
 
 set(INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../Include")
@@ -82,4 +92,5 @@ message("${AUX_INCLUDE_DIR}")
 
 # Impl
 
+add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
 add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
