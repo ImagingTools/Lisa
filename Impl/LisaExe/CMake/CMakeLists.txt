@@ -27,8 +27,13 @@ include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 include(${ACFDIR}/Config/CMake/AcfStd.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../../../../Config/CMake/OpenSSL.cmake)
 include(${CMAKE_CURRENT_LIST_DIR}/../../../../Config/CMake/Quazip.cmake)
+include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 target_link_libraries(${PROJECT_NAME} iauth)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtrepogui imtstyle imtqml)
 target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc IAcfLoc AcfLoc)
+
+if(WIN32)
+	windeployqt(${PROJECT_NAME})
+endif()
 
