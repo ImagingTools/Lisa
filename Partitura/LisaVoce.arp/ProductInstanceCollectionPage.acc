@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4923" Description="ACF"/>
+            <Version Id="1" Number="2139" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product installations page</Description>
@@ -19,13 +19,16 @@
                     <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ProductInstanceInfoPersistence" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repository/ProductInstancePersistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -167,6 +170,11 @@
         <EmbeddedRegistry Id="CollectionView">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AesInitVector" PackageId="ImtLicenseVoce" ComponentId="AesInitVector">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="Encryption" PackageId="ImtCryptPck" ComponentId="Encryption">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
@@ -191,15 +199,15 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>License file</Value>
+                                            <Value>License Files</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="licenseFile persistence" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value=""/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -213,6 +221,9 @@
                                             <Value>EncryptionBasePersistence</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -269,17 +280,14 @@
                                 <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="Encryption" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value=""/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="ProductInstanceInfoPersistence">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="LicensePersistence" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FileDialogLoader"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="ProductInstanceInfo"/>
@@ -287,8 +295,8 @@
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="filePersistence" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FileDialogLoader"/>
+                                <AttributeInfo Id="VectorKey" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AesInitVector"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -302,7 +310,7 @@
                                 <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="FileExtensions">
+                                <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>xml</Value>
