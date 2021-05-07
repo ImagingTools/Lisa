@@ -5,7 +5,7 @@ include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
 include(../../../Config/QMake/Lisa.pri)
 include($(IMTROOTDIR)/Config/QMake/Quazip.pri)
 
-RESOURCES += $$_PRO_FILE_PWD_/../*.qrc
+RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, true)
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liqtinsp -liproc -liinsp -liipr -liprocgui -lisig -liqtsig -licalibgui -licalib -licam -liqtcam -lAcfSlnLoc -lAcfLoc -liedge -liedgegui -lIacfLoc
 LIBS +=  -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtrepogui -limtcrypt -lLisaLoc -limt3dgui -limtstyle -limtrest -limtqml
