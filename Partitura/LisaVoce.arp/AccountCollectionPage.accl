@@ -4,7 +4,7 @@
         <VersionInfos>
             <Version Id="0" Number="4902" Description="ACF"/>
             <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -19,17 +19,19 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="DocumentEditor">
             <PositionMap>
-                <Element ComponentName="AccountInfoEditor" X="600" Y="375" Note=""/>
-                <Element ComponentName="BitmapLoader" X="375" Y="375" Note=""/>
-                <Element ComponentName="CompanyContactInfoEditor" X="875" Y="475" Note=""/>
+                <Element ComponentName="AccountInfoEditor" X="800" Y="375" Note=""/>
+                <Element ComponentName="BitmapLoader" X="475" Y="375" Note=""/>
+                <Element ComponentName="CContactInfoRepresentationDataProvider" X="500" Y="250" Note=""/>
+                <Element ComponentName="CompanyContactInfoEditor" X="1000" Y="475" Note=""/>
                 <Element ComponentName="ConsoleLog" X="75" Y="125" Note=""/>
-                <Element ComponentName="HttpFileBasedHandler" X="850" Y="25" Note=""/>
-                <Element ComponentName="HttpHtmlFolderBasedHandler" X="400" Y="25" Note=""/>
-                <Element ComponentName="HttpServerFramework" X="325" Y="125" Note=""/>
-                <Element ComponentName="ImageView" X="600" Y="475" Note=""/>
-                <Element ComponentName="IndexFilePath" X="1100" Y="25" Note=""/>
-                <Element ComponentName="JsonModelBasedHandler" X="125" Y="25" Note=""/>
-                <Element ComponentName="PersonContactInfoEditor" X="875" Y="275" Note=""/>
+                <Element ComponentName="ContactInfoQmlEditor" X="775" Y="250" Note=""/>
+                <Element ComponentName="HttpFileBasedHandler" X="600" Y="50" Note=""/>
+                <Element ComponentName="HttpHtmlFolderBasedHandler" X="325" Y="50" Note=""/>
+                <Element ComponentName="HttpServerFramework" X="325" Y="150" Note=""/>
+                <Element ComponentName="ImageView" X="750" Y="475" Note=""/>
+                <Element ComponentName="IndexFilePath" X="850" Y="50" Note=""/>
+                <Element ComponentName="JsonModelBasedHandler" X="225" Y="250" Note=""/>
+                <Element ComponentName="PersonContactInfoEditor" X="1000" Y="250" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

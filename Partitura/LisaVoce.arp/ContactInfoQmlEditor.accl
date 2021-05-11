@@ -8,6 +8,7 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="CContactInfoRepresentationDataController" X="575" Y="425" Note=""/>
         <Element ComponentName="ContactInfoEditorDataController" X="350" Y="300" Note=""/>
         <Element ComponentName="ContactInfoQmlEditor" X="625" Y="275" Note=""/>
         <Element ComponentName="GuiQuickWrap" X="325" Y="175" Note=""/>
