@@ -22,14 +22,14 @@ unix: LIBS += -lcrypto
 
 HEADERS =
 
-QT += xml network
+QT += xml network qml quick
 
 # Set OS-specific build options:
 win32-msvc*{
 	QMAKE_CXXFLAGS += /wd4264
 
 	# copying all Qt DLLs to destination directory
-	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$$(QTDIR)\bin;%path% && $$(QTDIR)\bin\windeployqt --qmldir=$$(IMTCOREDIR)\..\Lisa\Impl\LisaExe\Resources\qml\ --qmldir=$$PWD\..\Resources\qml\ $$DESTDIR
+	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$$(QTDIR)\bin;%path% && $$(QTDIR)\bin\windeployqt $$DESTDIR
 }
 
 !macx-ios*{
