@@ -2,15 +2,15 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4902" Description="ACF"/>
-            <Version Id="1" Number="2135" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="0" Number="4931" Description="ACF"/>
+            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CContactInfoRepresentationDataController" X="575" Y="425" Note=""/>
-        <Element ComponentName="ContactInfoEditorDataController" X="350" Y="300" Note=""/>
-        <Element ComponentName="ContactInfoQmlEditor" X="625" Y="275" Note=""/>
+        <Element ComponentName="CContactInfoRepresentationDataController" X="575" Y="475" Note=""/>
+        <Element ComponentName="ContactInfoEditorDataController" X="350" Y="350" Note=""/>
+        <Element ComponentName="ContactInfoQmlEditor" X="625" Y="250" Note=""/>
         <Element ComponentName="GuiQuickWrap" X="325" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
