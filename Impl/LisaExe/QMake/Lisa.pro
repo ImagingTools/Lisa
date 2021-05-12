@@ -3,7 +3,7 @@ TARGET = Lisa
 include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
 include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
 include(../../../Config/QMake/Lisa.pri)
-include($(IMTROOTDIR)/Config/QMake/Quazip.pri)
+include($(IMTCOREDIR)/Config/QMake/Quazip.pri)
 
 RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
