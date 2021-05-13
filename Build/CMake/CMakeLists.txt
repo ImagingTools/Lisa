@@ -5,67 +5,11 @@ project(LisaAll)
 
 set(QT_DEFAULT_MAJOR_VERSION 5)
 
-
-if(NOT DEFINED ACFDIR)
-	message("NOT ACFDIR " "${ACFDIR}")
-	if(DEFINED ENV{ACFDIR})
-		set(ACFDIR $ENV{ACFDIR})
-	else()
-		set(ACFDIR "${CMAKE_CURRENT_LIST_DIR}/../../../../AcfPublic/Acf")
-	endif()
+if(NOT DEFINED IMTCOREDIR)
+	set(IMTCOREDIR "$ENV{IMTCOREDIR}")
 endif()
 
-if(NOT DEFINED ACFSLNDIR)
-	message("NOT ACFSLNDIR " "${ACFSLNDIR}")
-	if(DEFINED ENV{ACFSLNDIR})
-		set(ACFSLNDIR $ENV{ACFSLNDIR})
-	else()
-		set(ACFSLNDIR "${CMAKE_CURRENT_LIST_DIR}/../../../../AcfPublic/AcfSln")
-	endif()
-endif()
-#set(ACFSLNDIR "${CMAKE_CURRENT_LIST_DIR}/../../../AcfSln")
-
-if(NOT DEFINED IACFDIR)
-	message("NOT IACFDIR " "${IACFDIR}")
-	if(DEFINED ENV{IACFDIR})
-		set(IACFDIR $ENV{IACFDIR})
-	else()
-		set(IACFDIR "${CMAKE_CURRENT_LIST_DIR}/../../../../AcfPublic/IAcf")
-	endif()
-endif()
-
-message("ACFDIR " "${ACFDIR}")
-
-include(${ACFDIR}/Config/CMake/Macro.cmake)
-
-#set(MAIN_DIR "${CMAKE_CURRENT_LIST_DIR}/../../Include/")
-
-#subdirlist(SUBDIRS ${MAIN_DIR})
-
-get_target_name(TARGETNAME)
-
-#set(ACF_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../Acf/Include")
-#set(ACF_IMPL_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../Acf/Impl")
-
-#message(${ACF_INCLUDE_DIR})
-
-include_directories("${ACFDIR}/AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}")
-include_directories("${ACFDIR}/Include")
-include_directories("${ACFDIR}/Impl")
-include_directories("${ACFSLNDIR}/AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}")
-include_directories("${ACFSLNDIR}/Include")
-include_directories("${ACFSLNDIR}/Impl")
-
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Include")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Impl")
-
-link_directories("${ACFDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
-link_directories("${ACFSLNDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
-link_directories("${IACFDIR}/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
-link_directories("${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/Lib/${CMAKE_BUILD_TYPE}${TARGETNAME}")
-link_directories(${QUAZIP}/lib/${CMAKE_BUILD_TYPE}${TARGETNAME})
-
+include(${IMTCOREDIR}/Config/CMake/ImtCoreEnv.cmake)
 
 set(INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../Include")
 set(IMPL_DIR "${CMAKE_CURRENT_LIST_DIR}/../../Impl")
@@ -79,8 +23,7 @@ message("IMTCORE_AUXINCLUDE ${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/AuxInclud
 
 set(AUX_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}/GeneratedFiles")
 
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../../../Acf/AuxInclude/Qt${QT_DEFAULT_MAJOR_VERSION}_${TARGETNAME}")
+include_directories("${AUX_INCLUDE_DIR}/../")
 
 message("${AUX_INCLUDE_DIR}")
 
