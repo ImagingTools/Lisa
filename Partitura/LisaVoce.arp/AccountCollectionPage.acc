@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4931" Description="ACF"/>
-            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4932" Description="ACF"/>
+            <Version Id="1" Number="2143" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -335,6 +335,15 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectHandler">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa/Views/html/index.html"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
                         <Data IsEnabled="true" Flags="1">
                             <AttributeInfoMap>
@@ -347,6 +356,7 @@
                                             <Value>HttpHtmlFolderBasedHandler</Value>
                                             <Value>JsonModelBasedHandler</Value>
                                             <Value>HttpFileBasedHandler</Value>
+                                            <Value>HttpRedirectHandler</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

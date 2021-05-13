@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4931" Description="ACF"/>
-            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4932" Description="ACF"/>
+            <Version Id="1" Number="2143" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -33,9 +33,10 @@
                 <Element ComponentName="CContactInfoRepresentationDataProvider" X="575" Y="325" Note=""/>
                 <Element ComponentName="CompanyContactInfoEditor" X="1025" Y="675" Note=""/>
                 <Element ComponentName="ConsoleLog" X="100" Y="175" Note=""/>
-                <Element ComponentName="ContactInfoQmlEditor" X="800" Y="200" Note=""/>
+                <Element ComponentName="ContactInfoQmlEditor" X="875" Y="175" Note=""/>
                 <Element ComponentName="HttpFileBasedHandler" X="675" Y="50" Note=""/>
-                <Element ComponentName="HttpHtmlFolderBasedHandler" X="325" Y="50" Note=""/>
+                <Element ComponentName="HttpHtmlFolderBasedHandler" X="400" Y="50" Note=""/>
+                <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
                 <Element ComponentName="HttpServerFramework" X="375" Y="175" Note=""/>
                 <Element ComponentName="ImageView" X="650" Y="675" Note=""/>
                 <Element ComponentName="IndexFilePath" X="1000" Y="50" Note=""/>
