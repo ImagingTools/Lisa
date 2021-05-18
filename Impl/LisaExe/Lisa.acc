@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4918" Description="ACF"/>
-            <Version Id="1" Number="2138" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4936" Description="ACF"/>
+            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -124,6 +124,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>ApplicationSwitchCommand</Value>
+                                <Value>VirtualKeyboardShowCommandComp</Value>
                                 <Value>PreferencesGui/Command</Value>
                             </Values>
                         </Data>
@@ -239,6 +240,24 @@
         <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="VirtualKeyboardShowCommandComp" PackageId="ImtGuiPck" ComponentId="VirtualKeyboardShowCommandComp">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ActionIcon" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Icons/Keyboard"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuDescription" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Show/hide Keyboard"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Show Keyboard"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="General"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
     </ElementsList>
