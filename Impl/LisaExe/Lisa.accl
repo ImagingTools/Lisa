@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4936" Description="ACF"/>
-            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4932" Description="ACF"/>
+            <Version Id="1" Number="2143" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -16,6 +16,7 @@
         <Element ComponentName="LisaLocalization" X="225" Y="725" Note=""/>
         <Element ComponentName="LisaPages" X="1100" Y="725" Note=""/>
         <Element ComponentName="MenuPanel" X="775" Y="425" Note=""/>
+        <Element ComponentName="MenuPanelDelegateMin" X="975" Y="350" Note=""/>
         <Element ComponentName="MonitorInfoProvider" X="750" Y="600" Note=""/>
         <Element ComponentName="Preferences" X="450" Y="525" Note=""/>
         <Element ComponentName="PreferencesGui" X="375" Y="425" Note=""/>

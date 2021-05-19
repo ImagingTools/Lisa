@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4936" Description="ACF"/>
-            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4932" Description="ACF"/>
+            <Version Id="1" Number="2143" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -173,11 +173,17 @@
         <Element Id="MenuPanel" PackageId="ImtGuiPck" ComponentId="MenuPanel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AnimationEnabled" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaPages/PageModel"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ItemHeight" Type="Real" ExportId="">
                         <Data IsEnabled="true" Value="15"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuPanelDelegate" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MenuPanelDelegateMin"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MenuPanelVisibility" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ApplicationFramework/MenuPanelVisibility"/>
@@ -195,6 +201,11 @@
                         <Data IsEnabled="true" Value="ApplicationFramework"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="MenuPanelDelegateMin" PackageId="ImtGuiPck" ComponentId="MenuPanelDelegateMin">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="MonitorInfoProvider" PackageId="ImtGuiPck" ComponentId="MonitorInfoProvider">
