@@ -347,10 +347,17 @@
                     <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
                         <Data IsEnabled="true" Flags="1">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ConsoleLog"/>
+                                <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa/Views*</Value>
+                                            <Value>Lisa/Models*</Value>
+                                            <Value>Lisa/Views</Value>
+                                            <Value></Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="RequestHandlers" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>HttpHtmlFolderBasedHandler</Value>
@@ -360,6 +367,9 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="http://localhost"/>
                                 </AttributeInfo>
@@ -368,6 +378,19 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
                                     <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WebSocketRequestHandlers" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>JsonModelBasedHandler</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="8888"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
