@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4932" Description="ACF"/>
-            <Version Id="1" Number="2143" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4936" Description="ACF"/>
+            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -124,8 +124,9 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>ApplicationSwitchCommand</Value>
-                                <Value>VirtualKeyboardShowCommandComp</Value>
+                                <Value>VirtualKeyboardShowCommand</Value>
                                 <Value>PreferencesGui/Command</Value>
+                                <Value>FullScreenCommand</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -135,6 +136,21 @@
         <Element Id="Dummy" PackageId="ImtGuiPck" ComponentId="DelegatedCommandsProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="FullScreenCommand" PackageId="ImtGuiPck" ComponentId="FullScreenCommand">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ActionFullScreenOffIcon" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Icons/Collapse"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ActionFullScreenOnIcon" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Icons/Expand"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GuiObject" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MenuPanel"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
@@ -253,7 +269,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="VirtualKeyboardShowCommandComp" PackageId="ImtGuiPck" ComponentId="VirtualKeyboardShowCommandComp">
+        <Element Id="VirtualKeyboardShowCommand" PackageId="ImtGuiPck" ComponentId="VirtualKeyboardShowCommand">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ActionIcon" Type="Id" ExportId="">
