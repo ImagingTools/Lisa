@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4936" Description="ACF"/>
-            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4937" Description="ACF"/>
+            <Version Id="1" Number="2148" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -169,8 +169,11 @@
                     <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaPages/PageModel"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="IconSizeRatio" Type="Real" ExportId="">
+                        <Data IsEnabled="true" Value="0.9"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ItemHeight" Type="Real" ExportId="">
-                        <Data IsEnabled="true" Value="15"/>
+                        <Data IsEnabled="true" Value="12"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MenuPanelDelegate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MenuPanelDelegateMin"/>
