@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.1.0)
 
 project(LisaAll)
 
-set(QT_DEFAULT_MAJOR_VERSION 5)
-
 if(NOT DEFINED IMTCOREDIR)
 	set(IMTCOREDIR "$ENV{IMTCOREDIR}")
 endif()
@@ -26,7 +24,6 @@ set(AUX_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../AuxInclude/Qt${QT_DEFAULT_M
 include_directories("${AUX_INCLUDE_DIR}/../")
 
 message("${AUX_INCLUDE_DIR}")
-
 
 # Include
 
