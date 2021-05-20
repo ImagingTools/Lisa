@@ -4,21 +4,12 @@
         <VersionInfos>
             <Version Id="0" Number="4936" Description="ACF"/>
             <Version Id="1" Number="2146" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="AculaPath" PackageId="FilePck" ComponentId="FileNameParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Acula"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="ApplicationFramework" PackageId="ImtCoreVoce" ComponentId="CoreApplicationFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -96,35 +87,12 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ApplicationSwitchCommand" PackageId="ImtGuiPck" ComponentId="ApplicationSwitchCommand">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ActionIcon" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons/Switch"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ExecutablePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AculaPath"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MenuDescription" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Switch to Acula application"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MenuName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Switch to Acula"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="General"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="CommandsBinder" PackageId="QtGuiPck" ComponentId="CommandsBinder">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ApplicationSwitchCommand</Value>
-                                <Value>VirtualKeyboardShowCommand</Value>
                                 <Value>PreferencesGui/Command</Value>
                                 <Value>FullScreenCommand</Value>
                             </Values>
@@ -149,6 +117,12 @@
                     </AttributeInfo>
                     <AttributeInfo Id="GuiObject" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MenuPanel"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuDescriptionOff" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Full screen Off"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MenuDescriptionOn" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Full screen On"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -267,24 +241,6 @@
         <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="VirtualKeyboardShowCommand" PackageId="ImtGuiPck" ComponentId="VirtualKeyboardShowCommand">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ActionIcon" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons/Keyboard"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MenuDescription" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Show/hide Keyboard"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MenuName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Show Keyboard"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RootMenu" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="General"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
             </Data>
         </Element>
     </ElementsList>
