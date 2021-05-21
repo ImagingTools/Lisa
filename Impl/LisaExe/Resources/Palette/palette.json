@@ -1,0 +1,142 @@
+{
+    "images": [
+        {
+            "description": "an eye icon for use in left navigation when sth else than Inspect is selected",
+            "id": "icon_inspect-outlined",
+            "path": "images/icon_inspect-outlined.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "an eye icon for use in left navigation when Inspect has been selected",
+            "id": "icon_inspect-filled",
+            "path": "images/icon_inspect-filled.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "a cross hair for use in left navigation when Measure has been selected",
+            "id": "icon_measure-filled",
+            "path": "images/icon_measure-outlined.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "Not in use at the moment",
+            "id": "icon_add-box-outline",
+            "path": "images/icon_add-box-outline.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "Not in use at the moment",
+            "id": "icon_edit-box-outline",
+            "path": "images/icon_edit-box-outline.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "two inward pointing arrows to collapse the fullscreen mode",
+            "id": "icon_arrow-collapse",
+            "path": "images/icon_arrow-collapse.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "downward pointing arrow for use in sidebar boxes to expand the box",
+            "id": "icon_arrow-dropdown",
+            "path": "images/icon_arrow-dropdown.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "not in use at the moment",
+            "id": "icon_arrow-exchange",
+            "path": "images/icon_arrow-exchange.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "two outward pointing arrows to activate the fullscreen mode",
+            "id": "icon_arrow-expand",
+            "path": "images/icon_arrow-expand.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "up and downward pointing arrows for use in tables to exchange the sorting",
+            "id": "icon_arrow-sort",
+            "path": "images/icon_arrow-sort.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "cloud icon for use in cloud-related headings",
+            "id": "icon_cloud",
+            "path": "images/icon_cloud.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "Usb Icon for use in device-sidebar, next to the device name",
+            "id": "icon_device",
+            "path": "images/icon_device.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "File icon for use in measurement-sidebar and testchart-sidebar, next to the file name",
+            "id": "icon_file",
+            "path": "images/icon_file.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "an arrow pointing into a box for use in testchart-sidebar to import a file",
+            "id": "icon_import",
+            "path": "images/icon_import.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "two mirrored triangels for use in setting bar to mirror the chart",
+            "id": "icon_reflect",
+            "path": "images/icon_reflect.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "info icon for use in infobox on righrt side with detailed information about current measurement file",
+            "id": "icon_info",
+            "path": "images/icon_info.svg",
+            "type": "image/svg+xml"
+        },
+        {
+            "description": "info icon for use in global search and filtering of lists",
+            "id": "icon_search",
+            "path": "images/icon_search.svg",
+            "type": "image/svg+xml"
+        }
+    ],
+    "lastchanged": "2021-05-06T11:59:00Z",
+    "palette": {
+        "darkMode": {
+            "background": {
+                "default": "#202020",
+                "paper": "#2D2D2D"
+            },
+            "primary": {
+                "main": "#1A76E7"
+            },
+            "text": {
+                "primary": "#ffffff",
+                "secondary": "#989898"
+            }
+        },
+        "lightMode": {
+            "background": {
+                "default": "#FFFFFF",
+                "paper": "#FAFAFA"
+            },
+            "primary": {
+                "main": "#3F51B5"
+            },
+            "text": {
+                "primary": "rgba(0, 0, 0, 0.87)",
+                "secondary": "rgba(0, 0, 0, 0.54)"
+            }
+        }
+    },
+    "typography": {
+        "fontFamily": [
+            "Open Sans",
+            "Arial"
+        ],
+        "fontSize": 12
+    }
+}
