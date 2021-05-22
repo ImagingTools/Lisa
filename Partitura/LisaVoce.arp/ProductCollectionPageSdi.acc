@@ -2,39 +2,17 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4918" Description="ACF"/>
-            <Version Id="1" Number="2138" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4931" Description="ACF"/>
+            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="CollectionView" PackageId="" ComponentId="CollectionView">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Workspace"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProductLicensingInfoPersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/ProductLicensingInfoPersistence"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Document" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfo">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ProductCollectionInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="DocumentTemplate" PackageId="QtGuiPck" ComponentId="ExtendedDocumentTemplate">
@@ -44,7 +22,7 @@
                         <Data IsEnabled="true" Value="Document"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentLoader" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CollectionView/Persistence"/>
+                        <Data IsEnabled="true" Value="Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductLicensingInfo"/>
@@ -67,38 +45,39 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductLicensingInfoEditor" PackageId="" ComponentId="ProductLicensingInfoEditor">
-            <Data IsEnabled="true" Flags="2">
+        <Element Id="Persistence" PackageId="FilePck" ComponentId="CompactXmlFileSerializer">
+            <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>pic</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Product Licensing Files</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Repository" PackageId="LisaVoce" ComponentId="ProductRepository">
-            <Data IsEnabled="true" Flags="0">
+        <Element Id="ProductLicensingInfoEditor" PackageId="" ComponentId="ProductLicensingInfoEditor">
+            <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CollectionProgressManagers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>CollectionView</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="FeaturePackageCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -109,7 +88,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="Workspace" PackageId="QtGuiPck" ComponentId="SingleDocWorkspaceGui">
+        <Element Id="Workspace" PackageId="ImtGuiPck" ComponentId="SingleDocumentWorkspace">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
@@ -359,7 +338,7 @@
         <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="Workspace"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="Repository" ComponentId="Repository"/>
+        <Component ExportedId="Commands" ComponentId="Workspace/Commands"/>
         <Component ExportedId="VisualStatus" ComponentId="Workspace/VisualStatus"/>
     </ExportedComponents>
 </Acf>
