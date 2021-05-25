@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4918" Description="ACF"/>
-            <Version Id="1" Number="2138" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4936" Description="ACF"/>
+            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -194,19 +194,10 @@
         <Element Id="ProductsSdi" PackageId="LisaVoce" ComponentId="ProductCollectionPageSdi">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FeaturePackages/Repository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">

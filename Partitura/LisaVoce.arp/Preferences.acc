@@ -60,7 +60,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="DesignTokenBasedPaletteProvider" PackageId="ImtStylePck" ComponentId="DesignTokenBasedPaletteProvider">
+        <Element Id="DesignTokenBasedPaletteProvider" PackageId="ImtStylePck" ComponentId="DesignTokenBasedResourceProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DesignSchemaIds" Type="Id[]" ExportId="">
@@ -82,7 +82,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="PaletteResourceName" Type="Id" ExportId="">
+                    <AttributeInfo Id="ResourceFileName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value=":/Palette/Palette"/>
                     </AttributeInfo>
                 </AttributeInfoMap>

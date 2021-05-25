@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4931" Description="ACF"/>
-            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="0" Number="4936" Description="ACF"/>
+            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -93,9 +93,6 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/Icons/Product"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="DocumentTemplate"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
