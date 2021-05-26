@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4936" Description="ACF"/>
-            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="0" Number="4931" Description="ACF"/>
+            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -16,6 +16,15 @@
         <Element ComponentName="Workspace" X="650" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
+                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
+                <Element ComponentName="ViewDelegate" X="550" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="ProductLicensingInfoEditor">
             <PositionMap>
                 <Element ComponentName="CommandsBinder" X="225" Y="100" Note=""/>
@@ -26,15 +35,6 @@
                 <Element ComponentName="ModelDialogGui" X="550" Y="500" Note=""/>
                 <Element ComponentName="ObjectCollectionView" X="550" Y="250" Note=""/>
                 <Element ComponentName="ProductLicensingInfoGui" X="900" Y="100" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CollectionView">
-            <PositionMap>
-                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
-                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
-                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
-                <Element ComponentName="ViewDelegate" X="550" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
