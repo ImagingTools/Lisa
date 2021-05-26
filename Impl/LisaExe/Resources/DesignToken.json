@@ -1,22 +1,22 @@
 {
-	"lastchanged": "2021-05-06T11:59:00Z",
-	"typography": {
-		"fonts": [
+	"LastChanged": "2021-05-06T11:59:00Z",
+	"Typography": {
+		"Fonts": [
 			{
-				"fontId": "OpenSans",
-				"fontName": "Open Sans",
-				"fontSize": 12
+				"FontId": "Default",
+				"FontName": "Open Sans",
+				"FontSize": 12
 			},
 			{
-				"fontId": "Arial",
-				"fontName": "Arial",
-				"fontSize": 12
+				"FontId": "TopHeader",
+				"FontName": "Arial",
+				"FontSize": 24
 			}
 		]
 	},
-	"mode": [
+	"Styles": [
 		{
-			"ModeName": "darkMode",
+			"StyleName": "Dark",
 			"Palette": {
 				"Active": {
 					"WindowText": "",
@@ -88,30 +88,30 @@
 					"PlaceholderText": ""
 				}
 			},
-			"images": [
+			"Images": [
 				{
-					"description": "",
-					"id": "Account",
-					"path": {
+					"Id": "Account",
+					"Description": "",
+					"Path": {
 						"Off": {
-							"Normal": "images/darkMode/Account_OffNormal.svg",
-							"Disabled": "images/darkMode/Account_OffDisabled.svg",
-							"Active": "images/darkMode/Account_OffActive.svg",
-							"Selected": "images/darkMode/Account_OffSelected.svg"
+							"Normal": "images/dark/Account_OffNormal.svg",
+							"Disabled": "images/dark/Account_OffDisabled.svg",
+							"Active": "images/dark/Account_OffActive.svg",
+							"Selected": "images/dark/Account_OffSelected.svg"
 						},
 						"On": {
-							"Normal": "images/darkMode/Account_OnNormal.svg",
-							"Disabled": "images/darkMode/Account_OnDisabled.svg",
-							"Active": "images/darkMode/Account_OnActive.svg",
-							"Selected": "images/darkMode/Account_OnSelected.svg"
+							"Normal": "images/dark/Account_OnNormal.svg",
+							"Disabled": "images/dark/Account_OnDisabled.svg",
+							"Active": "images/dark/Account_OnActive.svg",
+							"Selected": "images/dark/Account_OnSelected.svg"
 						}
 					},
-					"type": "image/svg+xml"
+					"Type": "image/svg+xml"
 				}
 			]
 		},
 		{
-			"ModeName": "lightMode",
+			"StyleName": "Light",
 			"Palette": {
 				"Active": {
 					"WindowText": "",
@@ -183,25 +183,25 @@
 					"PlaceholderText": ""
 				}
 			},
-			"images": [
+			"Images": [
 				{
-					"description": "",
-					"id": "Account",
-					"path": {
+					"Id": "Account",
+					"Description": "",
+					"Path": {
 						"Off": {
-							"Normal": "images/lightMode/Account_OffNormal.svg",
-							"Disabled": "images/lightMode/Account_OffDisabled.svg",
-							"Active": "images/lightMode/Account_OffActive.svg",
-							"Selected": "images/lightMode/Account_OffSelected.svg"
+							"Normal": "images/light/Account_OffNormal.svg",
+							"Disabled": "images/light/Account_OffDisabled.svg",
+							"Active": "images/light/Account_OffActive.svg",
+							"Selected": "images/light/Account_OffSelected.svg"
 						},
 						"On": {
-							"Normal": "images/lightMode/Account_OnNormal.svg",
-							"Disabled": "images/lightMode/Account_OnDisabled.svg",
-							"Active": "images/lightMode/Account_OnActive.svg",
-							"Selected": "images/lightMode/Account_OnSelected.svg"
+							"Normal": "images/light/Account_OnNormal.svg",
+							"Disabled": "images/light/Account_OnDisabled.svg",
+							"Active": "images/light/Account_OnActive.svg",
+							"Selected": "images/light/Account_OnSelected.svg"
 						}
 					},
-					"type": "image/svg+xml"
+					"Type": "image/svg+xml"
 				}
 			]
 		}

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4936" Description="ACF"/>
-            <Version Id="1" Number="2146" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4941" Description="ACF"/>
+            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331010" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -72,7 +72,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Account"/>
+                        <Data IsEnabled="true" Value=":/Icons/Account"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
@@ -97,9 +97,6 @@
                                 <Value>CollectionView/VisualStatus</Value>
                             </Values>
                         </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="IconResourcePrefix" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Icons"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
