@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4941" Description="ACF"/>
+            <Version Id="0" Number="4940" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -305,7 +305,11 @@
                     </Element>
                     <Element Id="ContactInfoQmlEditor" PackageId="LisaVoce" ComponentId="ContactInfoQmlEditor">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="SubscriberEngineCompPtr" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedHandler">
@@ -392,6 +396,9 @@
                                 <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="">
                                     <Data IsEnabled="true" Value="8888"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="WebSocketSubscriberEngine" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -432,6 +439,11 @@
                         </Data>
                     </Element>
                     <Element Id="PersonContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="WebSocketSubscriberEngine" PackageId="ImtRestPck" ComponentId="WebSocketSubscriberEngine">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
                         </Data>

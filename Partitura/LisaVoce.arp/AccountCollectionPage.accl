@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4941" Description="ACF"/>
+            <Version Id="0" Number="4940" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331010" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -33,6 +33,7 @@
                 <Element ComponentName="IndexFilePath" X="1000" Y="50" Note=""/>
                 <Element ComponentName="JsonModelBasedHandler" X="150" Y="325" Note=""/>
                 <Element ComponentName="PersonContactInfoEditor" X="1050" Y="375" Note=""/>
+                <Element ComponentName="WebSocketSubscriberEngine" X="625" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
