@@ -27,8 +27,8 @@
                                 <Value>LisaPages/AccountCommands</Value>
                                 <Value>LisaPages/InstancesCommands</Value>
                                 <Value>LisaPages/Log</Value>
-                                <Value>Dummy</Value>
-                                <Value>LisaPages/ProductSdiCommands</Value>
+                                <Value>NoCommands</Value>
+                                <Value>NoCommands</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -99,11 +99,6 @@
                         </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="Dummy" PackageId="ImtGuiPck" ComponentId="DelegatedCommandsProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="FullScreenCommand" PackageId="ImtGuiPck" ComponentId="FullScreenCommand">
@@ -202,6 +197,11 @@
             </Data>
         </Element>
         <Element Id="MonitorInfoProvider" PackageId="ImtGuiPck" ComponentId="MonitorInfoProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="NoCommands" PackageId="ImtGuiPck" ComponentId="DelegatedCommandsProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
