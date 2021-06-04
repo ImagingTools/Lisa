@@ -19,18 +19,7 @@
         <Element ComponentName="NoCommands" X="575" Y="100" Note=""/>
         <Element ComponentName="Preferences" X="450" Y="525" Note=""/>
         <Element ComponentName="PreferencesGui" X="375" Y="425" Note=""/>
-        <Element ComponentName="Rights" X="850" Y="100" Note=""/>
         <Element ComponentName="VersionInfo" X="1100" Y="100" Note=""/>
     </PositionMap>
-    <EmbeddedRegistries>
-        <EmbededRegistry Id="Rights">
-            <PositionMap>
-                <Element ComponentName="1Rights" X="450" Y="450" Note=""/>
-                <Element ComponentName="AdminRights" X="450" Y="175" Note=""/>
-                <Element ComponentName="NoLoggedInRights" X="175" Y="450" Note=""/>
-                <Element ComponentName="SimpleLogin" X="450" Y="325" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-    </EmbeddedRegistries>
+    <EmbeddedRegistries/>
 </Acf>
