@@ -94,14 +94,23 @@
                     <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/Icons/Product"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DocumentButtonsStyle" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DocumentTemplate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DocumentTemplate"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileButtonsStyle" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IconSize" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="16"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ToolButtonStyle" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="2"/>
+                    <AttributeInfo Id="ShowDocumentTitle" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UndoButtonsStyle" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

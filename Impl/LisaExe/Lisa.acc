@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4931" Description="ACF"/>
-            <Version Id="1" Number="2142" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4946" Description="ACF"/>
+            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331009" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -65,6 +65,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1983"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ShowPageTitles" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UiStartMode" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
