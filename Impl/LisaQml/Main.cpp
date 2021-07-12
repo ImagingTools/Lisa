@@ -4,6 +4,8 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QStyleFactory>
 #include <QtQml/QQmlEngine>
+#include <QQmlEngine>
+#include <QtQml>
 
 // ACF includes
 #include <ibase/IApplication.h>
@@ -22,7 +24,7 @@
 int main(int argc, char *argv[])
 {
 //	Q_INIT_RESOURCE(imtstyle);
-	Q_INIT_RESOURCE(imtguilight_qml);
+    Q_INIT_RESOURCE(imtguilight_qml);
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(AcfLoc);
@@ -44,7 +46,7 @@ int main(int argc, char *argv[])
 	CLisaQml instance;
 
 	imtqml::CApplicationDataEnumProviderComp appEnum;
-	qmlRegisterSingletonInstance<imtqml::CApplicationDataEnumProviderComp>("Acf", 1, 0, "AppEnum", &appEnum);
+    qmlRegisterSingletonInstance<imtqml::CApplicationDataEnumProviderComp>("Acf", 1, 0, "AppEnum", &appEnum);
 	imtqml::CPageDataEnumProviderComp pageEnum;
 	qmlRegisterSingletonInstance<imtqml::CPageDataEnumProviderComp>("Acf", 1, 0, "PageEnum", &pageEnum);
 	imtqml::CCommandDataEnumProviderComp commandEnum;
