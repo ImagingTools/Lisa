@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/Images">
+        <file alias="LisaSplashScreen">Resources/Images/LisaSplashScreen.svg</file>
+    </qresource>
+    <qresource prefix="/Icons">
+        <file alias="LisaIcon">Resources/Icons/LisaIcon.svg</file>
+    </qresource>
+    <qresource prefix="/Palette">
+        <file alias="Palette">Resources/Palette/palette.json</file>
+    </qresource>
+    <qresource prefix="/"/>
+    <qresource prefix="/html">
+        <file alias="lisa.html">Resources/html/lisa.html</file>
+    </qresource>
+    <qresource prefix="/qml">
+        <file alias="lisa.qml">Resources/qml/lisa.qml</file>
+        <file alias="PageEnum.qml">Resources/qml/Acf/PageEnum.qml</file>
+        <file alias="Acf/qmldir">Resources/qml/Acf/qmldir</file>
+    </qresource>
+</RCC>
