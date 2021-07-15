@@ -15,10 +15,18 @@ Rectangle {
         id: PageEnum
     }
 
+    AppEnum {
+        id: AppEnum
+    }
+
+    CommandEnum {
+        id: CommandEnum
+    }
+
     TreeItemModel {
         id: pagesModel
-        source: "../../Models/Pages"
-        target: "../../Models/Pages"
+        source: "../../Models/Application/Pages"
+        target: "../../Models/Application/Pages"
         onStateChanged: {
             console.log("ModelState", pagesModel.state)
             if(pagesModel.state === "Ready"){
@@ -28,15 +36,21 @@ Rectangle {
         }
     }
 
-//    Connections {
-//        target: pagesModel
-//        onStateChanged: {
+    TreeItemModel {
+        id: commandsModel
+        source: "../../Models/Application/Pages/Commands?PageId=Packages"
+        target: "../../Models/Application/Pages/Commands"
+        baseUrl: "../../Models/Application/Pages/Commands"
+        onStateChanged: {
 //            console.log("ModelState", pagesModel.state)
-//            if(pagesModel.state === "Ready"){
-//                thumbnailDecorator.pagesModel = pagesModel
-//            }
-//        }
-//    }
+            if(commandsModel.state === "Ready"){
+//                thumbnailDecorator.pagesModel = 0
+                thumbnailDecorator.commandsModel = null
+                thumbnailDecorator.commandsModel = commandsModel
+            }
+        }
+    }
+
 
     ThumbnailDecorator {
         id: thumbnailDecorator

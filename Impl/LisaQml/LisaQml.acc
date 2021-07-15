@@ -48,44 +48,35 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="EnumApplicationDataProvider" PackageId="ImtQmlPck" ComponentId="EnumApplicationDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="EnumPageDataProvider" PackageId="ImtQmlPck" ComponentId="EnumPageDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedHandler">
+        <Element Id="BinaryDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="RTS/Views"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="FileTemplatePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="IndexFilePath"/>
+                    <AttributeInfo Id="HomePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
+        <Element Id="Enums" PackageId="" ComponentId="Enums">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedHandler">
+        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoSolvePathsProblems" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
+                    <AttributeInfo Id="Bynary data providers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>BinaryDataProvider</Value>
+                                <Value>Enums/ApplicationDataEnumProvider</Value>
+                                <Value>Enums/CommandDataEnumProvider</Value>
+                                <Value>Enums/PageDataEnumProvider</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="CommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa/Views*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -107,7 +98,6 @@
                             <Values>
                                 <Value>Lisa/Views*</Value>
                                 <Value>Lisa/Models*</Value>
-                                <Value>Lisa/Views</Value>
                                 <Value></Value>
                             </Values>
                         </Data>
@@ -115,11 +105,9 @@
                     <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>HttpHtmlFolderBasedHandler</Value>
+                                <Value>HttpFileProviderBasedServlet</Value>
                                 <Value>JsonModelBasedHandler</Value>
-                                <Value>HttpFileBasedHandler</Value>
                                 <Value>HttpRedirectHandler</Value>
-                                <Value>JsonEnumBasedHandler</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -150,30 +138,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="WebSocketSubscriberEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="./QML_Data/index.html"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="JsonEnumBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedHandler">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Enums*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RepresentationDataProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="EnumPageDataProvider"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -373,7 +337,48 @@
             </Data>
         </Element>
     </ElementsList>
-    <EmbeddedRegistriesList/>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="Enums">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="ApplicationDataEnumProvider" PackageId="ImtQmlPck" ComponentId="ApplicationDataEnumProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="qml/AppEnum.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandDataEnumProvider" PackageId="ImtQmlPck" ComponentId="CommandDataEnumProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="qml/CommandEnum.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PageDataEnumProvider" PackageId="ImtQmlPck" ComponentId="PageDataEnumProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="qml/PageEnum.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="ApplicationDataEnumProvider" ComponentId="ApplicationDataEnumProvider"/>
+                    <Component ExportedId="CommandDataEnumProvider" ComponentId="CommandDataEnumProvider"/>
+                    <Component ExportedId="PageDataEnumProvider" ComponentId="PageDataEnumProvider"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
     <ExportedInterfaces>
         <Interface InterfaceId="ibase::IApplication" ComponentId="QuickApplication"/>
     </ExportedInterfaces>
