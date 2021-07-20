@@ -9,23 +9,23 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationDataProvider" X="400" Y="575" Note=""/>
-        <Element ComponentName="ApplicationInfo" X="800" Y="225" Note=""/>
-        <Element ComponentName="ApplicationRepresentationDataProvider" X="450" Y="375" Note=""/>
-        <Element ComponentName="BinaryDataProvider" X="775" Y="50" Note=""/>
-        <Element ComponentName="Enums" X="700" Y="125" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="850" Y="225" Note=""/>
+        <Element ComponentName="ApplicationRepresentationDataProvider" X="375" Y="375" Note=""/>
+        <Element ComponentName="BinaryDataProvider" X="950" Y="75" Note=""/>
+        <Element ComponentName="Enums" X="725" Y="125" Note=""/>
         <Element ComponentName="HttpFileProviderBasedServlet" X="350" Y="50" Note=""/>
         <Element ComponentName="HttpRedirectHandler" X="100" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="375" Y="125" Note=""/>
-        <Element ComponentName="JsonModelBasedHandler" X="400" Y="275" Note=""/>
+        <Element ComponentName="JsonModelBasedHandler" X="325" Y="275" Note=""/>
         <Element ComponentName="MainWindow" X="725" Y="425" Note=""/>
-        <Element ComponentName="PackagesCommandDataProvider" X="900" Y="600" Note=""/>
+        <Element ComponentName="PackagesCommandDataProvider" X="1025" Y="550" Note=""/>
         <Element ComponentName="PackagesDataProvider" X="650" Y="525" Note=""/>
-        <Element ComponentName="ProductsCommandDataProvider" X="900" Y="725" Note=""/>
+        <Element ComponentName="ProductsCommandDataProvider" X="1025" Y="650" Note=""/>
         <Element ComponentName="ProductsDataProvider" X="650" Y="650" Note=""/>
         <Element ComponentName="QuickApplication" X="625" Y="225" Note=""/>
-        <Element ComponentName="SplashScreen" X="825" Y="325" Note=""/>
-        <Element ComponentName="VersionInfo" X="1000" Y="225" Note=""/>
-        <Element ComponentName="WebSocketSubscriberEngine" X="100" Y="200" Note=""/>
+        <Element ComponentName="SplashScreen" X="900" Y="325" Note=""/>
+        <Element ComponentName="VersionInfo" X="1075" Y="225" Note=""/>
+        <Element ComponentName="WebSocketSubscriberEngine" X="125" Y="200" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Enums">

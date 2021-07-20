@@ -187,7 +187,7 @@
         <Element Id="PackagesCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="СommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>../../Icons/Add_On_Selected.svg</Value>
@@ -195,7 +195,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandId" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CommandId" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Add</Value>
@@ -203,7 +203,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandName" Type="Text[]" ExportId="">
+                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Add</Value>
@@ -211,7 +211,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandsModelId" Type="Id" ExportId="">
+                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="PackagesCommands"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -244,7 +244,7 @@
         <Element Id="ProductsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="СommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>../../Icons/CameraFlash_On_Selected.svg</Value>
@@ -252,7 +252,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandId" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CommandId" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Flash</Value>
@@ -260,7 +260,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandName" Type="Text[]" ExportId="">
+                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Flash</Value>
@@ -268,7 +268,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="СommandsModelId" Type="Id" ExportId="">
+                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductCommands"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
