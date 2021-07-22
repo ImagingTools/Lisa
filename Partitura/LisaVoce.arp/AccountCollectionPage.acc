@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4940" Description="ACF"/>
+            <Version Id="0" Number="4947" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -312,7 +312,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedHandler">
+                    <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedServlet">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -324,7 +324,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedHandler">
+                    <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedServlet">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="AutoSolvePathsProblems" Type="Boolean" ExportId="">
@@ -339,7 +339,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectHandler">
+                    <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
@@ -426,7 +426,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedHandler">
+                    <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">

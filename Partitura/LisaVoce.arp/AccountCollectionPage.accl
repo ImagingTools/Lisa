@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4940" Description="ACF"/>
+            <Version Id="0" Number="4947" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -17,6 +17,15 @@
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
+                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
+                <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="DocumentEditor">
             <PositionMap>
                 <Element ComponentName="AccountInfoEditor" X="975" Y="500" Note=""/>
@@ -34,15 +43,6 @@
                 <Element ComponentName="JsonModelBasedHandler" X="150" Y="325" Note=""/>
                 <Element ComponentName="PersonContactInfoEditor" X="1050" Y="375" Note=""/>
                 <Element ComponentName="WebSocketSubscriberEngine" X="625" Y="225" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CollectionView">
-            <PositionMap>
-                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
-                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
-                <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
-                <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
