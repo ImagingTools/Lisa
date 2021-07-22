@@ -81,7 +81,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectHandler">
+        <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
@@ -142,7 +142,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedHandler">
+        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandId" Type="Id" ExportId="">
