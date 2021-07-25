@@ -8,7 +8,7 @@ include($(IMTCOREDIR)/Config/QMake/Quazip.pri)
 RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liqtinsp -liproc -liinsp -liipr -liprocgui -lisig -liqtsig -licalibgui -licalib -licam -liqtcam -lAcfSlnLoc -lAcfLoc -liedge -liedgegui -lIacfLoc
-LIBS +=  -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limt3dgui -limtstyle -limtrest -limtqml
+LIBS +=  -limtbase -limtdb -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limt3dgui -limtstyle -limtrest -limtqml
 
 win32: {
 		contains(QMAKE_HOST.arch, x86_64) {
@@ -22,7 +22,7 @@ unix: LIBS += -lcrypto
 
 HEADERS =
 
-QT += xml network websockets qml quick quickwidgets
+QT += sql xml network websockets qml quick quickwidgets
 
 # Set OS-specific build options:
 win32-msvc*{
