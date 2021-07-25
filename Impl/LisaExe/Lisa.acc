@@ -141,9 +141,6 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaPages/Log"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RightsProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Rights"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ApplicationFramework/SettingsProvider"/>
                     </AttributeInfo>

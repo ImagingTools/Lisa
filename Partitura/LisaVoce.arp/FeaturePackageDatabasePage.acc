@@ -20,7 +20,7 @@
                         <Data IsEnabled="true" Value="MultiDocWorkspaceGui"/>
                     </AttributeInfo>
                     <AttributeInfo Id="FeatureCollectionPersistence" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repository/FeatureCollectionPersistence"/>
+                        <Data IsEnabled="true" Value="Persistence"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
@@ -117,6 +117,35 @@
                     </AttributeInfo>
                     <AttributeInfo Id="TabStyleSheetProperty" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="CollectionView"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Persistence" PackageId="FilePck" ComponentId="CompactXmlFileSerializer">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>fpkg</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Feature Package Files</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

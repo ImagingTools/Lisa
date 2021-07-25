@@ -8,11 +8,12 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CollectionView" X="800" Y="50" Note=""/>
+        <Element ComponentName="CollectionView" X="800" Y="49" Note=""/>
         <Element ComponentName="Document" X="225" Y="450" Note=""/>
         <Element ComponentName="DocumentTemplate" X="800" Y="450" Note=""/>
         <Element ComponentName="FeaturePackageEditor" X="800" Y="550" Note=""/>
         <Element ComponentName="MultiDocWorkspaceGui" X="425" Y="275" Note=""/>
+        <Element ComponentName="Persistence" X="900" Y="200" Note=""/>
         <Element ComponentName="Repository" X="225" Y="50" Note=""/>
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
