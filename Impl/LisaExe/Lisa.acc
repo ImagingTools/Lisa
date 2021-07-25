@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4946" Description="ACF"/>
+            <Version Id="0" Number="4943" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331009" Description="Qt Framework"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -23,6 +23,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>LisaPages/FeaturePackagesCommands</Value>
+                                <Value>LisaPages/FeatureDatabasePackagesCommands</Value>
                                 <Value>LisaPages/ProductsCommands</Value>
                                 <Value>LisaPages/AccountCommands</Value>
                                 <Value>LisaPages/InstancesCommands</Value>

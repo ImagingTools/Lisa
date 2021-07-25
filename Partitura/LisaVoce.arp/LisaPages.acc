@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4947" Description="ACF"/>
+            <Version Id="0" Number="4943" Description="ACF"/>
             <Version Id="1" Number="2150" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -17,6 +17,27 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureDatabasePackages" PackageId="LisaVoce" ComponentId="FeaturePackageDatabasePage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RightsProvider" Type="Reference" ExportId="RightsProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
@@ -110,6 +131,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>FeaturePackages/VisualStatus</Value>
+                                <Value>FeatureDatabasePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Accounts/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
@@ -123,6 +145,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>FeaturePackages</Value>
+                                <Value>FeatureDatabasePackages</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
@@ -139,6 +162,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Packages</Value>
+                                <Value>Packages (SQL)</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
@@ -152,6 +176,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Packages</Value>
+                                <Value>PackagesSql</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
@@ -214,6 +239,7 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
+        <Component ExportedId="FeatureDatabasePackagesCommands" ComponentId="FeatureDatabasePackages/Commands"/>
         <Component ExportedId="FeaturePackagesCommands" ComponentId="FeaturePackages/Commands"/>
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
