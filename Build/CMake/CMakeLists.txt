@@ -34,6 +34,6 @@ message("${AUX_INCLUDE_DIR}")
 
 #add_subdirectory("${IMPL_DIR}/LisaPck/CMake" "${AUX_INCLUDE_DIR}/LisaPck")
 add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
-#add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
+add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
 add_subdirectory("${IMPL_DIR}/LisaQml/CMake" "${AUX_INCLUDE_DIR}/LisaQml")
 
