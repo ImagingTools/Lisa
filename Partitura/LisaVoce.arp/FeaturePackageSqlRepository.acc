@@ -22,6 +22,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureInfoObjectDelegate"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="FeatureCollection"/>
                     </AttributeInfo>
@@ -44,6 +47,11 @@
                         <Data IsEnabled="true" Value="Collection"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureInfoObjectDelegate" PackageId="ImtLicenseDbPck" ComponentId="FeatureInfoObjectDelegate">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="OptionsListAdapter" PackageId="ImtCorePck" ComponentId="OptionsListAdapter">

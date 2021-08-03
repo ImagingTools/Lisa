@@ -8,7 +8,7 @@ include($(IMTCOREDIR)/Config/QMake/Quazip.pri)
 RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liqtinsp -liproc -liinsp -liipr -liprocgui -lisig -liqtsig -licalibgui -licalib -licam -liqtcam -lAcfSlnLoc -lAcfLoc -liedge -liedgegui -lIacfLoc
-LIBS +=  -limtbase -limtdb -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limt3dgui -limtstyle -limtrest -limtqml
+LIBS +=  -limtbase -limtdb -limtlicdb -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limt3dgui -limtstyle -limtrest -limtqml
 
 win32: {
 		contains(QMAKE_HOST.arch, x86_64) {
