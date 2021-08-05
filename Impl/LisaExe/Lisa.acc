@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4943" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="330758" Description="Qt Framework"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -156,6 +156,14 @@
                     <AttributeInfo Id="AnimationEnabled" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="BottomPagesIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Log</Value>
+                                <Value>Help</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaPages/PageModel"/>
                     </AttributeInfo>
@@ -231,7 +239,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
+        <Element Id="VersionInfo" PackageId="AcfSlnVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
