@@ -23,3 +23,18 @@ CREATE TABLE FeatureDependencies(
 );
 
 
+CREATE TABLE Features(
+  Id VARCHAR (1000) NOT NULL,
+  Name VARCHAR (1000) NOT NULL,
+  PackageId VARCHAR (1000) NOT NULL,
+  PRIMARY KEY (Id),
+  FOREIGN KEY (PackageId) REFERENCES Packages(Id)
+);
+
+
+INSERT INTO Packages VALUES('StandardFramework', 'Standard Framework');
+INSERT INTO Packages VALUES('TCVisionFramework', 'TCVision Framework');
+INSERT INTO Packages VALUES('RTVisionFramework', 'RTVision Framework');
+
+INSERT INTO Features VALUES('#UserManagement', 'User Management', 'StandardFramework');
+
