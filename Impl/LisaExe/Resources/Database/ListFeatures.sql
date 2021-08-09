@@ -1,3 +1,3 @@
-SELECT * FROM Features;
+SELECT * FROM Packages;
 
 

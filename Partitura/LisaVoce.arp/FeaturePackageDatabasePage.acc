@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4943" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -226,9 +226,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="UseAsyncRead" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ViewDelegates" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">

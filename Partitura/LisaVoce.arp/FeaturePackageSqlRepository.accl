@@ -9,10 +9,10 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Collection" X="575" Y="400" Note=""/>
-        <Element ComponentName="FeatureCollection" X="125" Y="400" Note=""/>
-        <Element ComponentName="FeatureInfoObjectDelegate" X="900" Y="400" Note=""/>
+        <Element ComponentName="FeatureCollection" X="175" Y="275" Note=""/>
+        <Element ComponentName="FeatureInfoObjectDelegate" X="1000" Y="150" Note=""/>
         <Element ComponentName="OptionsListAdapter" X="575" Y="575" Note=""/>
-        <Element ComponentName="SqlDatabaseEngine" X="575" Y="200" Note=""/>
+        <Element ComponentName="SqlDatabaseEngine" X="575" Y="150" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
