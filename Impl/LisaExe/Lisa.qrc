@@ -9,7 +9,8 @@
         <file alias="Palette">Resources/Palette/palette.json</file>
     </qresource>
     <qresource prefix="/Database">
-        <file alias="CreateDatabase">Resources/Database/Database.sql</file>
         <file alias="ListFeatures">Resources/Database/ListFeatures.sql</file>
+        <file alias="CreateDatabase">Resources/Database/CreateDatabase.sql</file>
+        <file alias="CreateTables">Resources/Database/CreateTables.sql</file>
     </qresource>
 </RCC>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4943" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -66,6 +66,15 @@
         <Element Id="SqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AutoCreateDatabase" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="AutoCreateTables" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseCreationScriptPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Database/CreateDatabase"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
                     </AttributeInfo>
@@ -83,6 +92,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Port" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="5432"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TablesCreationScriptPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Database/CreateTables"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="postgres"/>

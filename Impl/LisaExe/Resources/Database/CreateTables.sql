@@ -32,9 +32,9 @@ CREATE TABLE Features(
 );
 
 
-INSERT INTO Packages VALUES('StandardFramework', 'Standard Framework');
-INSERT INTO Packages VALUES('TCVisionFramework', 'TCVision Framework');
-INSERT INTO Packages VALUES('RTVisionFramework', 'RTVision Framework');
+INSERT INTO Packages(Id, Name) VALUES('StandardFramework', 'Standard Framework');
+INSERT INTO Packages(Id, Name) VALUES('TCVisionFramework', 'TCVision Framework');
+INSERT INTO Packages(Id, Name)  VALUES('RTVisionFramework', 'RTVision Framework');
 
-INSERT INTO Features VALUES('#UserManagement', 'User Management', 'StandardFramework');
+INSERT INTO Features(Id, Name, PackageId) VALUES('#UserManagement', 'User Management', 'StandardFramework');
 
