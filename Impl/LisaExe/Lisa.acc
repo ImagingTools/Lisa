@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4947" Description="ACF"/>
+            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -118,6 +118,11 @@
                         <Data IsEnabled="true" Value="Full screen On"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="InternetConnectionChecker" PackageId="ImtComPck" ComponentId="InternetConnectionChecker">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
