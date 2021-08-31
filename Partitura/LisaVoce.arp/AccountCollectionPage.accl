@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4947" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -33,7 +33,7 @@
                 <Element ComponentName="CContactInfoRepresentationDataProvider" X="575" Y="325" Note=""/>
                 <Element ComponentName="CompanyContactInfoEditor" X="1025" Y="675" Note=""/>
                 <Element ComponentName="ConsoleLog" X="100" Y="175" Note=""/>
-                <Element ComponentName="ContactInfoQmlEditor" X="875" Y="175" Note=""/>
+                <Element ComponentName="ContactInfoQmlEditor" X="900" Y="175" Note=""/>
                 <Element ComponentName="HttpFileBasedHandler" X="675" Y="50" Note=""/>
                 <Element ComponentName="HttpHtmlFolderBasedHandler" X="400" Y="50" Note=""/>
                 <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
