@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(AcfLoc);
-	Q_INIT_RESOURCE(IacfLoc);
+//	Q_INIT_RESOURCE(IacfLoc);
 	Q_INIT_RESOURCE(AcfSlnLoc);
 	Q_INIT_RESOURCE(ImtCoreLoc);
 	Q_INIT_RESOURCE(LisaLoc);
