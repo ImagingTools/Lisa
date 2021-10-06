@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="0" Number="4950" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -67,6 +67,12 @@
                     <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1983"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="QuitDialogIgnored" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RightsCommands" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FullScreenCommand"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ShowPageTitles" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
@@ -78,6 +84,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ViewPageNavigation" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="WelcomeText" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Welcome to Lisa"/>
@@ -92,7 +101,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PreferencesGui/Command</Value>
-                                <Value>FullScreenCommand</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="0" Number="4950" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,17 +10,17 @@
     <PositionMap>
         <Element ComponentName="ApplicationFramework" X="575" Y="250" Note=""/>
         <Element ComponentName="CommandsBinder" X="125" Y="250" Note=""/>
-        <Element ComponentName="FullScreenCommand" X="225" Y="125" Note=""/>
-        <Element ComponentName="InternetConnectionChecker" X="850" Y="100" Note=""/>
+        <Element ComponentName="FullScreenCommand" X="900" Y="325" Note=""/>
+        <Element ComponentName="InternetConnectionChecker" X="875" Y="75" Note=""/>
         <Element ComponentName="LisaLocalization" X="225" Y="725" Note=""/>
         <Element ComponentName="LisaPages" X="1100" Y="725" Note=""/>
         <Element ComponentName="MenuPanel" X="775" Y="425" Note=""/>
-        <Element ComponentName="MenuPanelDelegateMin" X="975" Y="350" Note=""/>
+        <Element ComponentName="MenuPanelDelegateMin" X="500" Y="425" Note=""/>
         <Element ComponentName="MonitorInfoProvider" X="750" Y="600" Note=""/>
-        <Element ComponentName="NoCommands" X="575" Y="100" Note=""/>
-        <Element ComponentName="Preferences" X="450" Y="525" Note=""/>
-        <Element ComponentName="PreferencesGui" X="375" Y="425" Note=""/>
-        <Element ComponentName="VersionInfo" X="1100" Y="100" Note=""/>
+        <Element ComponentName="NoCommands" X="225" Y="125" Note=""/>
+        <Element ComponentName="Preferences" X="300" Y="550" Note=""/>
+        <Element ComponentName="PreferencesGui" X="175" Y="425" Note=""/>
+        <Element ComponentName="VersionInfo" X="1100" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
