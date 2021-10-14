@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="0" Number="4950" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -261,7 +261,7 @@
                                     <Data IsEnabled="true" Value="AccountInfo"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PersonContactEditor" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ContactInfoQmlEditor"/>
+                                    <Data IsEnabled="true" Value="PersonContactInfoEditor"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -269,15 +269,6 @@
                     <Element Id="BitmapLoader" PackageId="BitmapPck" ComponentId="BitmapLoader">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="CContactInfoRepresentationDataProvider" PackageId="ImtAuthGuiPck" ComponentId="CContactInfoRepresentationDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ItemBasedRepresentationDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ContactInfoQmlEditor"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="CompanyContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
@@ -298,110 +289,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ConsoleLog" PackageId="BasePck" ComponentId="ConsoleLog">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="ContactInfoQmlEditor" PackageId="LisaVoce" ComponentId="ContactInfoQmlEditor">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="SubscriberEngineCompPtr" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedServlet">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Lisa/Views"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FileTemplatePath" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="IndexFilePath"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="HttpHtmlFolderBasedHandler" PackageId="ImtRestPck" ComponentId="HttpHtmlFolderBasedServlet">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="AutoSolvePathsProblems" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Lisa/Views*"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value=":"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Lisa/Views/html/index.html"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
-                        <Data IsEnabled="true" Flags="1">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Lisa/Views*</Value>
-                                            <Value>Lisa/Models*</Value>
-                                            <Value>Lisa/Views</Value>
-                                            <Value></Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>HttpHtmlFolderBasedHandler</Value>
-                                            <Value>JsonModelBasedHandler</Value>
-                                            <Value>HttpFileBasedHandler</Value>
-                                            <Value>HttpRedirectHandler</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="http://localhost"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="7777"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="WebSocketRequestHandlers" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>JsonModelBasedHandler</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="8888"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="WebSocketSubscriberEngine" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="ImageView" PackageId="QtViewPck" ComponentId="ImageView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -414,36 +301,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="./QML_Data/index.html"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="PathType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="1"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Lisa/Models*"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="CContactInfoRepresentationDataProvider"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="PersonContactInfoEditor" PackageId="ImtAuthGuiPck" ComponentId="ContactInfoEditor">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="WebSocketSubscriberEngine" PackageId="ImtRestPck" ComponentId="WebSocketSubscriberEngine">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
                         </Data>

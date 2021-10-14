@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="0" Number="4950" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -17,32 +17,22 @@
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="DocumentEditor">
+            <PositionMap>
+                <Element ComponentName="AccountInfoEditor" X="575" Y="425" Note=""/>
+                <Element ComponentName="BitmapLoader" X="400" Y="300" Note=""/>
+                <Element ComponentName="CompanyContactInfoEditor" X="800" Y="550" Note=""/>
+                <Element ComponentName="ImageView" X="400" Y="550" Note=""/>
+                <Element ComponentName="PersonContactInfoEditor" X="750" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="CollectionView">
             <PositionMap>
                 <Element ComponentName="Icons" X="175" Y="475" Note=""/>
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
                 <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="DocumentEditor">
-            <PositionMap>
-                <Element ComponentName="AccountInfoEditor" X="975" Y="500" Note=""/>
-                <Element ComponentName="BitmapLoader" X="600" Y="425" Note=""/>
-                <Element ComponentName="CContactInfoRepresentationDataProvider" X="575" Y="325" Note=""/>
-                <Element ComponentName="CompanyContactInfoEditor" X="1025" Y="675" Note=""/>
-                <Element ComponentName="ConsoleLog" X="100" Y="175" Note=""/>
-                <Element ComponentName="ContactInfoQmlEditor" X="900" Y="175" Note=""/>
-                <Element ComponentName="HttpFileBasedHandler" X="675" Y="50" Note=""/>
-                <Element ComponentName="HttpHtmlFolderBasedHandler" X="400" Y="50" Note=""/>
-                <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
-                <Element ComponentName="HttpServerFramework" X="375" Y="175" Note=""/>
-                <Element ComponentName="ImageView" X="650" Y="675" Note=""/>
-                <Element ComponentName="IndexFilePath" X="1000" Y="50" Note=""/>
-                <Element ComponentName="JsonModelBasedHandler" X="150" Y="325" Note=""/>
-                <Element ComponentName="PersonContactInfoEditor" X="1050" Y="375" Note=""/>
-                <Element ComponentName="WebSocketSubscriberEngine" X="625" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
