@@ -13,6 +13,9 @@
         <Element Id="ApplicationFramework" PackageId="ImtCoreVoce" ComponentId="CoreApplicationFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AdditionalCommands" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CommandsBinder"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
