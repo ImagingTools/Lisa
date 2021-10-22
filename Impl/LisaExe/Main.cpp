@@ -15,13 +15,11 @@
 int main(int argc, char *argv[])
 {
 	Q_INIT_RESOURCE(imtstyle);
-	Q_INIT_RESOURCE(imtauthgui);
-	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(AcfLoc);
-//	Q_INIT_RESOURCE(IacfLoc);
+	Q_INIT_RESOURCE(IacfLoc);
 	Q_INIT_RESOURCE(AcfSlnLoc);
 	Q_INIT_RESOURCE(ImtCoreLoc);
-//	Q_INIT_RESOURCE(LisaLoc);
+	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(Lisa);
 	Q_INIT_RESOURCE(imtresthtml);
 
@@ -30,7 +28,7 @@ int main(int argc, char *argv[])
 	
 	imtStylePtr->setBaseStyle(QStyleFactory::create("fusion"));
 	QApplication::setStyle(imtStylePtr);
-	QApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
 	CLisa instance;
 
