@@ -54,8 +54,7 @@ int main(int argc, char *argv[])
 
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
 
-//	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
-	imtqml::CQuickApplicationComp* applicationPtr = dynamic_cast<imtqml::CQuickApplicationComp*>(instance.GetInterface<ibase::IApplication>());
+	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
 	if (applicationPtr != nullptr){
 		return applicationPtr->Execute(argc, argv);
 	}
