@@ -1,5 +1,5 @@
 # Root of Lisa project
-include ($(ACFDIR)/Config/QMake/Solution.pri)
+TEMPLATE = subdirs
 
 # Libraries
 SUBDIRS += LisaLoc
