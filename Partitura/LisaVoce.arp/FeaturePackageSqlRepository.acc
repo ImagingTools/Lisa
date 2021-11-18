@@ -23,7 +23,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureInfoObjectDelegate"/>
+                        <Data IsEnabled="true" Value="FeaturePackageDatabaseDelegate"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="FeatureCollection"/>
@@ -52,7 +52,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureInfoObjectDelegate" PackageId="ImtLicenseDbPck" ComponentId="FeatureInfoObjectDelegate">
+        <Element Id="FeaturePackageDatabaseDelegate" PackageId="ImtLicenseDbPck" ComponentId="FeaturePackageDatabaseDelegate">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
