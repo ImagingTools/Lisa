@@ -19,18 +19,8 @@ CREATE TABLE FeatureDependencies(
   DependencyId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (FeatureId, DependencyId),
   FOREIGN KEY (FeatureId) REFERENCES Features(Id),
-  FOREIGN KEY (DependencyId) REFERENCES Features(Id)  
+  FOREIGN KEY (DependencyId) REFERENCES Features(Id)
 );
-
-
-CREATE TABLE Features(
-  Id VARCHAR (1000) NOT NULL,
-  Name VARCHAR (1000) NOT NULL,
-  PackageId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (Id),
-  FOREIGN KEY (PackageId) REFERENCES Packages(Id)
-);
-
 
 INSERT INTO Packages(Id, Name) VALUES('StandardFramework', 'Standard Framework');
 INSERT INTO Packages(Id, Name) VALUES('TCVisionFramework', 'TCVision Framework');
