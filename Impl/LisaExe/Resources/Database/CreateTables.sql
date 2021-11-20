@@ -1,6 +1,9 @@
 CREATE TABLE Packages(
    Id VARCHAR (1000) NOT NULL,
    Name VARCHAR (1000) NOT NULL,
+   Description VARCHAR (1000),
+   Added TIMESTAMP,
+   LastModified TIMESTAMP,
    PRIMARY KEY (Id)
 );
 
@@ -11,7 +14,7 @@ CREATE TABLE Features(
   Description VARCHAR (1000),
   PackageId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (Id, PackageId),
-  FOREIGN KEY (PackageId) REFERENCES Packages(Id)
+  FOREIGN KEY (PackageId) REFERENCES Packages(Id) ON UPDATE CASCADE
 );
 
 
@@ -25,10 +28,10 @@ CREATE TABLE FeatureDependencies(
   FOREIGN KEY (DependencyId, DependencyPackageId) REFERENCES Features(Id, PackageId)
 );
 
-INSERT INTO Packages(Id, Name) VALUES('StandardFramework', 'Standard Framework');
-INSERT INTO Packages(Id, Name) VALUES('TCVisionFramework', 'TCVision Framework');
-INSERT INTO Packages(Id, Name)  VALUES('RTVisionFramework', 'RTVision Framework');
-INSERT INTO Packages(Id, Name)  VALUES('RTVision3dFramework', 'RTVision.3d Framework');
+INSERT INTO Packages(Id, Name, Description, Added) VALUES('StandardFramework', 'Standard Framework', 'Common features for all products', NOW());
+INSERT INTO Packages(Id, Name, Description, Added) VALUES('TCVisionFramework', 'TCVision Framework', 'Common features for all products of the TCVision family', NOW());
+INSERT INTO Packages(Id, Name, Description, Added)  VALUES('RTVisionFramework', 'RTVision Framework', 'Common features for all products of the RTVision family', NOW());
+INSERT INTO Packages(Id, Name, Description, Added)  VALUES('RTVision3dFramework', 'RTVision.3d Framework', 'all products of all products of the RTV-3D family', NOW());
 
 INSERT INTO Features(Id, Name, PackageId) VALUES('#UserManagement', 'User Management', 'StandardFramework');
 INSERT INTO Features(Id, Name, PackageId) VALUES('#DataExport', 'Data Export', 'StandardFramework');
