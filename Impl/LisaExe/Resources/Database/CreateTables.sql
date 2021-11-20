@@ -8,18 +8,21 @@ CREATE TABLE Packages(
 CREATE TABLE Features(
   Id VARCHAR (1000) NOT NULL,
   Name VARCHAR (1000) NOT NULL,
+  Description VARCHAR (1000),
   PackageId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (Id),
+  PRIMARY KEY (Id, PackageId),
   FOREIGN KEY (PackageId) REFERENCES Packages(Id)
 );
 
 
 CREATE TABLE FeatureDependencies(
   FeatureId VARCHAR (1000) NOT NULL,
+  FeaturePackageId VARCHAR (1000) NOT NULL,
   DependencyId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (FeatureId, DependencyId),
-  FOREIGN KEY (FeatureId) REFERENCES Features(Id),
-  FOREIGN KEY (DependencyId) REFERENCES Features(Id)
+  DependencyPackageId VARCHAR (1000) NOT NULL,
+  PRIMARY KEY (FeatureId, FeaturePackageId, DependencyId, DependencyPackageId),
+  FOREIGN KEY (FeatureId, FeaturePackageId) REFERENCES Features(Id, PackageId),
+  FOREIGN KEY (DependencyId, DependencyPackageId) REFERENCES Features(Id, PackageId)
 );
 
 INSERT INTO Packages(Id, Name) VALUES('StandardFramework', 'Standard Framework');
