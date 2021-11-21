@@ -23,12 +23,10 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>LisaPages/FeaturePackagesCommands</Value>
-                                <Value>LisaPages/FeatureDatabasePackagesCommands</Value>
                                 <Value>LisaPages/ProductsCommands</Value>
                                 <Value>LisaPages/AccountCommands</Value>
                                 <Value>LisaPages/InstancesCommands</Value>
                                 <Value>LisaPages/Log</Value>
-                                <Value>NoCommands</Value>
                                 <Value>NoCommands</Value>
                             </Values>
                         </Data>
