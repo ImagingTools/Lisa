@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
+        <Element ComponentName="DataControllers" X="475" Y="400" Note=""/>
+        <Element ComponentName="GraphQLServlet" X="350" Y="275" Note=""/>
+        <Element ComponentName="HttpFileBasedHandler" X="700" Y="200" Note=""/>
+        <Element ComponentName="HttpFileProviderBasedServlet" X="450" Y="50" Note=""/>
+        <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
+        <Element ComponentName="HttpServerFramework" X="250" Y="150" Note=""/>
+        <Element ComponentName="IndexFilePath" X="975" Y="200" Note=""/>
+        <Element ComponentName="JsonModelBasedHandler" X="150" Y="275" Note=""/>
+        <Element ComponentName="PgSqlDatabaseEngine" X="475" Y="525" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="DataControllers">
+            <PositionMap>
+                <Element ComponentName="CommandsDataController" X="300" Y="350" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="700" Y="125" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="600" Y="300" Note=""/>
+                <Element ComponentName="PackagesPageDataProvider" X="975" Y="100" Note=""/>
+                <Element ComponentName="PagesDataController" X="300" Y="100" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="600" Y="400" Note=""/>
+                <Element ComponentName="ProductsPageDataProvider" X="975" Y="175" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

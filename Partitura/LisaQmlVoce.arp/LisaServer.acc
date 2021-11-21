@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description></Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="BinaryDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="HomePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="EmailSender" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="EMailEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Ms03Database" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="OMS10_omnius03_LOCAL"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MsDatabase" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="OMS10_API02_LOCAL"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PgDatabase" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="GraphQLServlet" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/graphql"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>DataControllers/CommandsDataController</Value>
+                                <Value>DataControllers/PagesDataController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="RTS/Views"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileTemplatePath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="IndexFilePath"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Bynary data providers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>BinaryDataProvider</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Views*"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Views/html/index.html?item=Pages/StartPage.qml"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Lisa/Views*</Value>
+                                <Value>Lisa/Models*</Value>
+                                <Value>Lisa/Views</Value>
+                                <Value></Value>
+                                <Value>Lisa/graphql</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>HttpFileProviderBasedServlet</Value>
+                                <Value>JsonModelBasedHandler</Value>
+                                <Value>HttpFileBasedHandler</Value>
+                                <Value>HttpRedirectHandler</Value>
+                                <Value>GraphQLServlet</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="http://localhost"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerPort" Type="Integer" ExportId="ServerPort">
+                        <Data IsEnabled="true" Value="7776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketRequestHandlers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>JsonModelBasedHandler</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="WebSocketServerPort">
+                        <Data IsEnabled="true" Value="8888"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="./QML_Data/index.html"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Models*"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AutoCreateDatabase" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="AutoCreateTables" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="RTS_BUS_MAIN_DATABASE"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DbType" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="QPSQL"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HostName" Type="Id" ExportId="PgHostName">
+                        <Data IsEnabled="true" Value="127.0.0.1"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Port" Type="Integer" ExportId="PgPort">
+                        <Data IsEnabled="true" Value="5434"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="DataControllers">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="CommandsDataController" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PackagesCommandDataProvider</Value>
+                                            <Value>ProductsCommandDataProvider</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="CommandsData"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PackagesPageDataProvider</Value>
+                                            <Value>ProductsPageDataProvider</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PackagesCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>../../Icons/Add_On_Selected.svg</Value>
+                                            <Value>../../Icons/Camera_On_Selected.svg</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Camera</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Camera</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Packages"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PackagesPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Workflow.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Packages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Packages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Workflow_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Workflow_On_Selected.svg"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PagesDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="PagesData"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="JoinDataProvider"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>../../Icons/CameraFlash_On_Selected.svg</Value>
+                                            <Value>../../Icons/Communication_On_Selected.svg</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Flash</Value>
+                                            <Value>Communication</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Flash</Value>
+                                            <Value>Communication</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Products"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Product.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Products"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Products"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Product_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Product_On_Selected.svg"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="CommandsDataController" ComponentId="CommandsDataController"/>
+                    <Component ExportedId="PagesDataController" ComponentId="PagesDataController"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="Enums">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="MenuDataEnumProvider" PackageId="ImtQmlPck" ComponentId="MenuDataEnumProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="qml/MenuEnum.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="MenuDataEnumProvider" ComponentId="MenuDataEnumProvider"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
+    <ExportedInterfaces>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
+    </ExportedInterfaces>
+    <ExportedComponents/>
+</Acf>
