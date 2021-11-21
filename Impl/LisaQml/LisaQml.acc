@@ -2,34 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4947" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="ApplicationDataProvider" PackageId="ImtQmlPck" ComponentId="ApplicationDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="__Application__"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RepresentationPageProvider" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>PackagesDataProvider</Value>
-                                <Value>ProductsDataProvider</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="ApplicationInfo" PackageId="BasePck" ComponentId="ApplicationInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -39,117 +19,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ApplicationRepresentationDataProvider" PackageId="ImtQmlPck" ComponentId="ApplicationRepresentationDataProvider">
+        <Element Id="LisaServer" PackageId="LisaQmlVoce" ComponentId="LisaServer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ItemBasedRepresentationDataProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationDataProvider"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="BinaryDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="Enums" PackageId="" ComponentId="Enums">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Bynary data providers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>BinaryDataProvider</Value>
-                                <Value>Enums/ApplicationDataEnumProvider</Value>
-                                <Value>Enums/CommandDataEnumProvider</Value>
-                                <Value>Enums/PageDataEnumProvider</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views*"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views/html/lisa.html"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Lisa/Views*</Value>
-                                <Value>Lisa/Models*</Value>
-                                <Value></Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>HttpFileProviderBasedServlet</Value>
-                                <Value>JsonModelBasedHandler</Value>
-                                <Value>HttpRedirectHandler</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="http://localhost"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="7778"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketRequestHandlers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>JsonModelBasedHandler</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="8888"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketSubscriberEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="WebSocketSubscriberEngine"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Models*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RepresentationDataProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationRepresentationDataProvider"/>
+                        <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -157,143 +31,20 @@
         <Element Id="MainWindow" PackageId="ImtQmlPck" ComponentId="QuickObject">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DataProviderComp" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationDataProvider"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelIdsAttr" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>applicationModel</Value>
-                                <Value>pagesModel</Value>
-                                <Value>commandsModel</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelQueries" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Application</Value>
-                                <Value>Application/Pages</Value>
-                                <Value>Application/Pages/Commands</Value>
-                            </Values>
-                        </Data>
+                    <AttributeInfo Id="BaseUrl" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="http://127.0.0.1:7776/Lisa/graphql"/>
                     </AttributeInfo>
                     <AttributeInfo Id="QmlFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/qml/ThumbnailDecorator.qml"/>
+                        <Data IsEnabled="true" Value=":/qml/imtgui/ThumbnailDecorator.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PackagesCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+        <Element Id="ObserverQml" PackageId="ImtQmlPck" ComponentId="ObserverQml">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>../../Icons/Add_On_Selected.svg</Value>
-                                <Value>../../Icons/Camera_On_Selected.svg</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Add</Value>
-                                <Value>Camera</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Add</Value>
-                                <Value>Camera</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="PackagesCommands"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="PackagesDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Workflow.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Workflow_Off_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Workflow_On_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RepresentationCommandProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackagesCommandDataProvider"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ProductsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>../../Icons/CameraFlash_On_Selected.svg</Value>
-                                <Value>../../Icons/Communication_On_Selected.svg</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Flash</Value>
-                                <Value>Communication</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Flash</Value>
-                                <Value>Communication</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ProductCommands"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ProductsDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Product.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Products"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Products"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Product_Off_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Product_On_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RepresentationCommandProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ProductsCommandDataProvider"/>
+                    <AttributeInfo Id="QuickObject" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="MainWindow"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -307,7 +58,8 @@
                     <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>HttpServerFramework</Value>
+                                <Value>LisaServer</Value>
+                                <Value>ObserverQml</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -327,11 +79,6 @@
             </Data>
         </Element>
         <Element Id="VersionInfo" PackageId="BasePck" ComponentId="VersionInfo">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="WebSocketSubscriberEngine" PackageId="ImtRestPck" ComponentId="WebSocketSubscriberEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>

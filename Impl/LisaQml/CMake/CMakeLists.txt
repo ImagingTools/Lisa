@@ -26,7 +26,6 @@ endif()
 find_package(Qt${QT_DEFAULT_MAJOR_VERSION} COMPONENTS WebSockets QuickWidgets)
 find_package("Qt${QT_DEFAULT_MAJOR_VERSION}" COMPONENTS Quick Qml REQUIRED)
 
-
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
 include(${ACFDIR}/Config/CMake/AcfQt.cmake)
@@ -35,9 +34,9 @@ include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
-
 target_link_libraries(${PROJECT_NAME} iauth)
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml)
+target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml imtdb)
+target_link_libraries(${PROJECT_NAME} imtguigql imtgql)
 target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc IAcfLoc AcfLoc)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_DEFAULT_MAJOR_VERSION}::QuickWidgets  Qt${QT_DEFAULT_MAJOR_VERSION}::WebSockets)
 
@@ -48,3 +47,19 @@ if(WIN32)
 	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")
 	unset(listOptions)
 endif()
+
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
+list(APPEND QML_IMPORT_DIRS "qrc:/qml")
+list(APPEND QML_IMPORT_DIRS ":/qml")
+
+# Prevent adding duplicate values at each run of CMake.
+list(REMOVE_DUPLICATES QML_IMPORT_DIRS)
+
+# The variable is cached in ${BUILD_DIR}/CMakeCache.txt. We need FORCE to
+# change it there immediately. Also, add a comment to the cache file.
+set(QML_IMPORT_PATH ${QML_IMPORT_DIRS}
+	CACHE STRING "Qt Creator extra qml import paths"
+	FORCE
+)
+

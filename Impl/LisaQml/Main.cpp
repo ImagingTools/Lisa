@@ -13,6 +13,7 @@
 // ImtCore includes
 #include <imtstyle/CImtStyle.h>
 #include <imtbase/CTreeItemModel.h>
+#include <imtgql/CGqlModel.h>
 #include <imtqml/CQuickApplicationComp.h>
 #include <imtqml/CApplicationDataEnumProviderComp.h>
 #include <imtqml/CPageDataEnumProviderComp.h>
@@ -27,6 +28,7 @@ int main(int argc, char *argv[])
 //    Q_INIT_RESOURCE(imtguilight_qml);
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
+	Q_INIT_RESOURCE(imtgui);
 	Q_INIT_RESOURCE(AcfLoc);
 //	Q_INIT_RESOURCE(IacfLoc);
 	Q_INIT_RESOURCE(AcfSlnLoc);
@@ -34,6 +36,8 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(LisaQml);
 	Q_INIT_RESOURCE(imtresthtml);
+
+//	QQmlEngine::addImportPath("/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml");
 
 
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
@@ -53,6 +57,7 @@ int main(int argc, char *argv[])
 	qmlRegisterSingletonInstance<imtqml::CCommandDataEnumProviderComp>("Acf", 1, 0, "CommandEnum", &commandEnum);
 
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
+	qmlRegisterType<imtgql::CGqlModel>("Acf", 1, 0, "GqlModel");
 
 	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
 	if (applicationPtr != nullptr){
