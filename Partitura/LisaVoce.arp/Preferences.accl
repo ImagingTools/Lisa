@@ -2,21 +2,21 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="AutoPersistence" X="625" Y="200" Note=""/>
-        <Element ComponentName="CompactXmlFileSerializer" X="875" Y="200" Note=""/>
-        <Element ComponentName="DesignTokenBasedPaletteProvider" X="200" Y="625" Note=""/>
-        <Element ComponentName="DesignTokenFileParser" X="200" Y="725" Note=""/>
-        <Element ComponentName="General" X="425" Y="425" Note=""/>
-        <Element ComponentName="Language" X="625" Y="525" Note=""/>
-        <Element ComponentName="LisaDesignSchema" X="200" Y="525" Note=""/>
-        <Element ComponentName="Preferences" X="625" Y="275" Note=""/>
-        <Element ComponentName="PreferencesFilePath" X="625" Y="125" Note=""/>
+        <Element ComponentName="AutoPersistence" X="625" Y="250" Note=""/>
+        <Element ComponentName="CompactXmlFileSerializer" X="950" Y="250" Note=""/>
+        <Element ComponentName="DesignTokenBasedPaletteProvider" X="200" Y="675" Note=""/>
+        <Element ComponentName="DesignTokenFileParser" X="200" Y="775" Note=""/>
+        <Element ComponentName="General" X="425" Y="475" Note=""/>
+        <Element ComponentName="Language" X="675" Y="575" Note=""/>
+        <Element ComponentName="LisaDesignSchema" X="200" Y="575" Note=""/>
+        <Element ComponentName="Preferences" X="625" Y="375" Note=""/>
+        <Element ComponentName="PreferencesFilePath" X="625" Y="150" Note=""/>
         <Element ComponentName="SystemLocation" X="625" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>

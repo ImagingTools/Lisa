@@ -11,6 +11,7 @@
         <Element ComponentName="Collection" X="600" Y="275" Note=""/>
         <Element ComponentName="FeatureCollection" X="900" Y="550" Note=""/>
         <Element ComponentName="FeaturePackageDatabaseDelegate" X="300" Y="75" Note=""/>
+        <Element ComponentName="FeaturePackageMetaInfoCreator" X="225" Y="400" Note=""/>
         <Element ComponentName="OptionsListAdapter" X="300" Y="525" Note=""/>
         <Element ComponentName="SqlDatabaseEngine" X="900" Y="75" Note=""/>
     </PositionMap>

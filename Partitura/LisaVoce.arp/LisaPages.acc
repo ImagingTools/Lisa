@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4947" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -23,21 +23,6 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="FeatureDatabasePackages" PackageId="LisaVoce" ComponentId="FeaturePackageDatabasePage">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -125,13 +110,11 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>FeaturePackages/VisualStatus</Value>
-                                <Value>FeatureDatabasePackages/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Accounts/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
-                                <Value>ProductsSdi/VisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -139,13 +122,11 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>FeaturePackages</Value>
-                                <Value>FeatureDatabasePackages</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
-                                <Value>ProductsSdi</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -156,13 +137,11 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Packages</Value>
-                                <Value>Packages (SQL)</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
-                                <Value>Products SDI</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -170,13 +149,11 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Packages</Value>
-                                <Value>PackagesSql</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
-                                <Value>ProductsSdi</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -210,21 +187,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductsSdi" PackageId="LisaVoce" ComponentId="ProductCollectionPageSdi">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="FeaturePackageCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackages/Repository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
@@ -233,12 +195,10 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
-        <Component ExportedId="FeatureDatabasePackagesCommands" ComponentId="FeatureDatabasePackages/Commands"/>
         <Component ExportedId="FeaturePackagesCommands" ComponentId="FeaturePackages/Commands"/>
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
-        <Component ExportedId="ProductSdiCommands" ComponentId="ProductsSdi/Commands"/>
         <Component ExportedId="ProductsCommands" ComponentId="Products/Commands"/>
     </ExportedComponents>
 </Acf>

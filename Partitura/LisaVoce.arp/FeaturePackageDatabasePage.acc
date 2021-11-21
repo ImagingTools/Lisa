@@ -4,7 +4,7 @@
         <VersionInfos>
             <Version Id="0" Number="4948" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="330758" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Product licensing collection page</Description>
@@ -234,6 +234,12 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="ViewProgress" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewRightPanel" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -245,9 +251,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureCollectionPersistence">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackage"/>

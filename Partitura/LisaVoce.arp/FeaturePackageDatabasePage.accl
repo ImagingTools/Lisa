@@ -4,7 +4,7 @@
         <VersionInfos>
             <Version Id="0" Number="4948" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="330758" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -18,6 +18,15 @@
         <Element ComponentName="UndoManager" X="1060" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
+                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
+                <Element ComponentName="ViewDelegate" X="525" Y="275" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="FeaturePackageEditor">
             <PositionMap>
                 <Element ComponentName="CommandsBinder" X="225" Y="100" Note=""/>
@@ -28,15 +37,6 @@
                 <Element ComponentName="FeatureTreeGui" X="900" Y="200" Note=""/>
                 <Element ComponentName="ModelDialogGui" X="525" Y="475" Note=""/>
                 <Element ComponentName="ObjectCollectionView" X="525" Y="275" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CollectionView">
-            <PositionMap>
-                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
-                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
-                <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
-                <Element ComponentName="ViewDelegate" X="525" Y="275" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

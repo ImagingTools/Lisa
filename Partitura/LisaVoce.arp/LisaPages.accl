@@ -2,21 +2,19 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4947" Description="ACF"/>
-            <Version Id="1" Number="2150" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Accounts" X="350" Y="300" Note=""/>
-        <Element ComponentName="FeatureDatabasePackages" X="225" Y="650" Note=""/>
         <Element ComponentName="FeaturePackages" X="350" Y="500" Note=""/>
         <Element ComponentName="Help" X="1101" Y="54" Note=""/>
         <Element ComponentName="Instances" X="900" Y="300" Note=""/>
         <Element ComponentName="Log" X="100" Y="50" Note=""/>
         <Element ComponentName="MainPages" X="625" Y="400" Note=""/>
         <Element ComponentName="Products" X="675" Y="725" Note=""/>
-        <Element ComponentName="ProductsSdi" X="875" Y="575" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

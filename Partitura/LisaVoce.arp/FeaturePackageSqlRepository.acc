@@ -61,6 +61,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="FeaturePackageMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeaturePackageMetaInfoCreator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="FeaturePackage"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="OptionsListAdapter" PackageId="ImtCorePck" ComponentId="OptionsListAdapter">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>

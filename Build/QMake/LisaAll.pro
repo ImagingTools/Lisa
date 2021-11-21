@@ -10,3 +10,7 @@ SUBDIRS += Lisa
 Lisa.file = ../../Impl/LisaExe/QMake/Lisa.pro
 Lisa.depends = LisaLoc
 
+SUBDIRS += LisaDb
+LisaDb.file = ../../Impl/LisaDbExe/QMake/LisaDb.pro
+LisaDb.depends = LisaLoc
+
