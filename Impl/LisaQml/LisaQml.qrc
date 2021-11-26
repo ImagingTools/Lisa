@@ -9,6 +9,11 @@
     <qresource prefix="/"/>
     <qresource prefix="/html">
         <file alias="lisa.html">Resources/html/lisa.html</file>
+        <file alias="index.html">Resources/html/index.html</file>
+        <file alias="Enums.js">Resources/html/Enums.js</file>
+        <file alias="GraphQLRequest.js">Resources/html/GraphQLRequest.js</file>
+        <file alias="modernizr-custom.js">Resources/html/modernizr-custom.js</file>
+        <file alias="qml.lisa.js">Resources/html/qml.lisa.js</file>
     </qresource>
     <qresource prefix="/qml">
         <file alias="lisa.qml">Resources/qml/lisa.qml</file>
