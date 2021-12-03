@@ -48,6 +48,7 @@
                             <Values>
                                 <Value>DataControllers/CommandsDataController</Value>
                                 <Value>DataControllers/PagesDataController</Value>
+                                <Value>DataControllers/GetStyleDataController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -211,6 +212,15 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="GetStyleDataController" PackageId="ImtGuiGqlPck" ComponentId="GetStyleDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="GetStyle"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -350,6 +360,7 @@
                 <ExportedInterfaces/>
                 <ExportedComponents>
                     <Component ExportedId="CommandsDataController" ComponentId="CommandsDataController"/>
+                    <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                     <Component ExportedId="PagesDataController" ComponentId="PagesDataController"/>
                 </ExportedComponents>
             </Data>

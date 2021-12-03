@@ -28,11 +28,12 @@
         </EmbededRegistry>
         <EmbededRegistry Id="DataControllers">
             <PositionMap>
-                <Element ComponentName="CommandsDataController" X="300" Y="350" Note=""/>
+                <Element ComponentName="CommandsDataController" X="250" Y="350" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="250" Y="500" Note=""/>
                 <Element ComponentName="JoinDataProvider" X="700" Y="125" Note=""/>
                 <Element ComponentName="PackagesCommandDataProvider" X="600" Y="300" Note=""/>
                 <Element ComponentName="PackagesPageDataProvider" X="975" Y="100" Note=""/>
-                <Element ComponentName="PagesDataController" X="300" Y="100" Note=""/>
+                <Element ComponentName="PagesDataController" X="225" Y="175" Note=""/>
                 <Element ComponentName="ProductsCommandDataProvider" X="600" Y="400" Note=""/>
                 <Element ComponentName="ProductsPageDataProvider" X="975" Y="175" Note=""/>
             </PositionMap>

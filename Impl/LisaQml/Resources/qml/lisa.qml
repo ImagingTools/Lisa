@@ -6,9 +6,15 @@ import Acf 1.0
 //import "../../../../../ImtCore/Include/imtqml/Resources/qml"
 //import "../qml"
 import imtgui 1.0
-
+//@using { src.AuxComponents.TopPanel }
+//@using { src.AuxComponents.MenuPanel }
+//@using { src.AuxComponents.TabPanel }
+//@using { src.AuxComponents.AuxTable }
+//@using { src.AuxComponents.TreeView }
+//@using { src.AuxComponents.TreeItemDelegate }
 
 Rectangle {
+    id: window;
     width: 300;
     height: 500;
     anchors.fill: parent;
@@ -19,6 +25,9 @@ Rectangle {
 //        thumbnailDecorator.updateModels();
 //    }
 
+    Style {
+        id: Style;
+    }
 
     ThumbnailDecorator {
         id: thumbnailDecorator;
