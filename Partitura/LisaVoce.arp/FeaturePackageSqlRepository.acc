@@ -13,8 +13,8 @@
         <Element Id="Collection" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseCollection">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SqlDatabaseEngine"/>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
@@ -55,8 +55,8 @@
         <Element Id="FeaturePackageDatabaseDelegate" PackageId="ImtLicenseDbPck" ComponentId="FeaturePackageDatabaseDelegate">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SqlDatabaseEngine"/>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -75,45 +75,6 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="CollectionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Collection"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="SqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCreateDatabase" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="AutoCreateTables" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseCreationScriptPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/CreateDatabase"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DbType" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="QPSQL"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HostName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="localhost"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Pasword" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Murzik2015"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Port" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="5432"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TablesCreationScriptPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/CreateTables"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="postgres"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

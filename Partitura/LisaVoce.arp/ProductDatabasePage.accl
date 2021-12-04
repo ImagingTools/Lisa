@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="CollectionView" X="675" Y="225" Note=""/>
+        <Element ComponentName="Document" X="350" Y="675" Note=""/>
+        <Element ComponentName="DocumentTemplate" X="675" Y="475" Note=""/>
+        <Element ComponentName="MultiDocWorkspaceGui" X="400" Y="350" Note=""/>
+        <Element ComponentName="ProductLicensingInfoEditor" X="700" Y="675" Note=""/>
+        <Element ComponentName="Repository" X="675" Y="75" Note=""/>
+        <Element ComponentName="UndoManager" X="1075" Y="675" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="ProductLicensingInfoEditor">
+            <PositionMap>
+                <Element ComponentName="CommandsBinder" X="225" Y="100" Note=""/>
+                <Element ComponentName="FeatureTreeGui" X="900" Y="200" Note=""/>
+                <Element ComponentName="LicenseInfo" X="900" Y="600" Note=""/>
+                <Element ComponentName="LicenseInfoEditorGui" X="225" Y="600" Note=""/>
+                <Element ComponentName="LicenseManagerViewDelegate" X="550" Y="375" Note=""/>
+                <Element ComponentName="ModelDialogGui" X="550" Y="500" Note=""/>
+                <Element ComponentName="ObjectCollectionView" X="550" Y="250" Note=""/>
+                <Element ComponentName="ProductLicensingInfoGui" X="900" Y="100" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="Icons" X="175" Y="475" Note=""/>
+                <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="RepositoryView" X="550" Y="100" Note=""/>
+                <Element ComponentName="ViewDelegate" X="550" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

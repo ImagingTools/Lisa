@@ -6,8 +6,9 @@
         <file alias="LisaIcon">Resources/Icons/LisaIcon.svg</file>
     </qresource>
     <qresource prefix="/Database">
-        <file alias="ListFeatures">Resources/Database/ListFeatures.sql</file>
-        <file alias="CreateDatabase">Resources/Database/CreateDatabase.sql</file>
+		<file alias="ListFeatures">Resources/Database/ListFeatures.sql</file>
+		<file alias="ListProducts">Resources/Database/ListProducts.sql</file>
+		<file alias="CreateDatabase">Resources/Database/CreateDatabase.sql</file>
         <file alias="CreateTables">Resources/Database/CreateTables.sql</file>
     </qresource>
 </RCC>

@@ -14,8 +14,7 @@ CREATE TABLE Features(
   Description VARCHAR (1000),
   PackageId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (Id, PackageId),
-  FOREIGN KEY (PackageId) REFERENCES Packages(Id) ON UPDATE CASCADE,
-  FOREIGN KEY (PackageId) REFERENCES Packages(Id) ON DELETE CASCADE
+  FOREIGN KEY (PackageId) REFERENCES Packages(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -33,8 +32,7 @@ CREATE TABLE ProductLicenses(
   Description VARCHAR (1000),
   ProductId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (Id),
-  FOREIGN KEY (ProductId) REFERENCES Products(Id) ON UPDATE CASCADE,
-  FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE
+  FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -43,11 +41,10 @@ CREATE TABLE ProductLicenseFeatures(
   FeatureId VARCHAR (1000) NOT NULL,
   PackageId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (LicenseId, FeatureId),
-  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON UPDATE CASCADE,
-  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE,
-  FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON UPDATE CASCADE,
-  FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE
+  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
 
 
 CREATE TABLE FeatureDependencies(
@@ -80,3 +77,13 @@ INSERT INTO Features(Id, Name, PackageId) VALUES('#PrimerInspection', 'Primer In
 INSERT INTO Features(Id, Name, PackageId) VALUES('#VolumeInspection', 'Volume Inspection', 'RTVision3dFramework');
 INSERT INTO Features(Id, Name, PackageId) VALUES('#Teaching', 'Teaching', 'RTVision3dFramework');
 INSERT INTO Features(Id, Name, PackageId) VALUES('#PositionCorrection', 'Position Correction', 'RTVision3dFramework');
+
+INSERT INTO Products(Id, Name, Description) VALUES('TCVision.l', 'TCVision.l', 'Shell inspection (Liner)');
+INSERT INTO Products(Id, Name, Description) VALUES('TCVision.e', 'TCVision.e', 'End inspection');
+INSERT INTO Products(Id, Name, Description) VALUES('RTVision', 'RTVision', 'Glue width inspection based in 2D-space');
+INSERT INTO Products(Id, Name, Description) VALUES('RTVision.3d', 'RTVision.3d', 'Complete glue evaluation in 3D-space');
+
+INSERT INTO ProductLicenses(Id, Name, Description, ProductId) VALUES('12.1234', 'Standard', 'Standard license for RTVision product', 'RTVision');
+INSERT INTO ProductLicenses(Id, Name, Description, ProductId) VALUES('23.4567', 'Standard', 'Standard license for RTVision.3d product', 'RTVision.3d');
+INSERT INTO ProductLicenses(Id, Name, Description, ProductId) VALUES('64.9876', 'Advanced', 'Advanced license for RTVision.3d product', 'RTVision.3d');
+

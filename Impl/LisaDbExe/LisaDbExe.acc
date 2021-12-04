@@ -22,7 +22,8 @@
                     <AttributeInfo Id="CommandProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaPages/FeatureDatabasePackagesCommands</Value>
+                                <Value>LisaPages/FeatureCommands</Value>
+                                <Value>LisaPages/ProductCommands</Value>
                                 <Value>LisaPages/Log</Value>
                             </Values>
                         </Data>
@@ -122,11 +123,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="InternetConnectionChecker" PackageId="ImtComPck" ComponentId="InternetConnectionChecker">
-            <Data IsEnabled="true" Flags="1">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -201,11 +197,6 @@
             </Data>
         </Element>
         <Element Id="MonitorInfoProvider" PackageId="ImtGuiPck" ComponentId="MonitorInfoProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="NoCommands" PackageId="ImtGuiPck" ComponentId="DelegatedCommandsProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
