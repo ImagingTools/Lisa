@@ -26,13 +26,52 @@ endif()
 find_package(Qt${QT_DEFAULT_MAJOR_VERSION} COMPONENTS WebSockets QuickWidgets)
 find_package("Qt${QT_DEFAULT_MAJOR_VERSION}" COMPONENTS Quick Qml REQUIRED)
 
+include(${IMTCOREDIR}/Config/CMake/WebCompiler.cmake)
+
+
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
+
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
 include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 include(${ACFDIR}/Config/CMake/AcfStd.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
+
+message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
+
+
+#copy compiler from to
+list(APPEND webdirs ${IMTCOREDIR}/3rdParty/WebCompiler)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web)
+
+# copy base qml sources from to
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/Acf)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/imtqml)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+# copy lisa qml from to
+list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/qml)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+
+list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/html)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
+
+# copy dist from to
+list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/dist)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/dist)
+
+# Python path
+list(APPEND webdirs ${IMTCOREDIR}/3rdParty/Python/3.8/python.exe)
+
+# copy result from to
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources/html)
+#list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/html)
+
+imtcore_compile_web("${webdirs}")
 
 target_link_libraries(${PROJECT_NAME} iauth)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml imtdb)

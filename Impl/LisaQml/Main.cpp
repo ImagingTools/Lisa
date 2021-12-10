@@ -36,6 +36,8 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(ImtCoreLoc);
 	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(LisaQml);
+//	Q_INIT_RESOURCE(LisaHtml);
+	Q_INIT_RESOURCE(LisaQmlWeb);
 	Q_INIT_RESOURCE(imtresthtml);
 
 //	QQmlEngine::addImportPath("/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml");
