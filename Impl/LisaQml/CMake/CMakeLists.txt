@@ -63,9 +63,6 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/dist)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/dist)
 
-# Python path
-list(APPEND webdirs ${IMTCOREDIR}/3rdParty/Python/3.8/python.exe)
-
 # copy result from to
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources/html)
