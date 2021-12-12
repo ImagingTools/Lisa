@@ -8,11 +8,12 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Features" X="200" Y="400" Note=""/>
-        <Element ComponentName="Log" X="725" Y="50" Note=""/>
-        <Element ComponentName="MainPages" X="750" Y="200" Note=""/>
-        <Element ComponentName="Products" X="725" Y="400" Note=""/>
-        <Element ComponentName="SqlDatabaseEngine" X="450" Y="600" Note=""/>
+        <Element ComponentName="Accounts" X="675" Y="725" Note=""/>
+        <Element ComponentName="Features" X="150" Y="325" Note=""/>
+        <Element ComponentName="Log" X="1075" Y="150" Note=""/>
+        <Element ComponentName="MainPages" X="750" Y="150" Note=""/>
+        <Element ComponentName="Products" X="475" Y="525" Note=""/>
+        <Element ComponentName="SqlDatabaseEngine" X="150" Y="725" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

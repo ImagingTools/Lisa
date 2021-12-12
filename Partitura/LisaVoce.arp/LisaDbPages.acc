@@ -10,6 +10,30 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="Accounts" PackageId="LisaVoce" ComponentId="AccountDatabasePage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="SqlDatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Features" PackageId="LisaVoce" ComponentId="FeaturePackageDatabasePage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -60,6 +84,7 @@
                             <Values>
                                 <Value>Features/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
+                                <Value>Accounts/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                             </Values>
                         </Data>
@@ -69,6 +94,7 @@
                             <Values>
                                 <Value>Features</Value>
                                 <Value>Products</Value>
+                                <Value>Accounts</Value>
                                 <Value>Log</Value>
                             </Values>
                         </Data>
@@ -81,8 +107,8 @@
                             <Values>
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
+                                <Value>Accounts</Value>
                                 <Value>Log</Value>
-                                <Value></Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -91,6 +117,7 @@
                             <Values>
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
+                                <Value>Accounts</Value>
                                 <Value>Log</Value>
                             </Values>
                         </Data>
@@ -177,6 +204,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="MainPages"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
         <Component ExportedId="FeatureCommands" ComponentId="Features/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
