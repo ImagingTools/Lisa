@@ -25,6 +25,7 @@
                                 <Value>LisaPages/FeatureCommands</Value>
                                 <Value>LisaPages/ProductCommands</Value>
                                 <Value>LisaPages/AccountCommands</Value>
+                                <Value>LisaPages/InstancesCommands</Value>
                                 <Value>LisaPages/Log</Value>
                             </Values>
                         </Data>

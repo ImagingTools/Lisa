@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="CollectionView" X="725" Y="225" Note=""/>
+        <Element ComponentName="Document" X="350" Y="675" Note=""/>
+        <Element ComponentName="DocumentTemplate" X="725" Y="550" Note=""/>
+        <Element ComponentName="MultiDocWorkspaceGui" X="400" Y="400" Note=""/>
+        <Element ComponentName="ProductInstanceInfoEditor" X="700" Y="675" Note=""/>
+        <Element ComponentName="Repository" X="275" Y="225" Note=""/>
+        <Element ComponentName="UndoManager" X="1050" Y="675" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="CollectionView">
+            <PositionMap>
+                <Element ComponentName="AesInitVector" X="225" Y="425" Note=""/>
+                <Element ComponentName="Encryption" X="600" Y="675" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="900" Y="525" Note=""/>
+                <Element ComponentName="FileDialogLoader" X="400" Y="525" Note=""/>
+                <Element ComponentName="Icons" X="300" Y="175" Note=""/>
+                <Element ComponentName="MetaInfoView" X="1025" Y="175" Note=""/>
+                <Element ComponentName="RepositoryView" X="575" Y="175" Note=""/>
+                <Element ComponentName="ViewDelegate" X="575" Y="325" Note=""/>
+                <Element ComponentName="XmlFileSerializer" X="950" Y="675" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

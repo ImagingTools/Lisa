@@ -58,6 +58,36 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="Instances" PackageId="LisaVoce" ComponentId="ProductInstanceDatabasePage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Accounts/Repository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="SqlDatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LoginModel" Type="Reference" ExportId="LoginModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Products/Repository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Log" PackageId="QtGuiPck" ComponentId="LogGui">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -85,6 +115,7 @@
                                 <Value>Features/VisualStatus</Value>
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Accounts/VisualStatus</Value>
+                                <Value>Instances/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                             </Values>
                         </Data>
@@ -95,6 +126,7 @@
                                 <Value>Features</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
+                                <Value>Instances</Value>
                                 <Value>Log</Value>
                             </Values>
                         </Data>
@@ -108,6 +140,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
+                                <Value>Installations</Value>
                                 <Value>Log</Value>
                             </Values>
                         </Data>
@@ -118,6 +151,7 @@
                                 <Value>Packages</Value>
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
+                                <Value>ProductInstances</Value>
                                 <Value>Log</Value>
                             </Values>
                         </Data>
@@ -206,6 +240,7 @@
     <ExportedComponents>
         <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
         <Component ExportedId="FeatureCommands" ComponentId="Features/Commands"/>
+        <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
         <Component ExportedId="Log" ComponentId="Log"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
         <Component ExportedId="ProductCommands" ComponentId="Products/Commands"/>
