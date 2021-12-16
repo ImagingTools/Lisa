@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="0" Number="4881" Description="ACF"/>
+            <Version Id="1" Number="2123" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="330758" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
@@ -27,9 +27,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="FeatureCollection"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SelectSqlQueryPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/ListFeatures"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="FeaturePackage"/>
