@@ -54,8 +54,17 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectIdColumn" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Id"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ProductFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TableName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Products"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -72,6 +81,9 @@
         <Element Id="ProductLicensingInfoMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfoMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductLicensingInfo"/>
                     </AttributeInfo>
@@ -98,9 +110,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="ProductLicensingInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SelectSqlQueryPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/ListProducts"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductLicensingInfo"/>
