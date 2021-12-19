@@ -69,6 +69,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MetaInfoCreator" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductInstanceMetaInfoCreator"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectIdColumn" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="InstanceId"/>
                     </AttributeInfo>
@@ -84,6 +87,12 @@
         <Element Id="ProductInstanceMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="ProductInstanceMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstanceInfo"/>
                     </AttributeInfo>

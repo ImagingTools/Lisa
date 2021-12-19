@@ -12,7 +12,7 @@
         <Element ComponentName="Persistence" X="900" Y="575" Note=""/>
         <Element ComponentName="ProductInstance" X="125" Y="275" Note=""/>
         <Element ComponentName="ProductInstanceDatabaseDelegate" X="550" Y="150" Note=""/>
-        <Element ComponentName="ProductInstanceMetaInfoCreator" X="275" Y="575" Note=""/>
+        <Element ComponentName="ProductInstanceMetaInfoCreator" X="1000" Y="275" Note=""/>
         <Element ComponentName="Repository" X="575" Y="400" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
