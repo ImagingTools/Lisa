@@ -3,8 +3,8 @@ project(LisaDb LANGUAGES CXX)
 message("ACFDIR LISA " ${ACFDIR})
 message("CMAKE_PROJECT_INCLUDE_BEFORE " ${CMAKE_PROJECT_INCLUDE_BEFORE})
 
-set(ARXC_CONFIG "${PROJECT_SOURCE_DIR}/../../../Config/${PROJECT_NAME}.awc")
-set(ARXC_FILES "${PROJECT_SOURCE_DIR}/../${PROJECT_NAME}.acc")
+set(ARXC_CONFIG "${PROJECT_SOURCE_DIR}/../../../Config/Lisa.awc")
+set(ARXC_FILES "${PROJECT_SOURCE_DIR}/../${PROJECT_NAME}Exe.acc")
 set(ARXC_OUTDIR "${AUX_INCLUDE_DIR}")
 
 message("ARXC_CONFIG " ${ARXC_CONFIG})
@@ -35,7 +35,7 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 target_link_libraries(${PROJECT_NAME} iauth)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtdesign imtqml imtgql imtdb imtlicdb imtcom)
-target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc AcfLoc)
+target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc AcfLoc IacfLoc)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_DEFAULT_MAJOR_VERSION}::QuickWidgets  Qt${QT_DEFAULT_MAJOR_VERSION}::WebSockets  Qt${QT_DEFAULT_MAJOR_VERSION}::Sql)
 
 if(WIN32)
