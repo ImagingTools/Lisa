@@ -25,9 +25,15 @@ Rectangle {
 //        thumbnailDecorator.updateModels();
 //    }
 
+    IconStyle {
+        id: IconStyle;
+    }
+
+
     Style {
         id: Style;
     }
+
 
     ThumbnailDecorator {
         id: thumbnailDecorator;

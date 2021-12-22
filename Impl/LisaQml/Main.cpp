@@ -40,6 +40,11 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(LisaQmlWeb);
 	Q_INIT_RESOURCE(imtresthtml);
 
+	Q_INIT_RESOURCE(Webimt3dgui);
+	Q_INIT_RESOURCE(Webimtauthgui);
+	Q_INIT_RESOURCE(Webimtgui);
+	Q_INIT_RESOURCE(Webimtlicgui);
+
 //	QQmlEngine::addImportPath("/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml");
 
 
