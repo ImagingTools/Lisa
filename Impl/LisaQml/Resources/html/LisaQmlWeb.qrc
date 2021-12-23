@@ -1,10 +1,10 @@
 <RCC>
     <qresource prefix="/html">
-        <file alias="index.html">html/index.html</file>
-        <file alias="Enums.js">html/Enums.js</file>
-	<file alias="Times New Roman.ttf">html/Times New Roman.ttf</file>
-        <file alias="GraphQLRequest.js">html/GraphQLRequest.js</file>
-        <file alias="modernizr-custom.js">html/modernizr-custom.js</file>
-        <file alias="qml.lisa.js">html/qml.lisa.js</file>
+        <file alias="index.html">lisa/index.html</file>
+        <file alias="Enums.js">lisa/Enums.js</file>
+	<file alias="Times New Roman.ttf">lisa/Times New Roman.ttf</file>
+        <file alias="GraphQLRequest.js">lisa/GraphQLRequest.js</file>
+        <file alias="modernizr-custom.js">lisa/modernizr-custom.js</file>
+        <file alias="qml.lisa.js">lisa/qml.lisa.js</file>
     </qresource>
 </RCC>

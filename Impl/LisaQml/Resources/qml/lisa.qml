@@ -14,6 +14,8 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.ThumbnailDecorator }
 
+//@using { src.Acf.Style }
+
 //@using { src.imtqml.GqlModel }
 //@using { src.imtqml.TreeItemModel }
 //@using { src.imtqml.JSONListModel }
@@ -31,9 +33,9 @@ Rectangle {
 //        thumbnailDecorator.updateModels();
 //    }
 
-    IconStyle {
-        id: IconStyle;
-    }
+//    IconStyle {
+//        id: IconStyle;
+//    }
 
 
     Style {

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="0" Number="4952" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -195,6 +195,27 @@
         <EmbeddedRegistry Id="DataControllers">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AccountsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Account"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Accounts"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Accounts"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Account_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Account_On_Selected.svg"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="CommandsDataController" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -221,6 +242,27 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="InstallationsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Deployment"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Installations"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Installations"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Deployment_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Deployment_On_Selected.svg"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -229,6 +271,8 @@
                                         <Values>
                                             <Value>PackagesPageDataProvider</Value>
                                             <Value>ProductsPageDataProvider</Value>
+                                            <Value>InstallationsPageDataProvider</Value>
+                                            <Value>AccountsPageDataProvider</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -272,7 +316,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="../../Icons/Workflow.svg"/>
+                                    <Data IsEnabled="true" Value="Workflow"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PageId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Packages"/>
@@ -338,7 +382,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="../../Icons/Product.svg"/>
+                                    <Data IsEnabled="true" Value="Product"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PageId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Products"/>

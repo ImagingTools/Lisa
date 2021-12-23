@@ -79,45 +79,48 @@ message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 #C:/Sybnavigation/ITDevelopment/ImtCore/Bin/DebugVC16_64/DesignTokenCreator.exe
 
 #target_sources(${PROJECT_NAME} PRIVATE ${CPP_ICONS_FILE})
-list(APPEND iconsdirs ${IMTCOREDIR}/Include/imt3dgui/Resources/Icons/Template)
-list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtgui/Resources/Icons/Template)
-list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtauthgui/Resources/Icons/Template)
-list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtlicgui/Resources/Icons/Template)
-set(DESIGN_TOKEN_CREATOR_EXE_BIN ${IMTCOREDIR}/Bin/DebugVC16_64/DesignTokenCreator.exe)
-message("DESIGN_TOKEN_CREATOR_EXE_BIN " ${DESIGN_TOKEN_CREATOR_EXE_BIN})
-set(ICON_STYLE_QML_CREATOR_COMMAND_PARAMS
-	--qml
-	-I
-	    ${iconsdirs}
-	-OF
-	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-	-P
-	    ${PROJECT_NAME}
-	--ignore-errors
-	)
+#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imt3dgui/Resources/Icons/Template)
+#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtgui/Resources/Icons/Template)
+#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtauthgui/Resources/Icons/Template)
+#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtlicgui/Resources/Icons/Template)
+#set(DESIGN_TOKEN_CREATOR_EXE_BIN ${IMTCOREDIR}/Bin/DebugVC16_64/DesignTokenCreator.exe)
+#message("DESIGN_TOKEN_CREATOR_EXE_BIN " ${DESIGN_TOKEN_CREATOR_EXE_BIN})
+#set(ICON_STYLE_QML_CREATOR_COMMAND_PARAMS
+#	--qml
+#	-I
+#	    ${iconsdirs}
+#	-OF
+#	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
+#	-P
+#	    ${PROJECT_NAME}
+#	--ignore-errors
+#	)
 
-add_custom_command(
-	OUTPUT
-	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-	COMMAND
-	    ${DESIGN_TOKEN_CREATOR_EXE_BIN}
-	ARGS
-	    ${ICON_STYLE_QML_CREATOR_COMMAND_PARAMS}
-#	DEPENDS
-#	    ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc
-	COMMENT
-	    "[DesignToken::${LOWER_PROJECT_NAME}] Creating QML ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml"
-	VERBATIM
-	)
+#add_custom_command(
+#	OUTPUT
+#	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
+#	COMMAND
+#	    ${DESIGN_TOKEN_CREATOR_EXE_BIN}
+#	ARGS
+#	    ${ICON_STYLE_QML_CREATOR_COMMAND_PARAMS}
+##	DEPENDS
+##	    ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc
+#	COMMENT
+#	    "[DesignToken::${LOWER_PROJECT_NAME}] Creating QML ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml"
+#	VERBATIM
+#	)
 
-add_custom_target(
-	    DesignQmlToken${PROJECT_NAME} ALL
-		DEPENDS ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-	)
+#add_custom_target(
+#	    DesignQmlToken${PROJECT_NAME} ALL
+#		DEPENDS ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
+#	)
 
 #copy compiler from to
 list(APPEND webdirs ${IMTCOREDIR}/3rdParty/WebCompiler)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web)
+
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/empty)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
 
 # copy base qml sources from to
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/Acf)
@@ -139,7 +142,7 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/dist)
 
 # copy result from to
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
-list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources/html)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 #list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/html)
 
 imtcore_compile_web("${webdirs}")

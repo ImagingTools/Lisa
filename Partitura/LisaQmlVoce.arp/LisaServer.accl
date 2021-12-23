@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4950" Description="ACF"/>
+            <Version Id="0" Number="4952" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -20,22 +20,24 @@
         <Element ComponentName="PgSqlDatabaseEngine" X="475" Y="525" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
+        <EmbededRegistry Id="DataControllers">
             <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+                <Element ComponentName="AccountsPageDataProvider" X="1025" Y="225" Note=""/>
+                <Element ComponentName="CommandsDataController" X="250" Y="350" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="250" Y="500" Note=""/>
+                <Element ComponentName="InstallationsPageDataProvider" X="700" Y="225" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="650" Y="125" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="600" Y="300" Note=""/>
+                <Element ComponentName="PackagesPageDataProvider" X="1025" Y="25" Note=""/>
+                <Element ComponentName="PagesDataController" X="225" Y="175" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="600" Y="400" Note=""/>
+                <Element ComponentName="ProductsPageDataProvider" X="1050" Y="125" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="DataControllers">
+        <EmbededRegistry Id="Enums">
             <PositionMap>
-                <Element ComponentName="CommandsDataController" X="250" Y="350" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="250" Y="500" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="700" Y="125" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="600" Y="300" Note=""/>
-                <Element ComponentName="PackagesPageDataProvider" X="975" Y="100" Note=""/>
-                <Element ComponentName="PagesDataController" X="225" Y="175" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="600" Y="400" Note=""/>
-                <Element ComponentName="ProductsPageDataProvider" X="975" Y="175" Note=""/>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
