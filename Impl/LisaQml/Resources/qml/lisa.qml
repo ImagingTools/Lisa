@@ -6,6 +6,14 @@ import Acf 1.0
 //import "../../../../../ImtCore/Include/imtqml/Resources/qml"
 //import "../qml"
 import imtgui 1.0
+
+
+//@using { src.Acf.Style }
+
+//@using { src.imtqml.GqlModel }
+//@using { src.imtqml.TreeItemModel }
+//@using { src.imtqml.JSONListModel }
+
 //@using { src.imtgui.AuxComponents.TopPanel }
 //@using { src.imtgui.AuxComponents.MenuPanel }
 //@using { src.imtgui.AuxComponents.TabPanel }
@@ -13,15 +21,6 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.TreeView }
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.ThumbnailDecorator }
-
-//@using { src.imtauthgui.ContactInfoEditor }
-//@using { src.imtauthgui.TextFieldCustom }
-
-//@using { src.Acf.Style }
-
-//@using { src.imtqml.GqlModel }
-//@using { src.imtqml.TreeItemModel }
-//@using { src.imtqml.JSONListModel }
 
 
 Rectangle {

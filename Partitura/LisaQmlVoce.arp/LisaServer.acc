@@ -285,8 +285,8 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>../../Icons/Add_On_Selected.svg</Value>
-                                            <Value>../../Icons/Camera_On_Selected.svg</Value>
+                                            <Value>Add</Value>
+                                            <Value>Camera</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -351,8 +351,8 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>../../Icons/CameraFlash_On_Selected.svg</Value>
-                                            <Value>../../Icons/Communication_On_Selected.svg</Value>
+                                            <Value>CameraFlash</Value>
+                                            <Value>Communication</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

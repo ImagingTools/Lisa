@@ -20,6 +20,12 @@
         <Element ComponentName="PgSqlDatabaseEngine" X="475" Y="525" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="DataControllers">
             <PositionMap>
                 <Element ComponentName="AccountsPageDataProvider" X="1025" Y="225" Note=""/>
@@ -32,12 +38,6 @@
                 <Element ComponentName="PagesDataController" X="225" Y="175" Note=""/>
                 <Element ComponentName="ProductsCommandDataProvider" X="600" Y="400" Note=""/>
                 <Element ComponentName="ProductsPageDataProvider" X="1050" Y="125" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
