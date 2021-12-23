@@ -103,8 +103,8 @@ add_custom_command(
 	    ${DESIGN_TOKEN_CREATOR_EXE_BIN}
 	ARGS
 	    ${ICON_STYLE_QML_CREATOR_COMMAND_PARAMS}
-	DEPENDS
-	    ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc
+#	DEPENDS
+#	    ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc
 	COMMENT
 	    "[DesignToken::${LOWER_PROJECT_NAME}] Creating QML ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml"
 	VERBATIM
@@ -121,11 +121,11 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web)
 
 # copy base qml sources from to
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/Acf)
-list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/Acf)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
-list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtgui)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/imtqml)
-list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtqml)
 # copy lisa qml from to
 list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/qml)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)

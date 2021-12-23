@@ -6,12 +6,18 @@ import Acf 1.0
 //import "../../../../../ImtCore/Include/imtqml/Resources/qml"
 //import "../qml"
 import imtgui 1.0
-//@using { src.AuxComponents.TopPanel }
-//@using { src.AuxComponents.MenuPanel }
-//@using { src.AuxComponents.TabPanel }
-//@using { src.AuxComponents.AuxTable }
-//@using { src.AuxComponents.TreeView }
-//@using { src.AuxComponents.TreeItemDelegate }
+//@using { src.imtgui.AuxComponents.TopPanel }
+//@using { src.imtgui.AuxComponents.MenuPanel }
+//@using { src.imtgui.AuxComponents.TabPanel }
+//@using { src.imtgui.AuxComponents.AuxTable }
+//@using { src.imtgui.AuxComponents.TreeView }
+//@using { src.imtgui.AuxComponents.TreeItemDelegate }
+//@using { src.imtgui.ThumbnailDecorator }
+
+//@using { src.imtqml.GqlModel }
+//@using { src.imtqml.TreeItemModel }
+//@using { src.imtqml.JSONListModel }
+
 
 Rectangle {
     id: window;
