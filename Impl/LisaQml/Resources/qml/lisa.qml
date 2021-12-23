@@ -14,6 +14,9 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.ThumbnailDecorator }
 
+//@using { src.imtauthgui.ContactInfoEditor }
+//@using { src.imtauthgui.TextFieldCustom }
+
 //@using { src.Acf.Style }
 
 //@using { src.imtqml.GqlModel }
@@ -36,7 +39,6 @@ Rectangle {
 //    IconStyle {
 //        id: IconStyle;
 //    }
-
 
     Style {
         id: Style;
