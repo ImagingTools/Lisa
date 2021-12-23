@@ -129,6 +129,8 @@ list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtgui)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/imtqml)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtqml)
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtauthgui/Qml/imtauthgui)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtauthgui)
 # copy lisa qml from to
 list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/qml)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
@@ -163,6 +165,7 @@ endif()
 
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtauthgui/Qml")
 list(APPEND QML_IMPORT_DIRS "qrc:/qml")
 list(APPEND QML_IMPORT_DIRS ":/qml")
 
