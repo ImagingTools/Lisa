@@ -22,16 +22,7 @@
         <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="EmailSender" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="EMailEngine"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Ms03Database" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="OMS10_omnius03_LOCAL"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MsDatabase" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="OMS10_API02_LOCAL"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PgDatabase" Type="Reference" ExportId="">
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -233,11 +224,75 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="FeaturePackageListDataController" PackageId="ImtGuiGqlPck" ComponentId="FeaturePackagelistDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackageList"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackageRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackageViewDelegate"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeaturePackageViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeaturePackageViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureCollectionPersistence">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackage"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Icons"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="GetStyleDataController" PackageId="ImtGuiGqlPck" ComponentId="GetStyleDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ModelId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="GetStyle"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Icons" PackageId="QtGuiPck" ComponentId="IconProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="IconFiles" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="IconsPath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value=":/Icons"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -285,8 +340,8 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Add</Value>
-                                            <Value>Camera</Value>
+                                            <Value>../../Icons/Add_On_Selected.svg</Value>
+                                            <Value>../../Icons/Camera_On_Selected.svg</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -351,8 +406,8 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>CameraFlash</Value>
-                                            <Value>Communication</Value>
+                                            <Value>../../Icons/CameraFlash_On_Selected.svg</Value>
+                                            <Value>../../Icons/Communication_On_Selected.svg</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
