@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 //	Q_INIT_RESOURCE(LisaHtml);
 	Q_INIT_RESOURCE(LisaQmlWeb);
 	Q_INIT_RESOURCE(imtresthtml);
+	Q_INIT_RESOURCE(imtlicgui);
 
 	Q_INIT_RESOURCE(Webimt3dgui);
 	Q_INIT_RESOURCE(Webimtauthgui);
