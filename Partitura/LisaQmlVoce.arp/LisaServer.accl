@@ -2,33 +2,51 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4952" Description="ACF"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
-        <Element ComponentName="CommandsDataCoontrollers" X="875" Y="425" Note=""/>
-        <Element ComponentName="DataControllers" X="525" Y="425" Note=""/>
-        <Element ComponentName="GraphQLServlet" X="425" Y="275" Note=""/>
-        <Element ComponentName="HttpFileBasedHandler" X="700" Y="200" Note=""/>
+        <Element ComponentName="CommandsDataControllers" X="925" Y="550" Note=""/>
+        <Element ComponentName="DataControllers" X="550" Y="550" Note=""/>
+        <Element ComponentName="GraphQLServlet" X="550" Y="400" Note=""/>
+        <Element ComponentName="HttpFileBasedHandler" X="700" Y="150" Note=""/>
         <Element ComponentName="HttpFileProviderBasedServlet" X="450" Y="50" Note=""/>
         <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="250" Y="150" Note=""/>
-        <Element ComponentName="IndexFilePath" X="975" Y="200" Note=""/>
-        <Element ComponentName="JsonModelBasedHandler" X="150" Y="275" Note=""/>
-        <Element ComponentName="PagesDataControllers" X="225" Y="425" Note=""/>
-        <Element ComponentName="PgSqlDatabaseEngine" X="600" Y="600" Note=""/>
+        <Element ComponentName="IndexFilePath" X="1050" Y="150" Note=""/>
+        <Element ComponentName="JsonModelBasedHandler" X="250" Y="275" Note=""/>
+        <Element ComponentName="PagesDataControllers" X="175" Y="550" Note=""/>
+        <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="750" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="600" Y="425" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesDataControllers">
+            <PositionMap>
+                <Element ComponentName="Accounts" X="900" Y="708.485281374" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="975" Y="100" Note=""/>
+                <Element ComponentName="Instances" X="700" Y="575" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="650" Y="250" Note=""/>
+                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
+                <Element ComponentName="PagesDataController" X="650" Y="100" Note=""/>
+                <Element ComponentName="Products" X="425" Y="475" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="CommandsDataCoontrollers">
             <PositionMap>
-                <Element ComponentName="AccountsCommandDataProvider" X="575" Y="350" Note=""/>
-                <Element ComponentName="CommandsDataController" X="300" Y="200" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="350" Y="425" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="725" Y="125" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="750" Y="225" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="650" Y="525" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="975" Y="650" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="300" Y="375" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -48,24 +66,6 @@
                 <Element ComponentName="ProductCollectionController" X="225" Y="250" Note=""/>
                 <Element ComponentName="ProductRepository" X="650" Y="200" Note=""/>
                 <Element ComponentName="ProductViewDelegate" X="775" Y="275" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PagesDataControllers">
-            <PositionMap>
-                <Element ComponentName="AccountsPageDataProvider" X="800" Y="250" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="225" Y="375" Note=""/>
-                <Element ComponentName="InstallationsPageDataProvider" X="450" Y="250" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
-                <Element ComponentName="PackagesPageDataProvider" X="975" Y="100" Note=""/>
-                <Element ComponentName="PagesDataController" X="200" Y="125" Note=""/>
-                <Element ComponentName="ProductsPageDataProvider" X="1000" Y="175" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

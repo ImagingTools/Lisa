@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4952" Description="ACF"/>
+            <Version Id="0" Number="4948" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -19,7 +19,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="CommandsDataCoontrollers" PackageId="" ComponentId="CommandsDataCoontrollers">
+        <Element Id="CommandsDataControllers" PackageId="" ComponentId="CommandsDataCoontrollers">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
@@ -42,8 +42,8 @@
                     <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>CommandsDataCoontrollers/CommandsDataController</Value>
-                                <Value>PagesDataControllers/PagesDataController</Value>
+                                <Value>CommandsDataControllers</Value>
+                                <Value>PagesDataControllers</Value>
                                 <Value>PagesDataControllers/GetStyleDataController</Value>
                                 <Value>DataControllers/FeaturePackageCollectionController</Value>
                                 <Value>DataControllers/ProductCollectionController</Value>
@@ -399,10 +399,12 @@
                     </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
-                <ExportedInterfaces/>
-                <ExportedComponents>
-                    <Component ExportedId="CommandsDataController" ComponentId="CommandsDataController"/>
-                </ExportedComponents>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imtbase::IItemBasedRepresentationDataProvider" ComponentId="CommandsDataController"/>
+                    <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="CommandsDataController"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandsDataController"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
         <EmbeddedRegistry Id="DataControllers">
@@ -610,17 +612,11 @@
                                 <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="MetaInfoView"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="LicensePersistence" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FileDialogLoader"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="ProductInstanceInfo"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Icons"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="VectorKey" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="AesInitVector"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -732,7 +728,7 @@
         <EmbeddedRegistry Id="PagesDataControllers">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="AccountsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                    <Element Id="Accounts" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
@@ -766,7 +762,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="InstallationsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                    <Element Id="Instances" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
@@ -793,17 +789,17 @@
                                 <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>PackagesPageDataProvider</Value>
-                                            <Value>ProductsPageDataProvider</Value>
-                                            <Value>InstallationsPageDataProvider</Value>
-                                            <Value>AccountsPageDataProvider</Value>
+                                            <Value>Packages</Value>
+                                            <Value>Products</Value>
+                                            <Value>Instances</Value>
+                                            <Value>Accounts</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="PackagesPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                    <Element Id="Packages" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
@@ -840,7 +836,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ProductsPageDataProvider" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                    <Element Id="Products" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
@@ -863,10 +859,13 @@
                     </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
-                <ExportedInterfaces/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imtbase::IItemBasedRepresentationDataProvider" ComponentId="PagesDataController"/>
+                    <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="PagesDataController"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="PagesDataController"/>
+                </ExportedInterfaces>
                 <ExportedComponents>
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
-                    <Component ExportedId="PagesDataController" ComponentId="PagesDataController"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
