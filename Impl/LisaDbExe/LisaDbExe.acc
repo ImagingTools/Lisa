@@ -73,6 +73,9 @@
                     <AttributeInfo Id="ShowPageTitles" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TitleFormat" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="$(AppName)"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="UiStartMode" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
                     </AttributeInfo>
