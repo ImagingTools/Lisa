@@ -49,6 +49,7 @@
                                 <Value>DataControllers/ProductCollectionController</Value>
                                 <Value>DataControllers/AccountCollectionController</Value>
                                 <Value>DataControllers/InstallationCollectionController</Value>
+                                <Value>DataControllers/PackageController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -475,6 +476,18 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="FeatureCollectionViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="EditDialog" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ModelDialogGui"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfo"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="FeaturePackageCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="FeaturePackageCollectionController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -626,6 +639,29 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="PackageController" PackageId="ImtLicenseGqlPck" ComponentId="PackageController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PackageInfo</Value>
+                                            <Value>FeatureList</Value>
+                                            <Value>FeatureAdd</Value>
+                                            <Value>FeatureUpdate</Value>
+                                            <Value>FeatureRemove</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackageRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureCollectionViewDelegate"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -701,6 +737,7 @@
                     <Component ExportedId="AccountCollectionController" ComponentId="AccountCollectionController"/>
                     <Component ExportedId="FeaturePackageCollectionController" ComponentId="FeaturePackageCollectionController"/>
                     <Component ExportedId="InstallationCollectionController" ComponentId="InstallationCollectionController"/>
+                    <Component ExportedId="PackageController" ComponentId="PackageController"/>
                     <Component ExportedId="ProductCollectionController" ComponentId="ProductCollectionController"/>
                 </ExportedComponents>
             </Data>
