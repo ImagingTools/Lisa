@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
+            <Version Id="0" Number="4955" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -50,6 +50,7 @@
                                 <Value>DataControllers/AccountCollectionController</Value>
                                 <Value>DataControllers/InstallationCollectionController</Value>
                                 <Value>DataControllers/PackageController</Value>
+                                <Value>DataControllers/AccountController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -437,6 +438,28 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="AccountController" PackageId="ImtLicenseGqlPck" ComponentId="AccountController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AccountItem</Value>
+                                            <Value>AccountAdd</Value>
+                                            <Value>AccountUpdate</Value>
+                                            <Value>AccountRemove</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountViewDelegate"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="AccountRepository" PackageId="LisaVoce" ComponentId="AccountSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -735,6 +758,7 @@
                 <ExportedInterfaces/>
                 <ExportedComponents>
                     <Component ExportedId="AccountCollectionController" ComponentId="AccountCollectionController"/>
+                    <Component ExportedId="AccountController" ComponentId="AccountController"/>
                     <Component ExportedId="FeaturePackageCollectionController" ComponentId="FeaturePackageCollectionController"/>
                     <Component ExportedId="InstallationCollectionController" ComponentId="InstallationCollectionController"/>
                     <Component ExportedId="PackageController" ComponentId="PackageController"/>
