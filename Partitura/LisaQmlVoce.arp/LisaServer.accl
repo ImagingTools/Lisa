@@ -35,11 +35,11 @@
         <EmbededRegistry Id="PagesDataControllers">
             <PositionMap>
                 <Element ComponentName="Accounts" X="900" Y="708.485281374" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="225" Y="375" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="125" Y="225" Note=""/>
                 <Element ComponentName="Instances" X="700" Y="575" Note=""/>
                 <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
                 <Element ComponentName="Packages" X="250" Y="375" Note=""/>
-                <Element ComponentName="PagesDataController" X="200" Y="125" Note=""/>
+                <Element ComponentName="PagesDataController" X="200" Y="100" Note=""/>
                 <Element ComponentName="Products" X="425" Y="475" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>

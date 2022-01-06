@@ -281,6 +281,7 @@
                                             <Value></Value>
                                             <Value></Value>
                                             <Value>License</Value>
+                                            <Value></Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -295,6 +296,7 @@
                                             <Value></Value>
                                             <Value></Value>
                                             <Value>CreateLicense</Value>
+                                            <Value></Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -309,6 +311,7 @@
                                             <Value></Value>
                                             <Value></Value>
                                             <Value>Create License File</Value>
+                                            <Value></Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -852,8 +855,8 @@
                                         <Values>
                                             <Value>Packages</Value>
                                             <Value>Products</Value>
-                                            <Value>Instances</Value>
                                             <Value>Accounts</Value>
+                                            <Value>Instances</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -864,7 +867,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="Workflow"/>
+                                    <Data IsEnabled="true" Value="FeaturePackage"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PageId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Packages"/>
