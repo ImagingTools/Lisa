@@ -30,6 +30,8 @@ import imtgui 1.0
 //@using { src.imtlicgui.ProductCollectionView }
 //@using { src.imtlicgui.InstallationCollectionView }
 //@using { src.imtlicgui.AccountCollectionView }
+//@using { src.imtlicgui.PackageView }
+
 
 Rectangle {
     id: window;
@@ -49,6 +51,10 @@ Rectangle {
 
     Style {
         id: Style;
+        Component.onCompleted: {
+            Style.mainFontSource = "../Fonts/Ubuntu-Light.ttf";
+            Style.boldFontSource = "../Fonts/Ubuntu-Bold.ttf";
+        }
     }
 
 

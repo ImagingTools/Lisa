@@ -14,7 +14,7 @@ var PageEnum = {
 }
 
 var CommandEnum = {
-    ID: "CommandId",
+    ID: "Id",
     ICON: "Icon",
     NAME: "Name",
     TITLE: "Title",
