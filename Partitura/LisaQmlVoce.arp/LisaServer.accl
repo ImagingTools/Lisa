@@ -24,11 +24,12 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="CommandsDataCoontrollers">
             <PositionMap>
-                <Element ComponentName="AccountsCommandDataProvider" X="650" Y="525" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="675" Y="425" Note=""/>
                 <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="975" Y="650" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="300" Y="375" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="900" Y="575" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="250" Y="250" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="125" Y="175" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="350" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
