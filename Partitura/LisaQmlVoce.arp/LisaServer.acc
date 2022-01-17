@@ -242,7 +242,7 @@
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="PackageEdit"/>
+                                    <Data IsEnabled="true" Value="AccountEdit"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -350,7 +350,7 @@
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="PackageEdit"/>
+                                    <Data IsEnabled="true" Value="InstallationEdit"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -560,7 +560,7 @@
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="PackageEdit"/>
+                                    <Data IsEnabled="true" Value="ProductEdit"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
