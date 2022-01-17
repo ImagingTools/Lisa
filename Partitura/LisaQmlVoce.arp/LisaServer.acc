@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4955" Description="ACF"/>
+            <Version Id="0" Number="4956" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -176,11 +176,8 @@
         <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCreateDatabase" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="0"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="AutoCreateTables" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="0"/>
+                    <AttributeInfo Id="DatabaseCreationScriptPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Database/CreateDatabase"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
@@ -197,6 +194,9 @@
                     <AttributeInfo Id="Port" Type="Integer" ExportId="PgPort">
                         <Data IsEnabled="true" Value="5432"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TablesCreationScriptPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Database/CreateTables"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -205,6 +205,48 @@
         <EmbeddedRegistry Id="CommandsDataCoontrollers">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AccountEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageEdit"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="AccountsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -253,8 +295,11 @@
                                             <Value>PackagesCommandDataProvider</Value>
                                             <Value>PackageEditCommandDataProvider</Value>
                                             <Value>ProductsCommandDataProvider</Value>
+                                            <Value>ProductEditCommandDataProvider</Value>
                                             <Value>AccountsCommandDataProvider</Value>
+                                            <Value>AccountEditCommandDataProvider</Value>
                                             <Value>InstallationsCommandDataProvider</Value>
+                                            <Value>InstallationEditCommandDataProvider</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -264,6 +309,48 @@
                                             <Value>CommandsData</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="InstallationEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Open</Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageEdit"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -414,6 +501,66 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Packages"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Delete</Value>
+                                            <Value>Duplicate</Value>
+                                            <Value>Import</Value>
+                                            <Value>Export</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value>Duplicate</Value>
+                                            <Value>Import</Value>
+                                            <Value>Export</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value>Duplicate</Value>
+                                            <Value>Import</Value>
+                                            <Value>Export</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageEdit"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
