@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4952" Description="ACF"/>
+            <Version Id="0" Number="4955" Description="ACF"/>
             <Version Id="1" Number="2151" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -22,6 +22,29 @@
         <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="750" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="CommandsDataCoontrollers">
+            <PositionMap>
+                <Element ComponentName="AccountsCommandDataProvider" X="675" Y="425" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="900" Y="575" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="250" Y="250" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="125" Y="175" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="350" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesDataControllers">
+            <PositionMap>
+                <Element ComponentName="Accounts" X="900" Y="708.485281374" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="125" Y="225" Note=""/>
+                <Element ComponentName="Instances" X="700" Y="575" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
+                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
+                <Element ComponentName="PagesDataController" X="200" Y="100" Note=""/>
+                <Element ComponentName="Products" X="425" Y="475" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="DataControllers">
             <PositionMap>
                 <Element ComponentName="AccountCollectionController" X="225" Y="375" Note=""/>
@@ -47,32 +70,6 @@
         <EmbededRegistry Id="Enums">
             <PositionMap>
                 <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PagesDataControllers">
-            <PositionMap>
-                <Element ComponentName="Accounts" X="900" Y="708.485281374" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="125" Y="225" Note=""/>
-                <Element ComponentName="Instances" X="700" Y="575" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
-                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
-                <Element ComponentName="PagesDataController" X="200" Y="100" Note=""/>
-                <Element ComponentName="Products" X="425" Y="475" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
-            <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="575" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="600" Y="500" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="900" Y="675" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="225" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="150" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="400" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="325" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
