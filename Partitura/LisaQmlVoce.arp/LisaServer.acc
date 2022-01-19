@@ -727,8 +727,6 @@
                                         <Values>
                                             <Value>FeaturePackageInfo</Value>
                                             <Value>FeaturePackageList</Value>
-                                            <Value>FeaturePackageAdd</Value>
-                                            <Value>FeaturePackageUpdate</Value>
                                             <Value>FeaturePackageRemove</Value>
                                         </Values>
                                     </Data>
@@ -874,10 +872,9 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>PackageInfo</Value>
+                                            <Value>PackageUpdate</Value>
                                             <Value>FeatureList</Value>
-                                            <Value>FeatureAdd</Value>
-                                            <Value>FeatureUpdate</Value>
-                                            <Value>FeatureRemove</Value>
+                                            <Value>PackageAdd</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

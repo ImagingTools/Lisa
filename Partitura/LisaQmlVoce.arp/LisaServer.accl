@@ -22,25 +22,17 @@
         <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="750" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="DataControllers">
+        <EmbededRegistry Id="CommandsDataCoontrollers">
             <PositionMap>
-                <Element ComponentName="AccountCollectionController" X="225" Y="375" Note=""/>
-                <Element ComponentName="AccountController" X="200" Y="450" Note=""/>
-                <Element ComponentName="AccountRepository" X="625" Y="350" Note=""/>
-                <Element ComponentName="AccountViewDelegate" X="725" Y="475" Note=""/>
-                <Element ComponentName="FeatureCollectionViewDelegate" X="500" Y="175" Note=""/>
-                <Element ComponentName="FeaturePackageCollectionController" X="200" Y="75" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="550" Y="50" Note=""/>
-                <Element ComponentName="FeaturePackageViewDelegate" X="700" Y="125" Note=""/>
-                <Element ComponentName="Icons" X="1100" Y="200" Note=""/>
-                <Element ComponentName="InstallationCollectionController" X="200" Y="575" Note=""/>
-                <Element ComponentName="InstallationRepository" X="650" Y="550" Note=""/>
-                <Element ComponentName="InstallationViewDelegate" X="725" Y="675" Note=""/>
-                <Element ComponentName="MetaInfoView" X="950" Y="375" Note=""/>
-                <Element ComponentName="PackageController" X="175" Y="150" Note=""/>
-                <Element ComponentName="ProductCollectionController" X="225" Y="250" Note=""/>
-                <Element ComponentName="ProductRepository" X="800" Y="200" Note=""/>
-                <Element ComponentName="ProductViewDelegate" X="775" Y="275" Note=""/>
+                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
+                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -62,17 +54,25 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
+        <EmbededRegistry Id="DataControllers">
             <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
+                <Element ComponentName="AccountCollectionController" X="150" Y="450" Note=""/>
+                <Element ComponentName="AccountController" X="125" Y="525" Note=""/>
+                <Element ComponentName="AccountRepository" X="700" Y="450" Note=""/>
+                <Element ComponentName="AccountViewDelegate" X="600" Y="550" Note=""/>
+                <Element ComponentName="FeatureCollectionViewDelegate" X="700" Y="200" Note=""/>
+                <Element ComponentName="FeaturePackageCollectionController" X="200" Y="75" Note=""/>
+                <Element ComponentName="FeaturePackageRepository" X="950" Y="50" Note=""/>
+                <Element ComponentName="FeaturePackageViewDelegate" X="725" Y="125" Note=""/>
+                <Element ComponentName="Icons" X="1100" Y="200" Note=""/>
+                <Element ComponentName="InstallationCollectionController" X="175" Y="775" Note=""/>
+                <Element ComponentName="InstallationRepository" X="125" Y="675" Note=""/>
+                <Element ComponentName="InstallationViewDelegate" X="750" Y="775" Note=""/>
+                <Element ComponentName="MetaInfoView" X="1000" Y="325" Note=""/>
+                <Element ComponentName="PackageController" X="150" Y="150" Note=""/>
+                <Element ComponentName="ProductCollectionController" X="150" Y="275" Note=""/>
+                <Element ComponentName="ProductRepository" X="700" Y="275" Note=""/>
+                <Element ComponentName="ProductViewDelegate" X="600" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
