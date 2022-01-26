@@ -11,6 +11,7 @@ var PageEnum = {
     NAME: "Name",
     TITLE: "Title",
     URL: "Url",
+    SOURCE: "Source",
 }
 
 var CommandEnum = {

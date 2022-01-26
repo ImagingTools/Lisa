@@ -25,11 +25,11 @@ import imtgui 1.0
 //@using { src.imtlicgui.PackagesMultiDocView }
 //@using { src.imtlicgui.PackageCollectionView }
 //@using { src.imtlicgui.ProductsMultiDocView }
-//@using { src.imtlicgui.AccountsMultiDocView }
+//@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }
 //@using { src.imtlicgui.ProductCollectionView }
 //@using { src.imtlicgui.InstallationCollectionView }
-//@using { src.imtlicgui.AccountCollectionView }
+//@using { src.imtauthgui.AccountCollectionView }
 //@using { src.imtlicgui.PackageView }
 
 

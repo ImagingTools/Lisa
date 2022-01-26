@@ -51,6 +51,7 @@
                                 <Value>DataControllers/InstallationCollectionController</Value>
                                 <Value>DataControllers/PackageController</Value>
                                 <Value>DataControllers/AccountController</Value>
+                                <Value>DataControllers/ProductController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -860,6 +861,11 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="LicenseManagerViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="LicenseManagerViewDelegate">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="MetaInfoView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionMetaInfoView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
@@ -875,6 +881,8 @@
                                             <Value>PackageUpdate</Value>
                                             <Value>FeatureList</Value>
                                             <Value>PackageAdd</Value>
+                                            <Value>FeaturesTree</Value>
+                                            <Value>FeaturesDependencies</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -896,10 +904,8 @@
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ProductInfo</Value>
+                                            <Value>ProductCollectionInfo</Value>
                                             <Value>ProductList</Value>
-                                            <Value>ProductAdd</Value>
-                                            <Value>ProductUpdate</Value>
                                             <Value>ProductRemove</Value>
                                         </Values>
                                     </Data>
@@ -909,6 +915,30 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductViewDelegate"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductController" PackageId="ImtLicenseGqlPck" ComponentId="ProductController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>LicenseList</Value>
+                                            <Value>ProductAdd</Value>
+                                            <Value>ProductInfo</Value>
+                                            <Value>ProductUpdate</Value>
+                                            <Value>LicensesTree</Value>
+                                            <Value>LicensesDependencies</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="LicenseManagerViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -965,6 +995,7 @@
                     <Component ExportedId="InstallationCollectionController" ComponentId="InstallationCollectionController"/>
                     <Component ExportedId="PackageController" ComponentId="PackageController"/>
                     <Component ExportedId="ProductCollectionController" ComponentId="ProductCollectionController"/>
+                    <Component ExportedId="ProductController" ComponentId="ProductController"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
@@ -1009,6 +1040,9 @@
                                 <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
                                     <Data IsEnabled="true" Value="../../Icons/Account_On_Selected.svg"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtauthgui/AccountsMultiDocView.qml"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1042,6 +1076,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
                                     <Data IsEnabled="true" Value="../../Icons/Deployment_On_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtlicgui/InstallationsMultiDocView.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1080,6 +1117,9 @@
                                 <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
                                     <Data IsEnabled="true" Value="../../Icons/Workflow_On_Selected.svg"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtlicgui/PackagesMultiDocView.qml"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1116,6 +1156,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
                                     <Data IsEnabled="true" Value="../../Icons/Product_On_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtlicgui/ProductsMultiDocView.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
