@@ -20,6 +20,7 @@ var CommandEnum = {
     NAME: "Name",
     TITLE: "Title",
     URL: "Url",
+    MODE: "Mode",
 }
 
 var MeterEnum = {
