@@ -24,19 +24,11 @@
 
 int main(int argc, char *argv[])
 {
-//	Q_INIT_RESOURCE(imtstyle);
-//    Q_INIT_RESOURCE(imtguilight_qml);
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(imtstyle);
 	Q_INIT_RESOURCE(imtgui);
-	Q_INIT_RESOURCE(AcfLoc);
-//	Q_INIT_RESOURCE(IacfLoc);
-	Q_INIT_RESOURCE(AcfSlnLoc);
-	Q_INIT_RESOURCE(ImtCoreLoc);
-	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(LisaQml);
-//	Q_INIT_RESOURCE(LisaHtml);
 	Q_INIT_RESOURCE(LisaQmlWeb);
 	Q_INIT_RESOURCE(imtresthtml);
 	Q_INIT_RESOURCE(imtlicgui);
@@ -45,9 +37,6 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Webimtauthgui);
 	Q_INIT_RESOURCE(Webimtgui);
 	Q_INIT_RESOURCE(Webimtlicgui);
-
-//	QQmlEngine::addImportPath("/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml");
-
 
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
@@ -81,14 +70,6 @@ int main(int argc, char *argv[])
 		}
 		mainModel->SetExternTreeModel("", secondModel,i);
 
-	}
-
-	QByteArray representationData;
-
-	{
-		iser::CJsonStringWriteArchive archive(representationData);
-
-		bool retVal = mainModel->Serialize(archive);
 	}
 
 	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
