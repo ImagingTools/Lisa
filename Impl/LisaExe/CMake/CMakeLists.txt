@@ -22,7 +22,7 @@ if(APPLE)
 	set(CMAKE_MACOSX_BUNDLE "on")
 endif()
 
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} COMPONENTS WebSockets QuickWidgets Sql)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS WebSockets QuickWidgets Sql)
 
 
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
@@ -37,7 +37,7 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 target_link_libraries(${PROJECT_NAME} iauth)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtdesign imtqml imtgql imtdb imtlicdb imtcom)
 target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc AcfLoc)
-target_link_libraries(${PROJECT_NAME}  Qt${QT_DEFAULT_MAJOR_VERSION}::QuickWidgets  Qt${QT_DEFAULT_MAJOR_VERSION}::WebSockets  Qt${QT_DEFAULT_MAJOR_VERSION}::Sql)
+target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets  Qt${QT_VERSION_MAJOR}::Sql)
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
