@@ -31,8 +31,8 @@ if(APPLE)
 	set(CMAKE_MACOSX_BUNDLE "on")
 endif()
 
-find_package(Qt${QT_DEFAULT_MAJOR_VERSION} COMPONENTS WebSockets QuickWidgets)
-find_package("Qt${QT_DEFAULT_MAJOR_VERSION}" COMPONENTS Quick Qml REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS WebSockets QuickWidgets)
+find_package("Qt${QT_VERSION_MAJOR}" COMPONENTS Quick Qml REQUIRED)
 
 include(${IMTCOREDIR}/Config/CMake/WebCompiler.cmake)
 
@@ -154,8 +154,8 @@ imtcore_compile_web("${webdirs}")
 target_link_libraries(${PROJECT_NAME} iauth)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml imtdb)
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtgql)
-target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc IAcfLoc AcfLoc)
-target_link_libraries(${PROJECT_NAME}  Qt${QT_DEFAULT_MAJOR_VERSION}::QuickWidgets  Qt${QT_DEFAULT_MAJOR_VERSION}::WebSockets)
+#target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc IAcfLoc AcfLoc)
+target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
