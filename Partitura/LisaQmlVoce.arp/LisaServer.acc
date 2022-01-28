@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4956" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4957" Description="ACF"/>
+            <Version Id="1" Number="2152" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -648,6 +648,9 @@
                     <Element Id="AccountController" PackageId="ImtLicenseGqlPck" ComponentId="AccountController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="AccountFactory" Type="Factory" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountInfo"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -664,6 +667,11 @@
                                     <Data IsEnabled="true" Value="AccountViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="AccountInfo" PackageId="ImtAuthPck" ComponentId="AccountInfo">
+                        <Data IsEnabled="true" Flags="2">
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="AccountRepository" PackageId="LisaVoce" ComponentId="AccountSqlRepository">
@@ -937,8 +945,20 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="ProductFactory" Type="Factory" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="LicenseManagerViewDelegate"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductLicensingInfo" PackageId="ImtLicensePck" ComponentId="ProductLicensingInfo">
+                        <Data IsEnabled="true" Flags="2">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="FeaturePackages">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
