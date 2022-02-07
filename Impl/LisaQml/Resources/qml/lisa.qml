@@ -20,6 +20,7 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.TreeView }
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.AuxComponents.Preference }
+//@using { src.imtgui.AuxComponents.PopupMenuDialog }
 //@using { src.imtgui.ThumbnailDecorator }
 
 //@using { src.imtlicgui.PackagesView }

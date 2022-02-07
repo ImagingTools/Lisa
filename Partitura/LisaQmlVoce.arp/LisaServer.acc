@@ -27,6 +27,9 @@
         <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AccountInfoPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FilePersistence"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
                     </AttributeInfo>
