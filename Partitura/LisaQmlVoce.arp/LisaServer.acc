@@ -743,6 +743,7 @@
                                             <Value>FeaturePackageRemove</Value>
                                             <Value>FeaturePackageSetDescription</Value>
                                             <Value>FeaturePackageRename</Value>
+                                            <Value>FeaturePackageMetaInfo</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
