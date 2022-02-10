@@ -23,16 +23,22 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.PopupMenuDialog }
 //@using { src.imtgui.ThumbnailDecorator }
 
-//@using { src.imtlicgui.PackagesView }
-//@using { src.imtlicgui.PackagesMultiDocView }
 //@using { src.imtlicgui.PackageCollectionView }
+//@using { src.imtauthgui.AccountCollectionView }
+//@using { src.imtlicgui.ProductCollectionView }
+//@using { src.imtlicgui.InstallationCollectionView }
+
+//@using { src.imtlicgui.PackagesMultiDocView }
 //@using { src.imtlicgui.ProductsMultiDocView }
 //@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }
-//@using { src.imtlicgui.ProductCollectionView }
-//@using { src.imtlicgui.InstallationCollectionView }
-//@using { src.imtauthgui.AccountCollectionView }
+
 //@using { src.imtlicgui.PackageView }
+//@using { src.imtlicgui.ProductView }
+//@using { src.imtlicgui.InstallationInfoEditor }
+//@using { src.imtauthgui.ContactInfoEditor }
+
+
 
 
 Rectangle {
