@@ -2,18 +2,21 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4950" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4957" Description="ACF"/>
+            <Version Id="1" Number="2152" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationInfo" X="850" Y="225" Note=""/>
+        <Element ComponentName="LisaLogFilePath" X="125" Y="375" Note=""/>
         <Element ComponentName="LisaServer" X="325" Y="100" Note=""/>
         <Element ComponentName="MainWindow" X="450" Y="350" Note=""/>
         <Element ComponentName="ObserverQml" X="650" Y="350" Note=""/>
         <Element ComponentName="QuickApplication" X="625" Y="225" Note=""/>
         <Element ComponentName="SplashScreen" X="900" Y="325" Note=""/>
+        <Element ComponentName="SystemLocation" X="125" Y="475" Note=""/>
+        <Element ComponentName="TextFileLog" X="125" Y="275" Note=""/>
         <Element ComponentName="VersionInfo" X="1075" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
