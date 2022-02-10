@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4961" Description="ACF"/>
-            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4957" Description="ACF"/>
+            <Version Id="1" Number="2152" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -34,6 +34,11 @@
                         <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="GraphQLServlet" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
@@ -181,6 +186,9 @@
         <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseAccessSettings"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseCreationScriptPath" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value=":/Database/CreateDatabase"/>
                     </AttributeInfo>
@@ -193,8 +201,11 @@
                     <AttributeInfo Id="HostName" Type="Id" ExportId="PgHostName">
                         <Data IsEnabled="true" Value="127.0.0.1"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Pasword" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="roma1111"/>
+                        <Data IsEnabled="true" Value="12345"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Port" Type="Integer" ExportId="PgPort">
                         <Data IsEnabled="true" Value="5432"/>

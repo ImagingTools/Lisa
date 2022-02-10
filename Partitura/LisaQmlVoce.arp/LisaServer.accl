@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4961" Description="ACF"/>
-            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4957" Description="ACF"/>
+            <Version Id="1" Number="2152" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -11,6 +11,7 @@
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
         <Element ComponentName="CommandsDataControllers" X="925" Y="550" Note=""/>
         <Element ComponentName="DataControllers" X="550" Y="550" Note=""/>
+        <Element ComponentName="DatabaseAccessSettings" X="275" Y="675" Note=""/>
         <Element ComponentName="GraphQLServlet" X="550" Y="400" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="700" Y="150" Note=""/>
         <Element ComponentName="HttpFileProviderBasedServlet" X="450" Y="50" Note=""/>
@@ -22,6 +23,26 @@
         <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="750" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="CommandsDataCoontrollers">
+            <PositionMap>
+                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
+                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="PagesDataControllers">
             <PositionMap>
                 <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
@@ -60,26 +81,6 @@
                 <Element ComponentName="ProductLicensingInfo" X="400" Y="425" Note=""/>
                 <Element ComponentName="ProductRepository" X="525" Y="275" Note=""/>
                 <Element ComponentName="ProductViewDelegate" X="875" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
-            <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
