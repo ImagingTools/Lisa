@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4957" Description="ACF"/>
-            <Version Id="1" Number="2152" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4961" Description="ACF"/>
+            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -38,7 +38,14 @@
         </Element>
         <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Pasword" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="roma1111"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="GraphQLServlet" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
@@ -648,6 +655,7 @@
                                             <Value>AccountInfo</Value>
                                             <Value>AccountList</Value>
                                             <Value>AccountRemove</Value>
+                                            <Value>AccountMetaInfo</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -828,6 +836,7 @@
                                             <Value>InstallationInfo</Value>
                                             <Value>InstallationList</Value>
                                             <Value>InstallationRemove</Value>
+                                            <Value>InstallationMetaInfo</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -957,6 +966,7 @@
                                             <Value>ProductCollectionInfo</Value>
                                             <Value>ProductList</Value>
                                             <Value>ProductRemove</Value>
+                                            <Value>ProductMetaInfo</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
