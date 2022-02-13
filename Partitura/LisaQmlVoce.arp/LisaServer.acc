@@ -863,6 +863,7 @@
                                         <Values>
                                             <Value>InstallationAdd</Value>
                                             <Value>InstallationUpdate</Value>
+                                            <Value>InstallationItem</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
