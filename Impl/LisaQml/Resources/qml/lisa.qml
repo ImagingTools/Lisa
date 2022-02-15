@@ -22,6 +22,7 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.Preference }
 //@using { src.imtgui.AuxComponents.PopupMenuDialog }
 //@using { src.imtgui.ThumbnailDecorator }
+//@using { src.imtgui.MouseTest }
 
 //@using { src.imtlicgui.PackageCollectionView }
 //@using { src.imtauthgui.AccountCollectionView }
@@ -65,22 +66,25 @@ Rectangle {
         }
     }
 
-
-    ThumbnailDecorator {
-        id: thumbnailDecorator;
-        anchors.fill: parent;
-
-//        pagesModel: pagesModel.model
-        Component.onCompleted: {
-            console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
-            thumbnailDecorator.updateModels();
-        }
-
-        onWidthChanged: {
-            console.log("width", thumbnailDecorator.width);
-        }
-
+    MouseTest {
+        id: mouseTest;
     }
+
+//    ThumbnailDecorator {
+//        id: thumbnailDecorator;
+//        anchors.fill: parent;
+
+////        pagesModel: pagesModel.model
+//        Component.onCompleted: {
+//            console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
+//            thumbnailDecorator.updateModels();
+//        }
+
+//        onWidthChanged: {
+//            console.log("width", thumbnailDecorator.width);
+//        }
+
+//    }
 
 }
 
