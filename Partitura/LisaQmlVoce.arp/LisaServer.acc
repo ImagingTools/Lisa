@@ -217,6 +217,9 @@
                     <AttributeInfo Id="Port" Type="Integer" ExportId="PgPort">
                         <Data IsEnabled="true" Value="5432"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Suffix" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TablesCreationScriptPath" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value=":/Database/CreateTables"/>
                     </AttributeInfo>
@@ -880,7 +883,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="CustomerCollection">
-                                    <Data IsEnabled="false"/>
+                                    <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
@@ -892,7 +895,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
-                                    <Data IsEnabled="false"/>
+                                    <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                                     <Data IsEnabled="false"/>
