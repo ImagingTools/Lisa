@@ -17,6 +17,7 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.MenuPanel }
 //@using { src.imtgui.AuxComponents.TabPanel }
 //@using { src.imtgui.AuxComponents.AuxTable }
+//@using { src.imtgui.AuxComponents.AuxButton }
 //@using { src.imtgui.AuxComponents.TreeView }
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.AuxComponents.Preference }
@@ -34,12 +35,15 @@ import imtgui 1.0
 //@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }
 
+//@using { src.imtlicgui.EditFeatureDialog }
+//@using { src.imtlicgui.EditLicenseDialog }
+
 //@using { src.imtlicgui.PackageView }
 //@using { src.imtlicgui.ProductView }
 //@using { src.imtlicgui.InstallationInfoEditor }
 //@using { src.imtauthgui.ContactInfoEditor }
 
-
+//@using { src.imtauthgui.TextFieldCustom }
 
 
 Rectangle {
@@ -60,31 +64,32 @@ Rectangle {
 
     Style {
         id: Style;
+
         Component.onCompleted: {
             Style.mainFontSource = "../Fonts/Ubuntu-Light.ttf";
             Style.boldFontSource = "../Fonts/Ubuntu-Bold.ttf";
         }
     }
 
-    MouseTest {
-        id: mouseTest;
-    }
-
-//    ThumbnailDecorator {
-//        id: thumbnailDecorator;
-//        anchors.fill: parent;
-
-////        pagesModel: pagesModel.model
-//        Component.onCompleted: {
-//            console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
-//            thumbnailDecorator.updateModels();
-//        }
-
-//        onWidthChanged: {
-//            console.log("width", thumbnailDecorator.width);
-//        }
-
+//    MouseTest {
+//        id: mouseTest;
 //    }
+
+    ThumbnailDecorator {
+        id: thumbnailDecorator;
+        anchors.fill: parent;
+
+//        pagesModel: pagesModel.model
+        Component.onCompleted: {
+            console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
+            thumbnailDecorator.updateModels();
+        }
+
+        onWidthChanged: {
+            console.log("width", thumbnailDecorator.width);
+        }
+
+    }
 
 }
 
