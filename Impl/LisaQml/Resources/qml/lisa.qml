@@ -37,6 +37,8 @@ import imtgui 1.0
 
 //@using { src.imtlicgui.EditFeatureDialog }
 //@using { src.imtlicgui.EditLicenseDialog }
+//@using { src.imtgui.AuxComponents.MessageDialog }
+//@using { src.imtgui.AuxComponents.InputDialog }
 
 //@using { src.imtlicgui.PackageView }
 //@using { src.imtlicgui.ProductView }
