@@ -35,8 +35,8 @@ CREATE TABLE FeatureDependencies(
   DependencyId VARCHAR (1000) NOT NULL,
   DependencyPackageId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (FeatureId, FeaturePackageId, DependencyId, DependencyPackageId),
-  FOREIGN KEY (FeatureId, FeaturePackageId) REFERENCES Features(Id, PackageId),
-  FOREIGN KEY (DependencyId, DependencyPackageId) REFERENCES Features(Id, PackageId)
+  FOREIGN KEY (FeatureId, FeaturePackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (DependencyId, DependencyPackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
@@ -47,6 +47,8 @@ CREATE TABLE Products(
   Id VARCHAR (1000) NOT NULL,
   Name VARCHAR (1000) NOT NULL,
   Description VARCHAR (1000),
+  Added TIMESTAMP,
+  LastModified TIMESTAMP,
   PRIMARY KEY (Id)
 );
 
@@ -65,15 +67,17 @@ CREATE TABLE ProductLicenses(
 
 
 /**
-	A product license is defined as a set of features
+    A product license is defined as a set of features
 */
 CREATE TABLE ProductLicenseFeatures(
+  ProductId VARCHAR (1000) NOT NULL,
   LicenseId VARCHAR (1000) NOT NULL,
+  PackageId VARCHAR (1000) NOT NULL,
   FeatureId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (LicenseId, FeatureId),
-  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (ProductId, LicenseId, PackageId, FeatureId),
+  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
 
 CREATE TYPE AccountType AS ENUM ('private', 'company');
 

@@ -226,6 +226,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="SettingsControllers" PackageId="" ComponentId="SettingsControllers">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
     </ElementsList>
     <EmbeddedRegistriesList>
         <EmbeddedRegistry Id="CommandsDataCoontrollers">
@@ -659,6 +664,8 @@
                                             <Value>AccountList</Value>
                                             <Value>AccountRemove</Value>
                                             <Value>AccountMetaInfo</Value>
+                                            <Value>AccountRename</Value>
+                                            <Value>AccountSetDescription</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -840,6 +847,8 @@
                                             <Value>InstallationList</Value>
                                             <Value>InstallationRemove</Value>
                                             <Value>InstallationMetaInfo</Value>
+                                            <Value>InstallationRename</Value>
+                                            <Value>InstallationSetDescription</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -971,6 +980,8 @@
                                             <Value>ProductList</Value>
                                             <Value>ProductRemove</Value>
                                             <Value>ProductMetaInfo</Value>
+                                            <Value>ProductRename</Value>
+                                            <Value>ProductSetDescription</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -1277,6 +1288,169 @@
                 <ExportedComponents>
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                 </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="SettingsControllers">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="DBSettings" PackageId="BasePck" ComponentId="ComposedParamsSet">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DatabaseAccessSettings</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="lisa"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Pasword" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="roma1111"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Design" PackageId="BasePck" ComponentId="SelectionParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DesignSchema"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="0"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="DesignSchema" PackageId="BasePck" ComponentId="SelectionConstraints">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>en_US</Value>
+                                            <Value>de_DE</Value>
+                                            <Value>ru_RU</Value>
+                                            <Value>pl_PL</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="General" PackageId="BasePck" ComponentId="ComposedParamsSet">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Design</Value>
+                                            <Value>Language</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DesignSchema</Value>
+                                            <Value>Language</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Default"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="IdParam" PackageId="BasePck" ComponentId="IdParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="Language" PackageId="BasePck" ComponentId="SelectionParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Languages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="0"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Languages" PackageId="BasePck" ComponentId="SelectionConstraints">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>en_US</Value>
+                                            <Value>de_DE</Value>
+                                            <Value>ru_RU</Value>
+                                            <Value>pl_PL</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ParamsManager" PackageId="BasePck" ComponentId="ParamsManager">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="Preferences" PackageId="BasePck" ComponentId="ComposedParamsSet">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>General</Value>
+                                            <Value>DBSettings</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>General</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Default"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SettingsController" PackageId="ImtGuiGqlPck" ComponentId="SettingsController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="SettingsParamsSet" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Preferences"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="TextParam" PackageId="BasePck" ComponentId="TextParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
