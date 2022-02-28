@@ -21,7 +21,12 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.TreeView }
 //@using { src.imtgui.AuxComponents.TreeItemDelegate }
 //@using { src.imtgui.AuxComponents.Preference }
+//@using { src.imtgui.AuxComponents.PreferenceDialog }
 //@using { src.imtgui.AuxComponents.PopupMenuDialog }
+//@using { src.imtgui.AuxComponents.SettingsTextInput }
+//@using { src.imtgui.AuxComponents.SettingsIntegerInput }
+//@using { src.imtgui.AuxComponents.SettingsComboBox }
+//@using { src.imtgui.AuxComponents.DatabaseInput }
 //@using { src.imtgui.ThumbnailDecorator }
 //@using { src.imtgui.MouseTest }
 

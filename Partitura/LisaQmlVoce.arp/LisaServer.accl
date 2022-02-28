@@ -9,9 +9,9 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
-        <Element ComponentName="CommandsDataControllers" X="875" Y="550" Note=""/>
-        <Element ComponentName="DataControllers" X="550" Y="550" Note=""/>
-        <Element ComponentName="DatabaseAccessSettings" X="275" Y="675" Note=""/>
+        <Element ComponentName="CommandsDataControllers" X="725" Y="550" Note=""/>
+        <Element ComponentName="DataControllers" X="425" Y="550" Note=""/>
+        <Element ComponentName="DatabaseAccessSettings" X="200" Y="675" Note=""/>
         <Element ComponentName="GraphQLServlet" X="550" Y="400" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="700" Y="150" Note=""/>
         <Element ComponentName="HttpFileProviderBasedServlet" X="450" Y="50" Note=""/>
@@ -19,17 +19,11 @@
         <Element ComponentName="HttpServerFramework" X="250" Y="150" Note=""/>
         <Element ComponentName="IndexFilePath" X="1050" Y="150" Note=""/>
         <Element ComponentName="JsonModelBasedHandler" X="250" Y="275" Note=""/>
-        <Element ComponentName="PagesDataControllers" X="175" Y="550" Note=""/>
-        <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="750" Note=""/>
-        <Element ComponentName="SettingsControllers" X="850" Y="650" Note=""/>
+        <Element ComponentName="PagesDataControllers" X="150" Y="550" Note=""/>
+        <Element ComponentName="PgSqlDatabaseEngine" X="550" Y="675" Note=""/>
+        <Element ComponentName="SettingsControllers" X="1050" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="CommandsDataCoontrollers">
             <PositionMap>
                 <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
@@ -51,7 +45,7 @@
                 <Element ComponentName="AccountInfo" X="475" Y="600" Note=""/>
                 <Element ComponentName="AccountRepository" X="725" Y="475" Note=""/>
                 <Element ComponentName="AccountViewDelegate" X="800" Y="550" Note=""/>
-                <Element ComponentName="FeatureCollectionViewDelegate" X="600" Y="200" Note=""/>
+                <Element ComponentName="FeatureCollectionViewDelegate" X="700" Y="200" Note=""/>
                 <Element ComponentName="FeaturePackageCollectionController" X="200" Y="75" Note=""/>
                 <Element ComponentName="FeaturePackageRepository" X="725" Y="50" Note=""/>
                 <Element ComponentName="FeaturePackageViewDelegate" X="775" Y="125" Note=""/>
@@ -88,9 +82,9 @@
         <EmbededRegistry Id="SettingsControllers">
             <PositionMap>
                 <Element ComponentName="DBSettings" X="875" Y="225" Note=""/>
-                <Element ComponentName="DatabaseAccessSettings" X="900" Y="375" Note=""/>
+                <Element ComponentName="DatabaseAccessSettings" X="900" Y="350" Note=""/>
                 <Element ComponentName="Design" X="225" Y="350" Note=""/>
-                <Element ComponentName="DesignSchema" X="225" Y="450" Note=""/>
+                <Element ComponentName="DesignSchema" X="223.585786438" Y="450" Note=""/>
                 <Element ComponentName="General" X="400" Y="225" Note=""/>
                 <Element ComponentName="IdParam" X="475" Y="750" Note=""/>
                 <Element ComponentName="Language" X="525" Y="350" Note=""/>
@@ -99,6 +93,12 @@
                 <Element ComponentName="Preferences" X="625" Y="100" Note=""/>
                 <Element ComponentName="SettingsController" X="250" Y="100" Note=""/>
                 <Element ComponentName="TextParam" X="150" Y="750" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
