@@ -59,7 +59,6 @@
                             <Values>
                                 <Value>CommandsDataControllers</Value>
                                 <Value>PagesDataControllers</Value>
-                                <Value>PagesDataControllers/GetStyleDataController</Value>
                                 <Value>DataControllers/FeaturePackageCollectionController</Value>
                                 <Value>DataControllers/ProductCollectionController</Value>
                                 <Value>DataControllers/AccountCollectionController</Value>
@@ -69,6 +68,7 @@
                                 <Value>DataControllers/ProductController</Value>
                                 <Value>DataControllers/InstallationController</Value>
                                 <Value>SettingsControllers/SettingsController</Value>
+                                <Value>SettingsControllers/GetStyleDataController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -1162,19 +1162,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="GetStyleDataController" PackageId="ImtGuiGqlPck" ComponentId="GetStyleDataController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetStyle</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="Instances" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -1286,9 +1273,7 @@
                     <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="PagesDataController"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="PagesDataController"/>
                 </ExportedInterfaces>
-                <ExportedComponents>
-                    <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
-                </ExportedComponents>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
         <EmbeddedRegistry Id="SettingsControllers">
@@ -1369,6 +1354,19 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="General"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="GetStyleDataController" PackageId="ImtGuiGqlPck" ComponentId="GetStyleDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GetStyle</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1461,6 +1459,7 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
                 <ExportedComponents>
+                    <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                     <Component ExportedId="SettingsController" ComponentId="SettingsController"/>
                 </ExportedComponents>
             </Data>
