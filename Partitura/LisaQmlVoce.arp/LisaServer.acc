@@ -36,18 +36,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Pasword" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="roma1111"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="GraphQLServlet" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -67,7 +55,7 @@
                                 <Value>DataControllers/AccountController</Value>
                                 <Value>DataControllers/ProductController</Value>
                                 <Value>DataControllers/InstallationController</Value>
-                                <Value>SettingsControllers/SettingsController</Value>
+                                <Value>SettingsControllers/PreferenceDataController</Value>
                                 <Value>SettingsControllers/GetStyleDataController</Value>
                             </Values>
                         </Data>
@@ -195,10 +183,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="DatabaseAccessSettings"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseCreationScriptPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/CreateDatabase"/>
+                        <Data IsEnabled="true" Value="PreferencesQml/DatabaseAccessSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
@@ -227,9 +212,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="SettingsControllers" PackageId="" ComponentId="SettingsControllers">
+        <Element Id="PreferencesQml" PackageId="LisaVoce" ComponentId="PreferencesQml">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="SettingsControllers" PackageId="" ComponentId="SettingsControllers">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DBSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PreferencesQml/DatabaseAccessSettings"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Design" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PreferencesQml/Design"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Language" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
     </ElementsList>
@@ -1279,64 +1279,71 @@
         <EmbeddedRegistry Id="SettingsControllers">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="DBSettings" PackageId="BasePck" ComponentId="ComposedParamsSet">
+                    <Element Id="DBSettingsJoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>DatabaseAccessSettings</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DBSettingsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="LisaSettings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa Settings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="DBSettings">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="DatabasePage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamCommandProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DBSettingsJoinDataProvider"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="DBSettings"/>
                                 </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DbName" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="lisa"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Pasword" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="roma1111"/>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="DB Settings"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Design" PackageId="BasePck" ComponentId="SelectionParam">
+                    <Element Id="Design" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DesignSchema"/>
+                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="3"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Mode"/>
                                 </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="DesignSchema" PackageId="BasePck" ComponentId="SelectionConstraints">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Light</Value>
-                                            <Value>Dark</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Mode"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="General" PackageId="BasePck" ComponentId="ComposedParamsSet">
+                    <Element Id="GeneralJoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>Design</Value>
@@ -1344,15 +1351,19 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DesignSchema</Value>
-                                            <Value>Language</Value>
-                                        </Values>
-                                    </Data>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamCommandProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="GeneralJoinDataProvider"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="General"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="General"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -1371,69 +1382,25 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="IdParam" PackageId="BasePck" ComponentId="IdParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="Language" PackageId="BasePck" ComponentId="SelectionParam">
+                    <Element Id="Language" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Languages"/>
+                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="3"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Language"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Language"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="Language">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Languages" PackageId="BasePck" ComponentId="SelectionConstraints">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>en_US</Value>
-                                            <Value>de_DE</Value>
-                                            <Value>ru_RU</Value>
-                                            <Value>pl_PL</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="ParamsManager" PackageId="BasePck" ComponentId="ParamsManager">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="Preferences" PackageId="BasePck" ComponentId="ComposedParamsSet">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>General</Value>
-                                            <Value>DBSettings</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>General</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Preferences"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="SettingsController" PackageId="ImtGuiGqlPck" ComponentId="SettingsController">
+                    <Element Id="PreferenceDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
@@ -1444,15 +1411,41 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="SettingsParamsSet" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Preferences"/>
+                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="TextParam" PackageId="BasePck" ComponentId="TextParam">
+                    <Element Id="PreferencesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="commandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Preferences"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralPage</Value>
+                                            <Value>DatabasePage</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SelectionConstraints" PackageId="BasePck" ComponentId="SelectionConstraints">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="SelectionParam" PackageId="BasePck" ComponentId="SelectionParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Constraints"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                 </ElementsList>
@@ -1460,7 +1453,7 @@
                 <ExportedInterfaces/>
                 <ExportedComponents>
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
-                    <Component ExportedId="SettingsController" ComponentId="SettingsController"/>
+                    <Component ExportedId="PreferenceDataController" ComponentId="PreferenceDataController"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
@@ -1468,5 +1461,7 @@
     <ExportedInterfaces>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
     </ExportedInterfaces>
-    <ExportedComponents/>
+    <ExportedComponents>
+        <Component ExportedId="Design" ComponentId="PreferencesQml/Design"/>
+    </ExportedComponents>
 </Acf>
