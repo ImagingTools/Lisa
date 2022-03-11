@@ -1196,6 +1196,7 @@
                                             <Value>Products</Value>
                                             <Value>Accounts</Value>
                                             <Value>Instances</Value>
+                                            <Value>Test</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -1266,6 +1267,30 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="Test" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Test"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Test"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Test"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Calibration_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/Calibration_On_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtlicgui/TestMultiDocView.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
@@ -1279,19 +1304,6 @@
         <EmbeddedRegistry Id="SettingsControllers">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="DBSettingsJoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DatabaseAccessSettings</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DBSettingsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -1310,14 +1322,25 @@
                     <Element Id="DatabasePage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="ParamCommandProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DBSettingsJoinDataProvider"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="DBSettings"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="DB Settings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DatabaseAccessSettings</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DatabaseAccessSettings</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1335,21 +1358,16 @@
                                     <Data IsEnabled="true" Value="Mode"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
-                                    <Data IsEnabled="false"/>
+                                    <Data IsEnabled="true" Value="DesignParam"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="GeneralJoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+                    <Element Id="DesignParam" PackageId="BasePck" ComponentId="SelectionParam">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Design</Value>
-                                            <Value>Language</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1357,14 +1375,27 @@
                     <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="ParamCommandProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="GeneralJoinDataProvider"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="General"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="General"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Design</Value>
+                                            <Value>Language</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Design</Value>
+                                            <Value>Language</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1395,7 +1426,16 @@
                                     <Data IsEnabled="true" Value="Language"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="Language">
-                                    <Data IsEnabled="false"/>
+                                    <Data IsEnabled="true" Value="LanguageParam"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="LanguageParam" PackageId="BasePck" ComponentId="SelectionParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1414,6 +1454,9 @@
                                 <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="PreferencesDataProvider"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1423,7 +1466,7 @@
                                 <AttributeInfo Id="commandId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Preferences"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>GeneralPage</Value>
@@ -1431,19 +1474,13 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="SelectionConstraints" PackageId="BasePck" ComponentId="SelectionConstraints">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="SelectionParam" PackageId="BasePck" ComponentId="SelectionParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Constraints"/>
+                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralPage</Value>
+                                            <Value>DatabasePage</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1462,6 +1499,8 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="DatabaseAccessSettings" ComponentId="PreferencesQml/DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="PreferencesQml/Design"/>
+        <Component ExportedId="Language" ComponentId="PreferencesQml/Language"/>
     </ExportedComponents>
 </Acf>

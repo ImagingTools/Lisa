@@ -36,6 +36,7 @@ import imtgui 1.0
 //@using { src.imtlicgui.InstallationCollectionView }
 
 //@using { src.imtlicgui.PackagesMultiDocView }
+//@using { src.imtlicgui.TestMultiDocView }
 //@using { src.imtlicgui.ProductsMultiDocView }
 //@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }

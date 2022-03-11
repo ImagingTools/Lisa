@@ -24,17 +24,6 @@
         <Element ComponentName="SettingsControllers" X="1050" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PagesDataControllers">
-            <PositionMap>
-                <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
-                <Element ComponentName="Instances" X="675" Y="575" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
-                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
-                <Element ComponentName="PagesDataController" X="175" Y="100" Note=""/>
-                <Element ComponentName="Products" X="425" Y="475" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="CommandsDataCoontrollers">
             <PositionMap>
                 <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
@@ -51,24 +40,16 @@
         </EmbededRegistry>
         <EmbededRegistry Id="SettingsControllers">
             <PositionMap>
-                <Element ComponentName="DBSettingsJoinDataProvider" X="1000" Y="325" Note=""/>
-                <Element ComponentName="DatabaseAccessSettings" X="1000" Y="450" Note=""/>
-                <Element ComponentName="DatabasePage" X="950" Y="225" Note=""/>
-                <Element ComponentName="Design" X="125" Y="450" Note=""/>
-                <Element ComponentName="GeneralJoinDataProvider" X="225" Y="325" Note=""/>
-                <Element ComponentName="GeneralPage" X="225" Y="225" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="725" Y="50" Note=""/>
-                <Element ComponentName="Language" X="425" Y="450" Note=""/>
-                <Element ComponentName="PreferenceDataController" X="350" Y="50" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="550" Y="150" Note=""/>
-                <Element ComponentName="SelectionConstraints" X="125" Y="650" Note=""/>
-                <Element ComponentName="SelectionParam" X="425" Y="650" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
+                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
+                <Element ComponentName="Design" X="100" Y="400" Note=""/>
+                <Element ComponentName="DesignParam" X="125" Y="525" Note=""/>
+                <Element ComponentName="GeneralPage" X="325" Y="250" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="1000" Y="50" Note=""/>
+                <Element ComponentName="Language" X="550" Y="400" Note=""/>
+                <Element ComponentName="LanguageParam" X="550" Y="525" Note=""/>
+                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
+                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -98,6 +79,24 @@
                 <Element ComponentName="ProductLicensingInfo" X="400" Y="425" Note=""/>
                 <Element ComponentName="ProductRepository" X="525" Y="275" Note=""/>
                 <Element ComponentName="ProductViewDelegate" X="875" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesDataControllers">
+            <PositionMap>
+                <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
+                <Element ComponentName="Instances" X="675" Y="575" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
+                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
+                <Element ComponentName="PagesDataController" X="175" Y="100" Note=""/>
+                <Element ComponentName="Products" X="425" Y="475" Note=""/>
+                <Element ComponentName="Test" X="1075" Y="400" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
