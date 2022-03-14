@@ -78,7 +78,7 @@
         <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Bynary data providers" Type="Reference[]" ExportId="">
+                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>BinaryDataProvider</Value>
