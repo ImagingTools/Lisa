@@ -33,6 +33,9 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="FeatureCollectionPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FilePersistence"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
