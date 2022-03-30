@@ -32,11 +32,12 @@ message("${AUX_INCLUDE_DIR}")
 
 # Impl
 
-#add_subdirectory("${IMPL_DIR}/LisaPck/CMake" "${AUX_INCLUDE_DIR}/LisaPck")
 add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
-add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
+#add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
 
 if(NOT UNIX)
-    add_subdirectory("${IMPL_DIR}/LisaDbExe/CMake" "${AUX_INCLUDE_DIR}/LisaDb")
-    add_subdirectory("${IMPL_DIR}/LisaQml/CMake" "${AUX_INCLUDE_DIR}/LisaQml")
+	add_subdirectory("${IMPL_DIR}/LisaDbExe/CMake" "${AUX_INCLUDE_DIR}/LisaDb")
+	add_subdirectory("${IMPL_DIR}/LisaQml/CMake" "${AUX_INCLUDE_DIR}/LisaQml")
+	add_subdirectory("${IMPL_DIR}/LisaClient/CMake" "${AUX_INCLUDE_DIR}/LisaClient")
+	add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 endif(UNIX)

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="4961" Description="ACF"/>
+            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="ApplicationInfo" X="675" Y="250" Note=""/>
+        <Element ComponentName="LisaLogFilePath" X="125" Y="375" Note=""/>
+        <Element ComponentName="LisaServerBase" X="325" Y="75" Note=""/>
+        <Element ComponentName="QuickApplication" X="400" Y="250" Note=""/>
+        <Element ComponentName="SystemLocation" X="125" Y="475" Note=""/>
+        <Element ComponentName="TextFileLog" X="125" Y="275" Note=""/>
+        <Element ComponentName="VersionInfo" X="925" Y="250" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="ApplicationDataEnumProvider" X="500" Y="100" Note=""/>
+                <Element ComponentName="CommandDataEnumProvider" X="500" Y="200" Note=""/>
+                <Element ComponentName="PageDataEnumProvider" X="500" Y="300" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

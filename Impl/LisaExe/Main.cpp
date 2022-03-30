@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Lisa);
 	Q_INIT_RESOURCE(imtresthtml);
 
+
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
 	

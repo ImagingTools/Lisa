@@ -1361,7 +1361,7 @@
                                     <Data IsEnabled="true" Value="Mode"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
-                                    <Data IsEnabled="true" Value="DesignParam"/>
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1413,6 +1413,9 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1429,7 +1432,7 @@
                                     <Data IsEnabled="true" Value="Language"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="Language">
-                                    <Data IsEnabled="true" Value="LanguageParam"/>
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1437,6 +1440,9 @@
                     <Element Id="LanguageParam" PackageId="BasePck" ComponentId="SelectionParam">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="Constraints">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
                                     <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>

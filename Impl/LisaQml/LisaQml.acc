@@ -34,7 +34,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LisaServer" PackageId="LisaQmlVoce" ComponentId="LisaServer">
+        <Element Id="LisaServerBase" PackageId="LisaQmlVoce" ComponentId="LisaServerBase">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
@@ -79,7 +79,7 @@
                     <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaServer</Value>
+                                <Value>LisaServerBase</Value>
                                 <Value>ObserverQml</Value>
                             </Values>
                         </Data>
