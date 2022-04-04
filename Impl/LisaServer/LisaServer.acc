@@ -2,14 +2,30 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4961" Description="ACF"/>
-            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4962" Description="ACF"/>
+            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="Application" PackageId="BasePck" ComponentId="ConsoleApplication">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaServerBase</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ApplicationInfo" PackageId="BasePck" ComponentId="ApplicationInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -49,18 +65,20 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="QuickApplication" PackageId="BasePck" ComponentId="ConsoleApplication">
+        <Element Id="ServiceApplication" PackageId="QtExPck" ComponentId="ServiceApplication">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                    <AttributeInfo Id="ApplicationInstance" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>LisaServerBase</Value>
-                            </Values>
-                        </Data>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="TextFileLog"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa server service"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServiceName" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaService"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -135,7 +153,7 @@
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
     <ExportedInterfaces>
-        <Interface InterfaceId="ibase::IApplication" ComponentId="QuickApplication"/>
+        <Interface InterfaceId="ibase::IApplication" ComponentId="ServiceApplication"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>

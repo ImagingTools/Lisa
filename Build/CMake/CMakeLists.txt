@@ -29,11 +29,10 @@ message("${AUX_INCLUDE_DIR}")
 
 #add_subdirectory("${INCLUDE_DIR}/ilisa/CMake" "${AUX_INCLUDE_DIR}/ilisa")
 
-
 # Impl
 
 add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
-#add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
+add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
 
 if(NOT UNIX)
 	add_subdirectory("${IMPL_DIR}/LisaDbExe/CMake" "${AUX_INCLUDE_DIR}/LisaDb")

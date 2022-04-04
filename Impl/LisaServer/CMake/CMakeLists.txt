@@ -6,7 +6,7 @@ set(ARXC_OUTDIR "${AUX_INCLUDE_DIR}")
 set(ARX_GENERATE_DEPENDENCIES_LIST ON)
 
 if(WIN32)
-	set(CMAKE_WIN32_EXECUTABLE "on")
+#	set(CMAKE_WIN32_EXECUTABLE "on")
 	set(ACF_CONVERT_REGISTRY "${PROJECT_SOURCE_DIR}/../VC/FileSubstitCopyApp.acc")
 	set(ACF_CONVERT_CONFIG  "${PROJECT_SOURCE_DIR}/../../../Config/BaseOnly.awc")
 endif()
@@ -66,9 +66,13 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 
 imtcore_compile_web("${webdirs}")
 
-target_link_libraries(${PROJECT_NAME} iauth)
-target_link_libraries(${PROJECT_NAME} imtbase imtauth imtlicdb imtlic ImtCoreLoc imtzip imtrest imtcrypt imtrepo imtdb imtqml imtauthgui imtgui)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtlicgui imtgql)
+#target_link_libraries(${PROJECT_NAME} iauth iservice)
+#target_link_libraries(${PROJECT_NAME} imtbase imtauth imtlicdb imtlic ImtCoreLoc imtzip imtrest imtcrypt imtrepo imtdb imtqml imtauthgui imtgui)
+#target_link_libraries(${PROJECT_NAME} imtlicgql imtlicgui imtgql)
+
+target_link_libraries(${PROJECT_NAME} iauth iservice)
+target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml imtdb)
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtgql)
 #target_link_libraries(${PROJECT_NAME} LisaLoc AcfSlnLoc IAcfLoc AcfLoc)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 
