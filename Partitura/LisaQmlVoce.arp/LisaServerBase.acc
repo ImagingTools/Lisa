@@ -1196,7 +1196,7 @@
                     <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>Packages</Value>
@@ -1243,6 +1243,9 @@
                                             <Value>PagesData</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="JoinDataProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="JoinDataProvider"/>
@@ -1329,6 +1332,13 @@
                     <Element Id="DatabasePage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DatabaseAccessSettings</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="DBSettings"/>
                                 </AttributeInfo>
@@ -1336,13 +1346,6 @@
                                     <Data IsEnabled="true" Value="DB Settings"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DatabaseAccessSettings</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>DatabaseAccessSettings</Value>
@@ -1382,13 +1385,7 @@
                     <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="General"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="General"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>Design</Value>
@@ -1396,7 +1393,13 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="General"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="General"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>Design</Value>
@@ -1464,10 +1467,10 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="PreferencesDataProvider"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference" ExportId="">
+                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="PreferencesDataProvider"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -1476,24 +1479,24 @@
                     <Element Id="PreferencesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralPage</Value>
+                                            <Value>DatabasePage</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralPage</Value>
+                                            <Value>DatabasePage</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="commandId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Preferences"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="m_mutationDataDelegateCompPtr" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>DatabasePage</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="m_representationDataProviderCompPtr" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>DatabasePage</Value>
-                                        </Values>
-                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

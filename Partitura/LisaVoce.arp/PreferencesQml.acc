@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4961" Description="ACF"/>
-            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4962" Description="ACF"/>
+            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -89,8 +89,8 @@
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Pasword" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="roma1111"/>
+                    <AttributeInfo Id="Pasword" Type="Id" ExportId="Pasword">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
