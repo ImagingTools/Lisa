@@ -56,19 +56,13 @@ import imtgui 1.0
 
 Rectangle {
     id: window;
-    width: 300;
-    height: 500;
+
     anchors.fill: parent;
 
-    color: "#5d5d5d";
-//    Component.onCompleted: {
-//        console.log("ThumbnailDecorator onCompleted", PageEnum.ID);
-//        thumbnailDecorator.updateModels();
-//    }
+    width: 350;
+    height: 550;
 
-//    IconStyle {
-//        id: IconStyle;
-//    }
+    color: "#5d5d5d";
 
     Style {
         id: Style;
@@ -79,24 +73,14 @@ Rectangle {
         }
     }
 
-//    MouseTest {
-//        id: mouseTest;
-//    }
-
     ThumbnailDecorator {
         id: thumbnailDecorator;
         anchors.fill: parent;
 
-//        pagesModel: pagesModel.model
         Component.onCompleted: {
             console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
             thumbnailDecorator.updateModels();
         }
-
-        onWidthChanged: {
-            console.log("width", thumbnailDecorator.width);
-        }
-
     }
 
 }

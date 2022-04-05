@@ -56,8 +56,10 @@ import imtgui 1.0
 
 Rectangle {
     id: window;
+
     width: 300;
     height: 500;
+
     anchors.fill: parent;
 
     color: "#5d5d5d";
