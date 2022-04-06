@@ -250,8 +250,6 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Add</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
@@ -261,8 +259,6 @@
                                 <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>New</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
@@ -272,8 +268,6 @@
                                 <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>New</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
@@ -358,8 +352,6 @@
                                 <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Add</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
@@ -369,8 +361,6 @@
                                 <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>New</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
@@ -380,8 +370,6 @@
                                 <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>New</Value>
-                                            <Value>Open</Value>
                                             <Value>Save</Value>
                                             <Value></Value>
                                             <Value>Close</Value>
