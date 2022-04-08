@@ -1124,7 +1124,7 @@
                     <Element Id="MenuDataEnumProvider" PackageId="ImtQmlPck" ComponentId="MenuDataEnumProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="qml/MenuEnum.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>

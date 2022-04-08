@@ -117,7 +117,7 @@
                     <Element Id="ApplicationDataEnumProvider" PackageId="ImtQmlPck" ComponentId="ApplicationDataEnumProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="qml/AppEnum.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -126,7 +126,7 @@
                     <Element Id="CommandDataEnumProvider" PackageId="ImtQmlPck" ComponentId="CommandDataEnumProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="qml/CommandEnum.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -135,7 +135,7 @@
                     <Element Id="PageDataEnumProvider" PackageId="ImtQmlPck" ComponentId="PageDataEnumProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Data Id" Type="Id" ExportId="">
+                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="qml/PageEnum.qml"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
