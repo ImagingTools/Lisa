@@ -13,6 +13,7 @@
 // ImtCore includes
 #include <imtstyle/CImtStyle.h>
 #include <imtbase/CTreeItemModel.h>
+#include <imtrest/CRemoteFileController.h>
 #include <imtgql/CGqlModel.h>
 #include <imtqml/CQuickApplicationComp.h>
 #include <imtqml/CApplicationDataEnumProviderComp.h>
@@ -56,6 +57,7 @@ int main(int argc, char *argv[])
 
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
 	qmlRegisterType<imtgql::CGqlModel>("Acf", 1, 0, "GqlModel");
+	qmlRegisterType<imtrest::CRemoteFileController>("Acf", 1, 0, "RemoteFileController");
 
 	imtbase::CTreeItemModel *mainModel = new imtbase::CTreeItemModel();
 	mainModel->SetIsArray(true);

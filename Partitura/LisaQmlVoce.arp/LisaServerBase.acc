@@ -78,6 +78,22 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="HttpFileControllerServlet" PackageId="ImtRestPck" ComponentId="HttpFileControllerServlet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>KeyDataProviders/KeyDataProvider</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/files*"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -110,10 +126,10 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Lisa/Views*</Value>
-                                <Value>Lisa/Models*</Value>
                                 <Value>Lisa/Views</Value>
                                 <Value></Value>
                                 <Value>Lisa/graphql</Value>
+                                <Value>Lisa/files*</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -121,10 +137,10 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>HttpFileProviderBasedServlet</Value>
-                                <Value>JsonModelBasedHandler</Value>
                                 <Value>HttpFileBasedHandler</Value>
                                 <Value>HttpRedirectHandler</Value>
                                 <Value>GraphQLServlet</Value>
+                                <Value>HttpFileControllerServlet</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -142,13 +158,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketRequestHandlers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>JsonModelBasedHandler</Value>
-                            </Values>
-                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="WebSocketServerPort">
                         <Data IsEnabled="true" Value="8888"/>
@@ -168,11 +177,20 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
+        <Element Id="KeyDataProviders" PackageId="" ComponentId="KeyDataProviders">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Models*"/>
+                    <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DataControllers/AccountRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DataControllers/ProductRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductInstanceInfoPersistence" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DataControllers/ProductLicensingInfoPersistence"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -836,6 +854,9 @@
                                 <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="LicensePersistence" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FileDialogLoader"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -845,6 +866,7 @@
                                             <Value>InstallationMetaInfo</Value>
                                             <Value>InstallationRename</Value>
                                             <Value>InstallationSetDescription</Value>
+                                            <Value>CreateLicenseFile</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -1101,12 +1123,15 @@
                 <ExportedComponents>
                     <Component ExportedId="AccountCollectionController" ComponentId="AccountCollectionController"/>
                     <Component ExportedId="AccountController" ComponentId="AccountController"/>
+                    <Component ExportedId="AccountRepository" ComponentId="AccountRepository"/>
                     <Component ExportedId="FeaturePackageCollectionController" ComponentId="FeaturePackageCollectionController"/>
                     <Component ExportedId="InstallationCollectionController" ComponentId="InstallationCollectionController"/>
                     <Component ExportedId="InstallationController" ComponentId="InstallationController"/>
                     <Component ExportedId="PackageController" ComponentId="PackageController"/>
                     <Component ExportedId="ProductCollectionController" ComponentId="ProductCollectionController"/>
                     <Component ExportedId="ProductController" ComponentId="ProductController"/>
+                    <Component ExportedId="ProductLicensingInfoPersistence" ComponentId="ProductRepository/ProductLicensingInfoPersistence"/>
+                    <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
@@ -1127,6 +1152,131 @@
                 <ExportedInterfaces/>
                 <ExportedComponents>
                     <Component ExportedId="MenuDataEnumProvider" ComponentId="MenuDataEnumProvider"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="FileControllers">
+            <Data Description="" Keywords="">
+                <ElementsList/>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="KeyDataProviders">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="AesInitVector" PackageId="ImtLicenseVoce" ComponentId="AesInitVector">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="Encryption" PackageId="ImtCryptPck" ComponentId="Encryption">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="EncryptionBasePersistence" PackageId="ImtCryptPck" ComponentId="EncryptionBasePersistence">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="BasePersistence" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="XmlFileSerializer"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Encryption" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Encryption"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EncryptionKeysProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="KeyDataProvider"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>lic</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>License Files</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="InstallationRepository" PackageId="LisaVoce" ComponentId="ProductInstanceSqlRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="CustomerCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="KeyDataProvider" PackageId="ImtLicenseGqlPck" ComponentId="KeyDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="LicensePersistence" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="EncryptionBasePersistence"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="InstallationRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VectorKey" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AesInitVector"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="XmlFileSerializer" PackageId="FilePck" ComponentId="CompactXmlFileSerializer">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="AutoCreatePath" Type="Boolean" ExportId="AutoCreatePath">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>xml</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="KeyDataProvider" ComponentId="KeyDataProvider"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
