@@ -22,13 +22,6 @@ if(WIN32)
 endif()
 
 
-#set(COMPILER_DIR ${CMAKE_BUILD_TYPE}${TARGETNAME})
-#if (WIN32)
-#	set(DESIGN_TOKEN_CREATOR_EXE "DesignTokenCreator.exe")
-#else()
-#	set(DESIGN_TOKEN_CREATOR_EXE "DesignTokenCreator")
-#endif()
-
 if(APPLE)
 	set(CMAKE_MACOSX_BUNDLE "on")
 endif()
@@ -49,73 +42,6 @@ include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
-
-#set(QRC_QRC_CURRENT_FILE ${DESIGN_TOKEN_CREATOR_COMMAND_PARAM_OUTPUT_DIR}/${LOWER_PROJECT_NAME}${CURRENT_FILE_NAME}.qrc)
-#set(QRC_CPP_CURRENT_FILE ${DESIGN_TOKEN_CREATOR_COMMAND_PARAM_OUTPUT_DIR}/qrc_${LOWER_PROJECT_NAME}${CURRENT_FILE_NAME}.cpp)
-
-
-#set(QRC_ICONS_FILE ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imtgui/imtguiunifield.qrc)
-#SET(CPP_ICONS_FILE ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imtgui/qrc_imtguiunifield.cpp)
-
-#set(QRC_ICONS_FILE ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc)
-#SET(CPP_ICONS_FILE ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/qrc_Webimt3dgui.cpp)
-
-
-#add_custom_command(
-#	OUTPUT ${CPP_ICONS_FILE}
-#	COMMAND
-#	${Qt5Core_RCC_EXECUTABLE}
-#	ARGS
-#	-name ${PROJECT_NAME}Icons ${QRC_ICONS_FILE} -o ${CPP_ICONS_FILE}
-#	DEPENDS
-#	${QRC_ICONS_FILE}
-#	COMMENT
-#	"Compile QRC_ICONS_FILE"
-#	)
-
-#add_custom_target(
-#	Icons${PROJECT_NAME} ALL
-#	DEPENDS ${CPP_ICONS_FILE}
-#	)
-
-#C:/Sybnavigation/ITDevelopment/ImtCore/Bin/DebugVC16_64/DesignTokenCreator.exe
-
-#target_sources(${PROJECT_NAME} PRIVATE ${CPP_ICONS_FILE})
-#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imt3dgui/Resources/Icons/Template)
-#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtgui/Resources/Icons/Template)
-#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtauthgui/Resources/Icons/Template)
-#list(APPEND iconsdirs ${IMTCOREDIR}/Include/imtlicgui/Resources/Icons/Template)
-#set(DESIGN_TOKEN_CREATOR_EXE_BIN ${IMTCOREDIR}/Bin/DebugVC16_64/DesignTokenCreator.exe)
-#message("DESIGN_TOKEN_CREATOR_EXE_BIN " ${DESIGN_TOKEN_CREATOR_EXE_BIN})
-#set(ICON_STYLE_QML_CREATOR_COMMAND_PARAMS
-#	--qml
-#	-I
-#	    ${iconsdirs}
-#	-OF
-#	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-#	-P
-#	    ${PROJECT_NAME}
-#	--ignore-errors
-#	)
-
-#add_custom_command(
-#	OUTPUT
-#	    ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-#	COMMAND
-#	    ${DESIGN_TOKEN_CREATOR_EXE_BIN}
-#	ARGS
-#	    ${ICON_STYLE_QML_CREATOR_COMMAND_PARAMS}
-##	DEPENDS
-##	    ${IMTCOREDIR}/AuxInclude/Qt5_VC16_64/GeneratedFiles/imt3dgui/Webimt3dgui.qrc
-#	COMMENT
-#	    "[DesignToken::${LOWER_PROJECT_NAME}] Creating QML ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml"
-#	VERBATIM
-#	)
-
-#add_custom_target(
-#	    DesignQmlToken${PROJECT_NAME} ALL
-#		DEPENDS ${IMTCOREDIR}/Include/imtgui/Qml/Acf/IconStyle.qml
-#	)
 
 #copy compiler from to
 list(APPEND webdirs ${IMTCOREDIR}/3rdParty/WebCompiler)
@@ -162,7 +88,7 @@ target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml/imtgui")
-	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}${TARGETNAME}/${PROJECT_NAME}.exe\")
+	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
 
 	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")
 	unset(listOptions)
