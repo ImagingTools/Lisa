@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4962" Description="ACF"/>
-            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4984" Description="ACF"/>
+            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -137,6 +137,7 @@
                             <Values>
                                 <Value>Design</Value>
                                 <Value>Language</Value>
+                                <Value>ServerUrl</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -145,6 +146,7 @@
                             <Values>
                                 <Value>DesignSchema</Value>
                                 <Value>Language</Value>
+                                <Value>ServerUrl</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -237,6 +239,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ServerUrl" PackageId="BasePck" ComponentId="TextParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="https://h2815060.stratoserver.net:7776"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -256,5 +267,6 @@
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="Design"/>
         <Component ExportedId="Language" ComponentId="Language"/>
+        <Component ExportedId="ServerUrl" ComponentId="ServerUrl"/>
     </ExportedComponents>
 </Acf>

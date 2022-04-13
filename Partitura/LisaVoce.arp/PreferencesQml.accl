@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4962" Description="ACF"/>
-            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4984" Description="ACF"/>
+            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -20,6 +20,7 @@
         <Element ComponentName="LisaLocalization" X="675" Y="673.585786438" Note=""/>
         <Element ComponentName="Preferences" X="725" Y="350" Note=""/>
         <Element ComponentName="PreferencesFilePath" X="725" Y="150" Note=""/>
+        <Element ComponentName="ServerUrl" X="225" Y="325" Note=""/>
         <Element ComponentName="SystemLocation" X="725" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>

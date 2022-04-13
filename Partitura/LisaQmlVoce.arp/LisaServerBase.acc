@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4962" Description="ACF"/>
-            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4984" Description="ACF"/>
+            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -462,9 +462,6 @@
                                         <Values>
                                             <Value>Add</Value>
                                             <Value>Delete</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
-                                            <Value></Value>
                                             <Value>Edit</Value>
                                             <Value></Value>
                                             <Value>Save</Value>
@@ -478,9 +475,6 @@
                                         <Values>
                                             <Value>New</Value>
                                             <Value>Remove</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
-                                            <Value></Value>
                                             <Value>Edit</Value>
                                             <Value></Value>
                                             <Value>Save</Value>
@@ -494,9 +488,6 @@
                                         <Values>
                                             <Value>New</Value>
                                             <Value>Remove</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
-                                            <Value></Value>
                                             <Value>Edit</Value>
                                             <Value></Value>
                                             <Value>Save</Value>
@@ -559,8 +550,6 @@
                                             <Value>Add</Value>
                                             <Value>Delete</Value>
                                             <Value>Duplicate</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
                                             <Value></Value>
                                             <Value>Edit</Value>
                                             <Value></Value>
@@ -576,10 +565,6 @@
                                             <Value>New</Value>
                                             <Value>Remove</Value>
                                             <Value>Duplicate</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
-                                            <Value></Value>
-                                            <Value>Edit</Value>
                                             <Value></Value>
                                             <Value>Save</Value>
                                             <Value></Value>
@@ -593,10 +578,6 @@
                                             <Value>New</Value>
                                             <Value>Remove</Value>
                                             <Value>Duplicate</Value>
-                                            <Value>Import</Value>
-                                            <Value>Export</Value>
-                                            <Value></Value>
-                                            <Value>Edit</Value>
                                             <Value></Value>
                                             <Value>Save</Value>
                                             <Value></Value>
