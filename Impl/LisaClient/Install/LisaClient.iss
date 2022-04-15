@@ -11,7 +11,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{D09476B1-C401-4FAC-986E-B073C0E15756}
+AppId={{D09476B1-C401-4FAC-986E-B073C0E15757}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -19,7 +19,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={code:GetProgramFiles}\{#MyAppName}
+DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
@@ -27,13 +27,6 @@ OutputBaseFilename=LisaClientInstall
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-
-[Code]
-function GetProgramFiles(Param: string): string;
-begin
-  if IsWin64 then Result := ExpandConstant('{commonpf64}')
-    else Result := ExpandConstant('{commonpf32}')
-end;
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -44,11 +37,8 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-;Source: "{#BasePath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-;Source: "{#BasePath}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-
-Source: "C:\Sybnavigation\ITDevelopment\Lisa\Bin\Debug_Qt5_VC16_x64\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Sybnavigation\ITDevelopment\Lisa\Bin\Debug_Qt5_VC16_x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "{#BasePath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#BasePath}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
