@@ -74,10 +74,10 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings"/>
+                        <Data IsEnabled="true" Value="NetworkSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Local Settings"/>
+                        <Data IsEnabled="true" Value="Network Settings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -157,7 +157,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="https://h2815060.stratoserver.net:7776"/>
+                        <Data IsEnabled="true" Value="http://h2815060.stratoserver.net:7776"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

@@ -6,6 +6,7 @@ import Acf 1.0
 //import "../../../../../ImtCore/Include/imtqml/Resources/qml"
 //import "../qml"
 import imtgui 1.0
+//import Qt.labs.platform 1.1
 
 //@using { src.Acf.Style }
 
@@ -78,7 +79,7 @@ Rectangle {
         anchors.fill: parent;
 
         Component.onCompleted: {
-            console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
+          //  console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
             thumbnailDecorator.updateModels();
         }
     }
