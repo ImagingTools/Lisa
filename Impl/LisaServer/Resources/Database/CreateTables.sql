@@ -61,7 +61,7 @@ CREATE TABLE ProductLicenses(
   Name VARCHAR (1000) NOT NULL,
   Description VARCHAR (1000),
   ProductId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (Id),
+  PRIMARY KEY (Id, ProductId) NOT NULL,
   FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE ProductLicenseFeatures(
   PackageId VARCHAR (1000) NOT NULL,
   FeatureId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (ProductId, LicenseId, PackageId, FeatureId),
-  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (LicenseId, ProductId) REFERENCES ProductLicenses(Id, ProductId) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -109,9 +109,10 @@ CREATE TABLE ProductInstances(
 CREATE TABLE ProductInstanceLicenses(
 	InstanceId VARCHAR (1000) NOT NULL,
 	LicenseId VARCHAR (1000) NOT NULL,
+	ProductId VARCHAR (1000) NOT NULL,
 	ExpirationDate DATE,
-	PRIMARY KEY (InstanceId, LicenseId),
-	FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY (InstanceId, LicenseId, ProductId),
+	FOREIGN KEY (LicenseId, ProductId) REFERENCES ProductLicenses(Id, ProductId) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (InstanceId) REFERENCES ProductInstances(InstanceId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

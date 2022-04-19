@@ -1,9 +1,9 @@
 
 /**
-	Logical package/container of features.
+    Logical package/container of features.
 */
 CREATE TABLE Packages(
-	Id VARCHAR (1000) NOT NULL,
+    Id VARCHAR (1000) NOT NULL,
 	Name VARCHAR (1000) NOT NULL,
 	Description VARCHAR (1000),
 	Added TIMESTAMP,
@@ -13,10 +13,10 @@ CREATE TABLE Packages(
 
 
 /**
-	Features assigned to defined packages.
+    Features assigned to defined packages.
 */
 CREATE TABLE Features(
-	Id VARCHAR (1000) NOT NULL,
+    Id VARCHAR (1000) NOT NULL,
 	Name VARCHAR (1000) NOT NULL,
 	Description VARCHAR (1000),
 	PackageId VARCHAR (1000) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE Features(
 
 
 /**
-	Dependencies between features. A Feature B can technically depend on Feature A (By example Feature <Biometric Access> is based on Feature <User Management>.
+    Dependencies between features. A Feature B can technically depend on Feature A (By example Feature <Biometric Access> is based on Feature <User Management>.
 	In this case including the feature B into a product license means that the Feature A is should be also included.
 */
 CREATE TABLE FeatureDependencies(
@@ -41,7 +41,7 @@ CREATE TABLE FeatureDependencies(
 
 
 /**
-	List of products.
+    List of products.
 */
 CREATE TABLE Products(
   Id VARCHAR (1000) NOT NULL,
@@ -54,14 +54,14 @@ CREATE TABLE Products(
 
 
 /**
-	List of available product licenses
+    List of available product licenses
 */
 CREATE TABLE ProductLicenses(
   Id VARCHAR (1000) NOT NULL,
   Name VARCHAR (1000) NOT NULL,
   Description VARCHAR (1000),
   ProductId VARCHAR (1000) NOT NULL,
-  PRIMARY KEY (Id),
+  PRIMARY KEY (Id, ProductId),
   FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -75,7 +75,7 @@ CREATE TABLE ProductLicenseFeatures(
   PackageId VARCHAR (1000) NOT NULL,
   FeatureId VARCHAR (1000) NOT NULL,
   PRIMARY KEY (ProductId, LicenseId, PackageId, FeatureId),
-  FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (LicenseId, ProductId) REFERENCES ProductLicenses(Id, ProductId) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (FeatureId, PackageId) REFERENCES Features(Id, PackageId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -94,7 +94,7 @@ CREATE TABLE Accounts(
 
 
 CREATE TABLE ProductInstances(
-	InstanceId VARCHAR (1000) NOT NULL,
+    InstanceId VARCHAR (1000) NOT NULL,
 	ProductId VARCHAR (1000) NOT NULL,
 	AccountId VARCHAR (1000) NOT NULL,
 	Name VARCHAR (1000) NOT NULL,
@@ -107,11 +107,12 @@ CREATE TABLE ProductInstances(
 );
 
 CREATE TABLE ProductInstanceLicenses(
-	InstanceId VARCHAR (1000) NOT NULL,
+    InstanceId VARCHAR (1000) NOT NULL,
 	LicenseId VARCHAR (1000) NOT NULL,
+	ProductId VARCHAR (1000) NOT NULL,
 	ExpirationDate DATE,
-	PRIMARY KEY (InstanceId, LicenseId),
-	FOREIGN KEY (LicenseId) REFERENCES ProductLicenses(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	PRIMARY KEY (InstanceId, LicenseId, ProductId),
+	FOREIGN KEY (LicenseId, ProductId) REFERENCES ProductLicenses(Id, ProductId) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (InstanceId) REFERENCES ProductInstances(InstanceId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

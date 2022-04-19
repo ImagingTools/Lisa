@@ -58,7 +58,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="BaseUrl" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="http://127.0.0.1:7776/Lisa"/>
+                        <Data IsEnabled="true" Value=""/>
                     </AttributeInfo>
                     <AttributeInfo Id="QmlFilePath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/qml/imtgui/ThumbnailDecorator.qml"/>
