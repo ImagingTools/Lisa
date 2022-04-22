@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4962" Description="ACF"/>
+            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -21,12 +21,12 @@
             <PositionMap>
                 <Element ComponentName="AesInitVector" X="225" Y="425" Note=""/>
                 <Element ComponentName="Encryption" X="600" Y="675" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="900" Y="525" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="925" Y="525" Note=""/>
                 <Element ComponentName="FileDialogLoader" X="400" Y="525" Note=""/>
                 <Element ComponentName="Icons" X="300" Y="175" Note=""/>
                 <Element ComponentName="MetaInfoView" X="1025" Y="175" Note=""/>
                 <Element ComponentName="RepositoryView" X="575" Y="175" Note=""/>
-                <Element ComponentName="ViewDelegate" X="575" Y="325" Note=""/>
+                <Element ComponentName="ViewDelegate" X="600" Y="325" Note=""/>
                 <Element ComponentName="XmlFileSerializer" X="950" Y="675" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>

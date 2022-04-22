@@ -111,6 +111,71 @@ CREATE TABLE ProductInstanceLicenses(
 	FOREIGN KEY (InstanceId) REFERENCES ProductInstances(InstanceId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+/*
+CREATE TYPE RoleType AS ENUM ('admin', 'user');
+
+CREATE TABLE Users(
+    Id UUID NOT NULL,
+	UserName VARCHAR (1000) NOT NULL,
+	Email VARCHAR (1000) NULL,
+	PhoneNumber VARCHAR (1000) NULL,
+	Password VARCHAR (1000) NOT NULL,
+	Description VARCHAR (1000),
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (UserId)
+);
+
+CREATE TABLE Permissions(
+    Id VARCHAR (1000) NOT NULL,
+	Name VARCHAR (1000) NOT NULL,
+	Description VARCHAR (1000),
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (Id)
+);
+
+CREATE TABLE UsersGroups(
+    UserId UUID NOT NULL,
+	GroupId UUID NOT NULL,
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (UserId, GroupId),
+	FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE GroupsPermissions(
+    GroupId UUID NOT NULL,
+	PermissionId VARCHAR (1000) NOT NULL,
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (GroupId, PermissionId),
+	FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (AccessId) REFERENCES Permissions(Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+
+CREATE TABLE ParentsGroups(
+    GroupId UUID NOT NULL,
+	ParentGroupId UUID NOT NULL,
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (GroupId, ParentGroupId),
+	FOREIGN KEY (GroupId) REFERENCES Groups(Id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (ParentGroupId) REFERENCES Groups(Id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Groups(
+    Id UUID NOT NULL,
+	Name VARCHAR (1000) NOT NULL,
+	Description VARCHAR (1000),
+	Added TIMESTAMP,
+	LastModified TIMESTAMP,
+	PRIMARY KEY (Id),
+);
+*/
+
 
 INSERT INTO Packages(Id, Name, Description, Added) VALUES('StandardFramework', 'Standard Framework', 'Common features for all products', NOW());
 INSERT INTO Packages(Id, Name, Description, Added) VALUES('TCVisionFramework', 'TCVision Framework', 'Common features for all products of the TCVision family', NOW());

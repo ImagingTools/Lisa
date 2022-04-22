@@ -60,6 +60,7 @@
                                 <Value>DataControllers/InstallationController</Value>
                                 <Value>SettingsControllers/PreferenceDataController</Value>
                                 <Value>SettingsControllers/GetStyleDataController</Value>
+                                <Value>DataControllers/UserCollectionController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -650,6 +651,12 @@
                                 <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountsHeadersDataProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -664,9 +671,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="AccountViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -688,9 +692,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="AccountViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -718,35 +719,31 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="AccountViewDelegate" PackageId="ImtAuthGuiPck" ComponentId="AccountInfoViewDelegate">
+                    <Element Id="AccountsHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AccountName</Value>
+                                            <Value>Email</Value>
+                                            <Value>AccountType</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="AccountInfoPersistence">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Accounts"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="MetaInfoView"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="AccountInfo"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Icons"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="FeatureCollectionViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeatureCollectionViewDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="EditDialog" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ModelDialogGui"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureInfo"/>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Account Name</Value>
+                                            <Value>Email</Value>
+                                            <Value>Account Type</Value>
+                                            <Value>Account Description</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -756,6 +753,9 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
@@ -771,9 +771,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeaturePackageViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -793,45 +790,14 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FeaturePackageViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="FeaturePackageViewDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="FeatureCollectionPersistence">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="FeaturePackage"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Icons"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="Icons" PackageId="QtGuiPck" ComponentId="IconProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="IconFiles" Type="String[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Add</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="IconsPath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value=":/Icons"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="InstallationCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="InstallationCollectionController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="InstallationsHeadersDataProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="LicensePersistence" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FileDialogLoader"/>
@@ -851,9 +817,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="InstallationViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -878,9 +841,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="InstallationViewDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -909,40 +869,43 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="InstallationViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductInstanceInfoViewDelegate">
+                    <Element Id="InstallationsHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>InstanceId</Value>
+                                            <Value>Customer</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="ProductInstanceInfoPersistence">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Installations"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="MetaInfoView"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductInstanceInfo"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Icons"/>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Instance-ID</Value>
+                                            <Value>Customer</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LicenseManagerViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="LicenseManagerViewDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="MetaInfoView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionMetaInfoView">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="PackageController" PackageId="ImtLicenseGqlPck" ComponentId="PackageController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageHeadersDataProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -958,8 +921,61 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureCollectionViewDelegate"/>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PackageHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Id</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Package"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Feature Name</Value>
+                                            <Value>Feature-ID</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PackagesHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                            <Value>ModificationTime</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Packages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                            <Value>Last Modified</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -969,6 +985,9 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
@@ -985,15 +1004,15 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductViewDelegate"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="ProductController" PackageId="ImtLicenseGqlPck" ComponentId="ProductController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductHeadersDataProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -1012,8 +1031,32 @@
                                 <AttributeInfo Id="ProductFactory" Type="Factory" ExportId="">
                                     <Data IsEnabled="true" Value="ProductLicensingInfo"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ViewDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="LicenseManagerViewDelegate"/>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Id</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Product"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>License Name</Value>
+                                            <Value>License-ID</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1075,23 +1118,80 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ProductViewDelegate" PackageId="ImtLicenseGuiPck" ComponentId="ProductLicensingInfoViewDelegate">
+                    <Element Id="UserCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="UserCollectionController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DocumentManager" Type="Reference" ExportId="DocumentManager">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="UsersHeadersDataProvider"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FilePersistence" Type="Reference" ExportId="ProductLicensingInfoPersistence">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>UserInfo</Value>
+                                            <Value>UserList</Value>
+                                            <Value>UserRemove</Value>
+                                            <Value>UserMetaInfo</Value>
+                                            <Value>UserRename</Value>
+                                            <Value>UserSetDescription</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="InformationView" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="MetaInfoView"/>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ObjectCollection"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UserController" PackageId="ImtLicenseGqlPck" ComponentId="UserController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="StatusIcons" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Icons"/>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>UserItem</Value>
+                                            <Value>UserAdd</Value>
+                                            <Value>UserUpdate</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="UsersHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>UserName</Value>
+                                            <Value>Email</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                            <Value>ModificationTime</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Users"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Email</Value>
+                                            <Value>Description</Value>
+                                            <Value>Added</Value>
+                                            <Value>Last Modified</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1111,6 +1211,8 @@
                     <Component ExportedId="ProductController" ComponentId="ProductController"/>
                     <Component ExportedId="ProductLicensingInfoPersistence" ComponentId="ProductRepository/ProductLicensingInfoPersistence"/>
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
+                    <Component ExportedId="UserCollectionController" ComponentId="UserCollectionController"/>
+                    <Component ExportedId="UserRepository" ComponentId="UserRepository"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
@@ -1286,6 +1388,30 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="AdminPanel" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="System"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="AdminPanel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Admin Panel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/System_Off_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../../Icons/System_On_Selected.svg"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="../imtlicgui/AdminPanelMultiDocView.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Instances" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -1320,6 +1446,7 @@
                                             <Value>Products</Value>
                                             <Value>Accounts</Value>
                                             <Value>Instances</Value>
+                                            <Value>AdminPanel</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -1624,6 +1751,14 @@
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                     <Component ExportedId="PreferenceDataController" ComponentId="PreferenceDataController"/>
                 </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="UserSqlRepository">
+            <Data Description="" Keywords="">
+                <ElementsList/>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>

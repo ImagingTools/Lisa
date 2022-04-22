@@ -35,12 +35,14 @@ import imtgui 1.0
 //@using { src.imtauthgui.AccountCollectionView }
 //@using { src.imtlicgui.ProductCollectionView }
 //@using { src.imtlicgui.InstallationCollectionView }
+//@using { src.imtlicgui.UsersCollectionView }
 
 //@using { src.imtlicgui.PackagesMultiDocView }
 //@using { src.imtlicgui.TestMultiDocView }
 //@using { src.imtlicgui.ProductsMultiDocView }
 //@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }
+//@using { src.imtlicgui.AdminPanelMultiDocView }
 
 //@using { src.imtlicgui.EditFeatureDialog }
 //@using { src.imtlicgui.EditLicenseDialog }
@@ -49,6 +51,7 @@ import imtgui 1.0
 
 //@using { src.imtlicgui.PackageView }
 //@using { src.imtlicgui.ProductView }
+//@using { src.imtlicgui.UserView }
 //@using { src.imtlicgui.InstallationInfoEditor }
 //@using { src.imtauthgui.ContactInfoEditor }
 
