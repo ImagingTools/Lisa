@@ -1557,7 +1557,7 @@
         <EmbeddedRegistry Id="SettingsControllers">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DBSettingsDataProvider">
+                    <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DatabaseSettingsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
