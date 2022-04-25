@@ -25,12 +25,10 @@
         <Element ComponentName="SettingsControllers" X="1050" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="UserSqlRepository">
-            <PositionMap/>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="FileControllers">
-            <PositionMap/>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
         <EmbededRegistry Id="PagesDataControllers">
@@ -43,26 +41,6 @@
                 <Element ComponentName="PagesDataController" X="175" Y="75" Note=""/>
                 <Element ComponentName="Products" X="425" Y="475" Note=""/>
                 <Element ComponentName="Test" X="1050" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
-            <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="675" Y="600" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -108,6 +86,30 @@
                 <Element ComponentName="UserController" X="125" Y="800" Note=""/>
                 <Element ComponentName="UserRepository" X="575" Y="700" Note=""/>
                 <Element ComponentName="UsersHeadersDataProvider" X="450" Y="800" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="UserSqlRepository">
+            <PositionMap/>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="FileControllers">
+            <PositionMap/>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="CommandsDataCoontrollers">
+            <PositionMap>
+                <Element ComponentName="AccountEditCommandDataProvider" X="650" Y="600" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
+                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
+                <Element ComponentName="UserEditCommandDataProvider" X="1000" Y="475" Note=""/>
+                <Element ComponentName="UsersCommandDataProvider" X="975" Y="425" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

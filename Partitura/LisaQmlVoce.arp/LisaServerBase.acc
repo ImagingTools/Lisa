@@ -352,6 +352,8 @@
                                             <Value>AccountEditCommandDataProvider</Value>
                                             <Value>InstallationsCommandDataProvider</Value>
                                             <Value>InstallationEditCommandDataProvider</Value>
+                                            <Value>UserEditCommandDataProvider</Value>
+                                            <Value>UsersCommandDataProvider</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -628,6 +630,81 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Products"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UserEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="UserEdit"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UsersCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Delete</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Users"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1446,7 +1523,6 @@
                                             <Value>Products</Value>
                                             <Value>Accounts</Value>
                                             <Value>Instances</Value>
-                                            <Value>AdminPanel</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
