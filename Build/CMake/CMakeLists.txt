@@ -16,13 +16,15 @@ message("IMTCORE_AUXINCLUDE ${CMAKE_CURRENT_LIST_DIR}/../../../ImtCore/AuxInclud
 
 set(AUX_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../AuxInclude/${TARGETNAME}/GeneratedFiles")
 
+
 include_directories("${AUX_INCLUDE_DIR}/../")
 
 message("${AUX_INCLUDE_DIR}")
 
 # Include
 
-#add_subdirectory("${INCLUDE_DIR}/ilisa/CMake" "${AUX_INCLUDE_DIR}/ilisa")
+add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
+add_subdirectory("${INCLUDE_DIR}/lisaqml/CMake" "${AUX_INCLUDE_DIR}/lisaqml")
 
 # Impl
 
@@ -31,7 +33,7 @@ add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
 
 #if(NOT UNIX)
 #    add_subdirectory("${IMPL_DIR}/LisaDbExe/CMake" "${AUX_INCLUDE_DIR}/LisaDb")
-	add_subdirectory("${IMPL_DIR}/LisaQml/CMake" "${AUX_INCLUDE_DIR}/LisaQml")
+    add_subdirectory("${IMPL_DIR}/LisaQmlExe/CMake" "${AUX_INCLUDE_DIR}/LisaQmlExe")
 	add_subdirectory("${IMPL_DIR}/LisaClient/CMake" "${AUX_INCLUDE_DIR}/LisaClient")
 	add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 #endif(UNIX)
