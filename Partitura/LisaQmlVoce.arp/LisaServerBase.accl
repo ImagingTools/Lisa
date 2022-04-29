@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4984" Description="ACF"/>
-            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4994" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -25,12 +25,6 @@
         <Element ComponentName="SettingsControllers" X="1050" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PagesDataControllers">
             <PositionMap>
                 <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
@@ -59,38 +53,14 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="DataControllers">
-            <PositionMap>
-                <Element ComponentName="AccountCollectionController" X="1050" Y="400" Note=""/>
-                <Element ComponentName="AccountController" X="875" Y="675" Note=""/>
-                <Element ComponentName="AccountInfo" X="1025" Y="775" Note=""/>
-                <Element ComponentName="AccountRepository" X="650" Y="400" Note=""/>
-                <Element ComponentName="AccountsHeadersDataProvider" X="1025" Y="475" Note=""/>
-                <Element ComponentName="FeaturePackageCollectionController" X="950" Y="25" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="1025" Y="125" Note=""/>
-                <Element ComponentName="InstallationCollectionController" X="1025" Y="575" Note=""/>
-                <Element ComponentName="InstallationController" X="125" Y="450" Note=""/>
-                <Element ComponentName="InstallationRepository" X="600" Y="525" Note=""/>
-                <Element ComponentName="InstallationsHeadersDataProvider" X="575" Y="600" Note=""/>
-                <Element ComponentName="PackageController" X="125" Y="25" Note=""/>
-                <Element ComponentName="PackageHeadersDataProvider" X="175" Y="100" Note=""/>
-                <Element ComponentName="PackagesHeadersDataProvider" X="650" Y="100" Note=""/>
-                <Element ComponentName="ProductCollectionController" X="150" Y="200" Note=""/>
-                <Element ComponentName="ProductController" X="675" Y="200" Note=""/>
-                <Element ComponentName="ProductHeadersDataProvider" X="750" Y="300" Note=""/>
-                <Element ComponentName="ProductInstance" X="125" Y="325" Note=""/>
-                <Element ComponentName="ProductInstanceMetaInfoCreator" X="200" Y="525" Note=""/>
-                <Element ComponentName="ProductLicensingInfo" X="1050" Y="225" Note=""/>
-                <Element ComponentName="ProductRepository" X="400" Y="275" Note=""/>
-                <Element ComponentName="UserCollectionController" X="150" Y="675" Note=""/>
-                <Element ComponentName="UserController" X="125" Y="800" Note=""/>
-                <Element ComponentName="UserRepository" X="575" Y="700" Note=""/>
-                <Element ComponentName="UsersHeadersDataProvider" X="450" Y="800" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="UserSqlRepository">
             <PositionMap/>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
         <EmbededRegistry Id="FileControllers">
@@ -121,6 +91,36 @@
                 <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
                 <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
                 <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="DataControllers">
+            <PositionMap>
+                <Element ComponentName="AccountCollectionController" X="1050" Y="400" Note=""/>
+                <Element ComponentName="AccountController" X="875" Y="675" Note=""/>
+                <Element ComponentName="AccountInfo" X="1025" Y="775" Note=""/>
+                <Element ComponentName="AccountRepository" X="650" Y="400" Note=""/>
+                <Element ComponentName="AccountsHeadersDataProvider" X="1025" Y="475" Note=""/>
+                <Element ComponentName="FeaturePackageCollectionController" X="950" Y="25" Note=""/>
+                <Element ComponentName="FeaturePackageRepository" X="1025" Y="125" Note=""/>
+                <Element ComponentName="InstallationCollectionController" X="1025" Y="575" Note=""/>
+                <Element ComponentName="InstallationController" X="125" Y="450" Note=""/>
+                <Element ComponentName="InstallationRepository" X="600" Y="525" Note=""/>
+                <Element ComponentName="InstallationsHeadersDataProvider" X="575" Y="600" Note=""/>
+                <Element ComponentName="PackageController" X="125" Y="25" Note=""/>
+                <Element ComponentName="PackageHeadersDataProvider" X="175" Y="100" Note=""/>
+                <Element ComponentName="PackagesHeadersDataProvider" X="650" Y="100" Note=""/>
+                <Element ComponentName="ProductCollectionController" X="150" Y="200" Note=""/>
+                <Element ComponentName="ProductController" X="675" Y="200" Note=""/>
+                <Element ComponentName="ProductHeadersDataProvider" X="750" Y="300" Note=""/>
+                <Element ComponentName="ProductInstance" X="125" Y="325" Note=""/>
+                <Element ComponentName="ProductInstanceMetaInfoCreator" X="200" Y="525" Note=""/>
+                <Element ComponentName="ProductLicensingInfo" X="1050" Y="225" Note=""/>
+                <Element ComponentName="ProductRepository" X="400" Y="275" Note=""/>
+                <Element ComponentName="UserCollectionController" X="150" Y="675" Note=""/>
+                <Element ComponentName="UserController" X="125" Y="800" Note=""/>
+                <Element ComponentName="UserRepository" X="575" Y="700" Note=""/>
+                <Element ComponentName="UsersHeadersDataProvider" X="450" Y="800" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

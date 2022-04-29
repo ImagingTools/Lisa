@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4962" Description="ACF"/>
-            <Version Id="1" Number="2154" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4994" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -39,7 +39,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLog.txt"/>
+                        <Data IsEnabled="true" Value="LisaServerLog.txt"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
@@ -59,8 +59,14 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="TextFileLog"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -86,11 +92,11 @@
         <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="101"/>
+                        <Data IsEnabled="true" Value="104"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -104,54 +110,13 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="VersionInfo" PackageId="BasePck" ComponentId="VersionInfo">
+        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
         </Element>
     </ElementsList>
-    <EmbeddedRegistriesList>
-        <EmbeddedRegistry Id="Enums">
-            <Data Description="" Keywords="">
-                <ElementsList>
-                    <Element Id="ApplicationDataEnumProvider" PackageId="ImtQmlPck" ComponentId="ApplicationDataEnumProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="qml/AppEnum.qml"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="CommandDataEnumProvider" PackageId="ImtQmlPck" ComponentId="CommandDataEnumProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="qml/CommandEnum.qml"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="PageDataEnumProvider" PackageId="ImtQmlPck" ComponentId="PageDataEnumProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DataId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="qml/PageEnum.qml"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                </ElementsList>
-                <EmbeddedRegistriesList/>
-                <ExportedInterfaces/>
-                <ExportedComponents>
-                    <Component ExportedId="ApplicationDataEnumProvider" ComponentId="ApplicationDataEnumProvider"/>
-                    <Component ExportedId="CommandDataEnumProvider" ComponentId="CommandDataEnumProvider"/>
-                    <Component ExportedId="PageDataEnumProvider" ComponentId="PageDataEnumProvider"/>
-                </ExportedComponents>
-            </Data>
-        </EmbeddedRegistry>
-    </EmbeddedRegistriesList>
+    <EmbeddedRegistriesList/>
     <ExportedInterfaces>
         <Interface InterfaceId="ibase::IApplication" ComponentId="ServiceApplication"/>
     </ExportedInterfaces>
