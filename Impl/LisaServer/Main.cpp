@@ -15,6 +15,7 @@
 int main(int argc, char *argv[])
 {
 	Q_INIT_RESOURCE(LisaServerWeb);
+	Q_INIT_RESOURCE(LisaServer);
 
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
