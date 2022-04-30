@@ -14,7 +14,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="LisaClient"/>
+                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Client"/>
@@ -30,7 +30,11 @@
         </Element>
         <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="MainWindow" PackageId="ImtQmlPck" ComponentId="QuickObject">
@@ -91,7 +95,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="VersionInfo" PackageId="BasePck" ComponentId="VersionInfo">
+        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>

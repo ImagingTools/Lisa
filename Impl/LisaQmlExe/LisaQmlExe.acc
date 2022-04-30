@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4984" Description="ACF"/>
-            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4994" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,6 +13,12 @@
         <Element Id="ApplicationInfo" PackageId="BasePck" ComponentId="ApplicationInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Client"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
                     </AttributeInfo>
@@ -23,7 +29,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLog.txt"/>
+                        <Data IsEnabled="true" Value="LisaQmlLog.txt"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
@@ -43,6 +49,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="TextFileLog"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
@@ -51,7 +60,11 @@
         </Element>
         <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="MainWindow" PackageId="ImtQmlPck" ComponentId="QuickObject">
@@ -69,9 +82,6 @@
         <Element Id="ObserverQml" PackageId="ImtQmlPck" ComponentId="ObserverQml">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Log"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LocalSettings/LocalPage"/>
                     </AttributeInfo>
@@ -120,7 +130,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="101"/>
+                        <Data IsEnabled="true" Value="104"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -131,10 +141,19 @@
                     <AttributeInfo Id="LogFile" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLogFilePath"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="UseCategory" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UseCode" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UseTimeStamp" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="VersionInfo" PackageId="BasePck" ComponentId="VersionInfo">
+        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
