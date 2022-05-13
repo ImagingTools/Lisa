@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <TS language="ru_RU" version="2.0">
 	<context>
+		<name>Lisa</name>
 		<message>
 			<source>Name</source>
 			<translation>Название</translation>
