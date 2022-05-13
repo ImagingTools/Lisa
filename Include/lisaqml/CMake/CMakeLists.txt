@@ -30,7 +30,8 @@ list(APPEND webdirs ${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src/imtlicgui)
 # copy lisa qml from to
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/qml)
-#list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/qml)
+list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
+list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/qml/Translations)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
 
 #list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/html)

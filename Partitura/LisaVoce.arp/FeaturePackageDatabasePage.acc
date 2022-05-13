@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4984" Description="ACF"/>
+            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -175,6 +175,15 @@
         <EmbeddedRegistry Id="CollectionView">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="GuiQuickWrap" PackageId="ImtQmlPck" ComponentId="GuiQuickWrap">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="QuickObject" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="QuickObject"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Icons" PackageId="QtGuiPck" ComponentId="IconProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -194,6 +203,18 @@
                     <Element Id="MetaInfoView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionMetaInfoView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="QuickObject" PackageId="ImtQmlPck" ComponentId="QuickObject">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="BaseUrl" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="http://h2815060.stratoserver.net:7776/Lisa"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="QmlFilePath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value=":/qml/imtgui/MouseTest.qml"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="RepositoryView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
@@ -253,7 +274,7 @@
                     <Interface InterfaceId="imod::IModelEditor" ComponentId="RepositoryView"/>
                     <Interface InterfaceId="imod::IObserver" ComponentId="RepositoryView"/>
                     <Interface InterfaceId="imtbase::IObjectCollectionEventHandler" ComponentId="RepositoryView"/>
-                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="RepositoryView"/>
+                    <Interface InterfaceId="iqtgui::IGuiObject" ComponentId="GuiQuickWrap"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="RepositoryView"/>
                 </ExportedInterfaces>
                 <ExportedComponents>

@@ -43,12 +43,7 @@ int main(int argc, char *argv[])
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
 	
-	imtStylePtr->setBaseStyle(QStyleFactory::create("fusion"));
-	QApplication::setStyle(imtStylePtr);
-	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
 	CLisaQmlExe instance;
-
 	imtqml::CApplicationDataEnumProviderComp appEnum;
     qmlRegisterSingletonInstance<imtqml::CApplicationDataEnumProviderComp>("Acf", 1, 0, "AppEnum", &appEnum);
 	imtqml::CPageDataEnumProviderComp pageEnum;
