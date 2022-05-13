@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4952" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4993" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -21,6 +21,7 @@
             <PositionMap>
                 <Element ComponentName="Icons" X="175" Y="475" Note=""/>
                 <Element ComponentName="MetaInfoView" X="900" Y="475" Note=""/>
+                <Element ComponentName="PaginationGui" X="750" Y="100" Note=""/>
                 <Element ComponentName="RepositoryView" X="525" Y="100" Note=""/>
                 <Element ComponentName="ViewDelegate" X="525" Y="300" Note=""/>
             </PositionMap>

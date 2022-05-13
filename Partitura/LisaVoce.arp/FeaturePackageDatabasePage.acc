@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4993" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -196,6 +196,15 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="PaginationGui" PackageId="ImtGuiPck" ComponentId="PaginationGui">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RepositoryView/PageSelection"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="RepositoryView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -207,6 +216,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultStatusIcon" Type="String" ExportId="">
                                     <Data IsEnabled="true" Value=":/Icons/FeaturePackage"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PaginationGui" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PaginationGui"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsProvider" Type="Reference" ExportId="SettingsProvider">
                                     <Data IsEnabled="false"/>
