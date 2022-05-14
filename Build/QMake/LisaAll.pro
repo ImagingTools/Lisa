@@ -2,6 +2,12 @@
 TEMPLATE = subdirs
 
 # Libraries
+SUBDIRS += lisadb
+lisadb.file = ../../Include/lisadb/QMake/lisadb.pro
+
+SUBDIRS += lisaqml
+lisaqml.file = ../../Include/lisaqml/QMake/lisaqml.pro
+
 SUBDIRS += LisaLoc
 LisaLoc.file = ../../Impl/LisaLoc/QMake/LisaLoc.pro
 
@@ -10,7 +16,7 @@ SUBDIRS += Lisa
 Lisa.file = ../../Impl/LisaExe/QMake/Lisa.pro
 Lisa.depends = LisaLoc
 
-SUBDIRS += LisaDb
-LisaDb.file = ../../Impl/LisaDbExe/QMake/LisaDb.pro
-LisaDb.depends = LisaLoc
+SUBDIRS += LisaDbExe
+LisaDbExe.file = ../../Impl/LisaDbExe/QMake/LisaDbExe.pro
+LisaDbExe.depends = LisaLoc
 

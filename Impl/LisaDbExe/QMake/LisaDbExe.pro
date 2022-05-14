@@ -1,4 +1,4 @@
-TARGET = LisaDb
+TARGET = LisaDbExe
 
 include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
 include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
@@ -8,7 +8,7 @@ include($(IMTCOREDIR)/Config/QMake/Quazip.pri)
 RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -limeas -liqtmeas -liproc -lAcfSlnLoc -lAcfLoc -lIacfLoc
-LIBS +=  -limtbase -limtdb -limtlicdb -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limtstyle -limtdesign -limtrest -limtqml -limtcom
+LIBS +=  -limtbase -limtdb -limtlicdb -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtrepo -limtcrypt -lLisaLoc -limtstyle -limtdesign -limtrest -limtqml -limtcom -limtgql -llisaqml -llisadb
 
 win32: {
 		contains(QMAKE_HOST.arch, x86_64) {
