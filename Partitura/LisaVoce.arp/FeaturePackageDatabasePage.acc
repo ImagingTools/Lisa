@@ -198,11 +198,7 @@
                     </Element>
                     <Element Id="PaginationGui" PackageId="ImtGuiPck" ComponentId="PaginationGui">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultModel" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="RepositoryView/PageSelection"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="RepositoryView" PackageId="ImtGuiPck" ComponentId="ObjectCollectionView">
