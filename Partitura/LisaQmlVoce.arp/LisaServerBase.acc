@@ -24,11 +24,7 @@
         </Element>
         <Element Id="CommandsDataControllers" PackageId="" ComponentId="CommandsDataCoontrollers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TranslationManager"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
@@ -48,9 +44,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TranslationManager"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -232,11 +225,7 @@
         </Element>
         <Element Id="PagesDataControllers" PackageId="" ComponentId="PagesDataControllers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TranslationManager"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
@@ -301,34 +290,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Language" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TranslationManager"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="TranslationManager" PackageId="QtPck" ComponentId="TranslationManager">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Translations"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -854,6 +815,9 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -874,6 +838,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -957,6 +924,9 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1003,6 +973,9 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1026,6 +999,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1109,6 +1085,9 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1135,9 +1114,6 @@
                                             <Value>Description</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1168,9 +1144,6 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1198,6 +1171,9 @@
                                 <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1224,6 +1200,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductFactory" Type="Factory" ExportId="">
                                     <Data IsEnabled="true" Value="ProductLicensingInfo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -1992,6 +1971,5 @@
         <Component ExportedId="DatabaseAccessSettings" ComponentId="PreferencesQml/DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="PreferencesQml/Design"/>
         <Component ExportedId="Language" ComponentId="PreferencesQml/Language"/>
-        <Component ExportedId="TranslationManager" ComponentId="TranslationManager"/>
     </ExportedComponents>
 </Acf>

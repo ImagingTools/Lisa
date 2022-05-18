@@ -25,6 +25,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="Context" PackageId="ImtQmlPck" ComponentId="Context">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="LisaLogFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>

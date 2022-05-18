@@ -9,6 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationInfo" X="882.071067812" Y="219.343145751" Note=""/>
+        <Element ComponentName="Context" X="725" Y="350" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="125" Y="625" Note=""/>
         <Element ComponentName="LisaServerBase" X="325" Y="75" Note=""/>
         <Element ComponentName="LocalSettings" X="850" Y="725" Note=""/>

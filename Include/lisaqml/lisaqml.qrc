@@ -10,8 +10,4 @@
     <qresource prefix="/qml">
         <file alias="lisa.qml">Resources/qml/lisa.qml</file>
     </qresource>
-    <qresource prefix="/Translations">
-        <file alias="Lisa_ru_RU">Resources/qml/Translations/Lisa_ru_RU.qm</file>
-	<file alias="Lisa_en_US">Resources/qml/Translations/Lisa_en_US.qm</file>
-    </qresource>
 </RCC>

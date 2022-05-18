@@ -4,5 +4,5 @@
 		<file alias="Lisa_de_DE">Translations/Lisa_de_DE.qm</file>
 		<file alias="Lisa_ru_RU">Translations/Lisa_ru_RU.qm</file>
 		<file alias="Lisa_pl_PL">Translations/Lisa_pl_PL.qm</file>
-	</qresource>
+   </qresource>
 </RCC>
