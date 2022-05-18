@@ -64,9 +64,6 @@
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaServerBase/TranslationManager"/>
-                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>

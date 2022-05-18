@@ -45,6 +45,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization_1"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -219,6 +222,62 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ProductInstanceInfoPersistence" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DataControllers/ProductLicensingInfoPersistence"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LisaLocalization" PackageId="QtPck" ComponentId="TranslationManager">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
+                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Translations"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ImtCore"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LisaLocalization_1" PackageId="QtPck" ComponentId="TranslationManager">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
+                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="C:/Sybnavigation/ITDevelopment/Lisa/Impl/LisaLoc/Translations"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -1115,6 +1174,9 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1143,6 +1205,9 @@
                                             <Value>Last Modified</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

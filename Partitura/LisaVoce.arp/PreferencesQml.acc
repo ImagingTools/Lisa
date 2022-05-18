@@ -160,7 +160,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Constraints" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                        <Data IsEnabled="true" Value="LanguageOptions"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="0"/>
@@ -192,11 +192,6 @@
                         </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="Preferences" PackageId="BasePck" ComponentId="ComposedParamsSet">

@@ -11,7 +11,7 @@
         <Element ComponentName="ApplicationInfo" X="875" Y="225" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="125" Y="375" Note=""/>
         <Element ComponentName="LisaServerBase" X="325" Y="75" Note=""/>
-        <Element ComponentName="LocalSettings" X="1025" Y="625" Note=""/>
+        <Element ComponentName="LocalSettings" X="1023.58578644" Y="620.757359313" Note=""/>
         <Element ComponentName="MainWindow" X="425" Y="350" Note=""/>
         <Element ComponentName="ObserverQml" X="650" Y="350" Note=""/>
         <Element ComponentName="QuickApplication" X="625" Y="225" Note=""/>
