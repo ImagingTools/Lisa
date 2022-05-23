@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.1.0)
-#cmake_minimum_required(VERSION 3.13.0)
 
 project(LisaAll)
 
@@ -21,20 +20,21 @@ include_directories("${AUX_INCLUDE_DIR}/../")
 
 message("${AUX_INCLUDE_DIR}")
 
+
 # Include
 
 add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
 add_subdirectory("${INCLUDE_DIR}/lisaqml/CMake" "${AUX_INCLUDE_DIR}/lisaqml")
+
 
 # Impl
 
 add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
 add_subdirectory("${IMPL_DIR}/LisaExe/CMake" "${AUX_INCLUDE_DIR}/Lisa")
 
-#if(NOT UNIX)
-
-    add_subdirectory("${IMPL_DIR}/LisaQmlExe/CMake" "${AUX_INCLUDE_DIR}/LisaQmlExe")
+if(NOT UNIX)
+	add_subdirectory("${IMPL_DIR}/LisaQmlExe/CMake" "${AUX_INCLUDE_DIR}/LisaQmlExe")
 	add_subdirectory("${IMPL_DIR}/LisaClient/CMake" "${AUX_INCLUDE_DIR}/LisaClient")
 	add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 	add_subdirectory("${IMPL_DIR}/LisaDbExe/CMake" "${AUX_INCLUDE_DIR}/LisaDbExe")
-#endif(UNIX)
+endif(UNIX)
