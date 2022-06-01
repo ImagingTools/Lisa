@@ -2,15 +2,17 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4994" Description="ACF"/>
+            <Version Id="0" Number="4993" Description="ACF"/>
             <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationInfo" X="675" Y="75" Note=""/>
+        <Element ComponentName="Context" X="175" Y="175" Note=""/>
+        <Element ComponentName="ImtCoreLocalization" X="150" Y="325" Note=""/>
         <Element ComponentName="LocalSettings" X="650" Y="550" Note=""/>
-        <Element ComponentName="MainWindow" X="250" Y="375" Note=""/>
+        <Element ComponentName="MainWindow" X="325" Y="400" Note=""/>
         <Element ComponentName="ObserverQml" X="675" Y="375" Note=""/>
         <Element ComponentName="QuickApplication" X="400" Y="225" Note=""/>
         <Element ComponentName="SplashScreen" X="900" Y="325" Note=""/>

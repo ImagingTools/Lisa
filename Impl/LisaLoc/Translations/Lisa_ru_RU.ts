@@ -246,7 +246,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+4"/>
         <location line="+46"/>
         <source>Russian</source>
-        <translation>Русский</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-48"/>
@@ -328,7 +328,7 @@
         <location line="+150"/>
         <location line="+120"/>
         <source>Installations</source>
-        <translation>Инсталяции</translation>
+        <translation>Инсталляции</translation>
     </message>
     <message>
         <location line="-402"/>
@@ -622,7 +622,7 @@
         <location line="+30"/>
         <location line="+8"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать</translation>
     </message>
     <message>
         <location line="-276"/>
@@ -1224,7 +1224,7 @@
         <location line="+8"/>
         <location line="+24"/>
         <source>Name</source>
-        <translation>RUS NAME</translation>
+        <translation type="unfinished">Название</translation>
     </message>
     <message>
         <location line="-16"/>

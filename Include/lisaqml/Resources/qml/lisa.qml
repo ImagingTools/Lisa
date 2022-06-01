@@ -57,6 +57,10 @@ import imtgui 1.0
 
 //@using { src.imtauthgui.TextFieldCustom }
 
+//DECORATORS
+//@using { src.imtgui.AuxComponents.MenuPanelButtonDecorator }
+//@using { src.imtgui.AuxComponents.TabPanelDecorator }
+//@using { src.imtgui.AuxComponents.FilterPanelDecorator }
 
 Rectangle {
     id: window;

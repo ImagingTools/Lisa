@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4984" Description="ACF"/>
-            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
+            <Version Id="0" Number="4993" Description="ACF"/>
+            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -24,7 +24,11 @@
         </Element>
         <Element Id="CommandsDataControllers" PackageId="" ComponentId="CommandsDataCoontrollers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
@@ -46,7 +50,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization_1"/>
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -193,6 +197,50 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ImtCoreLocalization" PackageId="QtPck" ComponentId="TranslationManager">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="InstallTranslate" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>English</Value>
+                                <Value>German</Value>
+                                <Value>Russian</Value>
+                                <Value>Polish</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
+                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SlaveTranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Translations"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ImtCore"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -229,6 +277,12 @@
         <Element Id="LisaLocalization" PackageId="QtPck" ComponentId="TranslationManager">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="IgnoreLocale" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="InstallTranslate" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
                         <Data IsEnabled="true">
                             <Values>
@@ -236,6 +290,16 @@
                                 <Value>de_DE</Value>
                                 <Value>ru_RU</Value>
                                 <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>English</Value>
+                                <Value>German</Value>
+                                <Value>Russian</Value>
+                                <Value>Polish</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -249,34 +313,6 @@
                         <Data IsEnabled="true" Value=":/Translations"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCore"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LisaLocalization_1" PackageId="QtPck" ComponentId="TranslationManager">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
-                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="C:/Sybnavigation/ITDevelopment/Lisa/Impl/LisaLoc/Translations"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -284,7 +320,11 @@
         </Element>
         <Element Id="PagesDataControllers" PackageId="" ComponentId="PagesDataControllers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
@@ -349,6 +389,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Language" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ImtCoreLocalization"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -953,6 +996,16 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AccountName</Value>
+                                            <Value>Email</Value>
+                                            <Value>AccountType</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -1117,6 +1170,16 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>InstanceId</Value>
+                                            <Value>Customer</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -1174,6 +1237,15 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Id</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -1203,6 +1275,14 @@
                                             <Value>Description</Value>
                                             <Value>Added</Value>
                                             <Value>Last Modified</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Description</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -1292,6 +1372,15 @@
                                         <Values>
                                             <Value>License Name</Value>
                                             <Value>License-ID</Value>
+                                            <Value>Description</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Name</Value>
+                                            <Value>Id</Value>
                                             <Value>Description</Value>
                                         </Values>
                                     </Data>
@@ -1729,6 +1818,9 @@
                     <Element Id="PagesDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="DecoratorSource" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value=":/qml/imtgui/AuxComponents/MenuPanelButtonDecorator.qml"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>

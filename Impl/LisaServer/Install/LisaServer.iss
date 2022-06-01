@@ -9,8 +9,6 @@
 #define BasePath GetEnv('LISA_BUILD_DIR')
 
 [Setup]
-; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
-; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -18,14 +16,17 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppName}
+DefaultDirName={pf64}\ImagingTools\{#MyAppName}
 DisableProgramGroupPage=yes
-; Uncomment the following line to run in non administrative install mode (install for current user only.)
 PrivilegesRequired=admin
 OutputBaseFilename=LisaServerInstall
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
+
+[Components]
+Name: "server"; Description: "Lisa server"; Types: full compact custom; Flags: fixed
+Name: "postgresql"; Description: "PostgreSQL 14"; Types: full
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -34,20 +35,45 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-
+Name: envPath; Description: "Add to PATH variable PostgreSQL"; Components: postgresql
+    
 [Files]
 Source: "{#BasePath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#BasePath}\*"; Excludes: "*.exe"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "postgresql.exe"; DestDir: "{app}"; Flags: deleteafterinstall
-; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+Source: "postgresql.exe"; DestDir: "{app}"; Flags: deleteafterinstall; Components: postgresql
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
+Filename: "{app}\postgresql.exe"; Flags: runascurrentuser; Parameters:  --mode unattended --unattendedmodeui minimal --superpassword root; Components: postgresql
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-t"
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-u"
-;Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: postinstall unchecked; Parameters: "-i"
-Filename: "{app}\postgresql.exe"; StatusMsg: Installation postgresql; Flags: runascurrentuser postinstall; Parameters:  --mode unattended --unattendedmodeui minimal --superpassword root
+Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-i"
+
+[UninstallRun]
+Filename: "{app}\{#MyAppExeName}"; Parameters: "-t -u"
+
+[Registry]
+Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
+    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{pf64}\PostgreSQL\14\bin"; \
+    Tasks:  envPath; Check: NeedsAddPath('{pf64}\PostgreSQL\14\bin');
+
+[Code]
+function NeedsAddPath(Param: string): boolean;
+var
+  OrigPath: string;
+begin
+    if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
+      'SYSTEM\CurrentControlSet\Control\Session Manager\Environment',
+      'Path', OrigPath)
+    then begin
+      Result := True;
+      exit;
+    end;
+    { look for the path with leading and trailing semicolon }
+    { Pos() returns 0 if not found }
+    Result := Pos(';' + Param + ';', ';' + OrigPath + ';') = 0;
+end;
 

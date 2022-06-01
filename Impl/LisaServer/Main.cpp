@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(lisaqmlWeb);
 	Q_INIT_RESOURCE(lisaqml);
 	Q_INIT_RESOURCE(lisadb);
+	Q_INIT_RESOURCE(ImtCoreLoc);
+	Q_INIT_RESOURCE(LisaLoc);
 
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);

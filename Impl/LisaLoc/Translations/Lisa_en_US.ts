@@ -120,7 +120,7 @@
         <location line="+218"/>
         <location line="+120"/>
         <source>Accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Accounts</translation>
     </message>
     <message>
         <location line="-450"/>
@@ -245,7 +245,7 @@
         <location line="+224"/>
         <location line="+120"/>
         <source>Packages</source>
-        <translation type="unfinished"></translation>
+        <translation>Packages</translation>
     </message>
     <message>
         <location line="-426"/>
@@ -349,7 +349,7 @@
         <location line="+128"/>
         <location line="+120"/>
         <source>Products</source>
-        <translation type="unfinished"></translation>
+        <translation>Products</translation>
     </message>
     <message>
         <location line="-390"/>
@@ -414,7 +414,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-388"/>
         <location line="+2"/>
         <source>Preferences</source>
-        <translation type="unfinished"></translation>
+        <translation>Preferences</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -423,7 +423,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-6"/>
         <source>Design</source>
-        <translation type="unfinished"></translation>
+        <translation>Design</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -442,7 +442,7 @@
         <location line="+200"/>
         <location line="+120"/>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Language</translation>
     </message>
     <message>
         <location line="-308"/>
@@ -460,7 +460,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-4"/>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Light</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -469,7 +469,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation>Dark</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -599,7 +599,7 @@
         <location line="+30"/>
         <location line="+8"/>
         <source>Edit</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit</translation>
     </message>
     <message>
         <location line="-254"/>
@@ -706,7 +706,7 @@
         <location line="+26"/>
         <location line="+10"/>
         <source>New</source>
-        <translation type="unfinished"></translation>
+        <translation>New</translation>
     </message>
     <message>
         <location line="-214"/>
@@ -720,7 +720,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-140"/>
         <location line="+10"/>
         <source>Open</source>
-        <translation type="unfinished"></translation>
+        <translation>Open</translation>
     </message>
     <message>
         <location line="-86"/>
@@ -769,7 +769,7 @@
         <location line="+6"/>
         <location line="+6"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location line="-194"/>
@@ -818,7 +818,7 @@
         <location line="+6"/>
         <location line="+6"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Close</translation>
     </message>
     <message>
         <location line="-194"/>
@@ -887,7 +887,7 @@
         <location line="+26"/>
         <location line="+10"/>
         <source>Remove</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove</translation>
     </message>
     <message>
         <location line="-204"/>
@@ -901,7 +901,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-180"/>
         <location line="+20"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Import</translation>
     </message>
     <message>
         <location line="-28"/>
@@ -915,7 +915,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-18"/>
         <location line="+20"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Export</translation>
     </message>
     <message>
         <location line="-4"/>
@@ -949,7 +949,7 @@
         <location line="+18"/>
         <location line="+46"/>
         <source>Duplicate</source>
-        <translation type="unfinished"></translation>
+        <translation>Duplicate</translation>
     </message>
     <message>
         <location line="-116"/>
@@ -963,7 +963,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-182"/>
         <location line="+128"/>
         <source>Create License File</source>
-        <translation type="unfinished"></translation>
+        <translation>Create License File</translation>
     </message>
     <message>
         <location line="-72"/>
@@ -977,7 +977,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-52"/>
         <location line="+120"/>
         <source>Lisa Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa Settings</translation>
     </message>
     <message>
         <location line="-116"/>
@@ -991,7 +991,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-114"/>
         <location line="+120"/>
         <source>Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode</translation>
     </message>
     <message>
         <location line="-116"/>
@@ -1005,7 +1005,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-118"/>
         <location line="+120"/>
         <source>DB Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>DB Settings</translation>
     </message>
     <message>
         <location line="-116"/>
@@ -1028,7 +1028,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-44"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+28"/>
         <source>Feature Name</source>
-        <translation type="unfinished">Feature Name</translation>
+        <translation>Feature Name</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1037,7 +1037,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>Feature-ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Feature-ID</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1066,7 +1066,7 @@
         <location line="+8"/>
         <location line="+14"/>
         <source>Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Description</translation>
     </message>
     <message>
         <location line="-36"/>
@@ -1075,7 +1075,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-18"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-42"/>
         <source>License Name</source>
-        <translation type="unfinished"></translation>
+        <translation>License Name</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1084,7 +1084,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>License-ID</source>
-        <translation type="unfinished"></translation>
+        <translation>License-ID</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1136,7 +1136,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-32"/>
         <location line="+34"/>
         <source>Last Modified</source>
-        <translation type="unfinished"></translation>
+        <translation>Last Modified</translation>
     </message>
     <message>
         <location line="-26"/>
@@ -1145,7 +1145,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-46"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-16"/>
         <source>Account Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Account Name</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1159,7 +1159,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <location line="+8"/>
         <source>Email</source>
-        <translation type="unfinished"></translation>
+        <translation>Email</translation>
     </message>
     <message>
         <location line="-16"/>
@@ -1168,7 +1168,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-28"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-6"/>
         <source>Account Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Account Type</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1177,7 +1177,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>Account Description</source>
-        <translation type="unfinished"></translation>
+        <translation>Account Description</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1186,7 +1186,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+10"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-20"/>
         <source>Instance-ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Instance-ID</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1195,7 +1195,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>Customer</source>
-        <translation type="unfinished"></translation>
+        <translation>Customer</translation>
     </message>
     <message>
         <location line="+26"/>
@@ -1222,7 +1222,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-6"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
         <source>Server Url</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Url</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -1231,7 +1231,7 @@
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+4"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+6"/>
         <source>Network Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Network Settings</translation>
     </message>
     <message>
         <location line="-364"/>
@@ -1323,7 +1323,7 @@
         <location line="+150"/>
         <location line="+120"/>
         <source>Installations</source>
-        <translation type="unfinished"></translation>
+        <translation>Installations</translation>
     </message>
     <message>
         <location line="-318"/>
