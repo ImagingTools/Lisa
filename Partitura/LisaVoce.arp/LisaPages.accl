@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -14,6 +14,8 @@
         <Element ComponentName="Instances" X="900" Y="300" Note=""/>
         <Element ComponentName="Log" X="100" Y="50" Note=""/>
         <Element ComponentName="MainPages" X="625" Y="400" Note=""/>
+        <Element ComponentName="PopupController" X="925" Y="600" Note=""/>
+        <Element ComponentName="PopupTestGui" X="925" Y="500" Note=""/>
         <Element ComponentName="Products" X="675" Y="725" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -113,6 +113,7 @@
                                 <Value>Products/VisualStatus</Value>
                                 <Value>Accounts/VisualStatus</Value>
                                 <Value>Instances/VisualStatus</Value>
+                                <Value>PopupTestGui/VisualStatus</Value>
                                 <Value>Log/VisualStatus</Value>
                                 <Value>Help/VisualStatus</Value>
                             </Values>
@@ -125,6 +126,7 @@
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
+                                <Value>PopupTestGui</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -140,6 +142,7 @@
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
+                                <Value>PopupTest</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -152,6 +155,7 @@
                                 <Value>Products</Value>
                                 <Value>Accounts</Value>
                                 <Value>Instances</Value>
+                                <Value>PopupTest</Value>
                                 <Value>Log</Value>
                                 <Value>Help</Value>
                             </Values>
@@ -159,6 +163,27 @@
                     </AttributeInfo>
                     <AttributeInfo Id="SupressPageTitle" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PopupController" PackageId="ImtGuiPck" ComponentId="PopupController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ClientArea" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PopupTestGui/ClientAreaProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PopupTestGui" PackageId="ImtGuiPck" ComponentId="PopupTestGui">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PopupController" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PopupController"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -197,7 +222,7 @@
         <Component ExportedId="AccountCommands" ComponentId="Accounts/Commands"/>
         <Component ExportedId="FeaturePackagesCommands" ComponentId="FeaturePackages/Commands"/>
         <Component ExportedId="InstancesCommands" ComponentId="Instances/Commands"/>
-        <Component ExportedId="Log" ComponentId="Log"/>
+        <Component ExportedId="Log" ComponentId="PopupController"/>
         <Component ExportedId="PageModel" ComponentId="MainPages/PageModel"/>
         <Component ExportedId="ProductsCommands" ComponentId="Products/Commands"/>
     </ExportedComponents>
