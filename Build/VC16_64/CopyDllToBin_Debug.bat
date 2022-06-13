@@ -1,1 +1,1 @@
-windeployqt ../../Bin/DebugVC16_64/LisaQml.exe
+windeployqt ../../Bin/Debug_Qt5_VC16_x64/LisaDbExe.exe
