@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4993" Description="ACF"/>
-            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -362,6 +362,9 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -2021,6 +2024,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Prefix" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="lisa"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

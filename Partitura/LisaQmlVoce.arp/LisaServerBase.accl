@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4993" Description="ACF"/>
-            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -24,78 +24,9 @@
         <Element ComponentName="PagesDataControllers" X="150" Y="550" Note=""/>
         <Element ComponentName="PgSqlDatabaseEngine" X="775" Y="725" Note=""/>
         <Element ComponentName="PreferencesQml" X="1075" Y="725" Note=""/>
-        <Element ComponentName="SettingsControllers" X="1047.17157288" Y="548.585786438" Note=""/>
+        <Element ComponentName="SettingsControllers" X="1050" Y="550" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="FileControllers">
-            <PositionMap/>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="SettingsControllers">
-            <PositionMap>
-                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
-                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
-                <Element ComponentName="Design" X="100" Y="400" Note=""/>
-                <Element ComponentName="DesignParam" X="650" Y="725" Note=""/>
-                <Element ComponentName="GeneralPage" X="325" Y="250" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="125" Y="550" Note=""/>
-                <Element ComponentName="Language" X="550" Y="400" Note=""/>
-                <Element ComponentName="LanguageParam" X="975" Y="725" Note=""/>
-                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PagesDataControllers">
-            <PositionMap>
-                <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
-                <Element ComponentName="AdminPanel" X="1075" Y="75" Note=""/>
-                <Element ComponentName="Instances" X="675" Y="575" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
-                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
-                <Element ComponentName="PagesDataController" X="175" Y="75" Note=""/>
-                <Element ComponentName="Products" X="425" Y="475" Note=""/>
-                <Element ComponentName="Test" X="1050" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="KeyDataProviders">
-            <PositionMap>
-                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
-                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
-                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
-                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
-                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="UserSqlRepository">
-            <PositionMap/>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
-            <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="650" Y="600" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
-                <Element ComponentName="UserEditCommandDataProvider" X="1000" Y="475" Note=""/>
-                <Element ComponentName="UsersCommandDataProvider" X="975" Y="425" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="DataControllers">
             <PositionMap>
                 <Element ComponentName="AccountCollectionController" X="1050" Y="375" Note=""/>
@@ -123,6 +54,75 @@
                 <Element ComponentName="UserController" X="125" Y="800" Note=""/>
                 <Element ComponentName="UserRepository" X="375" Y="800" Note=""/>
                 <Element ComponentName="UsersHeadersDataProvider" X="150" Y="750" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="UserSqlRepository">
+            <PositionMap/>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="KeyDataProviders">
+            <PositionMap>
+                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
+                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
+                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
+                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
+                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesDataControllers">
+            <PositionMap>
+                <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
+                <Element ComponentName="AdminPanel" X="1075" Y="75" Note=""/>
+                <Element ComponentName="Instances" X="675" Y="575" Note=""/>
+                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
+                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
+                <Element ComponentName="PagesDataController" X="175" Y="75" Note=""/>
+                <Element ComponentName="Products" X="425" Y="475" Note=""/>
+                <Element ComponentName="Test" X="1050" Y="375" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="FileControllers">
+            <PositionMap/>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="CommandsDataCoontrollers">
+            <PositionMap>
+                <Element ComponentName="AccountEditCommandDataProvider" X="650" Y="600" Note=""/>
+                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
+                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
+                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
+                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
+                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
+                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
+                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
+                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
+                <Element ComponentName="UserEditCommandDataProvider" X="1000" Y="475" Note=""/>
+                <Element ComponentName="UsersCommandDataProvider" X="975" Y="425" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="SettingsControllers">
+            <PositionMap>
+                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
+                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
+                <Element ComponentName="Design" X="100" Y="400" Note=""/>
+                <Element ComponentName="DesignParam" X="650" Y="725" Note=""/>
+                <Element ComponentName="GeneralPage" X="325" Y="250" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="125" Y="550" Note=""/>
+                <Element ComponentName="Language" X="550" Y="400" Note=""/>
+                <Element ComponentName="LanguageParam" X="975" Y="725" Note=""/>
+                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
+                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

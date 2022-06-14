@@ -61,6 +61,7 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.MenuPanelButtonDecorator }
 //@using { src.imtgui.AuxComponents.TabPanelDecorator }
 //@using { src.imtgui.AuxComponents.FilterPanelDecorator }
+//@using { src.imtgui.AuxComponents.TopPanelDecorator}
 
 Rectangle {
     id: window;

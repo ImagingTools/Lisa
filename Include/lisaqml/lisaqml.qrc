@@ -10,4 +10,11 @@
     <qresource prefix="/qml">
         <file alias="lisa.qml">Resources/qml/lisa.qml</file>
     </qresource>
+    <qresource prefix="/Style">
+        <file alias="lisa_dark.theme">lisa_dark.theme</file>
+        <file alias="lisa_light.theme">lisa_light.theme</file>
+    </qresource>
+    <qresource prefix="/Decorators">
+        <file alias="lisa_decorators.theme">lisa_decorators.theme</file>
+    </qresource>
 </RCC>
