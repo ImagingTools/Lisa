@@ -24,11 +24,7 @@
         </Element>
         <Element Id="CommandsDataControllers" PackageId="" ComponentId="CommandsDataCoontrollers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="DataControllers" PackageId="" ComponentId="DataControllers">
@@ -48,9 +44,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -320,11 +313,7 @@
         </Element>
         <Element Id="PagesDataControllers" PackageId="" ComponentId="PagesDataControllers">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="PgSqlDatabaseEngine" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseEngine">
@@ -392,9 +381,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Language" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCoreLocalization"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
