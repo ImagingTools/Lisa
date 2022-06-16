@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4961" Description="ACF"/>
-            <Version Id="1" Number="2153" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5004" Description="ACF"/>
+            <Version Id="1" Number="2174" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -66,6 +66,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MigrationFolderPath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RelativeFileNameParam"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Pasword" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="roma1111"/>
                     </AttributeInfo>
@@ -74,9 +77,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Suffix" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TablesCreationScriptPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/CreateTables"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -132,6 +132,21 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="RelativeFileNameParam" PackageId="FilePck" ComponentId="RelativeFileNameParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Migrations"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ReferencePath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="SystemLocation"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Repository" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseCollection">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -161,6 +176,15 @@
                     </AttributeInfo>
                     <AttributeInfo Id="TypeName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Product Instance"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="101"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
