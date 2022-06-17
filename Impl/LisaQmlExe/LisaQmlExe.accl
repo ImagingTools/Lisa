@@ -8,19 +8,19 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfo" X="875" Y="225" Note=""/>
-        <Element ComponentName="Context" X="300" Y="500" Note=""/>
-        <Element ComponentName="ImtCoreLocalization" X="300" Y="625" Note=""/>
-        <Element ComponentName="LisaLogFilePath" X="125" Y="375" Note=""/>
-        <Element ComponentName="LisaServerBase" X="325" Y="75" Note=""/>
-        <Element ComponentName="LocalSettings" X="1025" Y="625" Note=""/>
-        <Element ComponentName="MainWindow" X="425" Y="350" Note=""/>
-        <Element ComponentName="ObserverQml" X="650" Y="350" Note=""/>
-        <Element ComponentName="QuickApplication" X="625" Y="225" Note=""/>
-        <Element ComponentName="SplashScreen" X="875" Y="350" Note=""/>
-        <Element ComponentName="SystemLocation" X="125" Y="475" Note=""/>
-        <Element ComponentName="TextFileLog" X="125" Y="275" Note=""/>
-        <Element ComponentName="VersionInfo" X="1075" Y="225" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="725" Y="250" Note=""/>
+        <Element ComponentName="Context" X="1125" Y="400" Note=""/>
+        <Element ComponentName="ImtCoreLocalization" X="225" Y="725" Note=""/>
+        <Element ComponentName="LisaLogFilePath" X="100" Y="375" Note=""/>
+        <Element ComponentName="LisaServerBase" X="525" Y="75" Note=""/>
+        <Element ComponentName="LocalSettings" X="875" Y="625" Note=""/>
+        <Element ComponentName="MainWindow" X="250" Y="500" Note=""/>
+        <Element ComponentName="ObserverQml" X="500" Y="625" Note=""/>
+        <Element ComponentName="QuickApplication" X="900" Y="400" Note=""/>
+        <Element ComponentName="SplashScreen" X="875" Y="150" Note=""/>
+        <Element ComponentName="SystemLocation" X="300" Y="275" Note=""/>
+        <Element ComponentName="TextFileLog" X="75" Y="250" Note=""/>
+        <Element ComponentName="VersionInfo" X="1125" Y="200" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Enums">

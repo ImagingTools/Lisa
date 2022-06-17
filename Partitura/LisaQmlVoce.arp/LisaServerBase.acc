@@ -352,6 +352,9 @@
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaServerPreferences.xml"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -988,7 +991,6 @@
                                         <Values>
                                             <Value>AccountName</Value>
                                             <Value>Email</Value>
-                                            <Value>AccountType</Value>
                                             <Value>Description</Value>
                                         </Values>
                                     </Data>
@@ -1001,7 +1003,6 @@
                                         <Values>
                                             <Value>Account Name</Value>
                                             <Value>Email</Value>
-                                            <Value>Account Type</Value>
                                             <Value>Account Description</Value>
                                         </Values>
                                     </Data>
@@ -1011,7 +1012,6 @@
                                         <Values>
                                             <Value>AccountName</Value>
                                             <Value>Email</Value>
-                                            <Value>AccountType</Value>
                                             <Value>Description</Value>
                                         </Values>
                                     </Data>
@@ -1988,6 +1988,36 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="DownloadLog" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="4"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="DownloadLog"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Download Log"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="TextButton"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FileProvider" PackageId="ImtFilePck" ComponentId="FileProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="HomePath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="C:/Sybnavigation/AcfPublic/AcfSln/Bin/Debug_Qt5_VC16_x64"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -2099,6 +2129,7 @@
                                         <Values>
                                             <Value>GeneralPage</Value>
                                             <Value>DatabasePage</Value>
+                                            <Value>ServerPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -2107,11 +2138,43 @@
                                         <Values>
                                             <Value>GeneralPage</Value>
                                             <Value>DatabasePage</Value>
+                                            <Value>ServerPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="commandId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Preferences"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ServerPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerSettings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Server Settings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>DownloadLog</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="TextButton" PackageId="BasePck" ComponentId="TextParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Download"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

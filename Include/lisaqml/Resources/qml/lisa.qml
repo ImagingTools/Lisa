@@ -27,6 +27,7 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.SettingsTextInput }
 //@using { src.imtgui.AuxComponents.SettingsIntegerInput }
 //@using { src.imtgui.AuxComponents.SettingsComboBox }
+//@using { src.imtgui.AuxComponents.SettingsButton }
 //@using { src.imtgui.AuxComponents.DatabaseInput }
 //@using { src.imtgui.ThumbnailDecorator }
 //@using { src.imtgui.MouseTest }

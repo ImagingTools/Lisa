@@ -19,6 +19,9 @@
                     <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Client"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="ImagingTools GmbH"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
                     </AttributeInfo>
@@ -107,6 +110,9 @@
         <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaClientPreferences.xml"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
                     </AttributeInfo>
@@ -175,8 +181,8 @@
         <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="104"/>
