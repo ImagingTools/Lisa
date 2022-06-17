@@ -23,7 +23,6 @@ message("${AUX_INCLUDE_DIR}")
 
 # Include
 
-add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
 add_subdirectory("${INCLUDE_DIR}/lisaqml/CMake" "${AUX_INCLUDE_DIR}/lisaqml")
 
 

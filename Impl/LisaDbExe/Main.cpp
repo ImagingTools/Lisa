@@ -37,7 +37,6 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(imtgui);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(lisaqml);
-	Q_INIT_RESOURCE(lisadb);
 	Q_INIT_RESOURCE(imtauthgui);
 
 

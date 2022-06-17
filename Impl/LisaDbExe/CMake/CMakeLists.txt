@@ -34,7 +34,7 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 
 target_link_libraries(${PROJECT_NAME} iauth)
-target_link_libraries(${PROJECT_NAME} lisaqml lisadb)
+target_link_libraries(${PROJECT_NAME} lisaqml)
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtdesign imtqml imtgql imtdb imtlicdb imtcom)
 target_link_libraries(${PROJECT_NAME} LisaLoc #[[AcfSlnLoc AcfLoc IacfLoc]])
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets  Qt${QT_VERSION_MAJOR}::Sql)
