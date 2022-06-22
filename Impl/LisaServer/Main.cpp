@@ -6,9 +6,6 @@
 #include <ibase/IApplication.h>
 
 // ImtCore includes
-#include <imtbase/CTreeItemModel.h>
-#include <imtgql/CGqlModel.h>
-
 #include <GeneratedFiles/LisaServer/CLisaServer.h>
 
 
