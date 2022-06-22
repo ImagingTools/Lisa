@@ -38,6 +38,8 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/html)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 
+message("LISADIR $ENV{LISADIR}")
+
 # copy dist from to
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/dist)
 #list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/dist)

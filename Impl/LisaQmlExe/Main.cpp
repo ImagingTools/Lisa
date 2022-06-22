@@ -13,8 +13,8 @@
 // ImtCore includes
 #include <imtstyle/CImtStyle.h>
 #include <imtbase/CTreeItemModel.h>
-#include <imtrest/CRemoteFileController.h>
-#include <imtgql/CGqlModel.h>
+#include <imtqml/CGqlModel.h>
+#include <imtqml/CRemoteFileController.h>
 #include <imtqml/CQuickApplicationComp.h>
 #include <imtqml/CApplicationDataEnumProviderComp.h>
 #include <imtqml/CPageDataEnumProviderComp.h>
@@ -46,16 +46,10 @@ int main(int argc, char *argv[])
 	Q_ASSERT(imtStylePtr != nullptr);
 	
 	CLisaQmlExe instance;
-	imtqml::CApplicationDataEnumProviderComp appEnum;
-    qmlRegisterSingletonInstance<imtqml::CApplicationDataEnumProviderComp>("Acf", 1, 0, "AppEnum", &appEnum);
-	imtqml::CPageDataEnumProviderComp pageEnum;
-	qmlRegisterSingletonInstance<imtqml::CPageDataEnumProviderComp>("Acf", 1, 0, "PageEnum", &pageEnum);
-	imtqml::CCommandDataEnumProviderComp commandEnum;
-	qmlRegisterSingletonInstance<imtqml::CCommandDataEnumProviderComp>("Acf", 1, 0, "CommandEnum", &commandEnum);
 
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
-	qmlRegisterType<imtgql::CGqlModel>("Acf", 1, 0, "GqlModel");
-	qmlRegisterType<imtrest::CRemoteFileController>("Acf", 1, 0, "RemoteFileController");
+	qmlRegisterType<imtqml::CGqlModel>("Acf", 1, 0, "GqlModel");
+	qmlRegisterType<imtqml::CRemoteFileController>("Acf", 1, 0, "RemoteFileController");
 
 	imtbase::CTreeItemModel *mainModel = new imtbase::CTreeItemModel();
 	mainModel->SetIsArray(true);

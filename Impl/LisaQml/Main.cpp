@@ -20,6 +20,9 @@
 #include <imtqml/CPageDataEnumProviderComp.h>
 #include <imtqml/CCommandDataEnumProviderComp.h>
 
+#include <imtgql/CGqlObject.h>
+#include <imtgql/CGqlRequest.h>
+
 #include <GeneratedFiles/LisaQml/CLisaQml.h>
 
 
@@ -38,6 +41,33 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Webimtauthgui);
 	Q_INIT_RESOURCE(Webimtgui);
 	Q_INIT_RESOURCE(Webimtlicgui);
+
+	imtgql::CGqlEnum gqlEnum("TEST");
+	imtgql::CGqlObject gqlField("items");
+	imtgql::CGqlObject gqlParam("inputs");
+
+	gqlField.InsertField("succesed");
+
+	QVariant var;
+	var.setValue(gqlEnum);
+
+	QByteArray id_ba = "1234";
+	gqlParam.InsertField("id", QVariant(id_ba));
+	gqlParam.InsertField("id2", QString(id_ba));
+	gqlParam.InsertField("id3", "1234");
+//	gqlParam.InsertField("id2", id_ba);
+//	gqlParam.InsertField("ss", QVariant::fromValue(imtgql::CGqlEnum("TEST")));
+	QString str = "TEST";
+	QVariant enum_v(str);
+	gqlParam.InsertField("ss", imtgql::CGqlEnum(enum_v.toByteArray()));
+
+	imtgql::CGqlRequest request(imtgql::CGqlRequest::RT_QUERY,"GetDoc");
+	request.AddParam(gqlParam);
+	request.AddField(gqlField);
+
+	QByteArray ba = request.GetQuery();
+
+	qDebug() << ba;
 
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
