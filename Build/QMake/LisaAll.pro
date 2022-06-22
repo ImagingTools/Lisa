@@ -2,9 +2,6 @@
 TEMPLATE = subdirs
 
 # Libraries
-SUBDIRS += lisadb
-lisadb.file = ../../Include/lisadb/QMake/lisadb.pro
-
 SUBDIRS += lisaqml
 lisaqml.file = ../../Include/lisaqml/QMake/lisaqml.pro
 
