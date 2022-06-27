@@ -2021,34 +2021,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FileDataController" PackageId="ImtLicenseGqlPck" ComponentId="FileDataController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="FileName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="LisaServerLog.txt"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FileProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FileProvider"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetFile</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="FileProvider" PackageId="ImtFilePck" ComponentId="FileProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="C:/Users/Public/ImagingTools GmbH"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -2235,7 +2207,6 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
                 <ExportedComponents>
-                    <Component ExportedId="FileDataController" ComponentId="FileDataController"/>
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                     <Component ExportedId="PreferenceDataController" ComponentId="PreferenceDataController"/>
                 </ExportedComponents>
