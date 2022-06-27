@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5004" Description="ACF"/>
-            <Version Id="1" Number="2174" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,8 +13,8 @@
         <Element Id="BinaryDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":"/>
+                    <AttributeInfo Id="HomePath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLogFilePath"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -33,6 +33,9 @@
                     <AttributeInfo Id="AccountInfoPersistence" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FilePersistence"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PreferencesQml/DatabaseAccessSettings"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PgSqlDatabaseEngine"/>
                     </AttributeInfo>
@@ -41,6 +44,18 @@
                     </AttributeInfo>
                     <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FileDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="HomePath" Type="String" ExportId="LogPath">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -70,6 +85,7 @@
                                 <Value>SettingsControllers/PreferenceDataController</Value>
                                 <Value>SettingsControllers/GetStyleDataController</Value>
                                 <Value>DataControllers/UserCollectionController</Value>
+                                <Value>SettingsControllers/FileDataController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -100,6 +116,7 @@
                     <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>FileDataProvider</Value>
                                 <Value>KeyDataProviders/KeyDataProvider</Value>
                             </Values>
                         </Data>
@@ -307,6 +324,18 @@
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LisaLogFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -1440,6 +1469,9 @@
                     <Element Id="ProductRepository" PackageId="LisaVoce" ComponentId="ProductSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="DatabaseAccessSettings">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -1476,9 +1508,6 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ObjectCollection"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -1502,7 +1531,11 @@
                     </Element>
                     <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DatabaseEngine"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="UsersHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
@@ -1988,23 +2021,21 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="DownloadLog" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                    <Element Id="FileDataController" PackageId="ImtLicenseGqlPck" ComponentId="FileDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="4"/>
+                                <AttributeInfo Id="FileName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="LisaServerLog.txt"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="DownloadLog"/>
+                                <AttributeInfo Id="FileProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FileProvider"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Download Log"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="TextButton"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GetFile</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -2013,7 +2044,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="HomePath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="C:/Sybnavigation/AcfPublic/AcfSln/Bin/Debug_Qt5_VC16_x64"/>
+                                    <Data IsEnabled="true" Value="C:/Users/Public/ImagingTools GmbH"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -2101,6 +2132,27 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="LogFile" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="4"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="LogFile"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Log file"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="TextButton"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="PreferenceDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -2152,15 +2204,15 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerSettings"/>
+                                    <Data IsEnabled="true" Value="Server"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Server Settings"/>
+                                    <Data IsEnabled="true" Value="Server"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>DownloadLog</Value>
+                                            <Value>LogFile</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -2183,6 +2235,7 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
                 <ExportedComponents>
+                    <Component ExportedId="FileDataController" ComponentId="FileDataController"/>
                     <Component ExportedId="GetStyleDataController" ComponentId="GetStyleDataController"/>
                     <Component ExportedId="PreferenceDataController" ComponentId="PreferenceDataController"/>
                 </ExportedComponents>

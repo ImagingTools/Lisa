@@ -81,10 +81,6 @@ Rectangle {
         }
     }
 
-//    MouseTest {
-//        id: mouseTest;
-//    }
-
     ThumbnailDecorator {
         id: thumbnailDecorator;
         anchors.fill: parent;
