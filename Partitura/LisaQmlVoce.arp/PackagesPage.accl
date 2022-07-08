@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="Commands" X="625" Y="400" Note=""/>
+        <Element ComponentName="Demultiplexer" X="625" Y="100" Note=""/>
+        <Element ComponentName="FeatureListController" X="1025" Y="200" Note=""/>
+        <Element ComponentName="PackageDataController" X="150" Y="175" Note=""/>
+        <Element ComponentName="PackageEditCommandDataProvider" X="825" Y="550" Note=""/>
+        <Element ComponentName="PackageHeadersDataProvider" X="150" Y="300" Note=""/>
+        <Element ComponentName="PackagesCommandDataProvider" X="425" Y="550" Note=""/>
+        <Element ComponentName="PackagesHeadersDataProvider" X="1025" Y="350" Note=""/>
+        <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="AdminPanel" X="1000" Y="300" Note=""/>
+        <Element ComponentName="ApplicationController" X="450" Y="75" Note=""/>
+        <Element ComponentName="AuthorizationConcept" X="450" Y="200" Note=""/>
+        <Element ComponentName="AuthorizationController" X="150" Y="200" Note=""/>
+        <Element ComponentName="Pages" X="975" Y="200" Note=""/>
+        <Element ComponentName="PreferencesQml" X="700" Y="300" Note=""/>
+        <Element ComponentName="SettingsController" X="725" Y="200" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="SettingsController">
+            <PositionMap>
+                <Element ComponentName="DatabaseAccessSettings" X="1000" Y="500" Note=""/>
+                <Element ComponentName="DatabasePage" X="975" Y="350" Note=""/>
+                <Element ComponentName="Demultiplexer" X="525" Y="50" Note=""/>
+                <Element ComponentName="Design" X="200" Y="475" Note=""/>
+                <Element ComponentName="DesignParam" X="725" Y="750" Note=""/>
+                <Element ComponentName="GeneralPage" X="350" Y="350" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="400" Y="150" Note=""/>
+                <Element ComponentName="Language" X="550" Y="475" Note=""/>
+                <Element ComponentName="LanguageParam" X="1025" Y="775" Note=""/>
+                <Element ComponentName="LogFile" X="500" Y="625" Note=""/>
+                <Element ComponentName="PreferenceDataController" X="675" Y="150" Note=""/>
+                <Element ComponentName="PreferencesDataProvider" X="675" Y="250" Note=""/>
+                <Element ComponentName="ServerPage" X="725" Y="550" Note=""/>
+                <Element ComponentName="TextButton" X="300" Y="700" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="AuthorizationConcept">
+            <PositionMap>
+                <Element ComponentName="AuthorizationOptionsController" X="575" Y="50" Note=""/>
+                <Element ComponentName="UserMode" X="250" Y="275" Note=""/>
+                <Element ComponentName="UserModeOptions" X="250" Y="375" Note=""/>
+                <Element ComponentName="UserModeProvider" X="300" Y="150" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
+</Acf>

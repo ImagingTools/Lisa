@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="AccountDataController" X="225" Y="325" Note=""/>
+        <Element ComponentName="AccountEditCommandDataProvider" X="800" Y="675" Note=""/>
+        <Element ComponentName="AccountInfo" X="200" Y="425" Note=""/>
+        <Element ComponentName="AccountListController" X="1000" Y="325" Note=""/>
+        <Element ComponentName="AccountsCommandDataProvider" X="400" Y="675" Note=""/>
+        <Element ComponentName="AccountsHeadersDataProvider" X="1000" Y="425" Note=""/>
+        <Element ComponentName="Commands" X="575" Y="400" Note=""/>
+        <Element ComponentName="Demultiplexer" X="625" Y="100" Note=""/>
+        <Element ComponentName="VisualStatus" X="200" Y="75" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>
