@@ -57,15 +57,6 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="AuthorizationController" PackageId="ImtAuthGqlPck" ComponentId="AuthorizationController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Pages" PackageId="LisaQmlVoce" ComponentId="Pages">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -128,14 +119,51 @@
         <EmbeddedRegistry Id="AuthorizationConcept">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AuthorizationController" PackageId="ImtAuthGqlPck" ComponentId="AuthorizationController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Authorization</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="AuthorizationOptionsController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GetUserMode</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="UserModeProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="UserModeProvider"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AuthorizationOptionsController</Value>
+                                            <Value>AuthorizationController</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -147,7 +175,7 @@
                                     <Data IsEnabled="true" Value="UserModeOptions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
+                                    <Data IsEnabled="true" Value="1"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -180,7 +208,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
+                                    <Data IsEnabled="true" Value="3"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="UserMode"/>
@@ -200,8 +228,8 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="AuthorizationOptionsController"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="AuthorizationOptionsController"/>
+                    <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="Demultiplexer"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>

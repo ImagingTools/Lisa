@@ -11,7 +11,6 @@
         <Element ComponentName="AdminPanel" X="1000" Y="300" Note=""/>
         <Element ComponentName="ApplicationController" X="450" Y="75" Note=""/>
         <Element ComponentName="AuthorizationConcept" X="450" Y="200" Note=""/>
-        <Element ComponentName="AuthorizationController" X="150" Y="200" Note=""/>
         <Element ComponentName="Pages" X="975" Y="200" Note=""/>
         <Element ComponentName="PreferencesQml" X="700" Y="300" Note=""/>
         <Element ComponentName="SettingsController" X="725" Y="200" Note=""/>
@@ -38,10 +37,12 @@
         </EmbededRegistry>
         <EmbededRegistry Id="AuthorizationConcept">
             <PositionMap>
-                <Element ComponentName="AuthorizationOptionsController" X="575" Y="50" Note=""/>
-                <Element ComponentName="UserMode" X="250" Y="275" Note=""/>
-                <Element ComponentName="UserModeOptions" X="250" Y="375" Note=""/>
-                <Element ComponentName="UserModeProvider" X="300" Y="150" Note=""/>
+                <Element ComponentName="AuthorizationController" X="975" Y="200" Note=""/>
+                <Element ComponentName="AuthorizationOptionsController" X="225" Y="200" Note=""/>
+                <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+                <Element ComponentName="UserMode" X="225" Y="400" Note=""/>
+                <Element ComponentName="UserModeOptions" X="225" Y="500" Note=""/>
+                <Element ComponentName="UserModeProvider" X="200" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
