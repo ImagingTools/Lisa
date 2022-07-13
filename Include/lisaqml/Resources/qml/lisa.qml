@@ -31,6 +31,8 @@ import imtgui 1.0
 //@using { src.imtgui.AuxComponents.DatabaseInput }
 //@using { src.imtgui.ThumbnailDecorator }
 //@using { src.imtgui.MouseTest }
+//@using { src.imtgui.AuxComponents.LoginButton }
+//@using { src.imtgui.AuxComponents.LoginDialog }
 
 //@using { src.imtlicgui.PackageCollectionView }
 //@using { src.imtauthgui.AccountCollectionView }
