@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -17,9 +17,9 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PageData/PackagesPageVisualStatus</Value>
-                                <Value>PageData/InstancesPageVisualStatus</Value>
                                 <Value>PageData/ProductsPageVisualStatus</Value>
                                 <Value>PageData/AccountsPageVisualStatus</Value>
+                                <Value>PageData/InstancesPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -235,6 +235,15 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SeparatorValue" PackageId="BasePck" ComponentId="TextParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

@@ -39,7 +39,7 @@
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionNumber" ExportId="" Type="Integer">
-                        <Data IsEnabled="true" Value="4553"/>
+                        <Data IsEnabled="true" Value="4575"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

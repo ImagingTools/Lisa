@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -67,6 +67,9 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="InstallationRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -79,6 +82,9 @@
                     <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -88,6 +94,9 @@
                     <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -97,6 +106,9 @@
                     <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -139,6 +151,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="InstallationRepository">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
                         <Data IsEnabled="false"/>
@@ -211,6 +226,7 @@
                             <Values>
                                 <Value>Name</Value>
                                 <Value>InstanceId</Value>
+                                <Value>ProductId</Value>
                                 <Value>Customer</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
@@ -225,6 +241,7 @@
                             <Values>
                                 <Value>Name</Value>
                                 <Value>Instance-ID</Value>
+                                <Value>Product-ID</Value>
                                 <Value>Customer</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
@@ -236,6 +253,7 @@
                             <Values>
                                 <Value>Name</Value>
                                 <Value>InstanceId</Value>
+                                <Value>ProductId</Value>
                                 <Value>Customer</Value>
                                 <Value>Description</Value>
                             </Values>

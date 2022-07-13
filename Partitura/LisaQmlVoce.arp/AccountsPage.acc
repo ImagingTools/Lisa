@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -40,6 +40,9 @@
                     <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -49,6 +52,9 @@
                     <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -58,6 +64,9 @@
                     <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>

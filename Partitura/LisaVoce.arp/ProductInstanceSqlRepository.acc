@@ -111,6 +111,9 @@
                     <AttributeInfo Id="ProductInstanceFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstance"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TableName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstances"/>
                     </AttributeInfo>
