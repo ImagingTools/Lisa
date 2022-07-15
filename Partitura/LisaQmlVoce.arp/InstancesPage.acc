@@ -227,7 +227,7 @@
                                 <Value>Name</Value>
                                 <Value>InstanceId</Value>
                                 <Value>ProductId</Value>
-                                <Value>Customer</Value>
+                                <Value>AccountId</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
                             </Values>
@@ -254,7 +254,7 @@
                                 <Value>Name</Value>
                                 <Value>InstanceId</Value>
                                 <Value>ProductId</Value>
-                                <Value>Customer</Value>
+                                <Value>AccountId</Value>
                                 <Value>Description</Value>
                             </Values>
                         </Data>

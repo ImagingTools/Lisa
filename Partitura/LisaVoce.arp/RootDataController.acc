@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5003" Description="ACF"/>
+            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -336,6 +336,7 @@
                                         <Values>
                                             <Value>Design</Value>
                                             <Value>Language</Value>
+                                            <Value>InstanceMask</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -350,6 +351,7 @@
                                         <Values>
                                             <Value>Design</Value>
                                             <Value>Language</Value>
+                                            <Value>InstanceMask</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -374,6 +376,27 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Prefix" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="lisa"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="InstanceMask" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="1"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="InstanceMask"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Instance Mask"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="Mask"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -428,6 +451,15 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Mask" PackageId="BasePck" ComponentId="TextParam">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="HH:HH:HH:HH:HH:HH;_"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
