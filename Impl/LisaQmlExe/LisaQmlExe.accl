@@ -8,7 +8,7 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfo" X="725" Y="250" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="700" Y="250" Note=""/>
         <Element ComponentName="Context" X="1125" Y="400" Note=""/>
         <Element ComponentName="ImtCoreLocalization" X="225" Y="725" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="325" Y="275" Note=""/>
@@ -20,7 +20,7 @@
         <Element ComponentName="SplashScreen" X="875" Y="150" Note=""/>
         <Element ComponentName="SystemLocation" X="125" Y="450" Note=""/>
         <Element ComponentName="TextFileLog" X="75" Y="250" Note=""/>
-        <Element ComponentName="VersionInfo" X="1125" Y="200" Note=""/>
+        <Element ComponentName="VersionInfo" X="1100" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Enums">

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5003" Description="ACF"/>
-            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -318,7 +318,7 @@
                         <Data IsEnabled="true" Value="../../Icons/Product_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../imtlicgui/ProductsMultiDocView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtlicgui/ProductCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>

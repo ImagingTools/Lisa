@@ -2,14 +2,29 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4993" Description="ACF"/>
-            <Version Id="1" Number="2172" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="ApplicationInfoDataProvider" PackageId="ImtQmlPck" ComponentId="ApplicationInfoDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Version"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Client version"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="AutoPersistence" PackageId="FilePck" ComponentId="AutoPersistence">
             <Data IsEnabled="true" Flags="1">
                 <AttributeInfoMap>
@@ -83,6 +98,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>ServerUrlParam</Value>
+                                <Value>ApplicationInfoDataProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5003" Description="ACF"/>
-            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -102,6 +102,9 @@
         <Element Id="SettingsController" PackageId="" ComponentId="SettingsController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DBSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/DatabaseAccessSettings"/>
                     </AttributeInfo>
@@ -237,6 +240,43 @@
         <EmbeddedRegistry Id="SettingsController">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AboutPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="About"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="About"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ApplicationInfoDataProvider</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ApplicationInfoDataProvider" PackageId="ImtQmlPck" ComponentId="ApplicationInfoDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Version"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="Server version"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DatabaseSettingsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -459,7 +499,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="HH:HH:HH:HH:HH:HH;_"/>
+                                    <Data IsEnabled="true" Value="^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -493,6 +533,7 @@
                                             <Value>GeneralPage</Value>
                                             <Value>DatabasePage</Value>
                                             <Value>ServerPage</Value>
+                                            <Value>AboutPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -502,6 +543,7 @@
                                             <Value>GeneralPage</Value>
                                             <Value>DatabasePage</Value>
                                             <Value>ServerPage</Value>
+                                            <Value>AboutPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

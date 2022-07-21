@@ -107,12 +107,18 @@
                     <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="LisaClientPreferences.xml"/>
                     </AttributeInfo>
