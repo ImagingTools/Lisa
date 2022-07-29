@@ -79,7 +79,19 @@
         <Element Id="InstallationEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Disabled</Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Normal</Value>
+                                <Value></Value>
+                                <Value>Normal</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Undo</Value>
@@ -91,19 +103,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Undo</Value>
-                                <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Save</Value>
-                                <Value></Value>
-                                <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Undo</Value>
@@ -116,7 +116,19 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="InstallationEdit"/>
+                        <Data IsEnabled="true" Value="Installation"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
+                                <Value>Save</Value>
+                                <Value></Value>
+                                <Value>Close</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -139,18 +151,23 @@
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>InstallationInfo</Value>
-                                <Value>InstallationList</Value>
-                                <Value>InstallationRemove</Value>
-                                <Value>InstallationMetaInfo</Value>
-                                <Value>InstallationRename</Value>
-                                <Value>InstallationSetDescription</Value>
-                                <Value>CreateLicenseFile</Value>
+                                <Value>InstallationsInfo</Value>
+                                <Value>InstallationsList</Value>
+                                <Value>InstallationsRemove</Value>
+                                <Value>InstallationsMetaInfo</Value>
+                                <Value>InstallationsRename</Value>
+                                <Value>InstallationsSetDescription</Value>
+                                <Value></Value>
+                                <Value>InstallationsCreateLicenseFile</Value>
+                                <Value>InstallationssObjectView</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="InstallationRepository">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
@@ -164,7 +181,20 @@
         <Element Id="InstallationsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Disabled</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Add</Value>
@@ -173,13 +203,11 @@
                                 <Value></Value>
                                 <Value>Edit</Value>
                                 <Value></Value>
-                                <Value></Value>
                                 <Value>License</Value>
-                                <Value></Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>New</Value>
@@ -187,30 +215,26 @@
                                 <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
-                                <Value></Value>
                                 <Value></Value>
                                 <Value>CreateLicense</Value>
-                                <Value></Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value>Duplicate</Value>
-                                <Value></Value>
-                                <Value>Edit</Value>
-                                <Value></Value>
-                                <Value></Value>
-                                <Value>Create License File</Value>
-                                <Value></Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Installations"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>New</Value>
+                                <Value>Remove</Value>
+                                <Value>Duplicate</Value>
+                                <Value></Value>
+                                <Value>Edit</Value>
+                                <Value></Value>
+                                <Value>Create License File</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -265,6 +289,18 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectViewModelId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Installation"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtlicgui/InstallationInfoEditor.qml"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ProductInstance" PackageId="ImtLicensePck" ComponentId="ProductInstanceInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
@@ -311,6 +347,9 @@
                         <Data IsEnabled="true" Value="../../Icons/Deployment_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/InstallationCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">

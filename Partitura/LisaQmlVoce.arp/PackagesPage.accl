@@ -8,15 +8,16 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Commands" X="625" Y="400" Note=""/>
-        <Element ComponentName="Demultiplexer" X="625" Y="100" Note=""/>
-        <Element ComponentName="FeatureListController" X="1025" Y="200" Note=""/>
-        <Element ComponentName="PackageDataController" X="150" Y="175" Note=""/>
-        <Element ComponentName="PackageEditCommandDataProvider" X="825" Y="550" Note=""/>
-        <Element ComponentName="PackageHeadersDataProvider" X="150" Y="300" Note=""/>
-        <Element ComponentName="PackagesCommandDataProvider" X="425" Y="550" Note=""/>
-        <Element ComponentName="PackagesHeadersDataProvider" X="1025" Y="350" Note=""/>
-        <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
+        <Element ComponentName="Commands" X="575" Y="225" Note=""/>
+        <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
+        <Element ComponentName="PackageDataController" X="225" Y="225" Note=""/>
+        <Element ComponentName="PackageEditCommandDataProvider" X="800" Y="525" Note=""/>
+        <Element ComponentName="PackageHeadersDataProvider" X="225" Y="375" Note=""/>
+        <Element ComponentName="PackagesCommandDataProvider" X="350" Y="525" Note=""/>
+        <Element ComponentName="PackagesDataController" X="950" Y="225" Note=""/>
+        <Element ComponentName="PackagesHeadersDataProvider" X="925" Y="375" Note=""/>
+        <Element ComponentName="VisualStatus" X="125" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

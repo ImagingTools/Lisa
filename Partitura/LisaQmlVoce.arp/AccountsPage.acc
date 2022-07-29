@@ -37,7 +37,19 @@
         <Element Id="AccountEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Disabled</Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Normal</Value>
+                                <Value></Value>
+                                <Value>Normal</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Undo</Value>
@@ -49,19 +61,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Undo</Value>
-                                <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Save</Value>
-                                <Value></Value>
-                                <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Undo</Value>
@@ -74,7 +74,19 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="AccountEdit"/>
+                        <Data IsEnabled="true" Value="Account"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Undo</Value>
+                                <Value>Redo</Value>
+                                <Value></Value>
+                                <Value>Save</Value>
+                                <Value></Value>
+                                <Value>Close</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -102,17 +114,21 @@
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>AccountInfo</Value>
-                                <Value>AccountList</Value>
-                                <Value>AccountRemove</Value>
-                                <Value>AccountMetaInfo</Value>
-                                <Value>AccountRename</Value>
-                                <Value>AccountSetDescription</Value>
+                                <Value>AccountsInfo</Value>
+                                <Value>AccountsList</Value>
+                                <Value>AccountsRemove</Value>
+                                <Value>AccountsMetaInfo</Value>
+                                <Value>AccountsRename</Value>
+                                <Value>AccountsSetDescription</Value>
+                                <Value>AccountsObjectView</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="AccountRepository">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
                         <Data IsEnabled="false"/>
@@ -123,7 +139,17 @@
         <Element Id="AccountsCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandDefaultStatusIcon" Type="String[]" ExportId="">
+                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Disabled</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Add</Value>
@@ -133,17 +159,7 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
-                                <Value>Edit</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandName" Type="Text[]" ExportId="">
+                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>New</Value>
@@ -155,6 +171,16 @@
                     </AttributeInfo>
                     <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Accounts"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>New</Value>
+                                <Value>Remove</Value>
+                                <Value></Value>
+                                <Value>Edit</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -237,6 +263,18 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectViewModelId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Account"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtauthgui/AccountEditor.qml"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -256,6 +294,9 @@
                         <Data IsEnabled="true" Value="../../Icons/Account_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtauthgui/AccountCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">

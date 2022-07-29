@@ -51,7 +51,7 @@ import imtgui 1.0
 //@using { src.imtlicgui.InstallationInfoEditor }
 //@using { src.imtauthgui.ContactInfoEditor }
 
-//@using { src.imtauthgui.TextFieldCustom }
+//@using { src.imtauthgui.CustomTextField }
 
 
 Rectangle {
