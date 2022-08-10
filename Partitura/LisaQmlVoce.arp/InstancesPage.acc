@@ -34,6 +34,13 @@
         <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="GqlContextIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value></Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -85,7 +92,7 @@
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
-                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Normal</Value>
                             </Values>
@@ -157,9 +164,8 @@
                                 <Value>InstallationsMetaInfo</Value>
                                 <Value>InstallationsRename</Value>
                                 <Value>InstallationsSetDescription</Value>
-                                <Value></Value>
                                 <Value>InstallationsCreateLicenseFile</Value>
-                                <Value>InstallationssObjectView</Value>
+                                <Value>InstallationsObjectView</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -296,7 +302,7 @@
                         <Data IsEnabled="true" Value="Installation"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/InstallationInfoEditor.qml"/>
+                        <Data IsEnabled="true" Value="../../imtlicgui/InstallationEditor.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -347,7 +353,7 @@
                         <Data IsEnabled="true" Value="../../Icons/Deployment_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/InstallationCollectionView.qml"/>

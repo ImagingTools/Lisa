@@ -98,7 +98,7 @@
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
-                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Normal</Value>
                             </Values>
@@ -295,7 +295,7 @@
                                 <Value>Name</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
-                                <Value>ModificationTime</Value>
+                                <Value>LastModified</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -345,7 +345,7 @@
                         <Data IsEnabled="true" Value="../../Icons/Workflow_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/PackageCollectionView.qml"/>

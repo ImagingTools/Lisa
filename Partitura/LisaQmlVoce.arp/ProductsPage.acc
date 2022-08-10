@@ -67,7 +67,7 @@
                                 <Value>Name</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
-                                <Value>ModificationTime</Value>
+                                <Value>LastModified</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -112,7 +112,7 @@
                                 <Value>ProductInfo</Value>
                                 <Value>ProductUpdate</Value>
                                 <Value>LicensesTree</Value>
-                                <Value>LicensesDependencies</Value>
+                                <Value>LicenseFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -141,7 +141,7 @@
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
-                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Normal</Value>
                             </Values>
@@ -361,7 +361,7 @@
                         <Data IsEnabled="true" Value="../../Icons/Product_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/ProductCollectionView.qml"/>
