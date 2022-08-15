@@ -49,4 +49,4 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/dist)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 
-imtcore_compile_web("${webdirs}")
+#imtcore_compile_web("${webdirs}")
