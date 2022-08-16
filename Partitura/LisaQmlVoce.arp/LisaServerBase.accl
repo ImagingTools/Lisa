@@ -2,15 +2,16 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5004" Description="ACF"/>
-            <Version Id="1" Number="2176" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationController" X="575" Y="450" Note=""/>
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
         <Element ComponentName="DatabaseEngine" X="850" Y="575" Note=""/>
+        <Element ComponentName="FeatureContainer" X="400" Y="775" Note=""/>
         <Element ComponentName="FileDataProvider" X="1075" Y="150" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="150" Y="250" Note=""/>
         <Element ComponentName="HttpFileControllerServlet" X="700" Y="150" Note=""/>
@@ -22,6 +23,7 @@
         <Element ComponentName="KeyDataProviders" X="975" Y="400" Note=""/>
         <Element ComponentName="LisaLocalization" X="550" Y="675" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
+        <Element ComponentName="QtResourceLoaderComp" X="150" Y="675" Note=""/>
         <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
@@ -43,6 +45,12 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="KeyDataProviders">
             <PositionMap>
                 <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
@@ -51,12 +59,6 @@
                 <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
                 <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
                 <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

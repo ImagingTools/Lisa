@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5004" Description="ACF"/>
-            <Version Id="1" Number="2176" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -50,6 +50,11 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureContainer" PackageId="ImtLicensePck" ComponentId="FeatureContainer">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="FileDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
@@ -305,6 +310,18 @@
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="QtResourceLoaderComp" PackageId="ImtCorePck" ComponentId="QtResourceLoaderComp">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="PathToFile" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TargetCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureContainer"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
