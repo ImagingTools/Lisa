@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="0" Number="5004" Description="ACF"/>
+            <Version Id="1" Number="2176" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -25,59 +25,6 @@
         <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PagesDataControllers">
-            <PositionMap>
-                <Element ComponentName="Accounts" X="875" Y="675" Note=""/>
-                <Element ComponentName="AdminPanel" X="1075" Y="75" Note=""/>
-                <Element ComponentName="Instances" X="675" Y="575" Note=""/>
-                <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
-                <Element ComponentName="Packages" X="250" Y="375" Note=""/>
-                <Element ComponentName="PagesDataController" X="175" Y="75" Note=""/>
-                <Element ComponentName="Products" X="425" Y="475" Note=""/>
-                <Element ComponentName="Test" X="1050" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="UserSqlRepository">
-            <PositionMap/>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="DataControllers">
-            <PositionMap>
-                <Element ComponentName="AccountCollectionController" X="1050" Y="375" Note=""/>
-                <Element ComponentName="AccountController" X="825" Y="575" Note=""/>
-                <Element ComponentName="AccountInfo" X="1075" Y="600" Note=""/>
-                <Element ComponentName="AccountRepository" X="725" Y="400" Note=""/>
-                <Element ComponentName="AccountsHeadersDataProvider" X="1025" Y="475" Note=""/>
-                <Element ComponentName="FeaturePackageCollectionController" X="950" Y="25" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="1025" Y="125" Note=""/>
-                <Element ComponentName="InstallationCollectionController" X="1025" Y="725" Note=""/>
-                <Element ComponentName="InstallationController" X="125" Y="500" Note=""/>
-                <Element ComponentName="InstallationRepository" X="650" Y="775" Note=""/>
-                <Element ComponentName="InstallationsHeadersDataProvider" X="1000" Y="800" Note=""/>
-                <Element ComponentName="PackageController" X="125" Y="25" Note=""/>
-                <Element ComponentName="PackageHeadersDataProvider" X="175" Y="100" Note=""/>
-                <Element ComponentName="PackagesHeadersDataProvider" X="625" Y="125" Note=""/>
-                <Element ComponentName="ProductCollectionController" X="150" Y="200" Note=""/>
-                <Element ComponentName="ProductController" X="750" Y="200" Note=""/>
-                <Element ComponentName="ProductHeadersDataProvider" X="750" Y="300" Note=""/>
-                <Element ComponentName="ProductInstance" X="125" Y="400" Note=""/>
-                <Element ComponentName="ProductInstanceMetaInfoCreator" X="150" Y="600" Note=""/>
-                <Element ComponentName="ProductLicensingInfo" X="1050" Y="225" Note=""/>
-                <Element ComponentName="ProductRepository" X="425" Y="300" Note=""/>
-                <Element ComponentName="UserCollectionController" X="150" Y="700" Note=""/>
-                <Element ComponentName="UserController" X="125" Y="800" Note=""/>
-                <Element ComponentName="UserRepository" X="375" Y="800" Note=""/>
-                <Element ComponentName="UsersHeadersDataProvider" X="150" Y="750" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="SettingsControllers">
             <PositionMap>
                 <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
@@ -96,22 +43,6 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="CommandsDataCoontrollers">
-            <PositionMap>
-                <Element ComponentName="AccountEditCommandDataProvider" X="650" Y="600" Note=""/>
-                <Element ComponentName="AccountsCommandDataProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="CommandsDataController" X="525" Y="50" Note=""/>
-                <Element ComponentName="InstallationEditCommandDataProvider" X="975" Y="750" Note=""/>
-                <Element ComponentName="InstallationsCommandDataProvider" X="925" Y="700" Note=""/>
-                <Element ComponentName="PackageEditCommandDataProvider" X="225" Y="275" Note=""/>
-                <Element ComponentName="PackagesCommandDataProvider" X="175" Y="225" Note=""/>
-                <Element ComponentName="ProductEditCommandDataProvider" X="450" Y="425" Note=""/>
-                <Element ComponentName="ProductsCommandDataProvider" X="325" Y="375" Note=""/>
-                <Element ComponentName="UserEditCommandDataProvider" X="1000" Y="475" Note=""/>
-                <Element ComponentName="UsersCommandDataProvider" X="975" Y="425" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="KeyDataProviders">
             <PositionMap>
                 <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
@@ -123,8 +54,10 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="FileControllers">
-            <PositionMap/>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
     </EmbeddedRegistries>
