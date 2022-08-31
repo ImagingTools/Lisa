@@ -41,17 +41,16 @@ import imtgui 1.0
 //@using { src.imtauthgui.AccountsMultiDocView }
 //@using { src.imtlicgui.InstallationsMultiDocView }
 
-//@using { src.imtlicgui.EditFeatureDialog }
-//@using { src.imtlicgui.EditLicenseDialog }
+//@using { src.imtlicgui.EditDialog }
 //@using { src.imtgui.AuxComponents.MessageDialog }
 //@using { src.imtgui.AuxComponents.InputDialog }
 
 //@using { src.imtlicgui.PackageView }
 //@using { src.imtlicgui.ProductView }
-//@using { src.imtlicgui.InstallationInfoEditor }
-//@using { src.imtauthgui.ContactInfoEditor }
+//@using { src.imtlicgui.InstallationEditor }
+//@using { src.imtauthgui.AccountEditor }
 
-//@using { src.imtauthgui.CustomTextField }
+//@using { src.imtgui.CustomTextField }
 
 
 Rectangle {

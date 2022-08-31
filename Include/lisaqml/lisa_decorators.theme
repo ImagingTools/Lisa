@@ -2,7 +2,7 @@
 	"Decorators": {
 		"MenuPanel": {
 			"MainButton": "MenuPanelButtonDecorator.qml",
-			"SubButton": "MenuPanelButtonDecorator"
+			"SubButton": "SubMenuPanelButtonDecorator.qml"
 		},
 		"TabPanel": {
 			"Base": "TabPanelDecorator.qml"

@@ -21,8 +21,6 @@
                                 <Value>PageData/AccountsPageVisualStatus</Value>
                                 <Value>PageData/InstancesPageVisualStatus</Value>
                                 <Value>PageData/AdministrationPageVisualStatus</Value>
-                                <Value>PageData/RolesPageVisualStatus</Value>
-                                <Value>PageData/UsersPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

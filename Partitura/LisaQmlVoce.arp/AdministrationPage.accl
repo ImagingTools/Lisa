@@ -8,12 +8,13 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="RoleCollection" X="450" Y="450" Note=""/>
-        <Element ComponentName="RoleRepository" X="350" Y="225" Note=""/>
-        <Element ComponentName="RolesPage" X="575" Y="225" Note=""/>
-        <Element ComponentName="UserRepository" X="350" Y="325" Note=""/>
-        <Element ComponentName="UsersPage" X="575" Y="325" Note=""/>
-        <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
+        <Element ComponentName="JoinDataProvider" X="775" Y="325" Note=""/>
+        <Element ComponentName="RoleCollection" X="325" Y="600" Note=""/>
+        <Element ComponentName="RoleRepository" X="150" Y="175" Note=""/>
+        <Element ComponentName="RolesPage" X="500" Y="175" Note=""/>
+        <Element ComponentName="UserRepository" X="125" Y="475" Note=""/>
+        <Element ComponentName="UsersPage" X="525" Y="475" Note=""/>
+        <Element ComponentName="VisualStatus" X="1050" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
