@@ -28,7 +28,7 @@
                     <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>user</Value>
+                                <Value>role</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -61,24 +61,33 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MetaInfoCreator" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="UserMetaInfoCreator"/>
+                        <Data IsEnabled="true" Value="RoleMetaInfoCreator"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="UserDatabaseDelegate"/>
+                        <Data IsEnabled="true" Value="RoleDatabaseDelegate"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="UserInfo"/>
+                        <Data IsEnabled="true" Value="Role"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="User"/>
+                        <Data IsEnabled="true" Value="Role"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TypeName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Users"/>
+                        <Data IsEnabled="true" Value="Roles"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="UserDatabaseDelegate" PackageId="ImtAuthDbPck" ComponentId="UserDatabaseDelegate">
+        <Element Id="Role" PackageId="ImtAuthPck" ComponentId="Role">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RoleDatabaseDelegate" PackageId="ImtAuthDbPck" ComponentId="RoleDatabaseDelegate">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -87,32 +96,20 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Role" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="Role"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TableName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Users"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserInfo" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="UserInfo"/>
+                        <Data IsEnabled="true" Value="Roles"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="UserInfo" PackageId="ImtAuthPck" ComponentId="UserInfo">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Roles" Type="Reference" ExportId="Roles">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="UserMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="UserInfoMetaInfoCreator">
+        <Element Id="RoleMetaInfoCreator" PackageId="ImtAuthPck" ComponentId="RoleMetaInfoCreator">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="User"/>
+                        <Data IsEnabled="true" Value="Role"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="0" Number="5010" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,6 +10,65 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="RoleCollection" PackageId="ImtAuthPck" ComponentId="RoleCollection">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RolesPage" PackageId="LisaQmlVoce" ComponentId="RolesPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RoleRepository" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RoleRepository"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RoleCollection"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="UsersPage" PackageId="LisaQmlVoce" ComponentId="UsersPage">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RoleCollection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="UserRepository"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -45,5 +104,9 @@
     <ExportedInterfaces/>
     <ExportedComponents>
         <Component ExportedId="AdministrationPageVisualStatus" ComponentId="VisualStatus"/>
+        <Component ExportedId="RolesPage" ComponentId="RolesPage"/>
+        <Component ExportedId="RolesPageVisualStatus" ComponentId="RolesPage/RolesPageVisualStatus"/>
+        <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
+        <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
     </ExportedComponents>
 </Acf>

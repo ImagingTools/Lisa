@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="0" Number="5010" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -21,6 +21,8 @@
                                 <Value>PageData/AccountsPageVisualStatus</Value>
                                 <Value>PageData/InstancesPageVisualStatus</Value>
                                 <Value>PageData/AdministrationPageVisualStatus</Value>
+                                <Value>PageData/RolesPageVisualStatus</Value>
+                                <Value>PageData/UsersPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -31,6 +33,9 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -52,6 +57,8 @@
                                 <Value>PageData/InstancesPage</Value>
                                 <Value>PageData/AccountsPage</Value>
                                 <Value>PageData/ProductsPage</Value>
+                                <Value>PageData/RolesPage</Value>
+                                <Value>PageData/UsersPage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -140,7 +147,14 @@
                     </Element>
                     <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
@@ -270,6 +284,10 @@
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
+                    <Component ExportedId="RolesPage" ComponentId="AdministrationPage/RolesPage"/>
+                    <Component ExportedId="RolesPageVisualStatus" ComponentId="AdministrationPage/RolesPageVisualStatus"/>
+                    <Component ExportedId="UsersPage" ComponentId="AdministrationPage/UsersPage"/>
+                    <Component ExportedId="UsersPageVisualStatus" ComponentId="AdministrationPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>

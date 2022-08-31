@@ -11,9 +11,9 @@
         <Element ComponentName="OptionsListAdapter" X="600" Y="500" Note=""/>
         <Element ComponentName="Persistence" X="950" Y="500" Note=""/>
         <Element ComponentName="Repository" X="600" Y="300" Note=""/>
-        <Element ComponentName="UserDatabaseDelegate" X="225" Y="150" Note=""/>
-        <Element ComponentName="UserInfo" X="600" Y="150" Note=""/>
-        <Element ComponentName="UserMetaInfoCreator" X="225" Y="500" Note=""/>
+        <Element ComponentName="Role" X="600" Y="150" Note=""/>
+        <Element ComponentName="RoleDatabaseDelegate" X="225" Y="150" Note=""/>
+        <Element ComponentName="RoleMetaInfoCreator" X="225" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

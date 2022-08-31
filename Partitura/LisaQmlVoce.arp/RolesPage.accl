@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="Commands" X="475" Y="225" Note=""/>
+        <Element ComponentName="Demultiplexer" X="500" Y="75" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="1000" Y="475" Note=""/>
+        <Element ComponentName="Role" X="175" Y="325" Note=""/>
+        <Element ComponentName="RoleDataController" X="150" Y="225" Note=""/>
+        <Element ComponentName="RoleEditCommandDataProvider" X="575" Y="475" Note=""/>
+        <Element ComponentName="RoleListController" X="825" Y="225" Note=""/>
+        <Element ComponentName="RolesCommandDataProvider" X="250" Y="475" Note=""/>
+        <Element ComponentName="RolesHeadersDataProvider" X="1025" Y="75" Note=""/>
+        <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>
