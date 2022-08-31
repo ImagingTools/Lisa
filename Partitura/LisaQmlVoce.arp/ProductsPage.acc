@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="0" Number="5008" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -111,8 +111,8 @@
                                 <Value>ProductAdd</Value>
                                 <Value>ProductInfo</Value>
                                 <Value>ProductUpdate</Value>
-                                <Value>LicensesTree</Value>
                                 <Value>LicenseFeatures</Value>
+                                <Value>ProductItem</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

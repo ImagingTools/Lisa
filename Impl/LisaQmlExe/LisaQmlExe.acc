@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="0" Number="5008" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -135,7 +135,7 @@
                         <Data IsEnabled="true" Value=""/>
                     </AttributeInfo>
                     <AttributeInfo Id="QmlFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/qml/imtgui/LisaMain.qml"/>
+                        <Data IsEnabled="true" Value=":/qml/LisaMain.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

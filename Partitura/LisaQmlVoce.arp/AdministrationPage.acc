@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description></Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LightSettings"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Administration"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Administration"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../../Icons/LightSettings_Off_Selected.svg"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../../Icons/LightSettings_On_Selected.svg"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtauthgui/AccountCollectionView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList/>
+    <ExportedInterfaces/>
+    <ExportedComponents>
+        <Component ExportedId="AdministrationPageVisualStatus" ComponentId="VisualStatus"/>
+    </ExportedComponents>
+</Acf>

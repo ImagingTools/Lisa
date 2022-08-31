@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5003" Description="ACF"/>
-            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -20,6 +20,7 @@
                                 <Value>PageData/ProductsPageVisualStatus</Value>
                                 <Value>PageData/AccountsPageVisualStatus</Value>
                                 <Value>PageData/InstancesPageVisualStatus</Value>
+                                <Value>PageData/AdministrationPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -135,6 +136,11 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
@@ -255,6 +261,8 @@
                     <Component ExportedId="AccountRepository" ComponentId="AccountRepository"/>
                     <Component ExportedId="AccountsPage" ComponentId="AccountsPage"/>
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
+                    <Component ExportedId="AdministrationPage" ComponentId="AdministrationPage"/>
+                    <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>

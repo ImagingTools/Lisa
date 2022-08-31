@@ -9,6 +9,7 @@
     <qresource prefix="/"/>
     <qresource prefix="/qml">
         <file alias="lisa.qml">Resources/qml/lisa.qml</file>
+	<file alias="LisaMain.qml">Resources/qml/LisaMain.qml</file>
     </qresource>
     <qresource prefix="/Style">
         <file alias="lisa_dark.theme">lisa_dark.theme</file>

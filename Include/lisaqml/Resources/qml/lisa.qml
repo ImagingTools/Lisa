@@ -1,10 +1,6 @@
 import QtQuick 2.0
 import QtWebSockets 1.15
 import Acf 1.0
-//import "../qml"
-//import "/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml"
-//import "../../../../../ImtCore/Include/imtqml/Resources/qml"
-//import "../qml"
 import imtgui 1.0
 //import Qt.labs.platform 1.1
 
@@ -40,25 +36,15 @@ import imtgui 1.0
 //@using { src.imtlicgui.InstallationCollectionView }
 //@using { src.imtlicgui.UsersCollectionView }
 
-//@using { src.imtlicgui.PackagesMultiDocView }
-//@using { src.imtlicgui.TestMultiDocView }
-//@using { src.imtlicgui.ProductsMultiDocView }
-//@using { src.imtauthgui.AccountsMultiDocView }
-//@using { src.imtlicgui.InstallationsMultiDocView }
-//@using { src.imtlicgui.AdminPanelMultiDocView }
-
-//@using { src.imtlicgui.EditFeatureDialog }
-//@using { src.imtlicgui.EditLicenseDialog }
+//@using { src.imtlicgui.EditDialog }
 //@using { src.imtgui.AuxComponents.MessageDialog }
 //@using { src.imtgui.AuxComponents.InputDialog }
 
 //@using { src.imtlicgui.PackageView }
 //@using { src.imtlicgui.ProductView }
 //@using { src.imtlicgui.UserView }
-//@using { src.imtlicgui.InstallationInfoEditor }
-//@using { src.imtauthgui.ContactInfoEditor }
-
-//@using { src.imtauthgui.TextFieldCustom }
+//@using { src.imtlicgui.InstallationEditor }
+//@using { src.imtauthgui.AccountEditor }
 
 //DECORATORS
 //@using { src.imtgui.AuxComponents.MenuPanelButtonDecorator }
