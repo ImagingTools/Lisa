@@ -24,11 +24,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="RoleCollection" PackageId="ImtAuthPck" ComponentId="RoleCollection">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -63,7 +58,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RoleCollection"/>
+                        <Data IsEnabled="true" Value="RoleRepository"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -75,7 +70,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RoleCollection"/>
+                        <Data IsEnabled="true" Value="RoleRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="UserRepository"/>

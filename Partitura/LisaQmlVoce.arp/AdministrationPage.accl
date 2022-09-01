@@ -9,7 +9,6 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="JoinDataProvider" X="775" Y="325" Note=""/>
-        <Element ComponentName="RoleCollection" X="325" Y="600" Note=""/>
         <Element ComponentName="RoleRepository" X="150" Y="175" Note=""/>
         <Element ComponentName="RolesPage" X="500" Y="175" Note=""/>
         <Element ComponentName="UserRepository" X="125" Y="475" Note=""/>
