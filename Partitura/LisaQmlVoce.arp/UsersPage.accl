@@ -2,22 +2,23 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Commands" X="475" Y="225" Note=""/>
-        <Element ComponentName="Demultiplexer" X="500" Y="75" Note=""/>
-        <Element ComponentName="ObjectViewDataProvider" X="1000" Y="475" Note=""/>
-        <Element ComponentName="UserDataController" X="150" Y="225" Note=""/>
-        <Element ComponentName="UserEditCommandDataProvider" X="575" Y="475" Note=""/>
-        <Element ComponentName="UserInfo" X="175" Y="325" Note=""/>
-        <Element ComponentName="UserListController" X="825" Y="225" Note=""/>
-        <Element ComponentName="UsersCommandDataProvider" X="250" Y="475" Note=""/>
-        <Element ComponentName="UsersHeadersDataProvider" X="1025" Y="75" Note=""/>
-        <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
+        <Element ComponentName="Commands" X="550" Y="275" Note=""/>
+        <Element ComponentName="Demultiplexer" X="550" Y="75" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
+        <Element ComponentName="UserDataController" X="225" Y="275" Note=""/>
+        <Element ComponentName="UserEditCommandDataProvider" X="350" Y="650" Note=""/>
+        <Element ComponentName="UserHeadersDataProvider" X="475" Y="475" Note=""/>
+        <Element ComponentName="UserInfo" X="150" Y="425" Note=""/>
+        <Element ComponentName="UserListController" X="925" Y="275" Note=""/>
+        <Element ComponentName="UsersCommandDataProvider" X="775" Y="650" Note=""/>
+        <Element ComponentName="UsersHeadersDataProvider" X="950" Y="475" Note=""/>
+        <Element ComponentName="VisualStatus" X="150" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

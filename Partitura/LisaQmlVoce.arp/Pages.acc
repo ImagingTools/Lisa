@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -20,7 +20,7 @@
                                 <Value>PageData/ProductsPageVisualStatus</Value>
                                 <Value>PageData/AccountsPageVisualStatus</Value>
                                 <Value>PageData/InstancesPageVisualStatus</Value>
-                                <Value>PageData/AdministrationPageVisualStatus</Value>
+                                <Value>PageData/UsersPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -55,7 +55,6 @@
                                 <Value>PageData/InstancesPage</Value>
                                 <Value>PageData/AccountsPage</Value>
                                 <Value>PageData/ProductsPage</Value>
-                                <Value>PageData/RolesPage</Value>
                                 <Value>PageData/UsersPage</Value>
                             </Values>
                         </Data>
@@ -138,18 +137,6 @@
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -257,11 +244,53 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="SeparatorValue" PackageId="BasePck" ComponentId="TextParam">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UsersPage" PackageId="LisaQmlVoce" ComponentId="UsersPage">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="UserRepository"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -273,7 +302,6 @@
                     <Component ExportedId="AccountRepository" ComponentId="AccountRepository"/>
                     <Component ExportedId="AccountsPage" ComponentId="AccountsPage"/>
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
-                    <Component ExportedId="AdministrationPage" ComponentId="AdministrationPage"/>
                     <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
@@ -284,8 +312,8 @@
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
                     <Component ExportedId="RolesPage" ComponentId="AdministrationPage/RolesPage"/>
                     <Component ExportedId="RolesPageVisualStatus" ComponentId="AdministrationPage/RolesPageVisualStatus"/>
-                    <Component ExportedId="UsersPage" ComponentId="AdministrationPage/UsersPage"/>
-                    <Component ExportedId="UsersPageVisualStatus" ComponentId="AdministrationPage/UsersPageVisualStatus"/>
+                    <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
+                    <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
