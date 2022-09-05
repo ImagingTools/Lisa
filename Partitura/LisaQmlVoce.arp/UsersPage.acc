@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5010" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -253,7 +253,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Normal</Value>
-                                <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
@@ -264,7 +263,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Add</Value>
-                                <Value></Value>
                                 <Value>Delete</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
@@ -275,7 +273,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>New</Value>
-                                <Value></Value>
                                 <Value>Remove</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
@@ -289,7 +286,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Create user account</Value>
-                                <Value></Value>
                                 <Value>Remove</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>

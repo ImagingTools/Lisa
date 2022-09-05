@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5010" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -20,7 +20,7 @@
                                 <Value>PageData/ProductsPageVisualStatus</Value>
                                 <Value>PageData/AccountsPageVisualStatus</Value>
                                 <Value>PageData/InstancesPageVisualStatus</Value>
-                                <Value>PageData/UsersPageVisualStatus</Value>
+                                <Value>PageData/AdministrationPageVisualStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -55,7 +55,7 @@
                                 <Value>PageData/InstancesPage</Value>
                                 <Value>PageData/AccountsPage</Value>
                                 <Value>PageData/ProductsPage</Value>
-                                <Value>PageData/UsersPage</Value>
+                                <Value>PageData/AdministrationPage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -137,6 +137,21 @@
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -302,6 +317,7 @@
                     <Component ExportedId="AccountRepository" ComponentId="AccountRepository"/>
                     <Component ExportedId="AccountsPage" ComponentId="AccountsPage"/>
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
+                    <Component ExportedId="AdministrationPage" ComponentId="AdministrationPage"/>
                     <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
@@ -310,8 +326,6 @@
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
-                    <Component ExportedId="RolesPage" ComponentId="AdministrationPage/RolesPage"/>
-                    <Component ExportedId="RolesPageVisualStatus" ComponentId="AdministrationPage/RolesPageVisualStatus"/>
                     <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
                     <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
@@ -324,6 +338,7 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="AccountRepository" ComponentId="PageData/AccountRepository"/>
+        <Component ExportedId="AdministrationPage" ComponentId="PageData/AdministrationPage"/>
         <Component ExportedId="ProductRepository" ComponentId="PageData/ProductRepository"/>
     </ExportedComponents>
 </Acf>

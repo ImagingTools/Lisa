@@ -224,7 +224,7 @@
                     <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>New</Value>
+                                <Value>Create new role</Value>
                                 <Value>Remove</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
