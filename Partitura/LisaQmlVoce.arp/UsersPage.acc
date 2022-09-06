@@ -94,10 +94,6 @@
                     <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Normal</Value>
-                                <Value></Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
@@ -110,10 +106,6 @@
                     <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Add</Value>
-                                <Value></Value>
-                                <Value>Delete</Value>
-                                <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
                                 <Value></Value>
@@ -126,10 +118,6 @@
                     <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>New</Value>
-                                <Value></Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
                                 <Value></Value>
@@ -145,10 +133,6 @@
                     <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Create user account</Value>
-                                <Value></Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
                                 <Value></Value>
