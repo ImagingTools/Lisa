@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,21 +10,49 @@
     <Description>ц2йц</Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+        <Element Id="AdministrationPageDataController" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>RolesPage/RolesPageVisualStatus</Value>
-                                <Value>UsersPage/UsersPageVisualStatus</Value>
+                                <Value>Pages/RolesPage</Value>
+                                <Value>Pages/UsersPage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
+        <Element Id="AdministrationPages" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>AdministrationPageDataController</Value>
+                                <Value>PagesDataController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Pages/RolesPageVisualStatus</Value>
+                                <Value>Pages/UsersPageVisualStatus</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Pages" PackageId="" ComponentId="Pages">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -36,44 +64,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="RolesPage" PackageId="LisaQmlVoce" ComponentId="RolesPage">
+        <Element Id="PagesDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RoleRepository" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RoleRepository"/>
+                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>AdministrationPages</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="JoinDataProvider"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RoleRepository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="UsersPage" PackageId="LisaQmlVoce" ComponentId="UsersPage">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RoleRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="UserRepository"/>
+                    <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="JoinDataProvider"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -85,7 +93,7 @@
                         <Data IsEnabled="true" Value="LightSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Users"/>
+                        <Data IsEnabled="true" Value="Administration"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Administration"/>
@@ -109,13 +117,84 @@
             </Data>
         </Element>
     </ElementsList>
-    <EmbeddedRegistriesList/>
-    <ExportedInterfaces/>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="Pages">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="RolesPage" PackageId="LisaQmlVoce" ComponentId="RolesPage">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RoleRepository" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UserRepository" PackageId="LisaVoce" ComponentId="UserSqlRepository">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UsersPage" PackageId="LisaQmlVoce" ComponentId="UsersPage">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="UserRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="RolesPage" ComponentId="RolesPage"/>
+                    <Component ExportedId="RolesPageVisualStatus" ComponentId="RolesPage/RolesPageVisualStatus"/>
+                    <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
+                    <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
+    <ExportedInterfaces>
+        <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="AdministrationPages"/>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="AdministrationPages"/>
+    </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="AdministrationPageVisualStatus" ComponentId="VisualStatus"/>
-        <Component ExportedId="RolesPage" ComponentId="RolesPage"/>
+        <Component ExportedId="AdministrationPages" ComponentId="AdministrationPages"/>
         <Component ExportedId="RolesPageVisualStatus" ComponentId="RolesPage/RolesPageVisualStatus"/>
-        <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
         <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
     </ExportedComponents>
 </Acf>

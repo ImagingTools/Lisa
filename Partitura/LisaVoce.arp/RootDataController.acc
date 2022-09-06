@@ -34,18 +34,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="AdministrationPages" PackageId="LisaQmlVoce" ComponentId="AdministrationPages">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="ApplicationController" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -55,7 +43,6 @@
                                 <Value>Pages</Value>
                                 <Value>SettingsController</Value>
                                 <Value>AuthorizationConcept</Value>
-                                <Value>AdministrationPages</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -19,17 +19,14 @@
             <PositionMap>
                 <Element ComponentName="AccountRepository" X="350" Y="225" Note=""/>
                 <Element ComponentName="AccountsPage" X="700" Y="225" Note=""/>
-                <Element ComponentName="AdministrationPage" X="350" Y="575" Note=""/>
+                <Element ComponentName="AdministrationPage" X="700" Y="600" Note=""/>
                 <Element ComponentName="FeaturePackageRepository" X="275" Y="50" Note=""/>
                 <Element ComponentName="InstallationRepository" X="700" Y="475" Note=""/>
                 <Element ComponentName="InstancesPage" X="700" Y="375" Note=""/>
                 <Element ComponentName="PackagesPage" X="700" Y="50" Note=""/>
                 <Element ComponentName="ProductRepository" X="975" Y="150" Note=""/>
                 <Element ComponentName="ProductsPage" X="700" Y="150" Note=""/>
-                <Element ComponentName="RoleRepository" X="700" Y="725" Note=""/>
                 <Element ComponentName="SeparatorValue" X="175" Y="700" Note=""/>
-                <Element ComponentName="UserRepository" X="1025" Y="725" Note=""/>
-                <Element ComponentName="UsersPage" X="700" Y="600" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
