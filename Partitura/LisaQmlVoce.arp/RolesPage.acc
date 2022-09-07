@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -53,7 +53,7 @@
                         <Data IsEnabled="true" Value="Role"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtauthgui/RoleEditor.qml"/>
+                        <Data IsEnabled="true" Value="../../imtauthgui/RoleView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -243,7 +243,6 @@
                     <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Id</Value>
                                 <Value>Name</Value>
                             </Values>
                         </Data>
@@ -254,7 +253,6 @@
                     <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Role Id</Value>
                                 <Value>Role Name</Value>
                             </Values>
                         </Data>
@@ -262,7 +260,6 @@
                     <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Id</Value>
                                 <Value>Name</Value>
                             </Values>
                         </Data>
@@ -292,10 +289,10 @@
                         <Data IsEnabled="true" Value="../../Icons/Account_On_Selected.svg"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/SingleDocumentWorkspaceView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/CollectionView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/RoleCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
