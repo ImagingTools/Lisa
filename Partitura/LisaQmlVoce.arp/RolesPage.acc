@@ -16,8 +16,8 @@
                     <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>RolesCommandDataProvider</Value>
                                 <Value>RoleEditCommandDataProvider</Value>
+                                <Value>RolesCommandDataProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -61,8 +61,20 @@
         <Element Id="Role" PackageId="ImtAuthPck" ComponentId="Role">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                    <AttributeInfo Id="ParentRoleProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RoleCollectionAdapter"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RoleCollectionAdapter" PackageId="ImtAuthPck" ComponentId="RoleCollectionAdapter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RoleCollection" Type="Reference" ExportId="RoleCollection">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -82,8 +94,14 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="RoleRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RoleFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="Role"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
                         <Data IsEnabled="false"/>
@@ -100,6 +118,9 @@
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
+                                <Value>Normal</Value>
+                                <Value>Disabled</Value>
+                                <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Normal</Value>
@@ -112,6 +133,9 @@
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
                                 <Value></Value>
+                                <Value>Import</Value>
+                                <Value>Export</Value>
+                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -123,6 +147,9 @@
                             <Values>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
+                                <Value></Value>
+                                <Value>Include</Value>
+                                <Value>Exclude</Value>
                                 <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
@@ -138,6 +165,9 @@
                             <Values>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
+                                <Value></Value>
+                                <Value>Include</Value>
+                                <Value>Exclude</Value>
                                 <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
@@ -179,6 +209,12 @@
                     <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -191,9 +227,7 @@
                     <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Normal</Value>
                                 <Value>Disabled</Value>
-                                <Value></Value>
                                 <Value>Disabled</Value>
                             </Values>
                         </Data>
@@ -201,9 +235,7 @@
                     <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Add</Value>
                                 <Value>Delete</Value>
-                                <Value></Value>
                                 <Value>Edit</Value>
                             </Values>
                         </Data>
@@ -211,9 +243,7 @@
                     <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value></Value>
                                 <Value>Edit</Value>
                             </Values>
                         </Data>
@@ -224,9 +254,7 @@
                     <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Create new role</Value>
                                 <Value>Remove</Value>
-                                <Value></Value>
                                 <Value>Edit</Value>
                             </Values>
                         </Data>

@@ -2,23 +2,24 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Commands" X="550" Y="275" Note=""/>
-        <Element ComponentName="Demultiplexer" X="550" Y="75" Note=""/>
-        <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
-        <Element ComponentName="PackagesHeadersDataProvider" X="950" Y="475" Note=""/>
-        <Element ComponentName="ProductDataController" X="225" Y="275" Note=""/>
-        <Element ComponentName="ProductEditCommandDataProvider" X="350" Y="650" Note=""/>
-        <Element ComponentName="ProductHeadersDataProvider" X="475" Y="475" Note=""/>
-        <Element ComponentName="ProductLicensingInfo" X="125" Y="475" Note=""/>
-        <Element ComponentName="ProductListController" X="925" Y="275" Note=""/>
-        <Element ComponentName="ProductsCommandDataProvider" X="775" Y="650" Note=""/>
-        <Element ComponentName="VisualStatus" X="150" Y="75" Note=""/>
+        <Element ComponentName="Commands" X="575" Y="375" Note=""/>
+        <Element ComponentName="Demultiplexer" X="575" Y="175" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="1050" Y="175" Note=""/>
+        <Element ComponentName="PackagesHeadersDataProvider" X="975" Y="550" Note=""/>
+        <Element ComponentName="ProductDataController" X="175" Y="375" Note=""/>
+        <Element ComponentName="ProductEditCommandDataProvider" X="325" Y="750" Note=""/>
+        <Element ComponentName="ProductFeaturesController" X="850" Y="50" Note=""/>
+        <Element ComponentName="ProductHeadersDataProvider" X="425" Y="550" Note=""/>
+        <Element ComponentName="ProductLicensingInfo" X="100" Y="550" Note=""/>
+        <Element ComponentName="ProductListController" X="975" Y="375" Note=""/>
+        <Element ComponentName="ProductsCommandDataProvider" X="800" Y="750" Note=""/>
+        <Element ComponentName="VisualStatus" X="125" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

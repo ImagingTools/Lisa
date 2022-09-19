@@ -605,6 +605,7 @@
         <Component ExportedId="AccountRepository" ComponentId="Pages/AccountRepository"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="PreferencesQml/DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="PreferencesQml/Design"/>
+        <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
         <Component ExportedId="GetStyleDataController" ComponentId="SettingsController/GetStyleDataController"/>
         <Component ExportedId="Language" ComponentId="PreferencesQml/Language"/>
         <Component ExportedId="PagesControllers" ComponentId="Pages/PagesControllers"/>

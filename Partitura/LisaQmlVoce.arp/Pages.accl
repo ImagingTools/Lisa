@@ -19,9 +19,10 @@
             <PositionMap>
                 <Element ComponentName="AccountRepository" X="350" Y="225" Note=""/>
                 <Element ComponentName="AccountsPage" X="700" Y="225" Note=""/>
-                <Element ComponentName="AdministrationPage" X="700" Y="600" Note=""/>
+                <Element ComponentName="AdministrationPage" X="725" Y="600" Note=""/>
                 <Element ComponentName="FeaturePackageRepository" X="275" Y="50" Note=""/>
-                <Element ComponentName="InstallationRepository" X="700" Y="475" Note=""/>
+                <Element ComponentName="FeaturesExportProvider" X="150" Y="450" Note=""/>
+                <Element ComponentName="InstallationRepository" X="701.414213562" Y="477.828427125" Note=""/>
                 <Element ComponentName="InstancesPage" X="700" Y="375" Note=""/>
                 <Element ComponentName="PackagesPage" X="700" Y="50" Note=""/>
                 <Element ComponentName="ProductRepository" X="975" Y="150" Note=""/>

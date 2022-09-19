@@ -16,17 +16,6 @@
         <Element ComponentName="SettingsController" X="700" Y="200" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="AuthorizationConcept">
-            <PositionMap>
-                <Element ComponentName="AuthorizationController" X="975" Y="200" Note=""/>
-                <Element ComponentName="AuthorizationOptionsController" X="225" Y="200" Note=""/>
-                <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
-                <Element ComponentName="UserMode" X="225" Y="400" Note=""/>
-                <Element ComponentName="UserModeOptions" X="225" Y="500" Note=""/>
-                <Element ComponentName="UserModeProvider" X="200" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="SettingsController">
             <PositionMap>
                 <Element ComponentName="AboutPage" X="975" Y="425" Note=""/>
@@ -47,6 +36,17 @@
                 <Element ComponentName="PreferencesDataProvider" X="600" Y="250" Note=""/>
                 <Element ComponentName="ServerPage" X="500" Y="425" Note=""/>
                 <Element ComponentName="TextButton" X="525" Y="725" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="AuthorizationConcept">
+            <PositionMap>
+                <Element ComponentName="AuthorizationController" X="975" Y="200" Note=""/>
+                <Element ComponentName="AuthorizationOptionsController" X="225" Y="200" Note=""/>
+                <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+                <Element ComponentName="UserMode" X="225" Y="400" Note=""/>
+                <Element ComponentName="UserModeOptions" X="225" Y="500" Note=""/>
+                <Element ComponentName="UserModeProvider" X="200" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -151,6 +151,9 @@
                                 <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductRepository/ProductsCollection"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -168,6 +171,15 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="FeaturesExportProvider" PackageId="ImtLicenseGqlPck" ComponentId="FeaturesExportProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -239,7 +251,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="FeaturePackages">
-                                    <Data IsEnabled="false"/>
+                                    <Data IsEnabled="true" Value="FeaturePackageRepository/FeaturePackageCollection"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
@@ -253,6 +265,12 @@
                     <Element Id="ProductsPage" PackageId="LisaQmlVoce" ComponentId="ProductsPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturePackageRepository/FeaturePackageCollection"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductRepository/ProductsCollection"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
@@ -277,6 +295,7 @@
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
                     <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="AdministrationPages" ComponentId="AdministrationPage/AdministrationPages"/>
+                    <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
                     <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
@@ -296,6 +315,7 @@
     <ExportedComponents>
         <Component ExportedId="AccountRepository" ComponentId="PageData/AccountRepository"/>
         <Component ExportedId="AdministrationPage" ComponentId="PageData/AdministrationPage"/>
+        <Component ExportedId="FeaturesExportProvider" ComponentId="PageData/FeaturesExportProvider"/>
         <Component ExportedId="ProductRepository" ComponentId="PageData/ProductRepository"/>
     </ExportedComponents>
 </Acf>

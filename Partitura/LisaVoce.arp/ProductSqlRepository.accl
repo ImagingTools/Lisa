@@ -2,16 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5003" Description="ACF"/>
-            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="OptionsListAdapter" X="675" Y="150" Note=""/>
-        <Element ComponentName="Persistence" X="150" Y="50" Note=""/>
         <Element ComponentName="ProductDatabaseDelegate" X="1000" Y="150" Note=""/>
-        <Element ComponentName="ProductLicensingInfo" X="1025" Y="576.414213562" Note=""/>
+        <Element ComponentName="ProductLicensingInfo" X="1025" Y="575" Note=""/>
         <Element ComponentName="ProductLicensingInfoMetaInfoCreator" X="225" Y="575" Note=""/>
         <Element ComponentName="Products" X="625" Y="325" Note=""/>
     </PositionMap>

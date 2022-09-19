@@ -61,6 +61,9 @@
                     <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -127,17 +130,17 @@
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="RolesPage" PackageId="LisaQmlVoce" ComponentId="RolesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RoleCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RoleRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RoleRepository"/>
@@ -167,6 +170,9 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Roles" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RolesCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RoleRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">

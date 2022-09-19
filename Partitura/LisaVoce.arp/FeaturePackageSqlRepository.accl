@@ -2,14 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4948" Description="ACF"/>
-            <Version Id="1" Number="2151" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Collection" X="600" Y="275" Note=""/>
-        <Element ComponentName="FeatureCollection" X="900" Y="550" Note=""/>
+        <Element ComponentName="FeatureCollection" X="899" Y="550" Note=""/>
         <Element ComponentName="FeaturePackageDatabaseDelegate" X="600" Y="100" Note=""/>
         <Element ComponentName="FeaturePackageMetaInfoCreator" X="225" Y="400" Note=""/>
         <Element ComponentName="OptionsListAdapter" X="275" Y="550" Note=""/>

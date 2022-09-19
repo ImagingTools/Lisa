@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5008" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -40,6 +40,7 @@
                                 <Value>Commands</Value>
                                 <Value>ProductDataController</Value>
                                 <Value>ProductListController</Value>
+                                <Value>ProductFeaturesController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -107,9 +108,7 @@
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ProductList</Value>
                                 <Value>ProductAdd</Value>
-                                <Value>ProductInfo</Value>
                                 <Value>ProductUpdate</Value>
                                 <Value>LicenseFeatures</Value>
                                 <Value>ProductItem</Value>
@@ -199,6 +198,22 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductFeaturesController" PackageId="ImtLicenseGqlPck" ComponentId="ProductFeaturesController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ProductFeatures</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -297,6 +312,8 @@
                                 <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
+                                <Value></Value>
+                                <Value>Disabled</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -306,6 +323,8 @@
                                 <Value>Add</Value>
                                 <Value>Delete</Value>
                                 <Value>Duplicate</Value>
+                                <Value></Value>
+                                <Value>Export</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                             </Values>
@@ -317,6 +336,8 @@
                                 <Value>New</Value>
                                 <Value>Remove</Value>
                                 <Value>Duplicate</Value>
+                                <Value></Value>
+                                <Value>Export</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                             </Values>
@@ -331,6 +352,8 @@
                                 <Value>New</Value>
                                 <Value>Remove</Value>
                                 <Value>Duplicate</Value>
+                                <Value></Value>
+                                <Value>Export</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                             </Values>

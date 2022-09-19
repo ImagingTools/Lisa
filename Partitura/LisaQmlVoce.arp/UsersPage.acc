@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5010" Description="ACF"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -61,22 +61,19 @@
         <Element Id="UserDataController" PackageId="ImtAuthGqlPck" ComponentId="UserController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="UserHeadersDataProvider"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>UserList</Value>
                                 <Value>UserAdd</Value>
-                                <Value>UserInfo</Value>
                                 <Value>UserUpdate</Value>
-                                <Value>PermissionFeatures</Value>
                                 <Value>UserItem</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="UserRepository">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RolesCollection" Type="Reference" ExportId="RolesCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
@@ -139,45 +136,6 @@
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="UserHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Username</Value>
-                                <Value>Name</Value>
-                                <Value>Mail</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="User"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Username</Value>
-                                <Value>Name</Value>
-                                <Value>Mail</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Username</Value>
-                                <Value>Name</Value>
-                                <Value>Mail</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -290,9 +248,7 @@
                             <Values>
                                 <Value>Username</Value>
                                 <Value>Name</Value>
-                                <Value>Mail</Value>
-                                <Value>Added</Value>
-                                <Value>LastModified</Value>
+                                <Value>Email</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -304,9 +260,7 @@
                             <Values>
                                 <Value>Username</Value>
                                 <Value>Name</Value>
-                                <Value>Mail</Value>
-                                <Value>Added</Value>
-                                <Value>LastModified</Value>
+                                <Value>Email</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -315,7 +269,7 @@
                             <Values>
                                 <Value>Username</Value>
                                 <Value>Name</Value>
-                                <Value>Mail</Value>
+                                <Value>Email</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

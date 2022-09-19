@@ -19,7 +19,7 @@
         <EmbededRegistry Id="Pages">
             <PositionMap>
                 <Element ComponentName="RoleRepository" X="500" Y="350" Note=""/>
-                <Element ComponentName="RolesPage" X="250" Y="350" Note=""/>
+                <Element ComponentName="RolesPage" X="225" Y="350" Note=""/>
                 <Element ComponentName="UserRepository" X="775" Y="500" Note=""/>
                 <Element ComponentName="UsersPage" X="850" Y="350" Note=""/>
             </PositionMap>
