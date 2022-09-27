@@ -1,1 +1,1 @@
-INSERT INTO Revisions (Revision) VALUES (:Revision);
+INSERT INTO "Revisions" (Revision) VALUES (:Revision);
