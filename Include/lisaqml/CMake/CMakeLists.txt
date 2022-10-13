@@ -69,5 +69,5 @@ list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
 #list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
-jqml_compile_web("${webdirs}", "${buildwebdir}")
+#jqml_compile_web("${webdirs}", "${buildwebdir}")
 
