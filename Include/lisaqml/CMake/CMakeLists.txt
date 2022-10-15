@@ -17,6 +17,9 @@ message("LASA binary dir ${buildwebdir}")
 #list(APPEND webdirs ${IMTCOREDIR}/Bin/web)
 #list(APPEND webdirs ${buildwebdir})
 
+list(APPEND webdirs ${IMTCOREDIR}/3rdParty/JQML/Core/dist)
+list(APPEND webdirs ${buildwebdir}/Resources)
+
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/empty)
 #list(APPEND webdirs ${IMTCOREDIR}/Bin/web/src)
 list(APPEND webdirs ${buildwebdir}/src)
@@ -62,12 +65,15 @@ message("LISADIR ${LISADIR}")
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/dist)
 #list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../Resources/dist)
 #list(APPEND webdirs ${IMTCOREDIR}/Bin/web/dist)
-list(APPEND webdirs ${buildwebdir}/dist)
+list(APPEND webdirs ${buildwebdir}/Resources)
 
 # copy result from to
 list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
 #list(APPEND webdirs ${IMTCOREDIR}/Bin/web/Resources)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
-#jqml_compile_web("${webdirs}", "${buildwebdir}")
+if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
+	add_compile_definitions(WEB_COMPILE)
+	jqml_compile_web("${webdirs}", "${buildwebdir}")
+endif()
 

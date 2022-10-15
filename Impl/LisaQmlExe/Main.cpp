@@ -25,6 +25,10 @@
 
 int main(int argc, char *argv[])
 {
+#ifdef WEB_COMPILE
+	Q_INIT_RESOURCE(lisaqmlWeb);
+#endif
+
 	Q_INIT_RESOURCE(imtauthgui);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(imtstyle);
