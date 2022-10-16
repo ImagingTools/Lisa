@@ -9,7 +9,6 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="OptionsListAdapter" X="600" Y="650" Note=""/>
-        <Element ComponentName="Persistence" X="1000" Y="650" Note=""/>
         <Element ComponentName="Repository" X="550" Y="425" Note=""/>
         <Element ComponentName="Role" X="1050" Y="75" Note=""/>
         <Element ComponentName="RoleCollectionAdapter" X="700" Y="225" Note=""/>

@@ -39,6 +39,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -124,9 +127,6 @@
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -136,7 +136,7 @@
                                 <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -202,9 +202,6 @@
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -214,14 +211,14 @@
                                 <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -234,6 +231,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackageRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -256,9 +256,6 @@
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -268,11 +265,11 @@
                                 <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository/FeaturePackageCollection"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductRepository/ProductsCollection"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

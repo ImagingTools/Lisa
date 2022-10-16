@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5024" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -103,7 +103,7 @@
                     <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -118,9 +118,6 @@
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
-                                <Value>Normal</Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Normal</Value>
@@ -133,9 +130,6 @@
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
                                 <Value></Value>
-                                <Value>Import</Value>
-                                <Value>Export</Value>
-                                <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
                                 <Value>Close</Value>
@@ -147,9 +141,6 @@
                             <Values>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Include</Value>
-                                <Value>Exclude</Value>
                                 <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
@@ -165,9 +156,6 @@
                             <Values>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Include</Value>
-                                <Value>Exclude</Value>
                                 <Value></Value>
                                 <Value>Save</Value>
                                 <Value></Value>
@@ -215,7 +203,7 @@
                     <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>

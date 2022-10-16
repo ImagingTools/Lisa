@@ -17,17 +17,17 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="PageData">
             <PositionMap>
-                <Element ComponentName="AccountRepository" X="350" Y="225" Note=""/>
-                <Element ComponentName="AccountsPage" X="700" Y="225" Note=""/>
-                <Element ComponentName="AdministrationPage" X="725" Y="600" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="275" Y="50" Note=""/>
-                <Element ComponentName="FeaturesExportProvider" X="150" Y="450" Note=""/>
-                <Element ComponentName="InstallationRepository" X="701.414213562" Y="477.828427125" Note=""/>
-                <Element ComponentName="InstancesPage" X="700" Y="375" Note=""/>
-                <Element ComponentName="PackagesPage" X="700" Y="50" Note=""/>
-                <Element ComponentName="ProductRepository" X="975" Y="150" Note=""/>
-                <Element ComponentName="ProductsPage" X="700" Y="150" Note=""/>
-                <Element ComponentName="SeparatorValue" X="175" Y="700" Note=""/>
+                <Element ComponentName="AccountRepository" X="225" Y="450" Note=""/>
+                <Element ComponentName="AccountsPage" X="225" Y="375" Note=""/>
+                <Element ComponentName="AdministrationPage" X="1050" Y="750" Note=""/>
+                <Element ComponentName="FeaturePackageRepository" X="250" Y="175" Note=""/>
+                <Element ComponentName="FeaturesExportProvider" X="1075" Y="50" Note=""/>
+                <Element ComponentName="InstallationRepository" X="575" Y="650" Note=""/>
+                <Element ComponentName="InstancesPage" X="575" Y="550" Note=""/>
+                <Element ComponentName="PackagesPage" X="225" Y="75" Note=""/>
+                <Element ComponentName="ProductRepository" X="850" Y="175" Note=""/>
+                <Element ComponentName="ProductsPage" X="775" Y="100" Note=""/>
+                <Element ComponentName="SeparatorValue" X="125" Y="775" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

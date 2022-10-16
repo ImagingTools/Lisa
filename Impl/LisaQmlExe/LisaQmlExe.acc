@@ -30,7 +30,11 @@
         </Element>
         <Element Id="Context" PackageId="ImtQmlPck" ComponentId="Context">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaServerBase/ImtCoreLocalization"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="ImtCoreLocalization" PackageId="QtPck" ComponentId="TranslationManager">
@@ -174,6 +178,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="MainQuickWindow" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MainWindow"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaServerBase/ImtCoreLocalization"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

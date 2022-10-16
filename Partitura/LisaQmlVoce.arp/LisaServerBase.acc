@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5024" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -24,6 +24,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ImtCoreLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -188,7 +191,7 @@
         <Element Id="ImtCoreLocalization" PackageId="QtPck" ComponentId="TranslationManager">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="InstallTranslate" Type="Boolean" ExportId="">
+                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
@@ -268,7 +271,7 @@
                     <AttributeInfo Id="IgnoreLocale" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="InstallTranslate" Type="Boolean" ExportId="">
+                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
@@ -771,6 +774,7 @@
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ApplicationController/DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="ApplicationController/Design"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="ApplicationController/FeaturesExportProvider"/>
+        <Component ExportedId="ImtCoreLocalization" ComponentId="ImtCoreLocalization"/>
         <Component ExportedId="Language" ComponentId="ApplicationController/Language"/>
         <Component ExportedId="PreferencesQml" ComponentId="ApplicationController/PreferencesQml"/>
     </ExportedComponents>

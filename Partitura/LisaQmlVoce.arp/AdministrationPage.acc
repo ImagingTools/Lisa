@@ -145,6 +145,9 @@
                                 <AttributeInfo Id="RoleRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RoleRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -174,6 +177,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="RolesCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RoleRepository"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="UserRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="UserRepository"/>

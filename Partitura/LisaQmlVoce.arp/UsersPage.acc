@@ -76,7 +76,10 @@
                     <AttributeInfo Id="RolesCollection" Type="Reference" ExportId="RolesCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserFactory" Type="Factory" ExportId="">
@@ -182,7 +185,10 @@
                     <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>

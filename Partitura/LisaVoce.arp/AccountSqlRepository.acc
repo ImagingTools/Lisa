@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="4984" Description="ACF"/>
-            <Version Id="1" Number="2164" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -47,35 +47,6 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="CollectionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="Persistence" PackageId="FilePck" ComponentId="CompactXmlFileSerializer">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="FileExtensions" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>account</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TypeDescriptions" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Contact Files</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -124,7 +95,6 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Repository"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="AccountInfoPersistence" ComponentId="Persistence"/>
         <Component ExportedId="Accounts" ComponentId="OptionsListAdapter"/>
     </ExportedComponents>
 </Acf>

@@ -54,7 +54,11 @@
         </Element>
         <Element Id="AuthorizationConcept" PackageId="" ComponentId="AuthorizationConcept">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="Pages" PackageId="LisaQmlVoce" ComponentId="Pages">
@@ -67,6 +71,9 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
@@ -117,6 +124,9 @@
                     <AttributeInfo Id="Language" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PreferencesQml/Language"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -134,7 +144,7 @@
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Authorization</Value>
+                                            <Value>UserAuthorization</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

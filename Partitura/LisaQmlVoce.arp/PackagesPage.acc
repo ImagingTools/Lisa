@@ -78,7 +78,7 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="FeaturePackageRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -91,7 +91,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Normal</Value>
-                                <Value>Disabled</Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
@@ -108,7 +107,6 @@
                             <Values>
                                 <Value>Add</Value>
                                 <Value>Delete</Value>
-                                <Value>Edit</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -124,7 +122,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Edit</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -143,7 +140,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Edit</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -169,6 +165,7 @@
                                 <Value>Name</Value>
                                 <Value>Id</Value>
                                 <Value>Description</Value>
+                                <Value>Optional</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -181,6 +178,7 @@
                                 <Value>Feature Name</Value>
                                 <Value>Feature-ID</Value>
                                 <Value>Description</Value>
+                                <Value>Optional</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -279,7 +277,7 @@
                     <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="ImtCoreTranslationManager">
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
