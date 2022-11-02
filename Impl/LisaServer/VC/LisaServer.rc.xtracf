@@ -42,4 +42,4 @@ BEGIN
     END
 END
 
-IDI_ICON1               ICON                    "..\\..\\LisaExe\\VC\\Logo.ico"
+IDI_ICON1               ICON                    "..\\..\\LisaServer\\VC\\Logo.ico"
