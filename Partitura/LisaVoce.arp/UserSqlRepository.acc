@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -58,6 +58,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MetaInfoCreator" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="UserMetaInfoCreator"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectIdColumn" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="UserId"/>
                     </AttributeInfo>
@@ -76,10 +79,7 @@
         <Element Id="UserInfo" PackageId="ImtAuthPck" ComponentId="UserInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Roles" Type="Reference" ExportId="Roles">
+                    <AttributeInfo Id="RoleProvider" Type="Reference" ExportId="RoleProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -89,7 +89,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="User"/>
+                        <Data IsEnabled="true" Value="UserInfo"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -104,5 +104,8 @@
         <Interface InterfaceId="istd::IChangeable" ComponentId="Repository"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Repository"/>
     </ExportedInterfaces>
-    <ExportedComponents/>
+    <ExportedComponents>
+        <Component ExportedId="UserInfo" ComponentId="UserInfo"/>
+        <Component ExportedId="UserRepository" ComponentId="Repository"/>
+    </ExportedComponents>
 </Acf>

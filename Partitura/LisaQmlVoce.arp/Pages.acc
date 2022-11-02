@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -136,6 +136,9 @@
                                 <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -145,10 +148,10 @@
                     <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissions"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
@@ -158,6 +161,11 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CheckPermissions" PackageId="ImtAuthPck" ComponentId="CheckPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
@@ -211,6 +219,9 @@
                                 <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="AccountRepository"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="InstallationRepository"/>
                                 </AttributeInfo>
@@ -226,8 +237,8 @@
                     <Element Id="PackagesPage" PackageId="LisaQmlVoce" ComponentId="PackagesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackageRepository" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository"/>
@@ -262,6 +273,9 @@
                     <Element Id="ProductsPage" PackageId="LisaQmlVoce" ComponentId="ProductsPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturePackageRepository/FeaturePackageCollection"/>
                                 </AttributeInfo>
@@ -300,6 +314,7 @@
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
+                    <Component ExportedId="UserRepository" ComponentId="AdministrationPage/UserRepository"/>
                     <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
             </Data>
@@ -314,5 +329,6 @@
         <Component ExportedId="AdministrationPage" ComponentId="PageData/AdministrationPage"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="PageData/FeaturesExportProvider"/>
         <Component ExportedId="ProductRepository" ComponentId="PageData/ProductRepository"/>
+        <Component ExportedId="UserRepository" ComponentId="PageData/UserRepository"/>
     </ExportedComponents>
 </Acf>

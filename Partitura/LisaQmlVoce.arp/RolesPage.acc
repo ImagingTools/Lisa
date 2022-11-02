@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5024" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -46,6 +46,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="LisaPermissionsProvider" PackageId="ImtAuthPck" ComponentId="PermissionsProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeaturePackage" Type="Reference" ExportId="Features">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -54,6 +63,33 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="../../imtauthgui/RoleView.qml"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductInfoProvider" PackageId="ImtLicensePck" ComponentId="ProductInfoProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="PermissionsProvider" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaPermissionsProvider</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Lisa</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductNames" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Lisa</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -94,8 +130,8 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="RoleRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductInfoProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RoleFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="Role"/>
@@ -199,6 +235,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductInfoProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SeparatorObjectId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="$IMTCORESEPARATOR$"/>

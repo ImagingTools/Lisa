@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -141,9 +141,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstance"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SelectSqlQueryPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Database/ListProductInstances"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TypeId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstanceInfo"/>

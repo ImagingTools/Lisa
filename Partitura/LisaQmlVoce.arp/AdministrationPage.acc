@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -58,9 +58,6 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -92,6 +89,9 @@
         <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="LightSettings"/>
                     </AttributeInfo>
@@ -110,6 +110,13 @@
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtgui/AuxComponents/SingleDocumentWorkspaceView.qml"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>AdministrationView</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtauthgui/AdministrationView.qml"/>
                     </AttributeInfo>
@@ -124,6 +131,23 @@
         <EmbeddedRegistry Id="Pages">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="FeatureContainer" PackageId="ImtLicensePck" ComponentId="FeatureContainer">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="QtResourceLoaderComp" PackageId="ImtCorePck" ComponentId="QtResourceLoaderComp">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PathToFile" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TargetCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureContainer"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="RoleRepository" PackageId="LisaVoce" ComponentId="RoleRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -136,6 +160,9 @@
                     <Element Id="RolesPage" PackageId="LisaQmlVoce" ComponentId="RolesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="Features" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureContainer"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -157,11 +184,8 @@
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                <AttributeInfo Id="RoleProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository/RoleCollectionAdapter"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -169,11 +193,8 @@
                     <Element Id="UsersPage" PackageId="LisaQmlVoce" ComponentId="UsersPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Roles" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="RoleRepository"/>
+                                <AttributeInfo Id="RoleProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="RoleRepository/RoleCollectionAdapter"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RolesCollection" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RoleRepository"/>
@@ -193,6 +214,8 @@
                 <ExportedComponents>
                     <Component ExportedId="RolesPage" ComponentId="RolesPage"/>
                     <Component ExportedId="RolesPageVisualStatus" ComponentId="RolesPage/RolesPageVisualStatus"/>
+                    <Component ExportedId="UserInfo" ComponentId="UserRepository/UserInfo"/>
+                    <Component ExportedId="UserRepository" ComponentId="UserRepository/UserRepository"/>
                     <Component ExportedId="UsersPage" ComponentId="UsersPage"/>
                     <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
@@ -207,6 +230,7 @@
         <Component ExportedId="AdministrationPageVisualStatus" ComponentId="VisualStatus"/>
         <Component ExportedId="AdministrationPages" ComponentId="AdministrationPages"/>
         <Component ExportedId="RolesPageVisualStatus" ComponentId="RolesPage/RolesPageVisualStatus"/>
+        <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
     </ExportedComponents>
 </Acf>

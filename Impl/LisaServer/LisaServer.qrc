@@ -18,7 +18,4 @@
         <file alias="CreateDatabase">Resources/Database/CreateDatabase.sql</file>
         <file alias="CreateTables">Resources/Database/CreateTables.sql</file>
     </qresource>
-    <qresource prefix="/Features">
-        <file alias="LisaFeatures">Resources/Features/LisaFeatures.xml</file>
-    </qresource>
 </RCC>

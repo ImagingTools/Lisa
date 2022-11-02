@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos/>
+    </AcfHeader>
+    <Features>
+        <ObjectsList>
+            <Object ID="{9d4d4a90-9e29-4887-9067-e62189d560ba}" Description="" TypeId="FeatureInfo" Name="Fingerprint Device Support">
+                <Data Id="FingerprintDeviceSupport" Name="Fingerprint Device Support" Optional="true"/>
+            </Object>
+            <Object ID="{bf817845-4162-4316-9d60-f061f4338854}" Description="" TypeId="FeatureInfo" Name="User Support">
+                <Data Id="UserSupport" Name="User Support" Optional="true"/>
+            </Object>
+            <Object ID="{97ac7f30-3c80-4a45-a5da-14d774230774}" Description="" TypeId="FeatureInfo" Name="Biometric Login">
+                <Data Id="BiometricLogin" Name="Biometric Login" Optional="true"/>
+            </Object>
+            <Object ID="{681c193f-8e4c-46ba-8bc6-f14943376212}" Description="" TypeId="FeatureInfo" Name="Face-ID">
+                <Data Id="Face-ID" Name="Face-ID" Optional="true"/>
+            </Object>
+            <Object ID="{bc63fde1-2b00-43b1-944c-a2216b00ce30}" Description="" TypeId="FeatureInfo" Name="Login/Logout">
+                <Data Id="Login/Logout" Name="Login/Logout" Optional="true"/>
+            </Object>
+            <Object ID="{0f5ebbe0-6ba0-4de1-b0ad-f72f17eead24}" Description="" TypeId="FeatureInfo" Name="User Account">
+                <Data Id="UserAccount" Name="User Account" Optional="true"/>
+            </Object>
+            <Object ID="{0387375c-7c05-4ff4-87c3-a04010cfeb26}" Description="" TypeId="FeatureInfo" Name="Add User">
+                <Data Id="AddUser" Name="Add User" Optional="true"/>
+            </Object>
+            <Object ID="{9e47e3a5-d6a6-4f28-aee7-a5c1e6d3b53a}" Description="" TypeId="FeatureInfo" Name="Remove User">
+                <Data Id="RemoveUser" Name="Remove User" Optional="true"/>
+            </Object>
+            <Object ID="{cf51d3b1-3db9-4010-be29-2ff2e280d36e}" Description="" TypeId="FeatureInfo" Name="Lock/Unlock User">
+                <Data Id="Lock/UnlockUser" Name="Lock/Unlock User" Optional="true"/>
+            </Object>
+            <Object ID="{5c4b142f-632e-4374-b100-ecfe741f0458}" Description="" TypeId="FeatureInfo" Name="Reset Password">
+                <Data Id="ResetPassword" Name="Reset Password" Optional="true"/>
+            </Object>
+            <Object ID="{a744153b-55a9-40ad-a11c-cd6a3f5626f2}" Description="" TypeId="FeatureInfo" Name="User Administration">
+                <Data Id="UserAdministration" Name="User Administration" Optional="true"/>
+            </Object>
+            <Object ID="{0cb379c6-747d-413e-b6d9-d3a107b10015}" Description="" TypeId="FeatureInfo" Name="Packages View">
+                <Data Id="PackagesView" Name="Packages View" Optional="true"/>
+            </Object>
+            <Object ID="{452ad292-9998-4b42-8cbb-c4c9fae35a87}" Description="" TypeId="FeatureInfo" Name="Products View">
+                <Data Id="ProductsView" Name="Products View" Optional="true"/>
+            </Object>
+            <Object ID="{92defbc3-257f-461a-9e85-de6c1dda77dd}" Description="" TypeId="FeatureInfo" Name="Installations View">
+                <Data Id="InstallationsView" Name="Installations View" Optional="true"/>
+            </Object>
+            <Object ID="{c326e5a0-c28a-42cc-ab5b-0087bb1ec368}" Description="" TypeId="FeatureInfo" Name="Administration View">
+                <Data Id="AdministrationView" Name="Administration View" Optional="true"/>
+            </Object>
+            <Object ID="{ae5cb9b4-2c1f-4baa-b4d8-6596b4a12c7d}" Description="" TypeId="FeatureInfo" Name="MainUI">
+                <Data Id="MainUI" Name="MainUI" Optional="true"/>
+            </Object>
+        </ObjectsList>
+    </Features>
+    <Dependencies/>
+    <Parents>
+        <Items/>
+    </Parents>
+</Acf>

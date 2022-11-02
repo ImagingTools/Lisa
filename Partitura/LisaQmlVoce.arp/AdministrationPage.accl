@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -18,6 +18,8 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="Pages">
             <PositionMap>
+                <Element ComponentName="FeatureContainer" X="225" Y="550" Note=""/>
+                <Element ComponentName="QtResourceLoaderComp" X="250" Y="675" Note=""/>
                 <Element ComponentName="RoleRepository" X="500" Y="350" Note=""/>
                 <Element ComponentName="RolesPage" X="225" Y="350" Note=""/>
                 <Element ComponentName="UserRepository" X="775" Y="500" Note=""/>

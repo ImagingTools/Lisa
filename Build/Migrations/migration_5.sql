@@ -1,5 +1,3 @@
-DROP TABLE "UserRoles";
-
 CREATE TABLE "UserRoles"(
     UserId VARCHAR (1000) NOT NULL,
     RoleId VARCHAR (1000) NOT NULL,
@@ -16,9 +14,8 @@ UPDATE "Features" SET Optional = false WHERE ParentId is not null;
 
 CREATE TABLE "UsersSettings"(
     UserId VARCHAR (1000) NOT NULL,
-    SettingType VARCHAR (1000) NOT NULL,
-	SettingValue VARCHAR (1000) NOT NULL,
-    PRIMARY KEY (UserId, SettingType),
+    Settings TEXT NOT NULL,
+    PRIMARY KEY (UserId),
     FOREIGN KEY (UserId) REFERENCES "Users" (UserId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -37,5 +34,15 @@ UPDATE "ProductLicenseFeatures" SET ParentFeatureId = (SELECT ParentId FROM "Fea
 ALTER TABLE "ProductLicenseFeatures" ADD FOREIGN KEY (ParentFeatureId)
   REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE "FeatureDependencies" ADD FOREIGN KEY (DependencyId)
+	REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE "FeatureDependencies" ADD FOREIGN KEY (FeatureId)
+  REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+ALTER TABLE "ProductLicenseFeatures" ADD FOREIGN KEY (FeatureId)
+	REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+INSERT INTO "Users" (UserId, Password, Name, Email) VALUES('admin', 'f6fdffe48c908deb0f4c3bd36c032e72', '', '');
+ALTER TABLE "Features" ALTER COLUMN PackageId DROP NOT NULL;
+ALTER TABLE "Roles" DROP CONSTRAINT roles_productid_fkey;

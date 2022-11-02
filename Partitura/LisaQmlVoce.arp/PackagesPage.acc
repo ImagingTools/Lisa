@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5024" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -326,6 +326,9 @@
         <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="FeaturePackage"/>
                     </AttributeInfo>
@@ -343,6 +346,13 @@
                     </AttributeInfo>
                     <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>PackagesView</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/PackageCollectionView.qml"/>

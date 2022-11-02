@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5005" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -21,9 +21,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Object" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Preferences"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
                         <Data IsEnabled="false"/>
@@ -87,9 +84,9 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DbName" Type="Id" ExportId="DbName">
-                        <Data IsEnabled="true" Value="lisa"/>
+                        <Data IsEnabled="true" Value="postgres"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Pasword" Type="Id" ExportId="Pasword">
+                    <AttributeInfo Id="Pasword" Type="Id" ExportId="Password">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -222,8 +219,8 @@
         <Element Id="PreferencesFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="DefaultPath">
-                        <Data IsEnabled="true" Value=""/>
+                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="."/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>

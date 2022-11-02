@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5024" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -18,9 +18,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureContainer"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -56,11 +53,6 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="FeatureContainer" PackageId="ImtLicensePck" ComponentId="FeatureContainer">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="FileDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
@@ -321,18 +313,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="QtResourceLoaderComp" PackageId="ImtCorePck" ComponentId="QtResourceLoaderComp">
-            <Data IsEnabled="true" Flags="1">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="PathToFile" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TargetCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureContainer"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="RootServlet" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -349,8 +329,14 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SessionCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationController/UserSessionRepository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ShowComponentId" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationController/UserRepository"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

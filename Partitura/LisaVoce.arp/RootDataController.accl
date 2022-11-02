@@ -2,18 +2,18 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5014" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="AdminPanel" X="1025" Y="325" Note=""/>
-        <Element ComponentName="ApplicationController" X="450" Y="75" Note=""/>
-        <Element ComponentName="AuthorizationConcept" X="350" Y="200" Note=""/>
-        <Element ComponentName="Pages" X="975" Y="200" Note=""/>
-        <Element ComponentName="PreferencesQml" X="700" Y="325" Note=""/>
-        <Element ComponentName="SettingsController" X="700" Y="200" Note=""/>
+        <Element ComponentName="AdminPanel" X="975" Y="675" Note=""/>
+        <Element ComponentName="ApplicationController" X="550" Y="50" Note=""/>
+        <Element ComponentName="AuthorizationConcept" X="700" Y="500" Note=""/>
+        <Element ComponentName="Pages" X="1000" Y="225" Note=""/>
+        <Element ComponentName="PreferencesQml" X="175" Y="500" Note=""/>
+        <Element ComponentName="SettingsController" X="150" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="AuthorizationConcept">
@@ -21,9 +21,12 @@
                 <Element ComponentName="AuthorizationController" X="975" Y="200" Note=""/>
                 <Element ComponentName="AuthorizationOptionsController" X="225" Y="200" Note=""/>
                 <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+                <Element ComponentName="HashCalculator" X="675" Y="350" Note=""/>
                 <Element ComponentName="UserMode" X="200" Y="425" Note=""/>
                 <Element ComponentName="UserModeOptions" X="200" Y="525" Note=""/>
-                <Element ComponentName="UserModeProvider" X="198.585786438" Y="305.656854249" Note=""/>
+                <Element ComponentName="UserModeProvider" X="200" Y="300" Note=""/>
+                <Element ComponentName="UserSessionRepository" X="950" Y="350" Note=""/>
+                <Element ComponentName="UsersSessionsDatabaseDelegate" X="975" Y="525" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -37,16 +40,19 @@
                 <Element ComponentName="Design" X="100" Y="250" Note=""/>
                 <Element ComponentName="DesignParam" X="1125" Y="825" Note=""/>
                 <Element ComponentName="GeneralPage" X="275" Y="425" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="175" Y="25" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="150" Y="25" Note=""/>
                 <Element ComponentName="InstanceMask" X="300" Y="600" Note=""/>
                 <Element ComponentName="Language" X="100" Y="600" Note=""/>
                 <Element ComponentName="LanguageParam" X="1125" Y="775" Note=""/>
                 <Element ComponentName="LogFile" X="525" Y="600" Note=""/>
                 <Element ComponentName="Mask" X="325" Y="725" Note=""/>
-                <Element ComponentName="PreferenceDataController" X="600" Y="125" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="600" Y="250" Note=""/>
+                <Element ComponentName="PreferenceDataController" X="250" Y="150" Note=""/>
+                <Element ComponentName="PreferencesDataProvider" X="600" Y="300" Note=""/>
                 <Element ComponentName="ServerPage" X="500" Y="425" Note=""/>
+                <Element ComponentName="SettingsController" X="775" Y="150" Note=""/>
                 <Element ComponentName="TextButton" X="525" Y="725" Note=""/>
+                <Element ComponentName="UserSettingsRepository" X="1075" Y="225" Note=""/>
+                <Element ComponentName="UsersSettingsDatabaseDelegate" X="1050" Y="25" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

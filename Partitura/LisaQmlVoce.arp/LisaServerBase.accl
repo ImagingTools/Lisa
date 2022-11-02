@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5024" Description="ACF"/>
+            <Version Id="0" Number="5026" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -11,7 +11,6 @@
         <Element ComponentName="ApplicationController" X="500" Y="500" Note=""/>
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
         <Element ComponentName="DatabaseEngine" X="975" Y="700" Note=""/>
-        <Element ComponentName="FeatureContainer" X="150" Y="450" Note=""/>
         <Element ComponentName="FileDataProvider" X="1075" Y="150" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="150" Y="250" Note=""/>
         <Element ComponentName="HttpFileControllerServlet" X="700" Y="150" Note=""/>
@@ -23,7 +22,6 @@
         <Element ComponentName="KeyDataProviders" X="1000" Y="400" Note=""/>
         <Element ComponentName="LisaLocalization" X="725" Y="750" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
-        <Element ComponentName="QtResourceLoaderComp" X="150" Y="650" Note=""/>
         <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
