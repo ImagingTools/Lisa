@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5026" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -33,16 +33,10 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Features" Type="Reference" ExportId="Features">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -145,7 +139,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="AdministrationPage" PackageId="LisaQmlVoce" ComponentId="AdministrationPage">
+                    <Element Id="AdministrationPage" PackageId="ImtUserAdministrationVoce" ComponentId="AdministrationPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
@@ -154,16 +148,36 @@
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductRepository/ProductsCollection"/>
+                                <AttributeInfo Id="ProductIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="ProductNames" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductPermissionsProviders" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>LisaPermissionsProvider</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="CheckPermissions" PackageId="ImtAuthPck" ComponentId="CheckPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="FeatureContainer" PackageId="ImtLicensePck" ComponentId="FeatureContainer">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
                         </Data>
@@ -234,6 +248,15 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="LisaPermissionsProvider" PackageId="ImtAuthPck" ComponentId="PermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeaturePackage" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureContainer"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="PackagesPage" PackageId="LisaQmlVoce" ComponentId="PackagesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -284,6 +307,18 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="QtResourceLoaderComp" PackageId="ImtCorePck" ComponentId="QtResourceLoaderComp">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PathToFile" Type="Id" ExportId="PathToPermissionsFile">
+                                    <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TargetCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureContainer"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

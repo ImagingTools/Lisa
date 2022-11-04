@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5026" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -205,7 +205,7 @@
                                     <Data IsEnabled="true" Value="UserModeOptions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="2"/>
+                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -395,6 +395,18 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="DatabaseUserSettings" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -402,7 +414,7 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>GetStyleDataController</Value>
-                                            <Value>SettingsController</Value>
+                                            <Value>DatabaseUserSettings</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -426,15 +438,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="DesignParam" PackageId="BasePck" ComponentId="SelectionParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -529,18 +532,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LanguageParam" PackageId="BasePck" ComponentId="SelectionParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="Constraints">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -656,12 +647,6 @@
                                             <Value>SaveSettings</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="UserSettingsRepository"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
