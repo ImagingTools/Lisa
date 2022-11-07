@@ -21,23 +21,20 @@
                 <Element ComponentName="AboutPage" X="1050" Y="500" Note=""/>
                 <Element ComponentName="ApplicationInfoDataProvider" X="1075" Y="675" Note=""/>
                 <Element ComponentName="DatabaseAccessSettings" X="775" Y="675" Note=""/>
-                <Element ComponentName="DatabasePage" X="750" Y="500" Note=""/>
-                <Element ComponentName="DatabaseUserSettings" X="800" Y="200" Note=""/>
+                <Element ComponentName="DatabasePage" X="775" Y="500" Note=""/>
+                <Element ComponentName="DatabaseUserSettings" X="875" Y="225" Note=""/>
                 <Element ComponentName="Demultiplexer" X="600" Y="25" Note=""/>
-                <Element ComponentName="Design" X="100" Y="400" Note=""/>
+                <Element ComponentName="Design" X="101.414213562" Y="375" Note=""/>
                 <Element ComponentName="GeneralPage" X="300" Y="500" Note=""/>
                 <Element ComponentName="GetStyleDataController" X="275" Y="200" Note=""/>
                 <Element ComponentName="InstanceMask" X="300" Y="675" Note=""/>
                 <Element ComponentName="Language" X="100" Y="675" Note=""/>
                 <Element ComponentName="LogFile" X="525" Y="675" Note=""/>
-                <Element ComponentName="Mask" X="325" Y="800" Note=""/>
+                <Element ComponentName="Mask" X="300" Y="800" Note=""/>
                 <Element ComponentName="PreferenceDataController" X="550" Y="200" Note=""/>
                 <Element ComponentName="PreferencesDataProvider" X="600" Y="375" Note=""/>
                 <Element ComponentName="ServerPage" X="525" Y="500" Note=""/>
-                <Element ComponentName="SettingsController" X="1075" Y="125" Note=""/>
                 <Element ComponentName="TextButton" X="525" Y="800" Note=""/>
-                <Element ComponentName="UserSettingsRepository" X="1075" Y="75" Note=""/>
-                <Element ComponentName="UsersSettingsDatabaseDelegate" X="1050" Y="25" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

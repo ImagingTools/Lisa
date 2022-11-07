@@ -634,67 +634,11 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="SettingsController" PackageId="ImtGuiGqlPck" ComponentId="SettingsController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseSettings" Type="Reference" ExportId="DBSettings">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetSettings</Value>
-                                            <Value>SaveSettings</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="TextButton" PackageId="BasePck" ComponentId="TextParam">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Download"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="UserSettingsRepository" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseCollection">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="UsersSettingsDatabaseDelegate"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TypeId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="SettingsInfo"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TypeName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Settings"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="UsersSettingsDatabaseDelegate" PackageId="ImtAuthDbPck" ComponentId="UsersSettingsDatabaseDelegate">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectIdColumn" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="UserId"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TableName" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="UsersSettings"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

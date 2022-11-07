@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5024" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -19,7 +19,7 @@
         <Element ComponentName="ProductLicensingInfo" X="100" Y="550" Note=""/>
         <Element ComponentName="ProductListController" X="975" Y="375" Note=""/>
         <Element ComponentName="ProductsCommandDataProvider" X="800" Y="750" Note=""/>
-        <Element ComponentName="VisualStatus" X="125" Y="175" Note=""/>
+        <Element ComponentName="VisualStatus" X="100" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
