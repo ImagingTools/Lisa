@@ -619,9 +619,7 @@
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ServerPage</Value>
                                             <Value>DatabasePage</Value>
-                                            <Value>AboutPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

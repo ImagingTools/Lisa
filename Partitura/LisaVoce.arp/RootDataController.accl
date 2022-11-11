@@ -40,7 +40,7 @@
                 <Element ComponentName="Demultiplexer" X="725" Y="25" Note=""/>
                 <Element ComponentName="DesignParam" X="100" Y="375" Note=""/>
                 <Element ComponentName="GeneralPage" X="347.171572875" Y="497.171572875" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="375" Y="125" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="325" Y="125" Note=""/>
                 <Element ComponentName="InstanceMask" X="325" Y="625" Note=""/>
                 <Element ComponentName="LanguageParams" X="100" Y="625" Note=""/>
                 <Element ComponentName="LogFile" X="600" Y="625" Note=""/>
@@ -48,7 +48,7 @@
                 <Element ComponentName="PreferencesDataProvider" X="725" Y="250" Note=""/>
                 <Element ComponentName="ServerPage" X="600" Y="500" Note=""/>
                 <Element ComponentName="ServerPagesDataProvider" X="950" Y="375" Note=""/>
-                <Element ComponentName="SettingsController" X="725" Y="125" Note=""/>
+                <Element ComponentName="SettingsController" X="725" Y="126.414213562" Note=""/>
                 <Element ComponentName="SettingsDatabasePagesProvider" X="450" Y="375" Note=""/>
                 <Element ComponentName="TextButton" X="575" Y="750" Note=""/>
             </PositionMap>

@@ -11,9 +11,10 @@ Item {
 
     property TreeItemModel localSettings;
 
-    signal settingsUpdate();
+    signal settingsUpdate(string pageId);
 
     onLocalSettingsChanged: {
+        console.log("window onLocalSettingsChanged");
         thumbnailDecorator.localSettings = localSettings;
     }
 
@@ -22,6 +23,9 @@ Item {
     }
 
     function updateModels(){
+        console.log("window updateModels");
+        let scheme = thumbnailDecorator.preferencePage.getDesignScheme(localSettings);
+        Style.getDesignScheme(scheme);
         userModeGqlModel.getUserMode();
     }
 
@@ -72,6 +76,8 @@ Item {
         function getUserMode() {
             var query = Gql.GqlRequest("query", "GetUserMode");
 
+            console.log("getUserMode GetUserMode");
+
             var inputParams = Gql.GqlObject("input");
             query.AddParam(inputParams);
 
@@ -115,7 +121,7 @@ Item {
 
                                 }
                                 else if (userMode == "STRONG_USER_MANAGEMENT"){
-                                    authorizationPage.visible = true;
+                                    thumbnailDecorator.authorizationPage.visible = true;
                                 }
                             }
                         }
