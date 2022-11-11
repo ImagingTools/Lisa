@@ -293,6 +293,7 @@
                     <Component ExportedId="PackagesPageVisualStatus" ComponentId="PackagesPage/PackagesPageVisualStatus"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
+                    <Component ExportedId="UserSqlRepository" ComponentId="AdministrationPage/UserSqlRepository"/>
                     <Component ExportedId="UsersPageVisualStatus" ComponentId="UsersPage/UsersPageVisualStatus"/>
                 </ExportedComponents>
             </Data>
@@ -389,8 +390,9 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Pages"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="AccountRepository" ComponentId="PageData/AccountRepository"/>
+        <Component ExportedId="AccountRepository" ComponentId="Repositories/AccountRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="PageData/FeaturesExportProvider"/>
-        <Component ExportedId="ProductRepository" ComponentId="PageData/ProductRepository"/>
+        <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
+        <Component ExportedId="UserSqlRepository" ComponentId="PageData/UserSqlRepository"/>
     </ExportedComponents>
 </Acf>

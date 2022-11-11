@@ -62,7 +62,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Pages/UserRepository"/>
+                        <Data IsEnabled="true" Value="Pages/UserSqlRepository"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -205,7 +205,7 @@
                                     <Data IsEnabled="true" Value="UserModeOptions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
+                                    <Data IsEnabled="true" Value="2"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -401,9 +401,6 @@
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
-                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -414,14 +411,14 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>GetStyleDataController</Value>
-                                            <Value>DatabaseUserSettings</Value>
+                                            <Value>SettingsController</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Design" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                    <Element Id="DesignParam" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
@@ -448,8 +445,8 @@
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Design</Value>
-                                            <Value>Language</Value>
+                                            <Value>DesignParam</Value>
+                                            <Value>LanguageParams</Value>
                                             <Value>InstanceMask</Value>
                                         </Values>
                                     </Data>
@@ -463,8 +460,8 @@
                                 <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Design</Value>
-                                            <Value>Language</Value>
+                                            <Value>DesignParam</Value>
+                                            <Value>LanguageParams</Value>
                                             <Value>InstanceMask</Value>
                                         </Values>
                                     </Data>
@@ -515,7 +512,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Language" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                    <Element Id="LanguageParams" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
@@ -566,46 +563,25 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="PreferenceDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetSettings</Value>
-                                            <Value>SaveSettings</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="PreferencesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="SettingsPages"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>DatabasePage</Value>
-                                            <Value>ServerPage</Value>
-                                            <Value>AboutPage</Value>
+                                            <Value>SettingsDatabasePagesProvider</Value>
+                                            <Value>ServerPagesDataProvider</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>DatabasePage</Value>
-                                            <Value>ServerPage</Value>
-                                            <Value>AboutPage</Value>
+                                            <Value>SettingsDatabasePagesProvider</Value>
+                                            <Value>ServerPagesDataProvider</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -630,6 +606,65 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ServerPagesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerPages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ServerPage</Value>
+                                            <Value>DatabasePage</Value>
+                                            <Value>AboutPage</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ServerPage</Value>
+                                            <Value>DatabasePage</Value>
+                                            <Value>AboutPage</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SettingsController" PackageId="ImtGuiGqlPck" ComponentId="SettingsController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GetSettings</Value>
+                                            <Value>SaveSettings</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MutationDataProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PreferencesDataProvider"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="SettingsDatabasePagesProvider" PackageId="ImtQmlPck" ComponentId="SettingsDatabasePagesProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="GeneralPage"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DatabaseUserSettings"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -668,5 +703,6 @@
         <Component ExportedId="ServerUrl" ComponentId="PreferencesQml/ServerUrl"/>
         <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UserSessionRepository" ComponentId="AuthorizationConcept/UserSessionRepository"/>
+        <Component ExportedId="UserSqlRepository" ComponentId="Pages/UserSqlRepository"/>
     </ExportedComponents>
 </Acf>
