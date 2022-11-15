@@ -9,14 +9,9 @@ Item {
 
     anchors.fill: parent;
 
-    property TreeItemModel localSettings;
+    property alias localSettings: settingsProvider.localModel;
 
     signal settingsUpdate(string pageId);
-
-    onLocalSettingsChanged: {
-        console.log("window onLocalSettingsChanged");
-        thumbnailDecorator.localSettings = localSettings;
-    }
 
     onSettingsUpdate: {
         console.log("window onSettingsUpdate");
@@ -24,12 +19,15 @@ Item {
 
     function updateModels(){
         console.log("window updateModels");
-        let scheme = thumbnailDecorator.preferencePage.getDesignScheme(localSettings);
-        Style.getDesignScheme(scheme);
-        userModeGqlModel.getUserMode();
+//        let scheme = thumbnailDecorator.preferencePage.getDesignScheme(localSettings);
+//        Style.getDesignScheme(scheme);
+
+        thumbnailDecorator.userManagementProvider.updateModel();
     }
 
     function updateAllModels(){
+        settingsProvider.updateModel();
+
         thumbnailDecorator.updateModels();
 
         treeViewModel.updateModel();
@@ -49,85 +47,15 @@ Item {
         id: featureDependenciesModel;
     }
 
+    SettingsProvider {
+        id: settingsProvider;
+
+        root: window;
+    }
+
     ThumbnailDecorator {
         id: thumbnailDecorator;
 
         anchors.fill: parent;
-    }
-
-//    AuthorizationPage {
-//        id: authorizationPage;
-
-//        anchors.fill: parent;
-//        anchors.topMargin: 60;
-
-//        visible: !preferenceDialog.visible;
-
-//        onAccepted: {
-//            visible = false;
-
-//            updateAllModels();
-//        }
-//    }
-
-    GqlModel{
-        id: userModeGqlModel;
-
-        function getUserMode() {
-            var query = Gql.GqlRequest("query", "GetUserMode");
-
-            console.log("getUserMode GetUserMode");
-
-            var inputParams = Gql.GqlObject("input");
-            query.AddParam(inputParams);
-
-            var queryFields = Gql.GqlObject("items");
-            queryFields.InsertField("UserMode");
-            query.AddField(queryFields);
-
-            var gqlData = query.GetQuery();
-
-            this.SetGqlQuery(gqlData);
-        }
-
-        onStateChanged: {
-            console.log("State:", this.state, userModeGqlModel);
-            if (this.state === "Ready"){
-                var dataModelLocal;
-
-                if (userModeGqlModel.ContainsKey("errors")){
-                    return;
-                }
-
-                if (userModeGqlModel.ContainsKey("data")){
-                    dataModelLocal = userModeGqlModel.GetData("data")
-
-                    if (dataModelLocal.ContainsKey("GetUserMode")){
-                        dataModelLocal = dataModelLocal.GetData("GetUserMode");
-
-                        if (dataModelLocal.ContainsKey("items")){
-                            dataModelLocal = dataModelLocal.GetData("items");
-
-                            let value = dataModelLocal.GetData("Value");
-                            let parameters = dataModelLocal.GetData("Parameters");
-
-                            if (parameters){
-                                let userMode = parameters.GetData("Id", value);
-
-                                if (userMode == "NO_USER_MANAGEMENT"){
-                                    updateAllModels();
-                                }
-                                else if (userMode == "OPTIONAL_USER_MANAGEMENT"){
-
-                                }
-                                else if (userMode == "STRONG_USER_MANAGEMENT"){
-                                    thumbnailDecorator.authorizationPage.visible = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
