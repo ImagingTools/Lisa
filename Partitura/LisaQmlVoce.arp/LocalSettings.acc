@@ -429,7 +429,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="104"/>
+                        <Data IsEnabled="true" Value="9"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

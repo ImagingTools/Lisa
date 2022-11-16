@@ -13,8 +13,8 @@
         <Element ComponentName="CompactXmlFileSerializer" X="900" Y="250" Note=""/>
         <Element ComponentName="Design" X="575" Y="550" Note=""/>
         <Element ComponentName="DesignOptions" X="325" Y="425" Note=""/>
-        <Element ComponentName="DesignParam" X="550" Y="425" Note=""/>
-        <Element ComponentName="GeneralPage" X="650" Y="675" Note=""/>
+        <Element ComponentName="DesignParam" X="575" Y="425" Note=""/>
+        <Element ComponentName="GeneralPage" X="641.514718626" Y="675" Note=""/>
         <Element ComponentName="GeneralSettings" X="400" Y="275" Note=""/>
         <Element ComponentName="InstanceMask" X="900" Y="675" Note=""/>
         <Element ComponentName="JoinDataProvider" X="600" Y="800" Note=""/>
@@ -23,11 +23,11 @@
         <Element ComponentName="LanguageParam" X="800" Y="425" Note=""/>
         <Element ComponentName="LocalSettings" X="150" Y="275" Note=""/>
         <Element ComponentName="Mask" X="1125" Y="675" Note=""/>
-        <Element ComponentName="NetworkSettingsPage" X="325" Y="650" Note=""/>
+        <Element ComponentName="NetworkSettingsPage" X="325" Y="675" Note=""/>
         <Element ComponentName="Preferences" X="350" Y="75" Note=""/>
         <Element ComponentName="PreferencesFilePath" X="875" Y="50" Note=""/>
-        <Element ComponentName="ServerUrl" X="75" Y="450" Note=""/>
-        <Element ComponentName="ServerUrlParam" X="100" Y="575" Note=""/>
+        <Element ComponentName="ServerUrl" X="75" Y="425" Note=""/>
+        <Element ComponentName="ServerUrlParam" X="100" Y="550" Note=""/>
         <Element ComponentName="SystemLocation" X="1100" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
