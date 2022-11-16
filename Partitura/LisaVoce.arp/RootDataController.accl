@@ -12,7 +12,7 @@
         <Element ComponentName="ApplicationController" X="550" Y="50" Note=""/>
         <Element ComponentName="AuthorizationConcept" X="700" Y="500" Note=""/>
         <Element ComponentName="Pages" X="1000" Y="225" Note=""/>
-        <Element ComponentName="PreferencesQml" X="175" Y="500" Note=""/>
+        <Element ComponentName="PreferencesQml" X="175" Y="475" Note=""/>
         <Element ComponentName="SettingsController" X="150" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
@@ -35,21 +35,20 @@
                 <Element ComponentName="AboutPage" X="1100" Y="500" Note=""/>
                 <Element ComponentName="ApplicationInfoDataProvider" X="1086" Y="625" Note=""/>
                 <Element ComponentName="DatabaseAccessSettings" X="825" Y="625" Note=""/>
-                <Element ComponentName="DatabasePage" X="850" Y="500" Note=""/>
-                <Element ComponentName="DatabaseUserSettings" X="325" Y="250" Note=""/>
+                <Element ComponentName="DatabaseUserSettings" X="200" Y="250" Note=""/>
                 <Element ComponentName="Demultiplexer" X="725" Y="25" Note=""/>
                 <Element ComponentName="DesignParam" X="100" Y="375" Note=""/>
-                <Element ComponentName="GeneralPage" X="347.171572875" Y="497.171572875" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="325" Y="125" Note=""/>
+                <Element ComponentName="GeneralPage" X="425" Y="375" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="200" Y="125" Note=""/>
                 <Element ComponentName="InstanceMask" X="325" Y="625" Note=""/>
                 <Element ComponentName="LanguageParams" X="100" Y="625" Note=""/>
                 <Element ComponentName="LogFile" X="600" Y="625" Note=""/>
-                <Element ComponentName="Mask" X="350" Y="725" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="725" Y="250" Note=""/>
+                <Element ComponentName="Mask" X="350" Y="750" Note=""/>
+                <Element ComponentName="PagesDataProvider" X="725" Y="250" Note=""/>
                 <Element ComponentName="ServerPage" X="600" Y="500" Note=""/>
                 <Element ComponentName="ServerPagesDataProvider" X="950" Y="375" Note=""/>
                 <Element ComponentName="SettingsController" X="725" Y="126.414213562" Note=""/>
-                <Element ComponentName="SettingsDatabasePagesProvider" X="450" Y="375" Note=""/>
+                <Element ComponentName="SlaveGeneralPage" X="350" Y="500" Note=""/>
                 <Element ComponentName="TextButton" X="575" Y="750" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
