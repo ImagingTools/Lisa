@@ -333,7 +333,7 @@
                         <Data IsEnabled="true" Value="ApplicationController/UserSessionRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SettingsCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/UserSessionRepository"/>
+                        <Data IsEnabled="true" Value="ApplicationController/UserSettingsRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ShowComponentId" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>

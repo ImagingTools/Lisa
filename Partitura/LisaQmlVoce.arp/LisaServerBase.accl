@@ -25,6 +25,23 @@
         <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="KeyDataProviders">
+            <PositionMap>
+                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
+                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
+                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
+                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
+                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="SettingsControllers">
             <PositionMap>
                 <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
@@ -40,23 +57,6 @@
                 <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
                 <Element ComponentName="ServerPage" X="550" Y="550" Note=""/>
                 <Element ComponentName="TextButton" X="350" Y="750" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="KeyDataProviders">
-            <PositionMap>
-                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
-                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
-                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
-                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
-                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

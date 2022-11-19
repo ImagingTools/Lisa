@@ -666,7 +666,9 @@
                     <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="Demultiplexer"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
                 </ExportedInterfaces>
-                <ExportedComponents/>
+                <ExportedComponents>
+                    <Component ExportedId="UserSettingsRepository" ComponentId="DatabaseUserSettings/UserSettingsRepository"/>
+                </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
@@ -685,6 +687,7 @@
         <Component ExportedId="ServerUrl" ComponentId="PreferencesQml/ServerUrl"/>
         <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UserSessionRepository" ComponentId="AuthorizationConcept/UserSessionRepository"/>
+        <Component ExportedId="UserSettingsRepository" ComponentId="SettingsController/UserSettingsRepository"/>
         <Component ExportedId="UserSqlRepository" ComponentId="Pages/UserSqlRepository"/>
     </ExportedComponents>
 </Acf>
