@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5024" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,11 +10,22 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="AccountCommandPermissions" PackageId="LisaVoce" ComponentId="AccountCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="AccountDataController" PackageId="ImtLicenseGqlPck" ComponentId="AccountController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="AccountFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="AccountInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
@@ -94,6 +105,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="AccountEditCommandPermissions" PackageId="LisaVoce" ComponentId="AccountEditCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="AccountInfo" PackageId="ImtAuthPck" ComponentId="AccountInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
@@ -102,6 +118,12 @@
         <Element Id="AccountListController" PackageId="ImtLicenseGqlPck" ComponentId="AccountCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -188,6 +210,36 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="AccountsCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AccountCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AccountsCommandDataProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="AccountsEditCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AccountEditCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AccountEditCommandDataProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="AccountsHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -227,14 +279,25 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="Commands" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>AccountsCommandDataProvider</Value>
-                                <Value>AccountEditCommandDataProvider</Value>
+                                <Value>AccountsCommandsPermissionsProvider</Value>
+                                <Value>AccountsEditCommandsPermissionsProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -302,7 +365,7 @@
                     <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>AccountsView</Value>
+                                <Value>ViewAccounts</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

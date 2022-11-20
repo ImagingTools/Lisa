@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5026" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,14 +10,25 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="Commands" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>InstallationsCommandDataProvider</Value>
-                                <Value>InstallationEditCommandDataProvider</Value>
+                                <Value>InstallationCommandsPermissionsProvider</Value>
+                                <Value>InstallationEditCommandsPermissionsProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -53,9 +64,35 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="InstallationCommandPermissions" PackageId="LisaVoce" ComponentId="InstallationCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="InstallationCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="InstallationCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="InstallationsCommandDataProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="InstallationDataController" PackageId="ImtLicenseGqlPck" ComponentId="InstallationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="InstallationFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="ProductInstance"/>
                     </AttributeInfo>
@@ -143,9 +180,35 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="InstallationEditCommandPermissions" PackageId="LisaVoce" ComponentId="InstallationEditCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="InstallationEditCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="InstallationEditCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="InstallationEditCommandDataProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="InstallationListController" PackageId="ImtLicenseGqlPck" ComponentId="InstallationCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -361,7 +424,7 @@
                     <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>InstallationsView</Value>
+                                <Value>ViewInstallations</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

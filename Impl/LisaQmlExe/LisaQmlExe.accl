@@ -10,7 +10,8 @@
     <PositionMap>
         <Element ComponentName="ApplicationInfo" X="700" Y="250" Note=""/>
         <Element ComponentName="Context" X="1125" Y="400" Note=""/>
-        <Element ComponentName="ImtCoreLocalization" X="225" Y="725" Note=""/>
+        <Element ComponentName="ImtCoreLocalization" X="775" Y="775" Note=""/>
+        <Element ComponentName="LisaLocalization" X="1000" Y="775" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="325" Y="275" Note=""/>
         <Element ComponentName="LisaServerBase" X="525" Y="75" Note=""/>
         <Element ComponentName="LocalSettings" X="850" Y="675" Note=""/>

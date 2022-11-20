@@ -10,14 +10,25 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="Commands" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PackagesCommandDataProvider</Value>
-                                <Value>PackageEditCommandDataProvider</Value>
+                                <Value>CommandsPermissionsProvider</Value>
+                                <Value>EditCommandsPermissionsProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -27,6 +38,21 @@
                                 <Value>CommandsData</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="CommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackageCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackagesCommandDataProvider"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -46,6 +72,21 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="EditCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackageEditCommandPermissions"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackageEditCommandDataProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -58,9 +99,20 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="PackageCommandPermissions" PackageId="LisaVoce" ComponentId="PackageCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="PackageDataController" PackageId="ImtLicenseGqlPck" ComponentId="PackageController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PackageHeadersDataProvider"/>
                     </AttributeInfo>
@@ -154,6 +206,11 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PackageEditCommandPermissions" PackageId="LisaVoce" ComponentId="PackageEditCommandPermissions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="PackageHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
@@ -252,6 +309,12 @@
         <Element Id="PackagesDataController" PackageId="ImtLicenseGqlPck" ComponentId="FeaturePackageCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -350,7 +413,7 @@
                     <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PackagesView</Value>
+                                <Value>ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -439,6 +439,7 @@
     <ExportedInterfaces/>
     <ExportedComponents>
         <Component ExportedId="JoinDataProvider" ComponentId="JoinDataProvider"/>
+        <Component ExportedId="LanguageParam" ComponentId="LanguageParam"/>
         <Component ExportedId="LocalPage" ComponentId="NetworkSettingsPage"/>
     </ExportedComponents>
 </Acf>

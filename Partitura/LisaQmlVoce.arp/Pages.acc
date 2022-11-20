@@ -62,6 +62,7 @@
                                 <Value>PageData/AccountsPage</Value>
                                 <Value>PageData/ProductsPage</Value>
                                 <Value>PageData/AdministrationPages</Value>
+                                <Value>PageData/PermissionsController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -127,6 +128,11 @@
         <EmbeddedRegistry Id="PageData">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="AccountPermissions" PackageId="LisaVoce" ComponentId="AccountPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="AccountsPage" PackageId="LisaQmlVoce" ComponentId="AccountsPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -135,6 +141,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="AccountPermissions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -175,6 +184,11 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="AdministrationPermissions" PackageId="LisaVoce" ComponentId="CommandPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="CheckPermissions" PackageId="ImtAuthPck" ComponentId="CheckPermissions">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
@@ -194,6 +208,11 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="FeaturesPermissions" PackageId="LisaVoce" ComponentId="FeaturesPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="InstancesPage" PackageId="LisaQmlVoce" ComponentId="InstancesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -202,6 +221,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="InstancesPermissions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="InstallationRepository">
                                     <Data IsEnabled="false"/>
@@ -213,6 +235,11 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="InstancesPermissions" PackageId="LisaVoce" ComponentId="InstancesPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="LisaPermissionsProvider" PackageId="ImtAuthPck" ComponentId="PermissionsProvider">
@@ -230,6 +257,9 @@
                                 <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CheckPermissions"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeaturesPermissions"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackageRepository" Type="Reference" ExportId="PackageRepository">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -239,11 +269,42 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="PermissionsController" PackageId="ImtGqlPck" ComponentId="PermissionsController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>FeaturesPermissions</Value>
+                                            <Value>ProductPermissions</Value>
+                                            <Value>AccountPermissions</Value>
+                                            <Value>InstancesPermissions</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GetPermissions</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductPermissions" PackageId="LisaVoce" ComponentId="ProductPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="ProductsPage" PackageId="LisaQmlVoce" ComponentId="ProductsPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CheckPermissions"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductPermissions"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="PackageRepository">
                                     <Data IsEnabled="false"/>
@@ -291,6 +352,7 @@
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
                     <Component ExportedId="PackagesPageVisualStatus" ComponentId="PackagesPage/PackagesPageVisualStatus"/>
+                    <Component ExportedId="PermissionsController" ComponentId="PermissionsController"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
                     <Component ExportedId="UserSqlRepository" ComponentId="AdministrationPage/UserSqlRepository"/>

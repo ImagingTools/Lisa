@@ -8,13 +8,18 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="CheckPermissionOr" X="575" Y="475" Note=""/>
         <Element ComponentName="Commands" X="575" Y="225" Note=""/>
+        <Element ComponentName="CommandsPermissionsProvider" X="325" Y="475" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+        <Element ComponentName="EditCommandsPermissionsProvider" X="850" Y="550" Note=""/>
         <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
+        <Element ComponentName="PackageCommandPermissions" X="450" Y="550" Note=""/>
         <Element ComponentName="PackageDataController" X="225" Y="225" Note=""/>
-        <Element ComponentName="PackageEditCommandDataProvider" X="800" Y="525" Note=""/>
+        <Element ComponentName="PackageEditCommandDataProvider" X="950" Y="625" Note=""/>
+        <Element ComponentName="PackageEditCommandPermissions" X="550" Y="625" Note=""/>
         <Element ComponentName="PackageHeadersDataProvider" X="225" Y="375" Note=""/>
-        <Element ComponentName="PackagesCommandDataProvider" X="350" Y="525" Note=""/>
+        <Element ComponentName="PackagesCommandDataProvider" X="150" Y="550" Note=""/>
         <Element ComponentName="PackagesDataController" X="950" Y="225" Note=""/>
         <Element ComponentName="PackagesHeadersDataProvider" X="950" Y="375" Note=""/>
         <Element ComponentName="VisualStatus" X="125" Y="75" Note=""/>

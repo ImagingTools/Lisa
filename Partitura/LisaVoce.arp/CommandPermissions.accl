@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="CommandPermissionsProviderJoiner" X="485" Y="123" Note=""/>
+        <Element ComponentName="UserAdd" X="225" Y="300" Note=""/>
+        <Element ComponentName="UserItem" X="725" Y="325" Note=""/>
+        <Element ComponentName="UserUpdate" X="475" Y="400" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>

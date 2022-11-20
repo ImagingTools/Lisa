@@ -5,53 +5,77 @@
     </AcfHeader>
     <Features>
         <ObjectsList>
-            <Object ID="{9d4d4a90-9e29-4887-9067-e62189d560ba}" Description="" TypeId="FeatureInfo" Name="Fingerprint Device Support">
-                <Data Id="FingerprintDeviceSupport" Name="Fingerprint Device Support" Optional="true"/>
+            <Object ID="{a27e3319-e1d2-4622-888b-bc35e2f63188}" Description="" TypeId="FeatureInfo" Name="Account Management">
+			    <Data Id="AccountManagement" Name="Account Management" Optional="false"/>
             </Object>
-            <Object ID="{bf817845-4162-4316-9d60-f061f4338854}" Description="" TypeId="FeatureInfo" Name="User Support">
-                <Data Id="UserSupport" Name="User Support" Optional="true"/>
+            <Object ID="{b8999e1c-b631-45fc-b1d1-b9b32f90fbdd}" Description="" TypeId="FeatureInfo" Name="Add Account">
+			    <Data Id="AddAccount" Name="Add Account" Optional="false"/>
             </Object>
-            <Object ID="{97ac7f30-3c80-4a45-a5da-14d774230774}" Description="" TypeId="FeatureInfo" Name="Biometric Login">
-                <Data Id="BiometricLogin" Name="Biometric Login" Optional="true"/>
+            <Object ID="{a96f4e4f-6e16-4abe-bbb7-d8b50625498e}" Description="" TypeId="FeatureInfo" Name="Add Feature">
+			    <Data Id="AddFeature" Name="Add Feature" Optional="false"/>
             </Object>
-            <Object ID="{681c193f-8e4c-46ba-8bc6-f14943376212}" Description="" TypeId="FeatureInfo" Name="Face-ID">
-                <Data Id="Face-ID" Name="Face-ID" Optional="true"/>
+            <Object ID="{cf5464fb-3729-43a6-ac6d-f24914ebfbdd}" Description="" TypeId="FeatureInfo" Name="Add Installation">
+			    <Data Id="AddInstallation" Name="Add Installation" Optional="false"/>
             </Object>
-            <Object ID="{bc63fde1-2b00-43b1-944c-a2216b00ce30}" Description="" TypeId="FeatureInfo" Name="Login/Logout">
-                <Data Id="Login/Logout" Name="Login/Logout" Optional="true"/>
+            <Object ID="{5c5814ed-e622-4bc5-935e-5b967796bdd4}" Description="" TypeId="FeatureInfo" Name="Add Product">
+			    <Data Id="AddProduct" Name="Add Product" Optional="false"/>
             </Object>
-            <Object ID="{0f5ebbe0-6ba0-4de1-b0ad-f72f17eead24}" Description="" TypeId="FeatureInfo" Name="User Account">
-                <Data Id="UserAccount" Name="User Account" Optional="true"/>
+            <Object ID="{b67e6d3d-3a1b-4a52-8c52-9e27815e06b4}" Description="" TypeId="FeatureInfo" Name="Change Account">
+			    <Data Id="ChangeAccount" Name="Change Account" Optional="false"/>
             </Object>
-            <Object ID="{0387375c-7c05-4ff4-87c3-a04010cfeb26}" Description="" TypeId="FeatureInfo" Name="Add User">
-                <Data Id="AddUser" Name="Add User" Optional="true"/>
+            <Object ID="{740a94a8-4df1-43e8-9f64-0493a4fdf93b}" Description="" TypeId="FeatureInfo" Name="Change Feature">
+			    <Data Id="ChangeFeature" Name="Change Feature" Optional="false"/>
             </Object>
-            <Object ID="{9e47e3a5-d6a6-4f28-aee7-a5c1e6d3b53a}" Description="" TypeId="FeatureInfo" Name="Remove User">
-                <Data Id="RemoveUser" Name="Remove User" Optional="true"/>
+            <Object ID="{5362d4b5-434f-40e1-8435-cf305be1d87d}" Description="" TypeId="FeatureInfo" Name="Change Installation">
+			    <Data Id="ChangeInstallation" Name="Change Installation" Optional="false"/>
             </Object>
-            <Object ID="{cf51d3b1-3db9-4010-be29-2ff2e280d36e}" Description="" TypeId="FeatureInfo" Name="Lock/Unlock User">
-                <Data Id="Lock/UnlockUser" Name="Lock/Unlock User" Optional="true"/>
+            <Object ID="{7dc6e2a1-9193-466d-825f-2bc079785eb8}" Description="" TypeId="FeatureInfo" Name="Change Product">
+			    <Data Id="ChangeProduct" Name="Change Product" Optional="false"/>
             </Object>
-            <Object ID="{5c4b142f-632e-4374-b100-ecfe741f0458}" Description="" TypeId="FeatureInfo" Name="Reset Password">
-                <Data Id="ResetPassword" Name="Reset Password" Optional="true"/>
+            <Object ID="{b098d49a-a857-43e7-9e84-49b722464b10}" Description="" TypeId="FeatureInfo" Name="Create License File">
+			    <Data Id="CreateLicenseFile" Name="Create License File" Optional="false"/>
             </Object>
-            <Object ID="{a744153b-55a9-40ad-a11c-cd6a3f5626f2}" Description="" TypeId="FeatureInfo" Name="User Administration">
-                <Data Id="UserAdministration" Name="User Administration" Optional="true"/>
+            <Object ID="{082f2a6e-46b6-48da-8e09-b958b0951d1e}" Description="" TypeId="FeatureInfo" Name="Edit Accounts">
+			    <Data Id="EditAccounts" Name="Edit Accounts" Optional="false"/>
             </Object>
-            <Object ID="{0cb379c6-747d-413e-b6d9-d3a107b10015}" Description="" TypeId="FeatureInfo" Name="Packages View">
-                <Data Id="PackagesView" Name="Packages View" Optional="true"/>
+            <Object ID="{9fe9a7ca-6304-4f77-b643-b13494abbccd}" Description="" TypeId="FeatureInfo" Name="Edit Features">
+			    <Data Id="EditFeatures" Name="Edit Features" Optional="false"/>
             </Object>
-            <Object ID="{452ad292-9998-4b42-8cbb-c4c9fae35a87}" Description="" TypeId="FeatureInfo" Name="Products View">
-                <Data Id="ProductsView" Name="Products View" Optional="true"/>
+            <Object ID="{ee2715c8-c971-41a4-acbb-d189cff663f6}" Description="" TypeId="FeatureInfo" Name="Edit Installations">
+			    <Data Id="EditInstallations" Name="Edit Installations" Optional="false"/>
             </Object>
-            <Object ID="{92defbc3-257f-461a-9e85-de6c1dda77dd}" Description="" TypeId="FeatureInfo" Name="Installations View">
-                <Data Id="InstallationsView" Name="Installations View" Optional="true"/>
+            <Object ID="{fdb95620-5529-4f58-aa74-c2e8ce0b02a3}" Description="" TypeId="FeatureInfo" Name="Feature Management">
+			    <Data Id="FeatureManagement" Name="Feature Management" Optional="false"/>
             </Object>
-            <Object ID="{c326e5a0-c28a-42cc-ab5b-0087bb1ec368}" Description="" TypeId="FeatureInfo" Name="Administration View">
-                <Data Id="AdministrationView" Name="Administration View" Optional="true"/>
+            <Object ID="{27ba39e7-d4b9-4b11-86b1-831e0b9f3498}" Description="" TypeId="FeatureInfo" Name="Edit Products">
+			    <Data Id="FeatureName" Name="Edit Products" Optional="false"/>
             </Object>
-            <Object ID="{ae5cb9b4-2c1f-4baa-b4d8-6596b4a12c7d}" Description="" TypeId="FeatureInfo" Name="MainUI">
-                <Data Id="MainUI" Name="MainUI" Optional="true"/>
+            <Object ID="{aa738854-511d-4fd6-93f2-fa273240cbeb}" Description="" TypeId="FeatureInfo" Name="Installation Management">
+			    <Data Id="InstallationManagement" Name="Installation Management" Optional="false"/>
+            </Object>
+            <Object ID="{d81efcbd-6165-48a4-a247-93fb0891ff10}" Description="" TypeId="FeatureInfo" Name="Product Management">
+			    <Data Id="ProductManagement" Name="Product Management" Optional="false"/>
+            </Object>
+            <Object ID="{a81780cc-29a5-45c5-b111-a14dedf40916}" Description="" TypeId="FeatureInfo" Name="Remove Account">
+			    <Data Id="RemoveAccount" Name="Remove Account" Optional="false"/>
+            </Object>
+            <Object ID="{67c9cf88-d283-470c-829c-f80eb1bb0244}" Description="" TypeId="FeatureInfo" Name="Remove Feature">
+			    <Data Id="RemoveFeature" Name="Remove Feature" Optional="false"/>
+            </Object>
+            <Object ID="{209703f7-8505-40a3-b312-388cf41a3e7d}" Description="" TypeId="FeatureInfo" Name="Remove Installation">
+			    <Data Id="RemoveInstallation" Name="Remove Installation" Optional="false"/>
+            </Object>
+            <Object ID="{031984b2-0f0d-464b-8e47-17f8a380acca}" Description="" TypeId="FeatureInfo" Name="Remove Product">
+			    <Data Id="RemoveProduct" Name="Remove Product" Optional="false"/>
+            </Object>
+            <Object ID="{c23162bc-45d3-4837-842b-85d410fda6cb}" Description="" TypeId="FeatureInfo" Name="View Accounts">
+			    <Data Id="ViewAccounts" Name="View Accounts" Optional="false"/>
+            </Object>
+            <Object ID="{c9efc833-b1d7-4724-8b10-b096e5acf938}" Description="" TypeId="FeatureInfo" Name="View Features">
+			    <Data Id="ViewFeatures" Name="View Features" Optional="false"/>
+            </Object>
+            <Object ID="{41b283a0-1b20-4b40-aef6-64902c0cb34c}" Description="" TypeId="FeatureInfo" Name="View Installations">
+			    <Data Id="ViewInstallations" Name="View Installations" Optional="false"/>
             </Object>
         </ObjectsList>
     </Features>
