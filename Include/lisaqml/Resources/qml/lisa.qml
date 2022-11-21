@@ -1,58 +1,10 @@
 import QtQuick 2.0
 import QtWebSockets 1.15
 import Acf 1.0
+import imtlicgui 1.0
 import imtgui 1.0
+import imtqml 1.0
 //import Qt.labs.platform 1.1
-
-//@using { src.Acf.Style }
-
-//@using { src.imtqml.GqlModel }
-//@using { src.imtqml.TreeItemModel }
-//@using { src.imtqml.JSONListModel }
-
-//@using { src.imtgui.AuxComponents.TopPanel }
-//@using { src.imtgui.AuxComponents.MenuPanel }
-//@using { src.imtgui.AuxComponents.TabPanel }
-//@using { src.imtgui.AuxComponents.AuxTable }
-//@using { src.imtgui.AuxComponents.AuxButton }
-//@using { src.imtgui.AuxComponents.TreeView }
-//@using { src.imtgui.AuxComponents.TreeItemDelegate }
-//@using { src.imtgui.AuxComponents.Preference }
-//@using { src.imtgui.AuxComponents.PreferenceDialog }
-//@using { src.imtgui.AuxComponents.PopupMenuDialog }
-//@using { src.imtgui.AuxComponents.SettingsTextInput }
-//@using { src.imtgui.AuxComponents.SettingsIntegerInput }
-//@using { src.imtgui.AuxComponents.SettingsComboBox }
-//@using { src.imtgui.AuxComponents.SettingsButton }
-//@using { src.imtgui.AuxComponents.DatabaseInput }
-//@using { src.imtgui.ThumbnailDecorator }
-//@using { src.imtgui.MouseTest }
-//@using { src.imtgui.AuxComponents.LoginButton }
-//@using { src.imtgui.AuxComponents.LoginDialog }
-
-//@using { src.imtlicgui.PackageCollectionView }
-//@using { src.imtauthgui.AccountCollectionView }
-//@using { src.imtlicgui.ProductCollectionView }
-//@using { src.imtlicgui.InstallationCollectionView }
-//@using { src.imtlicgui.UsersCollectionView }
-
-//@using { src.imtlicgui.EditDialog }
-//@using { src.imtgui.AuxComponents.MessageDialog }
-//@using { src.imtgui.AuxComponents.InputDialog }
-
-//@using { src.imtlicgui.PackageView }
-//@using { src.imtlicgui.ProductView }
-//@using { src.imtlicgui.UserView }
-//@using { src.imtlicgui.InstallationEditor }
-//@using { src.imtauthgui.AccountEditor }
-
-//DECORATORS
-//@using { src.imtgui.AuxComponents.MenuPanelButtonDecorator }
-//@using { src.imtgui.AuxComponents.TabPanelDecorator }
-//@using { src.imtgui.AuxComponents.FilterPanelDecorator }
-//@using { src.imtgui.AuxComponents.TopPanelDecorator}
-//@using { src.imtgui.AuxComponents.TopRightPanelDecorator}
-//@using { src.imtgui.AuxComponents.TopCenterPanelDecorator}
 
 Rectangle {
     id: window;
@@ -72,6 +24,42 @@ Rectangle {
             Style.boldFontSource = "../Fonts/Ubuntu-Bold.ttf";
         }
     }
+    Item {
+        id: localSettingsProvider;
+        property alias localSettings: settingsProvider.localModel;
+
+        Component.onCompleted: {
+            localSettings.Parse("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
+        }
+    }
+
+    function updateAllModels(){
+        settingsProvider.updateModel();
+
+        thumbnailDecorator.updateModels();
+
+        treeViewModel.updateModel();
+        featureDependenciesModel.updateModel();
+        lisensesFeaturesModel.updateModel();
+    }
+
+    TreeViewModel {
+        id: treeViewModel;
+    }
+
+    LicenseFeaturesModel {
+        id: lisensesFeaturesModel;
+    }
+
+    FeatureDependenciesModel {
+        id: featureDependenciesModel;
+    }
+
+    SettingsProvider {
+        id: settingsProvider;
+
+        root: window;
+    }
 
     ThumbnailDecorator {
         id: thumbnailDecorator;
@@ -79,7 +67,8 @@ Rectangle {
 
         Component.onCompleted: {
           //  console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
-            thumbnailDecorator.updateModels();
+               thumbnailDecorator.userManagementProvider.updateModel();
+//            thumbnailDecorator.updateModels();
         }
     }
 
