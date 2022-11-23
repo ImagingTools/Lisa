@@ -17,20 +17,13 @@
         <Element ComponentName="HttpFileProviderBasedServlet" X="475" Y="50" Note=""/>
         <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="275" Y="150" Note=""/>
-        <Element ComponentName="ImtCoreLocalization" X="450" Y="750" Note=""/>
         <Element ComponentName="IndexFilePath" X="400" Y="250" Note=""/>
         <Element ComponentName="KeyDataProviders" X="1000" Y="400" Note=""/>
-        <Element ComponentName="LisaLocalization" X="725" Y="750" Note=""/>
+        <Element ComponentName="LisaLocalization" X="275" Y="600" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
         <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="KeyDataProviders">
             <PositionMap>
                 <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
@@ -39,6 +32,12 @@
                 <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
                 <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
                 <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

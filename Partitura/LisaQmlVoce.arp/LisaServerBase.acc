@@ -23,7 +23,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCoreLocalization"/>
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -180,50 +180,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ImtCoreLocalization" PackageId="QtPck" ComponentId="TranslationManager">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>English</Value>
-                                <Value>German</Value>
-                                <Value>Russian</Value>
-                                <Value>Polish</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
-                        <Data IsEnabled="true" Value="ApplicationController/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SlaveTranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Translations"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCore"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="IndexFilePath" PackageId="FilePck" ComponentId="FileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -257,46 +213,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LisaLocalization" PackageId="QtPck" ComponentId="TranslationManager">
+        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="IgnoreLocale" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>English</Value>
-                                <Value>German</Value>
-                                <Value>Russian</Value>
-                                <Value>Polish</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
+                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ApplicationController/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Translations"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -763,7 +684,6 @@
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ApplicationController/DatabaseAccessSettings"/>
         <Component ExportedId="Design" ComponentId="ApplicationController/Design"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="ApplicationController/FeaturesExportProvider"/>
-        <Component ExportedId="ImtCoreLocalization" ComponentId="ImtCoreLocalization"/>
         <Component ExportedId="Language" ComponentId="ApplicationController/Language"/>
         <Component ExportedId="PreferencesQml" ComponentId="ApplicationController/PreferencesQml"/>
     </ExportedComponents>
