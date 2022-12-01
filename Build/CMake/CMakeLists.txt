@@ -6,6 +6,10 @@ if(NOT DEFINED IMTCOREDIR)
 	set(IMTCOREDIR "$ENV{IMTCOREDIR}")
 endif()
 
+if(NOT DEFINED LISADIR)
+	set(LISADIR "$ENV{LISADIR}")
+endif()
+
 include(${IMTCOREDIR}/Config/CMake/ImtCoreEnv.cmake)
 
 set(INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}/../../Include")

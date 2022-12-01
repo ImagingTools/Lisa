@@ -46,9 +46,17 @@
                                 <Value>Commands</Value>
                                 <Value>ProductDataController</Value>
                                 <Value>ProductListController</Value>
-                                <Value>ProductFeaturesController</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="FeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="FeaturePackages">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -114,6 +122,9 @@
                     <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ProductHeadersDataProvider"/>
                     </AttributeInfo>
@@ -125,6 +136,7 @@
                                 <Value>LicenseFeatures</Value>
                                 <Value>ProductItem</Value>
                                 <Value>ProductList</Value>
+                                <Value>Licenses</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -148,7 +160,6 @@
                             <Values>
                                 <Value>Normal</Value>
                                 <Value>Disabled</Value>
-                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value>Disabled</Value>
@@ -164,7 +175,6 @@
                             <Values>
                                 <Value>Add</Value>
                                 <Value>Delete</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -180,7 +190,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -199,7 +208,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Undo</Value>
                                 <Value>Redo</Value>
@@ -212,25 +220,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ProductFeaturesController" PackageId="ImtLicenseGqlPck" ComponentId="ProductFeaturesController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ProductFeatures</Value>
-                            </Values>
-                        </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -328,7 +317,6 @@
                             <Values>
                                 <Value>Normal</Value>
                                 <Value>Disabled</Value>
-                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
@@ -341,7 +329,6 @@
                             <Values>
                                 <Value>Add</Value>
                                 <Value>Delete</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Export</Value>
                                 <Value></Value>
@@ -354,7 +341,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Export</Value>
                                 <Value></Value>
@@ -370,7 +356,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Export</Value>
                                 <Value></Value>

@@ -255,7 +255,6 @@
                             <Values>
                                 <Value>Normal</Value>
                                 <Value>Disabled</Value>
-                                <Value>Disabled</Value>
                                 <Value></Value>
                                 <Value>Disabled</Value>
                                 <Value></Value>
@@ -268,7 +267,6 @@
                             <Values>
                                 <Value>Add</Value>
                                 <Value>Delete</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                                 <Value></Value>
@@ -281,7 +279,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                                 <Value></Value>
@@ -297,7 +294,6 @@
                             <Values>
                                 <Value>New</Value>
                                 <Value>Remove</Value>
-                                <Value>Duplicate</Value>
                                 <Value></Value>
                                 <Value>Edit</Value>
                                 <Value></Value>

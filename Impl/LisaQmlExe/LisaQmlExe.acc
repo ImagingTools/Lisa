@@ -152,9 +152,6 @@
                     <AttributeInfo Id="LogPath" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLogFilePath"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>

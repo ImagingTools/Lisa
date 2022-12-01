@@ -19,9 +19,6 @@ Item {
 
     function updateModels(){
         console.log("window updateModels");
-//        let scheme = thumbnailDecorator.preferencePage.getDesignScheme(localSettings);
-//        Style.getDesignScheme(scheme);
-
         thumbnailDecorator.userManagementProvider.updateModel();
     }
 
@@ -30,21 +27,22 @@ Item {
 
         thumbnailDecorator.updateModels();
 
-        treeViewModel.updateModel();
-        featureDependenciesModel.updateModel();
-        lisensesFeaturesModel.updateModel();
+        featuresProvider.updateModel();
+        featuresDependenciesProvider.updateModel();
+        //lisensesFeaturesModel.updateModel();
     }
 
-    TreeViewModel {
-        id: treeViewModel;
+
+    FeaturesProvider {
+        id: featuresProvider;
     }
 
-    LicenseFeaturesModel {
-        id: lisensesFeaturesModel;
-    }
+//    LicenseFeaturesModel {
+//        id: lisensesFeaturesModel;
+//    }
 
-    FeatureDependenciesModel {
-        id: featureDependenciesModel;
+    FeaturesDependenciesProvider {
+        id: featuresDependenciesProvider;
     }
 
     SettingsProvider {

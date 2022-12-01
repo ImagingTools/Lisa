@@ -9,41 +9,43 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="JoinDataProvider" X="225" Y="375" Note=""/>
-        <Element ComponentName="PageData" X="1000" Y="375" Note=""/>
+        <Element ComponentName="PageData" X="1025" Y="375" Note=""/>
         <Element ComponentName="PageDataControllers" X="1000" Y="200" Note=""/>
         <Element ComponentName="PageVisualStatus" X="200" Y="200" Note=""/>
         <Element ComponentName="Pages" X="600" Y="75" Note=""/>
         <Element ComponentName="Repositories" X="900" Y="525" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PageData">
-            <PositionMap>
-                <Element ComponentName="AccountPermissions" X="150" Y="475" Note=""/>
-                <Element ComponentName="AccountsPage" X="150" Y="375" Note=""/>
-                <Element ComponentName="AdministrationPage" X="974" Y="375" Note=""/>
-                <Element ComponentName="AdministrationPermissions" X="950" Y="300" Note=""/>
-                <Element ComponentName="CheckPermissions" X="525" Y="375" Note=""/>
-                <Element ComponentName="FeatureContainer" X="975" Y="575" Note=""/>
-                <Element ComponentName="FeaturesExportProvider" X="175" Y="50" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="145" Y="276" Note=""/>
-                <Element ComponentName="InstancesPage" X="525" Y="575" Note=""/>
-                <Element ComponentName="InstancesPermissions" X="525" Y="650" Note=""/>
-                <Element ComponentName="LisaPermissionsProvider" X="975" Y="475" Note=""/>
-                <Element ComponentName="PackagesPage" X="150" Y="200" Note=""/>
-                <Element ComponentName="PermissionsController" X="525" Y="125" Note=""/>
-                <Element ComponentName="ProductPermissions" X="950" Y="125" Note=""/>
-                <Element ComponentName="ProductsPage" X="950" Y="200" Note=""/>
-                <Element ComponentName="QtResourceLoaderComp" X="975" Y="675" Note=""/>
-                <Element ComponentName="SeparatorValue" X="150" Y="675" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="AccountRepository" X="1000" Y="325" Note=""/>
                 <Element ComponentName="FeaturePackageRepository" X="275" Y="150" Note=""/>
                 <Element ComponentName="InstallationRepository" X="675" Y="325" Note=""/>
                 <Element ComponentName="ProductRepository" X="275" Y="325" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PageData">
+            <PositionMap>
+                <Element ComponentName="AccountPermissions" X="150" Y="475" Note=""/>
+                <Element ComponentName="AccountsPage" X="150" Y="375" Note=""/>
+                <Element ComponentName="AdministrationPage" X="1000" Y="475" Note=""/>
+                <Element ComponentName="AdministrationPermissions" X="1000" Y="400" Note=""/>
+                <Element ComponentName="CheckPermissions" X="575" Y="475" Note=""/>
+                <Element ComponentName="FeatureContainer" X="1050" Y="650" Note=""/>
+                <Element ComponentName="FeaturesExportProvider" X="175" Y="50" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="145" Y="276" Note=""/>
+                <Element ComponentName="InstancesPage" X="1075" Y="175" Note=""/>
+                <Element ComponentName="InstancesPermissions" X="1075" Y="100" Note=""/>
+                <Element ComponentName="LisaPermissionsProvider" X="775" Y="650" Note=""/>
+                <Element ComponentName="PackagesPage" X="150" Y="200" Note=""/>
+                <Element ComponentName="PermissionsController" X="575" Y="75" Note=""/>
+                <Element ComponentName="ProductInfoProvider" X="475" Y="650" Note=""/>
+                <Element ComponentName="ProductPermissionController" X="475" Y="775" Note=""/>
+                <Element ComponentName="ProductPermissions" X="725" Y="250" Note=""/>
+                <Element ComponentName="ProductsPage" X="725" Y="325" Note=""/>
+                <Element ComponentName="QtResourceLoaderComp" X="1025" Y="775" Note=""/>
+                <Element ComponentName="SeparatorValue" X="150" Y="650" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -63,6 +63,7 @@
                                 <Value>PageData/ProductsPage</Value>
                                 <Value>PageData/AdministrationPages</Value>
                                 <Value>PageData/PermissionsController</Value>
+                                <Value>PageData/ProductPermissionController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -160,26 +161,8 @@
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ProductIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Lisa</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductNames" Type="String[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Lisa</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductPermissionsProviders" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>LisaPermissionsProvider</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductInfoProvider"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -292,6 +275,52 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="ProductInfoProvider" PackageId="ImtLicensePck" ComponentId="ProductInfoProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PermissionsProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>LisaPermissionsProvider</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductNames" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductPermissionController" PackageId="ImtLicenseGqlPck" ComponentId="ProductPermissionController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ProductPermissions</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductRepository">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductInfoProvider"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductPermissions" PackageId="LisaVoce" ComponentId="ProductPermissions">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
@@ -353,6 +382,7 @@
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
                     <Component ExportedId="PackagesPageVisualStatus" ComponentId="PackagesPage/PackagesPageVisualStatus"/>
                     <Component ExportedId="PermissionsController" ComponentId="PermissionsController"/>
+                    <Component ExportedId="ProductPermissionController" ComponentId="ProductPermissionController"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
                     <Component ExportedId="UserSqlRepository" ComponentId="AdministrationPage/UserSqlRepository"/>
@@ -454,6 +484,7 @@
     <ExportedComponents>
         <Component ExportedId="AccountRepository" ComponentId="Repositories/AccountRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="PageData/FeaturesExportProvider"/>
+        <Component ExportedId="PackageRepository" ComponentId="Repositories/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
         <Component ExportedId="UserSqlRepository" ComponentId="PageData/UserSqlRepository"/>
     </ExportedComponents>

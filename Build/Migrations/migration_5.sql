@@ -27,13 +27,6 @@ CREATE TABLE "UsersSessions"(
     FOREIGN KEY (UserId) REFERENCES "Users" (UserId) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-ALTER TABLE "ProductLicenseFeatures" ADD COLUMN ParentFeatureId VARCHAR (1000);
-
-UPDATE "ProductLicenseFeatures" SET ParentFeatureId = (SELECT ParentId FROM "Features" WHERE Id = FeatureId);
-
-ALTER TABLE "ProductLicenseFeatures" ADD FOREIGN KEY (ParentFeatureId)
-  REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
-
 ALTER TABLE "FeatureDependencies" ADD FOREIGN KEY (DependencyId)
 	REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
