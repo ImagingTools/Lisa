@@ -10,7 +10,7 @@
     <PositionMap>
         <Element ComponentName="AdminPanel" X="975" Y="675" Note=""/>
         <Element ComponentName="ApplicationController" X="550" Y="50" Note=""/>
-        <Element ComponentName="AuthorizationConcept" X="700" Y="500" Note=""/>
+        <Element ComponentName="AuthorizationConcept" X="600" Y="475" Note=""/>
         <Element ComponentName="Pages" X="1000" Y="225" Note=""/>
         <Element ComponentName="PreferencesQml" X="175" Y="475" Note=""/>
         <Element ComponentName="SettingsController" X="150" Y="225" Note=""/>

@@ -58,12 +58,10 @@ if(WIN32)
 endif()
 
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
+list(APPEND QML_IMPORT_DIRS "${PROJECT_SOURCE_DIR}/../../../Include/lisaqml/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtauthgui/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtlicgui/Qml")
-list(APPEND QML_IMPORT_DIRS "${PROJECT_SOURCE_DIR}/../../../Include/lisaqml/Qml")
-#list(APPEND QML_IMPORT_DIRS "qrc:/qml")
-#list(APPEND QML_IMPORT_DIRS ":/qml")
 
 # Prevent adding duplicate values at each run of CMake.
 list(REMOVE_DUPLICATES QML_IMPORT_DIRS)

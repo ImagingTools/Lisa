@@ -52,7 +52,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="AuthorizationConcept" PackageId="" ComponentId="AuthorizationConcept">
+        <Element Id="AuthorizationConcept" PackageId="ImtCoreVoce" ComponentId="AuthorizationConcept">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
