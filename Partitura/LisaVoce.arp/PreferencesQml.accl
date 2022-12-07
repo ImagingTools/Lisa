@@ -8,18 +8,13 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="AutoPersistence" X="700" Y="225" Note=""/>
-        <Element ComponentName="CompactXmlFileSerializer" X="975" Y="225" Note=""/>
-        <Element ComponentName="Database" X="700" Y="425" Note=""/>
-        <Element ComponentName="DatabaseAccessSettings" X="975" Y="425" Note=""/>
-        <Element ComponentName="Design" X="150" Y="575" Note=""/>
-        <Element ComponentName="DesignOptions" X="150" Y="750" Note=""/>
-        <Element ComponentName="General" X="325" Y="425" Note=""/>
-        <Element ComponentName="Language" X="525" Y="575" Note=""/>
-        <Element ComponentName="LanguageOptions" X="525" Y="750" Note=""/>
-        <Element ComponentName="Preferences" X="700" Y="325" Note=""/>
-        <Element ComponentName="PreferencesFilePath" X="700" Y="150" Note=""/>
-        <Element ComponentName="SystemLocation" X="700" Y="50" Note=""/>
+        <Element ComponentName="AutoPersistence" X="575" Y="325" Note=""/>
+        <Element ComponentName="CompactXmlFileSerializer" X="900" Y="325" Note=""/>
+        <Element ComponentName="Database" X="575" Y="650" Note=""/>
+        <Element ComponentName="DatabaseAccessSettings" X="900" Y="650" Note=""/>
+        <Element ComponentName="Preferences" X="575" Y="425" Note=""/>
+        <Element ComponentName="PreferencesFilePath" X="575" Y="225" Note=""/>
+        <Element ComponentName="SystemLocation" X="575" Y="125" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

@@ -216,8 +216,15 @@
         <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/Language"/>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

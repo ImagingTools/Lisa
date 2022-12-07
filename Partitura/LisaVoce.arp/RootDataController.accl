@@ -8,48 +8,41 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="AdminPanel" X="975" Y="675" Note=""/>
         <Element ComponentName="ApplicationController" X="550" Y="50" Note=""/>
         <Element ComponentName="AuthorizationConcept" X="600" Y="475" Note=""/>
-        <Element ComponentName="Pages" X="1000" Y="225" Note=""/>
+        <Element ComponentName="Pages" X="1000" Y="250" Note=""/>
         <Element ComponentName="PreferencesQml" X="175" Y="475" Note=""/>
-        <Element ComponentName="SettingsController" X="150" Y="225" Note=""/>
+        <Element ComponentName="SettingsController" X="200" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="AuthorizationConcept">
             <PositionMap>
                 <Element ComponentName="AuthorizationController" X="975" Y="200" Note=""/>
-                <Element ComponentName="AuthorizationOptionsController" X="225" Y="200" Note=""/>
+                <Element ComponentName="AuthorizationOptionsController" X="275" Y="200" Note=""/>
                 <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
                 <Element ComponentName="HashCalculator" X="675" Y="350" Note=""/>
-                <Element ComponentName="UserMode" X="200" Y="425" Note=""/>
-                <Element ComponentName="UserModeOptions" X="200" Y="525" Note=""/>
-                <Element ComponentName="UserModeProvider" X="200" Y="300" Note=""/>
-                <Element ComponentName="UserSessionRepository" X="950" Y="350" Note=""/>
-                <Element ComponentName="UsersSessionsDatabaseDelegate" X="975" Y="525" Note=""/>
+                <Element ComponentName="UserMode" X="250" Y="350" Note=""/>
+                <Element ComponentName="UserModeOptions" X="250" Y="500" Note=""/>
+                <Element ComponentName="UserSessionRepository" X="1000" Y="350" Note=""/>
+                <Element ComponentName="UsersSessionsDatabaseDelegate" X="975" Y="500" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
         <EmbededRegistry Id="SettingsController">
             <PositionMap>
-                <Element ComponentName="AboutPage" X="1100" Y="500" Note=""/>
-                <Element ComponentName="ApplicationInfoDataProvider" X="1086" Y="625" Note=""/>
-                <Element ComponentName="DatabaseAccessSettings" X="825" Y="625" Note=""/>
-                <Element ComponentName="DatabaseUserSettings" X="200" Y="250" Note=""/>
-                <Element ComponentName="Demultiplexer" X="725" Y="25" Note=""/>
-                <Element ComponentName="DesignParam" X="100" Y="375" Note=""/>
-                <Element ComponentName="GeneralPage" X="425" Y="375" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="200" Y="125" Note=""/>
-                <Element ComponentName="InstanceMask" X="325" Y="625" Note=""/>
-                <Element ComponentName="LanguageParams" X="100" Y="625" Note=""/>
-                <Element ComponentName="LogFile" X="600" Y="625" Note=""/>
-                <Element ComponentName="Mask" X="350" Y="750" Note=""/>
-                <Element ComponentName="PagesDataProvider" X="725" Y="250" Note=""/>
-                <Element ComponentName="ServerPage" X="600" Y="500" Note=""/>
-                <Element ComponentName="ServerPagesDataProvider" X="950" Y="375" Note=""/>
-                <Element ComponentName="SettingsController" X="725" Y="126.414213562" Note=""/>
-                <Element ComponentName="SlaveGeneralPage" X="350" Y="500" Note=""/>
-                <Element ComponentName="TextButton" X="575" Y="750" Note=""/>
+                <Element ComponentName="AboutPage" X="975" Y="425" Note=""/>
+                <Element ComponentName="ApplicationInfoDataProvider" X="1025" Y="575" Note=""/>
+                <Element ComponentName="DataModel" X="250" Y="625" Note=""/>
+                <Element ComponentName="DatabaseUserSettings" X="375" Y="725" Note=""/>
+                <Element ComponentName="Demultiplexer" X="575" Y="50" Note=""/>
+                <Element ComponentName="FileAutoPersistence" X="775" Y="750" Note=""/>
+                <Element ComponentName="GeneralPage" X="375" Y="425" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="200" Y="50" Note=""/>
+                <Element ComponentName="PagesDataProvider" X="575" Y="250" Note=""/>
+                <Element ComponentName="RepresentationModel" X="150" Y="525" Note=""/>
+                <Element ComponentName="ServerPage" X="700" Y="425" Note=""/>
+                <Element ComponentName="ServerPageDataModel" X="700" Y="575" Note=""/>
+                <Element ComponentName="SettingsController" X="575" Y="150" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

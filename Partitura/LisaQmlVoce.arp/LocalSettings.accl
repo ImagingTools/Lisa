@@ -8,27 +8,17 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfoDataProvider" X="125" Y="800" Note=""/>
-        <Element ComponentName="AutoPersistence" X="875" Y="150" Note=""/>
-        <Element ComponentName="CompactXmlFileSerializer" X="900" Y="250" Note=""/>
-        <Element ComponentName="Design" X="575" Y="550" Note=""/>
-        <Element ComponentName="DesignOptions" X="325" Y="425" Note=""/>
-        <Element ComponentName="DesignParam" X="575" Y="425" Note=""/>
-        <Element ComponentName="GeneralPage" X="641.514718626" Y="675" Note=""/>
-        <Element ComponentName="GeneralSettings" X="400" Y="275" Note=""/>
-        <Element ComponentName="InstanceMask" X="900" Y="675" Note=""/>
-        <Element ComponentName="JoinDataProvider" X="600" Y="800" Note=""/>
-        <Element ComponentName="Language" X="825" Y="550" Note=""/>
-        <Element ComponentName="LanguageOptions" X="1075" Y="425" Note=""/>
-        <Element ComponentName="LanguageParam" X="800" Y="425" Note=""/>
-        <Element ComponentName="LocalSettings" X="150" Y="275" Note=""/>
-        <Element ComponentName="Mask" X="1125" Y="675" Note=""/>
-        <Element ComponentName="NetworkSettingsPage" X="325" Y="675" Note=""/>
-        <Element ComponentName="Preferences" X="350" Y="75" Note=""/>
-        <Element ComponentName="PreferencesFilePath" X="875" Y="50" Note=""/>
-        <Element ComponentName="ServerUrl" X="75" Y="425" Note=""/>
-        <Element ComponentName="ServerUrlParam" X="100" Y="550" Note=""/>
-        <Element ComponentName="SystemLocation" X="1100" Y="50" Note=""/>
+        <Element ComponentName="AutoPersistence" X="1023.58578644" Y="613.686291501" Note=""/>
+        <Element ComponentName="CompactXmlFileSerializer" X="1025" Y="525" Note=""/>
+        <Element ComponentName="FileAutoPersistence" X="500" Y="775" Note=""/>
+        <Element ComponentName="GeneralPageDataModel" X="775" Y="425" Note=""/>
+        <Element ComponentName="GeneralPageRepresentationModel" X="800" Y="275" Note=""/>
+        <Element ComponentName="JoinDataProvider" X="525" Y="125" Note=""/>
+        <Element ComponentName="LocalPageDataModel" X="275" Y="425" Note=""/>
+        <Element ComponentName="LocalPageRepresentationModel" X="250" Y="275" Note=""/>
+        <Element ComponentName="Preferences" X="525" Y="600" Note=""/>
+        <Element ComponentName="PreferencesFilePath" X="1025" Y="700" Note=""/>
+        <Element ComponentName="SystemLocation" X="1025" Y="800" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

@@ -10,30 +10,6 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="AdminPanel" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="System"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="AdminPanel"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Admin Panel"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/System_Off_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/System_On_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../imtlicgui/AdminPanelMultiDocView.qml"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="ApplicationController" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -56,6 +32,12 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
@@ -115,16 +97,16 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PreferencesQml/DatabaseAccessSettings"/>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Design" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PreferencesQml/Design"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Language" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PreferencesQml/Language"/>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -160,7 +142,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="AuthorizationOptionsController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
+                    <Element Id="AuthorizationOptionsController" PackageId="ImtAuthGqlPck" ComponentId="AuthorizationOptionsController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
@@ -170,11 +152,11 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="UserModeProvider"/>
+                                <AttributeInfo Id="UserCollection" Type="Reference" ExportId="UserCollection">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="UserModeProvider"/>
+                                <AttributeInfo Id="UserModeParameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="UserMode"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -230,27 +212,6 @@
                                             <Value>STRONG_USER_MANAGEMENT</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="UserModeProvider" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="3"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="UserMode"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="UserMode"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="UserMode"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -348,25 +309,21 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="DatabaseAccessSettings" PackageId="ImtQmlPck" ComponentId="DatabaseSettingsDataProvider">
+                    <Element Id="DataModel" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="DatabaseParameter">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="DatabaseSettings"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Database Settings"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
                     <Element Id="DatabaseUserSettings" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ModelDataParameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DataModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -386,22 +343,25 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="DesignParam" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                    <Element Id="FileAutoPersistence" PackageId="ImtCoreVoce" ComponentId="FileAutoPersistence">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="3"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Mode"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Mode"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="Design">
+                                <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="LisaServerSettings.xml"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="104"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -416,8 +376,11 @@
                                 <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="General"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DataModel"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="SlaveGeneralPage"/>
+                                    <Data IsEnabled="true" Value="RepresentationModel"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -447,78 +410,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="InstanceMask" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="1"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="InstanceMask"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Instance Mask"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="Mask"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LanguageParams" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="3"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Language"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Language"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="Language">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LogFile" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ComponentType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="4"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="LogFile"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Log file"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="TextButton"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="Mask" PackageId="BasePck" ComponentId="TextParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="PagesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -529,7 +420,8 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>GeneralPage</Value>
-                                            <Value>ServerPagesDataProvider</Value>
+                                            <Value>ServerPage</Value>
+                                            <Value>AboutPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -537,36 +429,22 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>GeneralPage</Value>
-                                            <Value>ServerPagesDataProvider</Value>
+                                            <Value>ServerPage</Value>
+                                            <Value>AboutPage</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ServerPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                    <Element Id="RepresentationModel" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DatabaseAccessSettings</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="Design" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DataModel/Design"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Server"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Server"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>LogFile</Value>
-                                            <Value>DatabaseAccessSettings</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="Language" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="DataModel/Language"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -574,26 +452,38 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ServerPagesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+                    <Element Id="ServerPage" PackageId="ImtCoreVoce" ComponentId="ServerPageRepresentationModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerPages"/>
+                                <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerPageDataModel/DatabaseAccessSettings"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>ServerPage</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="Mask" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerPageDataModel/Mask"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>ServerPage</Value>
-                                            <Value>AboutPage</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="TextButton" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerPageDataModel/TextButton"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ServerPageDataModel" PackageId="ImtCoreVoce" ComponentId="ServerPageDataModel">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -614,48 +504,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="PagesDataProvider"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="SlaveGeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DesignParam</Value>
-                                            <Value>LanguageParams</Value>
-                                            <Value>InstanceMask</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="General"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="General"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>DesignParam</Value>
-                                            <Value>LanguageParams</Value>
-                                            <Value>InstanceMask</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="TextButton" PackageId="BasePck" ComponentId="TextParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Download"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

@@ -31,17 +31,11 @@ Item {
 
         featuresProvider.updateModel();
         featuresDependenciesProvider.updateModel();
-        //lisensesFeaturesModel.updateModel();
     }
-
 
     FeaturesProvider {
         id: featuresProvider;
     }
-
-//    LicenseFeaturesModel {
-//        id: lisensesFeaturesModel;
-//    }
 
     FeaturesDependenciesProvider {
         id: featuresDependenciesProvider;

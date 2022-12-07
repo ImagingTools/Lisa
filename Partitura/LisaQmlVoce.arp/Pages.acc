@@ -36,6 +36,9 @@
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/InstallationRepository"/>
                     </AttributeInfo>
@@ -162,7 +165,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductInfoProvider"/>
+                                    <Data IsEnabled="true" Value="SingleProductPermission"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -177,14 +180,21 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
-                    <Element Id="FeatureContainer" PackageId="ImtLicensePck" ComponentId="FeatureContainer">
+                    <Element Id="FeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="FeaturePackages">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="FeaturesExportProvider" PackageId="ImtLicenseGqlPck" ComponentId="FeaturesExportProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductRepository">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -223,15 +233,6 @@
                     <Element Id="InstancesPermissions" PackageId="LisaVoce" ComponentId="InstancesPermissions">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="LisaPermissionsProvider" PackageId="ImtAuthPck" ComponentId="PermissionsProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="FeaturePackage" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureContainer"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="PackagesPage" PackageId="LisaQmlVoce" ComponentId="PackagesPage">
@@ -275,33 +276,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ProductInfoProvider" PackageId="ImtLicensePck" ComponentId="ProductInfoProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="PermissionsProvider" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>LisaPermissionsProvider</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Lisa</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductNames" Type="String[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>Lisa</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="ProductPermissionController" PackageId="ImtLicenseGqlPck" ComponentId="ProductPermissionController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -316,7 +290,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ProductInfoProvider"/>
+                                    <Data IsEnabled="true" Value="SingleProductPermission"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -335,6 +309,9 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductPermissions"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="PackageRepository">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -343,18 +320,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="QtResourceLoaderComp" PackageId="ImtCorePck" ComponentId="QtResourceLoaderComp">
-                        <Data IsEnabled="true" Flags="1">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="PathToFile" Type="Id" ExportId="PathToPermissionsFile">
-                                    <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TargetCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureContainer"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -368,6 +333,29 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="SingleProductPermission" PackageId="ImtCoreVoce" ComponentId="SingleProductPermission">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PathToPermissionsFile" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductId" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ProductName" Type="String[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Lisa</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
@@ -376,6 +364,7 @@
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
                     <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="AdministrationPages" ComponentId="AdministrationPage/AdministrationPages"/>
+                    <Component ExportedId="FeatureInfoProvider" ComponentId="FeatureInfoProvider"/>
                     <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
                     <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>

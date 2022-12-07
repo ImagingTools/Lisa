@@ -8,20 +8,19 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfo" X="700" Y="250" Note=""/>
-        <Element ComponentName="Context" X="1100" Y="375" Note=""/>
-        <Element ComponentName="ImtCoreLocalization" X="775" Y="775" Note=""/>
-        <Element ComponentName="LisaLocalization" X="1000" Y="775" Note=""/>
-        <Element ComponentName="LisaLogFilePath" X="325" Y="275" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="675" Y="325" Note=""/>
+        <Element ComponentName="Context" X="1125" Y="400" Note=""/>
+        <Element ComponentName="LisaLocalization" X="1075" Y="800" Note=""/>
+        <Element ComponentName="LisaLogFilePath" X="200" Y="250" Note=""/>
         <Element ComponentName="LisaServerBase" X="525" Y="75" Note=""/>
-        <Element ComponentName="LocalSettings" X="850" Y="675" Note=""/>
-        <Element ComponentName="MainWindow" X="325" Y="525" Note=""/>
-        <Element ComponentName="ObserverQml" X="500" Y="675" Note=""/>
-        <Element ComponentName="QuickApplication" X="825" Y="475" Note=""/>
+        <Element ComponentName="LocalSettings" X="625" Y="750" Note=""/>
+        <Element ComponentName="MainWindow" X="300" Y="475" Note=""/>
+        <Element ComponentName="ObserverQml" X="425" Y="600" Note=""/>
+        <Element ComponentName="QuickApplication" X="800" Y="525" Note=""/>
         <Element ComponentName="SplashScreen" X="875" Y="150" Note=""/>
-        <Element ComponentName="SystemLocation" X="125" Y="450" Note=""/>
-        <Element ComponentName="TextFileLog" X="75" Y="250" Note=""/>
-        <Element ComponentName="VersionInfo" X="1100" Y="200" Note=""/>
+        <Element ComponentName="SystemLocation" X="275" Y="325" Note=""/>
+        <Element ComponentName="TextFileLog" X="75" Y="150" Note=""/>
+        <Element ComponentName="VersionInfo" X="1050" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Enums">

@@ -8,33 +8,22 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationController" X="500" Y="500" Note=""/>
+        <Element ComponentName="ApplicationController" X="575" Y="550" Note=""/>
         <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
-        <Element ComponentName="DatabaseEngine" X="975" Y="700" Note=""/>
+        <Element ComponentName="DatabaseEngine" X="1000" Y="725" Note=""/>
         <Element ComponentName="FileDataProvider" X="1075" Y="150" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="150" Y="250" Note=""/>
-        <Element ComponentName="HttpFileControllerServlet" X="700" Y="150" Note=""/>
+        <Element ComponentName="HttpFileControllerServlet" X="675" Y="275" Note=""/>
         <Element ComponentName="HttpFileProviderBasedServlet" X="475" Y="50" Note=""/>
         <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="275" Y="150" Note=""/>
         <Element ComponentName="IndexFilePath" X="400" Y="250" Note=""/>
-        <Element ComponentName="KeyDataProviders" X="1000" Y="400" Note=""/>
-        <Element ComponentName="LisaLocalization" X="275" Y="600" Note=""/>
+        <Element ComponentName="KeyDataProviders" X="1000" Y="350" Note=""/>
+        <Element ComponentName="LisaLocalization" X="350" Y="750" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
-        <Element ComponentName="RootServlet" X="525" Y="325" Note=""/>
+        <Element ComponentName="RootServlet" X="300" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="KeyDataProviders">
-            <PositionMap>
-                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
-                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
-                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
-                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
-                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Enums">
             <PositionMap>
                 <Element ComponentName="MenuDataEnumProvider" X="225" Y="75" Note=""/>
@@ -56,6 +45,17 @@
                 <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
                 <Element ComponentName="ServerPage" X="550" Y="550" Note=""/>
                 <Element ComponentName="TextButton" X="350" Y="750" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="KeyDataProviders">
+            <PositionMap>
+                <Element ComponentName="AesInitVector" X="175" Y="75" Note=""/>
+                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="575" Y="425" Note=""/>
+                <Element ComponentName="InstallationRepository" X="200" Y="425" Note=""/>
+                <Element ComponentName="KeyDataProvider" X="450" Y="200" Note=""/>
+                <Element ComponentName="XmlFileSerializer" X="675" Y="50" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

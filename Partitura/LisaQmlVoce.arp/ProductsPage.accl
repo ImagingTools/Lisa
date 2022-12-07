@@ -10,7 +10,6 @@
     <PositionMap>
         <Element ComponentName="Commands" X="575" Y="375" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="175" Note=""/>
-        <Element ComponentName="FeatureInfoProvider" X="350" Y="275" Note=""/>
         <Element ComponentName="ObjectViewDataProvider" X="1050" Y="175" Note=""/>
         <Element ComponentName="PackagesHeadersDataProvider" X="975" Y="550" Note=""/>
         <Element ComponentName="ProductDataController" X="175" Y="375" Note=""/>
