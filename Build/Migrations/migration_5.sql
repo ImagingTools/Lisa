@@ -36,6 +36,5 @@ ALTER TABLE "FeatureDependencies" ADD FOREIGN KEY (FeatureId)
 ALTER TABLE "ProductLicenseFeatures" ADD FOREIGN KEY (FeatureId)
 	REFERENCES "Features"(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
-INSERT INTO "Users" (UserId, Password, Name, Email) VALUES('admin', 'f6fdffe48c908deb0f4c3bd36c032e72', '', '');
 ALTER TABLE "Features" ALTER COLUMN PackageId DROP NOT NULL;
 ALTER TABLE "Roles" DROP CONSTRAINT roles_productid_fkey;
