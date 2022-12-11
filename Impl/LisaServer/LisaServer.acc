@@ -29,6 +29,9 @@
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="LogPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LiseServer.log"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa server service"/>
                     </AttributeInfo>
