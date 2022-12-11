@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="0" Number="5032" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -20,6 +20,9 @@
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
@@ -49,8 +52,14 @@
                     <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ApplicationController/DatabaseAccessSettings"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="lisa"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Password" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="root"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -58,7 +67,7 @@
         <Element Id="FileDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="HomePath" Type="String" ExportId="LogPath">
+                    <AttributeInfo Id="HomePath" Type="Reference" ExportId="LogPath">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -482,15 +491,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="DesignParam" PackageId="BasePck" ComponentId="SelectionParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -525,6 +525,9 @@
                     <Element Id="GetStyleDataController" PackageId="ImtGuiGqlPck" ComponentId="GetStyleDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -537,6 +540,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Prefix" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="lisa"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -558,18 +564,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LanguageParam" PackageId="BasePck" ComponentId="SelectionParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="Constraints" Type="Reference" ExportId="Constraints">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="0"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -598,6 +592,9 @@
                     <Element Id="PreferenceDataController" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -612,12 +609,18 @@
                                 <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="PreferencesDataProvider"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="PreferencesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Preferences"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -635,9 +638,6 @@
                                             <Value>ServerPage</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="commandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Preferences"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -687,11 +687,8 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="AuthorizationOptionsController" ComponentId="ApplicationController/AuthorizationOptionsController"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ApplicationController/DatabaseAccessSettings"/>
-        <Component ExportedId="Design" ComponentId="ApplicationController/Design"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="ApplicationController/FeaturesExportProvider"/>
-        <Component ExportedId="Language" ComponentId="ApplicationController/Language"/>
         <Component ExportedId="PreferencesQml" ComponentId="ApplicationController/PreferencesQml"/>
     </ExportedComponents>
 </Acf>

@@ -2,18 +2,18 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="0" Number="5032" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="JoinDataProvider" X="225" Y="375" Note=""/>
-        <Element ComponentName="PageData" X="1025" Y="375" Note=""/>
+        <Element ComponentName="JoinDataProvider" X="250" Y="375" Note=""/>
+        <Element ComponentName="PageData" X="600" Y="375" Note=""/>
         <Element ComponentName="PageDataControllers" X="1000" Y="200" Note=""/>
-        <Element ComponentName="PageVisualStatus" X="200" Y="200" Note=""/>
+        <Element ComponentName="PageVisualStatus" X="250" Y="200" Note=""/>
         <Element ComponentName="Pages" X="600" Y="75" Note=""/>
-        <Element ComponentName="Repositories" X="900" Y="525" Note=""/>
+        <Element ComponentName="Repositories" X="600" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="PageData">
@@ -40,10 +40,10 @@
         </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
-                <Element ComponentName="AccountRepository" X="1000" Y="325" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="275" Y="150" Note=""/>
-                <Element ComponentName="InstallationRepository" X="675" Y="325" Note=""/>
-                <Element ComponentName="ProductRepository" X="275" Y="325" Note=""/>
+                <Element ComponentName="AccountRepository" X="875" Y="325" Note=""/>
+                <Element ComponentName="FeaturePackageRepository" X="175" Y="100" Note=""/>
+                <Element ComponentName="InstallationRepository" X="650" Y="625" Note=""/>
+                <Element ComponentName="ProductRepository" X="400" Y="325" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="0" Number="5032" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -272,28 +272,6 @@
         <EmbeddedRegistry Id="SettingsController">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="AboutPage" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="About"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="About"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>ApplicationInfoDataProvider</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="ApplicationInfoDataProvider" PackageId="ImtQmlPck" ComponentId="ApplicationInfoDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -305,26 +283,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Server version"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="DataModel" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="DatabaseUserSettings" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ModelDataParameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DataModel"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -343,31 +301,12 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FileAutoPersistence" PackageId="ImtCoreVoce" ComponentId="FileAutoPersistence">
+                    <Element Id="GeneralPageDataModel" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                                    <Data IsEnabled="true" Value="LisaServerSettings.xml"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                                    <Data IsEnabled="true" Value="104"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
+                            <AttributeInfoMap/>
                         </Data>
                     </Element>
-                    <Element Id="GeneralPage" PackageId="ImtQmlPck" ComponentId="SettingsDatabasePagesProvider">
+                    <Element Id="GeneralSettingsRepresentation" PackageId="ImtQmlPck" ComponentId="SettingsDatabasePagesProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ParamId" Type="Id" ExportId="">
@@ -377,7 +316,7 @@
                                     <Data IsEnabled="true" Value="General"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Parameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DataModel"/>
+                                    <Data IsEnabled="true" Value="GeneralPageDataModel"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="RepresentationModel"/>
@@ -386,7 +325,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DatabaseUserSettings"/>
+                                    <Data IsEnabled="true" Value="SystemUsers"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -410,6 +349,28 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="InfoRepresentation" PackageId="ImtQmlPck" ComponentId="ParamsDataProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ParamId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="About"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamName" Type="Text" ExportId="">
+                                    <Data IsEnabled="true" Value="About"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ParamSubElements" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ApplicationInfoDataProvider</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="PagesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -419,18 +380,18 @@
                                 <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>ServerPage</Value>
-                                            <Value>AboutPage</Value>
+                                            <Value>GeneralSettingsRepresentation</Value>
+                                            <Value>ServerSettingsRepresentation</Value>
+                                            <Value>InfoRepresentation</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>GeneralPage</Value>
-                                            <Value>ServerPage</Value>
-                                            <Value>AboutPage</Value>
+                                            <Value>GeneralSettingsRepresentation</Value>
+                                            <Value>ServerSettingsRepresentation</Value>
+                                            <Value>InfoRepresentation</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -441,10 +402,10 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="Design" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DataModel/Design"/>
+                                    <Data IsEnabled="true" Value="GeneralPageDataModel/Design"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Language" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="DataModel/Language"/>
+                                    <Data IsEnabled="true" Value="GeneralPageDataModel/Language"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -452,25 +413,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ServerPage" PackageId="ImtCoreVoce" ComponentId="ServerPageRepresentationModel">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerPageDataModel/DatabaseAccessSettings"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Mask" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerPageDataModel/Mask"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TextButton" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerPageDataModel/TextButton"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="ServerPageDataModel" PackageId="ImtCoreVoce" ComponentId="ServerPageDataModel">
+                    <Element Id="ServerSettingsPageDataModel" PackageId="ImtCoreVoce" ComponentId="ServerPageDataModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
@@ -483,6 +426,24 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ServerSettingsRepresentation" PackageId="ImtCoreVoce" ComponentId="ServerPageRepresentationModel">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/DatabaseAccessSettings"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Mask" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/Mask"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TextButton" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/TextButton"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -508,6 +469,21 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="SystemUsers" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ModelDataParameter" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="GeneralPageDataModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
@@ -515,7 +491,7 @@
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
                 </ExportedInterfaces>
                 <ExportedComponents>
-                    <Component ExportedId="UserSettingsRepository" ComponentId="DatabaseUserSettings/UserSettingsRepository"/>
+                    <Component ExportedId="UserSettingsRepository" ComponentId="SystemUsers/UserSettingsRepository"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
@@ -527,13 +503,9 @@
     <ExportedComponents>
         <Component ExportedId="AccountRepository" ComponentId="Pages/AccountRepository"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="PreferencesQml/DatabaseAccessSettings"/>
-        <Component ExportedId="Design" ComponentId="PreferencesQml/Design"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
-        <Component ExportedId="Language" ComponentId="PreferencesQml/Language"/>
         <Component ExportedId="PreferencesQml" ComponentId="PreferencesQml"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
-        <Component ExportedId="ServerUrl" ComponentId="PreferencesQml/ServerUrl"/>
-        <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UserSessionRepository" ComponentId="AuthorizationConcept/UserSessionRepository"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="SettingsController/UserSettingsRepository"/>
         <Component ExportedId="UserSqlRepository" ComponentId="Pages/UserSqlRepository"/>

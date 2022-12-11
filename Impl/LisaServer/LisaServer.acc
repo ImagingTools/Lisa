@@ -2,19 +2,22 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5003" Description="ACF"/>
-            <Version Id="1" Number="2175" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
-    <Description></Description>
+    <Description>Lisa server application</Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="Application" PackageId="BasePck" ComponentId="ConsoleApplication">
+        <Element Id="Application" PackageId="ImtCoreVoce" ComponentId="ServiceApplicationFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="LisaServer"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="ImagingTools GmbH"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -23,38 +26,17 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ApplicationInfo" PackageId="BasePck" ComponentId="ApplicationInfo">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="LisaServer"/>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Server"/>
+                    <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa server service"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="ImagingTools GmbH"/>
+                    <AttributeInfo Id="ServiceName" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaService"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LisaLogFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaServerLog.txt"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ReferencePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SystemLocation"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -63,13 +45,13 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                        <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TextFileLog"/>
+                        <Data IsEnabled="true" Value="Application/Log"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LogPath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLogFilePath"/>
+                        <Data IsEnabled="true" Value="Application/LogFilePath"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
@@ -83,54 +65,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServiceApplication" PackageId="QtExPck" ComponentId="ServiceApplication">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInstance" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Application"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TextFileLog"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa server service"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServiceName" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaService"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="SystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="104"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="TextFileLog" PackageId="FilePck" ComponentId="TextFileLog">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LogFile" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLogFilePath"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseCategory" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseCode" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseTimeStamp" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
@@ -139,7 +73,7 @@
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
-        <Interface InterfaceId="ibase::IApplication" ComponentId="ServiceApplication"/>
+        <Interface InterfaceId="ibase::IApplication" ComponentId="Application"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>
