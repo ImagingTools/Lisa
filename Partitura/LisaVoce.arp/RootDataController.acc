@@ -325,7 +325,7 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="SystemUsers"/>
+                                    <Data IsEnabled="true" Value="UserSettingsDatabaseDelegate"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -469,7 +469,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="SystemUsers" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
+                    <Element Id="UserSettingsDatabaseDelegate" PackageId="ImtCoreVoce" ComponentId="DatabaseUserSettings">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -491,7 +491,7 @@
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
                 </ExportedInterfaces>
                 <ExportedComponents>
-                    <Component ExportedId="UserSettingsRepository" ComponentId="SystemUsers/UserSettingsRepository"/>
+                    <Component ExportedId="UserSettingsRepository" ComponentId="UserSettingsDatabaseDelegate/UserSettingsRepository"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>

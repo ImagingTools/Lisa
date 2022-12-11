@@ -9,7 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationController" X="550" Y="50" Note=""/>
-        <Element ComponentName="AuthorizationConcept" X="600" Y="475" Note=""/>
+        <Element ComponentName="AuthorizationConcept" X="550" Y="475" Note=""/>
         <Element ComponentName="Pages" X="1000" Y="250" Note=""/>
         <Element ComponentName="PreferencesQml" X="175" Y="475" Note=""/>
         <Element ComponentName="SettingsController" X="200" Y="250" Note=""/>
@@ -41,7 +41,7 @@
                 <Element ComponentName="ServerSettingsPageDataModel" X="625" Y="575" Note=""/>
                 <Element ComponentName="ServerSettingsRepresentation" X="650" Y="400" Note=""/>
                 <Element ComponentName="SettingsController" X="575" Y="150" Note=""/>
-                <Element ComponentName="SystemUsers" X="475" Y="750" Note=""/>
+                <Element ComponentName="UserSettingsDatabaseDelegate" X="525" Y="750" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
