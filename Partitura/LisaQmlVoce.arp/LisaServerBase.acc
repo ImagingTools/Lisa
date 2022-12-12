@@ -256,6 +256,9 @@
                     <AttributeInfo Id="CommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa/graphql"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -689,6 +692,5 @@
     <ExportedComponents>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ApplicationController/DatabaseAccessSettings"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="ApplicationController/FeaturesExportProvider"/>
-        <Component ExportedId="PreferencesQml" ComponentId="ApplicationController/PreferencesQml"/>
     </ExportedComponents>
 </Acf>

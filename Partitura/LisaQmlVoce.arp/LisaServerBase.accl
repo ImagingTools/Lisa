@@ -24,22 +24,6 @@
         <Element ComponentName="RootServlet" X="300" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="SettingsControllers">
-            <PositionMap>
-                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
-                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
-                <Element ComponentName="Design" X="100" Y="400" Note=""/>
-                <Element ComponentName="GeneralPage" X="225" Y="250" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="125" Y="550" Note=""/>
-                <Element ComponentName="Language" X="450" Y="400" Note=""/>
-                <Element ComponentName="LogFile" X="575" Y="675" Note=""/>
-                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
-                <Element ComponentName="ServerPage" X="573.585786438" Y="551.414213562" Note=""/>
-                <Element ComponentName="TextButton" X="584.899494937" Y="800" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Enums">
             <PositionMap>
                 <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
@@ -54,6 +38,22 @@
                 <Element ComponentName="InstallationRepository" X="125" Y="425" Note=""/>
                 <Element ComponentName="KeyDataProvider" X="400" Y="250" Note=""/>
                 <Element ComponentName="XmlFileSerializer" X="650" Y="600" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="SettingsControllers">
+            <PositionMap>
+                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
+                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
+                <Element ComponentName="Design" X="100" Y="400" Note=""/>
+                <Element ComponentName="GeneralPage" X="225" Y="250" Note=""/>
+                <Element ComponentName="GetStyleDataController" X="125" Y="550" Note=""/>
+                <Element ComponentName="Language" X="450" Y="400" Note=""/>
+                <Element ComponentName="LogFile" X="575" Y="675" Note=""/>
+                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
+                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
+                <Element ComponentName="ServerPage" X="573.585786438" Y="551.414213562" Note=""/>
+                <Element ComponentName="TextButton" X="584.899494937" Y="800" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
