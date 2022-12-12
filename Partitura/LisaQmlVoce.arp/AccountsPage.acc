@@ -124,9 +124,6 @@
                     <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Database" Type="Reference" ExportId="DatabaseEngine">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="false"/>
                     </AttributeInfo>
@@ -247,7 +244,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Name</Value>
-                                <Value>Email</Value>
+                                <Value>OwnerMail</Value>
                                 <Value>Description</Value>
                             </Values>
                         </Data>

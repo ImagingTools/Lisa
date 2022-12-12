@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -31,14 +31,14 @@
         <EmbededRegistry Id="SettingsController">
             <PositionMap>
                 <Element ComponentName="ApplicationInfoDataProvider" X="1025" Y="575" Note=""/>
+                <Element ComponentName="CompositeRepresentation" X="575" Y="250" Note=""/>
                 <Element ComponentName="Demultiplexer" X="575" Y="50" Note=""/>
                 <Element ComponentName="GeneralPageDataModel" X="200" Y="750" Note=""/>
                 <Element ComponentName="GeneralSettingsRepresentation" X="250" Y="400" Note=""/>
                 <Element ComponentName="GetStyleDataController" X="200" Y="50" Note=""/>
                 <Element ComponentName="InfoRepresentation" X="1025" Y="400" Note=""/>
-                <Element ComponentName="PagesDataProvider" X="575" Y="250" Note=""/>
                 <Element ComponentName="RepresentationModel" X="150" Y="525" Note=""/>
-                <Element ComponentName="ServerSettingsPageDataModel" X="625" Y="575" Note=""/>
+                <Element ComponentName="ServerSettingsPageDataModel" X="650" Y="550" Note=""/>
                 <Element ComponentName="ServerSettingsRepresentation" X="650" Y="400" Note=""/>
                 <Element ComponentName="SettingsController" X="575" Y="150" Note=""/>
                 <Element ComponentName="UserSettingsDatabaseDelegate" X="525" Y="750" Note=""/>

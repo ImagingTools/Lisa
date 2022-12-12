@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -60,27 +60,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="GeneralPageData" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="GeneralPageRepresentation" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Design" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="GeneralPageData/Design"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Language" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="GeneralPageData/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="JoinDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
+        <Element Id="CompositeRepresentation" PackageId="ImtQmlPck" ComponentId="CompositeRepresentation">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
@@ -98,6 +78,26 @@
                                 <Value>GeneralPageRepresentation</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="GeneralPageData" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="GeneralPageRepresentation" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Design" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="GeneralPageData/Design"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Language" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="GeneralPageData/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -176,8 +176,14 @@
         </Element>
     </ElementsList>
     <EmbeddedRegistriesList/>
-    <ExportedInterfaces/>
+    <ExportedInterfaces>
+        <Interface InterfaceId="imtgql::IGqlModelEditor" ComponentId="CompositeRepresentation"/>
+        <Interface InterfaceId="imtgql::IItemBasedRepresentationDataProvider" ComponentId="CompositeRepresentation"/>
+    </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="JoinDataProvider" ComponentId="JoinDataProvider"/>
+        <Component ExportedId="CompositeRepresentation" ComponentId="CompositeRepresentation"/>
+        <Component ExportedId="GeneralPageDataModel" ComponentId="GeneralPageDataModel"/>
+        <Component ExportedId="Language" ComponentId="GeneralPageData/Language"/>
+        <Component ExportedId="Preferences" ComponentId="Preferences"/>
     </ExportedComponents>
 </Acf>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -287,6 +287,33 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="CompositeRepresentation" PackageId="ImtQmlPck" ComponentId="CompositeRepresentation">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="SettingsPages"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralSettingsRepresentation</Value>
+                                            <Value>ServerSettingsRepresentation</Value>
+                                            <Value>InfoRepresentation</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>GeneralSettingsRepresentation</Value>
+                                            <Value>ServerSettingsRepresentation</Value>
+                                            <Value>InfoRepresentation</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -371,33 +398,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="PagesDataProvider" PackageId="ImtQmlPck" ComponentId="JoinDataProvider">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="SettingsPages"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="MutationDataDelegate" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GeneralSettingsRepresentation</Value>
-                                            <Value>ServerSettingsRepresentation</Value>
-                                            <Value>InfoRepresentation</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GeneralSettingsRepresentation</Value>
-                                            <Value>ServerSettingsRepresentation</Value>
-                                            <Value>InfoRepresentation</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="RepresentationModel" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -434,15 +434,6 @@
                     <Element Id="ServerSettingsRepresentation" PackageId="ImtCoreVoce" ComponentId="ServerPageRepresentationModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseParameter" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/DatabaseAccessSettings"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Mask" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/Mask"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TextButton" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="ServerSettingsPageDataModel/TextButton"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -461,10 +452,10 @@
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="MutationDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PagesDataProvider"/>
+                                    <Data IsEnabled="true" Value="CompositeRepresentation"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SettingsDataProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PagesDataProvider"/>
+                                    <Data IsEnabled="true" Value="CompositeRepresentation"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>

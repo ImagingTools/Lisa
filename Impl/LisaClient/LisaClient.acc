@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -108,11 +108,14 @@
         <Element Id="ObserverQml" PackageId="ImtQmlPck" ComponentId="ObserverQml">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="LanguageParameter" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LocalSettings/Language"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/JoinDataProvider"/>
+                        <Data IsEnabled="true" Value="LocalSettings/CompositeRepresentation"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/JoinDataProvider"/>
+                        <Data IsEnabled="true" Value="LocalSettings/CompositeRepresentation"/>
                     </AttributeInfo>
                     <AttributeInfo Id="QuickObject" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="MainWindow"/>

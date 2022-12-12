@@ -21,7 +21,7 @@
         <Element ComponentName="CheckPermissionOr" X="500" Y="475" Note=""/>
         <Element ComponentName="Commands" X="500" Y="225" Note=""/>
         <Element ComponentName="Demultiplexer" X="500" Y="75" Note=""/>
-        <Element ComponentName="ObjectViewDataProvider" X="1000" Y="475" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="1000" Y="375" Note=""/>
         <Element ComponentName="VisualStatus" X="125" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
