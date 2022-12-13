@@ -8,12 +8,12 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CompositeRepresentation" X="250" Y="375" Note=""/>
-        <Element ComponentName="PageData" X="625" Y="375" Note=""/>
-        <Element ComponentName="PageDataControllers" X="1000" Y="200" Note=""/>
-        <Element ComponentName="PageVisualStatus" X="250" Y="200" Note=""/>
+        <Element ComponentName="CompositeRepresentation" X="250" Y="450" Note=""/>
+        <Element ComponentName="PageData" X="975" Y="450" Note=""/>
+        <Element ComponentName="PageDataControllers" X="975" Y="250" Note=""/>
+        <Element ComponentName="PageVisualStatus" X="250" Y="250" Note=""/>
         <Element ComponentName="Pages" X="600" Y="75" Note=""/>
-        <Element ComponentName="Repositories" X="650" Y="500" Note=""/>
+        <Element ComponentName="Repositories" X="1000" Y="600" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="PageData">

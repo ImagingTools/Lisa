@@ -90,7 +90,7 @@
         <Element Id="GeneralPageRepresentation" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Design" Type="Reference" ExportId="">
+                    <AttributeInfo Id="DesignSchema" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="GeneralPageData/Design"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Language" Type="Reference" ExportId="">
