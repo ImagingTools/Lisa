@@ -182,7 +182,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="CompositeRepresentation" ComponentId="CompositeRepresentation"/>
-        <Component ExportedId="GeneralPageDataModel" ComponentId="GeneralPageDataModel"/>
         <Component ExportedId="Language" ComponentId="GeneralPageData/Language"/>
         <Component ExportedId="Preferences" ComponentId="Preferences"/>
     </ExportedComponents>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -16,9 +16,9 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="SettingsController">
             <PositionMap>
-                <Element ComponentName="AllSettings" X="575" Y="250" Note=""/>
+                <Element ComponentName="AllSettings" X="575" Y="275" Note=""/>
                 <Element ComponentName="ApplicationInfo" X="975" Y="400" Note=""/>
-                <Element ComponentName="ApplicationInfoDataProvider" X="950" Y="525" Note=""/>
+                <Element ComponentName="ApplicationInfoDataProvider" X="975" Y="525" Note=""/>
                 <Element ComponentName="Demultiplexer" X="575" Y="50" Note=""/>
                 <Element ComponentName="GetStyleDataController" X="200" Y="50" Note=""/>
                 <Element ComponentName="ServerSettings" X="575" Y="400" Note=""/>
