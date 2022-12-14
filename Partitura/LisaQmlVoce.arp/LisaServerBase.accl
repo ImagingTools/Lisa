@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5032" Description="ACF"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
             <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -19,17 +19,11 @@
         <Element ComponentName="HttpServerFramework" X="275" Y="150" Note=""/>
         <Element ComponentName="IndexFilePath" X="125" Y="350" Note=""/>
         <Element ComponentName="KeyDataProviders" X="1000" Y="350" Note=""/>
-        <Element ComponentName="LisaLocalization" X="350" Y="750" Note=""/>
+        <Element ComponentName="LisaLocalization" X="350" Y="725" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
         <Element ComponentName="RootServlet" X="300" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="KeyDataProviders">
             <PositionMap>
                 <Element ComponentName="AesInitVector" X="125" Y="75" Note=""/>
@@ -54,6 +48,12 @@
                 <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
                 <Element ComponentName="ServerPage" X="573.585786438" Y="551.414213562" Note=""/>
                 <Element ComponentName="TextButton" X="584.899494937" Y="800" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Enums">
+            <PositionMap>
+                <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

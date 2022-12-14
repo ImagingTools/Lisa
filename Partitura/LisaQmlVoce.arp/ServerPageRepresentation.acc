@@ -22,8 +22,23 @@
                     <AttributeInfo Id="ParamName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Database Settings"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="PathToDatabaseNameQmlView" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathToHostQmlView" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathToPasswordInputQmlView" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathToPortQmlView" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsIntegerInput.qml"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PathToQml" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/DatabaseInput.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PathToUsernameQmlView" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
