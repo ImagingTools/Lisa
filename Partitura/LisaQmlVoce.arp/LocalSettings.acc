@@ -116,6 +116,9 @@
                     <AttributeInfo Id="ServerUrl" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LocalPageData/ServerUrl"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ServerUrlPathToQml" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>

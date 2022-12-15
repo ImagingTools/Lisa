@@ -9,22 +9,13 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="CompositeRepresentation" X="250" Y="450" Note=""/>
-        <Element ComponentName="PageData" X="975" Y="450" Note=""/>
+        <Element ComponentName="PageData" X="975" Y="425" Note=""/>
         <Element ComponentName="PageDataControllers" X="975" Y="250" Note=""/>
         <Element ComponentName="PageVisualStatus" X="250" Y="250" Note=""/>
         <Element ComponentName="Pages" X="600" Y="75" Note=""/>
-        <Element ComponentName="Repositories" X="1000" Y="600" Note=""/>
+        <Element ComponentName="Repositories" X="975" Y="600" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="AccountRepository" X="875" Y="325" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="175" Y="100" Note=""/>
-                <Element ComponentName="InstallationRepository" X="650" Y="625" Note=""/>
-                <Element ComponentName="ProductRepository" X="400" Y="325" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="AccountPermissions" X="150" Y="475" Note=""/>
@@ -44,6 +35,15 @@
                 <Element ComponentName="ProductsPage" X="775" Y="375" Note=""/>
                 <Element ComponentName="SeparatorValue" X="150" Y="650" Note=""/>
                 <Element ComponentName="SingleProductPermission" X="1050" Y="625" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="AccountRepository" X="875" Y="325" Note=""/>
+                <Element ComponentName="FeaturePackageRepository" X="175" Y="100" Note=""/>
+                <Element ComponentName="InstallationRepository" X="650" Y="625" Note=""/>
+                <Element ComponentName="ProductRepository" X="400" Y="325" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
