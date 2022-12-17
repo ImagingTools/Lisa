@@ -42,6 +42,9 @@
                     <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/InstallationRepository"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PackageRepository" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
                     </AttributeInfo>
@@ -180,6 +183,15 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="FeatureDependenciesProvider" PackageId="ImtLicensePck" ComponentId="FeatureDependenciesProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="FeaturePackages">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="FeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -192,8 +204,14 @@
                     <Element Id="FeaturesExportProvider" PackageId="ImtLicenseGqlPck" ComponentId="FeaturesExportProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureDependenciesProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureDependenciesProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="PackageCollection">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductRepository">
                                     <Data IsEnabled="false"/>
@@ -285,9 +303,6 @@
                                             <Value>ProductPermissions</Value>
                                         </Values>
                                     </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductRepository">
-                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="SingleProductPermission"/>
