@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,8 +18,6 @@
                             <Values>
                                 <Value>PageData/PackagesPageVisualStatus</Value>
                                 <Value>PageData/ProductsPageVisualStatus</Value>
-                                <Value>PageData/AccountsPageVisualStatus</Value>
-                                <Value>PageData/InstancesPageVisualStatus</Value>
                                 <Value>PageData/AdministrationPageVisualStatus</Value>
                             </Values>
                         </Data>
@@ -30,17 +28,11 @@
         <Element Id="PageData" PackageId="" ComponentId="PageData">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/AccountRepository"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/InstallationRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
@@ -64,8 +56,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PageData/PackagesPage</Value>
-                                <Value>PageData/InstancesPage</Value>
-                                <Value>PageData/AccountsPage</Value>
                                 <Value>PageData/ProductsPage</Value>
                                 <Value>PageData/AdministrationPages</Value>
                                 <Value>PageData/PermissionsController</Value>
@@ -135,29 +125,6 @@
         <EmbeddedRegistry Id="PageData">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="AccountPermissions" PackageId="LisaVoce" ComponentId="AccountPermissions">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
-                    <Element Id="AccountsPage" PackageId="LisaQmlVoce" ComponentId="AccountsPage">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="AccountRepository">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="CheckPermissions"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="AccountPermissions"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="AdministrationPage" PackageId="ImtUserAdministrationVoce" ComponentId="AdministrationPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -224,35 +191,6 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
-                    <Element Id="InstancesPage" PackageId="LisaQmlVoce" ComponentId="InstancesPage">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="AccountRepository" Type="Reference" ExportId="AccountRepository">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="CheckPermissions"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="InstancesPermissions"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="InstallationRepository" Type="Reference" ExportId="InstallationRepository">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="ProductRepository">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="InstancesPermissions" PackageId="LisaVoce" ComponentId="InstancesPermissions">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
-                        </Data>
-                    </Element>
                     <Element Id="PackagesPage" PackageId="LisaQmlVoce" ComponentId="PackagesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -279,8 +217,6 @@
                                         <Values>
                                             <Value>FeaturesPermissions</Value>
                                             <Value>ProductPermissions</Value>
-                                            <Value>AccountPermissions</Value>
-                                            <Value>InstancesPermissions</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -375,13 +311,11 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
                 <ExportedComponents>
-                    <Component ExportedId="AccountsPage" ComponentId="AccountsPage"/>
                     <Component ExportedId="AccountsPageVisualStatus" ComponentId="AccountsPage/AccountsPageVisualStatus"/>
                     <Component ExportedId="AdministrationPageVisualStatus" ComponentId="AdministrationPage/AdministrationPageVisualStatus"/>
                     <Component ExportedId="AdministrationPages" ComponentId="AdministrationPage/AdministrationPages"/>
                     <Component ExportedId="FeatureInfoProvider" ComponentId="FeatureInfoProvider"/>
                     <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
-                    <Component ExportedId="InstancesPage" ComponentId="InstancesPage"/>
                     <Component ExportedId="InstancesPageVisualStatus" ComponentId="InstancesPage/InstancesPageVisualStatus"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
                     <Component ExportedId="PackagesPageVisualStatus" ComponentId="PackagesPage/PackagesPageVisualStatus"/>
@@ -397,21 +331,6 @@
         <EmbeddedRegistry Id="Repositories">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="AccountRepository" PackageId="LisaVoce" ComponentId="AccountSqlRepository">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -423,27 +342,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="InstallationRepository" PackageId="LisaVoce" ComponentId="ProductInstanceSqlRepository">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="CustomerCollection">
-                                    <Data IsEnabled="true" Value="AccountRepository"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
-                                    <Data IsEnabled="true" Value="ProductRepository"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -473,8 +371,6 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
                 <ExportedComponents>
-                    <Component ExportedId="AccountRepository" ComponentId="AccountRepository"/>
-                    <Component ExportedId="InstallationRepository" ComponentId="InstallationRepository"/>
                     <Component ExportedId="PackageRepository" ComponentId="FeaturePackageRepository"/>
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                 </ExportedComponents>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5040" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,12 +13,6 @@
         <Element Id="Commands" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -107,12 +101,6 @@
         <Element Id="ProductDataController" PackageId="ImtLicenseGqlPck" ComponentId="ProductController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="FeatureInfoProvider">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -266,12 +254,6 @@
         <Element Id="ProductListController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
                     </AttributeInfo>

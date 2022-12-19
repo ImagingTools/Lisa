@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -99,7 +99,6 @@
                             <Values>
                                 <Value>FileDataProvider</Value>
                                 <Value>ApplicationController/FeaturesExportProvider</Value>
-                                <Value>KeyDataProviders/KeyDataProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -197,27 +196,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="PathType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="KeyDataProviders" PackageId="" ComponentId="KeyDataProviders">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CustomerCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/AccountRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/ProductRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -16,19 +16,8 @@
         <Element ComponentName="Repositories" X="975" Y="600" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="AccountRepository" X="875" Y="325" Note=""/>
-                <Element ComponentName="FeaturePackageRepository" X="175" Y="100" Note=""/>
-                <Element ComponentName="InstallationRepository" X="650" Y="625" Note=""/>
-                <Element ComponentName="ProductRepository" X="400" Y="325" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
-                <Element ComponentName="AccountPermissions" X="150" Y="475" Note=""/>
-                <Element ComponentName="AccountsPage" X="150" Y="375" Note=""/>
                 <Element ComponentName="AdministrationPage" X="1050" Y="525" Note=""/>
                 <Element ComponentName="AdministrationPermissions" X="1050" Y="400" Note=""/>
                 <Element ComponentName="CheckPermissions" X="450" Y="300" Note=""/>
@@ -36,8 +25,6 @@
                 <Element ComponentName="FeatureInfoProvider" X="575" Y="525" Note=""/>
                 <Element ComponentName="FeaturesExportProvider" X="575" Y="625" Note=""/>
                 <Element ComponentName="FeaturesPermissions" X="145" Y="276" Note=""/>
-                <Element ComponentName="InstancesPage" X="750" Y="250" Note=""/>
-                <Element ComponentName="InstancesPermissions" X="750" Y="175" Note=""/>
                 <Element ComponentName="PackagesPage" X="150" Y="200" Note=""/>
                 <Element ComponentName="PermissionsController" X="675" Y="75" Note=""/>
                 <Element ComponentName="ProductPermissionController" X="1050" Y="750" Note=""/>
@@ -45,6 +32,13 @@
                 <Element ComponentName="ProductsPage" X="775" Y="375" Note=""/>
                 <Element ComponentName="SeparatorValue" X="150" Y="650" Note=""/>
                 <Element ComponentName="SingleProductPermission" X="1050" Y="625" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="FeaturePackageRepository" X="175" Y="100" Note=""/>
+                <Element ComponentName="ProductRepository" X="400" Y="325" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

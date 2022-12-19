@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,20 +18,14 @@
         <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="275" Y="150" Note=""/>
         <Element ComponentName="IndexFilePath" X="125" Y="350" Note=""/>
-        <Element ComponentName="KeyDataProviders" X="1000" Y="350" Note=""/>
         <Element ComponentName="LisaLocalization" X="350" Y="725" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
         <Element ComponentName="RootServlet" X="300" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="KeyDataProviders">
+        <EmbededRegistry Id="Enums">
             <PositionMap>
-                <Element ComponentName="AesInitVector" X="125" Y="75" Note=""/>
-                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="675" Y="425" Note=""/>
-                <Element ComponentName="InstallationRepository" X="125" Y="425" Note=""/>
-                <Element ComponentName="KeyDataProvider" X="400" Y="250" Note=""/>
-                <Element ComponentName="XmlFileSerializer" X="650" Y="600" Note=""/>
+                <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -51,9 +45,14 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="Enums">
+        <EmbededRegistry Id="KeyDataProviders">
             <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
+                <Element ComponentName="AesInitVector" X="125" Y="75" Note=""/>
+                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
+                <Element ComponentName="EncryptionBasePersistence" X="675" Y="425" Note=""/>
+                <Element ComponentName="InstallationRepository" X="125" Y="425" Note=""/>
+                <Element ComponentName="KeyDataProvider" X="400" Y="250" Note=""/>
+                <Element ComponentName="XmlFileSerializer" X="650" Y="600" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
