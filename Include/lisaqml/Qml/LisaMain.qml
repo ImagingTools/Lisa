@@ -9,9 +9,9 @@ Item {
 
     anchors.fill: parent;
 
-    property alias localSettings: settingsProviderLacal.localModel;
+    property alias localSettings: settingsProviderLocal.localModel;
 
-    property alias settingsProvider: settingsProviderLacal;
+    property alias settingsProvider: settingsProviderLocal;
 
     signal settingsUpdate(string pageId);
 
@@ -26,9 +26,7 @@ Item {
 
     function updateAllModels(){
         settingsProvider.updateModel();
-
         thumbnailDecorator.updateModels();
-
         featuresProvider.updateModel();
         featuresDependenciesProvider.updateModel();
     }
@@ -42,15 +40,14 @@ Item {
     }
 
     SettingsProvider {
-        id: settingsProviderLacal;
-
+        id: settingsProviderLocal;
         root: window;
     }
 
     ThumbnailDecorator {
         id: thumbnailDecorator;
-        root: window;
-
         anchors.fill: parent;
+        root: window;
+        settingsProvider: settingsProviderLocal;
     }
 }

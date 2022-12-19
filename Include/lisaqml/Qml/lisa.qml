@@ -26,37 +26,37 @@ Rectangle {
     }
     Item {
         id: localSettingsProvider;
-        property alias localSettings: settingsProvider.localModel;
+        property alias localSettings: settingsProviderLocal.localModel;
 
         Component.onCompleted: {
-            localSettings.Parse("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
+            localSettings.CreateFromJson("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
         }
     }
 
+    function updateModels(){
+        console.log("window updateModels");
+        thumbnailDecorator.userManagementProvider.updateModel();
+    }
+
     function updateAllModels(){
-        settingsProvider.updateModel();
+        settingsProviderLocal.updateModel();
 
         thumbnailDecorator.updateModels();
 
-        treeViewModel.updateModel();
-        featureDependenciesModel.updateModel();
-        lisensesFeaturesModel.updateModel();
+        featuresProvider.updateModel();
+        featuresDependenciesProvider.updateModel();
     }
 
-    TreeViewModel {
-        id: treeViewModel;
+    FeaturesProvider {
+        id: featuresProvider;
     }
 
-    LicenseFeaturesModel {
-        id: lisensesFeaturesModel;
-    }
-
-    FeatureDependenciesModel {
-        id: featureDependenciesModel;
+    FeaturesDependenciesProvider {
+        id: featuresDependenciesProvider;
     }
 
     SettingsProvider {
-        id: settingsProvider;
+        id: settingsProviderLocal;
 
         root: window;
     }
@@ -64,11 +64,10 @@ Rectangle {
     ThumbnailDecorator {
         id: thumbnailDecorator;
         anchors.fill: parent;
-
+        root: window;
+        settingsProvider: settingsProviderLocal;
         Component.onCompleted: {
-          //  console.log("ThumbnailDecorator onCompleted", MeterEnum.ID);
-               thumbnailDecorator.userManagementProvider.updateModel();
-//            thumbnailDecorator.updateModels();
+            thumbnailDecorator.userManagementProvider.updateModel();
         }
     }
 
