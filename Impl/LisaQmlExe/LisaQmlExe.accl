@@ -15,7 +15,7 @@
         <Element ComponentName="LisaServerBase" X="525" Y="75" Note=""/>
         <Element ComponentName="LocalSettings" X="625" Y="750" Note=""/>
         <Element ComponentName="MainWindow" X="300" Y="475" Note=""/>
-        <Element ComponentName="ObserverQml" X="425" Y="600" Note=""/>
+        <Element ComponentName="ObserverQml" X="422.171572875" Y="600" Note=""/>
         <Element ComponentName="QuickApplication" X="800" Y="525" Note=""/>
         <Element ComponentName="SplashScreen" X="875" Y="150" Note=""/>
         <Element ComponentName="SystemLocation" X="275" Y="325" Note=""/>
