@@ -8,10 +8,11 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="DatabaseLoginSettings" X="900" Y="275" Note=""/>
-        <Element ComponentName="InstanceMask" X="250" Y="275" Note=""/>
-        <Element ComponentName="ServerSettingsData" X="575" Y="525" Note=""/>
-        <Element ComponentName="ServerSettingsPage" X="575" Y="75" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="975" Y="450" Note=""/>
+        <Element ComponentName="ApplicationInfoDataProvider" X="975" Y="600" Note=""/>
+        <Element ComponentName="ApplicationSettings" X="600" Y="50" Note=""/>
+        <Element ComponentName="ServerSettings" X="600" Y="200" Note=""/>
+        <Element ComponentName="UserRelatedSettings" X="150" Y="325" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

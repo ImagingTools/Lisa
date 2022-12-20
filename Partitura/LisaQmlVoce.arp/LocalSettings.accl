@@ -2,22 +2,19 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5040" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="AutoPersistence" X="1025" Y="650" Note=""/>
-        <Element ComponentName="CompactXmlFileSerializer" X="1025" Y="575" Note=""/>
+        <Element ComponentName="ClientPersistence" X="1025" Y="750" Note=""/>
         <Element ComponentName="CompositeRepresentation" X="550" Y="100" Note=""/>
         <Element ComponentName="GeneralPageData" X="850" Y="425" Note=""/>
         <Element ComponentName="GeneralPageRepresentation" X="875" Y="275" Note=""/>
         <Element ComponentName="LocalPageData" X="275" Y="425" Note=""/>
         <Element ComponentName="LocalPageRepresentation" X="250" Y="275" Note=""/>
         <Element ComponentName="Preferences" X="550" Y="650" Note=""/>
-        <Element ComponentName="PreferencesFilePath" X="1025" Y="725" Note=""/>
-        <Element ComponentName="SystemLocation" X="1025" Y="800" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

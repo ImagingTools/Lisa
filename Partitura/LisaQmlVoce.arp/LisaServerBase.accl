@@ -2,14 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5037" Description="ACF"/>
+            <Version Id="0" Number="5040" Description="ACF"/>
             <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationController" X="675" Y="550" Note=""/>
-        <Element ComponentName="BinaryDataProvider" X="825" Y="50" Note=""/>
+        <Element ComponentName="BinaryDataProvider" X="823.585786438" Y="50" Note=""/>
         <Element ComponentName="DatabaseEngine" X="1000" Y="725" Note=""/>
         <Element ComponentName="FileDataProvider" X="1075" Y="150" Note=""/>
         <Element ComponentName="HttpFileBasedHandler" X="150" Y="250" Note=""/>
@@ -18,43 +18,8 @@
         <Element ComponentName="HttpRedirectHandler" X="150" Y="50" Note=""/>
         <Element ComponentName="HttpServerFramework" X="275" Y="150" Note=""/>
         <Element ComponentName="IndexFilePath" X="125" Y="350" Note=""/>
-        <Element ComponentName="LisaLocalization" X="350" Y="725" Note=""/>
         <Element ComponentName="LisaLogFilePath" X="1075" Y="50" Note=""/>
         <Element ComponentName="RootServlet" X="300" Y="450" Note=""/>
     </PositionMap>
-    <EmbeddedRegistries>
-        <EmbededRegistry Id="Enums">
-            <PositionMap>
-                <Element ComponentName="MenuDataEnumProvider" X="575" Y="398.585786438" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="SettingsControllers">
-            <PositionMap>
-                <Element ComponentName="DatabaseAccessSettings" X="975" Y="375" Note=""/>
-                <Element ComponentName="DatabasePage" X="950" Y="250" Note=""/>
-                <Element ComponentName="Design" X="100" Y="400" Note=""/>
-                <Element ComponentName="GeneralPage" X="225" Y="250" Note=""/>
-                <Element ComponentName="GetStyleDataController" X="125" Y="550" Note=""/>
-                <Element ComponentName="Language" X="450" Y="400" Note=""/>
-                <Element ComponentName="LogFile" X="575" Y="675" Note=""/>
-                <Element ComponentName="PreferenceDataController" X="575" Y="50" Note=""/>
-                <Element ComponentName="PreferencesDataProvider" X="575" Y="150" Note=""/>
-                <Element ComponentName="ServerPage" X="573.585786438" Y="551.414213562" Note=""/>
-                <Element ComponentName="TextButton" X="584.899494937" Y="800" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="KeyDataProviders">
-            <PositionMap>
-                <Element ComponentName="AesInitVector" X="125" Y="75" Note=""/>
-                <Element ComponentName="Encryption" X="925" Y="425" Note=""/>
-                <Element ComponentName="EncryptionBasePersistence" X="675" Y="425" Note=""/>
-                <Element ComponentName="InstallationRepository" X="125" Y="425" Note=""/>
-                <Element ComponentName="KeyDataProvider" X="400" Y="250" Note=""/>
-                <Element ComponentName="XmlFileSerializer" X="650" Y="600" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-    </EmbeddedRegistries>
+    <EmbeddedRegistries/>
 </Acf>

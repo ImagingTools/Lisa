@@ -9,41 +9,41 @@
         <location line="+10"/>
         <location line="+46"/>
         <location line="+10"/>
-        <location line="+148"/>
-        <location line="+162"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+64"/>
+        <location line="+120"/>
+        <location line="+158"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+56"/>
         <location line="+4"/>
         <location line="+8"/>
         <location line="+46"/>
         <location line="+10"/>
-        <location line="+154"/>
-        <location line="+166"/>
+        <location line="+108"/>
+        <location line="+54"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+56"/>
         <location line="+4"/>
-        <location line="+10"/>
+        <location line="+8"/>
         <location line="+46"/>
         <location line="+10"/>
-        <location line="+160"/>
+        <location line="+120"/>
         <location line="+52"/>
         <source>Accounts</source>
         <translation>Аккаунты</translation>
     </message>
     <message>
-        <location line="-378"/>
+        <location line="-346"/>
         <location line="+4"/>
         <location line="+6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-390"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-232"/>
         <location line="+4"/>
+        <location line="+8"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-242"/>
         <location line="+4"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-280"/>
-        <location line="+4"/>
-        <location line="+4"/>
+        <location line="+6"/>
         <source>Account info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>AccountInfo</source>
         <translation type="unfinished"></translation>
@@ -51,7 +51,7 @@
     <message>
         <location line="-2"/>
         <location line="+12"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
         <location line="+12"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-4"/>
         <location line="+12"/>
@@ -60,8 +60,8 @@
     </message>
     <message>
         <location line="-4"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
         <source>Contacts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -69,70 +69,70 @@
         <location line="+2"/>
         <location line="+6"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
-        <location line="+4"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <location line="+4"/>
+        <location line="+8"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
+        <location line="+6"/>
         <source>Contact info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>ContactInfo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+4"/>
-        <location line="+10"/>
+        <location line="+6"/>
+        <location line="+8"/>
         <location line="+20"/>
         <location line="+10"/>
-        <location line="+320"/>
-        <location line="+106"/>
+        <location line="+286"/>
+        <location line="+56"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+6"/>
         <location line="+10"/>
         <location line="+18"/>
         <location line="+10"/>
-        <location line="+326"/>
-        <location line="+118"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+4"/>
+        <location line="+172"/>
+        <location line="+178"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+6"/>
         <location line="+8"/>
-        <location line="+20"/>
+        <location line="+18"/>
         <location line="+10"/>
-        <location line="+208"/>
-        <location line="+236"/>
+        <location line="+182"/>
+        <location line="+176"/>
         <source>Packages</source>
         <translation>Пакеты</translation>
     </message>
     <message>
-        <location line="-462"/>
-        <location line="+14"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-480"/>
+        <location line="-382"/>
         <location line="+18"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-484"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-386"/>
+        <location line="+14"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-398"/>
         <location line="+18"/>
         <source>Feature Package Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-16"/>
-        <location line="+10"/>
-        <location line="+10"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-22"/>
-        <location line="+10"/>
+        <location line="-14"/>
         <location line="+8"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-14"/>
+        <location line="+10"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-18"/>
+        <location line="+10"/>
+        <location line="+12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-16"/>
         <location line="+8"/>
-        <location line="+8"/>
+        <location line="+10"/>
         <source>Feature package</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-14"/>
         <location line="+8"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-10"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-14"/>
         <location line="+8"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-14"/>
         <location line="+8"/>
         <source>Features</source>
         <translation>Свойства</translation>
@@ -142,7 +142,7 @@
         <location line="+8"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-10"/>
         <location line="+8"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-10"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-6"/>
         <location line="+8"/>
         <source>Edit Feature</source>
         <translation type="unfinished"></translation>
@@ -150,7 +150,7 @@
     <message>
         <location line="+6"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+8"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+6"/>
         <source>FeaturePackage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -162,86 +162,73 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-54"/>
-        <location line="+56"/>
-        <location line="+50"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+52"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-54"/>
-        <location line="+58"/>
-        <location line="+48"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+28"/>
+        <location line="-60"/>
+        <location line="+62"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+4"/>
-        <location line="+44"/>
-        <location line="+306"/>
-        <location line="+8"/>
-        <location line="+48"/>
         <source>Russian</source>
         <translation>Русский</translation>
     </message>
     <message>
-        <location line="-410"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-388"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-408"/>
+        <location line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
         <source>Russian help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
         <location line="+10"/>
-        <location line="+38"/>
+        <location line="+26"/>
         <location line="+20"/>
         <location line="+32"/>
         <location line="+4"/>
-        <location line="+220"/>
-        <location line="+182"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+6"/>
+        <location line="+200"/>
+        <location line="+92"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+4"/>
         <location line="+10"/>
-        <location line="+40"/>
+        <location line="+28"/>
         <location line="+20"/>
         <location line="+30"/>
         <location line="+4"/>
-        <location line="+234"/>
-        <location line="+162"/>
+        <location line="+90"/>
+        <location line="+228"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+6"/>
         <location line="+10"/>
-        <location line="+38"/>
+        <location line="+28"/>
         <location line="+20"/>
-        <location line="+34"/>
+        <location line="+32"/>
         <location line="+2"/>
-        <location line="+118"/>
-        <location line="+284"/>
+        <location line="+100"/>
+        <location line="+212"/>
         <source>Products</source>
         <translation>Продукты</translation>
     </message>
     <message>
-        <location line="-502"/>
-        <location line="+74"/>
+        <location line="-380"/>
+        <location line="+62"/>
         <location line="+6"/>
-        <location line="+118"/>
-        <location line="+128"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-496"/>
         <location line="+76"/>
+        <location line="+150"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-406"/>
+        <location line="+64"/>
         <location line="+6"/>
-        <location line="+116"/>
-        <location line="+134"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-502"/>
-        <location line="+74"/>
+        <location line="+98"/>
         <location line="+6"/>
-        <location line="+130"/>
-        <location line="+4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-400"/>
+        <location line="+64"/>
+        <location line="+6"/>
+        <location line="+98"/>
+        <location line="+14"/>
         <source>Installations</source>
         <translation>Инсталляции</translation>
     </message>
     <message>
-        <location line="-324"/>
+        <location line="-292"/>
         <location line="+12"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-330"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-172"/>
         <location line="+12"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-212"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-180"/>
         <location line="+12"/>
         <source>Log</source>
         <translation>Лог</translation>
@@ -269,173 +256,102 @@
     </message>
     <message>
         <location line="+2"/>
-        <location line="+16"/>
-        <location line="+344"/>
+        <location line="+12"/>
+        <location line="+288"/>
+        <location line="+98"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
         <location line="+12"/>
-        <location line="+364"/>
+        <location line="+286"/>
+        <location line="+98"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <location line="+12"/>
-        <location line="+354"/>
+        <location line="+286"/>
+        <location line="+100"/>
         <source>Preference File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-358"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-372"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-358"/>
+        <location line="-396"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-390"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-390"/>
         <source>Design</source>
         <translation>Дизайн</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+94"/>
-        <location line="+218"/>
-        <location line="+34"/>
-        <location line="+26"/>
+        <location line="+254"/>
+        <location line="+22"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
-        <location line="+110"/>
-        <location line="+78"/>
-        <location line="+144"/>
-        <location line="+42"/>
+        <location line="+158"/>
+        <location line="+118"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <location line="+94"/>
-        <location line="+104"/>
-        <location line="+140"/>
-        <location line="+16"/>
+        <location line="+144"/>
+        <location line="+130"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location line="-370"/>
+        <location line="-274"/>
         <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-372"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-282"/>
         <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-362"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-282"/>
         <location line="+2"/>
         <source>Preferences</source>
         <translation>Настройки</translation>
     </message>
     <message>
         <location line="+2"/>
-        <location line="+84"/>
-        <location line="+10"/>
-        <location line="+206"/>
-        <location line="+30"/>
-        <location line="+22"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-8"/>
-        <location line="+98"/>
-        <location line="+6"/>
-        <location line="+96"/>
-        <location line="+150"/>
-        <location line="+16"/>
+        <location line="+254"/>
+        <location line="+26"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+6"/>
+        <location line="+154"/>
+        <location line="+118"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <location line="+96"/>
-        <location line="+4"/>
-        <location line="+106"/>
-        <location line="+142"/>
-        <location line="+30"/>
+        <location line="+154"/>
+        <location line="+134"/>
         <source>General</source>
         <translation>Основные</translation>
     </message>
     <message>
-        <location line="-350"/>
-        <location line="+344"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-354"/>
-        <location line="+368"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-362"/>
-        <location line="+338"/>
-        <source>Light</source>
-        <translation>Светлая</translation>
-    </message>
-    <message>
-        <location line="-342"/>
-        <location line="+344"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-366"/>
-        <location line="+368"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-336"/>
-        <location line="+338"/>
-        <source>Dark</source>
-        <translation>Темная</translation>
-    </message>
-    <message>
-        <location line="-446"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+52"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-472"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+28"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-348"/>
-        <location line="+306"/>
-        <location line="+8"/>
-        <location line="+48"/>
+        <location line="-384"/>
         <source>English</source>
         <translation>Английский</translation>
     </message>
     <message>
-        <location line="-466"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+52"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-442"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+28"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-360"/>
-        <location line="+306"/>
-        <location line="+8"/>
-        <location line="+48"/>
+        <location line="+2"/>
         <source>German</source>
         <translation>Немецкий</translation>
     </message>
     <message>
-        <location line="-464"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+52"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-440"/>
-        <location line="+106"/>
-        <location line="+302"/>
-        <location line="+8"/>
-        <location line="+28"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-358"/>
-        <location line="+306"/>
-        <location line="+8"/>
-        <location line="+48"/>
+        <location line="+4"/>
         <source>Polish</source>
         <translation>Польский</translation>
     </message>
     <message>
-        <location line="-358"/>
-        <location line="+8"/>
-        <location line="+12"/>
+        <location line="+104"/>
+        <location line="+10"/>
+        <location line="+10"/>
         <location line="+32"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-336"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-268"/>
         <location line="+10"/>
         <location line="+10"/>
-        <location line="+30"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-354"/>
-        <location line="+10"/>
-        <location line="+10"/>
-        <location line="+30"/>
+        <location line="+34"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-280"/>
+        <location line="+12"/>
+        <location line="+8"/>
+        <location line="+32"/>
         <source>Product Licensing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-50"/>
-        <location line="+2"/>
-        <location line="+8"/>
-        <location line="+2"/>
-        <location line="+8"/>
-        <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-44"/>
+        <location line="+4"/>
+        <location line="+6"/>
+        <location line="+4"/>
+        <location line="+6"/>
+        <location line="+4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-50"/>
         <location line="+2"/>
         <location line="+8"/>
         <location line="+2"/>
@@ -451,54 +367,54 @@
         <translation>Редактирование лицензии</translation>
     </message>
     <message>
-        <location line="-18"/>
+        <location line="-22"/>
         <location line="+10"/>
         <location line="+10"/>
-        <location line="+82"/>
+        <location line="+50"/>
+        <location line="+30"/>
         <location line="+38"/>
-        <location line="+36"/>
-        <location line="+14"/>
-        <location line="+18"/>
         <location line="+10"/>
-        <location line="+16"/>
-        <location line="+12"/>
-        <location line="+122"/>
-        <location line="+72"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-24"/>
-        <location line="+10"/>
-        <location line="+10"/>
-        <location line="+92"/>
-        <location line="+32"/>
-        <location line="+46"/>
-        <location line="+10"/>
-        <location line="+14"/>
         <location line="+20"/>
         <location line="+18"/>
+        <location line="+24"/>
         <location line="+16"/>
-        <location line="+130"/>
-        <location line="+28"/>
+        <location line="+98"/>
+        <location line="+16"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-18"/>
+        <location line="+10"/>
+        <location line="+10"/>
+        <location line="+54"/>
+        <location line="+48"/>
+        <location line="+38"/>
+        <location line="+18"/>
+        <location line="+8"/>
+        <location line="+14"/>
+        <location line="+26"/>
+        <location line="+10"/>
+        <location line="+76"/>
+        <location line="+34"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-18"/>
         <location line="+10"/>
         <location line="+10"/>
-        <location line="+76"/>
-        <location line="+56"/>
-        <location line="+34"/>
-        <location line="+20"/>
+        <location line="+66"/>
+        <location line="+12"/>
+        <location line="+70"/>
+        <location line="+16"/>
+        <location line="+12"/>
         <location line="+22"/>
         <location line="+16"/>
-        <location line="+14"/>
-        <location line="+18"/>
-        <location line="+102"/>
-        <location line="+42"/>
+        <location line="+20"/>
+        <location line="+40"/>
+        <location line="+78"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location line="-436"/>
+        <location line="-336"/>
+        <location line="+40"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-342"/>
         <location line="+38"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-418"/>
-        <location line="+42"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-418"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-370"/>
         <location line="+40"/>
         <source>Product Licensing Files</source>
         <translation type="unfinished"></translation>
@@ -509,14 +425,14 @@
         <location line="+6"/>
         <location line="+2"/>
         <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-24"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-20"/>
         <location line="+6"/>
-        <location line="+6"/>
+        <location line="+8"/>
         <location line="+2"/>
-        <location line="+4"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-18"/>
+        <location line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-20"/>
         <location line="+6"/>
-        <location line="+6"/>
+        <location line="+8"/>
         <location line="+2"/>
         <location line="+2"/>
         <source>Product Instance</source>
@@ -525,471 +441,448 @@
     <message>
         <location line="-14"/>
         <location line="+6"/>
-        <location line="+270"/>
+        <location line="+224"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-14"/>
         <location line="+6"/>
-        <location line="+288"/>
+        <location line="+242"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-14"/>
         <location line="+6"/>
-        <location line="+270"/>
+        <location line="+242"/>
         <source>License Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-268"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-282"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-268"/>
+        <location line="-222"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-240"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-240"/>
         <source>Product Instance File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-160"/>
-        <location line="+214"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-162"/>
-        <location line="+212"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+54"/>
+        <location line="-138"/>
+        <location line="+164"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-138"/>
+        <location line="+164"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+26"/>
         <source>Lisa</source>
         <translation>Lisa</translation>
     </message>
     <message>
-        <location line="-30"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-4"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-28"/>
+        <location line="-6"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-8"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-10"/>
         <source>About</source>
         <translation>О продукте</translation>
     </message>
     <message>
-        <location line="-4"/>
-        <location line="+254"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-10"/>
-        <location line="+240"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+4"/>
-        <location line="+240"/>
+        <location line="+210"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+216"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+214"/>
         <source>Log file</source>
         <translation>Лог файл</translation>
     </message>
     <message>
-        <location line="-236"/>
-        <location line="+266"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-236"/>
-        <location line="+262"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-238"/>
-        <location line="+272"/>
+        <location line="+12"/>
+        <location line="+104"/>
+        <location line="+4"/>
+        <location line="+6"/>
+        <location line="+2"/>
+        <location line="+4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+10"/>
+        <location line="+100"/>
+        <location line="+2"/>
+        <location line="+2"/>
+        <location line="+8"/>
+        <location line="+4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+14"/>
+        <location line="+100"/>
+        <location line="+4"/>
+        <location line="+2"/>
+        <location line="+4"/>
+        <location line="+6"/>
+        <source>qrc:/qml/imtgui/AuxComponents/SettingsTextInput.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-14"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-6"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
+        <source>qrc:/qml/imtgui/AuxComponents/SettingsIntegerInput.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-6"/>
+        <source>qrc:/qml/imtgui/AuxComponents/DatabaseInput.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-6"/>
         <source>Instance Mask</source>
         <translation>Маска экземпляра</translation>
     </message>
     <message>
-        <location line="-262"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-272"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-282"/>
+        <location line="-344"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-346"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-322"/>
         <source>Server version</source>
         <translation>Версия сервера</translation>
     </message>
     <message>
-        <location line="-24"/>
-        <location line="+266"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+12"/>
-        <location line="+226"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <location line="+248"/>
+        <location line="+210"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+208"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+202"/>
         <source>Download</source>
         <translation>Загрузить</translation>
     </message>
     <message>
-        <location line="-244"/>
-        <location line="+230"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-230"/>
-        <location line="+240"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-252"/>
-        <location line="+254"/>
+        <location line="-208"/>
+        <location line="+218"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-200"/>
+        <location line="+206"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-204"/>
+        <location line="+210"/>
         <source>lisa</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-236"/>
-        <location line="+266"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-230"/>
-        <location line="+266"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-234"/>
-        <location line="+278"/>
+        <location line="+104"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+112"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+108"/>
         <source>^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-248"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-292"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-272"/>
-        <source>Session</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
-        <source>UserMode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+4"/>
-        <source>NO_USER_MANAGEMENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <source>OPTIONAL_USER_MANAGEMENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
-        <source>STRONG_USER_MANAGEMENT</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-20"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+14"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-34"/>
+        <location line="+12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+10"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+16"/>
         <source>Database Settings</source>
         <translation>Настройки базы данных</translation>
     </message>
     <message>
-        <location line="+34"/>
-        <location line="+36"/>
-        <location line="+28"/>
-        <location line="+10"/>
-        <location line="+8"/>
-        <location line="+22"/>
-        <location line="+10"/>
-        <location line="+18"/>
-        <location line="+8"/>
-        <location line="+20"/>
-        <location line="+106"/>
-        <location line="+18"/>
-        <location line="+22"/>
-        <location line="+26"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+32"/>
+        <location line="-324"/>
         <location line="+30"/>
         <location line="+38"/>
-        <location line="+10"/>
         <location line="+8"/>
-        <location line="+10"/>
-        <location line="+22"/>
+        <location line="+18"/>
         <location line="+20"/>
-        <location line="+18"/>
-        <location line="+8"/>
-        <location line="+104"/>
-        <location line="+18"/>
+        <location line="+10"/>
+        <location line="+10"/>
         <location line="+22"/>
-        <location line="+14"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+38"/>
-        <location line="+54"/>
-        <location line="+36"/>
         <location line="+8"/>
-        <location line="+10"/>
-        <location line="+10"/>
-        <location line="+10"/>
+        <location line="+62"/>
+        <location line="+28"/>
+        <location line="+12"/>
+        <location line="+14"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-318"/>
+        <location line="+48"/>
+        <location line="+34"/>
         <location line="+20"/>
+        <location line="+10"/>
         <location line="+8"/>
         <location line="+22"/>
-        <location line="+86"/>
+        <location line="+10"/>
+        <location line="+8"/>
         <location line="+18"/>
-        <location line="+36"/>
-        <location line="+14"/>
+        <location line="+34"/>
+        <location line="+26"/>
+        <location line="+30"/>
+        <location line="+12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-310"/>
+        <location line="+12"/>
+        <location line="+58"/>
+        <location line="+10"/>
+        <location line="+18"/>
+        <location line="+8"/>
+        <location line="+20"/>
+        <location line="+22"/>
+        <location line="+8"/>
+        <location line="+10"/>
+        <location line="+42"/>
+        <location line="+8"/>
+        <location line="+38"/>
+        <location line="+28"/>
         <source>New</source>
         <translation>Создать</translation>
     </message>
     <message>
-        <location line="-330"/>
-        <location line="+36"/>
+        <location line="-286"/>
+        <location line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-294"/>
+        <location line="+2"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-310"/>
+        <location line="+2"/>
+        <source>qrc:/qml/imtgui/AuxComponents/SettingsComboBox.qml</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <location line="+30"/>
         <location line="+38"/>
         <location line="+8"/>
-        <location line="+22"/>
-        <location line="+10"/>
         <location line="+18"/>
-        <location line="+8"/>
-        <location line="+126"/>
-        <location line="+18"/>
+        <location line="+20"/>
+        <location line="+20"/>
         <location line="+22"/>
-        <location line="+26"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-320"/>
-        <location line="+30"/>
+        <location line="+70"/>
+        <location line="+28"/>
+        <location line="+12"/>
+        <location line="+14"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+14"/>
         <location line="+48"/>
-        <location line="+8"/>
+        <location line="+34"/>
+        <location line="+20"/>
         <location line="+10"/>
-        <location line="+22"/>
-        <location line="+20"/>
-        <location line="+18"/>
-        <location line="+112"/>
-        <location line="+18"/>
-        <location line="+22"/>
-        <location line="+14"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-330"/>
-        <location line="+54"/>
-        <location line="+36"/>
-        <location line="+18"/>
-        <location line="+20"/>
-        <location line="+20"/>
         <location line="+8"/>
-        <location line="+22"/>
-        <location line="+86"/>
+        <location line="+32"/>
+        <location line="+8"/>
+        <location line="+52"/>
+        <location line="+26"/>
+        <location line="+30"/>
+        <location line="+12"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+28"/>
+        <location line="+12"/>
+        <location line="+68"/>
         <location line="+18"/>
-        <location line="+36"/>
-        <location line="+14"/>
+        <location line="+8"/>
+        <location line="+20"/>
+        <location line="+22"/>
+        <location line="+18"/>
+        <location line="+42"/>
+        <location line="+8"/>
+        <location line="+38"/>
+        <location line="+28"/>
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location line="-324"/>
-        <location line="+14"/>
-        <location line="+266"/>
-        <location line="+24"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-336"/>
-        <location line="+58"/>
-        <location line="+228"/>
-        <location line="+56"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-320"/>
-        <location line="+28"/>
-        <location line="+228"/>
-        <location line="+70"/>
+        <location line="-268"/>
+        <location line="+42"/>
+        <location line="+176"/>
+        <location line="+54"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-272"/>
+        <location line="+26"/>
+        <location line="+182"/>
+        <location line="+68"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-302"/>
+        <location line="+42"/>
+        <location line="+198"/>
+        <location line="+38"/>
         <source>Undo</source>
         <translation>Отменить</translation>
     </message>
     <message>
-        <location line="-302"/>
-        <location line="+14"/>
-        <location line="+266"/>
-        <location line="+24"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-340"/>
-        <location line="+58"/>
-        <location line="+228"/>
-        <location line="+56"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-324"/>
-        <location line="+28"/>
-        <location line="+228"/>
-        <location line="+70"/>
+        <location line="-270"/>
+        <location line="+42"/>
+        <location line="+176"/>
+        <location line="+54"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-274"/>
+        <location line="+26"/>
+        <location line="+182"/>
+        <location line="+68"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-276"/>
+        <location line="+42"/>
+        <location line="+198"/>
+        <location line="+38"/>
         <source>Redo</source>
         <translation>Восстановить</translation>
     </message>
     <message>
-        <location line="-294"/>
-        <location line="+280"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-316"/>
-        <location line="+280"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-314"/>
-        <location line="+280"/>
+        <location line="-260"/>
+        <location line="+234"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-266"/>
+        <location line="+234"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-252"/>
+        <location line="+234"/>
         <source>:/qml/imtgui/AuxComponents/MenuPanelButtonDecorator.qml</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-246"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-274"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-274"/>
+        <location line="-214"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-228"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-204"/>
         <source>Product-ID</source>
         <translation>ID-Продукта</translation>
     </message>
     <message>
-        <location line="-16"/>
+        <location line="+32"/>
+        <location line="+38"/>
+        <location line="+20"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+78"/>
+        <location line="+18"/>
+        <location line="+40"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+44"/>
         <location line="+46"/>
-        <location line="+22"/>
-        <location line="+10"/>
-        <location line="+192"/>
-        <location line="+26"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+12"/>
-        <location line="+56"/>
-        <location line="+10"/>
-        <location line="+42"/>
-        <location line="+170"/>
-        <location line="+14"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+24"/>
-        <location line="+54"/>
-        <location line="+48"/>
-        <location line="+22"/>
-        <location line="+140"/>
-        <location line="+14"/>
+        <location line="+40"/>
         <source>Duplicate</source>
         <translation>Дублировать</translation>
     </message>
     <message>
-        <location line="-248"/>
-        <location line="+56"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-224"/>
-        <location line="+20"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-204"/>
-        <location line="+30"/>
+        <location line="-40"/>
+        <location line="+42"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-78"/>
+        <location line="+40"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-60"/>
+        <location line="+22"/>
         <source>Import</source>
         <translation>Импорт</translation>
     </message>
     <message>
-        <location line="-54"/>
-        <location line="+56"/>
-        <location line="+194"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-18"/>
-        <location line="+20"/>
-        <location line="+192"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-28"/>
-        <location line="+30"/>
-        <location line="+162"/>
+        <location line="-40"/>
+        <location line="+42"/>
+        <location line="+130"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-38"/>
+        <location line="+40"/>
+        <location line="+146"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-20"/>
+        <location line="+22"/>
+        <location line="+154"/>
         <source>Export</source>
         <translation>Экспорт</translation>
     </message>
     <message>
-        <location line="-324"/>
-        <location line="+14"/>
-        <location line="+38"/>
-        <location line="+30"/>
-        <location line="+56"/>
-        <location line="+10"/>
-        <location line="+132"/>
-        <location line="+24"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-322"/>
-        <location line="+58"/>
+        <location line="-252"/>
+        <location line="+42"/>
+        <location line="+46"/>
         <location line="+20"/>
-        <location line="+40"/>
-        <location line="+20"/>
-        <location line="+36"/>
-        <location line="+112"/>
-        <location line="+56"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-306"/>
-        <location line="+28"/>
-        <location line="+54"/>
-        <location line="+20"/>
-        <location line="+20"/>
-        <location line="+30"/>
-        <location line="+104"/>
+        <location line="+22"/>
+        <location line="+18"/>
         <location line="+70"/>
+        <location line="+54"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-258"/>
+        <location line="+26"/>
+        <location line="+54"/>
+        <location line="+40"/>
+        <location line="+10"/>
+        <location line="+36"/>
+        <location line="+42"/>
+        <location line="+68"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-300"/>
+        <location line="+42"/>
+        <location line="+44"/>
+        <location line="+46"/>
+        <location line="+22"/>
+        <location line="+18"/>
+        <location line="+68"/>
+        <location line="+38"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location line="-300"/>
-        <location line="+14"/>
-        <location line="+38"/>
-        <location line="+30"/>
-        <location line="+56"/>
-        <location line="+10"/>
-        <location line="+132"/>
-        <location line="+24"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-338"/>
-        <location line="+58"/>
+        <location line="-268"/>
+        <location line="+42"/>
+        <location line="+46"/>
         <location line="+20"/>
-        <location line="+40"/>
-        <location line="+20"/>
-        <location line="+36"/>
-        <location line="+112"/>
-        <location line="+56"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-322"/>
-        <location line="+28"/>
-        <location line="+54"/>
-        <location line="+20"/>
-        <location line="+20"/>
-        <location line="+30"/>
-        <location line="+104"/>
+        <location line="+22"/>
+        <location line="+18"/>
         <location line="+70"/>
+        <location line="+54"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-272"/>
+        <location line="+26"/>
+        <location line="+54"/>
+        <location line="+40"/>
+        <location line="+10"/>
+        <location line="+36"/>
+        <location line="+42"/>
+        <location line="+68"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-274"/>
+        <location line="+42"/>
+        <location line="+44"/>
+        <location line="+46"/>
+        <location line="+22"/>
+        <location line="+18"/>
+        <location line="+68"/>
+        <location line="+38"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location line="-258"/>
-        <location line="+96"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-270"/>
-        <location line="+96"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-250"/>
-        <location line="+20"/>
+        <location line="-170"/>
+        <location line="+40"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-152"/>
+        <location line="+36"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-198"/>
+        <location line="+86"/>
         <source>Open</source>
         <translation>Открыть</translation>
     </message>
     <message>
-        <location line="-114"/>
-        <location line="+80"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-124"/>
-        <location line="+110"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-54"/>
-        <location line="+126"/>
+        <location line="-126"/>
+        <location line="+50"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-122"/>
+        <location line="+116"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-136"/>
+        <location line="+72"/>
         <source>Create License File</source>
         <translation>Создать файл лицензии</translation>
     </message>
     <message>
-        <location line="+46"/>
-        <location line="+182"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+30"/>
-        <location line="+168"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-118"/>
-        <location line="+288"/>
+        <location line="+100"/>
+        <location line="+146"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-110"/>
+        <location line="+266"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-30"/>
+        <location line="+254"/>
         <source>Test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-386"/>
-        <location line="+214"/>
-        <location line="+32"/>
-        <location line="+28"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-388"/>
-        <location line="+102"/>
-        <location line="+146"/>
-        <location line="+26"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-390"/>
-        <location line="+110"/>
-        <location line="+140"/>
-        <location line="+28"/>
+        <location line="-160"/>
+        <location line="+24"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-258"/>
+        <location line="+116"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-262"/>
+        <location line="+134"/>
         <source>Mode</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location line="-56"/>
-        <location line="+36"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-176"/>
-        <location line="+146"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-164"/>
-        <location line="+140"/>
+        <location line="-18"/>
+        <location line="+30"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-110"/>
+        <location line="+120"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-136"/>
+        <location line="+134"/>
         <source>Lisa Settings</source>
         <translation>Настройки Lisa</translation>
     </message>
     <message>
-        <location line="-42"/>
-        <location line="+32"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-144"/>
-        <location line="+146"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-146"/>
-        <location line="+140"/>
+        <location line="-34"/>
+        <location line="+26"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-118"/>
+        <location line="+122"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-138"/>
+        <location line="+128"/>
         <source>DB Settings</source>
         <translation>Настройки БД</translation>
     </message>
     <message>
-        <location line="-438"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-438"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-426"/>
+        <location line="-374"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-378"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-364"/>
         <source>ImagingTools GmbH</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+472"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+460"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+438"/>
-        <source>Client version</source>
-        <translation>Версия клиента</translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+28"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+64"/>
+        <location line="+394"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+430"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+392"/>
         <source>Optional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+40"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+40"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+14"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+4"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+40"/>
         <source>$IMTCORESEPARATOR$</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+46"/>
+        <location line="+42"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+42"/>
         <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+2"/>
         <source>License Name</source>
         <translation>Название</translation>
@@ -1002,71 +895,71 @@
         <translation>ID</translation>
     </message>
     <message>
-        <location line="-268"/>
-        <location line="+202"/>
-        <location line="+14"/>
-        <location line="+54"/>
-        <location line="+18"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-320"/>
-        <location line="+230"/>
-        <location line="+6"/>
-        <location line="+40"/>
-        <location line="+46"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-276"/>
-        <location line="+256"/>
-        <location line="+6"/>
+        <location line="-256"/>
+        <location line="+170"/>
+        <location line="+26"/>
+        <location line="+52"/>
+        <location line="+10"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-270"/>
+        <location line="+200"/>
+        <location line="+20"/>
+        <location line="+10"/>
+        <location line="+42"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-206"/>
+        <location line="+160"/>
+        <location line="+32"/>
         <location line="+16"/>
-        <location line="+38"/>
+        <location line="+22"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location line="-296"/>
-        <location line="+222"/>
-        <location line="+72"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-330"/>
-        <location line="+242"/>
-        <location line="+40"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-324"/>
-        <location line="+268"/>
-        <location line="+54"/>
+        <location line="-266"/>
+        <location line="+202"/>
+        <location line="+52"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-280"/>
+        <location line="+206"/>
+        <location line="+30"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-238"/>
+        <location line="+198"/>
+        <location line="+38"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location line="-350"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-288"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-342"/>
+        <location line="-288"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-264"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-276"/>
         <source>Email</source>
         <translation>Email</translation>
     </message>
     <message>
-        <location line="+66"/>
-        <location line="+216"/>
-        <location line="+72"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+16"/>
-        <location line="+236"/>
-        <location line="+40"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+30"/>
-        <location line="+262"/>
-        <location line="+54"/>
+        <location line="+44"/>
+        <location line="+196"/>
+        <location line="+52"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+38"/>
+        <location line="+200"/>
+        <location line="+30"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+50"/>
+        <location line="+192"/>
+        <location line="+38"/>
         <source>Added</source>
         <translation>Добавлено</translation>
     </message>
     <message>
-        <location line="-70"/>
-        <location line="+72"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-38"/>
-        <location line="+40"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-52"/>
-        <location line="+54"/>
+        <location line="-50"/>
+        <location line="+52"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-28"/>
+        <location line="+30"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-36"/>
+        <location line="+38"/>
         <source>Last Modified</source>
         <translation>Последнее изменение</translation>
     </message>
     <message>
-        <location line="-358"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-296"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-350"/>
+        <location line="-296"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-272"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-284"/>
         <source>Account Name</source>
         <translation>Название</translation>
     </message>
@@ -1078,9 +971,9 @@
         <translation>Описание</translation>
     </message>
     <message>
-        <location line="+260"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+238"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+278"/>
+        <location line="+206"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+250"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+202"/>
         <source>Feature Name</source>
         <translation>Название</translation>
     </message>
@@ -1092,9 +985,9 @@
         <translation>ID</translation>
     </message>
     <message>
-        <location line="-206"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-234"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-260"/>
+        <location line="-174"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-224"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-164"/>
         <source>Instance-ID</source>
         <translation>ID</translation>
     </message>
@@ -1106,41 +999,13 @@
         <translation>Покупатель</translation>
     </message>
     <message>
-        <location line="-104"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-76"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-76"/>
-        <source>Admin Panel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+282"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+280"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+286"/>
-        <source>Network Settings</source>
-        <translation>Настройки сети</translation>
-    </message>
-    <message>
-        <location line="-2"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
-        <source>Server Url</source>
-        <translation>Адрес сервера</translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+8"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-10"/>
-        <source>http://h2815060.stratoserver.net:7776</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-460"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-470"/>
+        <location line="-218"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="-204"/>
         <source>Client</source>
         <translation>Клиент</translation>
     </message>
     <message>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-446"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-230"/>
         <source>Lisa server service</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1150,13 +1015,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaClient/CLisaClient.cpp" line="+180"/>
-        <location line="+258"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+188"/>
-        <location line="+240"/>
-        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="-2"/>
-        <location line="+196"/>
-        <location line="+242"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaClient/CLisaClient.cpp" line="+378"/>
+        <location line="+106"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaQmlExe/CLisaQmlExe.cpp" line="+378"/>
+        <location line="+120"/>
+        <location filename="../../../AuxInclude/Qt5_VC16_x64/GeneratedFiles/LisaServer/CLisaServer.cpp" line="+360"/>
+        <location line="+140"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
