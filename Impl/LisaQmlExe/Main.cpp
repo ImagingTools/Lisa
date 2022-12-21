@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Webimtgui);
 	Q_INIT_RESOURCE(Webimtlicgui);
 
+	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+
 	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
 	Q_ASSERT(imtStylePtr != nullptr);
 	
