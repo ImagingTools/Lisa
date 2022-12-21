@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5040" Description="ACF"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
             <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -10,165 +10,30 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="ApplicationInfo" PackageId="BasePck" ComponentId="ApplicationInfo">
+        <Element Id="Application" PackageId="ImtQmlVoce" ComponentId="QmlClientFramework">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Client"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="ImagingTools GmbH"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="VersionInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="Context" PackageId="ImtQmlPck" ComponentId="Context">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCoreLocalization"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ImtCoreLocalization" PackageId="QtPck" ComponentId="TranslationManager">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="InstallTranslate" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="LanguageIds">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>English</Value>
-                                <Value>German</Value>
-                                <Value>Russian</Value>
-                                <Value>Polish</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageSelection" Type="Reference" ExportId="LanguageSelection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/Translations"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ImtCore"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
+                        <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="QuickApplication/RuntimeStatus"/>
+                        <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="VersionInfo"/>
+                        <Data IsEnabled="true" Value="Application/VersionInfo"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="MainWindow" PackageId="ImtQmlPck" ComponentId="QuickObject">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="BaseUrl" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="http://85.214.249.16:7776"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="QmlFilePath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":/qml/LisaMain.qml"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ObserverQml" PackageId="ImtQmlPck" ComponentId="ObserverQml">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageParameter" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/Language"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/CompositeRepresentation"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/CompositeRepresentation"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="QuickObject" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="MainWindow"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="/Lisa"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="QuickApplication" PackageId="ImtQmlPck" ComponentId="QuickApplication">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ObserverQml</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Context" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Context"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="MainQuickWindow" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="MainWindow"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TitleFormat" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="SplashScreen" PackageId="QtGuiPck" ComponentId="SplashScreen">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
             </Data>
         </Element>
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
-        <Interface InterfaceId="ibase::IApplication" ComponentId="QuickApplication"/>
+        <Interface InterfaceId="ibase::IApplication" ComponentId="Application"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>

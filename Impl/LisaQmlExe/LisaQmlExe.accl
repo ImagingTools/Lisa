@@ -2,25 +2,18 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5040" Description="ACF"/>
+            <Version Id="0" Number="5037" Description="ACF"/>
             <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfo" X="675" Y="325" Note=""/>
-        <Element ComponentName="Context" X="1125" Y="400" Note=""/>
-        <Element ComponentName="LisaLocalization" X="1075" Y="800" Note=""/>
-        <Element ComponentName="LisaLogFilePath" X="200" Y="250" Note=""/>
-        <Element ComponentName="LisaServerBase" X="525" Y="75" Note=""/>
-        <Element ComponentName="LocalSettings" X="625" Y="750" Note=""/>
-        <Element ComponentName="MainWindow" X="250" Y="450" Note=""/>
-        <Element ComponentName="ObserverQml" X="425" Y="600" Note=""/>
-        <Element ComponentName="QuickApplication" X="800" Y="525" Note=""/>
-        <Element ComponentName="SplashScreen" X="875" Y="150" Note=""/>
-        <Element ComponentName="SystemLocation" X="275" Y="325" Note=""/>
-        <Element ComponentName="TextFileLog" X="75" Y="150" Note=""/>
-        <Element ComponentName="VersionInfo" X="1050" Y="225" Note=""/>
+        <Element ComponentName="ClientApplication" X="550" Y="425" Note=""/>
+        <Element ComponentName="LisaServerBase" X="575" Y="225" Note=""/>
+        <Element ComponentName="LocalSettings" X="550" Y="550" Note=""/>
+        <Element ComponentName="LogFilePath" X="700" Y="325" Note=""/>
+        <Element ComponentName="LogSystemLocation" X="350" Y="300" Note=""/>
+        <Element ComponentName="TextFileLog" X="700" Y="125" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
