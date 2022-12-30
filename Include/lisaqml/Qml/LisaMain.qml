@@ -27,8 +27,8 @@ Item {
     function updateAllModels(){
         settingsProvider.updateModel();
         thumbnailDecorator.updateModels();
-        featuresProvider.updateModel();
-        featuresDependenciesProvider.updateModel();
+//        featuresProvider.updateModel();
+//        featuresDependenciesProvider.updateModel();
     }
 
     FeaturesProvider {
@@ -42,6 +42,12 @@ Item {
     SettingsProvider {
         id: settingsProviderLocal;
         root: window;
+    }
+
+    InstanceMaskProvider {
+        id: instanceMaskProvider;
+
+        model: settingsProviderLocal.serverModel;
     }
 
     ThumbnailDecorator {

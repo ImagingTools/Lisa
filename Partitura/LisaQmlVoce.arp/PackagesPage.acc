@@ -60,7 +60,7 @@
         <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
+                    <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Commands</Value>
@@ -68,6 +68,12 @@
                                 <Value>PackageDataController</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -383,6 +389,38 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="PageOptions" PackageId="BasePck" ComponentId="SelectionConstraints">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>PageId</Value>
+                                <Value>PageName</Value>
+                                <Value>PageDefaultStatusIcon</Value>
+                                <Value>PageOnSelectedStatusIcon</Value>
+                                <Value>PageOffSelectedStatusIcon</Value>
+                                <Value>PageSourceItem</Value>
+                                <Value>StartSourceItem</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Packages</Value>
+                                <Value>Packages</Value>
+                                <Value>FeaturePackage</Value>
+                                <Value>../../Icons/Workflow_On_Selected.svg</Value>
+                                <Value>../../Icons/Workflow_Off_Selected.svg</Value>
+                                <Value>../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml</Value>
+                                <Value>../../imtlicgui/PackageCollectionView.qml</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -426,10 +464,10 @@
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
-        <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="Demultiplexer"/>
+        <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="Demultiplexer"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="PackagesPageVisualStatus" ComponentId="VisualStatus"/>
+        <Component ExportedId="PackagesVisualStatus" ComponentId="VisualStatus"/>
     </ExportedComponents>
 </Acf>

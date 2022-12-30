@@ -11,6 +11,7 @@
         <file alias="Acf/Style.qml">Qml/Acf/Style.qml</file>
         <file alias="lisa.qml">Qml/lisa.qml</file>
 	<file alias="LisaMain.qml">Qml/LisaMain.qml</file>
+	<file alias="InstanceMaskProvider.qml">Qml/InstanceMaskProvider.qml</file>
     </qresource>
     <qresource prefix="/Style">
         <file alias="lisa_dark.theme">lisa_dark.theme</file>

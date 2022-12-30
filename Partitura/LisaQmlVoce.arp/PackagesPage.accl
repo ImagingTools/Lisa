@@ -12,17 +12,18 @@
         <Element ComponentName="Commands" X="575" Y="225" Note=""/>
         <Element ComponentName="CommandsPermissionsProvider" X="325" Y="475" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
-        <Element ComponentName="EditCommandsPermissionsProvider" X="850" Y="550" Note=""/>
+        <Element ComponentName="EditCommandsPermissionsProvider" X="850" Y="475" Note=""/>
         <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
-        <Element ComponentName="PackageCommandPermissions" X="450" Y="550" Note=""/>
-        <Element ComponentName="PackageDataController" X="225" Y="225" Note=""/>
-        <Element ComponentName="PackageEditCommandDataProvider" X="950" Y="625" Note=""/>
-        <Element ComponentName="PackageEditCommandPermissions" X="550" Y="625" Note=""/>
-        <Element ComponentName="PackageHeadersDataProvider" X="225" Y="375" Note=""/>
-        <Element ComponentName="PackagesCommandDataProvider" X="150" Y="550" Note=""/>
-        <Element ComponentName="PackagesDataController" X="950" Y="225" Note=""/>
-        <Element ComponentName="PackagesHeadersDataProvider" X="950" Y="375" Note=""/>
-        <Element ComponentName="VisualStatus" X="125" Y="75" Note=""/>
+        <Element ComponentName="PackageCommandPermissions" X="325" Y="725" Note=""/>
+        <Element ComponentName="PackageDataController" X="300" Y="300" Note=""/>
+        <Element ComponentName="PackageEditCommandDataProvider" X="1025" Y="725" Note=""/>
+        <Element ComponentName="PackageEditCommandPermissions" X="725" Y="650" Note=""/>
+        <Element ComponentName="PackageHeadersDataProvider" X="300" Y="375" Note=""/>
+        <Element ComponentName="PackagesCommandDataProvider" X="150" Y="650" Note=""/>
+        <Element ComponentName="PackagesDataController" X="900" Y="225" Note=""/>
+        <Element ComponentName="PackagesHeadersDataProvider" X="900" Y="350" Note=""/>
+        <Element ComponentName="PageOptions" X="150" Y="200" Note=""/>
+        <Element ComponentName="VisualStatus" X="150" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

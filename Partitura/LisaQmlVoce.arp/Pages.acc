@@ -2,25 +2,30 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5040" Description="ACF"/>
-            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="CompositeRepresentation" PackageId="ImtQmlPck" ComponentId="CompositeRepresentation">
+        <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="RepresentationDataProvider" Type="Reference[]" ExportId="">
+                    <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PageData/PackagesPageVisualStatus</Value>
-                                <Value>PageData/ProductsPageVisualStatus</Value>
-                                <Value>PageData/AdministrationPageVisualStatus</Value>
+                                <Value>PageDataControllers</Value>
+                                <Value>PagesVisualStatusController</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -36,6 +41,21 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PackagesVisualStatus" PackageId="ImtGuiPck" ComponentId="VisualStatus">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="FeaturePackage.svg"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StatusText" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Packages"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -67,13 +87,12 @@
         <Element Id="PageDataControllers" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
+                    <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PageData/PackagesPage</Value>
                                 <Value>PageData/ProductsPage</Value>
                                 <Value>PageData/AdministrationPages</Value>
-                                <Value>PageData/PermissionsController</Value>
                                 <Value>PageData/ProductPermissionController</Value>
                             </Values>
                         </Data>
@@ -84,14 +103,57 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PageVisualStatus" PackageId="ImtGuiGqlPck" ComponentId="PagesDataController">
+        <Element Id="PagesModel" PackageId="ImtGuiPck" ComponentId="PageBasedGuiModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DecoratorSource" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value=":/qml/imtgui/AuxComponents/MenuPanelButtonDecorator.qml"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Names" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Packages</Value>
+                                <Value>Products</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Packages</Value>
+                                <Value>Products</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageModes" Type="Boolean[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>true</Value>
+                                <Value>true</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageVisualStatuses" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>PackagesVisualStatus</Value>
+                                <Value>ProductsVisualStatus</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PagesRepresentation" PackageId="ImtCorePck" ComponentId="PageBasedGuiRepresentationController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="PagesVisualStatusController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PagesModel"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
@@ -100,28 +162,35 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="MutationDataDelegate" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CompositeRepresentation"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PagesDataProviderCompPtr" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CompositeRepresentation"/>
+                    <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PagesRepresentation"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Pages" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
+        <Element Id="PagesVisualStatutes" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="GqlRepresentationDataController" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>PageDataControllers</Value>
-                                <Value>PageVisualStatus</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductsVisualStatus" PackageId="ImtGuiPck" ComponentId="VisualStatus">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StatusIcon" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Product.svg"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StatusText" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Products"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -191,30 +260,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="PermissionsController" PackageId="ImtGqlPck" ComponentId="PermissionsController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>FeaturesPermissions</Value>
-                                            <Value>ProductPermissions</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetPermissions</Value>
-                                        </Values>
-                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -307,11 +352,11 @@
                     <Component ExportedId="AdministrationPages" ComponentId="AdministrationPage/AdministrationPages"/>
                     <Component ExportedId="FeatureInfoProvider" ComponentId="FeatureInfoProvider"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
-                    <Component ExportedId="PackagesPageVisualStatus" ComponentId="PackagesPage/PackagesPageVisualStatus"/>
-                    <Component ExportedId="PermissionsController" ComponentId="PermissionsController"/>
+                    <Component ExportedId="PackagesVisualStatus" ComponentId="PackagesPage/PackagesVisualStatus"/>
                     <Component ExportedId="ProductPermissionController" ComponentId="ProductPermissionController"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="ProductsPageVisualStatus" ComponentId="ProductsPage/ProductsPageVisualStatus"/>
+                    <Component ExportedId="ProductsVisualStatus" ComponentId="ProductsPage/ProductsVisualStatus"/>
                     <Component ExportedId="UserSqlRepository" ComponentId="AdministrationPage/UserSqlRepository"/>
                 </ExportedComponents>
             </Data>
@@ -366,13 +411,11 @@
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
     <ExportedInterfaces>
-        <Interface InterfaceId="imtgql::IGqlRepresentationDataController" ComponentId="Pages"/>
-        <Interface InterfaceId="istd::IPolymorphic" ComponentId="Pages"/>
+        <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="Demultiplexer"/>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
-        <Component ExportedId="PackageRepository" ComponentId="Repositories/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
-        <Component ExportedId="UserSqlRepository" ComponentId="PageData/UserSqlRepository"/>
     </ExportedComponents>
 </Acf>

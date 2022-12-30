@@ -2,41 +2,44 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5040" Description="ACF"/>
-            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CompositeRepresentation" X="250" Y="450" Note=""/>
-        <Element ComponentName="FeaturesExportProvider" X="650" Y="600" Note=""/>
-        <Element ComponentName="PageData" X="975" Y="425" Note=""/>
-        <Element ComponentName="PageDataControllers" X="975" Y="250" Note=""/>
-        <Element ComponentName="PageVisualStatus" X="250" Y="250" Note=""/>
-        <Element ComponentName="Pages" X="600" Y="75" Note=""/>
-        <Element ComponentName="Repositories" X="975" Y="600" Note=""/>
+        <Element ComponentName="Demultiplexer" X="600" Y="75" Note=""/>
+        <Element ComponentName="FeaturesExportProvider" X="1050" Y="725" Note=""/>
+        <Element ComponentName="PackagesVisualStatus" X="100" Y="625" Note=""/>
+        <Element ComponentName="PageData" X="1050" Y="425" Note=""/>
+        <Element ComponentName="PageDataControllers" X="1025" Y="250" Note=""/>
+        <Element ComponentName="PagesModel" X="300" Y="475" Note=""/>
+        <Element ComponentName="PagesRepresentation" X="675" Y="475" Note=""/>
+        <Element ComponentName="PagesVisualStatusController" X="330" Y="275" Note=""/>
+        <Element ComponentName="PagesVisualStatutes" X="375" Y="800" Note=""/>
+        <Element ComponentName="ProductsVisualStatus" X="550" Y="625" Note=""/>
+        <Element ComponentName="Repositories" X="1050" Y="575" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="PageData">
+            <PositionMap>
+                <Element ComponentName="AdministrationPage" X="550" Y="475" Note=""/>
+                <Element ComponentName="CheckPermissions" X="550" Y="125" Note=""/>
+                <Element ComponentName="FeatureInfoProvider" X="775" Y="300" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="175" Y="300" Note=""/>
+                <Element ComponentName="PackagesPage" X="200" Y="125" Note=""/>
+                <Element ComponentName="ProductPermissionController" X="550" Y="725" Note=""/>
+                <Element ComponentName="ProductPermissions" X="1050" Y="300" Note=""/>
+                <Element ComponentName="ProductsPage" X="925" Y="125" Note=""/>
+                <Element ComponentName="SeparatorValue" X="100" Y="725" Note=""/>
+                <Element ComponentName="SingleProductPermission" X="550" Y="600" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="FeaturePackageRepository" X="425" Y="450" Note=""/>
                 <Element ComponentName="ProductRepository" X="850" Y="450" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PageData">
-            <PositionMap>
-                <Element ComponentName="AdministrationPage" X="1050" Y="525" Note=""/>
-                <Element ComponentName="CheckPermissions" X="450" Y="300" Note=""/>
-                <Element ComponentName="FeatureInfoProvider" X="525" Y="550" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="145" Y="276" Note=""/>
-                <Element ComponentName="PackagesPage" X="175" Y="450" Note=""/>
-                <Element ComponentName="PermissionsController" X="675" Y="75" Note=""/>
-                <Element ComponentName="ProductPermissionController" X="1050" Y="750" Note=""/>
-                <Element ComponentName="ProductPermissions" X="1050" Y="250" Note=""/>
-                <Element ComponentName="ProductsPage" X="775" Y="375" Note=""/>
-                <Element ComponentName="SeparatorValue" X="150" Y="650" Note=""/>
-                <Element ComponentName="SingleProductPermission" X="1050" Y="625" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -2,17 +2,22 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5040" Description="ACF"/>
-            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5030" Description="ACF"/>
+            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfo" X="975" Y="450" Note=""/>
-        <Element ComponentName="ApplicationInfoDataProvider" X="975" Y="600" Note=""/>
-        <Element ComponentName="ApplicationSettings" X="600" Y="50" Note=""/>
-        <Element ComponentName="ServerSettings" X="600" Y="200" Note=""/>
-        <Element ComponentName="UserRelatedSettings" X="150" Y="325" Note=""/>
+        <Element ComponentName="ApplicationInfo" X="1050" Y="750" Note=""/>
+        <Element ComponentName="ApplicationInfoDataProvider" X="1050" Y="800" Note=""/>
+        <Element ComponentName="ApplicationSettings" X="625" Y="350" Note=""/>
+        <Element ComponentName="GeneralPageRepresentation" X="175" Y="600" Note=""/>
+        <Element ComponentName="GeneralSettings" X="200" Y="100" Note=""/>
+        <Element ComponentName="ServerSettings" X="1025" Y="100" Note=""/>
+        <Element ComponentName="ServerSettingsRepresentation" X="1023" Y="599" Note=""/>
+        <Element ComponentName="Settings" X="625" Y="200" Note=""/>
+        <Element ComponentName="SettingsRepresentation" X="625" Y="475" Note=""/>
+        <Element ComponentName="UserRelatedSettings" X="175" Y="700" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

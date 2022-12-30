@@ -9,17 +9,17 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="CommandPermissionsProviderJoiner" X="625" Y="250" Note=""/>
-        <Element ComponentName="CommandsData" X="925" Y="325" Note=""/>
+        <Element ComponentName="CommandsData" X="975" Y="325" Note=""/>
         <Element ComponentName="FeaturesDependencies" X="425" Y="100" Note=""/>
         <Element ComponentName="FeaturesTree" X="150" Y="100" Note=""/>
         <Element ComponentName="PackageAdd" X="300" Y="350" Note=""/>
         <Element ComponentName="PackageItem" X="350" Y="425" Note=""/>
-        <Element ComponentName="PackageUpdate" X="150" Y="275" Note=""/>
+        <Element ComponentName="PackageUpdate" X="150" Y="250" Note=""/>
         <Element ComponentName="PackagesInfo" X="725" Y="100" Note=""/>
-        <Element ComponentName="PackagesList" X="1000" Y="100" Note=""/>
+        <Element ComponentName="PackagesList" X="1025" Y="100" Note=""/>
         <Element ComponentName="PackagesMetaInfo" X="600" Y="575" Note=""/>
         <Element ComponentName="PackagesObjectView" X="450" Y="500" Note=""/>
-        <Element ComponentName="PackagesRemove" X="1075" Y="250" Note=""/>
+        <Element ComponentName="PackagesRemove" X="1050" Y="250" Note=""/>
         <Element ComponentName="PackagesRename" X="750" Y="500" Note=""/>
         <Element ComponentName="PackagesSetDescription" X="850" Y="400" Note=""/>
     </PositionMap>
