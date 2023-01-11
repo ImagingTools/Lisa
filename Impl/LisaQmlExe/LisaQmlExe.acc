@@ -72,6 +72,9 @@
                     <AttributeInfo Id="Languages" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaServerBase/LisaLocalization"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="TextFileLog"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ClientApplication/RuntimeStatus"/>
                     </AttributeInfo>

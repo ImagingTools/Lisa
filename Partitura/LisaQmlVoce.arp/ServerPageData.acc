@@ -97,10 +97,10 @@
     <ExportedInterfaces>
         <Interface InterfaceId="iprm::IParamsSet" ComponentId="Preferences"/>
         <Interface InterfaceId="iser::ISerializable" ComponentId="Preferences"/>
+        <Interface InterfaceId="istd::IChangeable" ComponentId="Preferences"/>
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
-        <Component ExportedId="Mask" ComponentId="Mask"/>
         <Component ExportedId="Preferences" ComponentId="Preferences"/>
     </ExportedComponents>
 </Acf>

@@ -40,8 +40,10 @@ Rectangle {
     }
 
     function updateAllModels(){
+        console.log("settingsProviderLocal.updateModel");
         settingsProviderLocal.updateModel();
 
+        console.log("thumbnailDecorator.updateModels");
         thumbnailDecorator.updateModels();
 
         featuresProvider.updateModel();

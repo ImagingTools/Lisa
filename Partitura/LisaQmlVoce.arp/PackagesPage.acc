@@ -10,60 +10,14 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="Commands" PackageId="ImtGuiGqlPck" ComponentId="CommandsDataController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsDataProviderCompPtr" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>CommandsPermissionsProvider</Value>
-                                <Value>EditCommandsPermissionsProvider</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>CommandsData</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="CommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackageCommandPermissions"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackagesCommandDataProvider"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Commands</Value>
+                                <Value>PackagesCommands</Value>
+                                <Value>PackageEditCommands</Value>
                                 <Value>PackagesDataController</Value>
                                 <Value>PackageDataController</Value>
                             </Values>
@@ -72,23 +26,11 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                    <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="EditCommandsPermissionsProvider" PackageId="ImtQmlPck" ComponentId="CommandPermissionsFilter">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackageEditCommandPermissions"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsDataProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackageEditCommandDataProvider"/>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -96,7 +38,7 @@
         <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="ObjectViewModelId" Type="Id" ExportId="">
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Package"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
@@ -105,24 +47,10 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PackageCommandPermissions" PackageId="LisaVoce" ComponentId="PackageCommandPermissions">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="PackageDataController" PackageId="ImtLicenseGqlPck" ComponentId="PackageController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackageHeadersDataProvider"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PackageUpdate</Value>
@@ -133,6 +61,12 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackageHeadersDataProvider"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="FeaturePackageRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -142,79 +76,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PackageEditCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Normal</Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
-                                <Value>Disabled</Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
-                                <Value>Normal</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Add</Value>
-                                <Value>Delete</Value>
-                                <Value></Value>
-                                <Value>Undo</Value>
-                                <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Save</Value>
-                                <Value></Value>
-                                <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
-                                <Value>Undo</Value>
-                                <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Save</Value>
-                                <Value></Value>
-                                <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Package"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
-                                <Value>Undo</Value>
-                                <Value>Redo</Value>
-                                <Value></Value>
-                                <Value>Save</Value>
-                                <Value></Value>
-                                <Value>Close</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="PackageEditCommandPermissions" PackageId="LisaVoce" ComponentId="PackageEditCommandPermissions">
+        <Element Id="PackageEditCommands" PackageId="" ComponentId="PackageEditCommands">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap/>
             </Data>
@@ -260,71 +122,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PackagesCommandDataProvider" PackageId="ImtQmlPck" ComponentId="CommandDataProvider">
+        <Element Id="PackagesCommands" PackageId="" ComponentId="PackagesCommands">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandsDefaultModes" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Normal</Value>
-                                <Value>Disabled</Value>
-                                <Value></Value>
-                                <Value>Disabled</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsDefaultStatusIcon" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Add</Value>
-                                <Value>Delete</Value>
-                                <Value></Value>
-                                <Value>Edit</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
-                                <Value>Edit</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandsNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>New</Value>
-                                <Value>Remove</Value>
-                                <Value></Value>
-                                <Value>Edit</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="PackagesDataController" PackageId="ImtLicenseGqlPck" ComponentId="FeaturePackageCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelIds" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>PackagesInfo</Value>
@@ -336,6 +142,12 @@
                                 <Value>PackagesObjectView</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="FeaturePackageRepository">
                         <Data IsEnabled="false"/>
@@ -389,85 +201,246 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PageOptions" PackageId="BasePck" ComponentId="SelectionConstraints">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>PageId</Value>
-                                <Value>PageName</Value>
-                                <Value>PageDefaultStatusIcon</Value>
-                                <Value>PageOnSelectedStatusIcon</Value>
-                                <Value>PageOffSelectedStatusIcon</Value>
-                                <Value>PageSourceItem</Value>
-                                <Value>StartSourceItem</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Packages</Value>
-                                <Value>Packages</Value>
-                                <Value>FeaturePackage</Value>
-                                <Value>../../Icons/Workflow_On_Selected.svg</Value>
-                                <Value>../../Icons/Workflow_Off_Selected.svg</Value>
-                                <Value>../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml</Value>
-                                <Value>../../imtlicgui/PackageCollectionView.qml</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="VisualStatus" PackageId="ImtQmlPck" ComponentId="PageDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="CheckPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageDefaultStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackage"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOffSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Workflow_Off_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageOnSelectedStatusIcon" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../Icons/Workflow_On_Selected.svg"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PermissionIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ViewFeatures</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="StartSourceItem" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/PackageCollectionView.qml"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
     </ElementsList>
-    <EmbeddedRegistriesList/>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="PackageEditCommands">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandsModel" PackageId="ImtQmlPck" ComponentId="PageBasedModel">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ElementItemPath" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Delete</Value>
+                                            <Value></Value>
+                                            <Value>Undo</Value>
+                                            <Value>Redo</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ItemIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Undo</Value>
+                                            <Value>Redo</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ItemModes" Type="Boolean[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>true</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>true</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Names" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Undo</Value>
+                                            <Value>Redo</Value>
+                                            <Value></Value>
+                                            <Value>Save</Value>
+                                            <Value></Value>
+                                            <Value>Close</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandsRepresentation" PackageId="ImtCorePck" ComponentId="GuiElementRepresentationController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="PackageCommandsController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PackageCommands</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageEditCommandPermissions"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CommandsModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CommandsRepresentation"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PackageEditCommandPermissions" PackageId="LisaVoce" ComponentId="PackageEditCommandPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsRepresentation"/>
+                    <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="PackageCommandsController"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="PackagesCommands">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandsModel" PackageId="ImtQmlPck" ComponentId="PageBasedModel">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ElementItemPath" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>Add</Value>
+                                            <Value>Delete</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ItemIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ItemModes" Type="Boolean[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>true</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                            <Value>false</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Names" Type="Text[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value></Value>
+                                            <Value>Edit</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandsRepresentation" PackageId="ImtCorePck" ComponentId="GuiElementRepresentationController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="PackageCommandPermissions" PackageId="LisaVoce" ComponentId="PackageCommandPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
+                    <Element Id="PackagesCommandsController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PackagesCommands</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PackageCommandPermissions"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CommandsModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CommandsRepresentation"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsRepresentation"/>
+                    <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="PackagesCommandsController"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
     <ExportedInterfaces>
         <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="Demultiplexer"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
     </ExportedInterfaces>
-    <ExportedComponents>
-        <Component ExportedId="PackagesVisualStatus" ComponentId="VisualStatus"/>
-    </ExportedComponents>
+    <ExportedComponents/>
 </Acf>

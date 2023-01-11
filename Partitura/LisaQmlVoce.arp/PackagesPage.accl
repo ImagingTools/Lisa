@@ -8,22 +8,35 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CheckPermissionOr" X="575" Y="475" Note=""/>
-        <Element ComponentName="Commands" X="575" Y="225" Note=""/>
-        <Element ComponentName="CommandsPermissionsProvider" X="325" Y="475" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
-        <Element ComponentName="EditCommandsPermissionsProvider" X="850" Y="475" Note=""/>
-        <Element ComponentName="ObjectViewDataProvider" X="1050" Y="75" Note=""/>
-        <Element ComponentName="PackageCommandPermissions" X="325" Y="725" Note=""/>
-        <Element ComponentName="PackageDataController" X="300" Y="300" Note=""/>
-        <Element ComponentName="PackageEditCommandDataProvider" X="1025" Y="725" Note=""/>
-        <Element ComponentName="PackageEditCommandPermissions" X="725" Y="650" Note=""/>
-        <Element ComponentName="PackageHeadersDataProvider" X="300" Y="375" Note=""/>
-        <Element ComponentName="PackagesCommandDataProvider" X="150" Y="650" Note=""/>
-        <Element ComponentName="PackagesDataController" X="900" Y="225" Note=""/>
-        <Element ComponentName="PackagesHeadersDataProvider" X="900" Y="350" Note=""/>
-        <Element ComponentName="PageOptions" X="150" Y="200" Note=""/>
-        <Element ComponentName="VisualStatus" X="150" Y="75" Note=""/>
+        <Element ComponentName="ObjectViewDataProvider" X="125" Y="75" Note=""/>
+        <Element ComponentName="PackageDataController" X="975" Y="250" Note=""/>
+        <Element ComponentName="PackageEditCommands" X="725" Y="475" Note=""/>
+        <Element ComponentName="PackageHeadersDataProvider" X="975" Y="350" Note=""/>
+        <Element ComponentName="PackagesCommands" X="400" Y="475" Note=""/>
+        <Element ComponentName="PackagesDataController" X="250" Y="250" Note=""/>
+        <Element ComponentName="PackagesHeadersDataProvider" X="250" Y="350" Note=""/>
     </PositionMap>
-    <EmbeddedRegistries/>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="PackageEditCommands">
+            <PositionMap>
+                <Element ComponentName="CheckPermissionOr" X="250" Y="600" Note=""/>
+                <Element ComponentName="CommandsModel" X="250" Y="200" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="900" Y="200" Note=""/>
+                <Element ComponentName="PackageCommandsController" X="575" Y="400" Note=""/>
+                <Element ComponentName="PackageEditCommandPermissions" X="900" Y="600" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PackagesCommands">
+            <PositionMap>
+                <Element ComponentName="CheckPermissionOr" X="500" Y="325" Note=""/>
+                <Element ComponentName="CommandsModel" X="800" Y="325" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="975" Y="100" Note=""/>
+                <Element ComponentName="PackageCommandPermissions" X="175" Y="325" Note=""/>
+                <Element ComponentName="PackagesCommandsController" X="450" Y="100" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
 </Acf>

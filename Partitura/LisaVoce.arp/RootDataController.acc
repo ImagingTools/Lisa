@@ -104,9 +104,11 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationController"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="DatabaseAccessSettings" ComponentId="SettingsController/DatabaseAccessSettings"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
         <Component ExportedId="UserSessionRepository" ComponentId="AuthorizationConcept/UserSessionRepository"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="SettingsController/UserSettingsRepository"/>
+        <Component ExportedId="UserSqlRepository" ComponentId="Pages/UserSqlRepository"/>
     </ExportedComponents>
 </Acf>

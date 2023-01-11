@@ -48,11 +48,7 @@
         </Element>
         <Element Id="GeneralPageRepresentation" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="LocalPageData" PackageId="ImtCoreVoce" ComponentId="LocalPageDataModel">
@@ -62,14 +58,7 @@
         </Element>
         <Element Id="LocalPageRepresentation" PackageId="ImtCoreVoce" ComponentId="LocalPageRepresentationModel">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="Settings" PackageId="BasePck" ComponentId="ComposedParamsSet">

@@ -13,10 +13,16 @@ Item {
 
     property alias settingsProvider: settingsProviderLocal;
 
-    signal settingsUpdate(string pageId);
+    signal settingsUpdate();
+
+    signal localSettingsUpdated();
 
     onSettingsUpdate: {
         console.log("window onSettingsUpdate");
+    }
+
+    onLocalSettingsUpdated: {
+        updateAllModels();
     }
 
     function updateModels(){
@@ -25,10 +31,14 @@ Item {
     }
 
     function updateAllModels(){
-        settingsProvider.updateModel();
+        console.log("settingsProviderLocal.updateModel");
+        settingsProviderLocal.updateModel();
+
+        console.log("thumbnailDecorator.updateModels");
         thumbnailDecorator.updateModels();
-//        featuresProvider.updateModel();
-//        featuresDependenciesProvider.updateModel();
+
+        featuresProvider.updateModel();
+        featuresDependenciesProvider.updateModel();
     }
 
     FeaturesProvider {
@@ -41,7 +51,41 @@ Item {
 
     SettingsProvider {
         id: settingsProviderLocal;
+
         root: window;
+
+        onLocalModelChanged: {
+//            let design = designProvider.getDesignSchema();
+//            designProvider.applyDesignSchema(design);
+
+            timer.start(100);
+        }
+
+        onServerModelChanged: {
+            designProvider.applyDesignSchema();
+        }
+
+        onServerSettingsSaved: {
+            designProvider.applyDesignSchema();
+        }
+
+        onLocalSettingsSaved: {
+            designProvider.applyDesignSchema();
+        }
+    }
+
+    Timer {
+        id: timer;
+
+        onTriggered: {
+            designProvider.applyDesignSchema();
+        }
+    }
+
+    DesignSchemaProvider {
+        id: designProvider;
+
+        settingsProvider: settingsProviderLocal;
     }
 
     InstanceMaskProvider {
