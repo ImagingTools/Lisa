@@ -150,7 +150,11 @@
         </Element>
         <Element Id="PagesRepresentation" PackageId="ImtCorePck" ComponentId="PageBasedGuiRepresentationController">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Pages"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="PagesVisualStatusController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
@@ -166,11 +170,17 @@
                     <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PageBasedModel"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PagesRepresentation"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -224,9 +234,6 @@
                     <Element Id="PackagesPage" PackageId="LisaQmlVoce" ComponentId="PackagesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="CheckPermissions" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PermissionsChecker"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="FeaturesPermissions"/>
                                 </AttributeInfo>
@@ -235,6 +242,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PermissionsChecker"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -329,7 +339,6 @@
                     <Component ExportedId="AdministrationPages" ComponentId="AdministrationPage/AdministrationPages"/>
                     <Component ExportedId="FeatureInfoProvider" ComponentId="FeatureInfoProvider"/>
                     <Component ExportedId="PackagesPage" ComponentId="PackagesPage"/>
-                    <Component ExportedId="PackagesVisualStatus" ComponentId="PackagesPage/PackagesVisualStatus"/>
                     <Component ExportedId="ProductPermissionController" ComponentId="ProductPermissionController"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
                     <Component ExportedId="UserSqlRepository" ComponentId="AdministrationPage/UserSqlRepository"/>

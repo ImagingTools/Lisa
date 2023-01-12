@@ -8,11 +8,11 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Close" X="475" Y="475" Note=""/>
-        <Element ComponentName="CommandPermissionsProviderJoiner" X="584" Y="315" Note=""/>
-        <Element ComponentName="Redo" X="775" Y="475" Note=""/>
-        <Element ComponentName="Save" X="925" Y="325" Note=""/>
-        <Element ComponentName="Undo" X="250" Y="325" Note=""/>
+        <Element ComponentName="Close" X="950" Y="425" Note=""/>
+        <Element ComponentName="CommandsJoiner" X="600" Y="325" Note=""/>
+        <Element ComponentName="Redo" X="250" Y="425" Note=""/>
+        <Element ComponentName="Save" X="950" Y="225" Note=""/>
+        <Element ComponentName="Undo" X="250" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

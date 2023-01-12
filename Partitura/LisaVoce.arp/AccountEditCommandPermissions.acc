@@ -27,7 +27,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="CommandPermissionsProviderJoiner" PackageId="ImtGqlPck" ComponentId="CommandPermissionsProviderJoiner">
+        <Element Id="CommandsJoiner" PackageId="ImtGqlPck" ComponentId="CommandPermissionsProviderJoiner">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
@@ -97,7 +97,7 @@
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
-        <Interface InterfaceId="imtgql::ICommandPermissionsProvider" ComponentId="CommandPermissionsProviderJoiner"/>
+        <Interface InterfaceId="imtgql::ICommandPermissionsProvider" ComponentId="CommandsJoiner"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>

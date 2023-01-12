@@ -16,13 +16,16 @@
                     <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>ProductsCommands</Value>
                                 <Value>ProductCommands</Value>
-                                <Value>ProductDataController</Value>
-                                <Value>ProductListController</Value>
+                                <Value>ProductController</Value>
+                                <Value>ProductsController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -32,58 +35,26 @@
                     <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Product</Value>
-                            </Values>
-                        </Data>
+                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Product"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/ProductView.qml"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="PackagesHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Name</Value>
-                                <Value>Description</Value>
-                                <Value>Added</Value>
-                                <Value>LastModified</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Products"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Name</Value>
-                                <Value>Description</Value>
-                                <Value>Added</Value>
-                                <Value>Last Modified</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Name</Value>
-                                <Value>Description</Value>
-                            </Values>
-                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -96,7 +67,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="ProductDataController" PackageId="ImtLicenseGqlPck" ComponentId="ProductController">
+        <Element Id="ProductController" PackageId="ImtLicenseGqlPck" ComponentId="ProductController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
@@ -110,6 +81,9 @@
                                 <Value>Licenses</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="FeatureInfoProvider">
                         <Data IsEnabled="false"/>
@@ -135,6 +109,9 @@
         <Element Id="ProductHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -155,6 +132,9 @@
                                 <Value>Description</Value>
                             </Values>
                         </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
@@ -180,7 +160,12 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductListController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
+        <Element Id="ProductsCommands" PackageId="" ComponentId="ProductsCommands">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+        <Element Id="ProductsController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
@@ -196,8 +181,11 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PackagesHeadersDataProvider"/>
+                        <Data IsEnabled="true" Value="ProductsHeadersDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -214,9 +202,50 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductsCommands" PackageId="" ComponentId="ProductsCommands">
+        <Element Id="ProductsHeadersDataProvider" PackageId="ImtQmlPck" ComponentId="HeadersDataProvider">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Name</Value>
+                                <Value>Description</Value>
+                                <Value>Added</Value>
+                                <Value>LastModified</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeadersModelId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Products"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Name</Value>
+                                <Value>Description</Value>
+                                <Value>Added</Value>
+                                <Value>Last Modified</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Name</Value>
+                                <Value>Description</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
     </ElementsList>
@@ -295,6 +324,11 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="DocumentCommandPermissions" PackageId="ImtCoreVoce" ComponentId="DocumentCommandPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="ProductCommandsController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -326,6 +360,11 @@
         <EmbeddedRegistry Id="ProductsCommands">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap/>
+                        </Data>
+                    </Element>
                     <Element Id="CommandsModel" PackageId="ImtQmlPck" ComponentId="PageBasedModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -377,6 +416,34 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
+                    <Element Id="ProductsCommandPermissions" PackageId="ImtCoreVoce" ComponentId="CollectionCommandPermissions">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="EditCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>RemoveProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="NewCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>RemoveProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductsCommandsController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -387,8 +454,14 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductsCommandPermissions"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CommandsModel"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CheckPermissionOr"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CommandsRepresentation"/>

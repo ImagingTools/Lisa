@@ -21,8 +21,8 @@
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="AdministrationPage" X="550" Y="475" Note=""/>
-                <Element ComponentName="FeatureInfoProvider" X="750" Y="300" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="175" Y="300" Note=""/>
+                <Element ComponentName="FeatureInfoProvider" X="775" Y="300" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="200" Y="300" Note=""/>
                 <Element ComponentName="PackagesPage" X="200" Y="125" Note=""/>
                 <Element ComponentName="PermissionsChecker" X="575" Y="125" Note=""/>
                 <Element ComponentName="ProductPermissionController" X="550" Y="725" Note=""/>
