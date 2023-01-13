@@ -54,13 +54,6 @@ Item {
 
         root: window;
 
-        onLocalModelChanged: {
-//            let design = designProvider.getDesignSchema();
-//            designProvider.applyDesignSchema(design);
-
-            timer.start(100);
-        }
-
         onServerModelChanged: {
             designProvider.applyDesignSchema();
         }
@@ -70,14 +63,6 @@ Item {
         }
 
         onLocalSettingsSaved: {
-            designProvider.applyDesignSchema();
-        }
-    }
-
-    Timer {
-        id: timer;
-
-        onTriggered: {
             designProvider.applyDesignSchema();
         }
     }
