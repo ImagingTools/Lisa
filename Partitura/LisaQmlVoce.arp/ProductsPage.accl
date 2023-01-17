@@ -19,22 +19,32 @@
         <Element ComponentName="ProductsHeadersDataProvider" X="725" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="ProductCommands">
+        <EmbededRegistry Id="ProductsCommands">
             <PositionMap>
-                <Element ComponentName="CommandsModel" X="450" Y="325" Note=""/>
-                <Element ComponentName="CommandsRepresentation" X="900" Y="100" Note=""/>
-                <Element ComponentName="DocumentCommandPermissions" X="875" Y="325" Note=""/>
-                <Element ComponentName="ProductCommandsController" X="450" Y="100" Note=""/>
+                <Element ComponentName="CheckPermissionOr" X="800" Y="350" Note=""/>
+                <Element ComponentName="Commands" X="275" Y="150" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="1050" Y="175" Note=""/>
+                <Element ComponentName="Edit" X="475" Y="350" Note=""/>
+                <Element ComponentName="New" X="100" Y="350" Note=""/>
+                <Element ComponentName="ProductsCommandPermissions" X="1050" Y="350" Note=""/>
+                <Element ComponentName="ProductsCommandsController" X="600" Y="50" Note=""/>
+                <Element ComponentName="Remove" X="275" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="ProductsCommands">
+        <EmbededRegistry Id="ProductCommands">
             <PositionMap>
-                <Element ComponentName="CheckPermissionOr" X="225" Y="200" Note=""/>
-                <Element ComponentName="CommandsModel" X="900" Y="450" Note=""/>
-                <Element ComponentName="CommandsRepresentation" X="900" Y="200" Note=""/>
-                <Element ComponentName="ProductsCommandPermissions" X="225" Y="450" Note=""/>
-                <Element ComponentName="ProductsCommandsController" X="550" Y="325" Note=""/>
+                <Element ComponentName="CheckPermissionOr" X="775" Y="450" Note=""/>
+                <Element ComponentName="Close" X="425" Y="675" Note=""/>
+                <Element ComponentName="Commands" X="250" Y="275" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="925" Y="275" Note=""/>
+                <Element ComponentName="DocumentCommandPermissions" X="1050" Y="450" Note=""/>
+                <Element ComponentName="New" X="75" Y="450" Note=""/>
+                <Element ComponentName="ProductCommandsController" X="600" Y="75" Note=""/>
+                <Element ComponentName="Redo" X="425" Y="575" Note=""/>
+                <Element ComponentName="Remove" X="425" Y="450" Note=""/>
+                <Element ComponentName="Save" X="75" Y="675" Note=""/>
+                <Element ComponentName="Undo" X="75" Y="575" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

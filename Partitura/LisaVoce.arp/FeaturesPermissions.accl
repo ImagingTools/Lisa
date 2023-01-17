@@ -8,7 +8,7 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CommandPermissionsProviderJoiner" X="600" Y="225" Note=""/>
+        <Element ComponentName="CommandPermissionsProviderJoiner" X="600" Y="175" Note=""/>
         <Element ComponentName="CommandsData" X="725" Y="475" Note=""/>
         <Element ComponentName="FeaturesDependencies" X="150" Y="350" Note=""/>
         <Element ComponentName="FeaturesTree" X="1025" Y="475" Note=""/>
