@@ -16,15 +16,9 @@
                     <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LicenseFeatures</Value>
                                 <Value>ProductAdd</Value>
-                                <Value>ProductItem</Value>
-                                <Value>ProductList</Value>
                                 <Value>ProductsRename</Value>
                                 <Value>ProductsRemove</Value>
-                                <Value>ProductsObjectView</Value>
-                                <Value>ProductsMetaInfo</Value>
-                                <Value>ProductsInfo</Value>
                                 <Value>ProductUpdate</Value>
                                 <Value>ProductsSetDescription</Value>
                             </Values>

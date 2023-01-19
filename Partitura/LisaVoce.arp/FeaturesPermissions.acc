@@ -21,13 +21,6 @@
                                 <Value>PackagesRename</Value>
                                 <Value>PackageUpdate</Value>
                                 <Value>PackageAdd</Value>
-                                <Value>PackageItem</Value>
-                                <Value>FeaturesTree</Value>
-                                <Value>FeaturesDependencies</Value>
-                                <Value>PackagesInfo</Value>
-                                <Value>PackagesList</Value>
-                                <Value>PackagesObjectView</Value>
-                                <Value>PackagesMetaInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

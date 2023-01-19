@@ -55,20 +55,23 @@ Item {
         root: window;
 
         onServerModelChanged: {
-            designProvider.applyDesignSchema();
+            settingsObserver.registerModel(settingsProviderLocal.serverModel);
+            designSchemaProvider.applyDesignSchema();
         }
 
-        onServerSettingsSaved: {
-            designProvider.applyDesignSchema();
-        }
-
-        onLocalSettingsSaved: {
-            designProvider.applyDesignSchema();
+        onLocalModelChanged: {
+            designSchemaProvider.applyDesignSchema();
         }
     }
 
+    ServerSettingsModelObserver {
+        id: settingsObserver;
+
+        designProvider: designSchemaProvider;
+    }
+
     DesignSchemaProvider {
-        id: designProvider;
+        id: designSchemaProvider;
 
         settingsProvider: settingsProviderLocal;
     }

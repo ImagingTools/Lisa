@@ -18,7 +18,7 @@
         <Element ComponentName="LisaLocalization" X="550" Y="600" Note=""/>
         <Element ComponentName="ResourcesPath" X="1075" Y="125" Note=""/>
         <Element ComponentName="RessourcesProvider" X="825" Y="125" Note=""/>
-        <Element ComponentName="WebResourcesServlet" X="550" Y="125" Note="Handler for all compiled resources of the application. Primary used in the web application"/>
+        <Element ComponentName="WebResourcesServlet" X="500" Y="125" Note="Handler for all compiled resources of the application. Primary used in the web application"/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
