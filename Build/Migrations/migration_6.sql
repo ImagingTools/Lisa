@@ -1,0 +1,2 @@
+
+ALTER TABLE "Products" ADD COLUMN CategoryId CHARACTER VARYING(1000) DEFAULT 'Software';
