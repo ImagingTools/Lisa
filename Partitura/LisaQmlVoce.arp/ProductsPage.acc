@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5045" Description="ACF"/>
+            <Version Id="0" Number="5048" Description="ACF"/>
             <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -212,7 +212,8 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Name</Value>
-                                <Value>CategoryId,Description</Value>
+                                <Value>CategoryId</Value>
+                                <Value>Description</Value>
                                 <Value>Added</Value>
                                 <Value>LastModified</Value>
                             </Values>
