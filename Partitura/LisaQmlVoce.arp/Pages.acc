@@ -13,11 +13,11 @@
         <Element Id="AdministrationPage" PackageId="ImtQmlPck" ComponentId="PageGuiElementModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="IconPath" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="LightSettings"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Administration"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ItemPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="LightSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Administration"/>
@@ -102,11 +102,11 @@
         <Element Id="PackagesPage" PackageId="ImtQmlPck" ComponentId="PageGuiElementModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="IconPath" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="FeaturePackage"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Packages"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ItemPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackage"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Packages"/>
@@ -201,11 +201,11 @@
         <Element Id="ProductsPage" PackageId="ImtQmlPck" ComponentId="PageGuiElementModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="IconPath" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Product"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Products"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ItemPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Product"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Products"/>

@@ -60,6 +60,7 @@ Item {
         }
 
         onLocalModelChanged: {
+            localSettingsModelObserver.registerModel(settingsProviderLocal.localModel);
             designSchemaProvider.applyDesignSchema();
         }
     }
@@ -68,6 +69,15 @@ Item {
         id: settingsObserver;
 
         designProvider: designSchemaProvider;
+
+        root: window;
+    }
+
+    LocalSettingsModelObserver {
+        id: localSettingsModelObserver;
+
+        designProvider: designSchemaProvider;
+        languageProvider: langProvider;
     }
 
     DesignSchemaProvider {
@@ -80,6 +90,12 @@ Item {
         id: instanceMaskProvider;
 
         model: settingsProviderLocal.serverModel;
+    }
+
+    LanguageProvider {
+        id: langProvider;
+
+        settingsProvider: settingsProviderLocal;
     }
 
     ThumbnailDecorator {

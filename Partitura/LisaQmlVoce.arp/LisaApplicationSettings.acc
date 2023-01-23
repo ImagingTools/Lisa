@@ -71,6 +71,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="Prefix" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="lisa"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RepresentsationControllers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
