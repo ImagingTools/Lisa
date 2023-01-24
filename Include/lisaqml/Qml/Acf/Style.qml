@@ -147,7 +147,9 @@ Item {
 
         Style.textColor = styleContainer.getThemeColor("ActiveColors", "Text", dataSource);
         Style.textSelected = styleContainer.getThemeColor("ActiveColors", "TextSelectedBackground", dataSource);
-        Style.inactive_textColor = styleContainer.getThemeColor("InactiveColors", "Text", dataSource);
+//        Style.inactive_textColor = styleContainer.getThemeColor("InactiveColors", "Text", dataSource);
+
+        Style.inactive_textColor = styleContainer.getThemeColor("ActiveColors", "ButtonBorder", dataSource);
 
         Style.selectedColor = styleContainer.getThemeColor("ActiveColors", "ItemSelected", dataSource);
 

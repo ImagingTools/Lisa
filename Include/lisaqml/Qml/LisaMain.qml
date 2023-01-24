@@ -104,4 +104,12 @@ Item {
         root: window;
         settingsProvider: settingsProviderLocal;
     }
+
+//    Item {
+//        anchors.fill: parent;
+
+//        Component.onCompleted: {
+//            DialogManager.parent = this;
+//        }
+//    }
 }
