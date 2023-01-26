@@ -8,12 +8,12 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationInfoController" X="725" Y="300" Note=""/>
-        <Element ComponentName="ApplicationInfoDataProvider" X="725" Y="475" Note=""/>
+        <Element ComponentName="ApplicationInfoController" X="700" Y="300" Note=""/>
+        <Element ComponentName="ApplicationInfoDataProvider" X="675" Y="475" Note=""/>
         <Element ComponentName="ApplicationSettings" X="625" Y="75" Note=""/>
         <Element ComponentName="GeneralSettingsFactory" X="125" Y="675" Note=""/>
-        <Element ComponentName="ServerSettings" X="975" Y="475" Note=""/>
-        <Element ComponentName="ServerSettingsController" X="1075" Y="300" Note=""/>
+        <Element ComponentName="ServerSettings" X="950" Y="475" Note=""/>
+        <Element ComponentName="ServerSettingsController" X="1025" Y="300" Note=""/>
         <Element ComponentName="ServerSettingsRepresentation" X="1050" Y="675" Note=""/>
         <Element ComponentName="UserSettings" X="100" Y="475" Note=""/>
         <Element ComponentName="UserSettingsController" X="200" Y="300" Note=""/>

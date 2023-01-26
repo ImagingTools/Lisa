@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5030" Description="ACF"/>
-            <Version Id="1" Number="2177" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5048" Description="ACF"/>
+            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -58,22 +58,12 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Mask" PackageId="BasePck" ComponentId="TextParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="Preferences" PackageId="BasePck" ComponentId="ComposedParamsSet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Mask</Value>
                                 <Value>DatabaseAccessSettings</Value>
                             </Values>
                         </Data>
@@ -81,7 +71,6 @@
                     <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>InstanceMask</Value>
                                 <Value>Database</Value>
                             </Values>
                         </Data>

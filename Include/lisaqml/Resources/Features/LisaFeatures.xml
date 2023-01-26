@@ -5,32 +5,7 @@
     </AcfHeader>
     <Features>
         <ObjectsList>
-            <Object ID="{7afc523d-e7f7-496b-8f96-fd23844b9be5}" Description="" TypeId="FeatureInfo" Name="Installation Management">
-                <Data Id="InstallationManagement" Name="Installation Management" Optional="false">
-                    <SubFeatures>
-                        <Object Id="ViewInstallations" Name="View Installations" Optional="false">
-                            <SubFeatures/>
-                        </Object>
-                        <Object Id="EditInstallations" Name="Edit Installations" Optional="false">
-                            <SubFeatures>
-                                <Object Id="AddInstallation" Name="Add Installation" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                                <Object Id="RemoveInstallation" Name="Remove Installation" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                                <Object Id="ChangeInstallation" Name="Change Installation" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                            </SubFeatures>
-                        </Object>
-                        <Object Id="CreateLicenseFile" Name="Create License File" Optional="false">
-                            <SubFeatures/>
-                        </Object>
-                    </SubFeatures>
-                </Data>
-            </Object>
-            <Object ID="{8fce661e-c096-451a-9e70-618c4ab6f51f}" Description="" TypeId="FeatureInfo" Name="Feature Management">
+            <Object ID="{fe021526-af7d-4545-ad6e-081e95899de2}" Description="" TypeId="FeatureInfo" Name="Feature Management">
                 <Data Id="FeatureManagement" Name="Feature Management" Optional="false">
                     <SubFeatures>
                         <Object Id="ViewFeatures" Name="View Features" Optional="false">
@@ -52,7 +27,7 @@
                     </SubFeatures>
                 </Data>
             </Object>
-            <Object ID="{f8df35e5-5c91-4ae8-a2fb-fe0041e1c53d}" Description="" TypeId="FeatureInfo" Name="Product Management">
+            <Object ID="{3e429687-e4aa-4253-a8bb-e1d473f1c263}" Description="" TypeId="FeatureInfo" Name="Product Management">
                 <Data Id="ProductManagement" Name="Product Management" Optional="false">
                     <SubFeatures>
                         <Object Id="ViewProducts" Name="View Products" Optional="false">
@@ -74,24 +49,14 @@
                     </SubFeatures>
                 </Data>
             </Object>
-            <Object ID="{b2d9dd55-a091-44a3-89be-e4908fdef279}" Description="" TypeId="FeatureInfo" Name="Account Management">
-                <Data Id="AccountManagement" Name="Account Management" Optional="false">
+            <Object ID="{40485208-657b-4836-9049-144ce4be0d02}" Description="" TypeId="FeatureInfo" Name="Settings Management">
+                <Data Id="SettingsManagement" Name="Settings Management" Optional="false">
                     <SubFeatures>
-                        <Object Id="ViewAccounts" Name="View Accounts" Optional="false">
+                        <Object Id="ViewServerSettings" Name="View Server Settings" Optional="false">
                             <SubFeatures/>
                         </Object>
-                        <Object Id="EditAccount" Name="Edit Account" Optional="false">
-                            <SubFeatures>
-                                <Object Id="AddAccount" Name="Add Account" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                                <Object Id="RemoveAccount" Name="Remove Account" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                                <Object Id="ChangeAccount" Name="Change Account" Optional="false">
-                                    <SubFeatures/>
-                                </Object>
-                            </SubFeatures>
+                        <Object Id="ViewClientSettings" Name="View Client Settings" Optional="false">
+                            <SubFeatures/>
                         </Object>
                     </SubFeatures>
                 </Data>
@@ -99,24 +64,9 @@
         </ObjectsList>
     </Features>
     <Dependencies>
-        <Dependency FeatureId="CreateLicenseFile">
-            <BaseFeatures>
-                <BaseFeatureId>ViewInstallations</BaseFeatureId>
-            </BaseFeatures>
-        </Dependency>
-        <Dependency FeatureId="EditAccount">
-            <BaseFeatures>
-                <BaseFeatureId>ViewAccounts</BaseFeatureId>
-            </BaseFeatures>
-        </Dependency>
         <Dependency FeatureId="EditFeature">
             <BaseFeatures>
                 <BaseFeatureId>ViewFeatures</BaseFeatureId>
-            </BaseFeatures>
-        </Dependency>
-        <Dependency FeatureId="EditInstallations">
-            <BaseFeatures>
-                <BaseFeatureId>ViewInstallations</BaseFeatureId>
             </BaseFeatures>
         </Dependency>
         <Dependency FeatureId="EditProduct">
