@@ -32,13 +32,14 @@ Item {
 
     function updateAllModels(){
         console.log("settingsProviderLocal.updateModel");
-        settingsProviderLocal.updateModel();
-
-        console.log("thumbnailDecorator.updateModels");
         thumbnailDecorator.updateModels();
 
         featuresProvider.updateModel();
         featuresDependenciesProvider.updateModel();
+    }
+
+    function updateServerSettings(){
+        settingsProviderLocal.updateModel();
     }
 
     FeaturesProvider {
@@ -60,7 +61,20 @@ Item {
         }
 
         onLocalModelChanged: {
+            console.log("onLocalModelChanged");
+
             localSettingsModelObserver.registerModel(settingsProviderLocal.localModel);
+            timer.start();
+        }
+    }
+
+    // Timer for updating design schema when start application, without this timer request does not come
+    Timer {
+        id: timer;
+
+        interval: 100;
+
+        onTriggered: {
             designSchemaProvider.applyDesignSchema();
         }
     }
@@ -104,12 +118,4 @@ Item {
         root: window;
         settingsProvider: settingsProviderLocal;
     }
-
-//    Item {
-//        anchors.fill: parent;
-
-//        Component.onCompleted: {
-//            DialogManager.parent = this;
-//        }
-//    }
 }
