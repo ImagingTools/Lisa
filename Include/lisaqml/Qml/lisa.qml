@@ -29,8 +29,13 @@ Rectangle {
         id: localSettingsProvider;
         property alias localSettings: settingsProviderLocal.localModel;
 
-        Component.onCompleted: {
-            localSettings.CreateFromJson("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
+//        Component.onCompleted: {
+//            localSettings.CreateFromJson("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
+//        }
+        onLocalSettingsChanged: {
+            if(localSettingsProvider.localSettings){
+                localSettings.CreateFromJson("{\"ComponentType\":\"UNKNOWN\",\"Elements\":[{\"ComponentType\":\"ComboBox\",\"Id\":\"Mode\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"Light\",\"Name\":\"Light\"},{\"Id\":\"Dark\",\"Name\":\"Dark\"}],\"Value\":1},{\"ComponentType\":\"ComboBox\",\"Id\":\"Language\",\"Name\":\"\",\"Parameters\":[{\"Id\":\"en_US\",\"Name\":\"English\"},{\"Id\":\"de_DE\",\"Name\":\"German\"},{\"Id\":\"ru_RU\",\"Name\":\"Russian\"},{\"Id\":\"pl_PL\",\"Name\":\"Polish\"}],\"Value\":2},{\"ComponentType\":\"TextInput\",\"Id\":\"InstanceMask\",\"Name\":\"\",\"Value\":\"^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$\"}],\"Id\":\"General\",\"Name\":\"\"}")
+            }
         }
     }
 
@@ -48,6 +53,10 @@ Rectangle {
 
         featuresProvider.updateModel();
         featuresDependenciesProvider.updateModel();
+    }
+
+    function updateServerSettings(){
+        settingsProviderLocal.updateModel();
     }
 
     FeaturesProvider {
