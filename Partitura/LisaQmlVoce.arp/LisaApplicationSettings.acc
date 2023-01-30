@@ -241,6 +241,8 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ServerSettings/DatabaseAccessSettings"/>
+        <Component ExportedId="ServerPort" ComponentId="ServerSettings/ServerPort"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="UserSettingsDatabaseDelegate/UserSettingsRepository"/>
+        <Component ExportedId="WebSocketServerPort" ComponentId="ServerSettings/WebSocketServerPort"/>
     </ExportedComponents>
 </Acf>

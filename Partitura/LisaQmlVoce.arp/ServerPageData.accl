@@ -8,9 +8,11 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="DatabaseAccessSettings" X="600" Y="475" Note=""/>
+        <Element ComponentName="DatabaseAccessSettings" X="275" Y="475" Note=""/>
         <Element ComponentName="FileAutoPersistence" X="600" Y="125" Note=""/>
         <Element ComponentName="Preferences" X="600" Y="300" Note=""/>
+        <Element ComponentName="ServerPort" X="600" Y="475" Note=""/>
+        <Element ComponentName="WebSocketServerPort" X="950" Y="475" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
