@@ -162,7 +162,11 @@
         </Element>
         <Element Id="ProductsCommands" PackageId="" ComponentId="ProductsCommands">
             <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="ProductsController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
@@ -316,7 +320,11 @@
                     </Element>
                     <Element Id="DocumentCommandPermissions" PackageId="ImtCoreVoce" ComponentId="DocumentCommandPermissions">
                         <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap/>
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
                         </Data>
                     </Element>
                     <Element Id="Empty" PackageId="ImtGuiPck" ComponentId="GuiElementModel">
@@ -358,6 +366,9 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="Commands"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RepresentationController" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CommandsRepresentation"/>
