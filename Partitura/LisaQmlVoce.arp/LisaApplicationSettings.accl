@@ -9,7 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationInfoController" X="700" Y="300" Note=""/>
-        <Element ComponentName="ApplicationInfoDataProvider" X="675" Y="475" Note=""/>
+        <Element ComponentName="ApplicationInfoDataProvider" X="700" Y="475" Note=""/>
         <Element ComponentName="ApplicationSettings" X="625" Y="75" Note=""/>
         <Element ComponentName="GeneralSettingsFactory" X="125" Y="675" Note=""/>
         <Element ComponentName="ServerSettings" X="950" Y="475" Note=""/>
