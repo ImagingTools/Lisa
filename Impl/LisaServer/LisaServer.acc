@@ -32,6 +32,9 @@
                     <AttributeInfo Id="LogPath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="LisaServerLog.txt"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1983"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa server service"/>
                     </AttributeInfo>

@@ -9,6 +9,8 @@ Item {
 
     anchors.fill: parent;
 
+    property alias applicationInfo: applicationInfoProviderLocal.clientApplicationInfo;
+
     property alias localSettings: settingsProviderLocal.localModel;
 
     property alias settingsProvider: settingsProviderLocal;
@@ -36,6 +38,8 @@ Item {
 
         featuresProvider.updateModel();
         featuresDependenciesProvider.updateModel();
+
+        applicationInfoProviderLocal.updateModel();
     }
 
     function updateServerSettings(){
@@ -48,6 +52,10 @@ Item {
 
     FeaturesDependenciesProvider {
         id: featuresDependenciesProvider;
+    }
+
+    ApplicationInfoProvider {
+        id: applicationInfoProviderLocal;
     }
 
     SettingsProvider {
@@ -117,5 +125,7 @@ Item {
         anchors.fill: parent;
         root: window;
         settingsProvider: settingsProviderLocal;
+
+        applicationInfoProvider: applicationInfoProviderLocal;
     }
 }
