@@ -383,6 +383,8 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>AddFeature</Value>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>ChangeFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -398,7 +400,9 @@
                                 <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
+                                            <Value>AddFeature</Value>
                                             <Value>RemoveFeature</Value>
+                                            <Value>ChangeFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -624,6 +628,7 @@
                                         <Values>
                                             <Value>ChangeFeature</Value>
                                             <Value>RemoveFeature</Value>
+                                            <Value>ViewFeatures</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

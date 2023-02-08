@@ -245,6 +245,7 @@
                             <Values>
                                 <Value>Name</Value>
                                 <Value>Description</Value>
+                                <Value>CategoryId</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -321,8 +322,60 @@
                     <Element Id="DocumentCommandPermissions" PackageId="ImtCoreVoce" ComponentId="DocumentCommandPermissions">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="CloseCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ViewProducts</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="NewCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>EditProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RedoCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>EditProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>EditProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SaveCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>EditProduct</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UndoCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddProduct</Value>
+                                            <Value>ChangeProduct</Value>
+                                            <Value>EditProduct</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -592,6 +645,7 @@
                                         <Values>
                                             <Value>ChangeProduct</Value>
                                             <Value>RemoveProduct</Value>
+                                            <Value>ViewProducts</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
