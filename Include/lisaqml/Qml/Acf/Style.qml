@@ -11,10 +11,6 @@ Item {
     property string color_text_titles: "#7700FF";
     property string color_text_notActive: "#C2CEDB";
 
-    property string language;
-
-    property string mainText: "STYLE!!!";
-
     property alias mainFontSource: mainFont.source;
     property alias boldFontSource: boldFont.source;
 
@@ -83,11 +79,6 @@ Item {
 
     property string menuPanelBackgroundColor: "#e2e2e8";
 
-    Component.onCompleted: {
-        console.log("Style onCompleted");
-       //styleContainer.getDesignScheme("");
-    }
-
     function getImageSource (name, styleTheme, buttonState, buttonMode)
     {
         var imageSource = "Icons/" + styleTheme + "/" + name + "_" + buttonState + "_" + buttonMode + ".svg";
@@ -137,9 +128,7 @@ Item {
     }
 
     function parseStyleTheme(themeType){
-        console.log("parseStyleTheme", themeType);
         let dataSource = themeType.GetData("source");
-        console.log("dataSource", dataSource.toJSON());
         Style.borderColor = styleContainer.getThemeColor("ActiveColors", "BorderColor", dataSource);
         Style.baseColor = styleContainer.getThemeColor("ActiveColors", "Base", dataSource);
         Style.alternateBaseColor = styleContainer.getThemeColor("ActiveColors", "AlternateBase", dataSource);
@@ -147,9 +136,7 @@ Item {
 
         Style.textColor = styleContainer.getThemeColor("ActiveColors", "Text", dataSource);
         Style.textSelected = styleContainer.getThemeColor("ActiveColors", "TextSelectedBackground", dataSource);
-//        Style.inactive_textColor = styleContainer.getThemeColor("InactiveColors", "Text", dataSource);
-
-        Style.inactive_textColor = styleContainer.getThemeColor("ActiveColors", "ButtonBorder", dataSource);
+        Style.inactive_textColor = styleContainer.getThemeColor("InactiveColors", "Text", dataSource);
 
         Style.selectedColor = styleContainer.getThemeColor("ActiveColors", "ItemSelected", dataSource);
 
