@@ -48,22 +48,6 @@ int main(int argc, char *argv[])
 	qmlRegisterType<imtqml::CGqlModel>("Acf", 1, 0, "GqlModel");
 	qmlRegisterType<imtqml::CRemoteFileController>("Acf", 1, 0, "RemoteFileController");
 
-	imtgql::CGqlRequest request;
-	imtgql::CGqlObject gqlObject("input");
-	imtgql::CGqlObject gqlObject1("1");
-	imtgql::CGqlObject gqlObject2("2");
-	imtgql::CGqlObject gqlObject3("3");
-//	gqlObject3.InsertField("test", "ttttt");
-	QList<imtgql::CGqlObject> listObj;
-	listObj << gqlObject1 << gqlObject2 << gqlObject3;
-	gqlObject.InsertField("folderId", "JGHFDRYRDHJFHNGCDHGDFSD");
-	gqlObject.InsertField("fileNames",listObj);
-//	gqlObject.InsertField("", "2");
-//	gqlObject.InsertField("", "3");
-	request.AddParam(gqlObject);
-
-	QByteArray res = request.GetQuery();
-
 	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
 	if (applicationPtr != nullptr){
 		return applicationPtr->Execute(argc, argv);
