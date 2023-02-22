@@ -108,12 +108,6 @@ Item {
         settingsProvider: settingsProviderLocal;
     }
 
-    InstanceMaskProvider {
-        id: instanceMaskProvider;
-
-        model: settingsProviderLocal.serverModel;
-    }
-
     LanguageProvider {
         id: langProvider;
 
