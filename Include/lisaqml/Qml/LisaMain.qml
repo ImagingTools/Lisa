@@ -122,4 +122,31 @@ Item {
 
         applicationInfoProvider: applicationInfoProviderLocal;
     }
+
+//    Connections {
+//          target: Qt.application;
+
+//          onAboutToQuit: {
+//              console.log("onAboutToQuit");
+//              if (thumbnailDecorator.documentManager.dirtyDocumentsExists()){
+//                    thumbnailDecorator.dialogManager.openDialog(attentionDialog, {});
+//              }
+//          }
+
+//          onClosing: {
+//              console.log("onClosing");
+//          }
+//    }
+
+//    Component {
+//        id: attentionDialog;
+//        MessageDialog {
+//            message: qsTr("Have dirty documents, close the app?");
+//            title: qsTr("There are dirty documents");
+//            onFinished: {
+//                if (buttonId == "Yes"){
+//                }
+//            }
+//        }
+//    }
 }
