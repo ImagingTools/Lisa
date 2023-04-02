@@ -28,4 +28,5 @@ add_subdirectory("${IMPL_DIR}/LisaQmlExe/CMake" "${AUX_INCLUDE_DIR}/LisaQmlExe")
 add_subdirectory("${IMPL_DIR}/LisaClient/CMake" "${AUX_INCLUDE_DIR}/LisaClient")
 add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 
-file(COPY ../Migrations DESTINATION ${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME})
+
+

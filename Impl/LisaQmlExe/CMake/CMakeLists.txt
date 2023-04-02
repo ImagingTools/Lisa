@@ -73,3 +73,8 @@ set(QML_IMPORT_PATH ${QML_IMPORT_DIRS}
 	FORCE
 )
 
+if(APPLE)
+	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/S{PROJECT_NAME}.app/Contents/MacOS)
+else()
+	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME})
+endif()
