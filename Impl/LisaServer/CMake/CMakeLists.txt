@@ -37,6 +37,10 @@ target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${Q
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
 target_link_libraries(${PROJECT_NAME} imtgui)
 
+if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
+	add_compile_definitions(WEB_COMPILE)
+endif()
+
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml/imtgui")
