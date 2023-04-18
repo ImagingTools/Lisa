@@ -10,10 +10,9 @@ Item {
     anchors.fill: parent;
 
     property alias applicationInfo: applicationInfoProviderLocal.clientApplicationInfo;
-
     property alias localSettings: settingsProviderLocal.localModel;
-
     property alias settingsProvider: settingsProviderLocal;
+    property alias designSchemaProviderAlias: designSchemaProvider;
 
     signal settingsUpdate();
 
