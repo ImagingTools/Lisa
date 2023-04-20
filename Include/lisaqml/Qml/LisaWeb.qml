@@ -11,6 +11,7 @@ Item {
 
         Component.onCompleted: {
             designSchemaProviderAlias.applyDesignSchema("Light");
+            updateModels();
         }
     }
 }
