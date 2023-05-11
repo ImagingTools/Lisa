@@ -15,8 +15,15 @@ message("LASA binary dir ${buildwebdir}")
 list(APPEND webdirs ${IMTCOREDIR}/3rdParty/JQML/Core/dist)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
-list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/empty)
+# copy lisa qml from to
+list(APPEND webdirs ${LISADIR}/Include/lisaqml/Qml)
 list(APPEND webdirs ${buildwebdir}/src)
+
+list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/Translations)
+list(APPEND webdirs ${buildwebdir}/src)
+
+list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/html)
+list(APPEND webdirs ${buildwebdir}/Resources)
 
 # copy base qml sources from to
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/Acf)
@@ -33,16 +40,6 @@ list(APPEND webdirs ${buildwebdir}/src/imtauthgui)
 
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui)
 list(APPEND webdirs ${buildwebdir}/src/imtlicgui)
-
-# copy lisa qml from to
-list(APPEND webdirs ${LISADIR}/Include/lisaqml/Qml)
-list(APPEND webdirs ${buildwebdir}/src)
-
-list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/Translations)
-list(APPEND webdirs ${buildwebdir}/src)
-
-list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/html)
-list(APPEND webdirs ${buildwebdir}/Resources)
 
 message("LISADIR ${LISADIR}")
 
