@@ -31,7 +31,7 @@ Item {
     property string titleColor: "#055A85";
     property string subtitleColor: "#6A6E6F";
     property string baseColor: "white";
-    property string alternateBaseColor: "#c0c0c0";
+    property string alternateBaseColor: "#f5f5f5";
     property string backgroundColor: "#e6e6e8";
     property string linkColor: "#0078D7";
     property string selectedColor: "#e3eefa";
@@ -47,7 +47,7 @@ Item {
     property string errorTextColor: "#FF4500";
     property string shadowColor: "#aaaaaa";
 
-    property string buttonColor: "#C0C0C0";
+    property string buttonColor: "#dedede";
     property string buttonBorderColor: "#CCCCCC";
     property color inactive_buttonColor: "#C0C0C0";
     property color buttonText: "#335777";
@@ -75,7 +75,7 @@ Item {
 
     property string textColor: "#335777";
     property string textSelected: "#0078d7";
-    property color inactive_textColor: "#dedede";
+    property color inactive_textColor: "#aaaaaa";
 
     property string disabledInActiveTextColor: "#c0c0c0";
 

@@ -40,6 +40,18 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="DatabaseAutomaticBackup" PackageId="ImtCoreVoce" ComponentId="DatabaseAutomaticBackup">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationController/Backup"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseLoginSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationController/DatabaseAccessSettings"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="DatabaseEngine" PackageId="ImtCoreVoce" ComponentId="DatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -98,8 +110,8 @@
                     <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LogFileDataProvider</Value>
                                 <Value>ApplicationController/FeaturesExportProvider</Value>
+                                <Value>LogFileDataProvider</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

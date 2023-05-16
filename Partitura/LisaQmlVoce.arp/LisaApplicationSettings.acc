@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5048" Description="ACF"/>
-            <Version Id="1" Number="2178" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5060" Description="ACF"/>
+            <Version Id="1" Number="2181" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -26,7 +26,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>UserSettingsController</Value>
-                                <Value>ServerSettingsController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -195,6 +194,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationSettings"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="Backup" ComponentId="ServerSettings/Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="ServerSettings/DatabaseAccessSettings"/>
         <Component ExportedId="ServerPort" ComponentId="ServerSettings/ServerPort"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="UserSettingsDatabaseDelegate/UserSettingsRepository"/>

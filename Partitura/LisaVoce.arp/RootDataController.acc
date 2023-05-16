@@ -104,6 +104,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationController"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="Backup" ComponentId="SettingsController/Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="SettingsController/DatabaseAccessSettings"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
