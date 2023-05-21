@@ -55,7 +55,8 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-i"
 
 [UninstallRun]
-Filename: "{app}\{#MyAppExeName}"; Parameters: "-t -u"
+Filename: "{app}\{#MyAppExeName}"; Parameters: "-t"
+Filename: "{app}\{#MyAppExeName}"; Parameters: "-u"
 
 [Registry]
 Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
