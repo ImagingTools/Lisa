@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5060" Description="ACF"/>
-            <Version Id="1" Number="2181" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5068" Description="ACF"/>
+            <Version Id="1" Number="2182" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -78,6 +78,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GqlContextController" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RemoteGqlContextController"/>
                     </AttributeInfo>
                     <AttributeInfo Id="GqlRequestHandler" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -226,6 +229,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="RemoteGqlContextController" PackageId="ImtGqlPck" ComponentId="RemoteGqlContextController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CacheClearingInterval" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="60"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GqlRequest" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ApplicationController/PumaGQLClientEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserFactory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="UserInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ResourcesPath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -249,6 +270,15 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="UserInfo" PackageId="ImtAuthPck" ComponentId="UserInfo">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AdminId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="su"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

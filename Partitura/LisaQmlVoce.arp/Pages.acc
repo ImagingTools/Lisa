@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5060" Description="ACF"/>
-            <Version Id="1" Number="2181" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5068" Description="ACF"/>
+            <Version Id="1" Number="2182" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -254,6 +254,9 @@
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -316,6 +319,9 @@
                                 <AttributeInfo Id="ProductProvider" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="SingleProductPermission"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
                     </Element>
@@ -354,6 +360,9 @@
                     <Element Id="SingleProductPermission" PackageId="ImtCoreVoce" ComponentId="SingleProductPermission">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="PathToPermissionsFile" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value=":/Features/LisaFeatures"/>
                                 </AttributeInfo>
@@ -370,6 +379,9 @@
                                             <Value>Lisa</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
