@@ -11,7 +11,7 @@ if(NOT DEFINED PUMADIR)
 endif()
 
 include(${IMTCOREDIR}/Config/CMake/ImtCoreEnv.cmake)
-include(${PUMADIR}/Config/CMake/PumaEnv.cmake)
+include(${IMTCOREDIR}/../Puma/Config/CMake/PumaEnv.cmake)
 
 if(NOT DEFINED LISADIR)
 	set(LISADIR "$ENV{LISADIR}")
