@@ -118,7 +118,7 @@ Item {
 
     property string topLeftPanelDecoratorPath;
     property string topCenterPanelDecoratorPath: "TopCenterPanelDecorator.qml";
-    property string topRightPanelDecoratorPath;
+    property string topRightPanelDecoratorPath: "TopRightPanelDecorator.qml";
     property string customPanelDecoratorPath;
 
     function getDecorator(decorators, section, type){
