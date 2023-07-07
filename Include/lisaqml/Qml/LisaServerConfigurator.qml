@@ -54,8 +54,6 @@ Rectangle {
             if (buttonId === "Apply"){
                 window.settingsUpdate();
                 preferenceDialog.modelIsDirty = false;
-
-                //                buttons.setButtonState("Apply", false);
             }
             else if (buttonId === "Close"){
                 if (preferenceDialog.modelIsDirty){

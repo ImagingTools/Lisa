@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5068" Description="ACF"/>
-            <Version Id="1" Number="2182" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5075" Description="ACF"/>
+            <Version Id="1" Number="2183" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -14,6 +14,7 @@
         <Element ComponentName="FileAutoPersistence" X="575" Y="75" Note=""/>
         <Element ComponentName="FileNameParam" X="1075" Y="525" Note=""/>
         <Element ComponentName="Preferences" X="575" Y="200" Note=""/>
+        <Element ComponentName="PumaUrlConnection" X="425" Y="625" Note=""/>
         <Element ComponentName="SchedulerParams" X="875" Y="525" Note=""/>
         <Element ComponentName="Server" X="575" Y="350" Note=""/>
         <Element ComponentName="ServerPort" X="400" Y="525" Note=""/>

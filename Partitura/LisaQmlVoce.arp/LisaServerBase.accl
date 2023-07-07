@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5068" Description="ACF"/>
-            <Version Id="1" Number="2182" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5075" Description="ACF"/>
+            <Version Id="1" Number="2183" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -20,7 +20,8 @@
         <Element ComponentName="RemoteGqlContextController" X="200" Y="200" Note=""/>
         <Element ComponentName="ResourcesPath" X="1075" Y="125" Note=""/>
         <Element ComponentName="RessourcesProvider" X="825" Y="125" Note=""/>
-        <Element ComponentName="UserInfo" X="150" Y="75" Note=""/>
+        <Element ComponentName="SessionInfo" X="275" Y="75" Note=""/>
+        <Element ComponentName="UserInfo" X="125" Y="75" Note=""/>
         <Element ComponentName="WebResourcesServlet" X="550" Y="125" Note="Handler for all compiled resources of the application. Primary used in the web application"/>
     </PositionMap>
     <EmbeddedRegistries/>

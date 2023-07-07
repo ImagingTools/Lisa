@@ -9,10 +9,12 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationController" X="575" Y="75" Note=""/>
-        <Element ComponentName="Pages" X="1000" Y="275" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="750" Y="275" Note=""/>
-        <Element ComponentName="RemoteAuthorizationOptions" X="459" Y="275" Note=""/>
-        <Element ComponentName="SettingsController" X="175" Y="275" Note=""/>
+        <Element ComponentName="AuthorizationManagementController" X="375" Y="275" Note=""/>
+        <Element ComponentName="Pages" X="850" Y="275" Note=""/>
+        <Element ComponentName="PermissionController" X="1050" Y="275" Note=""/>
+        <Element ComponentName="PumaGQLClientEngine" X="675" Y="275" Note=""/>
+        <Element ComponentName="SettingsController" X="100" Y="275" Note=""/>
+        <Element ComponentName="SingleProductPermission" X="1050" Y="475" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

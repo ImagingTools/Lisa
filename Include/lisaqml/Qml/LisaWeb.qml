@@ -7,11 +7,21 @@ Item {
     anchors.fill: parent;
 
     LisaMain {
+        id: application;
+
         anchors.fill: parent;
 
+        systemStatus: "NO_ERROR";
+
+        function updateModels(){
+            console.log("window updateModels");
+            thumbnailDecoratorGui.authorizationPageAlias.visible = true;
+        }
+
         Component.onCompleted: {
-            designSchemaProviderAlias.applyDesignSchema("Light");
-            updateModels();
+            designProvider.applyDesignSchema("Light");
+
+            application.firstModelsInit();
         }
     }
 }

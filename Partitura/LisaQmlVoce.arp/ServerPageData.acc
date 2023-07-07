@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5068" Description="ACF"/>
-            <Version Id="1" Number="2182" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5075" Description="ACF"/>
+            <Version Id="1" Number="2183" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -145,6 +145,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="PumaUrlConnection" PackageId="BasePck" ComponentId="TextParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="http://localhost:7788"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="SchedulerParams" PackageId="ImtAppPck" ComponentId="SchedulerParams">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -162,6 +171,7 @@
                             <Values>
                                 <Value>ServerPort</Value>
                                 <Value>WebSocketServerPort</Value>
+                                <Value>PumaUrlConnection</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -170,6 +180,7 @@
                             <Values>
                                 <Value>ServerPort</Value>
                                 <Value>WebSocketServerPort</Value>
+                                <Value>PumaUrl</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -203,6 +214,7 @@
     <ExportedComponents>
         <Component ExportedId="Backup" ComponentId="Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
+        <Component ExportedId="PumaUrlConnection" ComponentId="PumaUrlConnection"/>
         <Component ExportedId="ServerPort" ComponentId="ServerPort"/>
         <Component ExportedId="WebSocketServerPort" ComponentId="WebSocketServerPort"/>
     </ExportedComponents>
