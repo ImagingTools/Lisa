@@ -62,6 +62,7 @@ list(APPEND QML_IMPORT_DIRS "${PROJECT_SOURCE_DIR}/../../../Include/lisaqml/Qml"
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtauthgui/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtlicgui/Qml")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtguigql/Qml")
 
 # Prevent adding duplicate values at each run of CMake.
 list(REMOVE_DUPLICATES QML_IMPORT_DIRS)
