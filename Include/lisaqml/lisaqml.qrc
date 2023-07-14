@@ -8,18 +8,10 @@
     <qresource prefix="/Palette"/>
     <qresource prefix="/"/>
     <qresource prefix="/qml">
-        <file alias="Acf/Style.qml">Qml/Acf/Style.qml</file>
         <file alias="lisa.qml">Qml/lisa.qml</file>
 	<file alias="LisaMain.qml">Qml/LisaMain.qml</file>
 	<file alias="LisaServerConfigurator.qml">Qml/LisaServerConfigurator.qml</file>
 	<file alias="LisaWeb.qml">Qml/LisaWeb.qml</file>
-    </qresource>
-    <qresource prefix="/Style">
-        <file alias="lisa_dark.theme">lisa_dark.theme</file>
-        <file alias="lisa_light.theme">lisa_light.theme</file>
-    </qresource>
-    <qresource prefix="/Decorators">
-        <file alias="lisa_decorators.theme">lisa_decorators.theme</file>
     </qresource>
    <qresource prefix="/Features">
         <file alias="LisaFeatures">Resources/Features/LisaFeatures.xml</file>
