@@ -41,6 +41,26 @@
                     <AttributeInfo Id="Languages" Type="Reference" ExportId="Languages">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SchemeIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Light</Value>
+                                <Value>Dark</Value>
+                                <Value>Blue</Value>
+                                <Value>Orange</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SchemeNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Light</Value>
+                                <Value>Dark</Value>
+                                <Value>Blue</Value>
+                                <Value>Orange</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>

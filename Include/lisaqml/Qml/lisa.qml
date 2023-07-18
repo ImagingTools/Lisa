@@ -50,8 +50,6 @@ Item {
         id: Style;
 
         Component.onCompleted: {
-            Style.mainFontSource = "../Fonts/Ubuntu-Light.ttf";
-            Style.boldFontSource = "../Fonts/Ubuntu-Bold.ttf";
         }
     }
 
