@@ -9,11 +9,19 @@ SUBDIRS += LisaLoc
 LisaLoc.file = ../../Impl/LisaLoc/QMake/LisaLoc.pro
 
 # Application
-SUBDIRS += Lisa
-Lisa.file = ../../Impl/LisaExe/QMake/Lisa.pro
-Lisa.depends = LisaLoc
+SUBDIRS += LisaClient
+LisaClient.file = ../../Impl/LisaClient/QMake/LisaClient.pro
+LisaClient.depends = LisaLoc
 
-SUBDIRS += LisaDbExe
-LisaDbExe.file = ../../Impl/LisaDbExe/QMake/LisaDbExe.pro
-LisaDbExe.depends = LisaLoc
+SUBDIRS += LisaServer
+LisaServer.file = ../../Impl/LisaServer/QMake/LisaServer.pro
+LisaServer.depends = LisaLoc
+
+SUBDIRS += LisaServerConfigurator
+LisaServerConfigurator.file = ../../Impl/LisaServerConfigurator/QMake/LisaServerConfigurator.pro
+LisaServerConfigurator.depends = LisaLoc LisaServer
+
+SUBDIRS += LisaQmlExe
+LisaQmlExe.file = ../../Impl/LisaQmlExe/QMake/LisaQmlExe.pro
+LisaQmlExe.depends = LisaLoc
 
