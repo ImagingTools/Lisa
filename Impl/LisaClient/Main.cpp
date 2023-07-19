@@ -39,13 +39,6 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(Webimtgui);
 	Q_INIT_RESOURCE(Webimtlicgui);
 
-	imtstyle::CImtStyle* imtStylePtr = imtstyle::CImtStyle::GetInstance();
-	Q_ASSERT(imtStylePtr != nullptr);
-	
-	imtStylePtr->setBaseStyle(QStyleFactory::create("fusion"));
-	QApplication::setStyle(imtStylePtr);
-	QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-
 	CLisaClient instance;
 
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
