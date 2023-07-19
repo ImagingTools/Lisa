@@ -88,8 +88,8 @@
                     <AttributeInfo Id="DefaultPath" Type="String" ExportId="DefaultPath">
                         <Data IsEnabled="true" Value="LisaServerSettings.xml"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="104"/>
+                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="LocationType">
+                        <Data IsEnabled="true" Value="105"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>

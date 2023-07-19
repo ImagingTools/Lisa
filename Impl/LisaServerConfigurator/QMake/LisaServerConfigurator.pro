@@ -10,7 +10,7 @@ QT += quick qml
 
 RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
-LIBS += -limtbase -limtgui -limtstyle -limtqml -limtapp -limtcom -limtfile -limtgql -limtdb -limtauth
+LIBS += -limtbase -limtgui -limtstyle -limtqml -limtstyleqml -limtapp -limtcom -limtfile -limtgql -limtdb -limtauth
 LIBS += -llisaqml
 LIBS += -lImtCoreLoc
 
