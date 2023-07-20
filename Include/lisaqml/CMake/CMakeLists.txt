@@ -32,6 +32,9 @@ list(APPEND webdirs ${buildwebdir}/src/Acf)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
 list(APPEND webdirs ${buildwebdir}/src/imtgui)
 
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtguigql/Qml/imtguigql)
+list(APPEND webdirs ${buildwebdir}/src/imtguigql)
+
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtqml/Qml/imtqml)
 list(APPEND webdirs ${buildwebdir}/src/imtqml)
 
@@ -40,6 +43,9 @@ list(APPEND webdirs ${buildwebdir}/src/imtauthgui)
 
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui)
 list(APPEND webdirs ${buildwebdir}/src/imtlicgui)
+
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtstyleqml/Qml/Acf)
+list(APPEND webdirs ${buildwebdir}/src/Acf)
 
 message("LISADIR ${LISADIR}")
 
