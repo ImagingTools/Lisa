@@ -2,13 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5075" Description="ACF"/>
-            <Version Id="1" Number="2183" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5079" Description="ACF"/>
+            <Version Id="1" Number="2184" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ClientApplication" X="675" Y="425" Note=""/>
+        <Element ComponentName="LisaLocalization" X="575" Y="600" Note=""/>
         <Element ComponentName="LisaServerBase" X="850" Y="225" Note=""/>
         <Element ComponentName="LocalSettings" X="850" Y="600" Note=""/>
         <Element ComponentName="LogFilePath" X="250" Y="425" Note=""/>
