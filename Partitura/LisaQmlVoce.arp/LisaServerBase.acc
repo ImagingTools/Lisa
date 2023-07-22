@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5079" Description="ACF"/>
-            <Version Id="1" Number="2184" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5073" Description="ACF"/>
+            <Version Id="1" Number="2183" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -139,6 +139,9 @@
         <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="AutoCompression" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
