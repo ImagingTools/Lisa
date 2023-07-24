@@ -14,7 +14,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="LisaClient"/>
+                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="TextFileLog"/>
@@ -52,9 +52,6 @@
         <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
