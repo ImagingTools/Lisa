@@ -57,22 +57,7 @@ if(WIN32)
 	unset(listOptions)
 endif()
 
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
-list(APPEND QML_IMPORT_DIRS "${PROJECT_SOURCE_DIR}/../../../Include/lisaqml/Qml")
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtauthgui/Qml")
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtlicgui/Qml")
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtguigql/Qml")
 
-# Prevent adding duplicate values at each run of CMake.
-list(REMOVE_DUPLICATES QML_IMPORT_DIRS)
-
-# The variable is cached in ${BUILD_DIR}/CMakeCache.txt. We need FORCE to
-# change it there immediately. Also, add a comment to the cache file.
-set(QML_IMPORT_PATH ${QML_IMPORT_DIRS}
-	CACHE STRING "Qt Creator extra qml import paths for ${PROJECT_NAME}"
-	FORCE
-)
 
 if(APPLE)
 	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.app/Contents/MacOS)
