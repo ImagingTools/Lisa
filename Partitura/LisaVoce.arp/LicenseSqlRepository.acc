@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5096" Description="ACF"/>
+            <Version Id="1" Number="2194" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description></Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="LicenseCollection" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseCollection">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="DatabaseAccessSettings">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LicenseDatabaseDelegate"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LicenseDatabaseDelegate" PackageId="ImtLicenseDbPck" ComponentId="LicenseDatabaseDelegate">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectIdColumn" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Id"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TableName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ProductLicenses"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList/>
+    <ExportedInterfaces>
+        <Interface InterfaceId="imod::IModel" ComponentId="LicenseCollection"/>
+        <Interface InterfaceId="imtbase::ICollectionInfo" ComponentId="LicenseCollection"/>
+        <Interface InterfaceId="imtbase::IObjectCollection" ComponentId="LicenseCollection"/>
+        <Interface InterfaceId="imtbase::IObjectCollectionInfo" ComponentId="LicenseCollection"/>
+        <Interface InterfaceId="imtdb::ISqlDatabaseObjectDelegate" ComponentId="LicenseDatabaseDelegate"/>
+    </ExportedInterfaces>
+    <ExportedComponents/>
+</Acf>

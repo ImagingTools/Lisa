@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5096" Description="ACF"/>
+            <Version Id="1" Number="2194" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="LicenseCollection" X="575" Y="150" Note=""/>
+        <Element ComponentName="LicenseDatabaseDelegate" X="575" Y="375" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>
