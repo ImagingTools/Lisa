@@ -24,8 +24,6 @@ include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
 include(${ACFDIR}/Config/CMake/AcfQt.cmake)
-include(${ACFDIR}/Config/CMake/AcfStd.cmake)
-include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
@@ -37,6 +35,9 @@ target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
 target_link_libraries(${PROJECT_NAME} imtgui)
+
+include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
+include(${ACFDIR}/Config/CMake/AcfStd.cmake)
 
 if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
