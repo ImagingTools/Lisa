@@ -13,6 +13,8 @@
 #include <imtqml/CQuickApplicationComp.h>
 
 #include <GeneratedFiles/LisaQmlExe/CLisaQmlExe.h>
+#include <QtSql/QSqlQuery>
+
 
 
 int main(int argc, char *argv[])
@@ -63,6 +65,7 @@ int main(int argc, char *argv[])
 	if (applicationPtr != nullptr){
 		return applicationPtr->Execute(argc, argv);
 	}
+
 
 	return -1;
 }
