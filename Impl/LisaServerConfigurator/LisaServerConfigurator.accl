@@ -2,28 +2,17 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5102" Description="ACF"/>
-            <Version Id="1" Number="2194" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5104" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Application" X="650" Y="400" Note=""/>
-        <Element ComponentName="LisaLocalization" X="968" Y="542" Note=""/>
-        <Element ComponentName="LogFilePath" X="150" Y="400" Note=""/>
-        <Element ComponentName="LogSystemLocation" X="150" Y="575" Note=""/>
         <Element ComponentName="Settings" X="950" Y="175" Note=""/>
-        <Element ComponentName="TextFileLog" X="150" Y="175" Note=""/>
         <Element ComponentName="VersionInfo" X="475" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Settings">
-            <PositionMap>
-                <Element ComponentName="ServerPageData" X="350" Y="250" Note=""/>
-                <Element ComponentName="ServerPageRepresentation" X="775" Y="250" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Representation">
             <PositionMap>
                 <Element ComponentName="BackupSettingsRepresentation" X="600" Y="475" Note=""/>
@@ -36,6 +25,13 @@
                 <Element ComponentName="ServerPortRepresentation" X="425" Y="375" Note=""/>
                 <Element ComponentName="ServerSettingsPermission" X="650" Y="75" Note=""/>
                 <Element ComponentName="ServerSettingsRepresentation" X="375" Y="200" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Settings">
+            <PositionMap>
+                <Element ComponentName="ServerPageData" X="350" Y="250" Note=""/>
+                <Element ComponentName="ServerPageRepresentation" X="775" Y="250" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5079" Description="ACF"/>
-            <Version Id="1" Number="2184" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5104" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -16,8 +16,33 @@
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TextFileLog"/>
+                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Client"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LocalSettings/Language"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogDefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaClientLog.txt"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogLocationType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="9"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogPathType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1"/>
                     </AttributeInfo>
                     <AttributeInfo Id="MainQmlPath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/qml/LisaMain.qml"/>
@@ -37,11 +62,11 @@
                     <AttributeInfo Id="SettingsRepresentationController" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LocalSettings"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="SystemStatusUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LocalSettings/ServerUrl"/>
+                    <AttributeInfo Id="TranslationFilePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value=":/Translations"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    <AttributeInfo Id="TranslationFilePrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
@@ -49,87 +74,35 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LocalSettings" PackageId="LisaQmlVoce" ComponentId="LocalSettings">
+        <Element Id="LocalSettings" PackageId="ImtQmlVoce" ComponentId="LocalSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DefaultServerUrl" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="http://localhost:7776"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                        <Data IsEnabled="true" Value="Application/ApplicationLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="TextFileLog"/>
+                        <Data IsEnabled="true" Value="Application/TextFileLog"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PreferenceDefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="LisaClientPreferences.xml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PreferenceLocationType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="9"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/ApplicationLocalization"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LogFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaClientLog.txt"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ReferencePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LogSystemLocation"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LogSystemLocation" PackageId="FilePck" ComponentId="SystemLocation">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="9"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="TextFileLog" PackageId="FilePck" ComponentId="TextFileLog">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LogFile" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LogFilePath"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseCategory" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseCode" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UseTimeStamp" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

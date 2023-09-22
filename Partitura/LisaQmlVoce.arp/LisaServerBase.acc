@@ -2,58 +2,19 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5082" Description="ACF"/>
-            <Version Id="1" Number="2187" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5104" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="ApplicationController" PackageId="LisaVoce" ComponentId="RootDataController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="DatabaseAutomaticBackup" PackageId="ImtCoreVoce" ComponentId="DatabaseAutomaticBackup">
-            <Data IsEnabled="true" Flags="1">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseLoginSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/DatabaseAccessSettings"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="DatabaseEngine" PackageId="ImtCoreVoce" ComponentId="DatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/DatabaseAccessSettings"/>
+                        <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DbName" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="lisa"/>
@@ -61,85 +22,17 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="MigrationPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Migrations"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Password" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="root"/>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="GraphQlRoot" PackageId="ImtGqlPck" ComponentId="GraphQLServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/graphql"/>
+                    <AttributeInfo Id="PgHostName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="localhost"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GqlContextController" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RemoteGqlContextController"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GqlRequestHandler" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ApplicationController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ShowComponentId" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/UserSettingsRepository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="HttpFileAccess" PackageId="ImtRestPck" ComponentId="HttpFileControllerServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="BinaryDataControllers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>RestoringDatabaseController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ApplicationController/FeaturesExportProvider</Value>
-                                <Value>LogFileDataProvider</Value>
-                                <Value>RestoringDatabaseController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/files*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="HttpRedirect" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views/html/index.html?item=Pages/StartPage.qml"/>
+                    <AttributeInfo Id="PgPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="5432"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -147,193 +40,73 @@
         <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCompression" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HttpCommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Lisa/Views*</Value>
-                                <Value></Value>
-                                <Value>Lisa/graphql</Value>
-                                <Value>Lisa/files*</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HttpRequestHandlers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>WebResourcesServlet</Value>
-                                <Value>HttpRedirect</Value>
-                                <Value>GraphQlRoot</Value>
-                                <Value>HttpFileAccess</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RequestHandler" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="LisaHandlers"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ServerAddress" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="http://localhost"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ServerPort" Type="Integer" ExportId="ServerPort">
-                        <Data IsEnabled="true" Value="7776"/>
+                    <AttributeInfo Id="ServerPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="7778"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ServerPortParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/ServerPort"/>
+                        <Data IsEnabled="true" Value="ServerPageData/ServerPort"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="StartServerOnCreate" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="StartWebSocketServerOnCreate" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="WebSocketServerPort">
-                        <Data IsEnabled="true" Value="8888"/>
+                    <AttributeInfo Id="WebSocketServerPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="8112"/>
                     </AttributeInfo>
                     <AttributeInfo Id="WebSocketServerPortParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/WebSocketServerPort"/>
+                        <Data IsEnabled="true" Value="ServerPageData/WebSocketServerPort"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>en_US</Value>
-                                <Value>de_DE</Value>
-                                <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LogFileDataProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HomePath" Type="Reference" ExportId="LogPath">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="RemoteGqlContextController" PackageId="ImtGqlPck" ComponentId="RemoteGqlContextController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CacheClearingInterval" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="60"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GqlRequest" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/PumaGQLClientEngine"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SessionFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="SessionInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="UserInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/UserSettingsRepository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ResourcesPath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value=":"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PathType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="0"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="RessourcesProvider" PackageId="ImtCorePck" ComponentId="BinaryDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HomePath" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ResourcesPath"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="RestoringDatabaseController" PackageId="ImtDatabasePck" ComponentId="RestoringDatabaseController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="BackupBeforeRestore" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Command-ID" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="GetBackupFile"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseLoginSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ApplicationController/DatabaseAccessSettings"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="SessionInfo" PackageId="ImtAuthPck" ComponentId="SessionInfo">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="UserInfo" PackageId="ImtAuthPck" ComponentId="UserInfo">
+        <Element Id="LisaHandlers" PackageId="LisaQmlVoce" ComponentId="LisaHandlers">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AdminId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="su"/>
+                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseServerConnectionChecker" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogPath" Type="Reference" ExportId="LogPath">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="WebResourcesServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
+        <Element Id="ServerPageData" PackageId="LisaQmlVoce" ComponentId="ServerPageData">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>RessourcesProvider</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -342,11 +115,11 @@
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
+        <Interface InterfaceId="imtrest::IRequestManager" ComponentId="HttpServerFramework"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="DatabaseAccessSettings" ComponentId="ApplicationController/DatabaseAccessSettings"/>
-        <Component ExportedId="FeaturesExportProvider" ComponentId="ApplicationController/FeaturesExportProvider"/>
-        <Component ExportedId="LisaLocalization" ComponentId="LisaLocalization"/>
+        <Component ExportedId="DatabaseEngine" ComponentId="DatabaseEngine"/>
+        <Component ExportedId="ServerPageData" ComponentId="ServerPageData"/>
     </ExportedComponents>
 </Acf>
