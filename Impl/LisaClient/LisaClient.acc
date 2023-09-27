@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5104" Description="ACF"/>
+            <Version Id="0" Number="5105" Description="ACF"/>
             <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -103,6 +103,69 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="PumaSystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="PumaTestConnection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CheckInterval" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseCheckerCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGetDatabaseStatus"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Puma"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="/Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LocalSettings/ServerUrl"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="LisaTestConnection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CheckInterval" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="2"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseCheckerCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="LisaGetDatabaseStatus"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/TextFileLog"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="/Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SlaveSystemStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaSystemStatusController"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LocalSettings/ServerUrl"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5096" Description="ACF"/>
-            <Version Id="1" Number="2194" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5105" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -23,15 +23,6 @@
         <Element ComponentName="Repositories" X="1075" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PagesPermissions">
-            <PositionMap>
-                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
-                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
-                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
-                <Element ComponentName="ProductsPermissions" X="600" Y="400" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="FeatureInfoProvider" X="575" Y="175" Note=""/>
@@ -42,6 +33,15 @@
                 <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
                 <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
                 <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesPermissions">
+            <PositionMap>
+                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
+                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
+                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
+                <Element ComponentName="ProductsPermissions" X="600" Y="400" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

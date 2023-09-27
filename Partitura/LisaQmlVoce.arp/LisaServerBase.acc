@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5104" Description="ACF"/>
+            <Version Id="0" Number="5105" Description="ACF"/>
             <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -76,19 +76,50 @@
                     <AttributeInfo Id="DatabaseServerConnectionChecker" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LogPath" Type="Reference" ExportId="LogPath">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="PumaUrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/PumaUrlConnection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LisaLocalization" PackageId="LisaVoce" ComponentId="LisaLocalization">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="IgnoreLocale" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>en_US</Value>
+                                <Value>de_DE</Value>
+                                <Value>ru_RU</Value>
+                                <Value>pl_PL</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>

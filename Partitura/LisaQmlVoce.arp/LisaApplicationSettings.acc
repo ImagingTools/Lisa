@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5079" Description="ACF"/>
-            <Version Id="1" Number="2184" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5105" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -35,6 +35,9 @@
         <Element Id="GeneralSettingsFactory" PackageId="ImtCoreVoce" ComponentId="GeneralPageDataModel">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultIndex" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="0"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="LanguageConstraints">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -43,8 +46,6 @@
                             <Values>
                                 <Value>Light</Value>
                                 <Value>Dark</Value>
-                                <Value>Blue</Value>
-                                <Value>Orange</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -53,43 +54,8 @@
                             <Values>
                                 <Value>Light</Value>
                                 <Value>Dark</Value>
-                                <Value>Blue</Value>
-                                <Value>Orange</Value>
                             </Values>
                         </Data>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ServerSettings" PackageId="LisaQmlVoce" ComponentId="ServerPageData">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultDatabaseHost" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="localhost"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultDatabaseName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultDatabasePassword" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="root"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultDatabasePort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="5432"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultDatabaseUserName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="postgres"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -104,8 +70,8 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="DataModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerSettings"/>
+                    <AttributeInfo Id="DataModel" Type="Reference" ExportId="ServerSettings">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
@@ -126,6 +92,9 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -195,11 +164,17 @@
         <Element Id="UserSettingsRepresentation" PackageId="ImtCoreVoce" ComponentId="GeneralPageRepresentationModel">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DesignPathToQml" Type="Text" ExportId="">
+                    <AttributeInfo Id="DesignPathToQml" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsComboBox.qml"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="LanguagePathToQml" Type="Text" ExportId="">
+                    <AttributeInfo Id="LanguagePathToQml" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsComboBox.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>

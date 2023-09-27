@@ -2,15 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5079" Description="ACF"/>
-            <Version Id="1" Number="2184" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5105" Description="ACF"/>
+            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationSettings" X="625" Y="75" Note=""/>
         <Element ComponentName="GeneralSettingsFactory" X="125" Y="675" Note=""/>
-        <Element ComponentName="ServerSettings" X="950" Y="475" Note=""/>
         <Element ComponentName="ServerSettingsController" X="1025" Y="300" Note=""/>
         <Element ComponentName="ServerSettingsRepresentation" X="1050" Y="675" Note=""/>
         <Element ComponentName="UserSettings" X="100" Y="475" Note=""/>
