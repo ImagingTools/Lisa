@@ -14,7 +14,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="LightSettings"/>
+                        <Data IsEnabled="true" Value="Icons/LightSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Administration"/>
@@ -103,7 +103,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackage"/>
+                        <Data IsEnabled="true" Value="Icons/FeaturePackage"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Packages"/>
@@ -212,7 +212,7 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Product"/>
+                        <Data IsEnabled="true" Value="Icons/Product"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Id" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Products"/>
@@ -535,6 +535,7 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
+        <Component ExportedId="PackageRepository" ComponentId="Repositories/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
     </ExportedComponents>
 </Acf>

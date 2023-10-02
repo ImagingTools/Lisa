@@ -8,10 +8,11 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="DatabaseAutomaticBackup" X="600" Y="50" Note=""/>
         <Element ComponentName="DatabaseEngine" X="325" Y="425" Note=""/>
         <Element ComponentName="HttpServerFramework" X="625" Y="425" Note=""/>
         <Element ComponentName="LisaHandlers" X="600" Y="175" Note=""/>
-        <Element ComponentName="LisaLocalization" X="925" Y="175" Note=""/>
+        <Element ComponentName="LisaLocalization" X="950" Y="175" Note=""/>
         <Element ComponentName="ServerPageData" X="175" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>

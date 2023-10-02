@@ -10,6 +10,24 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="DatabaseAutomaticBackup" PackageId="ImtDatabasePck" ComponentId="DatabaseAutomaticBackup">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="BackupOnStart" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/Backup"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseLoginSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseEngine/DatabaseAccessSettings"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Program" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="pg_dump"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="DatabaseEngine" PackageId="ImtCoreVoce" ComponentId="DatabaseEngine">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -67,6 +85,12 @@
         <Element Id="LisaHandlers" PackageId="LisaQmlVoce" ComponentId="LisaHandlers">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/Backup"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
                     </AttributeInfo>
@@ -91,8 +115,8 @@
                     <AttributeInfo Id="ServerSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -150,6 +174,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="DatabaseAutomaticBackup" ComponentId="DatabaseAutomaticBackup"/>
         <Component ExportedId="DatabaseEngine" ComponentId="DatabaseEngine"/>
         <Component ExportedId="ServerPageData" ComponentId="ServerPageData"/>
     </ExportedComponents>

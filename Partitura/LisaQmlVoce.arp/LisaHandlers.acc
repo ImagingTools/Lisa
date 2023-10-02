@@ -16,6 +16,15 @@
                     <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="BackupSettings">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>RemoteContextGQLServerFramework/LogFileDataProvider</Value>
+                                <Value>RemoteContextGQLServerFramework/RestoringDatabaseController</Value>
+                                <Value>RootDataController/FeaturesExportProvider</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="CacheClearingInterval" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="60"/>
                     </AttributeInfo>

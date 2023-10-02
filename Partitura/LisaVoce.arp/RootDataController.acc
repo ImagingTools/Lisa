@@ -21,6 +21,8 @@
                                 <Value>SettingsController</Value>
                                 <Value>AuthorizationManagementController</Value>
                                 <Value>PermissionController</Value>
+                                <Value>DatabaseServerConnectionController</Value>
+                                <Value>TestConnectionController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -44,6 +46,28 @@
                     </AttributeInfo>
                     <AttributeInfo Id="GqlRequest" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="DatabaseServerConnectionController" PackageId="ImtDatabasePck" ComponentId="DatabaseServerConnectionController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaGetDatabaseStatus</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseServerConnectionChecker" Type="Reference" ExportId="DatabaseServerConnectionChecker">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -134,6 +158,8 @@
                                 <Value>RolesMetaInfo</Value>
                                 <Value>UsersMetaInfo</Value>
                                 <Value>GroupsMetaInfo</Value>
+                                <Value>PumaTestConnection</Value>
+                                <Value>PumaGetDatabaseStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -211,6 +237,25 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="TestConnectionController" PackageId="ImtGqlPck" ComponentId="GqlController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaTestConnection</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
@@ -221,6 +266,7 @@
         <Component ExportedId="Backup" ComponentId="SettingsController/Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="SettingsController/DatabaseAccessSettings"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
+        <Component ExportedId="PackageRepository" ComponentId="Pages/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
         <Component ExportedId="PumaGQLClientEngine" ComponentId="PumaGQLClientEngine"/>
         <Component ExportedId="ServerPort" ComponentId="SettingsController/ServerPort"/>

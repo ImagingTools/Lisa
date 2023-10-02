@@ -8,13 +8,15 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="ApplicationController" X="575" Y="75" Note=""/>
-        <Element ComponentName="AuthorizationManagementController" X="375" Y="275" Note=""/>
-        <Element ComponentName="Pages" X="850" Y="275" Note=""/>
-        <Element ComponentName="PermissionController" X="1050" Y="275" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="675" Y="275" Note=""/>
-        <Element ComponentName="SettingsController" X="100" Y="275" Note=""/>
-        <Element ComponentName="SingleProductPermission" X="1050" Y="475" Note=""/>
+        <Element ComponentName="ApplicationController" X="550" Y="200" Note=""/>
+        <Element ComponentName="AuthorizationManagementController" X="375" Y="350" Note=""/>
+        <Element ComponentName="DatabaseServerConnectionController" X="825" Y="50" Note=""/>
+        <Element ComponentName="Pages" X="850" Y="350" Note=""/>
+        <Element ComponentName="PermissionController" X="1050" Y="350" Note=""/>
+        <Element ComponentName="PumaGQLClientEngine" X="675" Y="350" Note=""/>
+        <Element ComponentName="SettingsController" X="100" Y="350" Note=""/>
+        <Element ComponentName="SingleProductPermission" X="1000" Y="500" Note=""/>
+        <Element ComponentName="TestConnectionController" X="300" Y="50" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
