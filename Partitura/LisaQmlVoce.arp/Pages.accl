@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5105" Description="ACF"/>
+            <Version Id="0" Number="5109" Description="ACF"/>
             <Version Id="1" Number="2195" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
@@ -12,8 +12,8 @@
         <Element ComponentName="CheckPermissionOr" X="525" Y="350" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="50" Note=""/>
         <Element ComponentName="FeaturesExportProvider" X="1075" Y="675" Note=""/>
+        <Element ComponentName="FeaturesPage" X="100" Y="500" Note=""/>
         <Element ComponentName="MultiPageRepresentationController" X="275" Y="175" Note=""/>
-        <Element ComponentName="PackagesPage" X="100" Y="500" Note=""/>
         <Element ComponentName="PageData" X="1075" Y="350" Note=""/>
         <Element ComponentName="PageDataControllers" X="975" Y="175" Note=""/>
         <Element ComponentName="Pages" X="250" Y="350" Note=""/>
@@ -32,24 +32,25 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="PageData">
-            <PositionMap>
-                <Element ComponentName="FeatureInfoProvider" X="575" Y="175" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
-                <Element ComponentName="LicenseCollectionController" X="975" Y="625" Note=""/>
-                <Element ComponentName="LicenseController" X="975" Y="525" Note=""/>
-                <Element ComponentName="PackagesPage" X="200" Y="175" Note=""/>
-                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
-                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
-                <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="FeaturePackageRepository" X="425" Y="450" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="650" Y="575" Note=""/>
+                <Element ComponentName="FeatureSqlRepository" X="425" Y="325" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="775" Y="600" Note=""/>
                 <Element ComponentName="ProductRepository" X="850" Y="450" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PageData">
+            <PositionMap>
+                <Element ComponentName="FeatureInfoProvider" X="575" Y="175" Note=""/>
+                <Element ComponentName="FeaturesPage" X="200" Y="175" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
+                <Element ComponentName="LicenseCollectionController" X="975" Y="625" Note=""/>
+                <Element ComponentName="LicenseController" X="975" Y="525" Note=""/>
+                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
+                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
+                <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

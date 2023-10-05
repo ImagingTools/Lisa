@@ -7,8 +7,8 @@
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
-    <Description>Acula's data repository containing all resources need for the execution of the production workflow</Description>
-    <Keywords>Inspection Application Product Workflow</Keywords>
+    <Description></Description>
+    <Keywords></Keywords>
     <ElementsList>
         <Element Id="Collection" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseCollection">
             <Data IsEnabled="true" Flags="0">
@@ -22,43 +22,30 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ObjectCollectionFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureCollection"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ObjectDelegate" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="SqlDatabaseJsonDelegate"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureCollection" PackageId="ImtLicensePck" ComponentId="FeaturePackage">
+        <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
             <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="OwnerCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Collection"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="FeaturePackageMetaInfoCreator" PackageId="ImtLicensePck" ComponentId="FeaturePackageMetaInfoCreator">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ObjectTypeId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="FeaturePackage"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="JsonSerializer" PackageId="FilePck" ComponentId="JsonFileSerializer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="SqlDatabaseJsonDelegate" PackageId="ImtDatabasePck" ComponentId="SqlDatabaseJsonDelegate">
+        <Element Id="SqlDatabaseJsonDelegate" PackageId="ImtLicenseDbPck" ComponentId="FeatureDatabaseDelegate">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -70,7 +57,7 @@
                     <AttributeInfo Id="DocumentFactories" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureCollection</Value>
+                                <Value>FeatureInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -91,7 +78,7 @@
                         <Data IsEnabled="true" Value="Types"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TableName" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Packages"/>
+                        <Data IsEnabled="true" Value="Features"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -126,10 +113,9 @@
         <Interface InterfaceId="imtbase::ICollectionInfo" ComponentId="Collection"/>
         <Interface InterfaceId="imtbase::IObjectCollection" ComponentId="Collection"/>
         <Interface InterfaceId="imtbase::IObjectCollectionInfo" ComponentId="Collection"/>
+        <Interface InterfaceId="imtdb::ISqlDatabaseObjectDelegate" ComponentId="SqlDatabaseJsonDelegate"/>
         <Interface InterfaceId="istd::IChangeable" ComponentId="Collection"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Collection"/>
     </ExportedInterfaces>
-    <ExportedComponents>
-        <Component ExportedId="FeaturePackageCollection" ComponentId="Collection"/>
-    </ExportedComponents>
+    <ExportedComponents/>
 </Acf>
