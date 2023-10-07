@@ -23,12 +23,16 @@
         <Element ComponentName="Repositories" X="1075" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PagesPermissions">
+        <EmbededRegistry Id="PageData">
             <PositionMap>
-                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
-                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
-                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
-                <Element ComponentName="ProductsPermissions" X="600" Y="400" Note=""/>
+                <Element ComponentName="FeatureInfoProvider" X="575" Y="175" Note=""/>
+                <Element ComponentName="FeaturesPage" X="200" Y="175" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
+                <Element ComponentName="LicenseCollectionController" X="975" Y="625" Note=""/>
+                <Element ComponentName="LicenseController" X="975" Y="525" Note=""/>
+                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
+                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
+                <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -41,16 +45,12 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="PageData">
+        <EmbededRegistry Id="PagesPermissions">
             <PositionMap>
-                <Element ComponentName="FeatureInfoProvider" X="575" Y="175" Note=""/>
-                <Element ComponentName="FeaturesPage" X="200" Y="175" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
-                <Element ComponentName="LicenseCollectionController" X="975" Y="625" Note=""/>
-                <Element ComponentName="LicenseController" X="975" Y="525" Note=""/>
-                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
-                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
-                <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
+                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
+                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
+                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
+                <Element ComponentName="ProductsPermissions" X="600" Y="400" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

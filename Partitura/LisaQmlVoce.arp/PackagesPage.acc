@@ -237,6 +237,9 @@
                                 <AttributeInfo Id="GuiElementModels" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
+                                            <Value>New</Value>
+                                            <Value>Remove</Value>
+                                            <Value>Empty</Value>
                                             <Value>Undo</Value>
                                             <Value>Redo</Value>
                                             <Value>Empty</Value>
@@ -314,10 +317,10 @@
                                     <Data IsEnabled="true" Value="New"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="IsEnabled" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
+                                    <Data IsEnabled="true" Value="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Name" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="Insert Feature"/>
+                                    <Data IsEnabled="true" Value="Insert Subfeature"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
