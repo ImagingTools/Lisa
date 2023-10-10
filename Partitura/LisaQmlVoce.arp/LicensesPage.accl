@@ -2,22 +2,22 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5122" Description="ACF"/>
+            <Version Id="0" Number="5119" Description="ACF"/>
             <Version Id="1" Number="2196" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
+        <Element ComponentName="HeadersDataProvider" X="825" Y="500" Note=""/>
+        <Element ComponentName="LicenseCollectionCommands" X="725" Y="250" Note=""/>
+        <Element ComponentName="LicenseCollectionController" X="1050" Y="250" Note=""/>
+        <Element ComponentName="LicenseCommands" X="400" Y="250" Note=""/>
+        <Element ComponentName="LicenseController" X="125" Y="250" Note=""/>
         <Element ComponentName="ObjectViewDataProvider" X="1075" Y="500" Note=""/>
-        <Element ComponentName="ProductCommands" X="700" Y="250" Note=""/>
-        <Element ComponentName="ProductController" X="200" Y="250" Note=""/>
-        <Element ComponentName="ProductsCommands" X="450" Y="250" Note=""/>
-        <Element ComponentName="ProductsController" X="975" Y="250" Note=""/>
-        <Element ComponentName="ProductsHeadersDataProvider" X="725" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="ProductCommands">
+        <EmbededRegistry Id="LicenseCommands">
             <PositionMap>
                 <Element ComponentName="CheckPermissionOr" X="775" Y="450" Note=""/>
                 <Element ComponentName="Close" X="425" Y="675" Note=""/>
@@ -34,15 +34,13 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="ProductsCommands">
+        <EmbededRegistry Id="LicenseCollectionCommands">
             <PositionMap>
                 <Element ComponentName="CheckPermissionOr" X="800" Y="350" Note=""/>
                 <Element ComponentName="Commands" X="275" Y="150" Note=""/>
                 <Element ComponentName="CommandsRepresentation" X="1050" Y="175" Note=""/>
                 <Element ComponentName="Edit" X="300" Y="450" Note=""/>
                 <Element ComponentName="Empty" X="525" Y="350" Note=""/>
-                <Element ComponentName="Export" X="75" Y="450" Note=""/>
-                <Element ComponentName="ExportPermissions" X="1025" Y="500" Note=""/>
                 <Element ComponentName="New" X="75" Y="350" Note=""/>
                 <Element ComponentName="ProductsCommandPermissions" X="1050" Y="350" Note=""/>
                 <Element ComponentName="ProductsCommandsController" X="600" Y="50" Note=""/>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5109" Description="ACF"/>
-            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5122" Description="ACF"/>
+            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -59,11 +59,11 @@
         <Element Id="FeaturesExportProvider" PackageId="ImtLicenseGqlPck" ComponentId="FeaturesExportProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
@@ -88,6 +88,27 @@
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="../../imtlicgui/FeatureCollectionView.qml"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LicensesPage" PackageId="ImtQmlPck" ComponentId="PageGuiElementModel">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="IconPath" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Icons/Product"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Id" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Licenses"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Name" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Licenses"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="../../imtlicgui/LicenseCollectionView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -126,17 +147,11 @@
                     <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/LicenseSqlRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PackageRepository" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/PackageRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ProductRepository" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
@@ -155,8 +170,7 @@
                             <Values>
                                 <Value>PageData/PackagesPage</Value>
                                 <Value>PageData/ProductsPage</Value>
-                                <Value>PageData/LicenseCollectionController</Value>
-                                <Value>PageData/LicenseController</Value>
+                                <Value>PageData/LicensesPage</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -177,6 +191,7 @@
                             <Values>
                                 <Value>FeaturesPage</Value>
                                 <Value>ProductsPage</Value>
+                                <Value>LicensesPage</Value>
                                 <Value>AdministrationPage</Value>
                             </Values>
                         </Data>
@@ -255,7 +270,7 @@
                     <Element Id="FeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="PackageCollection" Type="Reference" ExportId="FeaturePackages">
+                                <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="FeatureCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -284,42 +299,13 @@
                             <AttributeInfoMap/>
                         </Data>
                     </Element>
-                    <Element Id="LicenseCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="LicenseCollectionController">
+                    <Element Id="LicensesPage" PackageId="LisaQmlVoce" ComponentId="LicensesPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>LicensesItems</Value>
-                                        </Values>
-                                    </Data>
+                                <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="LicenseCollection">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="LicenseCollection">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="LicenseController" PackageId="ImtLicenseGqlPck" ComponentId="LicenseController">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>GetLicense</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="LicenseCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
@@ -344,12 +330,6 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="ProductPermissions"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeaturePackages" Type="Reference" ExportId="PackageRepository">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -370,8 +350,7 @@
                 <ExportedInterfaces/>
                 <ExportedComponents>
                     <Component ExportedId="FeatureInfoProvider" ComponentId="FeatureInfoProvider"/>
-                    <Component ExportedId="LicenseCollectionController" ComponentId="LicenseCollectionController"/>
-                    <Component ExportedId="LicenseController" ComponentId="LicenseController"/>
+                    <Component ExportedId="LicensesPage" ComponentId="LicensesPage"/>
                     <Component ExportedId="PackagesPage" ComponentId="FeaturesPage"/>
                     <Component ExportedId="PermissionsChecker" ComponentId="PermissionsChecker"/>
                     <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
@@ -467,21 +446,6 @@
         <EmbeddedRegistry Id="Repositories">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="FeaturePackageRepository" PackageId="LisaVoce" ComponentId="FeaturePackageSqlRepository">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="FeatureSqlRepository" PackageId="LisaVoce" ComponentId="FeatureSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -539,7 +503,6 @@
                 <ExportedComponents>
                     <Component ExportedId="FeatureSqlRepository" ComponentId="FeatureSqlRepository"/>
                     <Component ExportedId="LicenseSqlRepository" ComponentId="LicenseSqlRepository"/>
-                    <Component ExportedId="PackageRepository" ComponentId="FeaturePackageRepository"/>
                     <Component ExportedId="ProductRepository" ComponentId="ProductRepository"/>
                 </ExportedComponents>
             </Data>
@@ -551,7 +514,6 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
-        <Component ExportedId="PackageRepository" ComponentId="Repositories/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
     </ExportedComponents>
 </Acf>

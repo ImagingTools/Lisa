@@ -11,7 +11,6 @@ ApplicationMain{
         thumbnailDecoratorGui.updateModels();
 
         FeaturesProvider.updateModel();
-        featuresDependenciesProvider.updateModel();
 
         applicationInfoProvider.updateModel();
     }
