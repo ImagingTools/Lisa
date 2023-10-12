@@ -23,6 +23,7 @@
                                 <Value>FeatureEditorCommands</Value>
                                 <Value>FeatureCollectionController</Value>
                                 <Value>FeatureController</Value>
+                                <Value>SerializableFeatureCollectionController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -179,6 +180,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -196,6 +202,42 @@
                     </AttributeInfo>
                     <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SerializableFeatureCollectionController" PackageId="ImtGqlPck" ComponentId="SerializableObjectCollectionController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaFeatureInfo</Value>
+                                <Value>LisaFeatureDataMetaInfo</Value>
+                                <Value>LisaFeatureMetaInfo</Value>
+                                <Value>LisaFeatureList</Value>
+                                <Value>LisaFeatureView</Value>
+                                <Value>LisaFeatureRemove</Value>
+                                <Value>LisaFeatureSetDescription</Value>
+                                <Value>LisaFeatureAdd</Value>
+                                <Value>LisaFeatureUpdate</Value>
+                                <Value>LisaFeatureItem</Value>
+                                <Value>LisaFeatureCount</Value>
+                                <Value>LisaFeatureIds</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="FeatureCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>

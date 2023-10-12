@@ -13,24 +13,12 @@
         <Element ComponentName="FeatureCollectionController" X="600" Y="325" Note=""/>
         <Element ComponentName="FeatureController" X="950" Y="325" Note=""/>
         <Element ComponentName="FeatureEditorCommands" X="900" Y="600" Note=""/>
-        <Element ComponentName="FeatureHeadersDataProvider" X="600" Y="100" Note=""/>
+        <Element ComponentName="FeatureHeadersDataProvider" X="625" Y="175" Note=""/>
+        <Element ComponentName="FeatureInfo" X="225" Y="75" Note=""/>
         <Element ComponentName="ObjectViewDataProvider" X="175" Y="325" Note=""/>
+        <Element ComponentName="SerializableFeatureCollectionController" X="225" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PackagesCommands">
-            <PositionMap>
-                <Element ComponentName="CheckPermissionOr" X="1100" Y="450" Note=""/>
-                <Element ComponentName="Commands" X="250" Y="250" Note=""/>
-                <Element ComponentName="CommandsRepresentation" X="950" Y="250" Note=""/>
-                <Element ComponentName="Edit" X="525" Y="450" Note=""/>
-                <Element ComponentName="Empty" X="375" Y="450" Note=""/>
-                <Element ComponentName="FeaturesCommandsController" X="575" Y="75" Note=""/>
-                <Element ComponentName="New" X="75" Y="450" Note=""/>
-                <Element ComponentName="PackagesCommandPermissions" X="800" Y="450" Note=""/>
-                <Element ComponentName="Remove" X="225" Y="450" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PackageEditCommands">
             <PositionMap>
                 <Element ComponentName="CheckPermissionOr" X="775" Y="450" Note=""/>
@@ -45,6 +33,20 @@
                 <Element ComponentName="Remove" X="300" Y="450" Note=""/>
                 <Element ComponentName="Save" X="75" Y="675" Note=""/>
                 <Element ComponentName="Undo" X="75" Y="575" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PackagesCommands">
+            <PositionMap>
+                <Element ComponentName="CheckPermissionOr" X="1100" Y="450" Note=""/>
+                <Element ComponentName="Commands" X="250" Y="250" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="950" Y="250" Note=""/>
+                <Element ComponentName="Edit" X="525" Y="450" Note=""/>
+                <Element ComponentName="Empty" X="375" Y="450" Note=""/>
+                <Element ComponentName="FeaturesCommandsController" X="575" Y="75" Note=""/>
+                <Element ComponentName="New" X="75" Y="450" Note=""/>
+                <Element ComponentName="PackagesCommandPermissions" X="800" Y="450" Note=""/>
+                <Element ComponentName="Remove" X="225" Y="450" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
