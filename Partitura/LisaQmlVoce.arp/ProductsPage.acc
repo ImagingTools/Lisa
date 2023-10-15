@@ -170,6 +170,7 @@
                             <Values>
                                 <Value>ProductName</Value>
                                 <Value>CategoryId</Value>
+                                <Value>ProductDescription</Value>
                                 <Value>Added</Value>
                                 <Value>LastModified</Value>
                             </Values>
@@ -183,6 +184,7 @@
                             <Values>
                                 <Value>Product Name</Value>
                                 <Value>Category</Value>
+                                <Value>Description</Value>
                                 <Value>Added</Value>
                                 <Value>Last Modified</Value>
                             </Values>
@@ -196,6 +198,7 @@
                             <Values>
                                 <Value>ProductName</Value>
                                 <Value>CategoryId</Value>
+                                <Value>ProductDescription</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
