@@ -1,6 +1,9 @@
 // Qt includes
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QStyleFactory>
+// #include <QtWebView>
+#include <QSGRendererInterface>
+#include <QQuickWindow>
 
 // ACF includes
 #include <ibase/IApplication.h>
@@ -56,12 +59,17 @@ int main(int argc, char *argv[])
 	qmlRegisterModule("QtGraphicalEffects", 1, 12);
 	qmlRegisterModule("QtGraphicalEffects", 1, 0);
 	qmlRegisterModule("QtQuick.Dialogs", 1, 3);
+	// qmlRegisterModule("Qt5Compat.GraphicalEffects", 1, 0);
 #else
 	qmlRegisterModule("QtQuick.Dialogs", 6, 2);
-	qmlRegisterModule("Qt5Compat.GraphicalEffects", 1, 0);
+	qmlRegisterModule("Qt5Compat.GraphicalEffects", 6, 0);
 #endif
 
-	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
+	// QtWebView::initialize();
+	// QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+	// QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGLRhi);
+	// QtWebView::initialize()
+	ibase::IApplication *applicationPtr = instance.GetInterface<ibase::IApplication>();
 	if (applicationPtr != nullptr){
 		return applicationPtr->Execute(argc, argv);
 	}

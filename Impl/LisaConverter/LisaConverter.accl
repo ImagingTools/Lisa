@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5123" Description="ACF"/>
+            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="ApplicationInfo" X="625" Y="100" Note=""/>
+        <Element ComponentName="ConsoleApplication" X="525" Y="250" Note=""/>
+        <Element ComponentName="DatabaseConverter" X="675" Y="357" Note=""/>
+        <Element ComponentName="DatabaseEngine_new" X="250" Y="675" Note=""/>
+        <Element ComponentName="DatabaseEngine_old" X="800" Y="650" Note=""/>
+        <Element ComponentName="FeatureOldSqlRepository" X="600" Y="525" Note=""/>
+        <Element ComponentName="LicenseOldSqlRepository" X="1025" Y="525" Note=""/>
+        <Element ComponentName="LocalSettings" X="825" Y="250" Note=""/>
+        <Element ComponentName="ProductOldSqlRepository" X="800" Y="500" Note=""/>
+        <Element ComponentName="VersionInfo" X="950" Y="100" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>

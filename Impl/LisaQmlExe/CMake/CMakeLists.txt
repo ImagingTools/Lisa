@@ -26,6 +26,7 @@ endif()
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS WebSockets QuickWidgets)
 find_package("Qt${QT_VERSION_MAJOR}" COMPONENTS Quick Qml REQUIRED)
 find_package("Qt${QT_VERSION_MAJOR}" COMPONENTS Sql REQUIRED)
+# find_package("Qt${QT_VERSION_MAJOR}" COMPONENTS WebView)
 
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
@@ -47,6 +48,10 @@ target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
+
+
+# target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::WebView)
+
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
