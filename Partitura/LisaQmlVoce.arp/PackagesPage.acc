@@ -137,8 +137,8 @@
                     <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>FeatureId</Value>
                                 <Value>FeatureName</Value>
+                                <Value>FeatureId</Value>
                                 <Value>FeatureDescription</Value>
                                 <Value>Added</Value>
                                 <Value>LastModified</Value>
@@ -151,8 +151,8 @@
                     <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Feature-ID</Value>
                                 <Value>Feature Name</Value>
+                                <Value>Feature-ID</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
                                 <Value>Last Modified</Value>
