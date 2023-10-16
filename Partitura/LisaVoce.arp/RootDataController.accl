@@ -11,6 +11,7 @@
         <Element ComponentName="ApplicationController" X="550" Y="200" Note=""/>
         <Element ComponentName="AuthorizationManagementController" X="375" Y="350" Note=""/>
         <Element ComponentName="DatabaseServerConnectionController" X="825" Y="50" Note=""/>
+        <Element ComponentName="FeatureDependenciesProvider" X="575" Y="500" Note=""/>
         <Element ComponentName="Pages" X="850" Y="350" Note=""/>
         <Element ComponentName="PermissionController" X="1050" Y="350" Note=""/>
         <Element ComponentName="PumaGQLClientEngine" X="675" Y="350" Note=""/>

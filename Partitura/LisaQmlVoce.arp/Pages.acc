@@ -516,6 +516,7 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="Demultiplexer"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="FeatureSqlRepository" ComponentId="Repositories/FeatureSqlRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
     </ExportedComponents>
