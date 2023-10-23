@@ -334,9 +334,9 @@
                                 <AttributeInfo Id="EditCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ChangeLicense</Value>
-                                            <Value>RemoveLicense</Value>
-                                            <Value>ViewLicenses</Value>
+                                            <Value>ChangeLicenseDefinition</Value>
+                                            <Value>RemoveLicenseDefinition</Value>
+                                            <Value>ViewLicensesDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -349,14 +349,14 @@
                                 <AttributeInfo Id="NewCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddLicense</Value>
+                                            <Value>AddLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveLicense</Value>
+                                            <Value>RemoveLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -489,19 +489,40 @@
                                 <AttributeInfo Id="CloseCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewProducts</Value>
+                                            <Value>ViewLicensesDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="RedoCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ChangeLicenseDefinition</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value></Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="SaveCommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddLicense</Value>
-                                            <Value>ChangeLicense</Value>
-                                            <Value>EditLicense</Value>
+                                            <Value>AddLicenseDefinition</Value>
+                                            <Value>ChangeLicenseDefinition</Value>
+                                            <Value>EditLicenseDefinition</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="UndoCommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ChangeLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

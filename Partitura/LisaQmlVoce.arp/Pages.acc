@@ -383,6 +383,26 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="LicnsesPermissions" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Licenses"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>ViewLicensesDefinition</Value>
+                                            <Value>EditLicenseDefinition</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="PackagesPermissions" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -412,6 +432,7 @@
                                             <Value>PackagesPermissions</Value>
                                             <Value>ProductsPermissions</Value>
                                             <Value>AdministrationPermissions</Value>
+                                            <Value>LicnsesPermissions</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
