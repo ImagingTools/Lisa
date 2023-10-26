@@ -24,6 +24,16 @@
         <Element ComponentName="Repositories" X="1075" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="PagesPermissions">
+            <PositionMap>
+                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
+                <Element ComponentName="LicnsesPermissions" X="575" Y="500" Note=""/>
+                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
+                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
+                <Element ComponentName="ProductsPermissions" X="525" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
@@ -41,16 +51,6 @@
                 <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
                 <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
                 <Element ComponentName="ProductsPage" X="950" Y="175" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PagesPermissions">
-            <PositionMap>
-                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
-                <Element ComponentName="LicnsesPermissions" X="575" Y="500" Note=""/>
-                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
-                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
-                <Element ComponentName="ProductsPermissions" X="525" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
