@@ -12,7 +12,7 @@ message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 set(buildwebdir ${CMAKE_CURRENT_LIST_DIR}/../../../Bin/web)
 message("LASA binary dir ${buildwebdir}")
 
-list(APPEND webdirs ${IMTCOREDIR}/3rdParty/JQML/Core/dist)
+list(APPEND webdirs ${IMTCOREDIR}/3rdParty/JQML2/core/dist)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
 # copy lisa qml from to
@@ -63,6 +63,6 @@ list(APPEND webdirs ${buildwebdir}/Resources)
 if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 	set(resname "lisa")
-	jqml_compile_web("${webdirs}", "${buildwebdir}", "${resname}")
+	jqml_compile_web2("${webdirs}", "${buildwebdir}", "${resname}")
 endif()
 
