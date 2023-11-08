@@ -59,10 +59,9 @@ int main(int argc, char *argv[])
 	qmlRegisterModule("QtGraphicalEffects", 1, 12);
 	qmlRegisterModule("QtGraphicalEffects", 1, 0);
 	qmlRegisterModule("QtQuick.Dialogs", 1, 3);
-	// qmlRegisterModule("Qt5Compat.GraphicalEffects", 1, 0);
 #else
 	qmlRegisterModule("QtQuick.Dialogs", 6, 2);
-	qmlRegisterModule("Qt5Compat.GraphicalEffects", 1, 0);
+	qmlRegisterModule("Qt5Compat.GraphicalEffects", 6, 0);
 #endif
 
 	// QtWebView::initialize();
