@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="5120" Description="ACF"/>
+            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <PositionMap>
+        <Element ComponentName="ApplicationInfo" X="250" Y="225" Note=""/>
+        <Element ComponentName="LisaLocalization" X="850" Y="75" Note=""/>
+        <Element ComponentName="LogFile" X="550" Y="100" Note=""/>
+        <Element ComponentName="ParamsSetFactory" X="875" Y="350" Note=""/>
+        <Element ComponentName="RepresentationControllerFactory" X="875" Y="250" Note=""/>
+        <Element ComponentName="ServerPageData" X="550" Y="350" Note=""/>
+        <Element ComponentName="ServerSettingsRepresentation" X="825" Y="150" Note=""/>
+        <Element ComponentName="SystemLocation" X="250" Y="100" Note=""/>
+        <Element ComponentName="TextFileLog" X="550" Y="225" Note=""/>
+        <Element ComponentName="VersionInfo" X="175" Y="350" Note=""/>
+    </PositionMap>
+    <EmbeddedRegistries/>
+</Acf>
