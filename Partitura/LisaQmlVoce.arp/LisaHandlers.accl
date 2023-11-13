@@ -2,14 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5120" Description="ACF"/>
-            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="RemoteContextGQLServerFramework" X="575" Y="200" Note=""/>
-        <Element ComponentName="RestoringDatabaseController" X="375" Y="325" Note=""/>
+        <Element ComponentName="RemoteContextGQLServerFramework" X="600" Y="200" Note=""/>
+        <Element ComponentName="RestoringDatabaseController" X="200" Y="200" Note=""/>
         <Element ComponentName="RootDataController" X="600" Y="500" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
