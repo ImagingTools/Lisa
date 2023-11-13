@@ -37,5 +37,5 @@ add_subdirectory("${IMPL_DIR}/LisaServerConfigurator/CMake" "${AUX_INCLUDE_DIR}/
 #add_subdirectory("${IMPL_DIR}/LisaConverter/CMake" "${AUX_INCLUDE_DIR}/LisaConverter")
 
 # Plug-ins
-add_subdirectory("${IMPL_DIR}/Plugins/LisaSettingsPlugin/CMake" "${AUX_INCLUDE_DIR}/LisaSettingsPlugin")
+#add_subdirectory("${IMPL_DIR}/Plugins/LisaSettingsPlugin/CMake" "${AUX_INCLUDE_DIR}/LisaSettingsPlugin")
 
