@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5122" Description="ACF"/>
-            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -84,10 +84,10 @@
                         <Data IsEnabled="true" Value="Features"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtcontrols/Document/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/FeatureCollectionView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtlicgui/FeatureCollectionView2.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -539,6 +539,8 @@
     <ExportedComponents>
         <Component ExportedId="FeatureSqlRepository" ComponentId="Repositories/FeatureSqlRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
+        <Component ExportedId="LicenseSqlRepository" ComponentId="Repositories/LicenseSqlRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
+        <Component ExportedId="UserRepository" ComponentId="Repositories/UserRepository"/>
     </ExportedComponents>
 </Acf>

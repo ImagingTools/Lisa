@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5105" Description="ACF"/>
-            <Version Id="1" Number="2195" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -58,6 +58,18 @@
         <Element Id="HttpServerFramework" PackageId="ImtHttpServerVoce" ComponentId="HttpServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="GqlSubscriberControllers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Subscriptions/FeaturesSubscriberController</Value>
+                                <Value>Subscriptions/LicensesSubscriberController</Value>
+                                <Value>Subscriptions/ProductsSubscriberController</Value>
+                                <Value>RemoteRepositories/RolesSubscriberController</Value>
+                                <Value>RemoteRepositories/UsersSubscriberController</Value>
+                                <Value>RemoteRepositories/UserGroupsSubscriberController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -100,8 +112,21 @@
                     <AttributeInfo Id="DatabaseServerConnectionChecker" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ExternRequestHandlers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>PumaGQLClientEngine</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeatureSessionChangeNotifier" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Subscriptions/FeaturesSubscriberController"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LicenseSessionChangeNotifier" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Subscriptions/LicensesSubscriberController"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -109,8 +134,17 @@
                     <AttributeInfo Id="LogPath" Type="Reference" ExportId="LogPath">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ProductSessionChangeNotifier" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Subscriptions/ProductsSubscriberController"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PumaGqlRequest" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PumaUrlParam" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/PumaUrlConnection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RemoteGqlRequest" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ServerSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData"/>
@@ -149,6 +183,93 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="PumaGQLClientEngine" PackageId="ImtGraphQlVoce" ComponentId="PumaGQLClientEngine">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>GetUserInfo</Value>
+                                <Value>GetRoleInfo</Value>
+                                <Value>GetSessionInfo</Value>
+                                <Value>GetUserGroupInfo</Value>
+                                <Value>GetDatabaseStatus</Value>
+                                <Value>UserToken</Value>
+                                <Value>SessionItem</Value>
+                                <Value>UsersObjectView</Value>
+                                <Value>UsersInfo</Value>
+                                <Value>UsersList</Value>
+                                <Value>UserItem</Value>
+                                <Value>UserAdd</Value>
+                                <Value>UserUpdate</Value>
+                                <Value>UsersRemove</Value>
+                                <Value>UsersCommands</Value>
+                                <Value>UserCommands</Value>
+                                <Value>RolesList</Value>
+                                <Value>RoleItem</Value>
+                                <Value>RoleAdd</Value>
+                                <Value>RoleUpdate</Value>
+                                <Value>RolesRemove</Value>
+                                <Value>RolesObjectView</Value>
+                                <Value>RolesInfo</Value>
+                                <Value>RolesCommands</Value>
+                                <Value>RoleCommands</Value>
+                                <Value>GroupsList</Value>
+                                <Value>GroupsInfo</Value>
+                                <Value>GroupsObjectView</Value>
+                                <Value>GroupItem</Value>
+                                <Value>GroupAdd</Value>
+                                <Value>GroupUpdate</Value>
+                                <Value>GroupsRemove</Value>
+                                <Value>GroupsCommands</Value>
+                                <Value>GroupCommands</Value>
+                                <Value>RolesMetaInfo</Value>
+                                <Value>UsersMetaInfo</Value>
+                                <Value>GroupsMetaInfo</Value>
+                                <Value>PumaTestConnection</Value>
+                                <Value>PumaGetDatabaseStatus</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="/Puma"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/PumaUrlConnection"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RemoteRepositories" PackageId="ImtGraphQlVoce" ComponentId="RemoteRepositories">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RemoteApiClient" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RemoteServerUrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/PumaUrlConnection"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="HttpServerFramework/WebSocketServer"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ServerPageData" PackageId="LisaQmlVoce" ComponentId="ServerPageData">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -167,8 +288,100 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="Subscriptions" PackageId="" ComponentId="Subscriptions">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="HttpServerFramework/WebSocketServer"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
     </ElementsList>
-    <EmbeddedRegistriesList/>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="Subscriptions">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="FeaturesSubscriberController" PackageId="ImtAuthGqlPck" ComponentId="SessionModelSubscriberController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>OnFeaturesCollectionChanged</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="LicensesSubscriberController" PackageId="ImtAuthGqlPck" ComponentId="SessionModelSubscriberController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>OnLicensesCollectionChanged</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductsSubscriberController" PackageId="ImtAuthGqlPck" ComponentId="SessionModelSubscriberController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>OnProductsCollectionChanged</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents>
+                    <Component ExportedId="FeaturesSubscriberController" ComponentId="FeaturesSubscriberController"/>
+                    <Component ExportedId="LicensesSubscriberController" ComponentId="LicensesSubscriberController"/>
+                    <Component ExportedId="ProductsSubscriberController" ComponentId="ProductsSubscriberController"/>
+                </ExportedComponents>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
     <ExportedInterfaces>
         <Interface InterfaceId="imtrest::IRequestManager" ComponentId="HttpServerFramework"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="HttpServerFramework"/>

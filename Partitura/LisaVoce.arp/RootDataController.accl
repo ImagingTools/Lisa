@@ -14,7 +14,7 @@
         <Element ComponentName="FeatureDependenciesProvider" X="575" Y="500" Note=""/>
         <Element ComponentName="Pages" X="850" Y="350" Note=""/>
         <Element ComponentName="PermissionController" X="1050" Y="350" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="675" Y="350" Note=""/>
+        <Element ComponentName="PumaGQLClientEngine" X="175" Y="675" Note=""/>
         <Element ComponentName="SettingsController" X="100" Y="350" Note=""/>
         <Element ComponentName="SingleProductPermission" X="1000" Y="500" Note=""/>
         <Element ComponentName="TestConnectionController" X="300" Y="50" Note=""/>

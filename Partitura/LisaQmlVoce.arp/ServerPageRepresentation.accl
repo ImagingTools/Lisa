@@ -2,23 +2,24 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5102" Description="ACF"/>
-            <Version Id="1" Number="2194" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
             <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="BackupFolder" X="975" Y="675" Note=""/>
-        <Element ComponentName="BackupSettingsRepresentation" X="1025" Y="275" Note=""/>
-        <Element ComponentName="DatabaseAccessSettingsRepresentation" X="575" Y="500" Note=""/>
-        <Element ComponentName="DatabaseSettingsRepresentation" X="575" Y="275" Note=""/>
-        <Element ComponentName="PermissionsChecker" X="150" Y="650" Note=""/>
-        <Element ComponentName="PumaUrlRepresentation" X="150" Y="575" Note=""/>
-        <Element ComponentName="SchedulerParams" X="975" Y="500" Note=""/>
-        <Element ComponentName="ServerPortRepresentation" X="150" Y="500" Note=""/>
-        <Element ComponentName="ServerSettingsPermission" X="125" Y="750" Note=""/>
-        <Element ComponentName="ServerSettingsRepresentation" X="175" Y="275" Note=""/>
-        <Element ComponentName="SettingsRepresentation" X="575" Y="75" Note=""/>
+        <Element ComponentName="BackupFolder" X="975" Y="575" Note=""/>
+        <Element ComponentName="BackupSettingsRepresentation" X="975" Y="275" Note=""/>
+        <Element ComponentName="DatabaseAccessSettingsRepresentation" X="600" Y="425" Note=""/>
+        <Element ComponentName="DatabaseSettingsRepresentation" X="600" Y="275" Note=""/>
+        <Element ComponentName="PermissionsChecker" X="175" Y="125" Note=""/>
+        <Element ComponentName="PumaUrlRepresentation" X="225" Y="575" Note=""/>
+        <Element ComponentName="SchedulerParams" X="975" Y="425" Note=""/>
+        <Element ComponentName="ServerPortRepresentation" X="225" Y="725" Note=""/>
+        <Element ComponentName="ServerSettingsPermission" X="150" Y="75" Note=""/>
+        <Element ComponentName="ServerSettingsRepresentation" X="225" Y="275" Note=""/>
+        <Element ComponentName="SettingsRepresentation" X="600" Y="75" Note=""/>
+        <Element ComponentName="WebSocketServerPortRepresentation" X="225" Y="425" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>

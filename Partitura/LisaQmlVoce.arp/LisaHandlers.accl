@@ -8,9 +8,20 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="Demultiplexer" X="1000" Y="200" Note=""/>
+        <Element ComponentName="Observers" X="600" Y="525" Note=""/>
         <Element ComponentName="RemoteContextGQLServerFramework" X="600" Y="200" Note=""/>
         <Element ComponentName="RestoringDatabaseController" X="200" Y="200" Note=""/>
-        <Element ComponentName="RootDataController" X="600" Y="500" Note=""/>
+        <Element ComponentName="RootDataController" X="600" Y="375" Note=""/>
     </PositionMap>
-    <EmbeddedRegistries/>
+    <EmbeddedRegistries>
+        <EmbededRegistry Id="Observers">
+            <PositionMap>
+                <Element ComponentName="FeatureCollectionObserver" X="575" Y="75" Note=""/>
+                <Element ComponentName="LicenseCollectionObserver" X="575" Y="200" Note=""/>
+                <Element ComponentName="ProductCollectionObserver" X="575" Y="325" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+    </EmbeddedRegistries>
 </Acf>

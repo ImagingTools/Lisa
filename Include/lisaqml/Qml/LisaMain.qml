@@ -5,6 +5,8 @@ import imtgui 1.0
 
 ApplicationMain{
     id: window;
+
+    useWebSocketSubscription: true;
     
     function updateAllModels(){
         console.log("settingsProviderLocal.updateModel", Style.textColor);

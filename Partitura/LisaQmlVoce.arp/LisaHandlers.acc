@@ -10,6 +10,52 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Test</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="ExternRequestHandlers">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Observers" PackageId="" ComponentId="Observers">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeatureCollectionModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RootDataController/FeatureSqlRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeatureSessionChangeNotifier" Type="Reference" ExportId="FeatureSessionChangeNotifier">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LicenseCollectionModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RootDataController/LicenseSqlRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LicenseSessionChangeNotifier" Type="Reference" ExportId="LicenseSessionChangeNotifier">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductCollectionModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="RootDataController/ProductRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductSessionChangeNotifier" Type="Reference" ExportId="ProductSessionChangeNotifier">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="RemoteContextGQLServerFramework" PackageId="ImtHttpServerVoce" ComponentId="RemoteAuthorizableGQLServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -37,6 +83,7 @@
                     <AttributeInfo Id="GqlRequestHandler" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Demultiplexer</Value>
                                 <Value>RootDataController</Value>
                             </Values>
                         </Data>
@@ -63,8 +110,8 @@
                     <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa/Views/html/index.html?item=Pages/StartPage.qml"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RemoteGqlRequest" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RootDataController/PumaGQLClientEngine"/>
+                    <AttributeInfo Id="RemoteGqlRequest" Type="Reference" ExportId="RemoteGqlRequest">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="RootDataController/UserSettingsRepository"/>
@@ -114,6 +161,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="PumaGqlRequest" Type="Reference" ExportId="PumaGqlRequest">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="PumaUrlParam" Type="Reference" ExportId="PumaUrlParam">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -130,8 +180,55 @@
             </Data>
         </Element>
     </ElementsList>
-    <EmbeddedRegistriesList/>
+    <EmbeddedRegistriesList>
+        <EmbeddedRegistry Id="Observers">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="FeatureCollectionObserver" PackageId="ImtAuthGqlPck" ComponentId="SessionModelObserver">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Model" Type="Reference" ExportId="FeatureCollectionModel">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SessionChangeNotifier" Type="Reference" ExportId="FeatureSessionChangeNotifier">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="LicenseCollectionObserver" PackageId="ImtAuthGqlPck" ComponentId="SessionModelObserver">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Model" Type="Reference" ExportId="LicenseCollectionModel">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SessionChangeNotifier" Type="Reference" ExportId="LicenseSessionChangeNotifier">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="ProductCollectionObserver" PackageId="ImtAuthGqlPck" ComponentId="SessionModelObserver">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Model" Type="Reference" ExportId="ProductCollectionModel">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="SessionChangeNotifier" Type="Reference" ExportId="ProductSessionChangeNotifier">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces/>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+    </EmbeddedRegistriesList>
     <ExportedInterfaces>
+        <Interface InterfaceId="imtgql::IGqlRequestProvider" ComponentId="RemoteContextGQLServerFramework"/>
         <Interface InterfaceId="imtrest::IRequestServlet" ComponentId="RemoteContextGQLServerFramework"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="RemoteContextGQLServerFramework"/>
     </ExportedInterfaces>

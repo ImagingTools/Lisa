@@ -16,7 +16,6 @@
                     <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PumaGQLClientEngine</Value>
                                 <Value>Pages</Value>
                                 <Value>SettingsController</Value>
                                 <Value>AuthorizationManagementController</Value>
@@ -48,8 +47,8 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="PumaGqlRequest" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
+                    <AttributeInfo Id="PumaGqlRequest" Type="Reference" ExportId="PumaGqlRequest">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -291,11 +290,13 @@
     <ExportedComponents>
         <Component ExportedId="Backup" ComponentId="SettingsController/Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="SettingsController/DatabaseAccessSettings"/>
+        <Component ExportedId="FeatureSqlRepository" ComponentId="Pages/FeatureSqlRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
+        <Component ExportedId="LicenseSqlRepository" ComponentId="Pages/LicenseSqlRepository"/>
         <Component ExportedId="PackageRepository" ComponentId="Pages/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
-        <Component ExportedId="PumaGQLClientEngine" ComponentId="PumaGQLClientEngine"/>
         <Component ExportedId="ServerPort" ComponentId="SettingsController/ServerPort"/>
+        <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="SettingsController/UserSettingsRepository"/>
         <Component ExportedId="WebSocketServerPort" ComponentId="SettingsController/WebSocketServerPort"/>
     </ExportedComponents>
