@@ -16,7 +16,7 @@
         <Element ComponentName="LicensesPage" X="425" Y="625" Note=""/>
         <Element ComponentName="MultiPageRepresentationController" X="275" Y="175" Note=""/>
         <Element ComponentName="PageData" X="1075" Y="350" Note=""/>
-        <Element ComponentName="PageDataControllers" X="975" Y="175" Note=""/>
+        <Element ComponentName="PageDataControllers" X="1025" Y="75" Note=""/>
         <Element ComponentName="Pages" X="250" Y="350" Note=""/>
         <Element ComponentName="PagesPermissions" X="775" Y="500" Note=""/>
         <Element ComponentName="PagesRepresentation" X="800" Y="350" Note=""/>

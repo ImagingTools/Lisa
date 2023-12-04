@@ -23,10 +23,10 @@
                         <Data IsEnabled="true" Value="Administration"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/SingleDocumentWorkspaceView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtdocgui/SingleDocumentWorkspaceView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtauthgui/AdministrationView.qml"/>
+                        <Data IsEnabled="true" Value="../imtauthgui/AdministrationView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -84,10 +84,10 @@
                         <Data IsEnabled="true" Value="Features"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtcontrols/Document/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtdocgui/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/FeatureCollectionView2.qml"/>
+                        <Data IsEnabled="true" Value="../imtlicgui/FeatureCollectionView2.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -105,10 +105,10 @@
                         <Data IsEnabled="true" Value="Licenses"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtdocgui/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/LicenseCollectionView.qml"/>
+                        <Data IsEnabled="true" Value="../imtlicgui/LicenseCollectionView2.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -239,10 +239,10 @@
                         <Data IsEnabled="true" Value="Products"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PageQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtgui/AuxComponents/MultiDocWorkspacePageView.qml"/>
+                        <Data IsEnabled="true" Value="../../imtdocgui/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/ProductCollectionView.qml"/>
+                        <Data IsEnabled="true" Value="../imtlicgui/ProductCollectionView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
