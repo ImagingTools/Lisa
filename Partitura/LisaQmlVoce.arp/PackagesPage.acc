@@ -198,7 +198,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/FeatureEditor2.qml"/>
+                        <Data IsEnabled="true" Value="../../imtlicgui/FeatureEditor.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
                         <Data IsEnabled="false"/>

@@ -87,7 +87,7 @@
                         <Data IsEnabled="true" Value="../../imtdocgui/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../imtlicgui/FeatureCollectionView2.qml"/>
+                        <Data IsEnabled="true" Value="../imtlicgui/FeatureCollectionView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -108,7 +108,7 @@
                         <Data IsEnabled="true" Value="../../imtdocgui/MultiDocWorkspacePageView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="StartQmlItem" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="../imtlicgui/LicenseCollectionView2.qml"/>
+                        <Data IsEnabled="true" Value="../imtlicgui/LicenseCollectionView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
