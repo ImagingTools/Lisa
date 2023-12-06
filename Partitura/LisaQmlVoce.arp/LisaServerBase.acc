@@ -291,6 +291,9 @@
         <Element Id="Subscriptions" PackageId="" ComponentId="Subscriptions">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="HttpServerFramework/WebSocketServer"/>
                     </AttributeInfo>

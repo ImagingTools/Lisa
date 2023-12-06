@@ -7,6 +7,10 @@ ApplicationMain{
     id: window;
 
     useWebSocketSubscription: true;
+
+    Component.onCompleted: {
+        context.application = "Lisa";
+    }
     
     function updateAllModels(){
         console.log("settingsProviderLocal.updateModel", Style.textColor);
