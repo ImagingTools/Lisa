@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="0" Number="5137" Description="ACF"/>
             <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="1023" Number="394753" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -136,15 +136,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PumaUrlConnection" PackageId="BasePck" ComponentId="TextParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="http://localhost:7788"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="SchedulerParams" PackageId="ImtAppPck" ComponentId="SchedulerParams">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -154,43 +145,19 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="Server" PackageId="BasePck" ComponentId="ComposedParamsSet">
+        <Element Id="Server" PackageId="ImtHttpServerVoce" ComponentId="AuthorizableServerConnectionParams">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ServerPort</Value>
-                                <Value>WebSocketServerPort</Value>
-                                <Value>PumaUrlConnection</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ServerPort</Value>
-                                <Value>WebSocketServerPort</Value>
-                                <Value>PumaUrl</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ServerPort" PackageId="BasePck" ComponentId="TextParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                    <AttributeInfo Id="DefaultPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="WebSocketServerPort" PackageId="BasePck" ComponentId="TextParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultText" Type="Text" ExportId="">
+                    <AttributeInfo Id="DefaultPumaHost" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="localhost"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="7788"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketDefaultPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="8776"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -206,8 +173,8 @@
         <Component ExportedId="AutoPersistence" ComponentId="FileAutoPersistence/AutoPersistence"/>
         <Component ExportedId="Backup" ComponentId="Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
-        <Component ExportedId="PumaUrlConnection" ComponentId="PumaUrlConnection"/>
-        <Component ExportedId="ServerPort" ComponentId="ServerPort"/>
-        <Component ExportedId="WebSocketServerPort" ComponentId="WebSocketServerPort"/>
+        <Component ExportedId="PumaUrl" ComponentId="Server/PumaUrl"/>
+        <Component ExportedId="ServerPort" ComponentId="Server/ServerPort"/>
+        <Component ExportedId="WebSocketServerPort" ComponentId="Server/WebSocketServerPort"/>
     </ExportedComponents>
 </Acf>

@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="0" Number="5137" Description="ACF"/>
             <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="1023" Number="394753" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -29,11 +29,6 @@
                         <Data IsEnabled="true" Value="../imtauthgui/AdministrationView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="CheckPermissionOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
@@ -111,6 +106,11 @@
                         <Data IsEnabled="true" Value="../imtlicgui/LicenseCollectionView.qml"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LogicalOr" PackageId="ImtAuthPck" ComponentId="CheckPermissionOr">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
             </Data>
         </Element>
         <Element Id="MultiPageRepresentationController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
@@ -218,7 +218,7 @@
                         <Data IsEnabled="true" Value="Pages"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="CheckPermissionOr"/>
+                        <Data IsEnabled="true" Value="LogicalOr"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -541,6 +541,5 @@
         <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
         <Component ExportedId="LicenseSqlRepository" ComponentId="Repositories/LicenseSqlRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
-        <Component ExportedId="UserRepository" ComponentId="Repositories/UserRepository"/>
     </ExportedComponents>
 </Acf>

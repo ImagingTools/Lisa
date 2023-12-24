@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5127" Description="ACF"/>
+            <Version Id="0" Number="5137" Description="ACF"/>
             <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="1023" Number="394753" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -13,6 +13,9 @@
         <Element Id="ApplicationController" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -27,9 +30,6 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -69,6 +69,9 @@
                     <AttributeInfo Id="DatabaseServerConnectionChecker" Type="Reference" ExportId="DatabaseServerConnectionChecker">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -88,6 +91,9 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Pages/FeatureSqlRepository"/>
                     </AttributeInfo>
@@ -104,6 +110,9 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -128,6 +137,9 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -140,72 +152,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PumaGQLClientEngine" PackageId="ImtGraphQlVoce" ComponentId="PumaGQLClientEngine">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>GetUserInfo</Value>
-                                <Value>GetRoleInfo</Value>
-                                <Value>GetSessionInfo</Value>
-                                <Value>GetUserGroupInfo</Value>
-                                <Value>GetDatabaseStatus</Value>
-                                <Value>UserToken</Value>
-                                <Value>SessionItem</Value>
-                                <Value>UsersObjectView</Value>
-                                <Value>UsersInfo</Value>
-                                <Value>UsersList</Value>
-                                <Value>UserItem</Value>
-                                <Value>UserAdd</Value>
-                                <Value>UserUpdate</Value>
-                                <Value>UsersRemove</Value>
-                                <Value>UsersCommands</Value>
-                                <Value>UserCommands</Value>
-                                <Value>RolesList</Value>
-                                <Value>RoleItem</Value>
-                                <Value>RoleAdd</Value>
-                                <Value>RoleUpdate</Value>
-                                <Value>RolesRemove</Value>
-                                <Value>RolesObjectView</Value>
-                                <Value>RolesInfo</Value>
-                                <Value>RolesCommands</Value>
-                                <Value>RoleCommands</Value>
-                                <Value>GroupsList</Value>
-                                <Value>GroupsInfo</Value>
-                                <Value>GroupsObjectView</Value>
-                                <Value>GroupItem</Value>
-                                <Value>GroupAdd</Value>
-                                <Value>GroupUpdate</Value>
-                                <Value>GroupsRemove</Value>
-                                <Value>GroupsCommands</Value>
-                                <Value>GroupCommands</Value>
-                                <Value>RolesMetaInfo</Value>
-                                <Value>UsersMetaInfo</Value>
-                                <Value>GroupsMetaInfo</Value>
-                                <Value>PumaTestConnection</Value>
-                                <Value>PumaGetDatabaseStatus</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProductId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="/Puma"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="PumaUrlParam">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="SettingsController" PackageId="LisaQmlVoce" ComponentId="LisaApplicationSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -213,6 +159,9 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="LanguageConstraints">
@@ -272,6 +221,9 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -288,16 +240,10 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationController"/>
     </ExportedInterfaces>
     <ExportedComponents>
-        <Component ExportedId="Backup" ComponentId="SettingsController/Backup"/>
-        <Component ExportedId="DatabaseAccessSettings" ComponentId="SettingsController/DatabaseAccessSettings"/>
         <Component ExportedId="FeatureSqlRepository" ComponentId="Pages/FeatureSqlRepository"/>
         <Component ExportedId="FeaturesExportProvider" ComponentId="Pages/FeaturesExportProvider"/>
         <Component ExportedId="LicenseSqlRepository" ComponentId="Pages/LicenseSqlRepository"/>
-        <Component ExportedId="PackageRepository" ComponentId="Pages/PackageRepository"/>
         <Component ExportedId="ProductRepository" ComponentId="Pages/ProductRepository"/>
-        <Component ExportedId="ServerPort" ComponentId="SettingsController/ServerPort"/>
-        <Component ExportedId="UserRepository" ComponentId="Pages/UserRepository"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="SettingsController/UserSettingsRepository"/>
-        <Component ExportedId="WebSocketServerPort" ComponentId="SettingsController/WebSocketServerPort"/>
     </ExportedComponents>
 </Acf>
