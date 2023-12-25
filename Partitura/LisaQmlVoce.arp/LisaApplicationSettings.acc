@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5137" Description="ACF"/>
+            <Version Id="0" Number="5136" Description="ACF"/>
             <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394753" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -165,10 +165,10 @@
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DesignPathToQml" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsComboBox.qml"/>
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsComboBox.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LanguagePathToQml" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/AuxComponents/SettingsComboBox.qml"/>
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsComboBox.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -186,6 +186,11 @@
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationSettings"/>
     </ExportedInterfaces>
     <ExportedComponents>
+        <Component ExportedId="Backup" ComponentId="ServerSettings/Backup"/>
+        <Component ExportedId="DatabaseAccessSettings" ComponentId="ServerSettings/DatabaseAccessSettings"/>
+        <Component ExportedId="PumaUrlConnection" ComponentId="ServerSettings/PumaUrlConnection"/>
+        <Component ExportedId="ServerPort" ComponentId="ServerSettings/ServerPort"/>
         <Component ExportedId="UserSettingsRepository" ComponentId="UserSettingsDatabaseDelegate/UserSettingsRepository"/>
+        <Component ExportedId="WebSocketServerPort" ComponentId="ServerSettings/WebSocketServerPort"/>
     </ExportedComponents>
 </Acf>

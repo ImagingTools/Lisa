@@ -41,9 +41,8 @@ if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
-target_link_libraries(${PROJECT_NAME} iauth)
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtqml imtdb imtfile imtcom)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtstyleqml imtdocgui)
+target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrest imtrepo imtstyle imtqml imtdb imtfile imtcom)
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtstyleqml imtdocgui imtguigqlqml imtauthguiqml imtlicguiqml imtguiqml imtcolqml)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
@@ -55,17 +54,30 @@ target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
-	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml/imtgui")
+#	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml2/imtgui")
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Qml/imtqml")
-	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui")
-	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtcontrols/Qml/imtcontrols")
+	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml/imtgui")
+#	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtcontrols/Qml/imtcontrols")
 	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
 
 	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")
 	unset(listOptions)
 endif()
 
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml2")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml/imtdocgui")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml/imtgui")
 
+# Prevent adding duplicate values at each run of CMake.
+list(REMOVE_DUPLICATES QML_IMPORT_DIRS)
+
+# The variable is cached in ${BUILD_DIR}/CMakeCache.txt. We need FORCE to
+# change it there immediately. Also, add a comment to the cache file.
+set(QML_IMPORT_PATH ${QML_IMPORT_DIRS}
+	CACHE STRING "Qt Creator extra qml import paths for ${PROJECT_NAME}"
+	FORCE
+)
 
 if(APPLE)
 	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.app/Contents/MacOS)

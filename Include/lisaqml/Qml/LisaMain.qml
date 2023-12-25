@@ -12,7 +12,7 @@ ApplicationMain{
     Component.onCompleted: {
         context.application = "Lisa";
     }
-    
+
     function updateAllModels(){
         console.log("settingsProviderLocal.updateModel", Style.textColor);
         thumbnailDecoratorGui.updateModels();

@@ -37,17 +37,16 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 
-target_link_libraries(${PROJECT_NAME} iauth)
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui ImtCoreLoc imtwidgets imtzip imtrest imtcrypt imt3dgui imtrepo imtstyle imtstyleqml imtqml imtdb imtcom)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtdocgui)
-target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)
+target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtstyleqml imtqml imtdb imtcom imtdocgui imtauthguiqml imtlicguiqml imtguiqml)
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtguigqlqml imtcolqml)
+target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtqml/Resources/qml")
-	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml/imtgui")
-	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui")
+	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Include/imtgui/Qml2/imtgui")
+	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml/imtgui")
 	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
 
 	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")

@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
 {
 	Q_INIT_RESOURCE(LisaServerConfigurator);
 	Q_INIT_RESOURCE(imtgui);
+	Q_INIT_RESOURCE(imtguiqml);
 	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(lisaqml);
 	Q_INIT_RESOURCE(imtstyleqml);
