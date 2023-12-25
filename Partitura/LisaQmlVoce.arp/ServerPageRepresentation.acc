@@ -123,7 +123,7 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="PumaUrlRepresentation" PackageId="ImtCorePck" ComponentId="TextParamRepresentationController">
+        <Element Id="PumaUrlRepresentation" PackageId="ImtCorePck" ComponentId="UrlParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -136,7 +136,7 @@
                         <Data IsEnabled="true" Value="Puma URL"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathToQml" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsTextInput.qml"/>
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/UrlParamEditor.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -165,7 +165,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServerPortRepresentation" PackageId="ImtCorePck" ComponentId="TextParamRepresentationController">
+        <Element Id="ServerPortRepresentation" PackageId="ImtCorePck" ComponentId="UrlParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -178,7 +178,7 @@
                         <Data IsEnabled="true" Value="Server Port"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathToQml" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsTextInput.qml"/>
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/UrlParamEditor.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -265,7 +265,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="WebSocketServerPortRepresentation" PackageId="ImtCorePck" ComponentId="TextParamRepresentationController">
+        <Element Id="WebSocketServerPortRepresentation" PackageId="ImtCorePck" ComponentId="UrlParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -278,7 +278,7 @@
                         <Data IsEnabled="true" Value="Web SocketServer Port"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PathToQml" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsTextInput.qml"/>
+                        <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/UrlParamEditor.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>

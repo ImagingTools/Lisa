@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5137" Description="ACF"/>
+            <Version Id="0" Number="5136" Description="ACF"/>
             <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394753" Description="Qt Framework"/>
+            <Version Id="1023" Number="331522" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -131,9 +131,6 @@
                     <AttributeInfo Id="PumaGqlRequest" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="PumaUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/PumaUrl"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="RemoteGqlRequest" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
                     </AttributeInfo>
@@ -252,8 +249,8 @@
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="HttpServerFramework/WebSocketServer"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/WebSocketServerPort"/>
