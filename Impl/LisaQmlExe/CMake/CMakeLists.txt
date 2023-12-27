@@ -42,7 +42,7 @@ if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 endif()
 
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrest imtrepo imtstyle imtqml imtdb imtfile imtcom)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtstyleqml imtdocgui imtguigqlqml imtauthguiqml imtlicguiqml imtguiqml imtcolqml)
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtstyleqml imtdocguiqml imtguigqlqml imtauthguiqml imtlicguiqml imtguiqml imtcolguiqml)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
@@ -66,7 +66,7 @@ endif()
 
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtqml/Qml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Include/imtgui/Qml")
-list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml/imtdocgui")
+list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml/imtdocguiqml")
 list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml/imtgui")
 
 # Prevent adding duplicate values at each run of CMake.

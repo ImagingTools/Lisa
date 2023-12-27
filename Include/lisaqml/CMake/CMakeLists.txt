@@ -35,8 +35,8 @@ list(APPEND webdirs ${buildwebdir}/src/Acf)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
 list(APPEND webdirs ${buildwebdir}/src/imtgui)
 
-list(APPEND webdirs ${IMTCOREDIR}/Qml/imtdocgui)
-list(APPEND webdirs ${buildwebdir}/src/imtdocgui)
+list(APPEND webdirs ${IMTCOREDIR}/Qml/imtdocguiqml)
+list(APPEND webdirs ${buildwebdir}/src/imtdocguiqml)
 
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtguigql/Qml/imtguigql)
 list(APPEND webdirs ${buildwebdir}/src/imtguigql)
