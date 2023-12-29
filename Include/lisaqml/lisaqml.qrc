@@ -8,9 +8,12 @@
     <qresource prefix="/Palette"/>
     <qresource prefix="/"/>
     <qresource prefix="/qml">
+	<file alias="lisaqml/qmldir">Qml/qmldir</file>
         <file alias="LisaMain.qml">Qml/LisaMain.qml</file>
         <file alias="LisaServerConfigurator.qml">Qml/LisaServerConfigurator.qml</file>
         <file alias="LisaWeb.qml">Qml/LisaWeb.qml</file>
+	<file alias="lisaqml/CachedLicenseCollection.qml">Qml/CachedLicenseCollection.qml</file>
+	<file alias="lisaqml/CachedProductCollection.qml">Qml/CachedProductCollection.qml</file>
     </qresource>
     <qresource prefix="/Features">
         <file alias="LisaFeatures">Resources/Features/LisaFeatures.xml</file>

@@ -28,7 +28,6 @@
                                 <Value>en_US</Value>
                                 <Value>de_DE</Value>
                                 <Value>ru_RU</Value>
-                                <Value>pl_PL</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -91,6 +90,12 @@
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultServerPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultWebSocketServerHost" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="localhost"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultWebSocketServerPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="8776"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/ApplicationLocalization"/>

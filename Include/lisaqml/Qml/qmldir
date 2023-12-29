@@ -1,1 +1,4 @@
 module lisaqml
+
+singleton CachedProductCollection 1.0 CachedProductCollection.qml
+singleton CachedLicenseCollection 1.0 CachedLicenseCollection.qml
