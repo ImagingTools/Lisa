@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(LisaLoc);
 
 //	Q_INIT_RESOURCE(imtauthgui);
-	Q_INIT_RESOURCE(imtqml);
 	Q_INIT_RESOURCE(imtstyle);
 //	Q_INIT_RESOURCE(imtgui);
 	Q_INIT_RESOURCE(imtresthtml);

@@ -10,9 +10,7 @@ ApplicationMain{
     useWebSocketSubscription: true;
     loadPageByClick: false;
 
-
     Component.onCompleted: {
-        Style.setDecorators(Decorators)
         context.application = "Lisa";
     }
 
