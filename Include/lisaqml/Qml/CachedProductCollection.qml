@@ -35,12 +35,6 @@ CollectionDataProvider {
             softwareProductsModel.Refresh();
         }
     }
-
-    function updateModel(){
-        if (container.collectionModel.GetItemsCount() === 0){
-            container.itemsInfoModel.updateModel({}, container.fields);
-        }
-    }
 }
 
 
