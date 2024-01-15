@@ -124,9 +124,6 @@
         <Element Id="PumaSystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="PumaTestConnection"/>
                     </AttributeInfo>
@@ -154,9 +151,6 @@
         <Element Id="SystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="LisaTestConnection"/>
                     </AttributeInfo>

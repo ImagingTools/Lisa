@@ -184,6 +184,7 @@
                                 <Value>UserToken</Value>
                                 <Value>SessionItem</Value>
                                 <Value>UsersObjectView</Value>
+                                <Value>UsersSetDescription</Value>
                                 <Value>UsersInfo</Value>
                                 <Value>UsersList</Value>
                                 <Value>UserItem</Value>
@@ -198,6 +199,7 @@
                                 <Value>RoleUpdate</Value>
                                 <Value>RolesRemove</Value>
                                 <Value>RolesObjectView</Value>
+                                <Value>RolesSetDescription</Value>
                                 <Value>RolesInfo</Value>
                                 <Value>RolesCommands</Value>
                                 <Value>RoleCommands</Value>
@@ -210,6 +212,7 @@
                                 <Value>GroupsRemove</Value>
                                 <Value>GroupsCommands</Value>
                                 <Value>GroupCommands</Value>
+                                <Value>GroupsSetDescription</Value>
                                 <Value>RolesMetaInfo</Value>
                                 <Value>UsersMetaInfo</Value>
                                 <Value>GroupsMetaInfo</Value>
