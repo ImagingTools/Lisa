@@ -29,9 +29,6 @@ list(APPEND webdirs ${buildwebdir}/Resources)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/Acf)
 list(APPEND webdirs ${buildwebdir}/src/Acf)
 
-list(APPEND webdirs ${IMTCOREDIR}/Include/imtstyleqml/Qml/Acf)
-list(APPEND webdirs ${buildwebdir}/src/Acf)
-
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtgui/Qml/imtgui)
 list(APPEND webdirs ${buildwebdir}/src/imtgui)
 

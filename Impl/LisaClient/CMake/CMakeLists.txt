@@ -38,7 +38,7 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 
 target_link_libraries(${PROJECT_NAME} iqtgui)
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtstyleqml imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml)
+target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml)
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
