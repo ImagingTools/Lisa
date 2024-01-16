@@ -47,9 +47,6 @@ list(APPEND webdirs ${buildwebdir}/src/imtauthgui)
 list(APPEND webdirs ${IMTCOREDIR}/Include/imtlicgui/Qml/imtlicgui)
 list(APPEND webdirs ${buildwebdir}/src/imtlicgui)
 
-list(APPEND webdirs ${IMTCOREDIR}/Include/imtstyleqml/Qml/Acf)
-list(APPEND webdirs ${buildwebdir}/src/Acf)
-
 message("LISADIR ${LISADIR}")
 
 # copy dist from to
