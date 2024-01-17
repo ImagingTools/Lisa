@@ -36,16 +36,3 @@ add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 add_subdirectory("${IMPL_DIR}/LisaServerConfigurator/CMake" "${AUX_INCLUDE_DIR}/LisaServerConfigurator")
 #add_subdirectory("${IMPL_DIR}/LisaConverter/CMake" "${AUX_INCLUDE_DIR}/LisaConverter")
 
-# Plug-ins
-#add_subdirectory("${IMPL_DIR}/Plugins/LisaSettingsPlugin/CMake" "${AUX_INCLUDE_DIR}/LisaSettingsPlugin")
-
-# list(APPEND QML_IMPORT_DIRS "${IMTCOREDIR}/Qml")
-# list(REMOVE_DUPLICATES QML_IMPORT_DIRS)
-
-# # The variable is cached in ${BUILD_DIR}/CMakeCache.txt. We need FORCE to
-# # change it there immediately. Also, add a comment to the cache file.
-# set(QML_IMPORT_PATH ${QML_IMPORT_DIRS}
-# 	CACHE STRING "Qt Creator 5.0 extra qml import paths"
-# 	FORCE
-# )
-

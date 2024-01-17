@@ -58,109 +58,15 @@ Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChang
 Filename: "{app}\{#MyAppExeName}"; Parameters: "-t"
 Filename: "{app}\{#MyAppExeName}"; Parameters: "-u"
 
-//[Registry]
-//Root: HKLM; Subkey: "SYSTEM\CurrentControlSet\Control\Session Manager\Environment"; \
-    ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{pf64}\PostgreSQL\14\bin"; \
-    Tasks:  envPath; Check: NeedsAddPath('{pf64}\PostgreSQL\14\bin');  
-
 [Code]
-function NeedsAddPath(Param: string): boolean;
+function InitializeSetup(): boolean;
 var
-  OrigPath: string;
+  ResultCode: integer;
 begin
-    if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
-      'SYSTEM\CurrentControlSet\Control\Session Manager\Environment',
-      'Path', OrigPath)
-    then begin
-      Result := True;
-      exit;
-    end;
-    { look for the path with leading and trailing semicolon }
-    { Pos() returns 0 if not found }
-    Result := Pos(';' + Param + ';', ';' + OrigPath + ';') = 0;
-end;
-
-{var
-  DBPage: TInputQueryWizardPage;
-
-procedure InitializeWizard;
-begin
-  DBPage := CreateInputQueryPage(wpSelectComponents,
-    'Application SuperUser Information', '',
-   'Please enter the super user information, then click Next.');
-  DBPage.Add('Super user login:', False);
-  DBPage.Add('Password:', False);
-  DBPage.Add('Email:', False);
-  
-  DBPage.Values[0] := GetPreviousData('SuperuserLogin', '');
-  DBPage.Values[1] := GetPreviousData('Password', '');
-  DBPage.Values[2] := GetPreviousData('Email', '');
-end;
-
-procedure RegisterPreviousData(PreviousDataKey: Integer);
-begin
-  SetPreviousData(PreviousDataKey, 'SuperuserLogin', DBPage.Values[0]);
-  SetPreviousData(PreviousDataKey, 'Password', DBPage.Values[1]); 
-  SetPreviousData(PreviousDataKey, 'Email', DBPage.Values[2]); 
-end;
-
-function FileReplaceString(const FileName, SearchString, ReplaceString: string):boolean;
-var
-  MyFile : TStrings;
-  MyText : string;
-begin
-  MyFile := TStringList.Create;
-
-  try
-    result := true;
-
-    try
-      MyFile.LoadFromFile(FileName);
-      MyText := MyFile.Text;
-
-      if StringChangeEx(MyText, SearchString, ReplaceString, True) > 0 then
-      begin;
-        MyFile.Text := MyText;
-        MyFile.SaveToFile(FileName);
-      end;
-    except
-      result := false;
-    end;
-  finally
-    MyFile.Free;
+  if DirExists(ExpandConstant('{pf64}\ImagingTools\LisaServer')) then
+  begin
+    DelTree(ExpandConstant('{pf64}\ImagingTools\LisaServer'), True, True, True);
   end;
-end;
-
-function NextButtonClick(CurPageID: Integer): Boolean;
-var
-  ResultCode: Integer;
-begin
   Result := True;
-  if CurPageID = DBPage.ID then begin
-    if DBPage.Values[0] = '' then begin
-      MsgBox('You must enter the login super user.', mbError, MB_OK);
-      Result := False;
-    end
-    else if  DBPage.Values[2] = '' then
-      begin
-        MsgBox('You must enter the email.', mbError, MB_OK);
-        Result := False;
-      end
-    else 
-      begin
-         FileReplaceString('createuser.sql', ':UserId', DBPage.Values[0]);
-         FileReplaceString('createuser.sql', ':Password', DBPage.Values[1]);
-         FileReplaceString('createuser.sql', ':Email', DBPage.Values[2]);
-         if Exec('psql', '-h localhost -d lisa -U postgres -p 5432 -a -q -f createuser.sql', '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then
-         begin
-          Result := True;
-         end else 
-           begin
-            MsgBox('Database update failed:'#10#10 + SysErrorMessage(ResultCode),
-            mbError, MB_OK);
-            Result := False;
-           end;
-      end;
-  end;
-end;   }
+end;
 

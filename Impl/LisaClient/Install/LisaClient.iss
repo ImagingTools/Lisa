@@ -48,3 +48,14 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
+[Code]
+function InitializeSetup(): boolean;
+var
+  ResultCode: integer;
+begin
+  if DirExists(ExpandConstant('{pf64}\ImagingTools\Lisa')) then
+  begin
+    DelTree(ExpandConstant('{pf64}\ImagingTools\Lisa'), True, True, True);
+  end;
+  Result := True;
+end;
