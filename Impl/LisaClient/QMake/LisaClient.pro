@@ -22,10 +22,7 @@ win32-msvc*{
 	QMAKE_CXXFLAGS += /wd4264
 
 	# copying all Qt DLLs to destination directory
-        greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt
-        --qmldir=$(LISADIR)/Impl/LisaClient
-        --qmldir=$(IMTCOREDIR)/Qml
-        --qmldir=$(LISADIR)/Include/lisaqml/Qml  $$DESTDIR
+	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$(LISADIR)/Impl/LisaClient --qmldir=$(IMTCOREDIR)/Qml --qmldir=$(LISADIR)/Include/lisaqml/Qml $$DESTDIR
 }
 
 # Set configuration of custom builds:
