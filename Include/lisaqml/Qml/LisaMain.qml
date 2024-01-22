@@ -9,6 +9,7 @@ ApplicationMain{
 
     useWebSocketSubscription: true;
     loadPageByClick: false;
+    canRecoveryPassword: false;
 
     systemStatus: "UNKNOWN";
 
