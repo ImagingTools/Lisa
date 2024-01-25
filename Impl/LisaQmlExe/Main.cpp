@@ -1,7 +1,6 @@
 // Qt includes
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QStyleFactory>
-// #include <QtWebView>
 #include <QSGRendererInterface>
 #include <QQuickWindow>
 
@@ -16,8 +15,6 @@
 #include <imtqml/CQuickApplicationComp.h>
 
 #include <GeneratedFiles/LisaQmlExe/CLisaQmlExe.h>
-#include <QtSql/QSqlQuery>
-
 
 
 int main(int argc, char *argv[])
