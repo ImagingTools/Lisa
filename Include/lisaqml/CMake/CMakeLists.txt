@@ -25,9 +25,18 @@ list(APPEND webdirs ${buildwebdir}/src)
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/html)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtstylecontrolsqml/Qml/Fonts)
+list(APPEND webdirs ${buildwebdir}/Resources)
+
+list(APPEND webdirs ${IMTCOREDIR}/Include/imtstylecontrolsqml/Qml/Acf)
+list(APPEND webdirs ${buildwebdir}/src/Acf)
+
 # copy base qml sources from to
-list(APPEND webdirs ${IMTCOREDIR}/Qml/imtdocgui)
-list(APPEND webdirs ${buildwebdir}/src/imtdocgui)
+list(APPEND webdirs ${IMTCOREDIR}/Qml/web)
+list(APPEND webdirs ${buildwebdir}/Resources)
+
+list(APPEND webdirs ${IMTCOREDIR}/Qml/imtgui)
+list(APPEND webdirs ${buildwebdir}/src/imtgui)
 
 list(APPEND webdirs ${IMTCOREDIR}/Qml/imtguigql)
 list(APPEND webdirs ${buildwebdir}/src/imtguigql)
@@ -38,15 +47,16 @@ list(APPEND webdirs ${buildwebdir}/src/imtauthgui)
 list(APPEND webdirs ${IMTCOREDIR}/Qml/imtlicgui)
 list(APPEND webdirs ${buildwebdir}/src/imtlicgui)
 
+list(APPEND webdirs ${IMTCOREDIR}/Qml/imtcolgui)
+list(APPEND webdirs ${buildwebdir}/src/imtcolgui)
+
+list(APPEND webdirs ${IMTCOREDIR}/Qml/imtdocgui)
+list(APPEND webdirs ${buildwebdir}/src/imtdocgui)
+
+list(APPEND webdirs ${IMTCOREDIR}/Qml/imtcontrols)
+list(APPEND webdirs ${buildwebdir}/src/imtcontrols)
+
 message("LISADIR ${LISADIR}")
-
-# copy dist from to
-list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/dist)
-list(APPEND webdirs ${buildwebdir}/Resources)
-
-# copy result from to
-list(APPEND webdirs ${IMTCOREDIR}/Bin/web/build.web)
-list(APPEND webdirs ${buildwebdir}/Resources)
 
 if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
