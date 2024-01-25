@@ -17,6 +17,14 @@ ApplicationMain{
         context.application = "Lisa";
     }
 
+    ModalDialogManager {
+        id: modalDialogManager;
+
+        z: 30;
+
+        anchors.fill: parent;
+    }
+
     function updateAllModels(){
         console.log("settingsProviderLocal.updateModel", Style.textColor);
         thumbnailDecoratorGui.updateModels();
