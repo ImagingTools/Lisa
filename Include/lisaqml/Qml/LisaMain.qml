@@ -33,5 +33,11 @@ ApplicationMain{
 
         applicationInfoProvider.updateModel();
     }
+
+    function loginSuccesful(){
+        CachedFeatureCollection.updateModel();
+        CachedProductCollection.updateModel()
+        CachedLicenseCollection.updateModel()
+    }
 }
 
