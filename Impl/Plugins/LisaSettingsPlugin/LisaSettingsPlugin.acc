@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5120" Description="ACF"/>
-            <Version Id="1" Number="2196" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="0" Number="5191" Description="ACF"/>
+            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="394753" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description>Surface inspection plugin</Description>
@@ -30,6 +30,18 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ConnectionCollectionFactory" PackageId="ImtServicePck" ComponentId="ConnectionCollectionFactory">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Factory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="ConnactionCollection"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -156,6 +168,7 @@
     <ExportedInterfaces>
         <Interface InterfaceId="iser::IVersionInfo" ComponentId="VersionInfo"/>
         <Interface InterfaceId="istd::TIFactory&lt;imtbase::IRepresentationController&gt;" ComponentId="RepresentationControllerFactory"/>
+        <Interface InterfaceId="istd::TIFactory&lt;imtservice::IConnectionCollection&gt;" ComponentId="ConnectionCollectionFactory"/>
         <Interface InterfaceId="istd::TIFactory&lt;iprm::IParamsSet&gt;" ComponentId="ParamsSetFactory"/>
     </ExportedInterfaces>
     <ExportedComponents/>

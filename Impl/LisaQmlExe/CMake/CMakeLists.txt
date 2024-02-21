@@ -42,7 +42,7 @@ if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 endif()
 
 target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrest imtrepo imtstyle imtqml imtdb imtfile imtcom)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp )
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtservice)
 target_link_libraries(${PROJECT_NAME} imtcontrolsqml imtguiqml imtstylecontrolsqml imtdocguiqml imtguigqlqml imtauthguiqml imtlicguiqml imtcolguiqml)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc imtstylecontrolsqml)
 target_link_libraries(${PROJECT_NAME} iqtgui)

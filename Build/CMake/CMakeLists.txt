@@ -27,6 +27,9 @@ include_directories("${AUX_INCLUDE_DIR}/../")
 add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
 add_subdirectory("${INCLUDE_DIR}/lisaqml/CMake" "${AUX_INCLUDE_DIR}/lisaqml")
 
+# Plug-ins
+add_subdirectory("${IMPL_DIR}/Plugins/LisaSettingsPlugin/CMake" "${AUX_INCLUDE_DIR}/LisaSettingsPlugin")
+
 # Impl
 add_subdirectory("${IMPL_DIR}/LisaDbPck/CMake" "${AUX_INCLUDE_DIR}/LisaDbPck")
 add_subdirectory("${IMPL_DIR}/LisaLoc/CMake" "${AUX_INCLUDE_DIR}/LisaLoc")
