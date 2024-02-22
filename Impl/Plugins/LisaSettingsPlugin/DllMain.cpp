@@ -3,7 +3,6 @@
 
 // ImtCore includes
 #include <imtbase/PluginInterface.h>
-#include <imtbase/TParamsSetPluginComponentImpl.h>
 #include <imtservice/TConnectionCollectionPluginComponentImpl.h>
 
 // Local includes
