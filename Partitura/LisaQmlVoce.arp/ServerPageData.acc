@@ -51,10 +51,10 @@
                     <AttributeInfo Id="ConnectionIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>PortTCP</Value>
-                                <Value>PortWS</Value>
-                                <Value>PumaUrlTCP</Value>
-                                <Value>PumaUrlWS</Value>
+                                <Value>PortTcp</Value>
+                                <Value>PortWs</Value>
+                                <Value>PumaUrlTcp</Value>
+                                <Value>PumaUrlWs</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
