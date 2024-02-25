@@ -25,3 +25,8 @@ SUBDIRS += LisaQmlExe
 LisaQmlExe.file = ../../Impl/LisaQmlExe/QMake/LisaQmlExe.pro
 LisaQmlExe.depends = LisaLoc
 
+# Plug-ins
+SUBDIRS += LisaSettingsPlugin
+LisaSettingsPlugin.file = ../../Impl/Plugins/LisaSettingsPlugin/QMake/LisaSettingsPlugin.pro
+#LisaSettingsPlugin.depends = AculaStatPck AculaGuiPck AculaProductionPck AculaInspectionPck AculaTaskPck
+
