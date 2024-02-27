@@ -4,7 +4,7 @@
         <VersionInfos>
             <Version Id="0" Number="5191" Description="ACF"/>
             <Version Id="1" Number="2202" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394753" Description="Qt Framework"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -231,6 +231,7 @@
         <Component ExportedId="Backup" ComponentId="Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
         <Component ExportedId="PumaUrl" ComponentId="Server/PumaUrl"/>
+        <Component ExportedId="PumaWebSocketUrlParam" ComponentId="Server/PumaWebSocketUrlParam"/>
         <Component ExportedId="ServerPort" ComponentId="Server/ServerPort"/>
         <Component ExportedId="WebSocketServerPort" ComponentId="Server/WebSocketServerPort"/>
     </ExportedComponents>
