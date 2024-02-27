@@ -16,7 +16,7 @@
         <Element ComponentName="FileNameParam" X="1075" Y="525" Note=""/>
         <Element ComponentName="Preferences" X="575" Y="200" Note=""/>
         <Element ComponentName="SchedulerParams" X="875" Y="525" Note=""/>
-        <Element ComponentName="Server" X="575" Y="350" Note=""/>
+        <Element ComponentName="Server" X="550" Y="350" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
