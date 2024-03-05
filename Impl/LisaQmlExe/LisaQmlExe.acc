@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5181" Description="ACF"/>
-            <Version Id="1" Number="2199" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5191" Description="ACF"/>
+            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -142,9 +142,6 @@
         <Element Id="PumaSystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="PumaTestConnection"/>
                     </AttributeInfo>
@@ -172,9 +169,6 @@
         <Element Id="SystemStatusController" PackageId="ImtCoreVoce" ComponentId="SystemStatusController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="AutoCheckStatus" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="CheckCommandId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="LisaTestConnection"/>
                     </AttributeInfo>
