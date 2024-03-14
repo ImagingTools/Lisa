@@ -49,14 +49,8 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 
 [Run]
 //Filename: "{app}\postgresql.exe"; Flags: runascurrentuser; Parameters:  --mode unattended --unattendedmodeui minimal --superpassword root; Components: postgresql
-Filename: "{app}\LisaServerConfigurator.exe"
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-t"
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-u"
-Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Parameters: "-i"
-
-[UninstallRun]
-Filename: "{app}\{#MyAppExeName}"; Parameters: "-t"
-Filename: "{app}\{#MyAppExeName}"; Parameters: "-u"
+// Filename: "{app}\LisaServerConfigurator.exe"
+Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent;
 
 [Code]
 function InitializeSetup(): boolean;
@@ -65,7 +59,7 @@ var
 begin
   if DirExists(ExpandConstant('{pf64}\ImagingTools\LisaServer')) then
   begin
-    DelTree(ExpandConstant('{pf64}\ImagingTools\LisaServer'), True, True, True);
+    // DelTree(ExpandConstant('{pf64}\ImagingTools\LisaServer'), True, True, True);
   end;
   Result := True;
 end;
