@@ -1,5 +1,26 @@
 TARGET = lisaqml
 
+include($(IMTCOREDIR)/Config/QMake/QmlControls.pri)
+
+buildwebdir = $$PWD/../../../Bin/web
+
+imtcoredir = $(IMTCOREDIR)
+
+prepareWebQml($$buildwebdir)
+
+# copy project qml from to
+copyToWebDir($$PWD/../Qml/, $$buildwebdir/src)
+copyToWebDir($$PWD/../Resources/html/, $$buildwebdir/Resources)
+copyToWebDir($$PWD/../Resources/Translations/, $$buildwebdir/Resources/Translations)
+copyToWebDir($$imtcoredir/Include/imtstylecontrolsqml/Qml/Fonts/, $$buildwebdir/Resources)
+copyToWebDir($$imtcoredir/Include/imtstylecontrolsqml/Qml/Acf/, $$buildwebdir/src/Acf)
+
+compyleWeb($$buildwebdir, "lisa")
+
+GENERATED_RESOURCES = $$_PRO_FILE_PWD_/../empty
+
+include($(IMTCOREDIR)/Config/QMake/WebQrc.pri)
+
 include($(ACFCONFIGDIR)/QMake/StaticConfig.pri)
 include($(IMTCOREDIR)/Config/QMake/ImtCore.pri)
 
