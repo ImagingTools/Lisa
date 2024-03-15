@@ -28,9 +28,6 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="LogLocationType" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="105"/>
                     </AttributeInfo>
@@ -42,12 +39,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ProductName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SeriviceDescription" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa server service"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServiceName" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="LisaService"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
