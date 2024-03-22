@@ -14,7 +14,7 @@ ApplicationMain{
 //    systemStatus: "UNKNOWN";
 
     Component.onCompleted: {
-        context.application = "Lisa";
+        context.appName = "Lisa";
     }
 
     ModalDialogManager {
