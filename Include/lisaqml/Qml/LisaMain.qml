@@ -11,8 +11,6 @@ ApplicationMain{
     loadPageByClick: false;
     canRecoveryPassword: false;
 
-//    systemStatus: "UNKNOWN";
-
     Component.onCompleted: {
         context.appName = "Lisa";
     }

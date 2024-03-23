@@ -11,7 +11,7 @@ Item {
 
         anchors.fill: parent;
 
-        systemStatus: "NO_ERROR";
+//        systemStatus: "NO_ERROR";
 
         function updateModels(){
             console.log("window updateModels");
