@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5191" Description="ACF"/>
-            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5211" Description="ACF"/>
+            <Version Id="1" Number="2205" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -24,6 +24,8 @@
                 <Element ComponentName="FeaturesSubscriberController" X="550" Y="75" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="550" Y="275" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="550" Y="175" Note=""/>
+                <Element ComponentName="PumaLoginStatusSubscriberController" X="950" Y="475" Note=""/>
+                <Element ComponentName="PumaSubscription" X="525" Y="475" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -11,17 +11,12 @@ Item {
 
         anchors.fill: parent;
 
-//        systemStatus: "NO_ERROR";
-
-        function updateModels(){
-            console.log("window updateModels");
-            thumbnailDecoratorGui.authorizationPageAlias.visible = true;
-        }
-
         Component.onCompleted: {
             designProvider.applyDesignSchema("Light");
+        }
 
-            application.firstModelsInit();
+        function getServerUrl(){
+            return context.location;
         }
     }
 }

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5191" Description="ACF"/>
-            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5211" Description="ACF"/>
+            <Version Id="1" Number="2205" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -67,6 +67,7 @@
                                 <Value>RemoteRepositories/RolesSubscriberController</Value>
                                 <Value>RemoteRepositories/UsersSubscriberController</Value>
                                 <Value>RemoteRepositories/UserGroupsSubscriberController</Value>
+                                <Value>Subscriptions/PumaLoginStatusSubscriberController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -142,6 +143,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketPortModel" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/WebSocketServerPort"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -284,6 +288,9 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="PumaWebSocketServerAddress" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/PumaWebSocketUrlParam"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="HttpServerFramework/WebSocketServer"/>
                     </AttributeInfo>
@@ -364,6 +371,52 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="PumaLoginStatusSubscriberController" PackageId="ImtAuthGqlPck" ComponentId="LoginStatusSubscriberController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>PumaWsConnection</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="LoginStatusProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="PumaSubscription/WebSocketClient"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="PumaSubscription" PackageId="ImtClientVoce" ComponentId="SubscriptionManager">
+                        <Data IsEnabled="true" Flags="1">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="PumaWebSocketServerAddress">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WebSocketServerLoginParam" Type="Id" ExportId="WebSocketServerLoginParam">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="WebSocketServerPasswordParam" Type="Id" ExportId="WebSocketServerPasswordParam">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces/>
@@ -371,6 +424,7 @@
                     <Component ExportedId="FeaturesSubscriberController" ComponentId="FeaturesSubscriberController"/>
                     <Component ExportedId="LicensesSubscriberController" ComponentId="LicensesSubscriberController"/>
                     <Component ExportedId="ProductsSubscriberController" ComponentId="ProductsSubscriberController"/>
+                    <Component ExportedId="PumaLoginStatusSubscriberController" ComponentId="PumaLoginStatusSubscriberController"/>
                 </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
