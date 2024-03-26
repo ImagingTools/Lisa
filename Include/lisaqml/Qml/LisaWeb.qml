@@ -11,6 +11,8 @@ Item {
 
         anchors.fill: parent;
 
+        serverReady: true
+
         Component.onCompleted: {
             designProvider.applyDesignSchema("Light");
         }
