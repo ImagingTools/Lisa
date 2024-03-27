@@ -14,7 +14,12 @@ ApplicationMain{
     authorizationServerConnected: pumaConnected;
 
     Component.onCompleted: {
-        context.appName = "Lisa";
+        context.appName = 'Lisa';
+        Events.subscribeEvent("Login", loginSuccesful);
+    }
+
+    Component.onDestruction: {
+         Events.unSubscribeEvent("Login", loginSuccesful);
     }
 
     ModalDialogManager {
