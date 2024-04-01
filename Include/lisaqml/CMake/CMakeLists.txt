@@ -56,7 +56,11 @@ list(APPEND webdirs ${buildwebdir}/src/imtdocgui)
 list(APPEND webdirs ${IMTCOREDIR}/Qml/imtcontrols)
 list(APPEND webdirs ${buildwebdir}/src/imtcontrols)
 
-message("LISADIR ${LISADIR}")
+list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../../../Impl/LisaLoc/Translations)
+list(APPEND webdirs ${buildwebdir}/Resources/Translations)
+
+list(APPEND webdirs ${IMTCOREDIR}/Impl/ImtCoreLoc/Translations)
+list(APPEND webdirs ${buildwebdir}/Resources/Translations)
 
 if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
