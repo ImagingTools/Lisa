@@ -2,6 +2,7 @@ import QtQuick 2.0
 import Acf 1.0
 import imtlicgui 1.0
 import imtgui 1.0
+import imtauthgui 1.0
 import imtguigql 1.0
 import imtcontrols 1.0
 
@@ -16,10 +17,13 @@ ApplicationMain{
     Component.onCompleted: {
         context.appName = 'Lisa';
         Events.subscribeEvent("Login", loginSuccesful);
+        Events.subscribeEvent("Logout", logout);
+
     }
 
     Component.onDestruction: {
-         Events.unSubscribeEvent("Login", loginSuccesful);
+        Events.unSubscribeEvent("Login", loginSuccesful);
+        Events.unSubscribeEvent("Logout", logout);
     }
 
     ModalDialogManager {
@@ -43,6 +47,18 @@ ApplicationMain{
         CachedFeatureCollection.updateModel();
         CachedProductCollection.updateModel()
         CachedLicenseCollection.updateModel()
+        CachedGroupCollection.updateModel();
+        CachedUserCollection.updateModel();
+        CachedRoleCollection.updateModel();
+    }
+
+    function logout(){
+        CachedFeatureCollection.clearModel();
+        CachedProductCollection.clearModel()
+        CachedLicenseCollection.clearModel()
+        CachedGroupCollection.clearModel();
+        CachedUserCollection.clearModel();
+        CachedRoleCollection.clearModel();
     }
 
     property bool pumaConnected: false;
