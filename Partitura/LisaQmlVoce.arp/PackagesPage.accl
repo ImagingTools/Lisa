@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5191" Description="ACF"/>
-            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5211" Description="ACF"/>
+            <Version Id="1" Number="2205" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -21,18 +21,36 @@
     <EmbeddedRegistries>
         <EmbededRegistry Id="PackageEditCommands">
             <PositionMap>
-                <Element ComponentName="CheckPermissionOr" X="775" Y="450" Note=""/>
-                <Element ComponentName="Close" X="300" Y="675" Note=""/>
-                <Element ComponentName="Commands" X="275" Y="300" Note=""/>
-                <Element ComponentName="CommandsRepresentation" X="950" Y="275" Note=""/>
-                <Element ComponentName="Empty" X="500" Y="450" Note=""/>
-                <Element ComponentName="FeatureCommandsController" X="550" Y="100" Note=""/>
-                <Element ComponentName="New" X="75" Y="450" Note=""/>
-                <Element ComponentName="PackageCommandPermissions" X="1025" Y="450" Note=""/>
-                <Element ComponentName="Redo" X="300" Y="575" Note=""/>
-                <Element ComponentName="Remove" X="300" Y="450" Note=""/>
-                <Element ComponentName="Save" X="75" Y="675" Note=""/>
-                <Element ComponentName="Undo" X="75" Y="575" Note=""/>
+                <Element ComponentName="CheckPermissionOr" X="650" Y="225" Note=""/>
+                <Element ComponentName="Close" X="300" Y="500" Note=""/>
+                <Element ComponentName="ClosePermission" X="1050" Y="600" Note=""/>
+                <Element ComponentName="CommandPermissionsProviderJoiner" X="1025" Y="225" Note=""/>
+                <Element ComponentName="Commands" X="275" Y="200" Note=""/>
+                <Element ComponentName="CommandsRepresentation" X="975" Y="100" Note=""/>
+                <Element ComponentName="Empty" X="500" Y="400" Note=""/>
+                <Element ComponentName="FeatureCommandsController" X="550" Y="50" Note=""/>
+                <Element ComponentName="New" X="100" Y="300" Note=""/>
+                <Element ComponentName="NewPermission" X="1050" Y="825" Note=""/>
+                <Element ComponentName="Redo" X="325" Y="400" Note=""/>
+                <Element ComponentName="RedoPermission" X="1050" Y="750" Note=""/>
+                <Element ComponentName="Remove" X="300" Y="300" Note=""/>
+                <Element ComponentName="RemovePermission" X="750" Y="600" Note=""/>
+                <Element ComponentName="Save" X="100" Y="500" Note=""/>
+                <Element ComponentName="SavePermission" X="1050" Y="675" Note=""/>
+                <Element ComponentName="Undo" X="100" Y="400" Note=""/>
+                <Element ComponentName="UndoPermission" X="750" Y="675" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Permissions">
+            <PositionMap>
+                <Element ComponentName="Close" X="1000" Y="400" Note=""/>
+                <Element ComponentName="CommandPermissionsProviderJoiner" X="600" Y="300" Note=""/>
+                <Element ComponentName="New" X="600" Y="200" Note=""/>
+                <Element ComponentName="Redo" X="200" Y="200" Note=""/>
+                <Element ComponentName="Remove" X="600" Y="400" Note=""/>
+                <Element ComponentName="Save" X="1000" Y="200" Note=""/>
+                <Element ComponentName="Undo" X="200" Y="400" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

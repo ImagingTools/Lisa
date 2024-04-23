@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5191" Description="ACF"/>
-            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5211" Description="ACF"/>
+            <Version Id="1" Number="2205" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -273,6 +273,49 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="ClosePermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Close"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>AddFeature</Value>
+                                            <Value>ChangeFeature</Value>
+                                            <Value>ViewFeatures</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandPermissionsProviderJoiner" PackageId="ImtCorePck" ComponentId="CommandPermissionsProviderJoiner">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>NewPermission</Value>
+                                            <Value>SavePermission</Value>
+                                            <Value>ClosePermission</Value>
+                                            <Value>UndoPermission</Value>
+                                            <Value>RemovePermission</Value>
+                                            <Value>RedoPermission</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Commands" PackageId="ImtGuiPck" ComponentId="GuiElementContainer">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -298,7 +341,10 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandPermissionsProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="PackageCommandPermissions"/>
+                                    <Data IsEnabled="true" Value="CommandPermissionsProviderJoiner"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
                                     <Data IsEnabled="true" Value="Package"/>
@@ -356,7 +402,7 @@
                                     <Data IsEnabled="true" Value="Icons/Add"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Id" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="New"/>
+                                    <Data IsEnabled="true" Value="InsertFeature"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="IsEnabled" Type="Boolean" ExportId="">
                                     <Data IsEnabled="true" Value="false"/>
@@ -367,66 +413,26 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="PackageCommandPermissions" PackageId="ImtCoreVoce" ComponentId="DocumentCommandPermissions">
+                    <Element Id="NewPermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="CloseCommandPermissions" Type="Id[]" ExportId="">
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="InsertFeature"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveFeature</Value>
                                             <Value>AddFeature</Value>
+                                            <Value>RemoveFeature</Value>
                                             <Value>ChangeFeature</Value>
-                                            <Value>ViewFeatures</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="NewCommandPermissions" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="RedoCommandPermissions" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="RemoveCommandPermissions" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="SaveCommandPermissions" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>AddFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="UndoCommandPermissions" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                        </Values>
-                                    </Data>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -449,6 +455,30 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="RedoPermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Redo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddFeature</Value>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>ChangeFeature</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Remove" PackageId="ImtGuiPck" ComponentId="GuiElementModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -456,13 +486,37 @@
                                     <Data IsEnabled="true" Value="Icons/Delete"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Id" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="Remove"/>
+                                    <Data IsEnabled="true" Value="RemoveFeature"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="IsEnabled" Type="Boolean" ExportId="">
                                     <Data IsEnabled="true" Value="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Name" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Remove"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="RemovePermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="RemoveFeature"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddFeature</Value>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>ChangeFeature</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -485,6 +539,30 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="SavePermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Save"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>AddFeature</Value>
+                                            <Value>ChangeFeature</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="Undo" PackageId="ImtGuiPck" ComponentId="GuiElementModel">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -499,6 +577,30 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="Name" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Undo"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="UndoPermission" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Undo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>AddFeature</Value>
+                                            <Value>RemoveFeature</Value>
+                                            <Value>ChangeFeature</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -735,6 +837,144 @@
                 <ExportedInterfaces>
                     <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsRepresentation"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="FeaturesCommandsController"/>
+                </ExportedInterfaces>
+                <ExportedComponents/>
+            </Data>
+        </EmbeddedRegistry>
+        <EmbeddedRegistry Id="Permissions">
+            <Data Description="" Keywords="">
+                <ElementsList>
+                    <Element Id="Close" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Close"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="CloseCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="CommandPermissionsProviderJoiner" PackageId="ImtCorePck" ComponentId="CommandPermissionsProviderJoiner">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>New</Value>
+                                            <Value>Save</Value>
+                                            <Value>Close</Value>
+                                            <Value>Undo</Value>
+                                            <Value>Remove</Value>
+                                            <Value>Redo</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="New" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="InsertFeature"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="NewCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Redo" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Redo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="RedoCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Remove" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="RemoveFeature"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="RemoveCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Save" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Save"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="SaveCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="Undo" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="CommandId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Undo"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="UndoCommandPermissions">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                </ElementsList>
+                <EmbeddedRegistriesList/>
+                <ExportedInterfaces>
+                    <Interface InterfaceId="imtbase::ICommandPermissionsProvider" ComponentId="CommandPermissionsProviderJoiner"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandPermissionsProviderJoiner"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>
