@@ -35,7 +35,6 @@ ApplicationMain{
     }
 
     function updateAllModels(){
-        console.log("settingsProviderLocal.updateModel", Style.textColor);
         thumbnailDecoratorGui.updateModels();
 
         FeaturesProvider.updateModel();
@@ -77,8 +76,6 @@ ApplicationMain{
         }
 
         onStateChanged: {
-            console.log("PumaWsConnection onStateChanged", state);
-
             if (state === "Ready"){
                 if (pumaSub.ContainsKey("data")){
                     let localModel = pumaSub.GetData("data")
