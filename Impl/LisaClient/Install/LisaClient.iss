@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Lisa"
-#define MyAppVersion "1.0"
+#define MyAppVersion GetEnv('APP_VERSION')
 #define MyAppPublisher "ImagingTools GmbH"
 #define MyAppURL "http://www.imagingtools.de"
 #define MyAppExeName "LisaClient.exe"
@@ -22,7 +22,7 @@ DefaultDirName={pf64}\ImagingTools\{#MyAppName}
 DisableProgramGroupPage=yes
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
-OutputBaseFilename=LisaInstall
+OutputBaseFilename=LisaClientInstall_{#MyAppVersion}
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
