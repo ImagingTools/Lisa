@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5137" Description="ACF"/>
-            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394753" Description="Qt Framework"/>
+            <Version Id="0" Number="5222" Description="ACF"/>
+            <Version Id="1" Number="2207" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -372,8 +372,12 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewAdministration</Value>
-                                            <Value>EditAdministration</Value>
+                                            <Value>ViewUsers</Value>
+                                            <Value>ViewRoles</Value>
+                                            <Value>ViewGroups</Value>
+                                            <Value>ChangeUser</Value>
+                                            <Value>ChangeRole</Value>
+                                            <Value>ChangeGroups</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
