@@ -16,14 +16,6 @@ ApplicationMain{
 
     Component.onCompleted: {
         context.appName = 'Lisa';
-        Events.subscribeEvent("Login", loginSuccesful);
-        Events.subscribeEvent("Logout", logout);
-
-    }
-
-    Component.onDestruction: {
-        Events.unSubscribeEvent("Login", loginSuccesful);
-        Events.unSubscribeEvent("Logout", logout);
     }
 
     ModalDialogManager {
@@ -42,22 +34,26 @@ ApplicationMain{
         applicationInfoProvider.updateModel();
     }
 
-    function loginSuccesful(){
-        CachedFeatureCollection.updateModel();
-        CachedProductCollection.updateModel()
-        CachedLicenseCollection.updateModel()
-        CachedGroupCollection.updateModel();
-        CachedUserCollection.updateModel();
-        CachedRoleCollection.updateModel();
-    }
+    Connections {
+        target: AuthorizationController;
 
-    function logout(){
-        CachedFeatureCollection.clearModel();
-        CachedProductCollection.clearModel()
-        CachedLicenseCollection.clearModel()
-        CachedGroupCollection.clearModel();
-        CachedUserCollection.clearModel();
-        CachedRoleCollection.clearModel();
+        function onLoginSuccessful(){
+            CachedFeatureCollection.updateModel();
+            CachedProductCollection.updateModel()
+            CachedLicenseCollection.updateModel()
+            CachedGroupCollection.updateModel();
+            CachedUserCollection.updateModel();
+            CachedRoleCollection.updateModel();
+        }
+
+        function onLogoutSignal(){
+            CachedFeatureCollection.clearModel();
+            CachedProductCollection.clearModel()
+            CachedLicenseCollection.clearModel()
+            CachedGroupCollection.clearModel();
+            CachedUserCollection.clearModel();
+            CachedRoleCollection.clearModel();
+        }
     }
 
     property bool pumaConnected: false;

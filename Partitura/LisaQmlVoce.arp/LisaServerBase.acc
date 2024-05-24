@@ -226,8 +226,6 @@
                                 <Value>RolesMetaInfo</Value>
                                 <Value>UsersMetaInfo</Value>
                                 <Value>GroupsMetaInfo</Value>
-                                <Value>PumaTestConnection</Value>
-                                <Value>PumaGetDatabaseStatus</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
