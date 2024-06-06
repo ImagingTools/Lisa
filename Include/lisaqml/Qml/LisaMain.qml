@@ -18,14 +18,6 @@ ApplicationMain{
         context.appName = 'Lisa';
     }
 
-    ModalDialogManager {
-        id: modalDialogManager;
-
-        z: 30;
-
-        anchors.fill: parent;
-    }
-
     function updateAllModels(){
         thumbnailDecoratorGui.updateModels();
 

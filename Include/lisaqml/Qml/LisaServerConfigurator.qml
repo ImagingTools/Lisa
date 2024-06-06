@@ -68,21 +68,13 @@ Rectangle {
             }
             else if (buttonId == Enums.ButtonType.Close){
                 if (preferenceDialog.modelIsDirty){
-                    modalDialogManager.openDialog(saveDialog, {"message": qsTr("Save all changes ?")});
+                    ModalDialogManager.openDialog(saveDialog, {"message": qsTr("Save all changes ?")});
                 }
                 else{
                     Qt.quit();
                 }
             }
         }
-    }
-
-    ModalDialogManager {
-        id: modalDialogManager;
-
-        z: 30;
-
-        anchors.fill: parent;
     }
 
 //    Connections {
