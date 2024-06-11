@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5136" Description="ACF"/>
-            <Version Id="1" Number="2198" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="331522" Description="Qt Framework"/>
+            <Version Id="0" Number="5222" Description="ACF"/>
+            <Version Id="1" Number="2207" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -280,6 +280,12 @@
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="DefaultPath" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Lisa/LisaServer/LisaServerSettings.xml"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="LocationType" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="104"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
