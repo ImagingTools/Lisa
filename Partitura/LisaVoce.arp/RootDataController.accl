@@ -2,21 +2,19 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5211" Description="ACF"/>
-            <Version Id="1" Number="2205" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5225" Description="ACF"/>
+            <Version Id="1" Number="2208" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationController" X="550" Y="200" Note=""/>
         <Element ComponentName="AuthorizationManagementController" X="475" Y="350" Note=""/>
-        <Element ComponentName="DatabaseServerConnectionController" X="825" Y="50" Note=""/>
         <Element ComponentName="FeatureDependenciesProvider" X="575" Y="500" Note=""/>
         <Element ComponentName="Pages" X="825" Y="350" Note=""/>
         <Element ComponentName="PermissionController" X="1050" Y="350" Note=""/>
         <Element ComponentName="SettingsController" X="125" Y="350" Note=""/>
         <Element ComponentName="SingleProductPermission" X="1000" Y="500" Note=""/>
-        <Element ComponentName="TestConnectionController" X="300" Y="50" Note=""/>
         <Element ComponentName="UrlParamRepresentationController" X="1025" Y="200" Note=""/>
         <Element ComponentName="WebSocketPortController" X="1025" Y="150" Note=""/>
     </PositionMap>
