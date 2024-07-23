@@ -11,9 +11,12 @@ prepareWebQml($$buildwebdir)
 # copy project qml from to
 copyToWebDir($$PWD/../Qml/, $$buildwebdir/src)
 copyToWebDir($$PWD/../Resources/html/, $$buildwebdir/Resources)
-copyToWebDir($$PWD/../Resources/Translations/, $$buildwebdir/Resources/Translations)
 copyToWebDir($$imtcoredir/Include/imtstylecontrolsqml/Qml/Fonts/, $$buildwebdir/Resources)
 copyToWebDir($$imtcoredir/Include/imtstylecontrolsqml/Qml/Acf/, $$buildwebdir/src/Acf)
+
+# copy translations
+copyToWebDir($$PWD/../../../Impl/LisaLoc/Translations/, $$buildwebdir/Resources/Translations)
+copyToWebDir($$imtcoredir/Impl/ImtCoreLoc/Translations/, $$buildwebdir/Resources/Translations)
 
 compyleWeb($$buildwebdir, "lisa")
 
