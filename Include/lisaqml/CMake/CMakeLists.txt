@@ -8,7 +8,7 @@ if(QT_VERSION_MAJOR EQUAL 6)
 endif()
 
 message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
-set(buildwebdir ${CMAKE_CURRENT_LIST_DIR}/../../../Bin/web)
+set(buildwebdir ${BUILDDIR}/Lisa/Bin/web)
 message("LASA binary dir ${buildwebdir}")
 
 list(APPEND webdirs ${IMTCOREDIR}/3rdParty/JQML2/core/dist)
