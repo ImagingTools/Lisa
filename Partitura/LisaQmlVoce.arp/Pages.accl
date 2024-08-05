@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5225" Description="ACF"/>
-            <Version Id="1" Number="2208" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5229" Description="ACF"/>
+            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,8 +18,17 @@
         <Element ComponentName="PagesController" X="325" Y="200" Note=""/>
         <Element ComponentName="ProductsPage" X="225" Y="425" Note=""/>
         <Element ComponentName="Repositories" X="925" Y="500" Note=""/>
+        <Element ComponentName="SearchPage" X="550" Y="525" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
@@ -39,14 +48,6 @@
                 <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
                 <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
                 <Element ComponentName="ProductsPermissions" X="550" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
-                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
