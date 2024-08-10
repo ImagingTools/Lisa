@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5191" Description="ACF"/>
-            <Version Id="1" Number="2202" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5229" Description="ACF"/>
+            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -11,8 +11,6 @@
         <Element ComponentName="ClientApplication" X="600" Y="425" Note=""/>
         <Element ComponentName="LisaServerBase" X="600" Y="200" Note=""/>
         <Element ComponentName="LocalSettings" X="1025" Y="425" Note=""/>
-        <Element ComponentName="PumaSystemStatusController" X="650" Y="700" Note=""/>
-        <Element ComponentName="SystemStatusController" X="350" Y="700" Note=""/>
         <Element ComponentName="VersionInfo" X="1000" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5225" Description="ACF"/>
-            <Version Id="1" Number="2208" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5229" Description="ACF"/>
+            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -19,6 +19,15 @@
         <Element ComponentName="SerializableFeatureCollectionController" X="225" Y="175" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="PackageEditCommands">
+            <PositionMap>
+                <Element ComponentName="CommandsController" X="600" Y="100" Note=""/>
+                <Element ComponentName="New" X="650" Y="250" Note=""/>
+                <Element ComponentName="Remove" X="650" Y="350" Note=""/>
+                <Element ComponentName="StandardDocumentCommands" X="250" Y="250" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Permissions">
             <PositionMap>
                 <Element ComponentName="Close" X="1000" Y="400" Note=""/>
@@ -34,15 +43,6 @@
         <EmbededRegistry Id="PackagesCommands">
             <PositionMap>
                 <Element ComponentName="StandardCollectionCommandsController" X="600" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PackageEditCommands">
-            <PositionMap>
-                <Element ComponentName="CommandsController" X="600" Y="100" Note=""/>
-                <Element ComponentName="New" X="650" Y="250" Note=""/>
-                <Element ComponentName="Remove" X="650" Y="350" Note=""/>
-                <Element ComponentName="StandardDocumentCommands" X="250" Y="250" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

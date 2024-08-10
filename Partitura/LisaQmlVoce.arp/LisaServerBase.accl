@@ -8,14 +8,12 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="DatabaseAutomaticBackup" X="200" Y="75" Note=""/>
         <Element ComponentName="DatabaseEngine" X="575" Y="75" Note=""/>
         <Element ComponentName="HttpServerFramework" X="600" Y="400" Note=""/>
         <Element ComponentName="LisaHandlers" X="575" Y="225" Note=""/>
-        <Element ComponentName="LisaLocalization" X="1025" Y="75" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="575" Y="725" Note=""/>
-        <Element ComponentName="RemoteRepositories" X="175" Y="700" Note=""/>
-        <Element ComponentName="ServerPageData" X="150" Y="400" Note=""/>
+        <Element ComponentName="LisaLocalization" X="1025" Y="100" Note=""/>
+        <Element ComponentName="PumaGQLClientEngine" X="375" Y="700" Note=""/>
+        <Element ComponentName="ServerSettings" X="150" Y="100" Note=""/>
         <Element ComponentName="Subscriptions" X="975" Y="700" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
@@ -24,8 +22,6 @@
                 <Element ComponentName="FeaturesSubscriberController" X="550" Y="75" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="550" Y="275" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="550" Y="175" Note=""/>
-                <Element ComponentName="PumaLoginStatusSubscriberController" X="950" Y="475" Note=""/>
-                <Element ComponentName="PumaSubscription" X="525" Y="475" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
