@@ -71,6 +71,9 @@
                     <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="SslConfiguration"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SslConfigurationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="SslConfigurationManager"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerSettings/TracingConfiguration"/>
                     </AttributeInfo>
@@ -266,26 +269,17 @@
                     <Element Id="FileBasedSslConfiguration" PackageId="ImtComVoce" ComponentId="FileBasedSslConfiguration">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
+                                <AttributeInfo Id="EnableSsl" Type="Boolean" ExportId="EnableSsl">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="LocalCertificateFilePath" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="CertFilePath"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="PrivateKeyFilePath" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="KeyFilePath"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="PrivateKeyPassPhrase" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="KeyPass"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="ShowComponentId" Type="Boolean" ExportId="ShowComponentId">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                                    <Data IsEnabled="false"/>
+                                <AttributeInfo Id="PrivateKeyPassPhrase" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="123456"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -301,15 +295,6 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="ReferencePath" Type="Reference" ExportId="">
                                     <Data IsEnabled="true" Value="SystemLocation"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
-                    <Element Id="KeyPass" PackageId="BasePck" ComponentId="IdParam">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="DefaultId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="123456"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
@@ -330,9 +315,11 @@
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
                     <Interface InterfaceId="imod::IModel" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="imtcom::ISslConfiguration" ComponentId="FileBasedSslConfiguration"/>
+                    <Interface InterfaceId="iprm::IParamsSet" ComponentId="FileBasedSslConfiguration"/>
+                    <Interface InterfaceId="iser::ISerializable" ComponentId="FileBasedSslConfiguration"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="FileBasedSslConfiguration"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="FileBasedSslConfiguration"/>
+                    <Interface InterfaceId="istd::TIHierarchical&lt;istd::IPolymorphic&gt;" ComponentId="FileBasedSslConfiguration"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>
