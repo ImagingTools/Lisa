@@ -14,25 +14,23 @@
         <Element ComponentName="LisaLocalization" X="950" Y="75" Note=""/>
         <Element ComponentName="PumaGQLClientEngine" X="150" Y="775" Note=""/>
         <Element ComponentName="ServerSettings" X="125" Y="75" Note=""/>
-        <Element ComponentName="SslConfiguration" X="375" Y="600" Note=""/>
         <Element ComponentName="SslConfigurationManager" X="775" Y="600" Note=""/>
         <Element ComponentName="Subscriptions" X="1075" Y="800" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="SslConfiguration">
-            <PositionMap>
-                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
-                <Element ComponentName="FileBasedSslConfiguration" X="575" Y="350" Note=""/>
-                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
-                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Subscriptions">
             <PositionMap>
                 <Element ComponentName="FeaturesSubscriberController" X="550" Y="75" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="550" Y="275" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="550" Y="175" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="SslConfiguration">
+            <PositionMap>
+                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
+                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
+                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

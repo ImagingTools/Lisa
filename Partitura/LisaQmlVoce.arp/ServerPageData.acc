@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5222" Description="ACF"/>
-            <Version Id="1" Number="2207" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="0" Number="5230" Description="ACF"/>
+            <Version Id="1" Number="2214" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="394499" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -175,6 +175,15 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="FileBasedSslConfiguration" PackageId="ImtComVoce" ComponentId="FileBasedSslConfiguration">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="EnableSsl" Type="Boolean" ExportId="EnableSsl">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="FileNameParam" PackageId="FilePck" ComponentId="FileNameParam">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -202,6 +211,7 @@
                                 <Value>Server</Value>
                                 <Value>Backup</Value>
                                 <Value>LoggingParams</Value>
+                                <Value>FileBasedSslConfiguration</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -212,6 +222,7 @@
                                 <Value>Server</Value>
                                 <Value>Backup</Value>
                                 <Value>Log</Value>
+                                <Value>SslConfiguration</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -262,6 +273,7 @@
         <Component ExportedId="AutoPersistence" ComponentId="FileAutoPersistence/AutoPersistence"/>
         <Component ExportedId="Backup" ComponentId="Backup"/>
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
+        <Component ExportedId="FileBasedSslConfiguration" ComponentId="FileBasedSslConfiguration"/>
         <Component ExportedId="PumaUrl" ComponentId="Server/PumaUrl"/>
         <Component ExportedId="PumaWebSocketUrlParam" ComponentId="Server/PumaWebSocketUrlParam"/>
         <Component ExportedId="ServerPort" ComponentId="Server/ServerPort"/>

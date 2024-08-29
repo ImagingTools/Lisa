@@ -69,7 +69,7 @@
                         <Data IsEnabled="true" Value="ServerSettings/ServerPort"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SslConfiguration"/>
+                        <Data IsEnabled="true" Value="ServerSettings/FileBasedSslConfiguration"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SslConfigurationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="SslConfigurationManager"/>
@@ -210,18 +210,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="SslConfiguration" PackageId="" ComponentId="SslConfiguration">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="EnableSsl" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="SslConfigurationManager" PackageId="ImtComPck" ComponentId="SslConfigurationManager">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -272,24 +260,6 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="FileBasedSslConfiguration" PackageId="ImtComVoce" ComponentId="FileBasedSslConfiguration">
-                        <Data IsEnabled="true" Flags="0">
-                            <AttributeInfoMap>
-                                <AttributeInfo Id="EnableSsl" Type="Boolean" ExportId="EnableSsl">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="LocalCertificateFilePath" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="CertFilePath"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="PrivateKeyFilePath" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="KeyFilePath"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="PrivateKeyPassPhrase" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="123456"/>
-                                </AttributeInfo>
-                            </AttributeInfoMap>
-                        </Data>
-                    </Element>
                     <Element Id="KeyFilePath" PackageId="FilePck" ComponentId="RelativeFileNameParam">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -319,14 +289,7 @@
                     </Element>
                 </ElementsList>
                 <EmbeddedRegistriesList/>
-                <ExportedInterfaces>
-                    <Interface InterfaceId="imod::IModel" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="iprm::IParamsSet" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="iser::ISerializable" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="istd::IChangeable" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="FileBasedSslConfiguration"/>
-                    <Interface InterfaceId="istd::TIHierarchical&lt;istd::IPolymorphic&gt;" ComponentId="FileBasedSslConfiguration"/>
-                </ExportedInterfaces>
+                <ExportedInterfaces/>
                 <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
@@ -416,6 +379,7 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="DatabaseEngine" ComponentId="DatabaseEngine"/>
+        <Component ExportedId="FileBasedSslConfiguration" ComponentId="ServerSettings/FileBasedSslConfiguration"/>
         <Component ExportedId="ServerPageData" ComponentId="ServerSettings"/>
     </ExportedComponents>
 </Acf>
