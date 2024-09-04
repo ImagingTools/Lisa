@@ -2,23 +2,23 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5230" Description="ACF"/>
+            <Version Id="0" Number="5233" Description="ACF"/>
             <Version Id="1" Number="2214" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394499" Description="Qt Framework"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Backup" X="1075" Y="350" Note=""/>
-        <Element ComponentName="ConnectionCollection" X="625" Y="525" Note=""/>
-        <Element ComponentName="Database" X="125" Y="350" Note=""/>
-        <Element ComponentName="DatabaseAccessSettings" X="150" Y="525" Note=""/>
+        <Element ComponentName="ConnectionCollection" X="625" Y="625" Note=""/>
+        <Element ComponentName="Database" X="325" Y="525" Note=""/>
+        <Element ComponentName="DatabaseAccessSettings" X="350" Y="625" Note=""/>
         <Element ComponentName="FileAutoPersistence" X="575" Y="75" Note=""/>
-        <Element ComponentName="FileBasedSslConfiguration" X="175" Y="150" Note=""/>
+        <Element ComponentName="FileBasedSslConfiguration" X="175" Y="125" Note=""/>
         <Element ComponentName="FileNameParam" X="1075" Y="525" Note=""/>
-        <Element ComponentName="LoggingParams" X="375" Y="350" Note=""/>
+        <Element ComponentName="LoggingParams" X="525" Y="350" Note=""/>
         <Element ComponentName="Preferences" X="575" Y="200" Note=""/>
         <Element ComponentName="SchedulerParams" X="875" Y="525" Note=""/>
-        <Element ComponentName="Server" X="650" Y="350" Note=""/>
+        <Element ComponentName="Server" X="800" Y="350" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
