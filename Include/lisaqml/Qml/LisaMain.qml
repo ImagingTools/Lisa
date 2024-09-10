@@ -21,8 +21,6 @@ ApplicationMain{
     function updateAllModels(){
         thumbnailDecoratorGui.updateModels();
 
-        FeaturesProvider.updateModel();
-
         applicationInfoProvider.updateModel();
     }
 

@@ -35,9 +35,6 @@
         <Element Id="FeatureCollectionCommands" PackageId="" ComponentId="PackagesCommands">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -55,9 +52,9 @@
                             <Values>
                                 <Value>FeaturesInfo</Value>
                                 <Value>FeaturesList</Value>
-                                <Value>FeatureUpdate</Value>
-                                <Value>FeatureAdd</Value>
-                                <Value>FeatureItem</Value>
+                                <Value>UpdateFeature</Value>
+                                <Value>AddFeature</Value>
+                                <Value>GetFeatureItem</Value>
                                 <Value>GetFeatures</Value>
                                 <Value>FeaturesRemove</Value>
                                 <Value>FeaturesSetDescription</Value>
@@ -91,9 +88,6 @@
         <Element Id="FeatureEditorCommands" PackageId="" ComponentId="PackageEditCommands">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -114,7 +108,7 @@
                             <Values>
                                 <Value>FeatureName</Value>
                                 <Value>FeatureId</Value>
-                                <Value>FeatureDescription</Value>
+                                <Value>Description</Value>
                                 <Value>Added</Value>
                                 <Value>LastModified</Value>
                             </Values>
@@ -251,7 +245,7 @@
                                     <Data IsEnabled="true" Value="Icons/Add"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="IsEnabled" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="false"/>
+                                    <Data IsEnabled="true" Value="true"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
