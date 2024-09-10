@@ -35,6 +35,8 @@ ApplicationMain{
             CachedLicenseCollection.updateModel()
             CachedGroupCollection.updateModel();
             CachedUserCollection.updateModel();
+
+            CachedRoleCollection.productId = context.appName;
             CachedRoleCollection.updateModel();
         }
 

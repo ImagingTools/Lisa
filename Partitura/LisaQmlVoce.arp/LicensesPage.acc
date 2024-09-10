@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5233" Description="ACF"/>
+            <Version Id="1" Number="2214" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,16 +13,12 @@
         <Element Id="Demultiplexer" PackageId="ImtGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandPermissions" Type="Reference" ExportId="CommandPermissions">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LicenseController</Value>
                                 <Value>LicenseCollectionController</Value>
                                 <Value>LicenseCollectionCommands</Value>
                                 <Value>LicenseCommands</Value>
@@ -31,12 +27,6 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -53,7 +43,7 @@
                             <Values>
                                 <Value>LicenseName</Value>
                                 <Value>LicenseId</Value>
-                                <Value>LicenseDescription</Value>
+                                <Value>Description</Value>
                                 <Value>ProductId</Value>
                                 <Value>Added</Value>
                                 <Value>LastModified</Value>
@@ -91,6 +81,11 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="IdentifiableLicenseInfo" PackageId="ImtLicensePck" ComponentId="IdentifiableLicenseInfo">
+            <Data IsEnabled="true" Flags="2">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="LicenseCollectionCommands" PackageId="" ComponentId="LicenseCollectionCommands">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -111,14 +106,21 @@
                             <Values>
                                 <Value>LicensesInfo</Value>
                                 <Value>LicensesList</Value>
+                                <Value>LicenseItem</Value>
+                                <Value>LicenseUpdate</Value>
+                                <Value>LicenseAdd</Value>
                                 <Value>LicensesRemove</Value>
                                 <Value>LicensesMetaInfo</Value>
                                 <Value>LicensesObjectView</Value>
+                                <Value></Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="HeadersDataProvider"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LicenseFactory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="IdentifiableLicenseInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ListObjectCommand" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="LicensesList"/>
@@ -128,9 +130,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="LicenseCollection">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ObjectViewProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ObjectViewDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -143,56 +142,6 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LicenseController" PackageId="ImtLicenseGqlPck" ComponentId="LicenseController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>LicenseItem</Value>
-                                <Value>LicenseUpdate</Value>
-                                <Value>LicenseAdd</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="LicenseCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="LicenseInfo" PackageId="ImtLicensePck" ComponentId="LicenseInfo">
-            <Data IsEnabled="true" Flags="2">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="ObjectViewDataProvider" PackageId="ImtQmlPck" ComponentId="ObjectViewDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="License"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ObjectViewPath" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="../../imtlicgui/LicenseEditor.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
@@ -229,7 +178,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="LicenseInfo"/>
+                        <Data IsEnabled="true" Value="IdentifiableLicenseInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>

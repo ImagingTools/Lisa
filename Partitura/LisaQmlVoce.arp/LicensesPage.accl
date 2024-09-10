@@ -2,32 +2,30 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5233" Description="ACF"/>
+            <Version Id="1" Number="2214" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
         <Element ComponentName="HeadersDataProvider" X="825" Y="500" Note=""/>
-        <Element ComponentName="LicenseCollectionCommands" X="725" Y="250" Note=""/>
-        <Element ComponentName="LicenseCollectionController" X="1050" Y="250" Note=""/>
-        <Element ComponentName="LicenseCommands" X="400" Y="250" Note=""/>
-        <Element ComponentName="LicenseController" X="125" Y="250" Note=""/>
-        <Element ComponentName="LicenseInfo" X="250" Y="650" Note=""/>
-        <Element ComponentName="ObjectViewDataProvider" X="1075" Y="500" Note=""/>
-        <Element ComponentName="SerializableLicenseCollectionController" X="250" Y="500" Note=""/>
+        <Element ComponentName="IdentifiableLicenseInfo" X="400" Y="500" Note=""/>
+        <Element ComponentName="LicenseCollectionCommands" X="750" Y="250" Note=""/>
+        <Element ComponentName="LicenseCollectionController" X="1050" Y="300" Note=""/>
+        <Element ComponentName="LicenseCommands" X="500" Y="250" Note=""/>
+        <Element ComponentName="SerializableLicenseCollectionController" X="175" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="LicenseCommands">
-            <PositionMap>
-                <Element ComponentName="StandardDocumentCommandsController" X="575" Y="275" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="LicenseCollectionCommands">
             <PositionMap>
                 <Element ComponentName="StandardCollectionCommandsController" X="575" Y="250" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="LicenseCommands">
+            <PositionMap>
+                <Element ComponentName="StandardDocumentCommandsController" X="575" Y="275" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

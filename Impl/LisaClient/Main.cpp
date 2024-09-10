@@ -16,7 +16,9 @@
 #include <imtqml/CGqlModel.h>
 #include <imtqml/CQuickApplicationComp.h>
 #include <imtqml/CRemoteFileController.h>
+#include <imtqml/CGqlRequest.h>
 
+// Lisa includes
 #include <GeneratedFiles/LisaClient/CLisaClient.h>
 
 
@@ -37,6 +39,14 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(ImtCoreLoc);
 	Q_INIT_RESOURCE(LisaLoc);
 
+	Q_INIT_RESOURCE(imtauthGroupsSdl);
+	Q_INIT_RESOURCE(imtauthRolesSdl);
+	Q_INIT_RESOURCE(imtauthUsersSdl);
+
+	Q_INIT_RESOURCE(imtlicFeaturesSdl);
+	Q_INIT_RESOURCE(imtlicProductsSdl);
+	Q_INIT_RESOURCE(imtlicLicensesSdl);
+
 	Q_INIT_RESOURCE(imtauthguiTheme);
 	Q_INIT_RESOURCE(imtguiTheme);
 	Q_INIT_RESOURCE(imtlicguiTheme);
@@ -46,6 +56,7 @@ int main(int argc, char *argv[])
 	qmlRegisterType<imtbase::CTreeItemModel>("Acf", 1, 0, "TreeItemModel");
 	qmlRegisterType<imtqml::CGqlModel>("Acf", 1, 0, "GqlModel");
 	qmlRegisterType<imtqml::CRemoteFileController>("Acf", 1, 0, "RemoteFileController");
+	qmlRegisterType<imtqml::CGqlRequest>("Acf", 1, 0, "GqlRequest");
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
 	qmlRegisterModule("QtGraphicalEffects", 1, 12);

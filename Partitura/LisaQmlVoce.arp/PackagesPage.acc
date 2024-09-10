@@ -22,18 +22,11 @@
                                 <Value>FeatureCollectionCommands</Value>
                                 <Value>FeatureEditorCommands</Value>
                                 <Value>FeatureCollectionController</Value>
-                                <Value>FeatureController</Value>
                                 <Value>SerializableFeatureCollectionController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -62,6 +55,10 @@
                             <Values>
                                 <Value>FeaturesInfo</Value>
                                 <Value>FeaturesList</Value>
+                                <Value>FeatureUpdate</Value>
+                                <Value>FeatureAdd</Value>
+                                <Value>FeatureItem</Value>
+                                <Value>GetFeatures</Value>
                                 <Value>FeaturesRemove</Value>
                                 <Value>FeaturesSetDescription</Value>
                                 <Value>FeaturesRename</Value>
@@ -70,36 +67,14 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="FeatureFactory" Type="Factory" ExportId="">
+                        <Data IsEnabled="true" Value="IdentifiableFeatureInfo"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="FeatureHeadersDataProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ListObjectCommand" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="FeaturesList"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="FeatureCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="FeatureController" PackageId="ImtLicenseGqlPck" ComponentId="FeatureController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>FeatureUpdate</Value>
-                                <Value>FeatureAdd</Value>
-                                <Value>FeatureItem</Value>
-                                <Value>GetFeatures</Value>
-                            </Values>
-                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -159,9 +134,6 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="PermissionChecker" Type="Reference" ExportId="PermissionChecker">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -177,7 +149,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeatureInfo" PackageId="ImtLicensePck" ComponentId="FeatureInfo">
+        <Element Id="IdentifiableFeatureInfo" PackageId="ImtLicensePck" ComponentId="IdentifiableFeatureInfo">
             <Data IsEnabled="true" Flags="2">
                 <AttributeInfoMap/>
             </Data>
@@ -210,7 +182,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="FeatureInfo"/>
+                        <Data IsEnabled="true" Value="IdentifiableFeatureInfo"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
