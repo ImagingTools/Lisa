@@ -6,6 +6,9 @@
 #include <ibase/IApplication.h>
 
 // ImtCore includes
+#include <imtbase/Init.h>
+
+// Lisa includes
 #include <GeneratedFiles/LisaServer/CLisaServer.h>
 
 

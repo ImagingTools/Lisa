@@ -15,7 +15,7 @@ LIBS += -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -limtwidg
 LIBS += -limtlicgql -limtguigql -limtgql -limtauthgql -limtclientgql
 LIBS += -llisaqml
 LIBS += -limtcontrolsqml -limtstylecontrolsqml -limtguigqlqml -limtcolguiqml -limtdocguiqml -limtauthguiqml -limtlicguiqml -limtguiqml
-LIBS += -lImtCoreLoc -lLisaLoc
+LIBS += -lImtCoreLoc -lLisaLoc -lAcfLoc -lAcfSlnLoc
 
 # Set OS-specific build options:
 win32-msvc*{
