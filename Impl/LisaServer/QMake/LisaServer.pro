@@ -16,9 +16,11 @@ RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
 
 DEFINES += WEB_COMPILE
 
+QT += websockets
+
 LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -liqtgui -liservice
 LIBS += -limtbase -limtgui -limtauth -limtauthgui -limtlicdb -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtzip -limtrest -limtcrypt -limt3dgui -limtrepo -limtstyle -limtqml -limtdb -limtfile -limtlog
-LIBS += -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml
+LIBS += -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml -limtlicsdl -limtappsdl -limtauthsdl
 LIBS += -llisaqml -lImtCoreLoc -lLisaLoc
 
 # Set OS-specific build options:
@@ -38,12 +40,12 @@ ARXC_OUTDIR = $$OUT_PWD/$$AUXINCLUDEPATH/GeneratedFiles/$$TARGET
 # Conversion of resource templates:
 win*{
 # File transformation
-	ACF_CONVERT_FILES = $$PWD/../VC/LisaServer.rc.xtracf
+	# ACF_CONVERT_FILES = $$PWD/../VC/LisaServer.rc.xtracf
 	ACF_CONVERT_OUTDIR = $$AUXINCLUDEPATH/GeneratedFiles/$$TARGET
 	ACF_CONVERT_REGISTRY =  $$PWD/../VC/FileSubstitCopyApp.acc
 	ACF_CONVERT_CONFIG = $$PWD/../../../Config/BaseOnly.awc
 
-RC_FILE = $$OUT_PWD/$$AUXINCLUDEPATH/GeneratedFiles/$$TARGET/LisaServer.rc
+# RC_FILE = $$OUT_PWD/$$AUXINCLUDEPATH/GeneratedFiles/$$TARGET/LisaServer.rc
    RC_INCLUDEPATH = $$_PRO_FILE_PWD_
 }
 

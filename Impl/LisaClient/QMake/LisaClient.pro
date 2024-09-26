@@ -14,7 +14,7 @@ LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -liqtgui -liservice
 LIBS += -limtbase -limtgui -limtauth -limtauthgui -limtlic -limtlicgui -limtwidgets -limtrest -limtcrypt -limtrepo -limtstyle -limtqml -limtcom -limtdb
 LIBS += -limtlicgql -limtguigql -limtgql -limtauthgql -limtclientgql
 LIBS += -llisaqml
-LIBS += -limtcontrolsqml -limtstylecontrolsqml -limtguigqlqml -limtcolguiqml -limtdocguiqml -limtauthguiqml -limtlicguiqml -limtguiqml
+LIBS += -limtcontrolsqml -limtstylecontrolsqml -limtguigqlqml -limtcolguiqml -limtdocguiqml -limtauthguiqml -limtlicguiqml -limtguiqml -limtlicsdl -limtappsdl -limtauthsdl
 LIBS += -lImtCoreLoc -lLisaLoc -lAcfLoc -lAcfSlnLoc
 
 # Set OS-specific build options:

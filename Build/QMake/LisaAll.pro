@@ -30,6 +30,6 @@ SUBDIRS += LisaSettingsPlugin
 LisaSettingsPlugin.file = ../../Impl/Plugins/LisaSettingsPlugin/QMake/LisaSettingsPlugin.pro
 
 # SDK
-SUBDIRS += LisaSdk
-LisaSdk.file = ../../Impl//LisaSdk/QMake/LisaSdk.pro
+# SUBDIRS += LisaSdk
+# LisaSdk.file = ../../Impl//LisaSdk/QMake/LisaSdk.pro
 
