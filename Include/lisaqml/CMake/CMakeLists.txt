@@ -64,6 +64,9 @@ list(APPEND webdirs ${buildwebdir}/src/imtauthRolesSdl)
 list(APPEND webdirs ${IMTCOREDIR}/AuxInclude/${TARGETNAME}/GeneratedFiles/imtauthsdl/SDL/1.0/QML/imtauthUsersSdl)
 list(APPEND webdirs ${buildwebdir}/src/imtauthUsersSdl)
 
+list(APPEND webdirs ${IMTCOREDIR}/AuxInclude/${TARGETNAME}/GeneratedFiles/imtauthsdl/SDL/1.0/QML/imtauthAuthorizationSdl)
+list(APPEND webdirs ${buildwebdir}/src/imtauthAuthorizationSdl)
+
 list(APPEND webdirs ${IMTCOREDIR}/AuxInclude/${TARGETNAME}/GeneratedFiles/imtlicsdl/SDL/1.0/QML/imtlicFeaturesSdl)
 list(APPEND webdirs ${buildwebdir}/src/imtlicFeaturesSdl)
 
@@ -72,6 +75,9 @@ list(APPEND webdirs ${buildwebdir}/src/imtlicProductsSdl)
 
 list(APPEND webdirs ${IMTCOREDIR}/AuxInclude/${TARGETNAME}/GeneratedFiles/imtlicsdl/SDL/1.0/QML/imtlicLicensesSdl)
 list(APPEND webdirs ${buildwebdir}/src/imtlicLicensesSdl)
+
+list(APPEND webdirs ${IMTCOREDIR}/AuxInclude/${TARGETNAME}/GeneratedFiles/imtappsdl/SDL/1.0/QML/imtappApplicationSdl)
+list(APPEND webdirs ${buildwebdir}/src/imtappApplicationSdl)
 
 list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../../../Impl/LisaLoc/Translations)
 list(APPEND webdirs ${buildwebdir}/Resources/Translations)
