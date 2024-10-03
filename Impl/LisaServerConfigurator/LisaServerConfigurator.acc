@@ -140,7 +140,7 @@
                                     <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsTextInput.qml"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PathToQml" Type="Text" ExportId="">
-                                    <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/DatabaseInput.qml"/>
+                                    <Data IsEnabled="true" Value="qrc:/qml/imtgui/Params/DatabaseParams.qml"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="PortSource" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="qrc:/qml/imtgui/Settings/SettingsIntegerInput.qml"/>
