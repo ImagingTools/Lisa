@@ -4,5 +4,18 @@ INCLUDEPATH += $(LISADIR)/Include
 INCLUDEPATH += $(LISADIR)/Impl
 INCLUDEPATH += $(LISADIR)/$$AUXINCLUDEDIR
 
-LIBS += -L$$PWD/../../Lib/$$COMPILER_DIR -limtzip
+include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
+include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
+include($(IMTCOREDIR)/Config/QMake/OpenSSL.pri)
+include($(IACFDIR)/Config/QMake/zlib.pri)
 
+HEADERS =
+QT += xml network sql quick qml
+QT += websockets
+
+DEFINES += WEB_COMPILE
+
+LIBS += -L$(ACFDIR)/Lib/$$COMPILER_DIR -lAcfLoc
+LIBS += -L$(ACFSLNDIR)/Lib/$$COMPILER_DIR -liauth -liservice -lAcfSlnLoc
+LIBS += -L$(IMTCOREDIR)/Lib/$$COMPILER_DIR -lImtCoreLoc -limtzip -limtbase -limtgui -limtauth -limtauthgui -limtlicdb -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtzip -limtrest -limtcrypt -limt3dgui -limtrepo -limtstyle -limtqml -limtdb -limtfile -limtlog -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml -limtlicsdl -limtappsdl -limtauthsdl
+LIBS += -L../../../Lib/$$COMPILER_DIR -llisaqml -lLisaLoc

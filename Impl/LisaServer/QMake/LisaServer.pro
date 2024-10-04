@@ -1,27 +1,6 @@
 TARGET = LisaServer
 
-include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
-include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
-include($(IMTCOREDIR)/Config/QMake/OpenSSL.pri)
 include($(LISADIR)/Config/QMake/Lisa.pri)
-
-HEADERS =
-QT += xml network sql quick qml
-
-INCLUDEPATH += ../../../Include
-INCLUDEPATH += ../../../Impl
-INCLUDEPATH +=  $$AUXINCLUDEDIR
-
-RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
-
-DEFINES += WEB_COMPILE
-
-QT += websockets
-
-LIBS += -L../../../Lib/$$COMPILER_DIR -liauth -liqtgui -liservice
-LIBS += -limtbase -limtgui -limtauth -limtauthgui -limtlicdb -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtzip -limtrest -limtcrypt -limt3dgui -limtrepo -limtstyle -limtqml -limtdb -limtfile -limtlog
-LIBS += -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml -limtlicsdl -limtappsdl -limtauthsdl
-LIBS += -llisaqml -lImtCoreLoc -lLisaLoc
 
 # Set OS-specific build options:
 win32-msvc*{

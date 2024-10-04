@@ -21,10 +21,6 @@ SUBDIRS += LisaServerConfigurator
 LisaServerConfigurator.file = ../../Impl/LisaServerConfigurator/QMake/LisaServerConfigurator.pro
 LisaServerConfigurator.depends = LisaLoc LisaServer
 
-SUBDIRS += LisaQmlExe
-LisaQmlExe.file = ../../Impl/LisaQmlExe/QMake/LisaQmlExe.pro
-LisaQmlExe.depends = LisaLoc
-
 # Plug-ins
 SUBDIRS += LisaSettingsPlugin
 LisaSettingsPlugin.file = ../../Impl/Plugins/LisaSettingsPlugin/QMake/LisaSettingsPlugin.pro

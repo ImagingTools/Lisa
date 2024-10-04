@@ -1,19 +1,6 @@
 TARGET = LisaServerConfigurator
 
-include($(ACFDIR)/Config/QMake/ApplicationConfig.pri)
-include($(ACFDIR)/Config/QMake/QtBaseConfig.pri)
-include($(IMTCOREDIR)/Config/QMake/OpenSSL.pri)
 include($(LISADIR)/Config/QMake/Lisa.pri)
-
-HEADERS =
-QT += quick qml
-
-RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
-
-LIBS += -limtbase -limtgui -limtstyle -limtqml -limtapp -limtcom -limtfile -limtgql -limtdb -limtauth -limtservice -limtcom -limtauthgui -limtlicgui
-LIBS += -llisaqml
-LIBS += -limtcontrolsqml -limtstylecontrolsqml -limtguigqlqml -limtcolguiqml -limtdocguiqml -limtauthguiqml -limtlicguiqml -limtguiqml -limtauthsdl -limtappsdl
-LIBS += -lImtCoreLoc -lAcfLoc -lAcfSlnLoc
 
 # Set OS-specific build options:
 win32-msvc*{
