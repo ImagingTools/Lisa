@@ -10,6 +10,8 @@ win32-msvc*{
 	greaterThan(QT_MAJOR_VERSION, 4): QMAKE_POST_LINK = set path=$(QTDIR)\bin;%path% && $(QTDIR)\bin\windeployqt --qmldir=$(LISADIR)/Impl/LisaServerConfigurator --qmldir=$(IMTCOREDIR)/Qml $$DESTDIR
 }
 
+RESOURCES += $$files($$_PRO_FILE_PWD_/../*.qrc, false)
+
 # Set configuration of custom builds:
 # ARX Compiler:
 ARXC_CONFIG = $$PWD/../../../Config/Lisa.awc
