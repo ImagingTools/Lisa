@@ -2,17 +2,17 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5253" Description="ACF"/>
+            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Demultiplexer" X="1000" Y="200" Note=""/>
         <Element ComponentName="Observers" X="600" Y="525" Note=""/>
-        <Element ComponentName="RemoteContextGQLServerFramework" X="600" Y="200" Note=""/>
         <Element ComponentName="RestoringDatabaseController" X="200" Y="200" Note=""/>
         <Element ComponentName="RootDataController" X="600" Y="375" Note=""/>
+        <Element ComponentName="StandardGraphQlHandlers" X="600" Y="200" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Observers">

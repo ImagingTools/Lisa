@@ -2,16 +2,19 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5253" Description="ACF"/>
+            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="HttpUrlParam" X="200" Y="175" Note=""/>
         <Element ComponentName="LisaGQLEngine" X="550" Y="150" Note=""/>
         <Element ComponentName="LoginStatusSubscriberController" X="575" Y="600" Note=""/>
         <Element ComponentName="Repositories" X="550" Y="275" Note=""/>
+        <Element ComponentName="SlaveSubscriberController" X="975" Y="400" Note=""/>
         <Element ComponentName="Subscription" X="575" Y="425" Note=""/>
+        <Element ComponentName="WebSocketUrlParam" X="200" Y="425" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Repositories">
@@ -25,7 +28,6 @@
                 <Element ComponentName="LicenseCollectionObserver" X="975" Y="250" Note=""/>
                 <Element ComponentName="LicenseRepository" X="975" Y="400" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="975" Y="75" Note=""/>
-                <Element ComponentName="LisaWebSocketUrlParam" X="625" Y="75" Note=""/>
                 <Element ComponentName="ProductCollectionObserver" X="225" Y="225" Note=""/>
                 <Element ComponentName="ProductRepository" X="225" Y="400" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="225" Y="75" Note=""/>

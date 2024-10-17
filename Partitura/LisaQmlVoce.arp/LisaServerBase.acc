@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5262" Description="ACF"/>
-            <Version Id="1" Number="2218" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394754" Description="Qt Framework"/>
+            <Version Id="0" Number="5253" Description="ACF"/>
+            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -37,6 +37,9 @@
                     <AttributeInfo Id="PgPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="5432"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerSettings/TracingConfiguration"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -55,11 +58,11 @@
                     <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerSettings/FileBasedSslConfiguration"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="SslConfigurationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SslConfigurationManager"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ThreadsLimit" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="20"/>
+                        <Data IsEnabled="true" Value="1"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerSettings/TracingConfiguration"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -104,14 +107,17 @@
                     <AttributeInfo Id="ProductSessionChangeNotifier" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Subscriptions/ProductsSubscriberController"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RemoteGqlRequest" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="PumaGQLClientEngine"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ServerSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerSettings"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SessionCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGQLClientEngine/UserSessionRemoteRepository"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PumaGQLClientEngine/UserRemoteRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
@@ -161,12 +167,6 @@
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerSettings/PumaUrl"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerSettings/PumaWebSocketUrlParam"/>
-                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -212,9 +212,6 @@
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="WebSocketServerFramework"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="LisaLocalization"/>
-                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -227,21 +224,12 @@
                                 <Value>Subscriptions/FeaturesSubscriberController</Value>
                                 <Value>Subscriptions/LicensesSubscriberController</Value>
                                 <Value>Subscriptions/ProductsSubscriberController</Value>
-                                <Value>PumaGQLClientEngine/RolesSubscriberController</Value>
-                                <Value>PumaGQLClientEngine/UsersSubscriberController</Value>
-                                <Value>PumaGQLClientEngine/UserGroupsSubscriberController</Value>
-                                <Value>PumaGQLClientEngine/LoginStatusSubscriberController</Value>
+                                <Value>PumaGQLClientEngine</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerSettings/FileBasedSslConfiguration"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SslConfigurationManager" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="SslConfigurationManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="WebSocketServerPort" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerSettings/WebSocketServerPort"/>
@@ -389,7 +377,6 @@
     <ExportedComponents>
         <Component ExportedId="DatabaseEngine" ComponentId="DatabaseEngine"/>
         <Component ExportedId="FileBasedSslConfiguration" ComponentId="ServerSettings/FileBasedSslConfiguration"/>
-        <Component ExportedId="HttpServerFramework" ComponentId="HttpServerFramework"/>
         <Component ExportedId="ServerPageData" ComponentId="ServerSettings"/>
         <Component ExportedId="WebSocketServerFramework" ComponentId="WebSocketServerFramework"/>
     </ExportedComponents>
