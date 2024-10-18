@@ -76,7 +76,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LoginStatusProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Subscription/WebSocketClient"/>
+                        <Data IsEnabled="true" Value="Subscription/ConnectionStatusProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
                         <Data IsEnabled="false"/>
