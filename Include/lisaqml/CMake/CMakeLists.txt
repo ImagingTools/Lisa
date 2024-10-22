@@ -18,9 +18,6 @@ list(APPEND webdirs ${buildwebdir}/Resources)
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Qml)
 list(APPEND webdirs ${buildwebdir}/src)
 
-list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/Translations)
-list(APPEND webdirs ${buildwebdir}/src)
-
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Resources/html)
 list(APPEND webdirs ${buildwebdir}/Resources)
 
