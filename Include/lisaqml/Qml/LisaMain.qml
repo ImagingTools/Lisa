@@ -10,20 +10,8 @@ ApplicationMain{
     id: window;
 
     useWebSocketSubscription: true;
-    loadPageByClick: false;
     canRecoveryPassword: false;
     authorizationServerConnected: pumaConnectionChecker.status === 1;
-
-    Component.onCompleted: {
-        context.appName = 'Lisa';
-        AuthorizationController.productId = context.appName;
-    }
-
-    function updateAllModels(){
-        thumbnailDecoratorGui.updateModels();
-
-        applicationInfoProvider.updateModel();
-    }
 
     Connections {
         target: AuthorizationController;
@@ -32,20 +20,12 @@ ApplicationMain{
             CachedFeatureCollection.updateModel();
             CachedProductCollection.updateModel()
             CachedLicenseCollection.updateModel()
-            CachedGroupCollection.updateModel();
-            CachedUserCollection.updateModel();
-
-            CachedRoleCollection.productId = context.appName;
-            CachedRoleCollection.updateModel();
         }
 
         function onLogoutSignal(){
             CachedFeatureCollection.clearModel();
             CachedProductCollection.clearModel()
             CachedLicenseCollection.clearModel()
-            CachedGroupCollection.clearModel();
-            CachedUserCollection.clearModel();
-            CachedRoleCollection.clearModel();
         }
     }
 
