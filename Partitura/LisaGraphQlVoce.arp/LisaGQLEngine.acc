@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5253" Description="ACF"/>
-            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -62,7 +62,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LoginStatusSubscriberController" PackageId="ImtGqlPck" ComponentId="ConnectionStatusSubscriberController">
+        <Element Id="LoginStatusSubscriberController" PackageId="ImtServerGqlPck" ComponentId="ConnectionStatusSubscriberController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
@@ -102,7 +102,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="SlaveSubscriberController" PackageId="ImtGqlPck" ComponentId="SlaveSubscriberController">
+        <Element Id="SlaveSubscriberController" PackageId="ImtServerGqlPck" ComponentId="SlaveSubscriberController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
@@ -261,8 +261,12 @@
                                 <AttributeInfo Id="ServerUrl" Type="Reference" ExportId="LisaServerUrlParam">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="SubscriptionCommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="OnLicensesCollectionChanged"/>
+                                <AttributeInfo Id="SubscriptionCommandId" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>OnLicensesCollectionChanged</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
@@ -340,8 +344,12 @@
                                 <AttributeInfo Id="ServerUrl" Type="Reference" ExportId="LisaServerUrlParam">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="SubscriptionCommandId" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="OnProductsCollectionChanged"/>
+                                <AttributeInfo Id="SubscriptionCommandId" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>OnProductsCollectionChanged</Value>
+                                        </Values>
+                                    </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">

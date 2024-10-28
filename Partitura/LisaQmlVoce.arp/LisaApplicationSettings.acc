@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -63,7 +63,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServerSettingsController" PackageId="ImtGqlPck" ComponentId="GqlRepresentationDataController">
+        <Element Id="ServerSettingsController" PackageId="ImtServerGqlPck" ComponentId="GqlRepresentationDataController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
@@ -112,7 +112,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="UserSettingsController" PackageId="ImtGqlPck" ComponentId="UserSettingsController">
+        <Element Id="UserSettingsController" PackageId="ImtAuthGqlPck" ComponentId="UserSettingsController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
