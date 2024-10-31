@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5274" Description="ACF"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
             <Version Id="1" Number="2220" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="394754" Description="Qt Framework"/>
+            <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -12,7 +12,7 @@
         <Element ComponentName="HttpServerFramework" X="575" Y="425" Note=""/>
         <Element ComponentName="LisaHandlers" X="550" Y="250" Note=""/>
         <Element ComponentName="LisaLocalization" X="950" Y="75" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="150" Y="748.585786438" Note=""/>
+        <Element ComponentName="PumaGQLClientEngine" X="150" Y="750" Note=""/>
         <Element ComponentName="ServerSettings" X="125" Y="75" Note=""/>
         <Element ComponentName="SslConfigurationManager" X="800" Y="575" Note=""/>
         <Element ComponentName="Subscriptions" X="1050" Y="775" Note=""/>
