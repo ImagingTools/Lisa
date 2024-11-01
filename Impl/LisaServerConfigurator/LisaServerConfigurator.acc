@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5222" Description="ACF"/>
-            <Version Id="1" Number="2207" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -13,24 +13,17 @@
         <Element Id="Application" PackageId="ImtQmlVoce" ComponentId="QmlClientFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="LisaServerConfigurator"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Client"/>
+                    <AttributeInfo Id="BaseUrlParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Settings/ServerPort"/>
                     </AttributeInfo>
                     <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="ImagingTools GmbH"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Application/ObserverQml</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="InstallTranslator" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LogDefaultPath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="LisaClientLog.txt"/>
@@ -38,14 +31,8 @@
                     <AttributeInfo Id="MainQmlPath" Type="String" ExportId="">
                         <Data IsEnabled="true" Value=":/qml/LisaServerConfigurator.qml"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="2022"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ProductName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServerPrefix" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="http://localhost:7776/Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Settings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Settings"/>
@@ -314,13 +301,13 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imod::IModel" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="ServerPageRepresentation"/>
                     <Interface InterfaceId="iprm::IParamsSet" ComponentId="ServerPageData"/>
-                    <Interface InterfaceId="iser::ISerializable" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="ServerPageData"/>
                 </ExportedInterfaces>
-                <ExportedComponents/>
+                <ExportedComponents>
+                    <Component ExportedId="ServerPort" ComponentId="ServerPageData/ServerPort"/>
+                </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
