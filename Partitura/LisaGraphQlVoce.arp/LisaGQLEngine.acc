@@ -96,6 +96,9 @@
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="WebSocketUrlParam"/>
                     </AttributeInfo>
@@ -206,6 +209,9 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="WebSocketServerAddress">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -281,6 +287,9 @@
                                             <Value>License Info</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="WebSocketServerAddress">
                                     <Data IsEnabled="false"/>
@@ -364,6 +373,9 @@
                                             <Value>Product Info</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="WebSocketServerAddress">
                                     <Data IsEnabled="false"/>
