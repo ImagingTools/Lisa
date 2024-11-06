@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/html">
         <file alias="index.html">index.html</file>
+        <file alias="indexnew.html">indexnew.html</file>
         <file alias="Icon.js">Icon.js</file>
 	<file alias="Ubuntu-Light.ttf">Ubuntu-Light.ttf</file>
 	<file alias="Ubuntu-Medium.ttf">Ubuntu-Medium.ttf</file>
