@@ -9,12 +9,12 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Demultiplexer" X="575" Y="50" Note=""/>
-        <Element ComponentName="FeaturesExportProvider" X="925" Y="625" Note=""/>
         <Element ComponentName="FeaturesPage" X="100" Y="350" Note=""/>
         <Element ComponentName="LicensesPage" X="525" Y="350" Note=""/>
         <Element ComponentName="PageData" X="900" Y="350" Note=""/>
         <Element ComponentName="PageDataControllers" X="875" Y="150" Note=""/>
         <Element ComponentName="PagesController" X="325" Y="200" Note=""/>
+        <Element ComponentName="ProductImportExportController" X="925" Y="625" Note=""/>
         <Element ComponentName="ProductsPage" X="300" Y="350" Note=""/>
         <Element ComponentName="Repositories" X="925" Y="500" Note=""/>
     </PositionMap>
@@ -29,14 +29,6 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
-                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
@@ -46,6 +38,14 @@
                 <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
                 <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
                 <Element ComponentName="ProductsPage" X="550" Y="225" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

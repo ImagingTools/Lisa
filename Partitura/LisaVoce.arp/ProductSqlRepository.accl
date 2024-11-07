@@ -2,15 +2,15 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5229" Description="ACF"/>
-            <Version Id="1" Number="2213" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="IdentifiableProductInfo" X="875" Y="300" Note=""/>
         <Element ComponentName="JsonSerializer" X="350" Y="75" Note=""/>
         <Element ComponentName="ProductDatabaseDelegate" X="350" Y="300" Note=""/>
+        <Element ComponentName="ProductInfo" X="850" Y="325" Note=""/>
         <Element ComponentName="Products" X="350" Y="575" Note=""/>
         <Element ComponentName="Types" X="675" Y="75" Note=""/>
     </PositionMap>

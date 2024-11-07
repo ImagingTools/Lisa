@@ -8,28 +8,30 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="CompactXmlFileSerializer" X="450" Y="425" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
         <Element ComponentName="IdentifiableProductInfo" X="1050" Y="525" Note=""/>
         <Element ComponentName="ProductCommands" X="425" Y="250" Note=""/>
+        <Element ComponentName="ProductInfo" X="550" Y="500" Note=""/>
         <Element ComponentName="ProductsCommands" X="150" Y="250" Note=""/>
         <Element ComponentName="ProductsController" X="700" Y="250" Note=""/>
-        <Element ComponentName="ProductsHeadersDataProvider" X="675" Y="525" Note=""/>
+        <Element ComponentName="ProductsHeadersDataProvider" X="800" Y="525" Note=""/>
         <Element ComponentName="SerializableProductCollectionController" X="1025" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="ProductsCommands">
-            <PositionMap>
-                <Element ComponentName="CommandsController" X="550" Y="125" Note=""/>
-                <Element ComponentName="StandardCollectionCommands" X="575" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="ProductCommands">
             <PositionMap>
                 <Element ComponentName="CommandsController" X="600" Y="100" Note=""/>
                 <Element ComponentName="New" X="650" Y="250" Note=""/>
                 <Element ComponentName="Remove" X="650" Y="400" Note=""/>
                 <Element ComponentName="StandardDocumentCommands" X="250" Y="250" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="ProductsCommands">
+            <PositionMap>
+                <Element ComponentName="CommandsController" X="550" Y="125" Note=""/>
+                <Element ComponentName="StandardCollectionCommands" X="575" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -17,7 +17,7 @@
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa"/>
+                        <Data IsEnabled="true" Value="Lisa Server"/>
                     </AttributeInfo>
                     <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="ImagingTools GmbH"/>
@@ -25,9 +25,8 @@
                     <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaServerBase</Value>
+                                <Value>LisaServerBase/HttpServerFramework</Value>
                                 <Value>LisaServerBase/WebSocketServerFramework</Value>
-                                <Value>LisaServerBase/DatabaseEngine</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

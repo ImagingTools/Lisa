@@ -2,17 +2,17 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5253" Description="ACF"/>
-            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="Demultiplexer" X="1000" Y="200" Note=""/>
-        <Element ComponentName="Observers" X="600" Y="525" Note=""/>
-        <Element ComponentName="RestoringDatabaseController" X="200" Y="200" Note=""/>
-        <Element ComponentName="RootDataController" X="600" Y="375" Note=""/>
-        <Element ComponentName="StandardGraphQlHandlers" X="600" Y="200" Note=""/>
+        <Element ComponentName="ApplicationHandlers" X="625" Y="150" Note=""/>
+        <Element ComponentName="Demultiplexer" X="1000" Y="175" Note=""/>
+        <Element ComponentName="Observers" X="625" Y="500" Note=""/>
+        <Element ComponentName="Pages" X="625" Y="325" Note=""/>
+        <Element ComponentName="RestoringDatabaseController" X="225" Y="150" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Observers">

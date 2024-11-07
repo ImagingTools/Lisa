@@ -361,22 +361,49 @@
         <EmbeddedRegistry Id="PackagesCommands">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="StandardCollectionCommandsController" PackageId="ImtGraphQlVoce" ComponentId="StandardCollectionCommandsController">
+                    <Element Id="CommandsController" PackageId="ImtGraphQlVoce" ComponentId="CommandsController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="GqlCommandIds" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>FeaturesCommands</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="LeftAlignmentCommands" Type="Reference[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>StandardCollectionCommands/New</Value>
+                                            <Value>StandardCollectionCommands/Edit</Value>
+                                            <Value>StandardCollectionCommands/Remove</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="StandardCollectionCommands" PackageId="ImtCoreVoce" ComponentId="StandardCollectionCommands">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="EditCommandName" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Edit"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="EditPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>ChangeFeature</Value>
                                             <Value>RemoveFeature</Value>
                                             <Value>ViewFeatures</Value>
-                                        </Values>
-                                    </Data>
-                                </AttributeInfo>
-                                <AttributeInfo Id="GqlCommandIds" Type="Id[]" ExportId="">
-                                    <Data IsEnabled="true">
-                                        <Values>
-                                            <Value>FeaturesCommands</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -393,12 +420,18 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
+                                <AttributeInfo Id="RemoveCommandName" Type="String" ExportId="">
+                                    <Data IsEnabled="true" Value="Remove"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="RemovePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>RemoveFeature</Value>
                                         </Values>
                                     </Data>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                                    <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                                     <Data IsEnabled="false"/>
@@ -409,9 +442,12 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="StandardCollectionCommandsController"/>
-                    <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="StandardCollectionCommandsController"/>
-                    <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="StandardCollectionCommandsController"/>
+                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtgui::IGuiElementContainer" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="istd::IChangeable" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandsController"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>

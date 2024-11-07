@@ -8,30 +8,26 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="DatabaseEngine" X="550" Y="75" Note=""/>
-        <Element ComponentName="HttpServerFramework" X="575" Y="425" Note=""/>
-        <Element ComponentName="LisaHandlers" X="550" Y="250" Note=""/>
-        <Element ComponentName="LisaLocalization" X="950" Y="75" Note=""/>
-        <Element ComponentName="PumaGQLClientEngine" X="150" Y="750" Note=""/>
-        <Element ComponentName="ServerSettings" X="125" Y="75" Note=""/>
-        <Element ComponentName="SslConfigurationManager" X="800" Y="575" Note=""/>
-        <Element ComponentName="Subscriptions" X="1050" Y="775" Note=""/>
-        <Element ComponentName="WebSocketServerFramework" X="425" Y="575" Note=""/>
+        <Element ComponentName="AuthorizableServerFramework" X="575" Y="100" Note=""/>
+        <Element ComponentName="LisaHandlers" X="600" Y="473" Note=""/>
+        <Element ComponentName="LisaLocalization" X="200" Y="475" Note=""/>
+        <Element ComponentName="Subscriptions" X="1000" Y="475" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Subscriptions">
-            <PositionMap>
-                <Element ComponentName="FeaturesSubscriberController" X="550" Y="75" Note=""/>
-                <Element ComponentName="LicensesSubscriberController" X="550" Y="275" Note=""/>
-                <Element ComponentName="ProductsSubscriberController" X="550" Y="175" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="SslConfiguration">
             <PositionMap>
                 <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
                 <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
                 <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Subscriptions">
+            <PositionMap>
+                <Element ComponentName="FeaturesSubscriberController" X="250" Y="175" Note=""/>
+                <Element ComponentName="LicensesSubscriberController" X="950" Y="175" Note=""/>
+                <Element ComponentName="ProductsSubscriberController" X="575" Y="175" Note=""/>
+                <Element ComponentName="SlaveSubscriberController" X="625" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -27,21 +27,6 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeaturesExportProvider" PackageId="ImtLicenseGqlPck" ComponentId="FeaturesExportProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="FeaturesPage" PackageId="ImtCoreVoce" ComponentId="MultiDocPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -124,6 +109,9 @@
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -193,6 +181,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ProductImportExportController" PackageId="ImtLicensePck" ComponentId="ProductController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ProductsPage" PackageId="ImtCoreVoce" ComponentId="MultiDocPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -230,6 +236,9 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="PageData/FeatureInfoProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -302,6 +311,12 @@
                     <Element Id="ProductsPage" PackageId="LisaQmlVoce" ComponentId="ProductsPage">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="FeatureCollection">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="LicenseCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -312,6 +327,9 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
@@ -485,6 +503,9 @@
                                 <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="FeatureInfoProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -511,8 +532,14 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeatureSqlRepository" ComponentId="Repositories/FeatureSqlRepository"/>
-        <Component ExportedId="FeaturesExportProvider" ComponentId="FeaturesExportProvider"/>
+        <Component ExportedId="FeaturesController" ComponentId="PageData/PackagesPage"/>
+        <Component ExportedId="FeaturesExportProvider" ComponentId="ProductImportExportController"/>
+        <Component ExportedId="FeaturesPage" ComponentId="FeaturesPage"/>
         <Component ExportedId="LicenseSqlRepository" ComponentId="Repositories/LicenseSqlRepository"/>
+        <Component ExportedId="LicensesController" ComponentId="PageData/LicensesPage"/>
+        <Component ExportedId="LicensesPage" ComponentId="LicensesPage"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
+        <Component ExportedId="ProductsController" ComponentId="PageData/ProductsPage"/>
+        <Component ExportedId="ProductsPage" ComponentId="ProductsPage"/>
     </ExportedComponents>
 </Acf>

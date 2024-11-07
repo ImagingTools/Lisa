@@ -2,14 +2,132 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5253" Description="ACF"/>
-            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5270" Description="ACF"/>
+            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="ApplicationHandlers" PackageId="ImtGraphQlVoce" ComponentId="ApplicationHandlers">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="BinaryDataControllers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>RestoringDatabaseController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>RestoringDatabaseController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeatureContainer" Type="Reference" ExportId="FeatureContainer">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FileAccessCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/files/*"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GraphQlCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/graphql"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="GroupCollection" Type="Reference" ExportId="GroupCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="LanguageConstraints">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogPath" Type="Reference" ExportId="LogPath">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="OptionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Features</Value>
+                                <Value>Licenses</Value>
+                                <Value>Products</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="OptionNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Features</Value>
+                                <Value>Licenses</Value>
+                                <Value>Products</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Pages" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Pages/FeaturesPage</Value>
+                                <Value>Pages/ProductsPage</Value>
+                                <Value>Pages/LicensesPage</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Views/html/index.html?item=Pages/StartPage.qml"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RoleCollection" Type="Reference" ExportId="RoleCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SearchControllers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Pages/FeaturesController</Value>
+                                <Value>Pages/ProductsController</Value>
+                                <Value>Pages/LicensesController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SessionCollection" Type="Reference" ExportId="SessionCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SlaveGqlHandlers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Demultiplexer</Value>
+                                <Value>Pages</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserCollection" Type="Reference" ExportId="UserCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebCommandId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Views/*"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketPortModel" Type="Reference" ExportId="WebSocketPortModel">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Demultiplexer" PackageId="ImtServerGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -26,21 +144,39 @@
             <Data IsEnabled="true" Flags="1">
                 <AttributeInfoMap>
                     <AttributeInfo Id="FeatureCollectionModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RootDataController/FeatureSqlRepository"/>
+                        <Data IsEnabled="true" Value="Pages/FeatureSqlRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="FeatureSessionChangeNotifier" Type="Reference" ExportId="FeatureSessionChangeNotifier">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LicenseCollectionModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RootDataController/LicenseSqlRepository"/>
+                        <Data IsEnabled="true" Value="Pages/LicenseSqlRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LicenseSessionChangeNotifier" Type="Reference" ExportId="LicenseSessionChangeNotifier">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ProductCollectionModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RootDataController/ProductRepository"/>
+                        <Data IsEnabled="true" Value="Pages/ProductRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ProductSessionChangeNotifier" Type="Reference" ExportId="ProductSessionChangeNotifier">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="Pages" PackageId="LisaQmlVoce" ComponentId="Pages">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -63,92 +199,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="RootDataController" PackageId="LisaVoce" ComponentId="RootDataController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="LanguageConstraints">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ServerSettings" Type="Reference" ExportId="ServerSettings">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketPortModel" Type="Reference" ExportId="WebSocketPortModel">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="StandardGraphQlHandlers" PackageId="ImtGraphQlVoce" ComponentId="StandardGraphQlHandlers">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="BinaryDataControllers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>RestoringDatabaseController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>RestoringDatabaseController</Value>
-                                <Value>RootDataController/FeaturesExportProvider</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="FileAccessCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/files/*"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GqlRequestHandler" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Demultiplexer</Value>
-                                <Value>RootDataController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GraphQlCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/graphql"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="LogPath" Type="Reference" ExportId="LogPath">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views/html/index.html?item=Pages/StartPage.qml"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SessionCollection" Type="Reference" ExportId="SessionCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserCollection" Type="Reference" ExportId="UserCollection">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="RootDataController/UserSettingsRepository"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebCommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Views/*"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -202,9 +252,9 @@
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>
     <ExportedInterfaces>
-        <Interface InterfaceId="imtgql::IGqlRequestProvider" ComponentId="StandardGraphQlHandlers"/>
-        <Interface InterfaceId="imtrest::IRequestServlet" ComponentId="StandardGraphQlHandlers"/>
-        <Interface InterfaceId="istd::IPolymorphic" ComponentId="StandardGraphQlHandlers"/>
+        <Interface InterfaceId="imtgql::IGqlRequestProvider" ComponentId="ApplicationHandlers"/>
+        <Interface InterfaceId="imtrest::IRequestServlet" ComponentId="ApplicationHandlers"/>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationHandlers"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>
