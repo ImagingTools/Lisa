@@ -37,7 +37,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "{#BasePath}\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#BasePath}\*"; Excludes: "*.exe,*.manifest,*.arp"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "{#BasePath}\LisaServerConfigurator.exe"; DestDir: "{app}"; Flags: ignoreversion
+;Source: "{#BasePath}\LisaServerConfigurator.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
@@ -46,16 +46,4 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 [Run]
 Filename: "{app}\LisaServerConfigurator.exe"
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent;
-
-[Code]
-function InitializeSetup(): boolean;
-var
-  ResultCode: integer;
-begin
-  if DirExists(ExpandConstant('{pf64}\ImagingTools\LisaServer')) then
-  begin
-    // DelTree(ExpandConstant('{pf64}\ImagingTools\LisaServer'), True, True, True);
-  end;
-  Result := True;
-end;
 

@@ -40,5 +40,12 @@ target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic i
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml lisaqml)
 target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
 
+if(WIN32)
+	list(APPEND listOptions "--qmldir=${LISADIR}/Include/lisaqml/Qml")
+	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml")
+	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
 
+	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")
+	unset(listOptions)
+endif()
 
