@@ -242,7 +242,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="StandardCollectionCommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardCollectionCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="StandardCollectionCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="StandardCollectionCommandsController"/>
                 </ExportedInterfaces>
@@ -307,7 +307,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="StandardDocumentCommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardDocumentCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="StandardDocumentCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="StandardDocumentCommandsController"/>
                 </ExportedInterfaces>

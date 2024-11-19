@@ -351,7 +351,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="CommandsController"/>
                 </ExportedInterfaces>
@@ -442,10 +442,10 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::IRepresentationController" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="CommandsController"/>
-                    <Interface InterfaceId="imtgui::IGuiElementContainer" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtrest::IGuiElementContainer" ComponentId="CommandsController"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="CommandsController"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandsController"/>
                 </ExportedInterfaces>
@@ -455,7 +455,7 @@
         <EmbeddedRegistry Id="Permissions">
             <Data Description="" Keywords="">
                 <ElementsList>
-                    <Element Id="Close" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="Close" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -473,7 +473,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="CommandPermissionsProviderJoiner" PackageId="ImtCorePck" ComponentId="CommandPermissionsProviderJoiner">
+                    <Element Id="CommandPermissionsProviderJoiner" PackageId="ImtRestPck" ComponentId="CommandPermissionsProviderJoiner">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandPermissionsProvider" Type="Reference[]" ExportId="">
@@ -491,7 +491,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="New" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="New" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -509,7 +509,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Redo" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="Redo" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -527,7 +527,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Remove" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="Remove" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -545,7 +545,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Save" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="Save" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -563,7 +563,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="Undo" PackageId="ImtCorePck" ComponentId="SingleCommandPermissionsProvider">
+                    <Element Id="Undo" PackageId="ImtRestPck" ComponentId="SingleCommandPermissionsProvider">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -584,7 +584,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtbase::ICommandPermissionsProvider" ComponentId="CommandPermissionsProviderJoiner"/>
+                    <Interface InterfaceId="imtrest::ICommandPermissionsProvider" ComponentId="CommandPermissionsProviderJoiner"/>
                     <Interface InterfaceId="istd::IPolymorphic" ComponentId="CommandPermissionsProviderJoiner"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
