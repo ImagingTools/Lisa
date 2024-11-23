@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5302" Description="ACF"/>
+            <Version Id="0" Number="5311" Description="ACF"/>
             <Version Id="1" Number="2230" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="1023" Number="394754" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -14,20 +14,20 @@
         <Element ComponentName="Subscriptions" X="1000" Y="475" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="SslConfiguration">
+            <PositionMap>
+                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
+                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
+                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Subscriptions">
             <PositionMap>
                 <Element ComponentName="FeaturesSubscriberController" X="250" Y="175" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="950" Y="175" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="575" Y="175" Note=""/>
                 <Element ComponentName="SlaveSubscriberController" X="625" Y="75" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="SslConfiguration">
-            <PositionMap>
-                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
-                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
-                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
