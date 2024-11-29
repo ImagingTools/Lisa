@@ -7,9 +7,7 @@ if(QT_VERSION_MAJOR EQUAL 6)
 	target_link_libraries(${PROJECT_NAME}  Qt${QT_VERSION_MAJOR}::Core5Compat)
 endif()
 
-message("PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 set(buildwebdir ${BUILDDIR}/Lisa/Bin/web)
-message("LASA binary dir ${buildwebdir}")
 
 # copy lisa qml from to
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Qml)
@@ -23,8 +21,6 @@ list(APPEND webdirs ${PROJECT_SOURCE_DIR}/../../../Impl/LisaLoc/Translations)
 list(APPEND webdirs ${buildwebdir}/Resources/Translations)
 
 getImtCoreQmlWebDirs(webdirs "${buildwebdir}")
-
-message("webdirs ${webdirs}")
 
 if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)

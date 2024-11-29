@@ -26,7 +26,7 @@
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultSettingsPath" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="Lisa/Lisa Server/LisaServerSettings.xml"/>
+                        <Data IsEnabled="true" Value="LisaServerSettings.xml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="GqlSubscriberControllers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -36,7 +36,7 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="LocationSettingsType" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="104"/>
+                        <Data IsEnabled="true" Value="105"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -335,6 +335,7 @@
     </EmbeddedRegistriesList>
     <ExportedInterfaces/>
     <ExportedComponents>
+        <Component ExportedId="DatabaseEngine" ComponentId="AuthorizableServerFramework/DatabaseEngine"/>
         <Component ExportedId="FileBasedSslConfiguration" ComponentId="ServerSettings/FileBasedSslConfiguration"/>
         <Component ExportedId="HttpServerFramework" ComponentId="AuthorizableServerFramework/HttpServerFramework"/>
         <Component ExportedId="WebSocketServerFramework" ComponentId="AuthorizableServerFramework/WebSocketServerFramework"/>

@@ -15,20 +15,20 @@
         <Element ComponentName="Subscriptions" X="1000" Y="475" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="SslConfiguration">
-            <PositionMap>
-                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
-                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
-                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Subscriptions">
             <PositionMap>
                 <Element ComponentName="FeaturesSubscriberController" X="250" Y="175" Note=""/>
                 <Element ComponentName="LicensesSubscriberController" X="950" Y="175" Note=""/>
                 <Element ComponentName="ProductsSubscriberController" X="575" Y="175" Note=""/>
                 <Element ComponentName="SlaveSubscriberController" X="625" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="SslConfiguration">
+            <PositionMap>
+                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
+                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
+                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
