@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5270" Description="ACF"/>
-            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5323" Description="ACF"/>
+            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -152,22 +152,13 @@
         <Element Id="SerializableLicenseCollectionController" PackageId="ImtServerGqlPck" ComponentId="SerializableObjectCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLicense"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionObjectFactory" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaLicenseInfo</Value>
-                                <Value>LisaLicenseDataMetaInfo</Value>
-                                <Value>LisaLicenseMetaInfo</Value>
-                                <Value>LisaLicenseList</Value>
-                                <Value>LisaLicenseView</Value>
-                                <Value>LisaLicenseRemove</Value>
-                                <Value>LisaLicenseSetDescription</Value>
-                                <Value>LisaLicenseAdd</Value>
-                                <Value>LisaLicenseUpdate</Value>
-                                <Value>LisaLicenseItem</Value>
-                                <Value>LisaLicenseCount</Value>
-                                <Value>LisaLicenseIds</Value>
-                                <Value>LisaLicenseSubCollection</Value>
+                                <Value>IdentifiableLicenseInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -177,10 +168,20 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="LicenseCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="IdentifiableLicenseInfo"/>
+                    <AttributeInfo Id="ObjectTypeIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>License</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -242,9 +243,9 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardCollectionCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="StandardCollectionCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="StandardCollectionCommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardCollectionCommandsController"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>
@@ -307,9 +308,9 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardDocumentCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="StandardDocumentCommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="StandardDocumentCommandsController"/>
+                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="StandardDocumentCommandsController"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>

@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5303" Description="ACF"/>
+            <Version Id="0" Number="5323" Description="ACF"/>
             <Version Id="1" Number="2230" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
@@ -234,22 +234,13 @@
         <Element Id="SerializableProductCollectionController" PackageId="ImtServerGqlPck" ComponentId="SerializableObjectCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="LisaProduct"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionObjectFactory" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaProductInfo</Value>
-                                <Value>LisaProductDataMetaInfo</Value>
-                                <Value>LisaProductMetaInfo</Value>
-                                <Value>LisaProductList</Value>
-                                <Value>LisaProductView</Value>
-                                <Value>LisaProductRemove</Value>
-                                <Value>LisaProductSetDescription</Value>
-                                <Value>LisaProductAdd</Value>
-                                <Value>LisaProductUpdate</Value>
-                                <Value>LisaProductItem</Value>
-                                <Value>LisaProductCount</Value>
-                                <Value>LisaProductIds</Value>
-                                <Value>LisaProductSubCollection</Value>
+                                <Value>IdentifiableProductInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -259,8 +250,12 @@
                     <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="ProductRepository">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ObjectFactory" Type="Factory" ExportId="">
-                        <Data IsEnabled="true" Value="IdentifiableProductInfo"/>
+                    <AttributeInfo Id="ObjectTypeIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Product</Value>
+                            </Values>
+                        </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
