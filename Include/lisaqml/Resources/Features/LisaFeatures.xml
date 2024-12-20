@@ -2,12 +2,12 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5270" Description="ACF"/>
-            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
-            <Version Id="10" Number="915" Description="IACF"/>
+            <Version Id="0" Number="5323" Description="ACF"/>
+            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="10" Number="916" Description="IACF"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
-            <Version Id="1977" Number="11826" Description="ImtCore"/>
-            <Version Id="1983" Number="11809" Description="Lisa"/>
+            <Version Id="1977" Number="12372" Description="ImtCore"/>
+            <Version Id="1983" Number="12337" Description="Lisa"/>
         </VersionInfos>
     </AcfHeader>
     <Uuid>20790999-4c83-4932-8c6b-b6d91e4030c0</Uuid>
@@ -20,27 +20,27 @@
             <CollectionItemMeta>
                 <MetaInfoMap/>
             </CollectionItemMeta>
-            <Data Uuid="9e32f708-df7c-47a6-a383-92afd3b1138b" FeatureId="FeatureManagement" FeatureName="Feature Management" FeatureDescription="" Optional="false">
+            <Data Uuid="9e32f708-df7c-47a6-a383-92afd3b1138b" FeatureId="FeatureManagement" FeatureName="Feature Management" FeatureDescription="" Optional="false" IsPermission="true">
                 <Dependencies/>
                 <SubFeatures>
-                    <Object FeatureId="EditFeature" FeatureName="Edit Feature" FeatureDescription="" Optional="false">
+                    <Object FeatureId="EditFeature" FeatureName="Edit Feature" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies/>
                         <SubFeatures>
-                            <Object FeatureId="ChangeFeature" FeatureName="Change Feature" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ChangeFeature" FeatureName="Change Feature" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="RemoveFeature" FeatureName="Remove Feature" FeatureDescription="" Optional="false">
+                            <Object FeatureId="RemoveFeature" FeatureName="Remove Feature" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="AddFeature" FeatureName="Add Feature" FeatureDescription="" Optional="false">
+                            <Object FeatureId="AddFeature" FeatureName="Add Feature" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
                         </SubFeatures>
                     </Object>
-                    <Object FeatureId="ViewFeatures" FeatureName="View Features" FeatureDescription="" Optional="false">
+                    <Object FeatureId="ViewFeatures" FeatureName="View Features" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies>
                             <Dependency>EditFeature</Dependency>
                             <Dependency>ChangeFeature</Dependency>
@@ -56,27 +56,27 @@
             <CollectionItemMeta>
                 <MetaInfoMap/>
             </CollectionItemMeta>
-            <Data Uuid="461f89cc-da43-4db2-9f5b-e9052b81f4df" FeatureId="ProductManagement" FeatureName="Product Management" FeatureDescription="" Optional="false">
+            <Data Uuid="461f89cc-da43-4db2-9f5b-e9052b81f4df" FeatureId="ProductManagement" FeatureName="Product Management" FeatureDescription="" Optional="false" IsPermission="true">
                 <Dependencies/>
                 <SubFeatures>
-                    <Object FeatureId="EditProduct" FeatureName="Edit Product" FeatureDescription="" Optional="false">
+                    <Object FeatureId="EditProduct" FeatureName="Edit Product" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies/>
                         <SubFeatures>
-                            <Object FeatureId="ChangeProduct" FeatureName="Change Product" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ChangeProduct" FeatureName="Change Product" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="RemoveProduct" FeatureName="Remove Product" FeatureDescription="" Optional="false">
+                            <Object FeatureId="RemoveProduct" FeatureName="Remove Product" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="AddProduct" FeatureName="Add Product" FeatureDescription="" Optional="false">
+                            <Object FeatureId="AddProduct" FeatureName="Add Product" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
                         </SubFeatures>
                     </Object>
-                    <Object FeatureId="ViewProducts" FeatureName="View Products" FeatureDescription="" Optional="false">
+                    <Object FeatureId="ViewProducts" FeatureName="View Products" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies>
                             <Dependency>EditProduct</Dependency>
                             <Dependency>ChangeProduct</Dependency>
@@ -92,27 +92,27 @@
             <CollectionItemMeta>
                 <MetaInfoMap/>
             </CollectionItemMeta>
-            <Data Uuid="a670fc3b-563d-4e46-9b59-ccc6434d206d" FeatureId="LicenseDefinitionManagement" FeatureName="License Definition Management" FeatureDescription="" Optional="false">
+            <Data Uuid="a670fc3b-563d-4e46-9b59-ccc6434d206d" FeatureId="LicenseDefinitionManagement" FeatureName="License Definition Management" FeatureDescription="" Optional="false" IsPermission="true">
                 <Dependencies/>
                 <SubFeatures>
-                    <Object FeatureId="EditLicenseDefinition" FeatureName="Edit License Definition" FeatureDescription="" Optional="false">
+                    <Object FeatureId="EditLicenseDefinition" FeatureName="Edit License Definition" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies/>
                         <SubFeatures>
-                            <Object FeatureId="ChangeLicenseDefinition" FeatureName="Change License Definition" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ChangeLicenseDefinition" FeatureName="Change License Definition" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="RemoveLicenseDefinition" FeatureName="Remove License Definition" FeatureDescription="" Optional="false">
+                            <Object FeatureId="RemoveLicenseDefinition" FeatureName="Remove License Definition" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="AddLicenseDefinition" FeatureName="Add License Definition" FeatureDescription="" Optional="false">
+                            <Object FeatureId="AddLicenseDefinition" FeatureName="Add License Definition" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
                         </SubFeatures>
                     </Object>
-                    <Object FeatureId="ViewLicensesDefinition" FeatureName="View Licenses Definition" FeatureDescription="" Optional="false">
+                    <Object FeatureId="ViewLicensesDefinition" FeatureName="View Licenses Definition" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies>
                             <Dependency>EditLicenseDefinition</Dependency>
                             <Dependency>ChangeLicenseDefinition</Dependency>
@@ -128,58 +128,58 @@
             <CollectionItemMeta>
                 <MetaInfoMap/>
             </CollectionItemMeta>
-            <Data Uuid="ce4a7f72-5303-4044-b25c-3a02020eebd3" FeatureId="Administration" FeatureName="Administration" FeatureDescription="" Optional="false">
+            <Data Uuid="ce4a7f72-5303-4044-b25c-3a02020eebd3" FeatureId="Administration" FeatureName="Administration" FeatureDescription="" Optional="false" IsPermission="true">
                 <Dependencies/>
                 <SubFeatures>
-                    <Object FeatureId="EditAdministration" FeatureName="Edit Administration" FeatureDescription="" Optional="false">
+                    <Object FeatureId="EditAdministration" FeatureName="Edit Administration" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies/>
                         <SubFeatures>
-                            <Object FeatureId="EditGroup" FeatureName="Edit Group" FeatureDescription="" Optional="false">
+                            <Object FeatureId="EditGroup" FeatureName="Edit Group" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures>
-                                    <Object FeatureId="ChangeGroup" FeatureName="Change Group" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="ChangeGroup" FeatureName="Change Group" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="RemoveGroup" FeatureName="Remove Group" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="RemoveGroup" FeatureName="Remove Group" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="AddGroup" FeatureName="Add Group" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="AddGroup" FeatureName="Add Group" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
                                 </SubFeatures>
                             </Object>
-                            <Object FeatureId="EditRole" FeatureName="Edit Role" FeatureDescription="" Optional="false">
+                            <Object FeatureId="EditRole" FeatureName="Edit Role" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures>
-                                    <Object FeatureId="ChangeRole" FeatureName="Change Role" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="ChangeRole" FeatureName="Change Role" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="RemoveRole" FeatureName="Remove Role" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="RemoveRole" FeatureName="Remove Role" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="AddRole" FeatureName="Add Role" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="AddRole" FeatureName="Add Role" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
                                 </SubFeatures>
                             </Object>
-                            <Object FeatureId="EditUser" FeatureName="Edit User" FeatureDescription="" Optional="false">
+                            <Object FeatureId="EditUser" FeatureName="Edit User" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures>
-                                    <Object FeatureId="ChangeUser" FeatureName="Change User" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="ChangeUser" FeatureName="Change User" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="RemoveUser" FeatureName="Remove User" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="RemoveUser" FeatureName="Remove User" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
-                                    <Object FeatureId="AddUser" FeatureName="Add User" FeatureDescription="" Optional="false">
+                                    <Object FeatureId="AddUser" FeatureName="Add User" FeatureDescription="" Optional="false" IsPermission="true">
                                         <Dependencies/>
                                         <SubFeatures/>
                                     </Object>
@@ -187,7 +187,7 @@
                             </Object>
                         </SubFeatures>
                     </Object>
-                    <Object FeatureId="ViewAdministration" FeatureName="View Administration" FeatureDescription="" Optional="false">
+                    <Object FeatureId="ViewAdministration" FeatureName="View Administration" FeatureDescription="" Optional="false" IsPermission="true">
                         <Dependencies>
                             <Dependency>EditAdministration</Dependency>
                             <Dependency>EditGroup</Dependency>
@@ -204,19 +204,19 @@
                             <Dependency>AddUser</Dependency>
                         </Dependencies>
                         <SubFeatures>
-                            <Object FeatureId="ViewGroupHistory" FeatureName="View Group History" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewGroupHistory" FeatureName="View Group History" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="ViewUserHistory" FeatureName="View User History" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewUserHistory" FeatureName="View User History" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="ViewRoleHistory" FeatureName="View Role History" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewRoleHistory" FeatureName="View Role History" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies/>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="ViewGroups" FeatureName="View Groups" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewGroups" FeatureName="View Groups" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies>
                                     <Dependency>EditGroup</Dependency>
                                     <Dependency>ChangeGroup</Dependency>
@@ -225,7 +225,7 @@
                                 </Dependencies>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="ViewUsers" FeatureName="View Users" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewUsers" FeatureName="View Users" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies>
                                     <Dependency>EditUser</Dependency>
                                     <Dependency>ChangeUser</Dependency>
@@ -234,7 +234,7 @@
                                 </Dependencies>
                                 <SubFeatures/>
                             </Object>
-                            <Object FeatureId="ViewRoles" FeatureName="View Roles" FeatureDescription="" Optional="false">
+                            <Object FeatureId="ViewRoles" FeatureName="View Roles" FeatureDescription="" Optional="false" IsPermission="true">
                                 <Dependencies>
                                     <Dependency>EditRole</Dependency>
                                     <Dependency>ChangeRole</Dependency>
@@ -244,6 +244,48 @@
                                 <SubFeatures/>
                             </Object>
                         </SubFeatures>
+                    </Object>
+                </SubFeatures>
+            </Data>
+        </Object>
+        <Object ID="c52f36c9-0dbe-49f0-84a7-f59116bd7225" Description="" TypeId="Feature" Name="">
+            <CollectionItemMeta>
+                <MetaInfoMap/>
+            </CollectionItemMeta>
+            <Data Uuid="c52f36c9-0dbe-49f0-84a7-f59116bd7225" FeatureId="RevisionManagement" FeatureName="Revision Management" FeatureDescription="" Optional="false" IsPermission="true">
+                <Dependencies>
+                    <Dependency></Dependency>
+                </Dependencies>
+                <SubFeatures>
+                    <Object FeatureId="DeleteRevision" FeatureName="Delete Revision" FeatureDescription="" Optional="false" IsPermission="true">
+                        <Dependencies>
+                            <Dependency></Dependency>
+                        </Dependencies>
+                        <SubFeatures/>
+                    </Object>
+                    <Object FeatureId="ExportRevision" FeatureName="Export Revision" FeatureDescription="" Optional="false" IsPermission="true">
+                        <Dependencies>
+                            <Dependency></Dependency>
+                        </Dependencies>
+                        <SubFeatures/>
+                    </Object>
+                    <Object FeatureId="ViewRevisions" FeatureName="View Revisions" FeatureDescription="" Optional="false" IsPermission="true">
+                        <Dependencies>
+                            <Dependency></Dependency>
+                        </Dependencies>
+                        <SubFeatures/>
+                    </Object>
+                    <Object FeatureId="BackupRevision" FeatureName="Backup Revision" FeatureDescription="" Optional="false" IsPermission="true">
+                        <Dependencies>
+                            <Dependency></Dependency>
+                        </Dependencies>
+                        <SubFeatures/>
+                    </Object>
+                    <Object FeatureId="RestoreRevision" FeatureName="Restore Revision" FeatureDescription="" Optional="false" IsPermission="true">
+                        <Dependencies>
+                            <Dependency></Dependency>
+                        </Dependencies>
+                        <SubFeatures/>
                     </Object>
                 </SubFeatures>
             </Data>
