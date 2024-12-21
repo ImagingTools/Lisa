@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5270" Description="ACF"/>
-            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5323" Description="ACF"/>
+            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -198,14 +198,14 @@
                                 <AttributeInfo Id="TypeIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>FeatureInfo</Value>
+                                            <Value>Feature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeNames" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Feature Info</Value>
+                                            <Value>Feature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -277,14 +277,14 @@
                                 <AttributeInfo Id="TypeIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>LicenseInfo</Value>
+                                            <Value>License</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeNames" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>License Info</Value>
+                                            <Value>License</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -363,14 +363,14 @@
                                 <AttributeInfo Id="TypeIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ProductInfo</Value>
+                                            <Value>Product</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TypeNames" Type="Text[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>Product Info</Value>
+                                            <Value>Product</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
