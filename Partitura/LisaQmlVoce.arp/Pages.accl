@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5270" Description="ACF"/>
-            <Version Id="1" Number="2220" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5323" Description="ACF"/>
+            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
             <Version Id="1023" Number="393732" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -29,6 +29,14 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
@@ -38,14 +46,6 @@
                 <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
                 <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
                 <Element ComponentName="ProductsPage" X="550" Y="225" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="FeatureSqlRepository" X="350" Y="350" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="900" Y="350" Note=""/>
-                <Element ComponentName="ProductRepository" X="600" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -26,13 +26,6 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="PackagesCommands">
-            <PositionMap>
-                <Element ComponentName="CommandsController" X="625" Y="150" Note=""/>
-                <Element ComponentName="StandardCollectionCommands" X="250" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Permissions">
             <PositionMap>
                 <Element ComponentName="Close" X="1000" Y="400" Note=""/>
@@ -42,6 +35,13 @@
                 <Element ComponentName="Remove" X="600" Y="400" Note=""/>
                 <Element ComponentName="Save" X="1000" Y="200" Note=""/>
                 <Element ComponentName="Undo" X="200" Y="400" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PackagesCommands">
+            <PositionMap>
+                <Element ComponentName="CommandsController" X="625" Y="150" Note=""/>
+                <Element ComponentName="StandardCollectionCommands" X="250" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
