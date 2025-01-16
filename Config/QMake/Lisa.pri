@@ -17,7 +17,7 @@ DEFINES += WEB_COMPILE
 
 LIBS += -L$(ACFDIR)/Lib/$$COMPILER_DIR -lAcfLoc
 LIBS += -L$(ACFSLNDIR)/Lib/$$COMPILER_DIR -liauth -liservice -lAcfSlnLoc
-LIBS += -L$(IMTCOREDIR)/Lib/$$COMPILER_DIR -lImtCoreLoc -limtzip -limtbase -limtgui -limtauth -limtauthgui -limtlicdb -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtzip -limtrest -limtcrypt -limt3dgui -limtrepo -limtstyle -limtqml -limtdb -limtfile -limtlog -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml -limtlicsdl -limtappsdl -limtauthsdl -limtcol -limtbasesdl -limtservergql
+LIBS += -L$(IMTCOREDIR)/Lib/$$COMPILER_DIR -lImtCoreLoc -limtzip -limtbase -limtmail -limtgui -limtauth -limtauthgui -limtlicdb -limtlic -limtlicgui -lImtCoreLoc -limtwidgets -limtzip -limtrest -limtcrypt -limt3dgui -limtrepo -limtstyle -limtqml -limtdb -limtfile -limtlog -limtlicgql -limtguigql -limtgql -limtauthgql -limtauthdb -limtcom -limtapp -limtclientgql -limtservice -limtstylecontrolsqml -limtlicsdl -limtappsdl -limtauthsdl -limtcol -limtbasesdl -limtservergql
 LIBS += -limtcontrolsqml -limtguiqml -limtcolguiqml -limtdocguiqml -limtguigqlqml -limtauthguiqml -limtlicguiqml
 LIBS += -L../../../Lib/$$COMPILER_DIR -llisaqml -lLisaLoc
 
