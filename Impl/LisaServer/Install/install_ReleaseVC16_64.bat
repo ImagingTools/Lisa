@@ -4,7 +4,7 @@ set OUTPUT_FILE=tempFile.txt
 set /p APP_VERSION=< %OUTPUT_FILE% 
 IF EXIST %OUTPUT_FILE% DEL /F %OUTPUT_FILE%
 
-set LISA_BUILD_DIR=%LISADIR%\Bin\Release_Qt6_VC16_x64
+set LISA_BUILD_DIR=%LISADIR%\Bin\Release_Qt6_VC17_x64
 iscc LisaServer.iss
 pause
 
