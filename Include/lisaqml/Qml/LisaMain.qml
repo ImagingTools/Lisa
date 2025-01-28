@@ -29,10 +29,10 @@ ApplicationMain{
         }
     }
 
-    WebSocketConnectionChecker {
-        id: pumaConnectionChecker;
-        subscriptionManager: window.subscriptionManager;
-        subscriptionRequestId: "PumaWsConnection";
-    }
+	WebSocketConnectionChecker {
+		id: pumaConnectionChecker;
+		gqlCommandId: "PumaWsConnection";
+		subscriptionManager: window.subscriptionManager;
+	}
 }
 
