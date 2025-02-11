@@ -16,13 +16,13 @@ ApplicationMain{
     Connections {
         target: AuthorizationController;
 
-        function onLoginSuccessful(){
+		function onLoggedIn(){
             CachedFeatureCollection.updateModel();
             CachedProductCollection.updateModel()
             CachedLicenseCollection.updateModel()
         }
 
-        function onLogoutSignal(){
+		function onLoggedOut(){
             CachedFeatureCollection.clearModel();
             CachedProductCollection.clearModel()
             CachedLicenseCollection.clearModel()
