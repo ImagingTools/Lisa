@@ -26,7 +26,7 @@ if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 	set(resname "lisa")
 	set(inputjs "${LISADIR}/Include/lisaqml/lisa.json")
-	jqml_compile_web2("${webdirs}", "${buildwebdir}", "${resname}")
+	jqml_compile_web2("${webdirs}" "${buildwebdir}" "${resname}")
 	# jq_compile_web("${webdirs}", "${buildwebdir}", "${resname}", "${inputjs}")
 endif()
 
