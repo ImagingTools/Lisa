@@ -2,6 +2,8 @@ TARGET = LisaServer
 
 include($(LISADIR)/Config/QMake/Lisa.pri)
 
+CONFIG += console
+
 copyToDestDir($$PWD/../../../Build/Migrations, $$PWD/../../../Bin/$$COMPILER_DIR/Migrations)
 copyToDestDir($(IMTCOREDIR)/Install/Database/LogMigrations, $$PWD/../../../Bin/$$COMPILER_DIR/LogMigrations)
 
