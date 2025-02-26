@@ -12,23 +12,25 @@
         <Element ComponentName="Language" X="225" Y="625" Note=""/>
         <Element ComponentName="LisaHandlers" X="600" Y="475" Note=""/>
         <Element ComponentName="LisaLocalization" X="200" Y="475" Note=""/>
-        <Element ComponentName="Subscriptions" X="1000" Y="475" Note=""/>
+        <Element ComponentName="ObjectCollectionMigrationController" X="200" Y="100" Note=""/>
+        <Element ComponentName="Observers" X="1000" Y="625" Note=""/>
+        <Element ComponentName="Repositories" X="575" Y="625" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Subscriptions">
+        <EmbededRegistry Id="Observers">
             <PositionMap>
-                <Element ComponentName="FeaturesSubscriberController" X="250" Y="175" Note=""/>
-                <Element ComponentName="LicensesSubscriberController" X="950" Y="175" Note=""/>
-                <Element ComponentName="ProductsSubscriberController" X="575" Y="175" Note=""/>
-                <Element ComponentName="SlaveSubscriberController" X="625" Y="75" Note=""/>
+                <Element ComponentName="FeatureCollectionChangeNotifier" X="200" Y="225" Note=""/>
+                <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
+                <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
+                <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="SslConfiguration">
+        <EmbededRegistry Id="Repositories">
             <PositionMap>
-                <Element ComponentName="CertFilePath" X="575" Y="175" Note=""/>
-                <Element ComponentName="KeyFilePath" X="575" Y="525" Note=""/>
-                <Element ComponentName="SystemLocation" X="250" Y="350" Note=""/>
+                <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
