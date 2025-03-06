@@ -6,9 +6,9 @@ set(ARXC_OUTDIR "${AUX_INCLUDE_DIR}")
 
 if(WIN32)
 #	set(CMAKE_WIN32_EXECUTABLE "on")
-    set(ACF_CONVERT_FILES "${PROJECT_SOURCE_DIR}/../VC/LisaServer.rc.xtracf")
+	set(ACF_CONVERT_FILES "${PROJECT_SOURCE_DIR}/../VC/LisaServer.rc.xtracf")
 	set(ACF_CONVERT_REGISTRY "${PROJECT_SOURCE_DIR}/../VC/FileSubstitCopyApp.acc")
-	set(ACF_CONVERT_CONFIG  "${PROJECT_SOURCE_DIR}/../../../Config/BaseOnly.awc")
+	set(ACF_CONVERT_CONFIG "${PROJECT_SOURCE_DIR}/../../../Config/BaseOnly.awc")
 	set(RC_FILE "${AUX_INCLUDE_DIR}/${PROJECT_NAME}/LisaServer.rc")
 endif()
 
@@ -28,20 +28,20 @@ target_link_libraries(${PROJECT_NAME} imtbase imtmail imtgui imtauth imtauthgui 
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtservice imtlog)
 target_link_libraries(${PROJECT_NAME} ImtCoreLoc LisaLoc)
 target_link_libraries(${PROJECT_NAME} lisaqml imtstylecontrolsqml)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets  Qt${QT_VERSION_MAJOR}::WebSockets)
+target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
 target_link_libraries(${PROJECT_NAME} imtgui)
 
 include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
 include(${ACFDIR}/Config/CMake/AcfStd.cmake)
 
-if(DEFINED WEB_COMPILE AND  WEB_COMPILE)
+if(DEFINED WEB_COMPILE AND WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml")
-	set(files  \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
+	set(files \"${AUX_INCLUDE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME}/${PROJECT_NAME}.exe\")
 
 	windeploy(${PROJECT_NAME} "${listOptions}" "${files}")
 	unset(listOptions)
