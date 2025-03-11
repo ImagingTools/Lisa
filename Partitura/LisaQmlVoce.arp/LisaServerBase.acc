@@ -60,6 +60,9 @@
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ThreadsLimit" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
