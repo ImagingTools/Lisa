@@ -9,7 +9,7 @@ SELECT
 	'Feature',
 	"Document"->>'FeatureName',
 	"Document"->>'FeatureDescription',
-    "Document",
+    jsonb_set("Document", '{Uuid}', to_jsonb("DocumentId"::text)),
     COALESCE("LastModified", now()), -- Если NULL, ставим текущее время
     jsonb_build_object(
         'OwnerId', COALESCE("OwnerId", ''),
@@ -40,7 +40,7 @@ SELECT
 	'Product',
 	"Document"->>'ProductName',
 	"Document"->>'ProductDescription',
-    "Document",
+    jsonb_set("Document", '{Uuid}', to_jsonb("DocumentId"::text)),
     COALESCE("LastModified", now()), -- Если NULL, ставим текущее время
     jsonb_build_object(
         'OwnerId', COALESCE("OwnerId", ''),
@@ -71,7 +71,7 @@ SELECT
 	'License',
 	"Document"->>'LicenseName',
 	"Document"->>'LicenseDescription',
-    "Document",
+    jsonb_set("Document", '{Uuid}', to_jsonb("DocumentId"::text)),
     COALESCE("LastModified", now()), -- Если NULL, ставим текущее время
     jsonb_build_object(
         'OwnerId', COALESCE("OwnerId", ''),
@@ -88,5 +88,4 @@ SELECT
     "Document" -- Копируем содержимое "Document" в "DataMetaInfo"
 FROM public."Licenses_new";
 
--- 3. Удаляем старую таблицу
 DROP TABLE public."Licenses_new";
