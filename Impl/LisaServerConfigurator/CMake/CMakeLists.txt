@@ -30,7 +30,7 @@ if(DEFINED WEB_COMPILE AND WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
-target_link_libraries(${PROJECT_NAME} imtbase imtrest imtgui imtqml imtguiqml imtguigql imtapp imtauth imtdb imtfile imtservice imtcom imtauthsdl imtappsdl imtbasesdl imtcolorsdl)
+target_link_libraries(${PROJECT_NAME} imtbase imtrest imtgui imtqml imtguiqml imtguigql imtapp imtauth imtdb imtfile imtservice imtcom imtauthsdl imtappsdl imtbasesdl imtcolorsdl imtgql)
 target_link_libraries(${PROJECT_NAME} imtstylecontrolsqml imtcontrolsqml imtguigqlqml imtauthguiqml imtcolguiqml imtdocguiqml imtauthgui imtstyle imtlicgui)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc AcfLoc AcfSlnLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)

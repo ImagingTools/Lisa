@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5323" Description="ACF"/>
+            <Version Id="0" Number="5332" Description="ACF"/>
             <Version Id="1" Number="2230" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -102,7 +102,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="BackupSettingsRepresentationController" PackageId="ImtAppPck" ComponentId="BackupSettingsRepresentationController">
+                    <Element Id="BackupSettingsRepresentationController" PackageId="ImtRestPck" ComponentId="BackupSettingsRepresentationController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="ObjectId" Type="Id" ExportId="">
@@ -304,7 +304,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="ServerPageRepresentation"/>
+                    <Interface InterfaceId="imtrest::IJsonRepresentationController" ComponentId="ServerPageRepresentation"/>
                     <Interface InterfaceId="iprm::IParamsSet" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="ServerPageData"/>
                 </ExportedInterfaces>

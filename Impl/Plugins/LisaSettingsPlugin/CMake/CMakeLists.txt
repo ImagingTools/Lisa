@@ -13,7 +13,7 @@ include(${ACFDIR}/Config/CMake/SharedLibraryConfig.cmake)
 include(${IMTCOREDIR}/Config/CMake/ImtCore.cmake)
 include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 
-target_link_libraries(${PROJECT_NAME} i2d imtbase imtapp imtdb imtfile imtservice imtrest imtauth imtcom imtcol)
+target_link_libraries(${PROJECT_NAME} i2d imtbase imtapp imtdb imtfile imtservice imtrest imtauth imtcom imtcol imtbasesdl imtgql)
 target_link_libraries(${PROJECT_NAME} ifile istd idoc iser)
 
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)

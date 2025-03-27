@@ -198,7 +198,7 @@
                                 <Value>CategoryId</Value>
                                 <Value>Description</Value>
                                 <Value>Added</Value>
-                                <Value>LastModified</Value>
+                                <Value>TimeStamp</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5253" Description="ACF"/>
-            <Version Id="1" Number="2217" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="0" Number="5332" Description="ACF"/>
+            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
@@ -16,7 +16,7 @@
         <Element ComponentName="PumaUrlRepresentation" X="225" Y="575" Note=""/>
         <Element ComponentName="SchedulerParams" X="975" Y="425" Note=""/>
         <Element ComponentName="ServerPortRepresentation" X="225" Y="725" Note=""/>
-        <Element ComponentName="ServerSettingsPermission" X="150" Y="75" Note=""/>
+        <Element ComponentName="ServerSettingsPermission" X="225" Y="75" Note=""/>
         <Element ComponentName="ServerSettingsRepresentation" X="225" Y="275" Note=""/>
         <Element ComponentName="SettingsRepresentation" X="600" Y="75" Note=""/>
         <Element ComponentName="WebSocketServerPortRepresentation" X="225" Y="425" Note=""/>
