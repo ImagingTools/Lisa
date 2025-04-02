@@ -37,7 +37,7 @@ message(VERBOSE "PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 target_link_libraries(${PROJECT_NAME} ImtCoreLoc LisaLoc AcfLoc AcfSlnLoc)
 target_link_libraries(${PROJECT_NAME} iqtgui)
 target_link_libraries(${PROJECT_NAME} imtbase imtbasesdl imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml imtlicsdl imtauthsdl imtappsdl imtcolorsdl)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml lisaqml)
+target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml lisaqml imtserverapp)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
 
 if(WIN32)

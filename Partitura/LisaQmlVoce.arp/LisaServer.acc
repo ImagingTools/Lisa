@@ -10,7 +10,7 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="BinaryDataProvider" PackageId="ImtRestPck" ComponentId="BinaryDataProvider">
+        <Element Id="BinaryDataProvider" PackageId="ImtServerAppPck" ComponentId="BinaryDataProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="HomePath" Type="String" ExportId="">
@@ -66,7 +66,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="HttpFileBasedHandler" PackageId="ImtRestPck" ComponentId="HttpFileBasedServlet">
+        <Element Id="HttpFileBasedHandler" PackageId="ImtServerAppPck" ComponentId="HttpFileBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandId" Type="Id" ExportId="">
@@ -78,7 +78,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtRestPck" ComponentId="HttpFileProviderBasedServlet">
+        <Element Id="HttpFileProviderBasedServlet" PackageId="ImtServerAppPck" ComponentId="HttpFileProviderBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="BinaryDataProviders" Type="Reference[]" ExportId="">
@@ -94,7 +94,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="HttpRedirectHandler" PackageId="ImtRestPck" ComponentId="HttpRedirectServlet">
+        <Element Id="HttpRedirectHandler" PackageId="ImtServerAppPck" ComponentId="HttpRedirectServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="RedirectToCommandId" Type="Id" ExportId="">
@@ -168,7 +168,7 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="JsonModelBasedHandler" PackageId="ImtRestPck" ComponentId="JsonModelBasedServlet">
+        <Element Id="JsonModelBasedHandler" PackageId="ImtServerAppPck" ComponentId="JsonModelBasedServlet">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandId" Type="Id" ExportId="">
