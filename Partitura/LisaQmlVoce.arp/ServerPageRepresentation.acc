@@ -283,7 +283,8 @@
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
-        <Interface InterfaceId="imtrest::IJsonRepresentationController" ComponentId="SettingsRepresentation"/>
+        <Interface InterfaceId="imtserverapp::IJsonRepresentationController" ComponentId="SettingsRepresentation"/>
+        <Interface InterfaceId="istd::IPolymorphic" ComponentId="SettingsRepresentation"/>
     </ExportedInterfaces>
     <ExportedComponents/>
 </Acf>

@@ -304,7 +304,7 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtrest::IJsonRepresentationController" ComponentId="ServerPageRepresentation"/>
+                    <Interface InterfaceId="imtserverapp::IJsonRepresentationController" ComponentId="ServerPageRepresentation"/>
                     <Interface InterfaceId="iprm::IParamsSet" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="ServerPageData"/>
                 </ExportedInterfaces>
