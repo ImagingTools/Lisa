@@ -17,15 +17,15 @@
         <Element ComponentName="SerializableLicenseCollectionController" X="175" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="LicenseCollectionCommands">
-            <PositionMap>
-                <Element ComponentName="StandardCollectionCommandsController" X="575" Y="250" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="LicenseCommands">
             <PositionMap>
                 <Element ComponentName="StandardDocumentCommandsController" X="575" Y="275" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="LicenseCollectionCommands">
+            <PositionMap>
+                <Element ComponentName="StandardCollectionCommandsController" X="575" Y="250" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
