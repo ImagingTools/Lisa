@@ -9,15 +9,16 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="Backup" X="1075" Y="350" Note=""/>
+        <Element ComponentName="CompanyDataLocation" X="1075" Y="650" Note=""/>
         <Element ComponentName="ConnectionCollection" X="625" Y="625" Note=""/>
         <Element ComponentName="Database" X="325" Y="525" Note=""/>
         <Element ComponentName="DatabaseAccessSettings" X="350" Y="625" Note=""/>
         <Element ComponentName="FileAutoPersistence" X="575" Y="75" Note=""/>
         <Element ComponentName="FileBasedSslConfiguration" X="175" Y="125" Note=""/>
-        <Element ComponentName="FileNameParam" X="1075" Y="525" Note=""/>
         <Element ComponentName="LoggingParams" X="525" Y="350" Note=""/>
         <Element ComponentName="Preferences" X="575" Y="200" Note=""/>
-        <Element ComponentName="SchedulerParams" X="875" Y="525" Note=""/>
+        <Element ComponentName="RelativeFileNameParam" X="1075" Y="525" Note=""/>
+        <Element ComponentName="SchedulerParams" X="875" Y="600" Note=""/>
         <Element ComponentName="Server" X="800" Y="350" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
