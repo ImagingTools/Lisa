@@ -179,28 +179,6 @@
                     <AttributeInfo Id="ProductFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="IdentifiableProductInfo"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ReplaceableFilterFields" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>productName</Value>
-                                <Value>categoryId</Value>
-                                <Value>description</Value>
-                                <Value>added</Value>
-                                <Value>timeStamp</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ReplacementFilterFields" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ProductName</Value>
-                                <Value>CategoryId</Value>
-                                <Value>Description</Value>
-                                <Value>Added</Value>
-                                <Value>TimeStamp</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>

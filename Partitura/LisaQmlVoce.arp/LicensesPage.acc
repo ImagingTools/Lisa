@@ -141,30 +141,6 @@
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ReplaceableFilterFields" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>licenseName</Value>
-                                <Value>licenseId</Value>
-                                <Value>description</Value>
-                                <Value>productId</Value>
-                                <Value>added</Value>
-                                <Value>timeStamp</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ReplacementFilterFields" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>LicenseName</Value>
-                                <Value>LicenseId</Value>
-                                <Value>Description</Value>
-                                <Value>ProductId</Value>
-                                <Value>Added</Value>
-                                <Value>TimeStamp</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
