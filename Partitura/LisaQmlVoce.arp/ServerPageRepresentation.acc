@@ -145,7 +145,7 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="SchedulerParam"/>
+                        <Data IsEnabled="true" Value="SchedulerParams"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Scheduler"/>

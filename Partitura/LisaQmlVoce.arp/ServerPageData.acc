@@ -24,7 +24,7 @@
                     <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>SchedulerParam</Value>
+                                <Value>SchedulerParams</Value>
                                 <Value>BackupFolder</Value>
                             </Values>
                         </Data>

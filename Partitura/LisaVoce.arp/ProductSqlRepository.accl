@@ -8,13 +8,8 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="JsonSerializer" X="300" Y="100" Note=""/>
-        <Element ComponentName="ProductInfo" X="850" Y="325" Note=""/>
-        <Element ComponentName="ProductMetaInfoCreator" X="150" Y="325" Note=""/>
-        <Element ComponentName="ProductMetaInfoDelegate" X="180" Y="472" Note=""/>
-        <Element ComponentName="Products" X="475" Y="550" Note=""/>
-        <Element ComponentName="SqlDatabaseDocumentDelegate" X="475" Y="325" Note=""/>
-        <Element ComponentName="Types" X="675" Y="100" Note=""/>
+        <Element ComponentName="PostgresDatabaseObjectCollection" X="550" Y="150" Note=""/>
+        <Element ComponentName="ProductInfo" X="550" Y="400" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
