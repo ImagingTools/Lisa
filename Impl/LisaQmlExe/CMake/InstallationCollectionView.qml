@@ -1,8 +1,8 @@
 import QtQuick 2.12
 import Acf 1.0
+import com.imtcore.imtqml 1.0
 import imtqml 1.0
 import imtgui 1.0
-//import QtQuick.Dialogs 1.3
 import Qt.labs.platform 1.1
 
 Item {
@@ -88,8 +88,6 @@ Item {
             //licenseFile.createLicenseFile();
 
             fileDialogSave.open();
-//            var id = installationCollectionView.table.getSelectedId();
-//            remoteFileController.GetFile(id, "test");
         }
         else{
             installationCollectionView.menuActivated(menuId)
@@ -444,11 +442,6 @@ Item {
                 }
 
                 dataModelLocal = licenseFile.GetData("data");
-
-//                if (dataModelLocal.ContainsKey("InstallationMetaInfo")) {
-
-//                }
-
             }
         }
     }

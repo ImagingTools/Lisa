@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtWebSockets 1.15
 import Acf 1.0
+import com.imtcore.imtqml 1.0
 //import "../qml"
 //import "/Users/viktor/ImagingTools/ItDevelopment_mac/ImtCore/Include/imtqml/Resources/qml"
 //import "../../../../../ImtCore/Include/imtqml/Resources/qml"
