@@ -2,29 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5323" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="393732" Description="Qt Framework"/>
+            <Version Id="0" Number="5352" Description="ACF"/>
+            <Version Id="1" Number="2237" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="HttpUrlParam" PackageId="ImtCorePck" ComponentId="UrlParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultHost" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="localhost"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="7776"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultScheme" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="http"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="LisaGQLEngine" PackageId="ImtGraphQlVoce" ComponentId="GraphQLClientEngine">
             <Data IsEnabled="true" Flags="1">
                 <AttributeInfoMap>
@@ -56,8 +41,8 @@
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="HttpUrlParam"/>
+                    <AttributeInfo Id="UrlParam" Type="Reference" ExportId="LisaHttpUrl">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -81,14 +66,17 @@
                     <AttributeInfo Id="RequestManager" Type="Reference" ExportId="RequestManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
         <Element Id="Repositories" PackageId="" ComponentId="Repositories">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="LisaServerUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="HttpUrlParam"/>
+                    <AttributeInfo Id="LisaServerUrlParam" Type="Reference" ExportId="LisaHttpUrl">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -99,8 +87,8 @@
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="WebSocketUrlParam"/>
+                    <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="LisaWebSocketUrl">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -120,6 +108,21 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SslConfigurationManager" PackageId="ImtComPck" ComponentId="SslConfigurationManager">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -129,23 +132,20 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="WebSocketUrlParam"/>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="WebSocketUrlParam" PackageId="ImtCorePck" ComponentId="UrlParam">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultHost" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="localhost"/>
+                    <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="SslConfiguration">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="8776"/>
+                    <AttributeInfo Id="SslConfigurationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="SslConfigurationManager"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultScheme" Type="String" ExportId="">
-                        <Data IsEnabled="true" Value="ws"/>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="WebSocketServerAddress" Type="Reference" ExportId="LisaWebSocketUrl">
+                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -420,11 +420,9 @@
     </ExportedInterfaces>
     <ExportedComponents>
         <Component ExportedId="FeatureRepository" ComponentId="Repositories/FeatureRepository"/>
-        <Component ExportedId="HttpUrlParam" ComponentId="HttpUrlParam"/>
         <Component ExportedId="LicenseRepository" ComponentId="Repositories/LicenseRepository"/>
         <Component ExportedId="LicensesSubscriberController" ComponentId="Repositories/LicensesSubscriberController"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
         <Component ExportedId="ProductsSubscriberController" ComponentId="Repositories/ProductsSubscriberController"/>
-        <Component ExportedId="WebSocketUrlParam" ComponentId="WebSocketUrlParam"/>
     </ExportedComponents>
 </Acf>
