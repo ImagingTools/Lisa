@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5352" Description="ACF"/>
+            <Version Id="1" Number="2237" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -250,7 +250,5 @@
         <Interface InterfaceId="imtrest::IRequestServlet" ComponentId="ApplicationHandlers"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="ApplicationHandlers"/>
     </ExportedInterfaces>
-    <ExportedComponents>
-        <Component ExportedId="FeatureDatabaseDocumentDelegate" ComponentId="Pages/FeatureDatabaseDocumentDelegate"/>
-    </ExportedComponents>
+    <ExportedComponents/>
 </Acf>
