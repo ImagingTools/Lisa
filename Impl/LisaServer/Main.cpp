@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(imtlicguiTheme);
 
 	Q_INIT_RESOURCE(imtdb);
+	Q_INIT_RESOURCE(imtbase);
 
 	CLisaServer instance;
 
