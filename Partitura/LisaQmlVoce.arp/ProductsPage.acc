@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5385" Description="ACF"/>
+            <Version Id="1" Number="2247" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -99,6 +99,9 @@
         <Element Id="ProductsController" PackageId="ImtLicenseGqlPck" ComponentId="ProductCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Products"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="CollectionObjectFactory" Type="Factory[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
@@ -137,6 +140,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>CompactXmlFileSerializer</Value>
+                                <Value>ProductInfoFileGenerator</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -147,14 +151,12 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>IdentifiableProductInfo</Value>
+                                <Value>IdentifiableProductInfo</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="LicenseCollection">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ListObjectCommand" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ProductsList"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -163,6 +165,7 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>application/xml</Value>
+                                <Value>text/x-c</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -283,6 +286,18 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ProductInfoFileGenerator" PackageId="ImtLicenseGqlPck" ComponentId="ProductInfoFileGenerator">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -452,9 +467,8 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="CommandsController"/>
-                    <Interface InterfaceId="imtrest::IRepresentationController" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtserverapp::IRepresentationController" ComponentId="CommandsController"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>
@@ -561,8 +575,8 @@
                 </ElementsList>
                 <EmbeddedRegistriesList/>
                 <ExportedInterfaces>
-                    <Interface InterfaceId="imtgql::IGqlRepresentationController" ComponentId="CommandsController"/>
                     <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="CommandsController"/>
+                    <Interface InterfaceId="imtserverapp::IRepresentationController" ComponentId="CommandsController"/>
                 </ExportedInterfaces>
                 <ExportedComponents/>
             </Data>
