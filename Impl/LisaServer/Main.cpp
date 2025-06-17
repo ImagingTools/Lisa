@@ -1,15 +1,9 @@
-// Qt includes
-#include <QtCore/QDir>
-#include <QtCore/QCoreApplication>
-
-// ACF includes
-#include <ibase/IApplication.h>
-
 // ImtCore includes
-#include <imtbase/Init.h>
+#include <imtlic/Init.h>
 
 // Lisa includes
 #include <GeneratedFiles/LisaServer/CLisaServer.h>
+#include "LisaFeatures.h"
 
 
 int main(int argc, char *argv[])
@@ -18,28 +12,10 @@ int main(int argc, char *argv[])
 	Q_INIT_RESOURCE(lisaqmlWeb);
 #endif
 	Q_INIT_RESOURCE(lisaqml);
-	Q_INIT_RESOURCE(ImtCoreLoc);
 	Q_INIT_RESOURCE(LisaLoc);
-
-	Q_INIT_RESOURCE(imtstyle);
-	Q_INIT_RESOURCE(imtstylecontrolsqml);
-	Q_INIT_RESOURCE(imtresthtml);
-
-	Q_INIT_RESOURCE(imtauthguiTheme);
-	Q_INIT_RESOURCE(imtguiTheme);
 	Q_INIT_RESOURCE(imtlicguiTheme);
 
-	Q_INIT_RESOURCE(imtdb);
-	Q_INIT_RESOURCE(imtbase);
-
-	CLisaServer instance;
-
-	ibase::IApplication* applicationPtr = instance.GetInterface<ibase::IApplication>();
-	if (applicationPtr != nullptr){
-		return applicationPtr->Execute(argc, argv);
-	}
-
-	return -1;
+	return ProductFeatureRun<CLisaServer, DefaultImtCoreQmlInitializer, lisa::FillProduct>(argc, argv);
 }
 
 

@@ -13,7 +13,4 @@
         <file alias="LisaServerConfigurator.qml">Qml/LisaServerConfigurator.qml</file>
         <file alias="LisaWeb.qml">Qml/LisaWeb.qml</file>
     </qresource>
-    <qresource prefix="/Features">
-        <file alias="LisaFeatures">Resources/Features/LisaFeatures.xml</file>
-    </qresource>
 </RCC>

@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5352" Description="ACF"/>
-            <Version Id="1" Number="2237" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5394" Description="ACF"/>
+            <Version Id="1" Number="2250" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,12 +18,11 @@
         <Element ComponentName="ServerPageData" X="175" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Observers">
+        <EmbededRegistry Id="Repositories">
             <PositionMap>
-                <Element ComponentName="FeatureCollectionChangeNotifier" X="200" Y="225" Note=""/>
-                <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
-                <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
-                <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
+                <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
@@ -38,11 +37,12 @@
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
-        <EmbededRegistry Id="Repositories">
+        <EmbededRegistry Id="Observers">
             <PositionMap>
-                <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
-                <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
+                <Element ComponentName="FeatureCollectionChangeNotifier" X="200" Y="225" Note=""/>
+                <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
+                <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
+                <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
