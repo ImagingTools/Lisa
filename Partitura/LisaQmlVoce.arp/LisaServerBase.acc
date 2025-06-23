@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5394" Description="ACF"/>
+            <Version Id="0" Number="5395" Description="ACF"/>
             <Version Id="1" Number="2250" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
@@ -35,11 +35,8 @@
                     <AttributeInfo Id="ProductId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="PumaUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/PumaUrl"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PumaWebSocketUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/PumaWebSocketPort"/>
+                    <AttributeInfo Id="PumaServerConnectionInterface" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/PumaConnectionInterface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="RequestHandler" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="LisaHandlers"/>
@@ -47,8 +44,8 @@
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="RuntimeStatus">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ServerPort" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/ServerPort"/>
+                    <AttributeInfo Id="ServerInterface" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/ServerConnectionInterface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="SslConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/FileBasedSslConfiguration"/>
@@ -64,9 +61,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketServerPort" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/WebSocketServerPort"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -132,6 +126,9 @@
                     <AttributeInfo Id="RoleCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/RoleRemoteRepository"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ServerConnectionInterface" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/ServerConnectionInterface"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="SessionCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/UserSessionRemoteRepository"/>
                     </AttributeInfo>
@@ -146,9 +143,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="WebSocketPortModel" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/WebSocketServerPort"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
@@ -535,6 +529,9 @@
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
+                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -551,6 +548,9 @@
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
