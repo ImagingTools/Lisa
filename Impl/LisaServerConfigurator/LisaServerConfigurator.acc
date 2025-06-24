@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5398" Description="ACF"/>
+            <Version Id="1" Number="2250" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,9 +18,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="LisaServerConfigurator"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="BaseUrlParam" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="Settings/ServerPort"/>
                     </AttributeInfo>
                     <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="ImagingTools"/>
@@ -316,9 +313,7 @@
                     <Interface InterfaceId="iprm::IParamsSet" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="ServerPageData"/>
                 </ExportedInterfaces>
-                <ExportedComponents>
-                    <Component ExportedId="ServerPort" ComponentId="ServerPageData/ServerPort"/>
-                </ExportedComponents>
+                <ExportedComponents/>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>

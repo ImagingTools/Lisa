@@ -2,7 +2,7 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5395" Description="ACF"/>
+            <Version Id="0" Number="5398" Description="ACF"/>
             <Version Id="1" Number="2250" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
@@ -53,23 +53,11 @@
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ConnectionDescriptions" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Server tcp port to be listened</Value>
-                                <Value>Server websocket port to be listened</Value>
-                                <Value>Server tcp port to be connected to Puma</Value>
-                                <Value>Server websocket port to be connected to Puma</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="ConnectionNames" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>Lisa main HTTP</Value>
-                                <Value>Lisa main WebSocket</Value>
-                                <Value>Puma main HTTP</Value>
-                                <Value>Puma main WebSocket</Value>
+                                <Value>Lisa server connection interface</Value>
+                                <Value>Puma server connection interface</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -77,8 +65,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>Lisa</Value>
-                                <Value>Lisa</Value>
-                                <Value>Puma</Value>
                                 <Value>Puma</Value>
                             </Values>
                         </Data>
@@ -87,8 +73,6 @@
                         <Data IsEnabled="true">
                             <Values>
                                 <Value>0</Value>
-                                <Value>0</Value>
-                                <Value>1</Value>
                                 <Value>1</Value>
                             </Values>
                         </Data>
@@ -96,10 +80,8 @@
                     <AttributeInfo Id="ConnectionUsageIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>LisaUrlTcp</Value>
-                                <Value>LisaUrlWs</Value>
-                                <Value>PumaUrlTcp</Value>
-                                <Value>PumaUrlWs</Value>
+                                <Value>Lisa</Value>
+                                <Value>Puma</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -109,6 +91,7 @@
                     <AttributeInfo Id="ServerInterfaces" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>Server/ServerConnectionInterface</Value>
                                 <Value>Server/PumaConnectionInterface</Value>
                             </Values>
                         </Data>
@@ -281,11 +264,7 @@
         <Component ExportedId="DatabaseAccessSettings" ComponentId="DatabaseAccessSettings"/>
         <Component ExportedId="FileBasedSslConfiguration" ComponentId="FileBasedSslConfiguration"/>
         <Component ExportedId="PumaConnectionInterface" ComponentId="Server/PumaConnectionInterface"/>
-        <Component ExportedId="PumaUrl" ComponentId="Server/PumaUrl"/>
-        <Component ExportedId="PumaWebSocketPort" ComponentId="Server/PumaWebSocketPort"/>
         <Component ExportedId="ServerConnectionInterface" ComponentId="Server/ServerConnectionInterface"/>
-        <Component ExportedId="ServerPort" ComponentId="Server/ServerPort"/>
         <Component ExportedId="TracingConfiguration" ComponentId="LoggingParams/TracingConfiguration"/>
-        <Component ExportedId="WebSocketServerPort" ComponentId="Server/WebSocketServerPort"/>
     </ExportedComponents>
 </Acf>
