@@ -40,6 +40,9 @@
                     <AttributeInfo Id="ProductName" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ServerConnectionParam" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Settings/ServerConnectionInterface"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Settings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Settings"/>
                     </AttributeInfo>
@@ -313,7 +316,9 @@
                     <Interface InterfaceId="iprm::IParamsSet" ComponentId="ServerPageData"/>
                     <Interface InterfaceId="istd::IChangeable" ComponentId="ServerPageData"/>
                 </ExportedInterfaces>
-                <ExportedComponents/>
+                <ExportedComponents>
+                    <Component ExportedId="ServerConnectionInterface" ComponentId="ServerPageData/ServerConnectionInterface"/>
+                </ExportedComponents>
             </Data>
         </EmbeddedRegistry>
     </EmbeddedRegistriesList>

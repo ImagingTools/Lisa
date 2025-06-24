@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5352" Description="ACF"/>
-            <Version Id="1" Number="2237" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5398" Description="ACF"/>
+            <Version Id="1" Number="2250" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -114,17 +114,17 @@
                 <AttributeInfoMap/>
             </Data>
         </Element>
-        <Element Id="PumaUrlRepresentation" PackageId="ImtServerAppPck" ComponentId="UrlParamRepresentationController">
+        <Element Id="PumaConnectionParamRepresentationController" PackageId="ImtServerAppPck" ComponentId="ServerConnectionParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="PumaUrl"/>
+                        <Data IsEnabled="true" Value="PumaConnectionInterface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Puma URL"/>
+                        <Data IsEnabled="true" Value="Puma Connection Interface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
@@ -156,17 +156,17 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServerPortRepresentation" PackageId="ImtServerAppPck" ComponentId="UrlParamRepresentationController">
+        <Element Id="ServerConnectionParamRepresentationController" PackageId="ImtServerAppPck" ComponentId="ServerConnectionParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPort"/>
+                        <Data IsEnabled="true" Value="ServerConnectionInterface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Server Port"/>
+                        <Data IsEnabled="true" Value="Server Connection Interface"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
@@ -214,9 +214,8 @@
                     <AttributeInfo Id="ParamRepresentationControllers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ServerPortRepresentation</Value>
-                                <Value>WebSocketServerPortRepresentation</Value>
-                                <Value>PumaUrlRepresentation</Value>
+                                <Value>ServerConnectionParamRepresentationController</Value>
+                                <Value>PumaConnectionParamRepresentationController</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -265,27 +264,6 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="WebSocketServerPortRepresentation" PackageId="ImtServerAppPck" ComponentId="UrlParamRepresentationController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="WebSocketServerPort"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Web Socket Server Port"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
