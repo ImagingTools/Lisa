@@ -12,7 +12,7 @@ ApplicationMain{
 
     useWebSocketSubscription: true;
     canRecoveryPassword: false;
-    authorizationServerConnected: pumaConnectionChecker.status === 1;
+    authConnectionState: pumaConnectionChecker.status
 
     Connections {
         target: AuthorizationController;
