@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5423" Description="ACF"/>
+            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -27,10 +27,13 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="FeaturesPage" PackageId="ImtCoreVoce" ComponentId="MultiDocPage">
+        <Element Id="FeaturesPage" PackageId="ImtCollectionVoce" ComponentId="MultiDocCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="FixedItemQmlPath" Type="Text" ExportId="">
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Features"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionViewQmlPath" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtlicgui/FeatureCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
@@ -40,9 +43,6 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Features"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Features"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">
@@ -59,10 +59,13 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="LicensesPage" PackageId="ImtCoreVoce" ComponentId="MultiDocPage">
+        <Element Id="LicensesPage" PackageId="ImtCollectionVoce" ComponentId="MultiDocCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="FixedItemQmlPath" Type="Text" ExportId="">
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Licenses"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionViewQmlPath" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtlicgui/LicenseCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
@@ -72,9 +75,6 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Licenses"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Licenses"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">
@@ -202,10 +202,13 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductsPage" PackageId="ImtCoreVoce" ComponentId="MultiDocPage">
+        <Element Id="ProductsPage" PackageId="ImtCollectionVoce" ComponentId="MultiDocCollectionPage">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="FixedItemQmlPath" Type="Text" ExportId="">
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Products"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionViewQmlPath" Type="Text" ExportId="">
                         <Data IsEnabled="true" Value="qrc:/qml/imtlicgui/ProductCollectionView.qml"/>
                     </AttributeInfo>
                     <AttributeInfo Id="IconPath" Type="Text" ExportId="">
@@ -215,9 +218,6 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Products"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PageId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Products"/>
                     </AttributeInfo>
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">

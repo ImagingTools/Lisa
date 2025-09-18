@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5395" Description="ACF"/>
-            <Version Id="1" Number="2250" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5423" Description="ACF"/>
+            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -170,8 +170,8 @@
                     <Element Id="FeatureRepository" PackageId="ImtClientVoce" ComponentId="GraphQLObjectCollection">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Id" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="LisaFeature"/>
+                                <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Features"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
@@ -239,8 +239,8 @@
                     <Element Id="LicenseRepository" PackageId="ImtClientVoce" ComponentId="GraphQLObjectCollection">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Id" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="LisaLicense"/>
+                                <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Licenses"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
@@ -319,8 +319,8 @@
                     <Element Id="ProductRepository" PackageId="ImtClientVoce" ComponentId="GraphQLObjectCollection">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="Id" Type="Id" ExportId="">
-                                    <Data IsEnabled="true" Value="LisaProduct"/>
+                                <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                                    <Data IsEnabled="true" Value="Products"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>

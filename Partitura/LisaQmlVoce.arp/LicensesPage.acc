@@ -2,14 +2,66 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5423" Description="ACF"/>
+            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="CollectionHeadersProvider" PackageId="ImtColPck" ComponentId="CollectionHeadersProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FilterableHeaderIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>licenseName</Value>
+                                <Value>licenseId</Value>
+                                <Value>description</Value>
+                                <Value>productId</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeaderIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>licenseName</Value>
+                                <Value>licenseId</Value>
+                                <Value>description</Value>
+                                <Value>productId</Value>
+                                <Value>added</Value>
+                                <Value>timeStamp</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="HeaderNames" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>License Name</Value>
+                                <Value>License-ID</Value>
+                                <Value>Description</Value>
+                                <Value>Product-ID</Value>
+                                <Value>Added</Value>
+                                <Value>Last Modified</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SortableHeaderIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>licenseName</Value>
+                                <Value>licenseId</Value>
+                                <Value>description</Value>
+                                <Value>productId</Value>
+                                <Value>added</Value>
+                                <Value>timeStamp</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Demultiplexer" PackageId="ImtServerGqlPck" ComponentId="GraphQLDemultiplexer">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -27,55 +79,6 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="HeadersDataProvider" PackageId="ImtServerGqlPck" ComponentId="HeadersDataProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="EnableVerbose" Type="Boolean" ExportId="EnableVerbose">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>licenseName</Value>
-                                <Value>licenseId</Value>
-                                <Value>description</Value>
-                                <Value>productId</Value>
-                                <Value>added</Value>
-                                <Value>timeStamp</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="HeadersNames" Type="Text[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>License Name</Value>
-                                <Value>License-ID</Value>
-                                <Value>Description</Value>
-                                <Value>Product-ID</Value>
-                                <Value>Added</Value>
-                                <Value>Last Modified</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="SearchByFilterIds" Type="String[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>licenseName</Value>
-                                <Value>licenseId</Value>
-                                <Value>description</Value>
-                                <Value>productId</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -101,29 +104,14 @@
         <Element Id="LicenseCollectionController" PackageId="ImtLicenseGqlPck" ComponentId="LicenseCollectionController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>LicensesInfo</Value>
-                                <Value>LicensesList</Value>
-                                <Value>LicenseItem</Value>
-                                <Value>LicenseUpdate</Value>
-                                <Value>LicenseAdd</Value>
-                                <Value>LicensesRemove</Value>
-                                <Value>LicensesMetaInfo</Value>
-                                <Value>LicensesObjectView</Value>
-                                <Value></Value>
-                            </Values>
-                        </Data>
+                    <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Licenses"/>
                     </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="HeadersDataProvider"/>
+                        <Data IsEnabled="true" Value="CollectionHeadersProvider"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LicenseFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="IdentifiableLicenseInfo"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ListObjectCommand" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="LicensesList"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>

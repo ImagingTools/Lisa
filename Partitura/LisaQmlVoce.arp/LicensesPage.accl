@@ -2,14 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5332" Description="ACF"/>
-            <Version Id="1" Number="2230" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5423" Description="ACF"/>
+            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="CollectionHeadersProvider" X="1050" Y="500" Note=""/>
         <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
-        <Element ComponentName="HeadersDataProvider" X="825" Y="500" Note=""/>
         <Element ComponentName="IdentifiableLicenseInfo" X="400" Y="500" Note=""/>
         <Element ComponentName="LicenseCollectionCommands" X="750" Y="250" Note=""/>
         <Element ComponentName="LicenseCollectionController" X="1050" Y="300" Note=""/>

@@ -2,22 +2,21 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5385" Description="ACF"/>
-            <Version Id="1" Number="2247" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5423" Description="ACF"/>
+            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="CompactXmlFileSerializer" X="525" Y="425" Note=""/>
-        <Element ComponentName="Demultiplexer" X="575" Y="75" Note=""/>
-        <Element ComponentName="IdentifiableProductInfo" X="1050" Y="525" Note=""/>
-        <Element ComponentName="ProductCommands" X="425" Y="250" Note=""/>
-        <Element ComponentName="ProductInfo" X="1075" Y="625" Note=""/>
+        <Element ComponentName="CollectionHeadersProvider" X="775" Y="425" Note=""/>
+        <Element ComponentName="CompactXmlFileSerializer" X="475" Y="425" Note=""/>
+        <Element ComponentName="Demultiplexer" X="600" Y="75" Note=""/>
+        <Element ComponentName="IdentifiableProductInfo" X="900" Y="575" Note=""/>
+        <Element ComponentName="ProductCommands" X="400" Y="250" Note=""/>
+        <Element ComponentName="ProductInfoFileGenerator" X="1050" Y="425" Note=""/>
         <Element ComponentName="ProductsCommands" X="150" Y="250" Note=""/>
-        <Element ComponentName="ProductsController" X="700" Y="250" Note=""/>
-        <Element ComponentName="ProductsHeadersDataProvider" X="800" Y="525" Note=""/>
-        <Element ComponentName="SerializableProductCollectionController" X="1025" Y="250" Note=""/>
-        <Element ComponentName="TranslatableProductInfoFileGenerator" X="875" Y="425" Note=""/>
+        <Element ComponentName="ProductsController" X="875" Y="250" Note=""/>
+        <Element ComponentName="SerializableProductCollectionController" X="750" Y="675" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="ProductsCommands">
