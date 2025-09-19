@@ -11,7 +11,7 @@
         <Element ComponentName="CollectionHeadersProvider" X="775" Y="425" Note=""/>
         <Element ComponentName="CompactXmlFileSerializer" X="475" Y="425" Note=""/>
         <Element ComponentName="Demultiplexer" X="600" Y="75" Note=""/>
-        <Element ComponentName="IdentifiableProductInfo" X="900" Y="575" Note=""/>
+        <Element ComponentName="IdentifiableProductInfo" X="850" Y="575" Note=""/>
         <Element ComponentName="ProductCommands" X="400" Y="250" Note=""/>
         <Element ComponentName="ProductInfoFileGenerator" X="1050" Y="425" Note=""/>
         <Element ComponentName="ProductsCommands" X="150" Y="250" Note=""/>
