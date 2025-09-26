@@ -404,7 +404,7 @@
                     <Element Id="StandardCollectionCommands" PackageId="ImtCoreVoce" ComponentId="StandardCollectionCommands">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="EditCommandName" Type="String" ExportId="">
+                                <AttributeInfo Id="EditCommandName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Edit"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="EditPermissions" Type="Id[]" ExportId="">
@@ -419,7 +419,7 @@
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="NewCommandName" Type="String" ExportId="">
+                                <AttributeInfo Id="NewCommandName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="New feature"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="NewPermissions" Type="Id[]" ExportId="">
@@ -429,7 +429,7 @@
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
-                                <AttributeInfo Id="RemoveCommandName" Type="String" ExportId="">
+                                <AttributeInfo Id="RemoveCommandName" Type="Text" ExportId="">
                                     <Data IsEnabled="true" Value="Remove"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RemovePermissions" Type="Id[]" ExportId="">
