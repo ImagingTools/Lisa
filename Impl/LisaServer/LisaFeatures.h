@@ -65,6 +65,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewFeaturesFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Features"));
 	viewFeaturesFeatureInfo->SetOptional(false);
 	viewFeaturesFeatureInfo->SetIsPermission(true);
+	viewFeaturesFeatureInfo->SetDependencies(QByteArray("EditFeature;ChangeFeature;RemoveFeature;AddFeature").split(';'));
 
 	featureManagementFeatureInfo->InsertSubFeature(viewFeaturesFeatureInfo.PopPtr());
 
@@ -120,6 +121,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewProductsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Products"));
 	viewProductsFeatureInfo->SetOptional(false);
 	viewProductsFeatureInfo->SetIsPermission(true);
+	viewProductsFeatureInfo->SetDependencies(QByteArray("EditProduct;ChangeProduct;RemoveProduct;AddProduct").split(';'));
 
 	productManagementFeatureInfo->InsertSubFeature(viewProductsFeatureInfo.PopPtr());
 
@@ -175,6 +177,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewLicensesDefinitionFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Licenses Definition"));
 	viewLicensesDefinitionFeatureInfo->SetOptional(false);
 	viewLicensesDefinitionFeatureInfo->SetIsPermission(true);
+	viewLicensesDefinitionFeatureInfo->SetDependencies(QByteArray("EditLicenseDefinition;ChangeLicenseDefinition;RemoveLicenseDefinition;AddLicenseDefinition").split(';'));
 
 	licenseDefinitionManagementFeatureInfo->InsertSubFeature(viewLicensesDefinitionFeatureInfo.PopPtr());
 
@@ -311,6 +314,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewAdministrationFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Administration"));
 	viewAdministrationFeatureInfo->SetOptional(false);
 	viewAdministrationFeatureInfo->SetIsPermission(true);
+	viewAdministrationFeatureInfo->SetDependencies(QByteArray("EditAdministration;EditGroup;ChangeGroup;RemoveGroup;AddGroup;EditRole;ChangeRole;RemoveRole;AddRole;EditUser;ChangeUser;RemoveUser;AddUser").split(';'));
 
 	istd::TDelPtr<imtlic::CFeatureInfo> viewGroupHistoryFeatureInfo;
 	viewGroupHistoryFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
@@ -345,6 +349,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewGroupsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Groups"));
 	viewGroupsFeatureInfo->SetOptional(false);
 	viewGroupsFeatureInfo->SetIsPermission(true);
+	viewGroupsFeatureInfo->SetDependencies(QByteArray("EditGroup;ChangeGroup;RemoveGroup;AddGroup").split(';'));
 
 	viewAdministrationFeatureInfo->InsertSubFeature(viewGroupsFeatureInfo.PopPtr());
 
@@ -354,6 +359,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewUsersFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Users"));
 	viewUsersFeatureInfo->SetOptional(false);
 	viewUsersFeatureInfo->SetIsPermission(true);
+	viewUsersFeatureInfo->SetDependencies(QByteArray("EditUser;ChangeUser;RemoveUser;AddUser").split(';'));
 
 	viewAdministrationFeatureInfo->InsertSubFeature(viewUsersFeatureInfo.PopPtr());
 
@@ -363,6 +369,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	viewRolesFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Roles"));
 	viewRolesFeatureInfo->SetOptional(false);
 	viewRolesFeatureInfo->SetIsPermission(true);
+	viewRolesFeatureInfo->SetDependencies(QByteArray("EditRole;ChangeRole;RemoveRole;AddRole").split(';'));
 
 	viewAdministrationFeatureInfo->InsertSubFeature(viewRolesFeatureInfo.PopPtr());
 
@@ -424,6 +431,46 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	revisionManagementFeatureInfo->InsertSubFeature(restoreRevisionFeatureInfo.PopPtr());
 
 	productInfo.AddFeature("c52f36c9-0dbe-49f0-84a7-f59116bd7225", *revisionManagementFeatureInfo.GetPtr());
+
+	istd::TDelPtr<imtlic::CIdentifiableFeatureInfo> workspaceManagementFeatureInfo;
+	workspaceManagementFeatureInfo.SetPtr(new imtlic::CIdentifiableFeatureInfo);
+	workspaceManagementFeatureInfo->SetObjectUuid("df22ac46-7253-4b13-a1b8-d4391943adde");
+	workspaceManagementFeatureInfo->SetFeatureId("WorkspaceManagement");
+	workspaceManagementFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Workspace Management"));
+	workspaceManagementFeatureInfo->SetOptional(false);
+	workspaceManagementFeatureInfo->SetIsPermission(true);
+
+	istd::TDelPtr<imtlic::CFeatureInfo> viewWorkspaceFeatureInfo;
+	viewWorkspaceFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
+	viewWorkspaceFeatureInfo->SetFeatureId("ViewWorkspace");
+	viewWorkspaceFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Workspace"));
+	viewWorkspaceFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "View workspace page"));
+	viewWorkspaceFeatureInfo->SetOptional(false);
+	viewWorkspaceFeatureInfo->SetIsPermission(true);
+
+	workspaceManagementFeatureInfo->InsertSubFeature(viewWorkspaceFeatureInfo.PopPtr());
+
+	istd::TDelPtr<imtlic::CFeatureInfo> viewUserActionsFeatureInfo;
+	viewUserActionsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
+	viewUserActionsFeatureInfo->SetFeatureId("ViewUserActions");
+	viewUserActionsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View User Actions"));
+	viewUserActionsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "View only your activity"));
+	viewUserActionsFeatureInfo->SetOptional(false);
+	viewUserActionsFeatureInfo->SetIsPermission(true);
+
+	workspaceManagementFeatureInfo->InsertSubFeature(viewUserActionsFeatureInfo.PopPtr());
+
+	istd::TDelPtr<imtlic::CFeatureInfo> viewAllUserActionsFeatureInfo;
+	viewAllUserActionsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
+	viewAllUserActionsFeatureInfo->SetFeatureId("ViewAllUserActions");
+	viewAllUserActionsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View All User Actions"));
+	viewAllUserActionsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "View the activity of all users"));
+	viewAllUserActionsFeatureInfo->SetOptional(false);
+	viewAllUserActionsFeatureInfo->SetIsPermission(true);
+
+	workspaceManagementFeatureInfo->InsertSubFeature(viewAllUserActionsFeatureInfo.PopPtr());
+
+	productInfo.AddFeature("df22ac46-7253-4b13-a1b8-d4391943adde", *workspaceManagementFeatureInfo.GetPtr());
 
 }
 
