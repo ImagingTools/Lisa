@@ -19,19 +19,19 @@
         <Element ComponentName="SerializableProductCollectionController" X="750" Y="675" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="ProductsCommands">
-            <PositionMap>
-                <Element ComponentName="CommandsController" X="550" Y="125" Note=""/>
-                <Element ComponentName="StandardCollectionCommands" X="575" Y="300" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="ProductCommands">
             <PositionMap>
                 <Element ComponentName="CommandsController" X="600" Y="100" Note=""/>
                 <Element ComponentName="New" X="650" Y="250" Note=""/>
                 <Element ComponentName="Remove" X="650" Y="400" Note=""/>
                 <Element ComponentName="StandardDocumentCommands" X="250" Y="250" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="ProductsCommands">
+            <PositionMap>
+                <Element ComponentName="CommandsController" X="550" Y="125" Note=""/>
+                <Element ComponentName="StandardCollectionCommands" X="575" Y="300" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

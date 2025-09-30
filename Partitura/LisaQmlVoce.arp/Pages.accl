@@ -18,6 +18,18 @@
         <Element ComponentName="ProductsPage" X="375" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="PageData">
+            <PositionMap>
+                <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
+                <Element ComponentName="FeaturesPage" X="173.585786438" Y="225" Note=""/>
+                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
+                <Element ComponentName="LicensesPage" X="950" Y="225" Note=""/>
+                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
+                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
+                <Element ComponentName="ProductsPage" X="550" Y="225" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="PagesPermissions">
             <PositionMap>
                 <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
@@ -25,18 +37,6 @@
                 <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
                 <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
                 <Element ComponentName="ProductsPermissions" X="550" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="PageData">
-            <PositionMap>
-                <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
-                <Element ComponentName="FeaturesPage" X="175" Y="225" Note=""/>
-                <Element ComponentName="FeaturesPermissions" X="150" Y="525" Note=""/>
-                <Element ComponentName="LicensesPage" X="950" Y="225" Note=""/>
-                <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
-                <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
-                <Element ComponentName="ProductsPage" X="550" Y="225" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

@@ -18,6 +18,14 @@
         <Element ComponentName="ServerPageData" X="175" Y="225" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Repositories">
+            <PositionMap>
+                <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
+                <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
+                <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Migrations">
             <PositionMap>
                 <Element ComponentName="CompositeMigrationController" X="600" Y="125" Note=""/>
@@ -26,14 +34,6 @@
                 <Element ComponentName="MigrationFilePath" X="800" Y="475" Note=""/>
                 <Element ComponentName="ObjectCollectionMigrationController" X="250" Y="275" Note=""/>
                 <Element ComponentName="SystemLocation" X="800" Y="625" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Repositories">
-            <PositionMap>
-                <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
-                <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
-                <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

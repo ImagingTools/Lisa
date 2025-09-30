@@ -13,6 +13,9 @@
         <Element Id="AuthorizableServerFramework" PackageId="ImtHttpServerVoce" ComponentId="AuthorizableServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/Backup"/>
                     </AttributeInfo>
@@ -137,6 +140,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaLocalization"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserActionManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/UserActionManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="UserCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/UserRemoteRepository"/>

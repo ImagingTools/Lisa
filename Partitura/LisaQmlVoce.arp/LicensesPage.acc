@@ -107,6 +107,9 @@
                     <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Licenses"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="CollectionName" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Licenses"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="HeadersProvider" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="CollectionHeadersProvider"/>
                     </AttributeInfo>
@@ -153,7 +156,13 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserActionManager" Type="Reference" ExportId="UserActionManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">

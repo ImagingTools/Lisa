@@ -97,6 +97,9 @@
                     <AttributeInfo Id="CollectionId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Features"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="CollectionName" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Features"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="FeatureFactory" Type="Factory" ExportId="">
                         <Data IsEnabled="true" Value="IdentifiableFeatureInfo"/>
                     </AttributeInfo>
@@ -139,6 +142,9 @@
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="UserActionManager" Type="Reference" ExportId="UserActionManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
