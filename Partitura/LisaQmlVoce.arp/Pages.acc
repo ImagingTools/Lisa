@@ -323,9 +323,6 @@
                                 <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="FeatureCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
-                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureInfoProvider"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="LicenseCollection">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
