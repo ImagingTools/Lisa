@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5423" Description="ACF"/>
-            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5430" Description="ACF"/>
+            <Version Id="1" Number="2253" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -18,16 +18,6 @@
         <Element ComponentName="ProductsPage" X="375" Y="450" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="PagesPermissions">
-            <PositionMap>
-                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
-                <Element ComponentName="LicnsesPermissions" X="575" Y="500" Note=""/>
-                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
-                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
-                <Element ComponentName="ProductsPermissions" X="550" Y="375" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="PageData">
             <PositionMap>
                 <Element ComponentName="FeatureInfoProvider" X="550" Y="100" Note=""/>
@@ -37,6 +27,16 @@
                 <Element ComponentName="PermissionsChecker" X="375" Y="525" Note=""/>
                 <Element ComponentName="ProductPermissions" X="625" Y="525" Note=""/>
                 <Element ComponentName="ProductsPage" X="550" Y="225" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="PagesPermissions">
+            <PositionMap>
+                <Element ComponentName="AdministrationPermissions" X="900" Y="400" Note=""/>
+                <Element ComponentName="LicnsesPermissions" X="575" Y="500" Note=""/>
+                <Element ComponentName="PackagesPermissions" X="250" Y="400" Note=""/>
+                <Element ComponentName="PagePermissions" X="600" Y="150" Note=""/>
+                <Element ComponentName="ProductsPermissions" X="550" Y="375" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

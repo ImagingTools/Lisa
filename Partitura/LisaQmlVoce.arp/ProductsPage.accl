@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5423" Description="ACF"/>
-            <Version Id="1" Number="2252" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5430" Description="ACF"/>
+            <Version Id="1" Number="2253" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -16,7 +16,6 @@
         <Element ComponentName="ProductInfoFileGenerator" X="1050" Y="425" Note=""/>
         <Element ComponentName="ProductsCommands" X="150" Y="250" Note=""/>
         <Element ComponentName="ProductsController" X="875" Y="250" Note=""/>
-        <Element ComponentName="SerializableProductCollectionController" X="750" Y="675" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="ProductCommands">
