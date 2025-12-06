@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5430" Description="ACF"/>
-            <Version Id="1" Number="2253" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="395264" Description="Qt Framework"/>
+            <Version Id="0" Number="5436" Description="ACF"/>
+            <Version Id="1" Number="2254" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="395266" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -278,9 +278,9 @@
                                 <AttributeInfo Id="MigrationControllers" Type="Reference[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>MigrationController</Value>
-                                            <Value>ObjectCollectionMigrationController</Value>
-                                            <Value>MigrationController_1</Value>
+                                            <Value>MigrationController_0_13</Value>
+                                            <Value>Migration_14</Value>
+                                            <Value>MigrationController_15</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -290,7 +290,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="MigrationController" PackageId="ImtDatabasePck" ComponentId="MigrationController">
+                    <Element Id="MigrationController_0_13" PackageId="ImtDatabasePck" ComponentId="MigrationController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -314,7 +314,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="MigrationController_1" PackageId="ImtDatabasePck" ComponentId="MigrationController">
+                    <Element Id="MigrationController_15" PackageId="ImtDatabasePck" ComponentId="MigrationController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -353,7 +353,7 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
-                    <Element Id="ObjectCollectionMigrationController" PackageId="ImtDatabasePck" ComponentId="ObjectCollectionMigrationController">
+                    <Element Id="Migration_14" PackageId="ImtDatabasePck" ComponentId="ObjectCollectionMigrationController">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
@@ -545,9 +545,6 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
-                                    <Data IsEnabled="false"/>
-                                </AttributeInfo>
-                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="FeatureInfoProvider">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
