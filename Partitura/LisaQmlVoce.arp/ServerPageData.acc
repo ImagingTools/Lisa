@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5398" Description="ACF"/>
-            <Version Id="1" Number="2250" Description="ACF-Solutions"/>
+            <Version Id="0" Number="5445" Description="ACF"/>
+            <Version Id="1" Number="2257" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -244,6 +244,9 @@
                 <AttributeInfoMap>
                     <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaHost" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="localhost"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="8776"/>
