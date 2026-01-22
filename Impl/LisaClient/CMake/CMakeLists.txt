@@ -36,7 +36,7 @@ message(VERBOSE "PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 
 target_link_libraries(${PROJECT_NAME} lisaqml)
 target_link_libraries(${PROJECT_NAME} LisaLoc ImtCoreLoc AcfLoc AcfSlnLoc)
-target_link_libraries(${PROJECT_NAME} imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml imtlicsdl imtauthsdl imtappsdl imtcolorsdl)
+target_link_libraries(${PROJECT_NAME} imtgui imtauth imtauthgui imtlic imtlicgui imtrest imtstyle imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml imtlicsdl imtauthsdl imtappsdl imtcolorsdl imt2dsdl)
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtservergql imtcol imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml)
 target_link_libraries(${PROJECT_NAME} imtbase imtbasesdl imtserverapp imtapp)
 target_link_libraries(${PROJECT_NAME} iqtgui)
