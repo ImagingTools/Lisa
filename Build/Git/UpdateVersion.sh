@@ -1,10 +1,13 @@
 #!/bin/bash
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 FILE="../../Partitura/LisaVoce.arp/VersionInfo.acc.xtrsvn"
 
-# Fetch latest changes
-git fetch --prune --unshallow 2>/dev/null
+# Fetch latest changes (silently handle both shallow and complete repos)
+git fetch --prune 2>/dev/null
+if git rev-parse --is-shallow-repository 2>/dev/null | grep -q "true"; then
+    git fetch --prune --unshallow 2>/dev/null
+fi
 
 # Get revision count
 REV=$(git rev-list --count origin/master 2>/dev/null)
