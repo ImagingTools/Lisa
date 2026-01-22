@@ -24,7 +24,7 @@ include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 target_link_libraries(${PROJECT_NAME} lisaqml LisaLoc ImtCoreLoc AcfLoc AcfSlnLoc)
-target_link_libraries(${PROJECT_NAME} imtlicsdl imtappsdl imtauthsdl imtcolorsdl)
+target_link_libraries(${PROJECT_NAME} imtlicsdl imtappsdl imtauthsdl imtcolorsdl imt2dsdl)
 
 target_link_libraries(${PROJECT_NAME} imtmail imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrepo imtstyle imtqml imtdb imtfile imtcom imtservergql imtcol)
 target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtservice imtlog)
