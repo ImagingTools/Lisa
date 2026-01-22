@@ -31,7 +31,7 @@ if(DEFINED WEB_COMPILE AND WEB_COMPILE)
 endif()
 
 target_link_libraries(${PROJECT_NAME} imtrest imtgui imtqml imtguiqml imtguigql imtauth imtdb imtfile imtservice imtcom imtauthsdl imtappsdl imtcolorsdl imtgql imt2dsdl)
-target_link_libraries(${PROJECT_NAME} imtstylecontrolsqml imtcontrolsqml imtguigqlqml imtauthguiqml imtcolguiqml imtdocguiqml imtlicguiqml imtauthgui imtstyle imtlicgui imt2d)
+target_link_libraries(${PROJECT_NAME} imtstylecontrolsqml imtcontrolsqml imtguigqlqml imtauthguiqml imtcolguiqml imtdocguiqml imtlicguiqml imtauthgui imtstyle imtlicgui)
 target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc AcfLoc AcfSlnLoc)
 target_link_libraries(${PROJECT_NAME} imtbase imtbasesdl imtserverapp imtapp)
 target_link_libraries(${PROJECT_NAME} iqtgui)
