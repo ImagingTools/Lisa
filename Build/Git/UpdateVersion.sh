@@ -1,0 +1,46 @@
+#!/bin/bash
+
+cd "$(dirname "$0")" || exit 1
+FILE="../../Partitura/LisaVoce.arp/VersionInfo.acc.xtrsvn"
+
+# Fetch latest changes (silently handle both shallow and complete repos)
+git fetch 2>/dev/null
+if git rev-parse --is-shallow-repository 2>/dev/null | grep -q "true"; then
+    git fetch --unshallow 2>/dev/null
+fi
+
+# Get revision count (try origin/master first, then origin/main, then HEAD)
+REV=$(git rev-list --count origin/master 2>/dev/null)
+if [ -z "$REV" ]; then
+    REV=$(git rev-list --count origin/main 2>/dev/null)
+fi
+if [ -z "$REV" ]; then
+    REV=$(git rev-list --count HEAD 2>/dev/null)
+fi
+if [ -z "$REV" ]; then
+    echo "Failed to compute revision count."
+    exit 1
+fi
+
+# Validate that REV is numeric
+if ! [[ "$REV" =~ ^[0-9]+$ ]]; then
+    echo "Error: Invalid revision count: $REV"
+    exit 1
+fi
+
+# Check if working directory is dirty
+if git diff-index --quiet HEAD -- 2>/dev/null; then
+    DIRTY=0
+else
+    DIRTY=1
+fi
+
+echo "Git revision: $REV, dirty: $DIRTY"
+echo "Processing file: $FILE"
+
+OUT="${FILE%.xtrsvn}"
+
+# Process the file and replace placeholders (using validated numeric values)
+sed -e "s/\\\$WCREV\\\$/$REV/g" -e "s/\\\$WCMODS?1:0\\\$/$DIRTY/g" "$FILE" > "$OUT"
+
+echo "Wrote $OUT with WCREV=$REV and WCMODS=$DIRTY"
