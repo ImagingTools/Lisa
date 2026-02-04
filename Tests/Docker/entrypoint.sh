@@ -44,23 +44,35 @@ wait_for_service() {
 if [ "${START_POSTGRESQL:-false}" = "true" ]; then
     echo -e "${YELLOW}Step 1: Starting PostgreSQL...${NC}"
     
-    # Initialize PostgreSQL data directory if it doesn't exist
-    if [ ! -d "/var/lib/postgresql/data" ]; then
-        mkdir -p /var/lib/postgresql/data
-        chown -R postgres:postgres /var/lib/postgresql
-        su - postgres -c "/usr/lib/postgresql/*/bin/initdb -D /var/lib/postgresql/data"
-    fi
+    # Find PostgreSQL binary directory
+    PG_BIN_DIR=$(find /usr/lib/postgresql -name bin -type d 2>/dev/null | head -1)
     
-    # Start PostgreSQL
-    su - postgres -c "/usr/lib/postgresql/*/bin/pg_ctl -D /var/lib/postgresql/data -l /var/log/postgresql/postgresql.log start"
-    
-    # Wait for PostgreSQL to be ready
-    wait_for_service "PostgreSQL" "su - postgres -c 'psql -c \"SELECT 1\"'"
-    
-    # Create test database if specified
-    if [ -n "${POSTGRES_DB}" ]; then
-        echo -e "${YELLOW}Creating database: ${POSTGRES_DB}${NC}"
-        su - postgres -c "psql -c \"CREATE DATABASE ${POSTGRES_DB}\"" || echo "Database may already exist"
+    if [ -z "$PG_BIN_DIR" ]; then
+        echo -e "${RED}✗ PostgreSQL not found in /usr/lib/postgresql${NC}"
+        echo -e "${YELLOW}Continuing without PostgreSQL...${NC}"
+    else
+        # Create log directory
+        mkdir -p /var/log/postgresql
+        chown -R postgres:postgres /var/log/postgresql
+        
+        # Initialize PostgreSQL data directory if it doesn't exist
+        if [ ! -d "/var/lib/postgresql/data" ]; then
+            mkdir -p /var/lib/postgresql/data
+            chown -R postgres:postgres /var/lib/postgresql
+            su - postgres -c "$PG_BIN_DIR/initdb -D /var/lib/postgresql/data"
+        fi
+        
+        # Start PostgreSQL
+        su - postgres -c "$PG_BIN_DIR/pg_ctl -D /var/lib/postgresql/data -l /var/log/postgresql/postgresql.log start"
+        
+        # Wait for PostgreSQL to be ready
+        wait_for_service "PostgreSQL" "su - postgres -c 'psql -c \"SELECT 1\"'"
+        
+        # Create test database if specified
+        if [ -n "${POSTGRES_DB}" ]; then
+            echo -e "${YELLOW}Creating database: ${POSTGRES_DB}${NC}"
+            su - postgres -c "psql -c \"CREATE DATABASE ${POSTGRES_DB}\"" || echo "Database may already exist"
+        fi
     fi
 else
     echo -e "${YELLOW}Step 1: PostgreSQL startup skipped (START_POSTGRESQL not set to true)${NC}"
@@ -72,22 +84,26 @@ if [ -d "/app/custom-apps" ]; then
     
     # Run installer scripts first (if any)
     if [ -d "/app/custom-apps/installers" ]; then
+        shopt -s nullglob
         for installer in /app/custom-apps/installers/*.sh; do
             if [ -f "$installer" ] && [ -x "$installer" ]; then
                 echo -e "${YELLOW}Running installer: $(basename $installer)${NC}"
                 "$installer"
             fi
         done
+        shopt -u nullglob
     fi
     
     # Run startup scripts in order (01-*, 02-*, etc.)
     if [ -d "/app/custom-apps/startup" ]; then
+        shopt -s nullglob
         for startup_script in /app/custom-apps/startup/*.sh; do
             if [ -f "$startup_script" ] && [ -x "$startup_script" ]; then
                 echo -e "${YELLOW}Running startup script: $(basename $startup_script)${NC}"
                 "$startup_script"
             fi
         done
+        shopt -u nullglob
     fi
     
     echo -e "${GREEN}✓ Custom applications initialized${NC}"

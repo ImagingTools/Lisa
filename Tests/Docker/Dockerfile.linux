@@ -76,7 +76,7 @@ RUN chmod +x /app/entrypoint.sh
 # Copy custom application installers and startup scripts (if they exist)
 # Users should place their installers in Tests/Docker/apps/installers/
 # and startup scripts in Tests/Docker/apps/startup/
-COPY Tests/Docker/apps/ /app/custom-apps/ 2>/dev/null || true
+COPY Tests/Docker/apps/ /app/custom-apps/
 
 # Environment variables (can be overridden at runtime)
 ENV BASE_URL=http://localhost:3000

@@ -42,10 +42,16 @@ if ($env:START_POSTGRESQL -eq "true") {
     Write-Host "Step 1: Starting PostgreSQL..." -ForegroundColor Yellow
     
     # Find PostgreSQL installation
-    $pgPath = Get-ChildItem "C:\Program Files\PostgreSQL" -Directory | Select-Object -First 1
+    $pgPath = Get-ChildItem "C:\Program Files\PostgreSQL" -Directory -ErrorAction SilentlyContinue | Select-Object -First 1
     if ($pgPath) {
         $pgBin = Join-Path $pgPath.FullName "bin"
         $pgData = "C:\PostgreSQL\data"
+        $pgLog = "C:\PostgreSQL"
+        
+        # Create log directory if needed
+        if (-not (Test-Path $pgLog)) {
+            New-Item -ItemType Directory -Path $pgLog -Force | Out-Null
+        }
         
         # Initialize database if needed
         if (-not (Test-Path $pgData)) {
@@ -55,7 +61,7 @@ if ($env:START_POSTGRESQL -eq "true") {
         }
         
         # Start PostgreSQL
-        & "$pgBin\pg_ctl.exe" -D $pgData -l "C:\PostgreSQL\logfile.log" start
+        & "$pgBin\pg_ctl.exe" -D $pgData -l "$pgLog\logfile.log" start
         
         # Wait for PostgreSQL
         Wait-ForService "PostgreSQL" {
@@ -69,7 +75,7 @@ if ($env:START_POSTGRESQL -eq "true") {
             & "$pgBin\psql.exe" -U postgres -c "CREATE DATABASE $env:POSTGRES_DB" 2>$null
         }
     } else {
-        Write-Host "[WARNING] PostgreSQL installation not found" -ForegroundColor Yellow
+        Write-Host "[WARNING] PostgreSQL installation not found in C:\Program Files\PostgreSQL" -ForegroundColor Yellow
     }
 } else {
     Write-Host "Step 1: PostgreSQL startup skipped (START_POSTGRESQL not set)" -ForegroundColor Yellow
