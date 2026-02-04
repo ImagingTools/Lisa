@@ -626,6 +626,40 @@ npx playwright install --with-deps
 chmod +x Scripts/*.sh
 ```
 
+#### Issue: Shell scripts fail with "bad interpreter" or "exec format error" in Docker
+
+**Symptom**: Docker container fails to start with errors like:
+- `exec /app/entrypoint.sh: no such file or directory`
+- `exec format error`
+- `/bin/bash^M: bad interpreter: No such file or directory`
+
+**Cause**: Shell scripts have CRLF line endings (Windows-style) instead of LF (Unix-style), or contain UTF-8 BOM.
+
+**Solution**: The repository now includes a `.gitattributes` file that automatically enforces LF line endings for all shell scripts. If you're experiencing this issue:
+
+1. Verify your scripts have correct line endings:
+   ```bash
+   # From the Tests directory
+   ./Scripts/validate-shell-scripts.sh
+   ```
+
+2. If needed, manually fix line endings:
+   ```bash
+   # Remove CRLF and BOM from all shell scripts
+   find Tests -name "*.sh" -type f -exec dos2unix {} \;
+   # Or using sed
+   find Tests -name "*.sh" -type f -exec sed -i 's/\r$//' {} \;
+   find Tests -name "*.sh" -type f -exec sed -i '1s/^\xEF\xBB\xBF//' {} \;
+   ```
+
+3. Ensure Git is configured to respect `.gitattributes`:
+   ```bash
+   # Re-normalize line endings after pulling
+   git add --renormalize .
+   ```
+
+**Prevention**: The `.gitattributes` file at the repository root ensures that shell scripts always use LF line endings, regardless of your operating system or Git configuration.
+
 #### Issue: Newman not finding collection
 
 **Symptom**: "Could not find collection file"
