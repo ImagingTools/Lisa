@@ -1,0 +1,52 @@
+# Dockerfile for running tests in Windows environment
+# This uses Windows Server Core as base image
+# 
+# Note: Building Windows containers requires:
+# - Windows 10/11 Pro or Windows Server
+# - Docker Desktop with Windows containers enabled
+# - Hyper-V feature enabled
+#
+# To adapt for your application:
+# 1. Add any Windows-specific dependencies
+# 2. Copy your application files
+# 3. Update test commands
+
+# Use Windows Server Core with Node.js
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
+
+# Install Chocolatey package manager
+RUN powershell -Command \
+    Set-ExecutionPolicy Bypass -Scope Process -Force; \
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+    iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+# Install Node.js via Chocolatey
+RUN choco install -y nodejs --version=18.19.0
+
+# Refresh environment variables
+RUN refreshenv
+
+# Set working directory
+WORKDIR C:\\app\\tests
+
+# Copy package files
+COPY Tests/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Install Playwright browsers for Windows
+RUN npx playwright install --with-deps chromium
+
+# Copy test files
+COPY Tests/ ./
+
+# Create directories for test results
+RUN powershell -Command New-Item -ItemType Directory -Force -Path test-results/screenshots, test-results/videos
+
+# Environment variables
+ENV BASE_URL=http://host.docker.internal:3000
+ENV CI=true
+
+# Default command - run all tests
+CMD ["npm.cmd", "test"]

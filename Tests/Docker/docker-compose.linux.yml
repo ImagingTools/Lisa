@@ -1,0 +1,57 @@
+version: '3.8'
+
+# Docker Compose configuration for running tests in Linux containers
+# 
+# To adapt for your application:
+# 1. Update the 'app' service with your application configuration
+# 2. Adjust environment variables in the 'tests' service
+# 3. Add any additional services your app needs (database, redis, etc.)
+
+services:
+  # Example application service
+  # Replace this with your actual application
+  # app:
+  #   image: your-app:latest
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=test
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # Test runner service
+  tests:
+    build:
+      context: ../..
+      dockerfile: Tests/Docker/Dockerfile.linux
+    volumes:
+      # Mount test results to host for review
+      - ./test-results:/app/tests/test-results
+      # Mount test files for development (optional, comment out for production)
+      - ../GUI:/app/tests/GUI
+      - ../API:/app/tests/API
+    environment:
+      # Application URL - adjust based on your setup
+      # Use 'host.docker.internal' to access host machine
+      # Use service name to access other containers
+      - BASE_URL=${BASE_URL:-http://host.docker.internal:3000}
+      - CI=true
+      # Add any other environment variables your tests need
+      - TEST_USERNAME=${TEST_USERNAME:-testuser}
+      - TEST_PASSWORD=${TEST_PASSWORD:-testpassword}
+    # Uncomment if your tests depend on the app service
+    # depends_on:
+    #   app:
+    #     condition: service_healthy
+    network_mode: "host"
+    # Alternative: use custom network if not using host mode
+    # networks:
+    #   - test-network
+
+# Uncomment if using custom network
+# networks:
+#   test-network:
+#     driver: bridge

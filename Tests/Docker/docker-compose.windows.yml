@@ -1,0 +1,53 @@
+version: '3.8'
+
+# Docker Compose configuration for running tests in Windows containers
+# 
+# Note: This requires Docker Desktop on Windows with Windows containers enabled
+#
+# To adapt for your application:
+# 1. Update the 'app' service with your application configuration
+# 2. Adjust environment variables in the 'tests' service
+# 3. Add any additional services your app needs
+
+services:
+  # Example application service (Windows version)
+  # Replace this with your actual application
+  # app:
+  #   image: your-app-windows:latest
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - NODE_ENV=test
+  #   platform: windows/amd64
+
+  # Test runner service
+  tests:
+    build:
+      context: ../..
+      dockerfile: Tests/Docker/Dockerfile.windows
+    platform: windows/amd64
+    volumes:
+      # Mount test results to host for review
+      - type: bind
+        source: ./test-results
+        target: C:/app/tests/test-results
+      # Mount test files for development (optional)
+      - type: bind
+        source: ../GUI
+        target: C:/app/tests/GUI
+      - type: bind
+        source: ../API
+        target: C:/app/tests/API
+    environment:
+      # Application URL - adjust based on your setup
+      - BASE_URL=${BASE_URL:-http://host.docker.internal:3000}
+      - CI=true
+      # Add any other environment variables your tests need
+      - TEST_USERNAME=${TEST_USERNAME:-testuser}
+      - TEST_PASSWORD=${TEST_PASSWORD:-testpassword}
+    # Uncomment if your tests depend on the app service
+    # depends_on:
+    #   - app
+
+# Note: Windows containers may require additional configuration
+# for networking. Consult Docker documentation for Windows containers.

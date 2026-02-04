@@ -1,0 +1,271 @@
+{
+  "info": {
+    "name": "Lisa API Tests - Example Collection",
+    "description": "Example API test collection for Lisa application. Adapt this for your application's API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "GET Health Status",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Test that the API is responding",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "pm.test(\"Response time is less than 2000ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+                  "});",
+                  "",
+                  "// Example: Check response body",
+                  "pm.test(\"Response has valid body\", function () {",
+                  "    pm.response.to.be.json;",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/health",
+              "host": ["{{BASE_URL}}"],
+              "path": ["health"]
+            },
+            "description": "Basic health check endpoint. Adapt the URL to match your application's health endpoint."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "License Management",
+      "item": [
+        {
+          "name": "GET License List",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Test successful response",
+                  "pm.test(\"Status code is 200 or 404 (if endpoint doesn't exist yet)\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "// Only run these tests if endpoint exists",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"Response time is acceptable\", function () {",
+                  "        pm.expect(pm.response.responseTime).to.be.below(3000);",
+                  "    });",
+                  "    ",
+                  "    pm.test(\"Content-Type is present\", function () {",
+                  "        pm.response.to.have.header(\"Content-Type\");",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{BASE_URL}}/api/licenses",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "licenses"]
+            },
+            "description": "Example endpoint for getting license list. Update to match your API structure."
+          },
+          "response": []
+        },
+        {
+          "name": "POST Create License",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Test for creation or endpoint not found",
+                  "pm.test(\"Status code indicates creation or endpoint not found\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 404, 405]);",
+                  "});",
+                  "",
+                  "// Save created license ID if successful",
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    try {",
+                  "        var jsonData = pm.response.json();",
+                  "        if (jsonData.id) {",
+                  "            pm.environment.set(\"created_license_id\", jsonData.id);",
+                  "        }",
+                  "    } catch (e) {",
+                  "        console.log(\"Response is not JSON or doesn't have ID\");",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test License\",\n  \"type\": \"enterprise\",\n  \"duration\": 365\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/licenses",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "licenses"]
+            },
+            "description": "Example endpoint for creating a license. Update body and URL to match your API."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "GraphQL",
+      "item": [
+        {
+          "name": "GraphQL Query",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Test GraphQL response",
+                  "pm.test(\"Status code is 200 or 404\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+                  "});",
+                  "",
+                  "if (pm.response.code === 200) {",
+                  "    pm.test(\"Response is JSON\", function () {",
+                  "        pm.response.to.be.json;",
+                  "    });",
+                  "    ",
+                  "    pm.test(\"GraphQL response structure\", function () {",
+                  "        var jsonData = pm.response.json();",
+                  "        // Check for data or errors field (standard GraphQL response)",
+                  "        pm.expect(jsonData).to.have.property('data').or.to.have.property('errors');",
+                  "    });",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"query { __typename }\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/graphql",
+              "host": ["{{BASE_URL}}"],
+              "path": ["graphql"]
+            },
+            "description": "Example GraphQL query. Update to match your GraphQL schema."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "POST Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// Test authentication endpoint",
+                  "pm.test(\"Status code is in valid range\", function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201, 401, 404]);",
+                  "});",
+                  "",
+                  "// Save token if authentication successful",
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    try {",
+                  "        var jsonData = pm.response.json();",
+                  "        if (jsonData.token) {",
+                  "            pm.environment.set(\"auth_token\", jsonData.token);",
+                  "        }",
+                  "        if (jsonData.access_token) {",
+                  "            pm.environment.set(\"auth_token\", jsonData.access_token);",
+                  "        }",
+                  "    } catch (e) {",
+                  "        console.log(\"Could not extract token from response\");",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"{{TEST_USERNAME}}\",\n  \"password\": \"{{TEST_PASSWORD}}\"\n}"
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/api/auth/login",
+              "host": ["{{BASE_URL}}"],
+              "path": ["api", "auth", "login"]
+            },
+            "description": "Example authentication endpoint. Update to match your API."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}
