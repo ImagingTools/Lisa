@@ -6,6 +6,7 @@
 - ✅ **GUI тесты** - Playwright (автоматизация браузера)
 - ✅ **Backend тесты** - Newman/Postman (тестирование API)
 - ✅ **Docker контейнеры** - Linux и Windows
+- ✅ **Linux контейнеры под Windows** - Запуск Linux контейнеров на Windows через Docker Desktop
 - ✅ **Универсальное решение** - легко адаптируется для любого приложения
 
 ## Структура Проекта
@@ -111,7 +112,11 @@ Tests/Docker/apps/
     └── 02-start-lisa.sh
 ```
 
-### Docker (Linux)
+### Docker - Linux контейнеры
+
+Linux контейнеры можно запускать как на Linux/macOS, так и на Windows.
+
+#### На Linux/macOS
 
 ```bash
 # Собрать и запустить
@@ -124,7 +129,29 @@ Tests/Docker/apps/
 ./Scripts/run-docker-tests-linux.sh run
 ```
 
-### Docker (Windows)
+#### На Windows
+
+**Требования:**
+1. Установите Docker Desktop для Windows
+2. Убедитесь, что Docker Desktop в режиме **Linux контейнеров**:
+   - Щелкните правой кнопкой мыши на иконке Docker Desktop в трее
+   - Если видите "Switch to Linux containers...", нажмите на это
+   - Дождитесь перезапуска Docker
+
+**Запуск:**
+
+```cmd
+REM Собрать и запустить
+Scripts\run-docker-tests-linux.bat build-and-run
+
+REM Только сборка
+Scripts\run-docker-tests-linux.bat build
+
+REM Только запуск
+Scripts\run-docker-tests-linux.bat run
+```
+
+### Docker - Windows контейнеры
 
 ```cmd
 REM Собрать и запустить

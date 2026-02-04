@@ -32,10 +32,13 @@ npm run test:gui:debug # Debug mode
 
 ### Docker Testing
 ```bash
-# Linux
+# Linux containers (works on Linux, macOS, and Windows)
 ./Scripts/run-docker-tests-linux.sh build-and-run
 
-# Windows
+# On Windows, use the .bat script:
+Scripts\run-docker-tests-linux.bat build-and-run
+
+# Windows containers (Windows only)
 Scripts\run-docker-tests-windows.bat build-and-run
 ```
 
