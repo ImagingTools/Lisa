@@ -128,8 +128,8 @@ Scripts\run-docker-tests-windows.bat run
 - ✅ Проверка утверждений (assertions)
 
 ### Docker
-- ✅ Linux контейнеры (Debian)
-- ✅ Windows контейнеры (Server Core)
+- ✅ Linux контейнеры (Debian) с предустановленным PostgreSQL
+- ✅ Windows контейнеры (Server Core) с предустановленным PostgreSQL
 - ✅ Изолированные окружения
 - ✅ Воспроизводимые сборки
 - ✅ Docker Compose конфигурации

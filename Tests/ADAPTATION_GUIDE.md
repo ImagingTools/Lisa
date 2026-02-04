@@ -271,7 +271,14 @@ npx playwright test GUI/auth/login.spec.js
 
 ### Database Setup
 
-If your tests need a database:
+**PostgreSQL is pre-installed** in both Linux and Windows Docker containers.
+
+If your tests need a database, you can:
+
+**Option 1: Use PostgreSQL in the test container**
+The test container already has PostgreSQL installed and available.
+
+**Option 2: Use a separate database container**
 
 ```yaml
 # In docker-compose.linux.yml

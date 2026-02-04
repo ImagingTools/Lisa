@@ -7,7 +7,7 @@
 
 FROM node:18-bullseye
 
-# Install system dependencies for Playwright browsers
+# Install system dependencies for Playwright browsers and PostgreSQL
 RUN apt-get update && apt-get install -y \
     wget \
     ca-certificates \
@@ -46,6 +46,9 @@ RUN apt-get update && apt-get install -y \
     libxtst6 \
     lsb-release \
     xdg-utils \
+    postgresql \
+    postgresql-contrib \
+    postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory

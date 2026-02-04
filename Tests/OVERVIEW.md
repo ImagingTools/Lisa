@@ -35,8 +35,8 @@ Setting up a comprehensive testing system typically requires:
 - ✅ Collection chaining
 
 ### 3. Docker Support
-- ✅ Linux containers (Debian-based)
-- ✅ Windows containers (Server Core)
+- ✅ Linux containers (Debian-based) with PostgreSQL pre-installed
+- ✅ Windows containers (Server Core) with PostgreSQL pre-installed
 - ✅ Isolated environments
 - ✅ Reproducible builds
 - ✅ Docker Compose configs

@@ -42,8 +42,8 @@ This testing system provides:
 - Integration with Newman HTML Extra reporter
 
 ### Docker Support
-- Linux containers (Debian-based)
-- Windows containers (Windows Server Core)
+- Linux containers (Debian-based) with PostgreSQL pre-installed
+- Windows containers (Windows Server Core) with PostgreSQL pre-installed
 - Isolated test environments
 - Reproducible test runs
 - Easy CI/CD integration
