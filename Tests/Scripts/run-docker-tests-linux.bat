@@ -36,6 +36,23 @@ if errorlevel 1 (
     exit /b 1
 )
 
+REM Check if docker-compose is available (try both docker-compose and docker compose)
+set DOCKER_COMPOSE_CMD=
+docker-compose version >nul 2>&1
+if not errorlevel 1 (
+    set DOCKER_COMPOSE_CMD=docker-compose
+) else (
+    docker compose version >nul 2>&1
+    if not errorlevel 1 (
+        set DOCKER_COMPOSE_CMD=docker compose
+    ) else (
+        echo Error: docker-compose or 'docker compose' is not available
+        echo Please ensure Docker Desktop is properly installed
+        echo Docker Desktop typically includes docker compose by default
+        exit /b 1
+    )
+)
+
 REM Check if Docker is in Linux mode
 docker info | findstr /C:"OSType: linux" >nul 2>&1
 if errorlevel 1 (
@@ -70,9 +87,9 @@ goto end
 
 :run
 echo Running tests in Linux Docker container...
-docker-compose -f Tests\Docker\docker-compose.linux.yml up --abort-on-container-exit
+%DOCKER_COMPOSE_CMD% -f Tests\Docker\docker-compose.linux.yml up --abort-on-container-exit
 set EXIT_CODE=%ERRORLEVEL%
-docker-compose -f Tests\Docker\docker-compose.linux.yml down
+%DOCKER_COMPOSE_CMD% -f Tests\Docker\docker-compose.linux.yml down
 exit /b %EXIT_CODE%
 
 :build-and-run
@@ -83,9 +100,9 @@ if errorlevel 1 (
     exit /b 1
 )
 echo Running tests in Linux Docker container...
-docker-compose -f Tests\Docker\docker-compose.linux.yml up --abort-on-container-exit
+%DOCKER_COMPOSE_CMD% -f Tests\Docker\docker-compose.linux.yml up --abort-on-container-exit
 set EXIT_CODE=%ERRORLEVEL%
-docker-compose -f Tests\Docker\docker-compose.linux.yml down
+%DOCKER_COMPOSE_CMD% -f Tests\Docker\docker-compose.linux.yml down
 exit /b %EXIT_CODE%
 
 :end

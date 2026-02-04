@@ -96,7 +96,7 @@ Run tests using a previously built image.
 After tests complete, view the HTML report:
 
 ```cmd
-start test-results\playwright-report\index.html
+start Docker\test-results\playwright-report\index.html
 ```
 
 ## What the Script Does
@@ -160,7 +160,7 @@ tests  |   npx playwright show-report
 tests  |
 tests exited with code 0
 
-C:\Projects\Lisa\Tests> start test-results\playwright-report\index.html
+C:\Projects\Lisa\Tests> start Docker\test-results\playwright-report\index.html
 ```
 
 ## Troubleshooting
@@ -245,7 +245,7 @@ docker run --rm lisa-tests:linux npx playwright test GUI/specific-test.spec.js
 
 ```cmd
 docker run -it --rm ^
-  -v %CD%\test-results:/app/tests/test-results ^
+  -v %CD%\Docker\test-results:/app/tests/test-results ^
   lisa-tests:linux /bin/bash
 ```
 
