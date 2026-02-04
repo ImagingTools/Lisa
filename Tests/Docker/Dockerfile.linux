@@ -1,0 +1,92 @@
+# Dockerfile for running tests in Linux environment
+# This Dockerfile can be adapted for any application by:
+# 1. Adjusting the base image if needed
+# 2. Adding application-specific dependencies
+# 3. Copying your application files
+# 4. Updating the test commands
+
+FROM node:18-bullseye
+
+# Install system dependencies for Playwright browsers and PostgreSQL
+RUN apt-get update && apt-get install -y \
+    wget \
+    ca-certificates \
+    fonts-liberation \
+    libappindicator3-1 \
+    libasound2 \
+    libatk-bridge2.0-0 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgbm1 \
+    libgcc1 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libnss3 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    lsb-release \
+    xdg-utils \
+    postgresql \
+    postgresql-contrib \
+    postgresql-client \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /app/tests
+
+# Copy package files
+COPY Tests/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Install Playwright browsers
+RUN npx playwright install --with-deps
+
+# Copy test files
+COPY Tests/ ./
+
+# Create directories for test results and custom apps
+RUN mkdir -p test-results/screenshots test-results/videos /app/custom-apps/installers /app/custom-apps/startup
+
+# Copy entrypoint script
+COPY Tests/Docker/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Copy custom application installers and startup scripts (if they exist)
+# Users should place their installers in Tests/Docker/apps/installers/
+# and startup scripts in Tests/Docker/apps/startup/
+COPY Tests/Docker/apps/ /app/custom-apps/
+
+# Environment variables (can be overridden at runtime)
+ENV BASE_URL=http://localhost:3000
+ENV CI=true
+ENV START_POSTGRESQL=false
+ENV POSTGRES_DB=""
+
+# Set entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+# Default command - run all tests
+# Override this in docker-compose or docker run command if needed
+CMD ["npm", "test"]

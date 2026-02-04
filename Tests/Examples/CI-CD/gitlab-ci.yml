@@ -1,0 +1,117 @@
+# GitLab CI/CD configuration for testing system
+# Place this file as .gitlab-ci.yml in your project root
+
+# Use Node.js Docker image
+image: node:18
+
+# Define pipeline stages
+stages:
+  - install
+  - test
+  - report
+
+# Cache node_modules for faster builds
+cache:
+  paths:
+    - Tests/node_modules/
+
+# Job: Install dependencies
+install:
+  stage: install
+  script:
+    - cd Tests
+    - npm ci
+    - npx playwright install --with-deps
+  artifacts:
+    paths:
+      - Tests/node_modules/
+      - Tests/.cache/
+    expire_in: 1 hour
+
+# Job: Run GUI tests
+test:gui:
+  stage: test
+  needs: [install]
+  script:
+    - cd Tests
+    - npm run test:gui
+  artifacts:
+    when: always
+    paths:
+      - Tests/test-results/
+    expire_in: 1 week
+    reports:
+      junit: Tests/test-results/playwright-junit.xml
+  allow_failure: false
+
+# Job: Run API tests
+test:api:
+  stage: test
+  needs: [install]
+  script:
+    - cd Tests
+    - npm run test:api
+  artifacts:
+    when: always
+    paths:
+      - Tests/test-results/
+    expire_in: 1 week
+  allow_failure: false
+
+# Job: Run tests in Docker
+test:docker:
+  stage: test
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - apk add --no-cache docker-compose
+  script:
+    - docker build -f Tests/Docker/Dockerfile.linux -t lisa-tests:linux .
+    - docker-compose -f Tests/Docker/docker-compose.linux.yml up --abort-on-container-exit
+  after_script:
+    - docker-compose -f Tests/Docker/docker-compose.linux.yml down -v
+  artifacts:
+    when: always
+    paths:
+      - Tests/Docker/test-results/
+    expire_in: 1 week
+  allow_failure: true
+
+# Job: Generate test report
+report:
+  stage: report
+  needs: [test:gui, test:api]
+  when: always
+  script:
+    - cd Tests
+    - echo "Test execution completed"
+    - ls -la test-results/
+  artifacts:
+    paths:
+      - Tests/test-results/
+    expire_in: 1 month
+
+# Parallel execution across multiple browsers
+test:parallel:
+  stage: test
+  needs: [install]
+  parallel:
+    matrix:
+      - BROWSER: [chromium, firefox, webkit]
+  script:
+    - cd Tests
+    - npx playwright install --with-deps $BROWSER
+    - npx playwright test --project=$BROWSER
+  artifacts:
+    when: always
+    paths:
+      - Tests/test-results/
+    expire_in: 1 week
+
+# Run on merge requests and main branch only
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_PIPELINE_SOURCE == "web"

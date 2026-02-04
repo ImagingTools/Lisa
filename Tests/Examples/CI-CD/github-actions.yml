@@ -1,0 +1,173 @@
+name: Testing System
+
+# This workflow runs the testing system on every push and pull request
+# It demonstrates both local and Docker-based test execution
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  # Job 1: Run tests locally (faster)
+  test-local:
+    name: Local Tests (Ubuntu)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: Tests/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: Tests
+        run: npm ci
+      
+      - name: Install Playwright browsers
+        working-directory: Tests
+        run: npx playwright install --with-deps
+      
+      - name: Run GUI tests
+        working-directory: Tests
+        run: npm run test:gui
+        env:
+          BASE_URL: http://localhost:3000
+          CI: true
+      
+      - name: Run API tests
+        working-directory: Tests
+        run: npm run test:api
+        env:
+          BASE_URL: http://localhost:8080
+          CI: true
+      
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-local
+          path: |
+            Tests/test-results/
+            !Tests/test-results/**/*.mp4
+          retention-days: 30
+      
+      - name: Upload videos on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-videos-local
+          path: Tests/test-results/videos/
+          retention-days: 7
+
+  # Job 2: Run tests in Docker (more realistic)
+  test-docker:
+    name: Docker Tests (Linux)
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build test image
+        run: |
+          docker build -f Tests/Docker/Dockerfile.linux -t lisa-tests:linux .
+      
+      - name: Run tests in Docker
+        run: |
+          docker-compose -f Tests/Docker/docker-compose.linux.yml up --abort-on-container-exit
+      
+      - name: Copy test results from Docker
+        if: always()
+        run: |
+          # Results should be in mounted volume
+          # Adjust path if needed based on your docker-compose.yml
+          ls -la Tests/Docker/test-results/ || echo "No test results found"
+      
+      - name: Upload Docker test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-docker
+          path: Tests/Docker/test-results/
+          retention-days: 30
+      
+      - name: Clean up Docker
+        if: always()
+        run: |
+          docker-compose -f Tests/Docker/docker-compose.linux.yml down -v
+
+  # Job 3: Parallel test execution
+  test-parallel:
+    name: Parallel Tests
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: Tests/package-lock.json
+      
+      - name: Install dependencies
+        working-directory: Tests
+        run: npm ci
+      
+      - name: Install Playwright browsers
+        working-directory: Tests
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      
+      - name: Run tests on ${{ matrix.browser }}
+        working-directory: Tests
+        run: npx playwright test --project=${{ matrix.browser }}
+      
+      - name: Upload test results for ${{ matrix.browser }}
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.browser }}
+          path: Tests/test-results/
+          retention-days: 30
+
+  # Job 4: Generate and publish test report
+  report:
+    name: Generate Test Report
+    needs: [test-local, test-docker]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+      - name: Download all test results
+        uses: actions/download-artifact@v4
+        with:
+          path: all-test-results
+      
+      - name: Display test results structure
+        run: |
+          echo "Test results structure:"
+          ls -R all-test-results/
+      
+      - name: Publish test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-test-results
+          path: all-test-results/
+          retention-days: 30

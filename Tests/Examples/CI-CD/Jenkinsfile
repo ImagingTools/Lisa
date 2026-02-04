@@ -1,0 +1,178 @@
+// Jenkins Pipeline for Testing System
+// Create a new Pipeline job in Jenkins and paste this Jenkinsfile
+
+pipeline {
+    agent any
+    
+    environment {
+        // Set environment variables
+        BASE_URL = 'http://localhost:3000'
+        CI = 'true'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                dir('Tests') {
+                    sh 'npm ci'
+                }
+            }
+        }
+        
+        stage('Install Playwright Browsers') {
+            steps {
+                dir('Tests') {
+                    sh 'npx playwright install --with-deps'
+                }
+            }
+        }
+        
+        stage('Run GUI Tests') {
+            steps {
+                dir('Tests') {
+                    sh 'npm run test:gui'
+                }
+            }
+        }
+        
+        stage('Run API Tests') {
+            steps {
+                dir('Tests') {
+                    sh 'npm run test:api'
+                }
+            }
+        }
+        
+        stage('Docker Tests') {
+            when {
+                branch 'main'
+            }
+            steps {
+                script {
+                    // Build Docker image
+                    sh 'docker build -f Tests/Docker/Dockerfile.linux -t lisa-tests:linux .'
+                    
+                    // Run tests in Docker
+                    sh 'docker-compose -f Tests/Docker/docker-compose.linux.yml up --abort-on-container-exit'
+                }
+            }
+            post {
+                always {
+                    // Clean up Docker
+                    sh 'docker-compose -f Tests/Docker/docker-compose.linux.yml down -v'
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Archive test results
+            archiveArtifacts artifacts: 'Tests/test-results/**/*', allowEmptyArchive: true
+            
+            // Publish HTML report
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'Tests/test-results/playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Test Report',
+                reportTitles: 'Test Report'
+            ])
+            
+            // Publish JUnit test results if available
+            junit allowEmptyResults: true, testResults: 'Tests/test-results/playwright-junit.xml'
+            
+            // Clean workspace
+            cleanWs()
+        }
+        
+        success {
+            echo 'All tests passed successfully!'
+        }
+        
+        failure {
+            echo 'Some tests failed. Check the test reports for details.'
+            // You can add notifications here (email, Slack, etc.)
+        }
+    }
+}
+
+// Parallel execution example
+// Uncomment to use parallel execution across browsers
+/*
+pipeline {
+    agent any
+    
+    stages {
+        stage('Setup') {
+            steps {
+                checkout scm
+                dir('Tests') {
+                    sh 'npm ci'
+                }
+            }
+        }
+        
+        stage('Parallel Tests') {
+            parallel {
+                stage('Chromium') {
+                    steps {
+                        dir('Tests') {
+                            sh 'npx playwright install --with-deps chromium'
+                            sh 'npx playwright test --project=chromium'
+                        }
+                    }
+                }
+                
+                stage('Firefox') {
+                    steps {
+                        dir('Tests') {
+                            sh 'npx playwright install --with-deps firefox'
+                            sh 'npx playwright test --project=firefox'
+                        }
+                    }
+                }
+                
+                stage('WebKit') {
+                    steps {
+                        dir('Tests') {
+                            sh 'npx playwright install --with-deps webkit'
+                            sh 'npx playwright test --project=webkit'
+                        }
+                    }
+                }
+                
+                stage('API') {
+                    steps {
+                        dir('Tests') {
+                            sh 'npm run test:api'
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            archiveArtifacts artifacts: 'Tests/test-results/**/*', allowEmptyArchive: true
+            publishHTML([
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'Tests/test-results/playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Test Report'
+            ])
+        }
+    }
+}
+*/
