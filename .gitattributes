@@ -1,0 +1,5 @@
+# Enforce LF line endings for shell scripts to ensure they work correctly in Linux containers
+*.sh text eol=lf
+
+# Specifically enforce LF for test scripts to prevent Docker execution errors
+Tests/**/*.sh text eol=lf
