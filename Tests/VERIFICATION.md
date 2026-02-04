@@ -125,9 +125,13 @@ Checks:
 - [ ] Can navigate through test cases
 - [ ] Screenshots visible (if any)
 
-## ✅ Docker Verification (Linux)
+## ✅ Docker Verification (Linux Containers)
 
-### Build Docker Image
+Linux containers can be run on Linux, macOS, or Windows (via Docker Desktop).
+
+### On Linux/macOS
+
+#### Build Docker Image
 ```bash
 cd /path/to/Lisa
 docker build -f Tests/Docker/Dockerfile.linux -t lisa-tests:linux .
@@ -139,7 +143,7 @@ Checks:
 - [ ] Image created successfully
 - [ ] No error messages
 
-### Verify Image
+#### Verify Image
 ```bash
 docker images | grep lisa-tests
 ```
@@ -148,10 +152,10 @@ Expected:
 - [ ] Image `lisa-tests:linux` appears in list
 - [ ] Reasonable size (< 2GB)
 
-### Run Tests in Docker
+#### Run Tests in Docker
 ```bash
 cd Tests
-../Scripts/run-docker-tests-linux.sh run
+./Scripts/run-docker-tests-linux.sh run
 ```
 
 Checks:
@@ -161,21 +165,74 @@ Checks:
 - [ ] Container stops cleanly
 - [ ] Exit code indicates test status
 
+### On Windows (Linux Containers)
+
+#### Prerequisites Check
+- [ ] Docker Desktop for Windows installed
+- [ ] Docker Desktop in Linux containers mode
+
+#### Switch to Linux Containers (if needed)
+```
+Right-click Docker Desktop tray icon -> "Switch to Linux containers..."
+```
+
+Or verify current mode:
+```cmd
+docker info | findstr "OSType"
+```
+Should show: `OSType: linux`
+
+#### Build Docker Image
+```cmd
+cd C:\path\to\Lisa
+docker build -f Tests\Docker\Dockerfile.linux -t lisa-tests:linux .
+```
+
+Checks:
+- [ ] Build starts successfully
+- [ ] All layers complete
+- [ ] Image created successfully
+- [ ] No error messages
+
+#### Run Tests in Docker
+```cmd
+cd Tests
+Scripts\run-docker-tests-linux.bat run
+```
+
+Checks:
+- [ ] Script detects Linux container mode correctly
+- [ ] Container starts
+- [ ] Tests execute inside container
+- [ ] Test results generated
+- [ ] Container stops cleanly
+- [ ] Exit code indicates test status
+
 ### Verify Docker Results
 ```bash
+# Linux/macOS
 ls -la Tests/Docker/test-results/
+
+# Windows
+dir Tests\Docker\test-results\
 ```
 
 Expected:
 - [ ] Test results copied from container
 - [ ] Reports accessible on host
 
-## ✅ Docker Verification (Windows)
+## ✅ Docker Verification (Windows Containers)
 
-**Note:** Windows containers require Windows 10/11 Pro or Windows Server with Docker Desktop in Windows container mode.
+**Note:** Windows containers require Windows 10/11 Pro or Windows Server with Docker Desktop in Windows container mode. Windows containers can ONLY run on Windows.
 
 ### Switch to Windows Containers
 - [ ] Docker Desktop tray icon -> "Switch to Windows containers..."
+
+Or verify:
+```cmd
+docker info | findstr "OSType"
+```
+Should show: `OSType: windows`
 
 ### Build Windows Image
 ```cmd
@@ -231,7 +288,10 @@ Scripts\setup.bat
 REM Run all tests script
 Scripts\run-all-tests.bat
 
-REM Docker test script
+REM Docker test script (Linux containers)
+Scripts\run-docker-tests-linux.bat build
+
+REM Docker test script (Windows containers)
 Scripts\run-docker-tests-windows.bat build
 ```
 
@@ -239,6 +299,7 @@ Checks:
 - [ ] All scripts run
 - [ ] No syntax errors
 - [ ] Commands execute properly
+- [ ] Linux container script detects Docker mode correctly
 
 ## ✅ Configuration Verification
 

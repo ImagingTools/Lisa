@@ -35,8 +35,10 @@ Setting up a comprehensive testing system typically requires:
 - ✅ Collection chaining
 
 ### 3. Docker Support
-- ✅ Linux containers (Debian-based) with PostgreSQL pre-installed
-- ✅ Windows containers (Server Core) with PostgreSQL pre-installed
+- ✅ **Linux containers** (Debian-based) with PostgreSQL pre-installed
+  - Can run on Linux, macOS, and **Windows** (via Docker Desktop)
+- ✅ **Windows containers** (Server Core) with PostgreSQL pre-installed
+  - Can run on Windows only
 - ✅ Isolated environments
 - ✅ Reproducible builds
 - ✅ Docker Compose configs
@@ -92,12 +94,13 @@ Tests/
 │   └── .dockerignore         # Optimize builds
 │
 ├── 📜 Scripts/               # Utility scripts
-│   ├── setup.sh              # Install everything (Linux)
+│   ├── setup.sh              # Install everything (Linux/macOS)
 │   ├── setup.bat             # Install everything (Windows)
-│   ├── run-all-tests.sh      # Run all tests (Linux)
+│   ├── run-all-tests.sh      # Run all tests (Linux/macOS)
 │   ├── run-all-tests.bat     # Run all tests (Windows)
-│   ├── run-docker-tests-linux.sh
-│   └── run-docker-tests-windows.bat
+│   ├── run-docker-tests-linux.sh    # Run Linux containers (Linux/macOS)
+│   ├── run-docker-tests-linux.bat   # Run Linux containers (Windows)
+│   └── run-docker-tests-windows.bat # Run Windows containers (Windows)
 │
 └── 📚 Examples/              # Integration examples
     └── CI-CD/
