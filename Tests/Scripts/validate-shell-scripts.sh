@@ -25,7 +25,7 @@ while IFS= read -r -d '' file; do
     RELATIVE_PATH="${file#$TESTS_DIR/}"
     
     # Check for UTF-8 BOM (EF BB BF)
-    BOM_CHECK=$(od -A n -t x1 -N 3 "$file" 2>/dev/null | head -1 | tr -d ' ')
+    BOM_CHECK=$(od -A n -t x1 -N 3 "$file" 2>/dev/null | tr -d ' ')
     if [ "$BOM_CHECK" = "efbbbf" ]; then
         echo -e "${RED}✗ UTF-8 BOM detected: $RELATIVE_PATH${NC}"
         ((ERRORS++))
