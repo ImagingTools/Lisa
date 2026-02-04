@@ -42,8 +42,10 @@ This testing system provides:
 - Integration with Newman HTML Extra reporter
 
 ### Docker Support
-- Linux containers (Debian-based) with PostgreSQL pre-installed
-- Windows containers (Windows Server Core) with PostgreSQL pre-installed
+- **Linux containers** - Debian-based with PostgreSQL pre-installed
+  - Can be run on Linux, macOS, and **Windows** (via Docker Desktop)
+- **Windows containers** - Windows Server Core with PostgreSQL pre-installed  
+  - Can be run on Windows only
 - Isolated test environments
 - Reproducible test runs
 - Easy CI/CD integration
@@ -63,11 +65,12 @@ This testing system provides:
 
 ### For Docker Testing
 
-#### Linux Containers
+#### Linux Containers (on any platform)
 - **Docker** 20.10 or higher
 - **Docker Compose** 2.x or higher
+- Works on Linux, macOS, and Windows (via Docker Desktop)
 
-#### Windows Containers
+#### Windows Containers (Windows only)
 - **Windows 10/11 Pro** or **Windows Server**
 - **Docker Desktop** with Windows containers enabled
 - **Hyper-V** feature enabled
@@ -250,7 +253,9 @@ Tests/Docker/apps/
 
 ### Linux Containers
 
-#### Build and Run
+Linux containers can be run on both Linux/macOS and Windows systems.
+
+#### On Linux/macOS
 
 ```bash
 # Build Docker image
@@ -263,7 +268,7 @@ docker-compose -f Docker/docker-compose.linux.yml up --abort-on-container-exit
 ./Scripts/run-docker-tests-linux.sh build-and-run
 ```
 
-#### Script Options
+**Script Options:**
 
 ```bash
 # Build only
@@ -274,6 +279,41 @@ docker-compose -f Docker/docker-compose.linux.yml up --abort-on-container-exit
 
 # Build and run (default)
 ./Scripts/run-docker-tests-linux.sh build-and-run
+```
+
+#### On Windows
+
+**Prerequisites:**
+1. Install Docker Desktop for Windows
+2. Ensure Docker Desktop is in **Linux containers mode**:
+   - Right-click Docker Desktop tray icon
+   - If you see "Switch to Linux containers...", click it
+   - Wait for Docker to restart
+
+**Build and Run:**
+
+```cmd
+REM Build Docker image
+docker build -f Docker\Dockerfile.linux -t lisa-tests:linux .
+
+REM Run tests
+docker-compose -f Docker\docker-compose.linux.yml up --abort-on-container-exit
+
+REM Or use the convenience script
+Scripts\run-docker-tests-linux.bat build-and-run
+```
+
+**Script Options:**
+
+```cmd
+REM Build only
+Scripts\run-docker-tests-linux.bat build
+
+REM Run only (using existing image)
+Scripts\run-docker-tests-linux.bat run
+
+REM Build and run (default)
+Scripts\run-docker-tests-linux.bat build-and-run
 ```
 
 ### Windows Containers
