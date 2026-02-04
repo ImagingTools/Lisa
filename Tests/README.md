@@ -635,21 +635,20 @@ chmod +x Scripts/*.sh
 
 **Cause**: Shell scripts have CRLF line endings (Windows-style) instead of LF (Unix-style), or contain UTF-8 BOM.
 
-**Solution**: The repository now includes a `.gitattributes` file that automatically enforces LF line endings for all shell scripts. If you're experiencing this issue:
+**Solution**: All shell scripts in the repository have been normalized to use LF line endings and have no BOM. The repository also includes a `.gitattributes` file that automatically enforces LF line endings.
 
-1. Verify your scripts have correct line endings:
+If you're experiencing this issue after modifying scripts:
+
+1. Run the normalization script to fix all shell scripts:
+   ```bash
+   # From the Tests directory
+   ./Scripts/normalize-shell-scripts.sh
+   ```
+
+2. Verify your scripts have correct line endings:
    ```bash
    # From the Tests directory
    ./Scripts/validate-shell-scripts.sh
-   ```
-
-2. If needed, manually fix line endings:
-   ```bash
-   # Remove CRLF and BOM from all shell scripts
-   find Tests -name "*.sh" -type f -exec dos2unix {} \;
-   # Or using sed
-   find Tests -name "*.sh" -type f -exec sed -i 's/\r$//' {} \;
-   find Tests -name "*.sh" -type f -exec sed -i '1s/^\xEF\xBB\xBF//' {} \;
    ```
 
 3. Ensure Git is configured to respect `.gitattributes`:
@@ -658,7 +657,7 @@ chmod +x Scripts/*.sh
    git add --renormalize .
    ```
 
-**Prevention**: The `.gitattributes` file at the repository root ensures that shell scripts always use LF line endings, regardless of your operating system or Git configuration.
+**Prevention**: The `.gitattributes` file at the repository root ensures that shell scripts always use LF line endings, regardless of your operating system or Git configuration. All scripts have been normalized to the correct format.
 
 #### Issue: Newman not finding collection
 
