@@ -3,26 +3,13 @@ version: '3.8'
 # Docker Compose configuration for running tests in Linux containers
 # 
 # To adapt for your application:
-# 1. Update the 'app' service with your application configuration
-# 2. Adjust environment variables in the 'tests' service
-# 3. Add any additional services your app needs (database, redis, etc.)
+# 1. Add your application installers to Tests/Docker/apps/installers/
+# 2. Add your startup scripts to Tests/Docker/apps/startup/
+# 3. Set environment variables below
+# 4. Uncomment and configure services as needed
 
 services:
-  # Example application service
-  # Replace this with your actual application
-  # app:
-  #   image: your-app:latest
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - NODE_ENV=test
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
-  #     interval: 10s
-  #     timeout: 5s
-  #     retries: 5
-
-  # Test runner service
+  # Test runner service with custom application support
   tests:
     build:
       context: ../..
@@ -37,21 +24,58 @@ services:
       # Application URL - adjust based on your setup
       # Use 'host.docker.internal' to access host machine
       # Use service name to access other containers
-      - BASE_URL=${BASE_URL:-http://host.docker.internal:3000}
+      - BASE_URL=${BASE_URL:-http://localhost:3000}
       - CI=true
-      # Add any other environment variables your tests need
+      
+      # PostgreSQL settings
+      - START_POSTGRESQL=${START_POSTGRESQL:-false}
+      - POSTGRES_DB=${POSTGRES_DB:-}
+      
+      # Custom application environment variables
+      - PUMA_PORT=${PUMA_PORT:-8080}
+      - PUMA_URL=${PUMA_URL:-http://localhost:8080}
+      - LISA_PORT=${LISA_PORT:-3000}
+      - DATABASE_URL=${DATABASE_URL:-postgresql://postgres@localhost:5432/lisa_test}
+      
+      # Test credentials
       - TEST_USERNAME=${TEST_USERNAME:-testuser}
       - TEST_PASSWORD=${TEST_PASSWORD:-testpassword}
-    # Uncomment if your tests depend on the app service
-    # depends_on:
-    #   app:
-    #     condition: service_healthy
     network_mode: "host"
     # Alternative: use custom network if not using host mode
     # networks:
     #   - test-network
 
+  # Example: Separate PostgreSQL service (alternative to START_POSTGRESQL)
+  # Uncomment if you prefer a separate database container
+  # postgres:
+  #   image: postgres:15
+  #   environment:
+  #     - POSTGRES_PASSWORD=testpassword
+  #     - POSTGRES_DB=lisa_test
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+  # If using separate services, update tests service:
+  # tests:
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   network_mode: "bridge"  # Change from host
+  #   environment:
+  #     - DATABASE_URL=postgresql://postgres:testpassword@postgres:5432/lisa_test
+
 # Uncomment if using custom network
 # networks:
 #   test-network:
 #     driver: bridge
+
+# Uncomment if using separate database service
+# volumes:
+#   postgres-data:

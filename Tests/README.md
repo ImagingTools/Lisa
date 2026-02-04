@@ -220,6 +220,34 @@ Scripts\run-all-tests.bat --api-only
 
 ## 🐳 Running Tests in Docker
 
+### Adding Custom Applications (NEW!)
+
+**You can now add your own applications to Docker containers!**
+
+The Docker setup supports automatic startup sequencing for custom applications:
+1. PostgreSQL starts first (if enabled)
+2. Your application installers run (e.g., Puma, Lisa)
+3. Your startup scripts run in order
+4. Tests execute
+
+**Quick Setup:**
+1. Place installers in `Tests/Docker/apps/installers/`
+2. Create startup scripts in `Tests/Docker/apps/startup/`
+3. Set `START_POSTGRESQL=true` in docker-compose.yml if needed
+
+See `Tests/Docker/apps/README.md` for complete documentation and examples.
+
+**Example Structure:**
+```
+Tests/Docker/apps/
+├── installers/
+│   ├── 01-install-puma.sh
+│   └── 02-install-lisa.sh
+└── startup/
+    ├── 01-start-puma.sh
+    └── 02-start-lisa.sh
+```
+
 ### Linux Containers
 
 #### Build and Run

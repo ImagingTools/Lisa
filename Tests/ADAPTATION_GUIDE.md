@@ -188,6 +188,79 @@ services:
 
 ## Advanced Customization
 
+### Adding Custom Applications to Docker
+
+**New Feature:** You can now add your own applications (like Puma, Lisa, or any other software) to the Docker containers with automatic startup sequencing.
+
+#### Directory Structure
+
+```
+Tests/Docker/apps/
+├── installers/          # Put installers here
+│   ├── 01-install-puma.sh
+│   └── 02-install-lisa.sh
+├── startup/            # Put startup scripts here
+│   ├── 01-start-puma.sh
+│   └── 02-start-lisa.sh
+└── README.md           # Full documentation
+```
+
+#### Quick Example: Adding Lisa with Puma
+
+**Step 1:** Place your installers in `Tests/Docker/apps/installers/`:
+- `puma-installer.run` or `puma.tar.gz`
+- `lisa-installer.run` or `lisa.tar.gz`
+
+**Step 2:** Create installer scripts:
+
+`Tests/Docker/apps/installers/01-install-puma.sh`:
+```bash
+#!/bin/bash
+set -e
+if [ -f "/app/custom-apps/installers/puma-installer.run" ]; then
+    chmod +x /app/custom-apps/installers/puma-installer.run
+    /app/custom-apps/installers/puma-installer.run --silent
+fi
+```
+
+**Step 3:** Create startup scripts:
+
+`Tests/Docker/apps/startup/01-start-puma.sh`:
+```bash
+#!/bin/bash
+set -e
+/opt/puma/bin/puma &
+# Wait for Puma to be ready
+for i in {1..30}; do
+    curl -f http://localhost:8080/health && break || sleep 2
+done
+```
+
+**Step 4:** Make scripts executable:
+```bash
+chmod +x Tests/Docker/apps/installers/*.sh
+chmod +x Tests/Docker/apps/startup/*.sh
+```
+
+**Step 5:** Configure docker-compose.yml:
+```yaml
+services:
+  tests:
+    environment:
+      - START_POSTGRESQL=true
+      - POSTGRES_DB=lisa_test
+      - PUMA_PORT=8080
+      - LISA_PORT=3000
+```
+
+**Startup Sequence:**
+1. PostgreSQL starts (if `START_POSTGRESQL=true`)
+2. Installers run in order (01-, 02-, ...)
+3. Startup scripts run in order (01-, 02-, ...)
+4. Tests execute
+
+See `Tests/Docker/apps/README.md` for complete examples and documentation.
+
 ### Adding Custom npm Packages
 
 If your tests need additional packages:

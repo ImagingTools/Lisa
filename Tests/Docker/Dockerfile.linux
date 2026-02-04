@@ -66,12 +66,26 @@ RUN npx playwright install --with-deps
 # Copy test files
 COPY Tests/ ./
 
-# Create directories for test results
-RUN mkdir -p test-results/screenshots test-results/videos
+# Create directories for test results and custom apps
+RUN mkdir -p test-results/screenshots test-results/videos /app/custom-apps/installers /app/custom-apps/startup
+
+# Copy entrypoint script
+COPY Tests/Docker/entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Copy custom application installers and startup scripts (if they exist)
+# Users should place their installers in Tests/Docker/apps/installers/
+# and startup scripts in Tests/Docker/apps/startup/
+COPY Tests/Docker/apps/ /app/custom-apps/ 2>/dev/null || true
 
 # Environment variables (can be overridden at runtime)
 ENV BASE_URL=http://localhost:3000
 ENV CI=true
+ENV START_POSTGRESQL=false
+ENV POSTGRES_DB=""
+
+# Set entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 # Default command - run all tests
 # Override this in docker-compose or docker run command if needed

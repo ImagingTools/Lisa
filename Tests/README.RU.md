@@ -83,6 +83,34 @@ npm run test:api       # Только API
 npm run test:gui:debug # Режим отладки
 ```
 
+### Добавление Собственных Приложений в Docker (НОВОЕ!)
+
+**Теперь можно добавлять свои приложения в Docker контейнеры!**
+
+Docker поддерживает автоматическую последовательность запуска:
+1. PostgreSQL запускается первым (если включен)
+2. Запускаются установщики приложений (например, Puma, Lisa)
+3. Запускаются скрипты старта по порядку
+4. Выполняются тесты
+
+**Быстрая настройка:**
+1. Поместите установщики в `Tests/Docker/apps/installers/`
+2. Создайте скрипты запуска в `Tests/Docker/apps/startup/`
+3. Установите `START_POSTGRESQL=true` в docker-compose.yml при необходимости
+
+Полная документация: `Tests/Docker/apps/README.md`
+
+**Пример структуры:**
+```
+Tests/Docker/apps/
+├── installers/
+│   ├── 01-install-puma.sh
+│   └── 02-install-lisa.sh
+└── startup/
+    ├── 01-start-puma.sh
+    └── 02-start-lisa.sh
+```
+
 ### Docker (Linux)
 
 ```bash

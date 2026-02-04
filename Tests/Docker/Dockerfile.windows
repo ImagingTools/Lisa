@@ -42,12 +42,25 @@ RUN npx playwright install --with-deps chromium
 # Copy test files
 COPY Tests/ ./
 
-# Create directories for test results
-RUN powershell -Command New-Item -ItemType Directory -Force -Path test-results/screenshots, test-results/videos
+# Create directories for test results and custom apps
+RUN powershell -Command New-Item -ItemType Directory -Force -Path test-results/screenshots, test-results/videos, C:\app\custom-apps\installers, C:\app\custom-apps\startup
+
+# Copy entrypoint script
+COPY Tests/Docker/entrypoint.ps1 C:\app\entrypoint.ps1
+
+# Copy custom application installers and startup scripts (if they exist)
+# Users should place their installers in Tests/Docker/apps/installers/
+# and startup scripts in Tests/Docker/apps/startup/
+COPY Tests/Docker/apps/ C:\app\custom-apps\ 
 
 # Environment variables
 ENV BASE_URL=http://host.docker.internal:3000
 ENV CI=true
+ENV START_POSTGRESQL=false
+ENV POSTGRES_DB=""
+
+# Set entrypoint
+ENTRYPOINT ["powershell", "-File", "C:\\app\\entrypoint.ps1"]
 
 # Default command - run all tests
 CMD ["npm.cmd", "test"]
