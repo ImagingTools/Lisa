@@ -293,8 +293,8 @@ docker-compose -f Docker/docker-compose.linux.yml up --abort-on-container-exit
 **Build and Run:**
 
 ```cmd
-REM Build Docker image
-docker build -f Docker\Dockerfile.linux -t lisa-tests:linux .
+REM Build Docker image (run from the Tests\ directory; use repo root as context)
+docker build -f Docker\Dockerfile.linux -t lisa-tests:linux ..
 
 REM Run tests
 docker-compose -f Docker\docker-compose.linux.yml up --abort-on-container-exit
