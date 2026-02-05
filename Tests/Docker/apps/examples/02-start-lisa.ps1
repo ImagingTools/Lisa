@@ -19,7 +19,7 @@ $env:PUMA_URL = if ($env:PUMA_URL) { $env:PUMA_URL } else { "http://localhost:80
 # Load configuration from resources if available
 $configFile = "C:\app\custom-apps\resources\lisa-config.json"
 if (Test-Path $configFile) {
-    Write-Host "Loading configuration from resources\lisa-config.json..." -ForegroundColor Yellow
+    Write-Host "Loading configuration from $configFile..." -ForegroundColor Yellow
     $env:LISA_CONFIG_FILE = $configFile
 }
 
