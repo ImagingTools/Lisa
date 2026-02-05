@@ -85,14 +85,6 @@ if ($env:START_POSTGRESQL -eq "true") {
 if (Test-Path "C:\app\custom-apps") {
     Write-Host "Step 2: Running custom application scripts..." -ForegroundColor Yellow
     
-    # Run installer scripts
-    if (Test-Path "C:\app\custom-apps\installers") {
-        Get-ChildItem "C:\app\custom-apps\installers\*.ps1" | ForEach-Object {
-            Write-Host "Running installer: $($_.Name)" -ForegroundColor Yellow
-            & $_.FullName
-        }
-    }
-    
     # Run startup scripts in order
     if (Test-Path "C:\app\custom-apps\startup") {
         Get-ChildItem "C:\app\custom-apps\startup\*.ps1" | Sort-Object Name | ForEach-Object {
