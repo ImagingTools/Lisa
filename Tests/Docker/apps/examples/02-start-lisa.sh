@@ -22,6 +22,18 @@ export DATABASE_URL=${DATABASE_URL:-"postgresql://postgres@localhost:5432/lisa_t
 # Set up Puma connection (if Lisa depends on Puma)
 export PUMA_URL=${PUMA_URL:-"http://localhost:8080"}
 
+# Load configuration from resources if available
+if [ -f "/app/custom-apps/resources/lisa-config.json" ]; then
+    echo "Loading configuration from resources/lisa-config.json..."
+    export LISA_CONFIG_FILE="/app/custom-apps/resources/lisa-config.json"
+fi
+
+# Apply any runtime SQL scripts from resources
+if [ -f "/app/custom-apps/resources/lisa-seed-data.sql" ]; then
+    echo "Loading seed data from resources/lisa-seed-data.sql..."
+    psql -U postgres -d lisa_test -f /app/custom-apps/resources/lisa-seed-data.sql || echo "Seed data loading skipped"
+fi
+
 # Start Lisa in background
 echo "Starting Lisa on ${LISA_HOST}:${LISA_PORT}..."
 echo "Database: ${DATABASE_URL}"
