@@ -12,6 +12,11 @@ apps/
 ├── startup/            # Startup scripts (run in order during container startup)
 │   ├── 01-start-puma.sh
 │   └── 02-start-lisa.sh
+├── resources/          # Resource files (installers, executables, SQL files, etc.)
+│   ├── app-installer.exe
+│   ├── setup.sql
+│   └── config.json
+├── examples/           # Example scripts for reference
 └── README.md           # This file
 ```
 
@@ -19,25 +24,39 @@ apps/
 
 ### For Linux Containers
 
-1. **Add Installer Scripts** (`installers/` directory):
+1. **Add Resource Files** (`resources/` directory):
+   - Place your installer files (`.exe`, `.run`, `.deb`, `.rpm`, etc.)
+   - Place SQL scripts, configuration files, or any other resources
+   - These files will be accessible from your installer and startup scripts at `/app/custom-apps/resources/`
+
+2. **Add Installer Scripts** (`installers/` directory):
    - Create shell scripts (`.sh`) that install your applications
    - Name them with prefixes like `01-`, `02-` to control execution order
    - Make them executable: `chmod +x installers/*.sh`
+   - Reference resources using: `/app/custom-apps/resources/yourfile.ext`
 
-2. **Add Startup Scripts** (`startup/` directory):
+3. **Add Startup Scripts** (`startup/` directory):
    - Create shell scripts (`.sh`) that start your applications
    - Use numbered prefixes to ensure correct startup order
    - Make them executable: `chmod +x startup/*.sh`
+   - Reference resources using: `/app/custom-apps/resources/yourfile.ext`
 
 ### For Windows Containers
 
-1. **Add Installer Scripts** (`installers/` directory):
+1. **Add Resource Files** (`resources/` directory):
+   - Place your installer files (`.exe`, `.msi`, etc.)
+   - Place SQL scripts, configuration files, or any other resources
+   - These files will be accessible from your scripts at `C:\app\custom-apps\resources\`
+
+2. **Add Installer Scripts** (`installers/` directory):
    - Create PowerShell scripts (`.ps1`) that install your applications
    - Name them with prefixes like `01-`, `02-` to control execution order
+   - Reference resources using: `C:\app\custom-apps\resources\yourfile.ext`
 
-2. **Add Startup Scripts** (`startup/` directory):
+3. **Add Startup Scripts** (`startup/` directory):
    - Create PowerShell scripts (`.ps1`) that start your applications
    - Use numbered prefixes to ensure correct startup order
+   - Reference resources using: `C:\app\custom-apps\resources\yourfile.ext`
 
 ## Example: Lisa Application with Puma
 
@@ -50,10 +69,27 @@ set -e
 
 echo "Installing Puma..."
 
-# Copy Puma installer (if you placed it here)
-if [ -f "/app/custom-apps/installers/puma-installer.run" ]; then
-    chmod +x /app/custom-apps/installers/puma-installer.run
-    /app/custom-apps/installers/puma-installer.run --silent
+# Method 1: Using installer from resources directory
+if [ -f "/app/custom-apps/resources/puma-installer.run" ]; then
+    echo "Installing from resources/puma-installer.run..."
+    chmod +x /app/custom-apps/resources/puma-installer.run
+    /app/custom-apps/resources/puma-installer.run --silent --install-dir=/opt/puma
+    echo "Puma installed to /opt/puma"
+fi
+
+# Method 2: Using package/archive from resources
+if [ -f "/app/custom-apps/resources/puma.tar.gz" ]; then
+    echo "Extracting Puma from resources/puma.tar.gz..."
+    mkdir -p /opt/puma
+    tar -xzf /app/custom-apps/resources/puma.tar.gz -C /opt/puma
+    echo "Puma extracted to /opt/puma"
+fi
+
+# Method 3: Using SQL script from resources for database setup
+if [ -f "/app/custom-apps/resources/puma-setup.sql" ]; then
+    echo "Running database setup from resources/puma-setup.sql..."
+    psql -U postgres -f /app/custom-apps/resources/puma-setup.sql
+    echo "Database setup completed"
 fi
 
 # Or install from package
@@ -69,13 +105,21 @@ set -e
 
 echo "Installing Lisa..."
 
-# Copy Lisa installer (if you placed it here)
-if [ -f "/app/custom-apps/installers/lisa-installer.run" ]; then
-    chmod +x /app/custom-apps/installers/lisa-installer.run
-    /app/custom-apps/installers/lisa-installer.run --silent
+# Using installer from resources directory
+if [ -f "/app/custom-apps/resources/lisa-installer.run" ]; then
+    echo "Installing from resources/lisa-installer.run..."
+    chmod +x /app/custom-apps/resources/lisa-installer.run
+    /app/custom-apps/resources/lisa-installer.run --silent
+    echo "Lisa installed successfully"
 fi
 
-echo "Lisa installed successfully"
+# Apply database migrations from resources
+if [ -f "/app/custom-apps/resources/lisa-migrations.sql" ]; then
+    echo "Applying database migrations from resources..."
+    psql -U postgres -d lisa_test -f /app/custom-apps/resources/lisa-migrations.sql
+fi
+
+echo "Lisa installation completed"
 ```
 
 **startup/01-start-puma.sh:**
@@ -142,13 +186,23 @@ exit 1
 ```powershell
 Write-Host "Installing Puma..." -ForegroundColor Yellow
 
-# Copy Puma installer (if you placed it here)
-$installer = "C:\app\custom-apps\installers\puma-installer.exe"
+# Using installer from resources directory
+$installer = "C:\app\custom-apps\resources\puma-installer.exe"
 if (Test-Path $installer) {
-    & $installer /S
+    Write-Host "Installing from resources\puma-installer.exe..." -ForegroundColor Yellow
+    & $installer /S /D="C:\Program Files\Puma"
+    Write-Host "Puma installed successfully" -ForegroundColor Green
 }
 
-Write-Host "Puma installed successfully" -ForegroundColor Green
+# Using SQL script from resources for database setup
+$sqlScript = "C:\app\custom-apps\resources\puma-setup.sql"
+if (Test-Path $sqlScript) {
+    Write-Host "Running database setup from resources..." -ForegroundColor Yellow
+    & "C:\Program Files\PostgreSQL\16\bin\psql.exe" -U postgres -f $sqlScript
+    Write-Host "Database setup completed" -ForegroundColor Green
+}
+
+Write-Host "Puma installation completed" -ForegroundColor Green
 ```
 
 **startup/01-start-puma.ps1:**
@@ -212,20 +266,30 @@ services:
    chmod +x apps/installers/*.sh apps/startup/*.sh
    ```
 
-2. **Dependencies**: Install scripts run before startup scripts, so install all dependencies first
+2. **Resource Files**: Place all your installers, executables, and data files in the `resources/` directory
+   - Windows: `.exe`, `.msi` installers
+   - Linux: `.run`, `.deb`, `.rpm`, `.tar.gz` packages
+   - SQL scripts: `.sql` files for database setup
+   - Configuration files: `.json`, `.xml`, `.yaml`, etc.
 
-3. **Startup Order**: Use numbered prefixes (01-, 02-, etc.) to control execution order
+3. **Dependencies**: Install scripts run before startup scripts, so install all dependencies first
 
-4. **Health Checks**: Always include health checks in startup scripts to ensure services are ready
+4. **Startup Order**: Use numbered prefixes (01-, 02-, etc.) to control execution order
 
-5. **Logs**: Scripts output to console, which is captured in Docker logs
+5. **Health Checks**: Always include health checks in startup scripts to ensure services are ready
 
-6. **Testing Locally**: Test your scripts locally before adding to Docker:
+6. **Logs**: Scripts output to console, which is captured in Docker logs
+
+7. **Testing Locally**: Test your scripts locally before adding to Docker:
    ```bash
    cd Tests/Docker/apps
    ./installers/01-install-puma.sh
    ./startup/01-start-puma.sh
    ```
+
+8. **Resource Path Reference**:
+   - Linux: `/app/custom-apps/resources/yourfile.ext`
+   - Windows: `C:\app\custom-apps\resources\yourfile.ext`
 
 ## Troubleshooting
 
