@@ -23,9 +23,9 @@ wait_for_service() {
     local check_command=$2
     local max_attempts=${3:-30}
     local attempt=1
-    
+
     echo -e "${YELLOW}Waiting for ${service_name} to be ready...${NC}"
-    
+
     while [ $attempt -le $max_attempts ]; do
         if eval "$check_command" > /dev/null 2>&1; then
             echo -e "${GREEN}✓ ${service_name} is ready${NC}"
@@ -35,7 +35,7 @@ wait_for_service() {
         sleep 2
         ((attempt++))
     done
-    
+
     echo -e "${RED}✗ ${service_name} failed to start${NC}"
     return 1
 }
@@ -43,10 +43,13 @@ wait_for_service() {
 # Step 1: Start PostgreSQL if needed
 if [ "${START_POSTGRESQL:-false}" = "true" ]; then
     echo -e "${YELLOW}Step 1: Starting PostgreSQL...${NC}"
-    
+
+    # Default password for postgres user (can be overridden)
+    POSTGRES_PASSWORD="${POSTGRES_PASSWORD:-root}"
+
     # Find PostgreSQL binary directory
     PG_BIN_DIR=$(find /usr/lib/postgresql -name bin -type d 2>/dev/null | head -1)
-    
+
     if [ -z "$PG_BIN_DIR" ]; then
         echo -e "${RED}✗ PostgreSQL not found in /usr/lib/postgresql${NC}"
         echo -e "${YELLOW}Continuing without PostgreSQL...${NC}"
@@ -54,20 +57,31 @@ if [ "${START_POSTGRESQL:-false}" = "true" ]; then
         # Create log directory
         mkdir -p /var/log/postgresql
         chown -R postgres:postgres /var/log/postgresql
-        
+
         # Initialize PostgreSQL data directory if it doesn't exist
         if [ ! -d "/var/lib/postgresql/data" ]; then
             mkdir -p /var/lib/postgresql/data
             chown -R postgres:postgres /var/lib/postgresql
-            su - postgres -c "$PG_BIN_DIR/initdb -D /var/lib/postgresql/data"
+
+            # Enable password auth for host connections right from initdb
+            su - postgres -c "$PG_BIN_DIR/initdb -D /var/lib/postgresql/data --auth-host=scram-sha-256"
         fi
-        
+
+        # Ensure PostgreSQL listens on TCP (localhost at minimum)
+        # NOTE: with network_mode: host, listen_addresses='*' exposes postgres on the host network.
+        # If you don't want that, change '*' to 'localhost'.
+        su - postgres -c "echo \"listen_addresses='localhost'\" >> /var/lib/postgresql/data/postgresql.conf" || true
+
         # Start PostgreSQL
         su - postgres -c "$PG_BIN_DIR/pg_ctl -D /var/lib/postgresql/data -l /var/log/postgresql/postgresql.log start"
-        
-        # Wait for PostgreSQL to be ready
+
+        # Wait for PostgreSQL to be ready (local socket)
         wait_for_service "PostgreSQL" "su - postgres -c 'psql -c \"SELECT 1\"'"
-        
+
+        # Set password for postgres user
+        echo -e "${YELLOW}Setting postgres password (default)${NC}"
+        su - postgres -c "psql -v ON_ERROR_STOP=1 -c \"ALTER USER postgres WITH PASSWORD '${POSTGRES_PASSWORD}';\""
+
         # Create test database if specified
         if [ -n "${POSTGRES_DB}" ]; then
             echo -e "${YELLOW}Creating database: ${POSTGRES_DB}${NC}"
@@ -81,19 +95,7 @@ fi
 # Step 2: Run custom application installers and startup scripts
 if [ -d "/app/custom-apps" ]; then
     echo -e "${YELLOW}Step 2: Running custom application scripts...${NC}"
-    
-    # Run installer scripts first (if any)
-    if [ -d "/app/custom-apps/installers" ]; then
-        shopt -s nullglob
-        for installer in /app/custom-apps/installers/*.sh; do
-            if [ -f "$installer" ] && [ -x "$installer" ]; then
-                echo -e "${YELLOW}Running installer: $(basename $installer)${NC}"
-                "$installer"
-            fi
-        done
-        shopt -u nullglob
-    fi
-    
+
     # Run startup scripts in order (01-*, 02-*, etc.)
     if [ -d "/app/custom-apps/startup" ]; then
         shopt -s nullglob
@@ -105,7 +107,7 @@ if [ -d "/app/custom-apps" ]; then
         done
         shopt -u nullglob
     fi
-    
+
     echo -e "${GREEN}✓ Custom applications initialized${NC}"
 else
     echo -e "${YELLOW}Step 2: No custom applications to start (/app/custom-apps not found)${NC}"
@@ -115,6 +117,11 @@ fi
 echo -e "${YELLOW}Step 3: Starting tests...${NC}"
 echo -e "${GREEN}========================================${NC}"
 
-# Execute the main command (defaults to running tests)
 cd /app/tests
+
+if [ "${PAUSE_BEFORE_TESTS:-false}" = "true" ]; then
+    echo -e "${YELLOW}PAUSE_BEFORE_TESTS=true -> pausing before running tests.${NC}"
+    echo -e "${YELLOW}Attach with: docker compose exec tests sh${NC}"
+    sleep infinity
+fi
 exec "$@"

@@ -5,51 +5,86 @@
 # 3. Copying your application files
 # 4. Updating the test commands
 
-FROM node:18-bullseye
+FROM node:18-bookworm
 
-# Install system dependencies for Playwright browsers and PostgreSQL
-RUN apt-get update && apt-get install -y \
-    wget \
-    ca-certificates \
-    fonts-liberation \
-    libappindicator3-1 \
-    libasound2 \
-    libatk-bridge2.0-0 \
-    libatk1.0-0 \
-    libc6 \
-    libcairo2 \
-    libcups2 \
-    libdbus-1-3 \
-    libexpat1 \
-    libfontconfig1 \
-    libgbm1 \
-    libgcc1 \
-    libglib2.0-0 \
-    libgtk-3-0 \
-    libnspr4 \
-    libnss3 \
-    libpango-1.0-0 \
-    libpangocairo-1.0-0 \
-    libstdc++6 \
-    libx11-6 \
-    libx11-xcb1 \
-    libxcb1 \
-    libxcomposite1 \
-    libxcursor1 \
-    libxdamage1 \
-    libxext6 \
-    libxfixes3 \
-    libxi6 \
-    libxrandr2 \
-    libxrender1 \
-    libxss1 \
-    libxtst6 \
-    lsb-release \
-    xdg-utils \
-    postgresql \
-    postgresql-contrib \
-    postgresql-client \
-    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 1) Base deps + tools needed to add PGDG repo
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+      wget \
+      ca-certificates \
+      curl \
+      gnupg \
+      lsb-release \
+      xdg-utils \
+      # Playwright/GUI deps (as you already had)
+      fonts-liberation \
+      libappindicator3-1 \
+      libasound2 \
+      libatk-bridge2.0-0 \
+      libatk1.0-0 \
+      libc6 \
+      libcairo2 \
+      libcups2 \
+      libdbus-1-3 \
+      libexpat1 \
+      libfontconfig1 \
+      libgbm1 \
+      libgcc1 \
+      libglib2.0-0 \
+      libgtk-3-0 \
+      libnspr4 \
+      libnss3 \
+      libpango-1.0-0 \
+      libpangocairo-1.0-0 \
+      libstdc++6 \
+      libx11-6 \
+      libx11-xcb1 \
+      libxcb1 \
+      libxcomposite1 \
+      libxcursor1 \
+      libxdamage1 \
+      libxext6 \
+      libxfixes3 \
+      libxi6 \
+      libxrandr2 \
+      libxrender1 \
+      libxss1 \
+      libxtst6 \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+# 2) Add PostgreSQL PGDG repo and install PostgreSQL 16 (server + client)
+RUN set -eux; \
+    install -d -m 0755 /etc/apt/keyrings; \
+    curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+      | gpg --dearmor -o /etc/apt/keyrings/postgresql.gpg; \
+    echo "deb [signed-by=/etc/apt/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt bookworm-pgdg main" \
+      > /etc/apt/sources.list.d/pgdg.list; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+      postgresql-16 \
+      postgresql-client-16 \
+      libpq5 \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+# Install font tools (needed for fc-cache) + locales (optional but often useful)
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+      fontconfig \
+      locales \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
+# Copy Verdana fonts (make sure this folder exists in repo/build context)
+COPY Tests/Fonts/verdana /usr/share/fonts/truetype/verdana
+
+# Rebuild font cache
+RUN fc-cache -f -v
 
 # Set working directory
 WORKDIR /app/tests
@@ -67,16 +102,18 @@ RUN npx playwright install --with-deps
 COPY Tests/ ./
 
 # Create directories for test results and custom apps
-RUN mkdir -p test-results/screenshots test-results/videos /app/custom-apps/installers /app/custom-apps/startup /app/custom-apps/resources
+RUN mkdir -p \
+    test-results/screenshots \
+    test-results/videos \
+    /app/custom-apps/installers \
+    /app/custom-apps/startup \
+    /app/custom-apps/resources
 
 # Copy entrypoint script
 COPY Tests/Docker/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 # Copy custom application files, installers and startup scripts (if they exist)
-# Users should place their resource files (installers, executables, SQL files) in Tests/Docker/apps/resources/
-# Users should place their installer scripts in Tests/Docker/apps/installers/
-# and startup scripts in Tests/Docker/apps/startup/
 COPY Tests/Docker/apps/ /app/custom-apps/
 
 # Environment variables (can be overridden at runtime)
@@ -85,9 +122,5 @@ ENV CI=true
 ENV START_POSTGRESQL=false
 ENV POSTGRES_DB=""
 
-# Set entrypoint
 ENTRYPOINT ["/app/entrypoint.sh"]
-
-# Default command - run all tests
-# Override this in docker-compose or docker run command if needed
-CMD ["npm", "test"]
+CMD ["npm", "test"] 
