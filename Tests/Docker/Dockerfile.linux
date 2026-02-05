@@ -67,14 +67,15 @@ RUN npx playwright install --with-deps
 COPY Tests/ ./
 
 # Create directories for test results and custom apps
-RUN mkdir -p test-results/screenshots test-results/videos /app/custom-apps/installers /app/custom-apps/startup
+RUN mkdir -p test-results/screenshots test-results/videos /app/custom-apps/installers /app/custom-apps/startup /app/custom-apps/resources
 
 # Copy entrypoint script
 COPY Tests/Docker/entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
-# Copy custom application installers and startup scripts (if they exist)
-# Users should place their installers in Tests/Docker/apps/installers/
+# Copy custom application files, installers and startup scripts (if they exist)
+# Users should place their resource files (installers, executables, SQL files) in Tests/Docker/apps/resources/
+# Users should place their installer scripts in Tests/Docker/apps/installers/
 # and startup scripts in Tests/Docker/apps/startup/
 COPY Tests/Docker/apps/ /app/custom-apps/
 
