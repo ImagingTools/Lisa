@@ -189,7 +189,7 @@ Write-Host "Installing Puma..." -ForegroundColor Yellow
 # Using installer from resources directory
 $installer = "C:\app\custom-apps\resources\puma-installer.exe"
 if (Test-Path $installer) {
-    Write-Host "Installing from resources\puma-installer.exe..." -ForegroundColor Yellow
+    Write-Host "Installing from C:\app\custom-apps\resources\puma-installer.exe..." -ForegroundColor Yellow
     & $installer /S /D="C:\Program Files\Puma"
     Write-Host "Puma installed successfully" -ForegroundColor Green
 }
