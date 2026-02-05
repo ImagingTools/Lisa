@@ -16,7 +16,7 @@ if (Test-Path $installer) {
 # Method 2: Using archive from resources
 $archive = "C:\app\custom-apps\resources\lisa.zip"
 if (Test-Path $archive) {
-    Write-Host "Extracting Lisa from resources\lisa.zip..." -ForegroundColor Yellow
+    Write-Host "Extracting Lisa from $archive..." -ForegroundColor Yellow
     $destination = "C:\Program Files\Lisa"
     New-Item -ItemType Directory -Path $destination -Force | Out-Null
     Expand-Archive -Path $archive -DestinationPath $destination -Force
