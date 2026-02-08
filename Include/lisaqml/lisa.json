@@ -2,12 +2,12 @@
     "appName": "Lisa",
     "rootPath": "/Lisa/Views/",
     "entry": "LisaWeb.qml",
-    "base": "${LISADIR}\\Include\\lisaqml\\Qml",
+    "base": "${LISADIR}/Include/lisaqml/Qml",
     "includes": [
-        "${IMTCOREDIR}\\Qml\\web\\imtcore.json"
+        "${IMTCOREDIR}/Qml/web/imtcore.json"
     ],
     "dirs": [
 
     ],
-    "output": "${LISADIR}\\Bin\\web\\Resources\\jqml.lisa.js"
+    "output": "${LISADIR}/Bin/web/Resources/jqml.lisa.js"
 }
