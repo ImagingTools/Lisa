@@ -32,13 +32,20 @@ if not exist "%BIN%" (
 echo [startup] Starting PumaServer...
 start /B "" "%BIN%" > "%LOG%" 2>&1
 
-REM Get the PID of the started process (approximate)
-timeout /t 1 /nobreak > nul
+REM Wait for the process to initialize
+timeout /t 2 /nobreak > nul
 
-REM Check if process is running
+REM Check if process is running (retry up to 3 times)
+set RETRY_COUNT=0
+:check_puma
 tasklist /FI "IMAGENAME eq PumaServer.exe" 2>nul | find /I "PumaServer.exe" >nul
 if errorlevel 1 (
-    echo [startup] PumaServer failed to start. Log:
+    set /a RETRY_COUNT+=1
+    if !RETRY_COUNT! lss 3 (
+        timeout /t 2 /nobreak > nul
+        goto :check_puma
+    )
+    echo [startup] PumaServer failed to start after !RETRY_COUNT! attempts. Log:
     type "%LOG%"
     exit /b 1
 )

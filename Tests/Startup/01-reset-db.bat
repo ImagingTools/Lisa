@@ -43,6 +43,17 @@ if errorlevel 1 goto :error
 psql -h %PGHOST% -p %PGPORT% -U %PGUSER% -v ON_ERROR_STOP=1 -c "CREATE DATABASE %PUMA_DB_NAME% OWNER %PGUSER%;"
 if errorlevel 1 goto :error
 
+REM Check if backup files exist
+if not exist "%LISA_BACKUP_FILE%" (
+    echo [startup] ERROR: Lisa backup file not found: %LISA_BACKUP_FILE%
+    exit /b 1
+)
+
+if not exist "%PUMA_BACKUP_FILE%" (
+    echo [startup] ERROR: Puma backup file not found: %PUMA_BACKUP_FILE%
+    exit /b 1
+)
+
 REM Restore databases from backups
 echo [startup] Restoring Lisa database from backup...
 pg_restore -h %PGHOST% -p %PGPORT% -U %PGUSER% -d %LISA_DB_NAME% --verbose "%LISA_BACKUP_FILE%"

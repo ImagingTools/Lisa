@@ -32,13 +32,20 @@ if not exist "%BIN%" (
 echo [startup] Starting LisaServer...
 start /B "" "%BIN%" > "%LOG%" 2>&1
 
-REM Get the PID of the started process (approximate)
-timeout /t 1 /nobreak > nul
+REM Wait for the process to initialize
+timeout /t 2 /nobreak > nul
 
-REM Check if process is running
+REM Check if process is running (retry up to 3 times)
+set RETRY_COUNT=0
+:check_lisa
 tasklist /FI "IMAGENAME eq LisaServer.exe" 2>nul | find /I "LisaServer.exe" >nul
 if errorlevel 1 (
-    echo [startup] LisaServer failed to start. Log:
+    set /a RETRY_COUNT+=1
+    if !RETRY_COUNT! lss 3 (
+        timeout /t 2 /nobreak > nul
+        goto :check_lisa
+    )
+    echo [startup] LisaServer failed to start after !RETRY_COUNT! attempts. Log:
     type "%LOG%"
     exit /b 1
 )
