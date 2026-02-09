@@ -13,20 +13,6 @@ set PUMA_BACKUP_FILE=C:\app\resources\backups\puma.backup
 set LISA_DB_NAME=lisa
 set PUMA_DB_NAME=puma
 
-REM Find PostgreSQL bin directory
-set PSQL_BIN=
-for %%P in ("C:\Program Files\PostgreSQL\*\bin\psql.exe") do set PSQL_BIN=%%~dpP
-if not defined PSQL_BIN (
-    echo [startup] ERROR: PostgreSQL not found. Please install PostgreSQL first.
-    exit /b 1
-)
-
-set PATH=%PSQL_BIN%;%PATH%
-
-echo [startup] Using PostgreSQL from: %PSQL_BIN%
-psql --version
-pg_restore --version
-
 REM Drop and create Lisa database
 echo [startup] Resetting Lisa database...
 psql -h %PGHOST% -p %PGPORT% -U %PGUSER% -v ON_ERROR_STOP=1 -c "DROP DATABASE IF EXISTS %LISA_DB_NAME%;"
