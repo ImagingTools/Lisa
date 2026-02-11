@@ -44,6 +44,6 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Run]
-Filename: "{app}\LisaServerConfigurator.exe"; Flags: runascurrentuser
+Filename: "{app}\LisaServerConfigurator.exe"; Flags: runascurrentuser skipifsilent;
 Filename: "{app}\{#MyAppExeName}"; Flags: nowait postinstall skipifsilent;
 
