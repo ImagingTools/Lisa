@@ -2,6 +2,7 @@
 AuxInclude/
 Bin/
 Lib/
+Tests/test-results
 
 # CMake build artifacts
 CMakeCache.txt

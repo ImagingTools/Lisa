@@ -1,11 +1,11 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
-BIN="/app/custom-apps/resources/LisaServer"
+BIN="/app/resources/LisaServer"
 LOG="/tmp/lisa.log"
 
-export LD_LIBRARY_PATH="/app/custom-apps/resources:${LD_LIBRARY_PATH:-}"
-export QT_PLUGIN_PATH="/app/custom-apps/resources/plugins"
+export LD_LIBRARY_PATH="/app/resources:${LD_LIBRARY_PATH:-}"
+export QT_PLUGIN_PATH="/app/resources/plugins"
 
 echo "[startup] Starting LisaServer..."
 "$BIN" >"$LOG" 2>&1 &

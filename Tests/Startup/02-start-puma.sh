@@ -1,11 +1,11 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
-BIN="/app/custom-apps/resources/PumaServer"
+BIN="/app/resources/PumaServer"
 LOG="/tmp/puma.log"
 
-export LD_LIBRARY_PATH="/app/custom-apps/resources:${LD_LIBRARY_PATH:-}"
-export QT_PLUGIN_PATH="/app/custom-apps/resources/plugins"
+export LD_LIBRARY_PATH="/app/resources:${LD_LIBRARY_PATH:-}"
+export QT_PLUGIN_PATH="/app/resources/plugins"
 
 echo "[startup] Starting PumaServer..."
 "$BIN" >"$LOG" 2>&1 &

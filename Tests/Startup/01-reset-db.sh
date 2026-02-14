@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 set -euo pipefail
 
 export PGUSER="postgres"
@@ -6,8 +6,8 @@ export PGPASSWORD="${PGPASSWORD:-root}"
 export PGHOST="${PGHOST:-localhost}"
 export PGPORT="${PGPORT:-5432}"
 
-LISA_BACKUP_FILE="/app/custom-apps/resources/backups/lisa.backup"
-PUMA_BACKUP_FILE="/app/custom-apps/resources/backups/puma.backup"
+LISA_BACKUP_FILE="/app/resources/backups/lisa.backup"
+PUMA_BACKUP_FILE="/app/resources/backups/puma.backup"
 
 LISA_DB_NAME="lisa"
 PUMA_DB_NAME="puma"
