@@ -14,11 +14,11 @@ IMT_REGISTER_PLUGIN(
 			imtservice::IConnectionCollectionPlugin,
 			imtservice::TConnectionCollectionPluginComponentImpl<CLisaSettingsPlugin>,
 			ServiceSettings,
-			LisaSettings);
+			LisaServerSettings);
 
 IMT_REGISTER_PLUGIN(
 			imtservice::IObjectCollectionPlugin,
 			imtservice::TObjectCollectionPluginComponentImpl<CLisaSettingsPlugin>,
 			ServiceLog,
-			LisaSettings);
+			LisaServerLog);
 
