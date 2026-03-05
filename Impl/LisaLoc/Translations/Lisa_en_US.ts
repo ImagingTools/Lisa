@@ -15,7 +15,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+44"/>
         <location line="+272"/>
         <source>Lisa</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa</translation>
     </message>
     <message>
         <location line="-222"/>
@@ -284,17 +284,17 @@
     <message>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-282"/>
         <source>LisaServerConfigurator</source>
-        <translation type="unfinished"></translation>
+        <translation>LisaServerConfigurator</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>qrc:/qml/imtgui/Params/DatabaseParams.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Params/DatabaseParams.qml</translation>
     </message>
     <message>
         <location line="+2"/>
         <source>qrc:/qml/imtgui/Settings/SettingsIntegerInput.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Settings/SettingsIntegerInput.qml</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -304,12 +304,12 @@
     <message>
         <location line="+4"/>
         <source>Lisa URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa URL</translation>
     </message>
     <message>
         <location line="+4"/>
         <source>Server Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Port</translation>
     </message>
     <message>
         <source>Database Settings</source>
@@ -405,7 +405,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-210"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-60"/>
         <source>ImagingTools</source>
-        <translation type="unfinished"></translation>
+        <translation>ImagingTools</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -417,7 +417,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+270"/>
         <location line="+6"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>License</translation>
     </message>
     <message>
         <location line="-266"/>
@@ -429,7 +429,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-8"/>
         <location line="+10"/>
         <source>Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Feature</translation>
     </message>
     <message>
         <location line="-262"/>
@@ -441,7 +441,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-6"/>
         <location line="+8"/>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Product</translation>
     </message>
     <message>
         <location line="-262"/>
@@ -454,7 +454,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-268"/>
         <location line="+242"/>
         <source>Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Backup</translation>
     </message>
     <message>
         <location line="-240"/>
@@ -466,7 +466,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-236"/>
         <location line="+240"/>
         <source>Backup Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Backup Folder</translation>
     </message>
     <message>
         <location line="-240"/>
@@ -474,7 +474,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-256"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-238"/>
         <source>Server Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Connection</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -482,7 +482,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+12"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+4"/>
         <source>Enable  LDAP</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable  LDAP</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -494,7 +494,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <location line="+242"/>
         <source>Database Access Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Database Access Settings</translation>
     </message>
     <message>
         <location line="-238"/>
@@ -502,7 +502,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-238"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-248"/>
         <source>LDAP</source>
-        <translation type="unfinished"></translation>
+        <translation>LDAP</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -516,7 +516,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+10"/>
         <location line="+240"/>
         <source>Database</source>
-        <translation type="unfinished"></translation>
+        <translation>Database</translation>
     </message>
     <message>
         <location line="-238"/>
@@ -528,7 +528,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-256"/>
         <location line="+166"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <location line="-152"/>
@@ -540,7 +540,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-168"/>
         <location line="+242"/>
         <source>Scheduler</source>
-        <translation type="unfinished"></translation>
+        <translation>Scheduler</translation>
     </message>
     <message>
         <location line="-238"/>
@@ -548,7 +548,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-228"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-222"/>
         <source>Puma</source>
-        <translation type="unfinished"></translation>
+        <translation>Puma</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -556,7 +556,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+14"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+14"/>
         <source>New license</source>
-        <translation type="unfinished"></translation>
+        <translation>New license</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -580,7 +580,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-116"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-14"/>
         <source>Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Test</translation>
     </message>
     <message>
         <location line="+110"/>
@@ -595,7 +595,7 @@
         <location line="+184"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+128"/>
         <source>qrc:/qml/imtgui/Settings/SettingsTextInput.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Settings/SettingsTextInput.qml</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -603,7 +603,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-4"/>
         <source>http://localhost:7776</source>
-        <translation type="unfinished"></translation>
+        <translation>http://localhost:7776</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -615,7 +615,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+28"/>
         <location line="+36"/>
         <source>Icons/Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Add</translation>
     </message>
     <message>
         <location line="-50"/>
@@ -623,7 +623,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-34"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-38"/>
         <source>Insert subfeature</source>
-        <translation type="unfinished"></translation>
+        <translation>Insert subfeature</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -635,7 +635,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <location line="+36"/>
         <source>Icons/Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Delete</translation>
     </message>
     <message>
         <location line="-44"/>
@@ -643,7 +643,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-38"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-40"/>
         <source>New feature</source>
-        <translation type="unfinished"></translation>
+        <translation>New feature</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -651,7 +651,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+12"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+20"/>
         <source>Icons/Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Key</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -659,7 +659,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>qrc:/qml/imtlicgui/LicenseCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/LicenseCollectionView.qml</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -667,7 +667,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+4"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>Licenses</source>
-        <translation type="unfinished"></translation>
+        <translation>Licenses</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -675,7 +675,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+4"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+10"/>
         <source>Icons/FeaturePackage</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/FeaturePackage</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -683,7 +683,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>qrc:/qml/imtlicgui/FeatureCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/FeatureCollectionView.qml</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -691,7 +691,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+8"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-10"/>
         <source>Icons/Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Product</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -699,7 +699,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>qrc:/qml/imtlicgui/ProductCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/ProductCollectionView.qml</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -707,7 +707,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+16"/>
         <source>Product Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Product Name</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -715,7 +715,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+2"/>
         <source>Category</source>
-        <translation type="unfinished"></translation>
+        <translation>Category</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -723,7 +723,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+22"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+22"/>
         <source>New product</source>
-        <translation type="unfinished"></translation>
+        <translation>New product</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -731,7 +731,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-8"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-10"/>
         <source>Add feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Add feature</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -739,7 +739,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+14"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+26"/>
         <source>Server Connection Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Connection Interface</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -747,7 +747,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+12"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>Puma Connection Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Puma Connection Interface</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -755,7 +755,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-14"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-8"/>
         <source>Server Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Server Settings</translation>
     </message>
     <message>
         <source>Client version</source>
@@ -907,7 +907,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+158"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+168"/>
         <source>Features</source>
-        <translation type="unfinished"></translation>
+        <translation>Features</translation>
     </message>
     <message>
         <location line="-206"/>
@@ -922,12 +922,12 @@
         <location line="+8"/>
         <location line="+242"/>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Server</translation>
     </message>
     <message>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-252"/>
         <source>Lisa Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa Server</translation>
     </message>
 </context>
 <context>
@@ -939,7 +939,7 @@
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/ColorDialog.qml" line="+208"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/ColorDialog.qml" line="+212"/>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color</translation>
     </message>
 </context>
 <context>
@@ -947,22 +947,22 @@
     <message>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/ColorInputs.qml" line="+50"/>
         <source>Hex</source>
-        <translation type="unfinished"></translation>
+        <translation>Hex</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>RGB</source>
-        <translation type="unfinished"></translation>
+        <translation>RGB</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>HSV</source>
-        <translation type="unfinished"></translation>
+        <translation>HSV</translation>
     </message>
     <message>
         <location line="+3"/>
         <source>HSL</source>
-        <translation type="unfinished"></translation>
+        <translation>HSL</translation>
     </message>
 </context>
 <context>
@@ -1003,262 +1003,262 @@
     <message>
         <location filename="../../LisaServer/LisaFeatures.h" line="+22"/>
         <source>Feature Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Feature Management</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Edit Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Feature</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Change Feature</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove Feature</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Feature</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>View Features</source>
-        <translation type="unfinished"></translation>
+        <translation>View Features</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Product Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Product Management</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Edit Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Product</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Change Product</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove Product</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Product</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>View Products</source>
-        <translation type="unfinished"></translation>
+        <translation>View Products</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>License Definition Management</source>
-        <translation type="unfinished"></translation>
+        <translation>License Definition Management</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Edit License Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit License Definition</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change License Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Change License Definition</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove License Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove License Definition</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add License Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Add License Definition</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>View Licenses Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>View Licenses Definition</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>Administration</source>
-        <translation type="unfinished"></translation>
+        <translation>Administration</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Edit Administration</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Administration</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Edit Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Group</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Change Group</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove Group</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Group</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Group</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Edit Role</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Role</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change Role</source>
-        <translation type="unfinished"></translation>
+        <translation>Change Role</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove Role</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove Role</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add Role</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Role</translation>
     </message>
     <message>
         <location line="+11"/>
         <source>Edit User</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit User</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Change User</source>
-        <translation type="unfinished"></translation>
+        <translation>Change User</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Remove User</source>
-        <translation type="unfinished"></translation>
+        <translation>Remove User</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Add User</source>
-        <translation type="unfinished"></translation>
+        <translation>Add User</translation>
     </message>
     <message>
         <location line="+13"/>
         <source>View Administration</source>
-        <translation type="unfinished"></translation>
+        <translation>View Administration</translation>
     </message>
     <message>
         <location line="+8"/>
         <source>View Group History</source>
-        <translation type="unfinished"></translation>
+        <translation>View Group History</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View User History</source>
-        <translation type="unfinished"></translation>
+        <translation>View User History</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View Role History</source>
-        <translation type="unfinished"></translation>
+        <translation>View Role History</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View Groups</source>
-        <translation type="unfinished"></translation>
+        <translation>View Groups</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>View Users</source>
-        <translation type="unfinished"></translation>
+        <translation>View Users</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>View Roles</source>
-        <translation type="unfinished"></translation>
+        <translation>View Roles</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Revision Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Revision Management</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>Delete Revision</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete Revision</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Export Revision</source>
-        <translation type="unfinished"></translation>
+        <translation>Export Revision</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View Revisions</source>
-        <translation type="unfinished"></translation>
+        <translation>View Revisions</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Backup Revision</source>
-        <translation type="unfinished"></translation>
+        <translation>Backup Revision</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Restore Revision</source>
-        <translation type="unfinished"></translation>
+        <translation>Restore Revision</translation>
     </message>
     <message>
         <location line="+12"/>
         <source>Workspace Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Workspace Management</translation>
     </message>
     <message>
         <location line="+7"/>
         <source>View Workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>View Workspace</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>View workspace page</source>
-        <translation type="unfinished"></translation>
+        <translation>View workspace page</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View User Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>View User Actions</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>View only your activity</source>
-        <translation type="unfinished"></translation>
+        <translation>View only your activity</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>View All User Actions</source>
-        <translation type="unfinished"></translation>
+        <translation>View All User Actions</translation>
     </message>
     <message>
         <location line="+1"/>
         <source>View the activity of all users</source>
-        <translation type="unfinished"></translation>
+        <translation>View the activity of all users</translation>
     </message>
 </context>
 <context>
@@ -1270,7 +1270,7 @@
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/FileDialog.qml" line="+40"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FileDialog.qml" line="+44"/>
         <source>Overwrite file?</source>
-        <translation type="unfinished"></translation>
+        <translation>Overwrite file?</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -1280,7 +1280,8 @@
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FileDialog.qml" line="+4"/>
         <source>“%1” already exists.
 Do you want to replace it?</source>
-        <translation type="unfinished"></translation>
+        <translation>“%1” already exists.
+Do you want to replace it?</translation>
     </message>
     <message>
         <location line="+121"/>
@@ -1289,7 +1290,7 @@ Do you want to replace it?</source>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/FileDialog.qml" line="+97"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FileDialog.qml" line="+103"/>
         <source>File name</source>
-        <translation type="unfinished"></translation>
+        <translation>File name</translation>
     </message>
     <message>
         <location line="+14"/>
@@ -1298,7 +1299,7 @@ Do you want to replace it?</source>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/FileDialog.qml" line="+15"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FileDialog.qml" line="+15"/>
         <source>Filter</source>
-        <translation type="unfinished"></translation>
+        <translation>Filter</translation>
     </message>
 </context>
 <context>
@@ -1310,7 +1311,7 @@ Do you want to replace it?</source>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/FontDialog.qml" line="+80"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FontDialog.qml" line="+94"/>
         <source>Writing System</source>
-        <translation type="unfinished"></translation>
+        <translation>Writing System</translation>
     </message>
 </context>
 <context>
@@ -1318,37 +1319,37 @@ Do you want to replace it?</source>
     <message>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/FontDialogContent.qml" line="+30"/>
         <source>Family</source>
-        <translation type="unfinished"></translation>
+        <translation>Family</translation>
     </message>
     <message>
         <location line="+50"/>
         <source>Style</source>
-        <translation type="unfinished"></translation>
+        <translation>Style</translation>
     </message>
     <message>
         <location line="+46"/>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Size</translation>
     </message>
     <message>
         <location line="+52"/>
         <source>Effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Effects</translation>
     </message>
     <message>
         <location line="+15"/>
         <source>Underline</source>
-        <translation type="unfinished"></translation>
+        <translation>Underline</translation>
     </message>
     <message>
         <location line="+5"/>
         <source>Strikeout</source>
-        <translation type="unfinished"></translation>
+        <translation>Strikeout</translation>
     </message>
     <message>
         <location line="+9"/>
         <source>Sample</source>
-        <translation type="unfinished"></translation>
+        <translation>Sample</translation>
     </message>
 </context>
 <context>
@@ -1356,7 +1357,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../../LisaQmlExe/CMake/InstallationCollectionView.qml" line="+319"/>
         <source>Save file</source>
-        <translation type="unfinished"></translation>
+        <translation>Save file</translation>
     </message>
 </context>
 <context>
@@ -1368,7 +1369,7 @@ Do you want to replace it?</source>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/MessageDialog.qml" line="+89"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/MessageDialog.qml" line="+95"/>
         <source>Hide Details...</source>
-        <translation type="unfinished"></translation>
+        <translation>Hide Details...</translation>
     </message>
     <message>
         <location line="+0"/>
@@ -1377,7 +1378,7 @@ Do you want to replace it?</source>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/+Universal/MessageDialog.qml" line="+0"/>
         <location filename="../../../Bin/Debug_Qt6_VC17_x64/qml/QtQuick/Dialogs/quickimpl/qml/MessageDialog.qml" line="+0"/>
         <source>Show Details...</source>
-        <translation type="unfinished"></translation>
+        <translation>Show Details...</translation>
     </message>
 </context>
 <context>
@@ -1385,7 +1386,7 @@ Do you want to replace it?</source>
     <message>
         <location filename="../../LisaServer/LisaFeatures.h" line="-452"/>
         <source>Lisa</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisa</translation>
     </message>
 </context>
 </TS>
