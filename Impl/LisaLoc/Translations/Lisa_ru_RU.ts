@@ -42,7 +42,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-208"/>
         <location line="+242"/>
         <source>Scheduler</source>
-        <translation type="unfinished"></translation>
+        <translation>Планировщик</translation>
     </message>
     <message>
         <location line="-254"/>
@@ -54,7 +54,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-232"/>
         <location line="+240"/>
         <source>Backup Folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Папка резервных копий</translation>
     </message>
     <message>
         <location line="-244"/>
@@ -67,7 +67,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-246"/>
         <location line="+242"/>
         <source>Backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Резервное копирование</translation>
     </message>
     <message>
         <location line="-228"/>
@@ -79,7 +79,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-244"/>
         <location line="+166"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location line="-156"/>
@@ -93,7 +93,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-150"/>
         <location line="+240"/>
         <source>Database</source>
-        <translation type="unfinished"></translation>
+        <translation>База данных</translation>
     </message>
     <message>
         <location line="-234"/>
@@ -101,7 +101,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-226"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-238"/>
         <source>Puma</source>
-        <translation type="unfinished"></translation>
+        <translation>Puma</translation>
     </message>
     <message>
         <location line="+34"/>
@@ -200,12 +200,12 @@
     <message>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-42"/>
         <source>LisaServerConfigurator</source>
-        <translation type="unfinished"></translation>
+        <translation>LisaServerConfigurator</translation>
     </message>
     <message>
         <location line="+16"/>
         <source>qrc:/qml/imtgui/Params/DatabaseParams.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Params/DatabaseParams.qml</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -215,12 +215,12 @@
     <message>
         <location line="-6"/>
         <source>qrc:/qml/imtgui/Settings/SettingsIntegerInput.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Settings/SettingsIntegerInput.qml</translation>
     </message>
     <message>
         <location line="+10"/>
         <source>Lisa URL</source>
-        <translation></translation>
+        <translation>URL Lisa</translation>
     </message>
     <message>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaClient/CLisaClient.cpp" line="-206"/>
@@ -440,7 +440,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-108"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-62"/>
         <source>Test</source>
-        <translation type="unfinished"></translation>
+        <translation>Тест</translation>
     </message>
     <message>
         <location line="-66"/>
@@ -448,7 +448,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-96"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-50"/>
         <source>ImagingTools</source>
-        <translation type="unfinished"></translation>
+        <translation>ImagingTools</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -460,7 +460,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+270"/>
         <location line="+6"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензия</translation>
     </message>
     <message>
         <location line="-266"/>
@@ -472,7 +472,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-8"/>
         <location line="+10"/>
         <source>Feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Функция</translation>
     </message>
     <message>
         <location line="-262"/>
@@ -484,7 +484,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-6"/>
         <location line="+8"/>
         <source>Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Продукт</translation>
     </message>
     <message>
         <location line="-258"/>
@@ -492,7 +492,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-260"/>
         <source>Server Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Подключение к серверу</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -500,7 +500,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+12"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+4"/>
         <source>Enable  LDAP</source>
-        <translation type="unfinished"></translation>
+        <translation>Включить LDAP</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -512,7 +512,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <location line="+242"/>
         <source>Database Access Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки доступа к базе данных</translation>
     </message>
     <message>
         <location line="-238"/>
@@ -520,7 +520,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-238"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-248"/>
         <source>LDAP</source>
-        <translation type="unfinished"></translation>
+        <translation>LDAP</translation>
     </message>
     <message>
         <location line="+22"/>
@@ -528,7 +528,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+18"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+26"/>
         <source>New license</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая лицензия</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -560,7 +560,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+34"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+136"/>
         <source>Insert subfeature</source>
-        <translation type="unfinished"></translation>
+        <translation>Вставить подфункцию</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -568,7 +568,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-8"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-6"/>
         <source>New feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Новая функция</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -576,7 +576,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+10"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+18"/>
         <source>qrc:/qml/imtlicgui/LicenseCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/LicenseCollectionView.qml</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -584,7 +584,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+6"/>
         <source>qrc:/qml/imtlicgui/FeatureCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/FeatureCollectionView.qml</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -592,7 +592,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-12"/>
         <source>qrc:/qml/imtlicgui/ProductCollectionView.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtlicgui/ProductCollectionView.qml</translation>
     </message>
     <message>
         <location line="+18"/>
@@ -600,7 +600,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+30"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+40"/>
         <source>New product</source>
-        <translation type="unfinished"></translation>
+        <translation>Новый продукт</translation>
     </message>
     <message>
         <location line="+8"/>
@@ -608,7 +608,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-8"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-10"/>
         <source>Add feature</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить функцию</translation>
     </message>
     <message>
         <location line="+12"/>
@@ -616,7 +616,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+14"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+26"/>
         <source>Server Connection Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс подключения к серверу</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -624,7 +624,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+12"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-2"/>
         <source>Puma Connection Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Интерфейс подключения Puma</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -632,7 +632,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-14"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-8"/>
         <source>Server Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки сервера</translation>
     </message>
     <message>
         <location line="-234"/>
@@ -708,7 +708,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-32"/>
         <location line="+36"/>
         <source>Icons/Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Delete</translation>
     </message>
     <message>
         <location line="-56"/>
@@ -720,7 +720,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-32"/>
         <location line="+36"/>
         <source>Icons/Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Add</translation>
     </message>
     <message>
         <location line="-68"/>
@@ -735,7 +735,7 @@
         <location line="+184"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-60"/>
         <source>qrc:/qml/imtgui/Settings/SettingsTextInput.qml</source>
-        <translation type="unfinished"></translation>
+        <translation>qrc:/qml/imtgui/Settings/SettingsTextInput.qml</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -743,7 +743,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-4"/>
         <source>http://localhost:7776</source>
-        <translation type="unfinished"></translation>
+        <translation>http://localhost:7776</translation>
     </message>
     <message>
         <location line="+4"/>
@@ -767,7 +767,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+26"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+28"/>
         <source>Licenses</source>
-        <translation type="unfinished"></translation>
+        <translation>Лицензии</translation>
     </message>
     <message>
         <location line="-4"/>
@@ -775,7 +775,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="-2"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+4"/>
         <source>Icons/Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Key</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -783,7 +783,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="+6"/>
         <source>Icons/FeaturePackage</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/FeaturePackage</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -791,7 +791,7 @@
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaServerConfigurator/CLisaServerConfigurator.cpp" line="+6"/>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-12"/>
         <source>Icons/Product</source>
-        <translation type="unfinished"></translation>
+        <translation>Icons/Product</translation>
     </message>
     <message>
         <location line="+6"/>
@@ -819,7 +819,7 @@
     <message>
         <location filename="../../../AuxInclude/Qt6_VC17_x64/GeneratedFiles/LisaSettingsPlugin/CLisaSettingsPlugin.cpp" line="-252"/>
         <source>Lisa Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Сервер Lisa</translation>
     </message>
 </context>
 </TS>
