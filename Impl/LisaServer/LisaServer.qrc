@@ -18,4 +18,21 @@
         <file alias="CreateDatabase">Resources/Database/CreateDatabase.sql</file>
         <file alias="CreateTables">Resources/Database/CreateTables.sql</file>
     </qresource>
+    <qresource prefix="/Migrations">
+        <file>Resources/Migrations/migration_0.sql</file>
+        <file>Resources/Migrations/migration_1.sql</file>
+        <file>Resources/Migrations/migration_2.sql</file>
+        <file>Resources/Migrations/migration_3.sql</file>
+        <file>Resources/Migrations/migration_4.sql</file>
+        <file>Resources/Migrations/migration_5.sql</file>
+        <file>Resources/Migrations/migration_6.sql</file>
+        <file>Resources/Migrations/migration_7.sql</file>
+        <file>Resources/Migrations/migration_8.sql</file>
+        <file>Resources/Migrations/migration_9.sql</file>
+        <file>Resources/Migrations/migration_10.sql</file>
+        <file>Resources/Migrations/migration_11.sql</file>
+        <file>Resources/Migrations/migration_12.sql</file>
+        <file>Resources/Migrations/migration_13.sql</file>
+        <file>Resources/Migrations/migration_15.sql</file>
+    </qresource>
 </RCC>
