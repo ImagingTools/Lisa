@@ -16,5 +16,13 @@
     </PackageDirs>
     <PackageFiles/>
     <RegistryFiles>
+        <FilePath>../Impl/LisaClient/LisaClient.acc</FilePath>
+        <FilePath>../Impl/LisaConverter/LisaConverter.acc</FilePath>
+        <FilePath>../Impl/LisaLoc/LisaLoc.acc</FilePath>
+        <FilePath>../Impl/LisaQmlExe/LisaQmlExe.acc</FilePath>
+        <FilePath>../Impl/LisaSdk/LisaSdk.acc</FilePath>
+        <FilePath>../Impl/LisaServer/LisaServer.acc</FilePath>
+        <FilePath>../Impl/LisaServerConfigurator/LisaServerConfigurator.acc</FilePath>
+        <FilePath>../Impl/Plugins/LisaSettingsPlugin/LisaSettingsPlugin.acc</FilePath>
     </RegistryFiles>
 </Acf>
