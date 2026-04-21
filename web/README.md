@@ -411,6 +411,8 @@ npm run dev              # → http://127.0.0.1:5173 (auto-opens in the default 
 
 # Run against a real Lisa GraphQL server
 VITE_LISA_GRAPHQL_URL=https://lisa.example/Lisa/graphql npm run dev
+#   — or copy `.env.example` to `.env.local` and set the variable there,
+#     then just run `npm run dev`.
 
 # Production build
 npm run build            # → web/dist/
