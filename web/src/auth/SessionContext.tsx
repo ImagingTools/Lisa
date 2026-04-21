@@ -24,6 +24,9 @@ import {
   type ReactNode,
 } from 'react';
 import { useApolloClient, useMutation } from '@apollo/client';
+// Note: AUTHORIZATION_QUERY is a `query` per the imtauth SDL, so we run it via
+// `client.query(...)` rather than `useMutation` (Apollo 3.14 throws invariant
+// 98 if the hook's operation kind doesn't match the document).
 import {
   AUTHORIZATION_QUERY,
   LOGOUT_MUTATION,
@@ -112,7 +115,6 @@ export function SessionProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState<boolean>(Boolean(getStoredAuthPayload()));
   const [error, setError] = useState<string | null>(null);
 
-  const [authorizationMutation] = useMutation<AuthorizationData>(AUTHORIZATION_QUERY);
   const [logoutMutation] = useMutation<LogoutData>(LOGOUT_MUTATION);
 
   // On boot, optionally refresh permissions from server
@@ -152,11 +154,13 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       setError(null);
       setLoading(true);
       try {
-        const res = await authorizationMutation({
+        const res = await client.query<AuthorizationData>({
+          query: AUTHORIZATION_QUERY,
           variables: { input: { login: loginName, password } },
+          fetchPolicy: 'network-only',
         });
         const payload = res.data?.Authorization;
-        if (!payload) throw new Error(res.errors?.[0]?.message ?? 'Login failed');
+        if (!payload) throw new Error(res.error?.message ?? 'Login failed');
         setStoredAuthPayload(payload);
         setAuthPayload(payload);
         setPermissions(parsePermissions(payload.permissions));
@@ -169,7 +173,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         setLoading(false);
       }
     },
-    [client, authorizationMutation],
+    [client],
   );
 
   const logout = useCallback(async () => {
