@@ -28,7 +28,7 @@ interface MockState {
   currentUser: SessionUser | null;
 }
 
-const STORAGE_KEY = 'lisa-web.mock-state.v1';
+const STORAGE_KEY = 'lisa-web.mock-state.v2';
 
 function loadState(): MockState {
   if (typeof window !== 'undefined') {
@@ -235,7 +235,7 @@ const resolvers: Record<string, Resolver> = {
     state.licenses.push(license);
     const product = state.products.find((p) => p.id === license.productId);
     if (product && !product.licenses.some((r) => r.id === license.id)) {
-      product.licenses.push({ id: license.id, name: license.name });
+      product.licenses.push({ productId: license.productId, id: license.id, name: license.name });
       nextRevision(product.meta);
     }
     persist(state);
@@ -333,6 +333,64 @@ const resolvers: Record<string, Resolver> = {
 };
 
 /**
+ * Field → concrete type name map, mirroring the SDL in `../graphql/schema.ts`.
+ *
+ * Apollo Client's default behaviour (`addTypename: true`) injects a
+ * `__typename` field into every selection set; the cache then uses that
+ * typename together with the declared `typePolicies.keyFields` to normalise
+ * objects. A real GraphQL server would emit `__typename` automatically.
+ * The mock resolvers return plain domain objects, so we stamp typenames on
+ * them here before handing the response back to Apollo.
+ */
+const FIELD_TYPES: Record<string, string> = {
+  // Query
+  'Query.me': 'SessionUser',
+  'Query.productsList': 'Product',
+  'Query.productItem': 'Product',
+  'Query.licensesList': 'License',
+  'Query.licenseItem': 'License',
+  'Query.packagesList': 'FeaturePackage',
+  'Query.featuresList': 'Feature',
+  'Query.featureItem': 'Feature',
+  'Query.accountsList': 'Account',
+  // Mutation
+  'Mutation.login': 'AuthPayload',
+  'Mutation.productAdd': 'Product',
+  'Mutation.productUpdate': 'Product',
+  'Mutation.licenseAdd': 'License',
+  'Mutation.licenseUpdate': 'License',
+  'Mutation.featureAdd': 'Feature',
+  'Mutation.featureUpdate': 'Feature',
+  // Object field relationships
+  'Product.licenses': 'LicenseRef',
+  'Product.meta': 'DocumentMetaInfo',
+  'License.meta': 'DocumentMetaInfo',
+  'FeaturePackage.features': 'Feature',
+  'Feature.subFeatures': 'Feature',
+  'AuthPayload.user': 'SessionUser',
+};
+
+/**
+ * Stamp `__typename` onto every object in `value` based on `parentType` and
+ * the field path, recursing into nested objects and arrays. Scalars, nulls
+ * and leaf fields (those not present in `FIELD_TYPES`) are left untouched.
+ */
+function attachTypenames(parentType: string, value: unknown): unknown {
+  if (value === null || value === undefined) return value;
+  if (Array.isArray(value)) {
+    return value.map((v) => attachTypenames(parentType, v));
+  }
+  if (typeof value !== 'object') return value;
+  const obj = value as Record<string, unknown>;
+  const out: Record<string, unknown> = { __typename: parentType };
+  for (const [key, v] of Object.entries(obj)) {
+    const childType = FIELD_TYPES[`${parentType}.${key}`];
+    out[key] = childType ? attachTypenames(childType, v) : v;
+  }
+  return out;
+}
+
+/**
  * Restrict the response to only the fields the operation actually selected.
  *
  * Apollo Client validates that every selected field exists on the returned
@@ -340,12 +398,20 @@ const resolvers: Record<string, Resolver> = {
  * still keep the resolver outputs whole for simplicity and let Apollo's
  * normalised cache pick what it needs.
  */
-function shape(name: string, vars: Record<string, unknown>): unknown {
+function shape(name: string, operationKind: 'query' | 'mutation' | 'subscription', vars: Record<string, unknown>): unknown {
   const resolver = resolvers[name];
   if (!resolver) {
     throw new Error(`Mock backend has no resolver for operation '${name}'`);
   }
-  return resolver(vars);
+  const data = resolver(vars) as Record<string, unknown> | null | undefined;
+  if (!data || typeof data !== 'object') return data;
+  const rootType = operationKind === 'mutation' ? 'Mutation' : 'Query';
+  const out: Record<string, unknown> = {};
+  for (const [key, v] of Object.entries(data)) {
+    const childType = FIELD_TYPES[`${rootType}.${key}`];
+    out[key] = childType ? attachTypenames(childType, v) : v;
+  }
+  return out;
 }
 
 /** Network latency added to every operation to surface loading states. */
@@ -358,7 +424,11 @@ export class MockLink extends ApolloLink {
       const handle = setTimeout(() => {
         try {
           if (!opName) throw new Error('Operations must be named to use the mock backend');
-          const data = shape(opName, operation.variables ?? {});
+          const def = operation.query.definitions.find(
+            (d): d is import('graphql').OperationDefinitionNode => d.kind === 'OperationDefinition',
+          );
+          const kind = (def?.operation ?? 'query') as 'query' | 'mutation' | 'subscription';
+          const data = shape(opName, kind, operation.variables ?? {});
           observer.next({ data: data as Record<string, unknown> });
           observer.complete();
         } catch (err) {

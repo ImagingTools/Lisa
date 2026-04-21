@@ -24,6 +24,7 @@ export const PRODUCT_FIELDS = gql`
     categoryId
     features
     licenses {
+      productId
       id
       name
     }

@@ -64,6 +64,7 @@ export interface Product {
 
 /** Lightweight reference to a license, used inside `Product.licenses`. */
 export interface LicenseRef {
+  productId: Id;
   id: Id;
   name: string;
 }
