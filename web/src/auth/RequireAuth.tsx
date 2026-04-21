@@ -7,16 +7,21 @@ import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 /**
  * Route guard. Mirrors the QML pattern where `ApplicationMain` switches to a
  * login page until `AuthorizationController.loggedIn` becomes true.
+ *
+ * Note: permission checks are enforced on the server, so the `permission`
+ * prop is accepted for API compatibility but not evaluated on the client.
+ * Unauthorised actions surface as GraphQL errors from the server.
  */
 export function RequireAuth({
   children,
-  permission,
+  permission: _permission,
 }: {
   children: ReactNode;
-  /** Optional permission gate — `PermissionsController.checkPermission(...)` */
+  /** Accepted for API compatibility; not enforced on the client. */
   permission?: PermissionId | string;
 }) {
-  const { username, loading, hasPermission } = useSession();
+  void _permission;
+  const { username, loading } = useSession();
   const location = useLocation();
 
   if (loading) return <CenteredSpinner label="Restoring session…" />;
@@ -25,21 +30,5 @@ export function RequireAuth({
     return <Navigate to="/login" replace state={{ from: location.pathname }} />;
   }
 
-  if (permission && !hasPermission(permission)) {
-    return <Forbidden permission={permission} />;
-  }
-
   return <>{children}</>;
-}
-
-function Forbidden({ permission }: { permission: string }) {
-  return (
-    <div role="alert" className="empty-state">
-      <h2>Access denied</h2>
-      <p>
-        Your account does not have the <code>{permission}</code> permission required to
-        view this page.
-      </p>
-    </div>
-  );
 }

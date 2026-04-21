@@ -192,11 +192,17 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     await client.clearStore();
   }, [client, logoutMutation, authPayload]);
 
+  // Permission checks are enforced on the server; the client no longer gates
+  // UI on the permissions list. We keep `hasPermission` for API compatibility
+  // but it always returns `true` for an authenticated user, so every action
+  // is attempted and the server is the source of truth. Unauthorised actions
+  // will surface as GraphQL errors from the server.
   const hasPermission = useCallback(
-    (perm: PermissionId | string) => {
-      return permissions.includes(perm);
+    (_perm: PermissionId | string) => {
+      void _perm;
+      return true;
     },
-    [permissions],
+    [],
   );
 
   const username = authPayload?.username ?? null;
