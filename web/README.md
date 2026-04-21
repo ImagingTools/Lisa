@@ -248,11 +248,16 @@ web/
     │   └── RequireAuth.tsx    # Route guard (auth + optional permission)
     ├── components/
     │   ├── ConfirmDialog.tsx
+    │   ├── DataTable.tsx     # Generic table: sort / resize / drag-reorder columns
     │   ├── MetaInfoPanel.tsx
+    │   ├── PageTabs.tsx      # Per-page tab strip (collection + editor tabs)
+    │   ├── icons.tsx         # Inline SVG icons for the sidebar / shell
     │   └── feedback/
     │       ├── AppErrorBoundary.tsx
     │       ├── CenteredSpinner.tsx
     │       └── EmptyState.tsx
+    ├── hooks/
+    │   └── useLocalStorage.ts # Persist UI state (sidebar collapse, table layout, open tabs)
     ├── features/
     │   ├── auth/LoginPage.tsx
     │   ├── products/
@@ -296,7 +301,8 @@ web/
 | **P0** | Domain types + GraphQL schema/fragments/operations | ✅ Done |
 | **P0** | Mock GraphQL backend + seed data from `CreateTables.sql` | ✅ Done |
 | **P0** | Auth (login, logout, persisted token, permission gating) | ✅ Done |
-| **P0** | App shell (sidebar, topbar, theme toggle, route outlet) | ✅ Done |
+| **P0** | App shell (collapsible icon sidebar, topbar, theme toggle, route outlet) | ✅ Done |
+| **P0** | Per-page tabs (collection + double-click → editor in new tab) with sortable/resizable/reorderable table columns | ✅ Done |
 | **P0** | Products (list, details, editor, feature picker, delete) | ✅ Done |
 | **P0** | Licenses (list, details, editor with feature picker, delete) | ✅ Done |
 | **P0** | Features/Packages (tree view, add/edit/remove) | ✅ Done |

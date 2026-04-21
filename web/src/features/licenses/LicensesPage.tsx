@@ -2,7 +2,7 @@
  * Licenses feature module.
  *
  * QML correspondence:
- *   - `ImtCore/Qml/imtlicgui/LicenseCollectionView.qml`  → LicensesList
+ *   - `ImtCore/Qml/imtlicgui/LicenseCollectionView.qml`  → LicensesCollection
  *   - `ImtCore/Qml/imtlicgui/LicenseEditor.qml`           → LicenseEditor
  *
  * GraphQL ops: LicensesList / LicenseAdd / LicenseUpdate / LicenseRemove,
@@ -24,6 +24,8 @@ import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { MetaInfoPanel } from '@/components/MetaInfoPanel';
+import { DataTable, type Column } from '@/components/DataTable';
+import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
 interface LicensesListData {
   licensesList: License[];
@@ -35,43 +37,189 @@ interface PackagesListData {
   packagesList: FeaturePackage[];
 }
 
+const NEW_TAB_ID = 'new:license';
+const editorTabId = (productId: string, id: string) => `editor:${productId}::${id}`;
+
 export function LicensesPage() {
   const { hasPermission } = useSession();
   const { data, loading, error, refetch } = useQuery<LicensesListData>(LICENSES_LIST);
   const { data: products } = useQuery<ProductsListData>(PRODUCTS_LIST);
   const { data: packages } = useQuery<PackagesListData>(PACKAGES_LIST);
-  const [search, setSearch] = useState('');
-  const [productFilter, setProductFilter] = useState<string>('');
-  const [selected, setSelected] = useState<License | null>(null);
-  const [creating, setCreating] = useState(false);
+  const tabs = usePageTabs('licenses', 'Licenses');
 
   const allFeatures = useMemo(
     () => flattenFeatures(packages?.packagesList ?? []),
     [packages?.packagesList],
   );
 
+  if (loading && !data) return <CenteredSpinner label="Loading licenses…" />;
+
+  const list = data?.licensesList ?? [];
+  const productsList = products?.productsList ?? [];
+
+  const findLicense = (productId: string, id: string) =>
+    list.find((l) => l.id === id && l.productId === productId) ?? null;
+
+  return (
+    <PageTabs
+      api={tabs}
+      renderTab={(tabId) => {
+        if (tabId === COLLECTION_TAB_ID) {
+          return (
+            <LicensesCollection
+              licenses={list}
+              products={productsList}
+              error={error?.message}
+              onRetry={() => refetch()}
+              canCreate={hasPermission('AddLicense')}
+              onActivate={(l) =>
+                tabs.openTab({
+                  id: editorTabId(l.productId, l.id),
+                  title: l.name,
+                  subtitle: `${l.productId} · ${l.id}`,
+                })
+              }
+              onCreate={() =>
+                tabs.openTab({ id: NEW_TAB_ID, title: 'New license' })
+              }
+            />
+          );
+        }
+        if (tabId === NEW_TAB_ID) {
+          return (
+            <LicenseEditor
+              mode="create"
+              products={productsList}
+              allFeatures={allFeatures}
+              onClose={() => tabs.closeTab(NEW_TAB_ID)}
+              onSaved={(saved) =>
+                tabs.replaceTab(NEW_TAB_ID, {
+                  id: editorTabId(saved.productId, saved.id),
+                  title: saved.name,
+                  subtitle: `${saved.productId} · ${saved.id}`,
+                  closable: true,
+                })
+              }
+            />
+          );
+        }
+        if (!tabId.startsWith('editor:')) return null;
+        const [productId, id] = tabId.slice('editor:'.length).split('::');
+        const license = findLicense(productId, id);
+        if (!license) {
+          return (
+            <EmptyState
+              title="License not found"
+              message="This license no longer exists. Close this tab to dismiss it."
+            />
+          );
+        }
+        return (
+          <LicenseEditor
+            mode="edit"
+            license={license}
+            products={productsList}
+            allFeatures={allFeatures}
+            onClose={() => tabs.closeTab(tabId)}
+            onSaved={(saved) =>
+              tabs.renameTab(tabId, {
+                title: saved.name,
+                subtitle: `${saved.productId} · ${saved.id}`,
+              })
+            }
+            onDeleted={() => tabs.closeTab(tabId)}
+          />
+        );
+      }}
+    />
+  );
+}
+
+function LicensesCollection({
+  licenses,
+  products,
+  error,
+  onRetry,
+  canCreate,
+  onActivate,
+  onCreate,
+}: {
+  licenses: License[];
+  products: Product[];
+  error?: string;
+  onRetry: () => void;
+  canCreate: boolean;
+  onActivate: (l: License) => void;
+  onCreate: () => void;
+}) {
+  const [search, setSearch] = useState('');
+  const [productFilter, setProductFilter] = useState<string>('');
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+
   const filtered = useMemo(() => {
-    let list = data?.licensesList ?? [];
-    if (productFilter) list = list.filter((l) => l.productId === productFilter);
+    let out = licenses;
+    if (productFilter) out = out.filter((l) => l.productId === productFilter);
     if (search.trim()) {
       const q = search.trim().toLowerCase();
-      list = list.filter(
+      out = out.filter(
         (l) =>
           l.name.toLowerCase().includes(q) ||
           l.id.toLowerCase().includes(q) ||
           l.description.toLowerCase().includes(q),
       );
     }
-    return list;
-  }, [data?.licensesList, productFilter, search]);
+    return out;
+  }, [licenses, productFilter, search]);
 
-  if (loading && !data) return <CenteredSpinner label="Loading licenses…" />;
+  const rowKey = (l: License) => `${l.productId}::${l.id}`;
+  const selected =
+    (selectedKey && licenses.find((l) => rowKey(l) === selectedKey)) || null;
+
+  const columns: Column<License>[] = useMemo(
+    () => [
+      {
+        key: 'name',
+        header: 'Name',
+        cell: (l) => l.name,
+        sortValue: (l) => l.name.toLowerCase(),
+        width: 220,
+      },
+      {
+        key: 'id',
+        header: 'License id',
+        cell: (l) => <code>{l.id}</code>,
+        sortValue: (l) => l.id.toLowerCase(),
+        width: 160,
+      },
+      {
+        key: 'product',
+        header: 'Product',
+        cell: (l) => l.productId,
+        sortValue: (l) => l.productId.toLowerCase(),
+        width: 160,
+      },
+      {
+        key: 'description',
+        header: 'Description',
+        cell: (l) => l.description,
+        sortValue: (l) => l.description.toLowerCase(),
+        width: 320,
+      },
+      {
+        key: 'features',
+        header: 'Features',
+        cell: (l) => l.features.length,
+        sortValue: (l) => l.features.length,
+        width: 100,
+      },
+    ],
+    [],
+  );
 
   return (
     <>
       <div className="page-header">
-        <h1>Licenses</h1>
-        <div className="page-toolbar">
+        <div className="page-toolbar" style={{ flex: 1 }}>
           <select
             className="search"
             style={{ minWidth: 180 }}
@@ -79,7 +227,7 @@ export function LicensesPage() {
             onChange={(e) => setProductFilter(e.target.value)}
           >
             <option value="">All products</option>
-            {products?.productsList.map((p) => (
+            {products.map((p) => (
               <option key={p.id} value={p.id}>{p.name}</option>
             ))}
           </select>
@@ -93,11 +241,9 @@ export function LicensesPage() {
           <button
             type="button"
             className="btn btn--primary"
-            disabled={!hasPermission('AddLicense')}
-            onClick={() => {
-              setSelected(null);
-              setCreating(true);
-            }}
+            disabled={!canCreate}
+            onClick={onCreate}
+            title={canCreate ? undefined : 'Requires AddLicense'}
           >
             + New license
           </button>
@@ -106,169 +252,49 @@ export function LicensesPage() {
 
       {error && (
         <div className="error-banner" role="alert">
-          Failed to load licenses: {error.message}{' '}
-          <button className="btn btn--small" onClick={() => refetch()}>Retry</button>
+          Failed to load licenses: {error}{' '}
+          <button className="btn btn--small" onClick={onRetry}>Retry</button>
         </div>
       )}
 
-      <div className="split">
+      <div className="collection-layout">
         <div className="panel" style={{ padding: 0 }}>
-          {filtered.length === 0 ? (
-            <EmptyState title="No licenses" message="Adjust your filter or create a new license." />
-          ) : (
-            <table className="table" aria-label="Licenses list">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>License id</th>
-                  <th>Product</th>
-                  <th>Features</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((l) => (
-                  <tr
-                    key={`${l.productId}::${l.id}`}
-                    className={
-                      selected?.id === l.id && selected?.productId === l.productId
-                        ? 'is-selected'
-                        : ''
-                    }
-                    onClick={() => {
-                      setSelected(l);
-                      setCreating(false);
-                    }}
-                  >
-                    <td>{l.name}</td>
-                    <td><code>{l.id}</code></td>
-                    <td>{l.productId}</td>
-                    <td>{l.features.length}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-
-        <div className="panel">
-          {creating ? (
-            <LicenseEditor
-              mode="create"
-              products={products?.productsList ?? []}
-              allFeatures={allFeatures}
-              onClose={() => setCreating(false)}
-              onSaved={(l) => {
-                setCreating(false);
-                setSelected(l);
-              }}
-            />
-          ) : selected ? (
-            <LicenseDetails
-              license={selected}
-              allFeatures={allFeatures}
-              products={products?.productsList ?? []}
-              onDeleted={() => setSelected(null)}
-            />
-          ) : (
-            <EmptyState title="Select a license" message="Pick a license to view its details." />
-          )}
-        </div>
-      </div>
-    </>
-  );
-}
-
-function LicenseDetails({
-  license,
-  allFeatures,
-  products,
-  onDeleted,
-}: {
-  license: License;
-  allFeatures: Feature[];
-  products: Product[];
-  onDeleted: () => void;
-}) {
-  const { hasPermission } = useSession();
-  const [editing, setEditing] = useState(false);
-  const [confirmDelete, setConfirmDelete] = useState(false);
-  const [removeLicense, removeState] = useMutation(LICENSE_REMOVE, {
-    refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
-    awaitRefetchQueries: true,
-  });
-
-  if (editing) {
-    return (
-      <LicenseEditor
-        mode="edit"
-        license={license}
-        products={products}
-        allFeatures={allFeatures}
-        onClose={() => setEditing(false)}
-        onSaved={() => setEditing(false)}
-      />
-    );
-  }
-
-  const featuresOnLicense = allFeatures.filter((f) => license.features.includes(f.featureId));
-
-  return (
-    <>
-      <div className="panel__header">
-        <div>
-          <h2 className="panel__title">{license.name}</h2>
-          <div className="panel__subtitle">
-            <code>{license.id}</code> · product <code>{license.productId}</code>
+          <DataTable<License>
+            tableId="licenses"
+            ariaLabel="Licenses list"
+            columns={columns}
+            rows={filtered}
+            rowKey={rowKey}
+            selectedKey={selectedKey}
+            onSelect={(l) => setSelectedKey(rowKey(l))}
+            onActivate={onActivate}
+            emptyMessage={
+              search || productFilter
+                ? 'No licenses match your filter.'
+                : 'No licenses defined.'
+            }
+          />
+          <div className="collection-layout__hint">
+            Double-click a row (or press Enter) to open the editor in a new tab.
           </div>
         </div>
-        <div className="form-actions">
-          <button
-            type="button"
-            className="btn"
-            disabled={!hasPermission('ChangeLicense')}
-            onClick={() => setEditing(true)}
-          >
-            Edit
-          </button>
-          <button
-            type="button"
-            className="btn btn--danger"
-            disabled={!hasPermission('RemoveLicense') || removeState.loading}
-            onClick={() => setConfirmDelete(true)}
-          >
-            Delete
-          </button>
+        <div className="panel">
+          <h3 className="panel__title" style={{ marginBottom: 'var(--margin-m)' }}>
+            Meta info
+          </h3>
+          {selected ? (
+            <>
+              <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
+                <strong style={{ color: 'var(--color-text)' }}>{selected.name}</strong> ·{' '}
+                <code>{selected.productId}</code> · <code>{selected.id}</code>
+              </div>
+              <MetaInfoPanel meta={selected.meta} />
+            </>
+          ) : (
+            <p className="panel__subtitle">Select a row to see its metadata.</p>
+          )}
         </div>
       </div>
-      <p>{license.description || <em>No description.</em>}</p>
-
-      <h3>Granted features</h3>
-      {featuresOnLicense.length === 0 ? (
-        <p style={{ color: 'var(--color-text-muted)' }}>This license grants no features.</p>
-      ) : (
-        <div>
-          {featuresOnLicense.map((f) => (
-            <span key={f.uuid} className="tag tag--primary">{f.featureName}</span>
-          ))}
-        </div>
-      )}
-
-      <h3>Metadata</h3>
-      <MetaInfoPanel meta={license.meta} />
-
-      <ConfirmDialog
-        open={confirmDelete}
-        title="Delete license"
-        message={`Delete license "${license.name}" of product "${license.productId}"?`}
-        confirmLabel="Delete"
-        destructive
-        onCancel={() => setConfirmDelete(false)}
-        onConfirm={async () => {
-          setConfirmDelete(false);
-          await removeLicense({ variables: { id: license.id, productId: license.productId } });
-          onDeleted();
-        }}
-      />
     </>
   );
 }
@@ -280,6 +306,7 @@ function LicenseEditor({
   allFeatures,
   onClose,
   onSaved,
+  onDeleted,
 }: {
   mode: 'create' | 'edit';
   license?: License;
@@ -287,7 +314,9 @@ function LicenseEditor({
   allFeatures: Feature[];
   onClose: () => void;
   onSaved: (l: License) => void;
+  onDeleted?: () => void;
 }) {
+  const { hasPermission } = useSession();
   const [form, setForm] = useState({
     id: license?.id ?? '',
     productId: license?.productId ?? products[0]?.id ?? '',
@@ -297,12 +326,17 @@ function LicenseEditor({
   });
   const [validation, setValidation] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const [addLicense, addState] = useMutation<{ licenseAdd: License }>(LICENSE_ADD, {
     refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
     awaitRefetchQueries: true,
   });
   const [updateLicense, updateState] = useMutation<{ licenseUpdate: License }>(LICENSE_UPDATE, {
+    refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
+    awaitRefetchQueries: true,
+  });
+  const [removeLicense, removeState] = useMutation(LICENSE_REMOVE, {
     refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
     awaitRefetchQueries: true,
   });
@@ -318,7 +352,10 @@ function LicenseEditor({
     return Object.keys(errors).length === 0;
   };
 
-  async function onSubmit(e: import("react").FormEvent) {
+  const canEdit = mode === 'create' || hasPermission('ChangeLicense');
+  const canDelete = mode === 'edit' && hasPermission('RemoveLicense');
+
+  async function onSubmit(e: import('react').FormEvent) {
     e.preventDefault();
     setServerError(null);
     if (!validate()) return;
@@ -345,12 +382,35 @@ function LicenseEditor({
   return (
     <form className="form" onSubmit={onSubmit} aria-busy={submitting}>
       <div className="panel__header">
-        <h2 className="panel__title">{mode === 'create' ? 'New license' : 'Edit license'}</h2>
+        <div>
+          <h2 className="panel__title">
+            {mode === 'create' ? 'New license' : form.name || 'Edit license'}
+          </h2>
+          {mode === 'edit' && (
+            <div className="panel__subtitle">
+              <code>{form.id}</code> · product <code>{form.productId}</code>
+            </div>
+          )}
+        </div>
         <div className="form-actions">
           <button type="button" className="btn" onClick={onClose} disabled={submitting}>
-            Cancel
+            Close
           </button>
-          <button type="submit" className="btn btn--primary" disabled={submitting}>
+          {canDelete && (
+            <button
+              type="button"
+              className="btn btn--danger"
+              disabled={removeState.loading}
+              onClick={() => setConfirmDelete(true)}
+            >
+              Delete
+            </button>
+          )}
+          <button
+            type="submit"
+            className="btn btn--primary"
+            disabled={submitting || !canEdit}
+          >
             {submitting ? 'Saving…' : 'Save'}
           </button>
         </div>
@@ -376,7 +436,7 @@ function LicenseEditor({
             id="lic-product"
             value={form.productId}
             onChange={(e) => setForm({ ...form, productId: e.target.value })}
-            disabled={mode === 'edit'}
+            disabled={mode === 'edit' || !canEdit}
           >
             {products.map((p) => (
               <option key={p.id} value={p.id}>{p.name}</option>
@@ -390,6 +450,7 @@ function LicenseEditor({
             id="lic-name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+            disabled={!canEdit}
           />
           {validation.name && <span className="error-text">{validation.name}</span>}
         </div>
@@ -401,6 +462,7 @@ function LicenseEditor({
           rows={2}
           value={form.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
+          disabled={!canEdit}
         />
       </div>
 
@@ -414,6 +476,7 @@ function LicenseEditor({
                 <input
                   type="checkbox"
                   checked={checked}
+                  disabled={!canEdit}
                   onChange={() => {
                     const next = new Set(form.features);
                     if (checked) next.delete(f.featureId);
@@ -429,6 +492,28 @@ function LicenseEditor({
           );
         })}
       </ul>
+
+      {mode === 'edit' && license && (
+        <>
+          <h3>Metadata</h3>
+          <MetaInfoPanel meta={license.meta} />
+          <ConfirmDialog
+            open={confirmDelete}
+            title="Delete license"
+            message={`Delete license "${license.name}" of product "${license.productId}"?`}
+            confirmLabel="Delete"
+            destructive
+            onCancel={() => setConfirmDelete(false)}
+            onConfirm={async () => {
+              setConfirmDelete(false);
+              await removeLicense({
+                variables: { id: license.id, productId: license.productId },
+              });
+              onDeleted?.();
+            }}
+          />
+        </>
+      )}
     </form>
   );
 }

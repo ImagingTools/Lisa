@@ -17,6 +17,7 @@
   --radius-m: 6px;
   --header-height: 56px;
   --sidebar-width: 240px;
+  --sidebar-collapsed-width: 60px;
 
   /* typography */
   --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, sans-serif;

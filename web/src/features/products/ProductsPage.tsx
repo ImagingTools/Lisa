@@ -2,9 +2,16 @@
  * Products feature module.
  *
  * QML correspondence:
- *   - `ImtCore/Qml/imtlicgui/ProductCollectionView.qml`            → ProductsList
+ *   - `ImtCore/Qml/imtlicgui/ProductCollectionView.qml`            → ProductsCollection
  *   - `ImtCore/Qml/imtlicgui/ProductView.qml`                      → ProductEditor
  *   - `ImtCore/Qml/imtlicgui/ProductCollectionViewCommandsDelegate` → toolbar
+ *
+ * Layout:
+ *   - The page uses `PageTabs`. The first tab is the collection (DataTable
+ *     of products + MetaInfo side panel). Double-clicking a row opens the
+ *     editor in a new closable tab; "+ New product" opens an empty editor
+ *     in a new tab. This mirrors the IDE-style multi-document workflow
+ *     used by the QML `MultiDocCollectionPage`.
  *
  * GraphQL operations used:
  *   - ProductsList / ProductItem / ProductAdd / ProductUpdate / ProductRemove
@@ -25,6 +32,8 @@ import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { MetaInfoPanel } from '@/components/MetaInfoPanel';
+import { DataTable, type Column } from '@/components/DataTable';
+import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 import {
   parseFeatureSelection,
   serializeFeatureSelection,
@@ -40,36 +49,171 @@ interface PackagesListData {
   packagesList: FeaturePackage[];
 }
 
+const NEW_TAB_ID = 'new:product';
+const editorTabId = (id: string) => `editor:${id}`;
+
 export function ProductsPage() {
   const { hasPermission } = useSession();
   const { data, loading, error, refetch } = useQuery<ProductsListData>(PRODUCTS_LIST);
   const { data: pkgData } = useQuery<PackagesListData>(PACKAGES_LIST);
+  const tabs = usePageTabs('products', 'Products');
+
+  if (loading && !data) return <CenteredSpinner label="Loading products…" />;
+
+  const products = data?.productsList ?? [];
+  const packages = pkgData?.packagesList ?? [];
+
+  const findProduct = (id: string) => products.find((p) => p.id === id) ?? null;
+
+  return (
+    <PageTabs
+      api={tabs}
+      renderTab={(tabId) => {
+        if (tabId === COLLECTION_TAB_ID) {
+          return (
+            <ProductsCollection
+              products={products}
+              error={error?.message}
+              onRetry={() => refetch()}
+              canCreate={hasPermission('AddProduct')}
+              onActivate={(p) =>
+                tabs.openTab({
+                  id: editorTabId(p.id),
+                  title: p.name,
+                  subtitle: p.id,
+                })
+              }
+              onCreate={() =>
+                tabs.openTab({ id: NEW_TAB_ID, title: 'New product' })
+              }
+            />
+          );
+        }
+        if (tabId === NEW_TAB_ID) {
+          return (
+            <ProductEditor
+              packages={packages}
+              mode="create"
+              onClose={() => tabs.closeTab(NEW_TAB_ID)}
+              onSaved={(saved) =>
+                tabs.replaceTab(NEW_TAB_ID, {
+                  id: editorTabId(saved.id),
+                  title: saved.name,
+                  subtitle: saved.id,
+                  closable: true,
+                })
+              }
+            />
+          );
+        }
+        // editor tab — id format `editor:<productId>`
+        const productId = tabId.startsWith('editor:') ? tabId.slice('editor:'.length) : '';
+        const product = findProduct(productId);
+        if (!product) {
+          return (
+            <EmptyState
+              title="Product not found"
+              message="This product no longer exists. Close this tab to dismiss it."
+            />
+          );
+        }
+        return (
+          <ProductEditor
+            product={product}
+            packages={packages}
+            mode="edit"
+            onClose={() => tabs.closeTab(tabId)}
+            onSaved={(saved) =>
+              tabs.renameTab(tabId, { title: saved.name, subtitle: saved.id })
+            }
+            onDeleted={() => tabs.closeTab(tabId)}
+          />
+        );
+      }}
+    />
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Collection tab — DataTable + MetaInfo side panel
+// ---------------------------------------------------------------------------
+
+function ProductsCollection({
+  products,
+  error,
+  onRetry,
+  canCreate,
+  onActivate,
+  onCreate,
+}: {
+  products: Product[];
+  error?: string;
+  onRetry: () => void;
+  canCreate: boolean;
+  onActivate: (p: Product) => void;
+  onCreate: () => void;
+}) {
   const [search, setSearch] = useState('');
   const [selectedId, setSelectedId] = useState<string | null>(null);
-  const [editorState, setEditorState] = useState<EditorState>({ mode: 'idle' });
 
-  const filteredProducts = useMemo(() => {
-    const list = data?.productsList ?? [];
-    if (!search.trim()) return list;
+  const filtered = useMemo(() => {
+    if (!search.trim()) return products;
     const q = search.trim().toLowerCase();
-    return list.filter(
+    return products.filter(
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.id.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q),
     );
-  }, [data?.productsList, search]);
+  }, [products, search]);
 
-  const selected =
-    (selectedId && data?.productsList.find((p) => p.id === selectedId)) || null;
+  const selected = (selectedId && products.find((p) => p.id === selectedId)) || null;
 
-  if (loading && !data) return <CenteredSpinner label="Loading products…" />;
+  const columns: Column<Product>[] = useMemo(
+    () => [
+      {
+        key: 'name',
+        header: 'Name',
+        cell: (p) => p.name,
+        sortValue: (p) => p.name.toLowerCase(),
+        width: 240,
+      },
+      {
+        key: 'id',
+        header: 'Id',
+        cell: (p) => <code>{p.id}</code>,
+        sortValue: (p) => p.id.toLowerCase(),
+        width: 180,
+      },
+      {
+        key: 'category',
+        header: 'Category',
+        cell: (p) => <span className="tag">{p.categoryId}</span>,
+        sortValue: (p) => p.categoryId,
+        width: 140,
+      },
+      {
+        key: 'description',
+        header: 'Description',
+        cell: (p) => p.description,
+        sortValue: (p) => p.description.toLowerCase(),
+        width: 320,
+      },
+      {
+        key: 'licenses',
+        header: 'Licenses',
+        cell: (p) => p.licenses.length,
+        sortValue: (p) => p.licenses.length,
+        width: 100,
+      },
+    ],
+    [],
+  );
 
   return (
     <>
       <div className="page-header">
-        <h1>Products</h1>
-        <div className="page-toolbar">
+        <div className="page-toolbar" style={{ flex: 1 }}>
           <input
             type="search"
             className="search"
@@ -80,9 +224,9 @@ export function ProductsPage() {
           <button
             type="button"
             className="btn btn--primary"
-            disabled={!hasPermission('AddProduct')}
-            onClick={() => setEditorState({ mode: 'create' })}
-            title={hasPermission('AddProduct') ? undefined : 'Requires AddProduct'}
+            disabled={!canCreate}
+            onClick={onCreate}
+            title={canCreate ? undefined : 'Requires AddProduct'}
           >
             + New product
           </button>
@@ -91,221 +235,53 @@ export function ProductsPage() {
 
       {error && (
         <div className="error-banner" role="alert">
-          Failed to load products: {error.message}{' '}
-          <button className="btn btn--small" onClick={() => refetch()}>
+          Failed to load products: {error}{' '}
+          <button className="btn btn--small" onClick={onRetry}>
             Retry
           </button>
         </div>
       )}
 
-      <div className="split">
+      <div className="collection-layout">
         <div className="panel" style={{ padding: 0 }}>
-          {filteredProducts.length === 0 ? (
-            <EmptyState
-              title="No products"
-              message={search ? 'No products match your filter.' : 'Create your first product to get started.'}
-            />
-          ) : (
-            <table className="table" aria-label="Products list">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Id</th>
-                  <th>Category</th>
-                  <th>Licenses</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredProducts.map((p) => (
-                  <tr
-                    key={p.id}
-                    className={selectedId === p.id ? 'is-selected' : ''}
-                    onClick={() => {
-                      setSelectedId(p.id);
-                      setEditorState({ mode: 'view' });
-                    }}
-                  >
-                    <td>{p.name}</td>
-                    <td><code>{p.id}</code></td>
-                    <td>
-                      <span className="tag">{p.categoryId}</span>
-                    </td>
-                    <td>{p.licenses.length}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-
-        <div className="panel">
-          {editorState.mode === 'create' ? (
-            <ProductEditor
-              packages={pkgData?.packagesList ?? []}
-              mode="create"
-              onClose={() => setEditorState({ mode: 'idle' })}
-              onSaved={(newProduct) => {
-                setSelectedId(newProduct.id);
-                setEditorState({ mode: 'view' });
-              }}
-            />
-          ) : selected ? (
-            <ProductDetails
-              product={selected}
-              packages={pkgData?.packagesList ?? []}
-              onDeleted={() => setSelectedId(null)}
-            />
-          ) : (
-            <EmptyState
-              title="Select a product"
-              message="Pick a product from the list, or create a new one to view its details."
-            />
-          )}
-        </div>
-      </div>
-    </>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Product details / editor
-// ---------------------------------------------------------------------------
-
-type EditorState =
-  | { mode: 'idle' }
-  | { mode: 'view' }
-  | { mode: 'create' };
-
-function ProductDetails({
-  product,
-  packages,
-  onDeleted,
-}: {
-  product: Product;
-  packages: FeaturePackage[];
-  onDeleted: () => void;
-}) {
-  const { hasPermission } = useSession();
-  const [editing, setEditing] = useState(false);
-  const [confirmDelete, setConfirmDelete] = useState(false);
-  const [removeProduct, removeState] = useMutation(PRODUCT_REMOVE, {
-    refetchQueries: [{ query: PRODUCTS_LIST }],
-    awaitRefetchQueries: true,
-  });
-
-  if (editing) {
-    return (
-      <ProductEditor
-        product={product}
-        packages={packages}
-        mode="edit"
-        onClose={() => setEditing(false)}
-        onSaved={() => setEditing(false)}
-      />
-    );
-  }
-
-  const selection = parseFeatureSelection(product.features);
-
-  return (
-    <>
-      <div className="panel__header">
-        <div>
-          <h2 className="panel__title">{product.name}</h2>
-          <div className="panel__subtitle">
-            <code>{product.id}</code> · {product.categoryId}
+          <DataTable<Product>
+            tableId="products"
+            ariaLabel="Products list"
+            columns={columns}
+            rows={filtered}
+            rowKey={(p) => p.id}
+            selectedKey={selectedId}
+            onSelect={(p) => setSelectedId(p.id)}
+            onActivate={onActivate}
+            emptyMessage={search ? 'No products match your filter.' : 'No products defined.'}
+          />
+          <div className="collection-layout__hint">
+            Double-click a row (or press Enter) to open the editor in a new tab.
           </div>
         </div>
-        <div className="form-actions">
-          <button
-            type="button"
-            className="btn"
-            disabled={!hasPermission('ChangeProduct')}
-            onClick={() => setEditing(true)}
-          >
-            Edit
-          </button>
-          <button
-            type="button"
-            className="btn btn--danger"
-            disabled={!hasPermission('RemoveProduct') || removeState.loading}
-            onClick={() => setConfirmDelete(true)}
-          >
-            Delete
-          </button>
+        <div className="panel">
+          <h3 className="panel__title" style={{ marginBottom: 'var(--margin-m)' }}>
+            Meta info
+          </h3>
+          {selected ? (
+            <>
+              <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
+                <strong style={{ color: 'var(--color-text)' }}>{selected.name}</strong> ·{' '}
+                <code>{selected.id}</code>
+              </div>
+              <MetaInfoPanel meta={selected.meta} />
+            </>
+          ) : (
+            <p className="panel__subtitle">Select a row to see its metadata.</p>
+          )}
         </div>
       </div>
-
-      {product.description && <p>{product.description}</p>}
-
-      <h3>Licenses</h3>
-      {product.licenses.length === 0 ? (
-        <p style={{ color: 'var(--color-text-muted)' }}>No licenses defined.</p>
-      ) : (
-        <ul>
-          {product.licenses.map((l) => (
-            <li key={l.id}>
-              <strong>{l.name}</strong> · <code>{l.id}</code>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <h3>Selected features</h3>
-      <SelectedFeaturesSummary selection={selection} packages={packages} />
-
-      <h3>Metadata</h3>
-      <MetaInfoPanel meta={product.meta} />
-
-      <ConfirmDialog
-        open={confirmDelete}
-        title="Delete product"
-        message={`Delete the product "${product.name}"? This will also remove its licenses.`}
-        confirmLabel="Delete"
-        destructive
-        onCancel={() => setConfirmDelete(false)}
-        onConfirm={async () => {
-          setConfirmDelete(false);
-          await removeProduct({ variables: { id: product.id } });
-          onDeleted();
-        }}
-      />
     </>
   );
 }
 
-function SelectedFeaturesSummary({
-  selection,
-  packages,
-}: {
-  selection: FeatureSelection;
-  packages: FeaturePackage[];
-}) {
-  const allFeatures = useMemo(() => flattenFeatures(packages), [packages]);
-  const selectedById = allFeatures.filter((f) => selection.ids.has(f.featureId));
-  const optionalCount = [...selection.optional.values()].reduce((s, b) => s + b.size, 0);
-
-  if (selectedById.length === 0 && optionalCount === 0) {
-    return <p style={{ color: 'var(--color-text-muted)' }}>No features assigned.</p>;
-  }
-  return (
-    <div>
-      {selectedById.map((f) => (
-        <span key={f.uuid} className="tag tag--primary" title={f.featureName}>
-          {f.featureName}
-        </span>
-      ))}
-      {optionalCount > 0 && (
-        <span className="tag" title="Optional sub-features">
-          +{optionalCount} optional
-        </span>
-      )}
-    </div>
-  );
-}
-
 // ---------------------------------------------------------------------------
-// Editor
+// Editor (also handles "view" via the embedded summary)
 // ---------------------------------------------------------------------------
 
 interface FormState {
@@ -322,13 +298,16 @@ function ProductEditor({
   mode,
   onClose,
   onSaved,
+  onDeleted,
 }: {
   product?: Product;
   packages: FeaturePackage[];
   mode: 'create' | 'edit';
   onClose: () => void;
   onSaved: (p: Product) => void;
+  onDeleted?: () => void;
 }) {
+  const { hasPermission } = useSession();
   const [form, setForm] = useState<FormState>(() => ({
     id: product?.id ?? '',
     name: product?.name ?? '',
@@ -338,6 +317,7 @@ function ProductEditor({
   }));
   const [validation, setValidation] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState<string | null>(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
 
   const [addProduct, addState] = useMutation<{ productAdd: Product }>(PRODUCT_ADD, {
     refetchQueries: [{ query: PRODUCTS_LIST }],
@@ -347,6 +327,10 @@ function ProductEditor({
     PRODUCT_UPDATE,
     { refetchQueries: [{ query: PRODUCTS_LIST }], awaitRefetchQueries: true },
   );
+  const [removeProduct, removeState] = useMutation(PRODUCT_REMOVE, {
+    refetchQueries: [{ query: PRODUCTS_LIST }],
+    awaitRefetchQueries: true,
+  });
 
   const submitting = addState.loading || updateState.loading;
 
@@ -360,7 +344,7 @@ function ProductEditor({
     return Object.keys(errors).length === 0;
   }
 
-  async function onSubmit(e: import("react").FormEvent) {
+  async function onSubmit(e: import('react').FormEvent) {
     e.preventDefault();
     setServerError(null);
     if (!validate()) return;
@@ -374,7 +358,10 @@ function ProductEditor({
     try {
       if (mode === 'create') {
         const res = await addProduct({ variables: { input } });
-        if (res.data?.productAdd) onSaved(res.data.productAdd);
+        if (res.data?.productAdd) {
+          setForm((f) => ({ ...f, id: res.data!.productAdd.id }));
+          onSaved(res.data.productAdd);
+        }
       } else {
         const res = await updateProduct({ variables: { input } });
         if (res.data?.productUpdate) onSaved(res.data.productUpdate);
@@ -384,17 +371,41 @@ function ProductEditor({
     }
   }
 
-  const readOnly = false;
+  const canEdit = mode === 'create' || hasPermission('ChangeProduct');
+  const canDelete = mode === 'edit' && hasPermission('RemoveProduct');
 
   return (
     <form className="form" onSubmit={onSubmit} aria-busy={submitting}>
       <div className="panel__header">
-        <h2 className="panel__title">{mode === 'create' ? 'New product' : 'Edit product'}</h2>
+        <div>
+          <h2 className="panel__title">
+            {mode === 'create' ? 'New product' : form.name || 'Edit product'}
+          </h2>
+          {mode === 'edit' && (
+            <div className="panel__subtitle">
+              <code>{form.id}</code> · {form.categoryId}
+            </div>
+          )}
+        </div>
         <div className="form-actions">
           <button type="button" className="btn" onClick={onClose} disabled={submitting}>
-            Cancel
+            Close
           </button>
-          <button type="submit" className="btn btn--primary" disabled={submitting}>
+          {canDelete && (
+            <button
+              type="button"
+              className="btn btn--danger"
+              disabled={removeState.loading}
+              onClick={() => setConfirmDelete(true)}
+            >
+              Delete
+            </button>
+          )}
+          <button
+            type="submit"
+            className="btn btn--primary"
+            disabled={submitting || !canEdit}
+          >
             {submitting ? 'Saving…' : 'Save'}
           </button>
         </div>
@@ -409,7 +420,7 @@ function ProductEditor({
             id="name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            readOnly={readOnly}
+            disabled={!canEdit}
             placeholder="Enter the product name"
           />
           {validation.name && <span className="error-text">{validation.name}</span>}
@@ -422,7 +433,7 @@ function ProductEditor({
             onChange={(e) =>
               setForm({ ...form, categoryId: e.target.value as ProductCategory })
             }
-            disabled={readOnly}
+            disabled={!canEdit}
           >
             <option value="Software">Software</option>
             <option value="Hardware">Hardware</option>
@@ -437,7 +448,7 @@ function ProductEditor({
           rows={2}
           value={form.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
-          readOnly={readOnly}
+          disabled={!canEdit}
         />
       </div>
 
@@ -451,6 +462,41 @@ function ProductEditor({
         selection={form.selection}
         onChange={(selection) => setForm({ ...form, selection })}
       />
+
+      {mode === 'edit' && product && (
+        <>
+          <h3>Licenses</h3>
+          {product.licenses.length === 0 ? (
+            <p style={{ color: 'var(--color-text-muted)' }}>No licenses defined.</p>
+          ) : (
+            <ul>
+              {product.licenses.map((l) => (
+                <li key={l.id}>
+                  <strong>{l.name}</strong> · <code>{l.id}</code>
+                </li>
+              ))}
+            </ul>
+          )}
+          <h3>Metadata</h3>
+          <MetaInfoPanel meta={product.meta} />
+        </>
+      )}
+
+      {mode === 'edit' && product && (
+        <ConfirmDialog
+          open={confirmDelete}
+          title="Delete product"
+          message={`Delete the product "${product.name}"? This will also remove its licenses.`}
+          confirmLabel="Delete"
+          destructive
+          onCancel={() => setConfirmDelete(false)}
+          onConfirm={async () => {
+            setConfirmDelete(false);
+            await removeProduct({ variables: { id: product.id } });
+            onDeleted?.();
+          }}
+        />
+      )}
     </form>
   );
 }
@@ -528,14 +574,4 @@ function FeatureNode({
       )}
     </li>
   );
-}
-
-function flattenFeatures(packages: FeaturePackage[]): Feature[] {
-  const out: Feature[] = [];
-  const walk = (f: Feature) => {
-    out.push(f);
-    f.subFeatures.forEach(walk);
-  };
-  packages.forEach((p) => p.features.forEach(walk));
-  return out;
 }
