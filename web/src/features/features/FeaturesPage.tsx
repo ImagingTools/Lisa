@@ -1,5 +1,5 @@
 /**
- * Features / Packages module.
+ * Features module.
  *
  * QML correspondence:
  *   - `ImtCore/Qml/imtlicgui/FeatureCollectionView.qml` → FeaturesCollection
@@ -8,73 +8,90 @@
  *
  * Features form a tree (sub-features), so the collection tab uses a tree
  * widget rather than the flat `DataTable` used on the other pages. The
- * tab strip + per-row Meta-Info panel and "double-click opens editor in a
+ * tab strip + per-row properties panel and "double-click opens editor in a
  * new tab" workflow mirror the other pages.
  *
- * Operations: PackagesList / FeatureAdd / FeatureUpdate / FeatureRemove.
+ * GraphQL operations used:
+ *   - FeaturesList / AddFeature / UpdateFeature
+ *   - RemoveElements (generic collection removal, scoped to "features")
  */
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import {
+  FEATURES_LIST,
   FEATURE_ADD,
-  FEATURE_REMOVE,
   FEATURE_UPDATE,
-  PACKAGES_LIST,
+  REMOVE_ELEMENTS,
 } from '@/api/graphql/operations';
-import type { Feature, FeaturePackage } from '@/types/domain';
+import type { FeatureData, FeatureItem } from '@/types/domain';
 import { useSession } from '@/auth/SessionContext';
 import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
-interface PackagesListData {
-  packagesList: FeaturePackage[];
+interface FeaturesListData {
+  FeaturesList: {
+    items: FeatureItem[];
+  };
 }
 
+/** A feature node located in the tree (keeps the parent id for context). */
 interface SelectedNode {
-  feature: Feature;
-  packageId: string;
-  parentUuid: string | null;
+  feature: FeatureItem | FeatureData;
+  parentId: string | null;
 }
 
-const editorTabId = (uuid: string) => `editor:${uuid}`;
+const editorTabId = (id: string) => `editor:${id}`;
 const NEW_TAB_PREFIX = 'new:';
 
 interface NewState {
-  packageId: string;
-  parentUuid: string | null;
+  parentId: string | null;
+}
+
+function nodeId(f: FeatureItem | FeatureData): string {
+  return f.id ?? f.featureId ?? '';
+}
+
+function splitDeps(deps: string | undefined): string[] {
+  return (deps ?? '')
+    .split(';')
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+function joinDeps(deps: string[]): string {
+  return deps.map((s) => s.trim()).filter(Boolean).join(';');
 }
 
 export function FeaturesPage() {
   const { hasPermission } = useSession();
-  const { data, loading, error, refetch } =
-    useQuery<PackagesListData>(PACKAGES_LIST);
+  const { data, loading, error, refetch } = useQuery<FeaturesListData>(FEATURES_LIST, {
+    variables: { input: {} },
+  });
   const tabs = usePageTabs('features', 'Features');
-  // Pending "new feature" tabs are keyed by `new:<packageId>:<parentUuid|root>`
-  // and we keep the create-context here so the editor knows where to insert.
+  // Pending "new feature" tabs are keyed by `new:<parentId|root>` and we keep
+  // the create-context here so the editor knows where to insert.
   const [newStates, setNewStates] = useState<Record<string, NewState>>({});
 
   if (loading && !data) return <CenteredSpinner label="Loading features…" />;
-  const packages = data?.packagesList ?? [];
+  const features = data?.FeaturesList?.items ?? [];
 
-  const findNode = (uuid: string): SelectedNode | null => {
-    for (const pkg of packages) {
-      for (const f of pkg.features) {
-        const found = walk(f, pkg.id, null, uuid);
-        if (found) return found;
-      }
+  const findNode = (id: string): SelectedNode | null => {
+    for (const f of features) {
+      const found = walk(f, null, id);
+      if (found) return found;
     }
     return null;
   };
 
-  const openCreate = (packageId: string, parentUuid: string | null) => {
-    const id = `${NEW_TAB_PREFIX}${packageId}:${parentUuid ?? 'root'}`;
-    setNewStates((prev) => ({ ...prev, [id]: { packageId, parentUuid } }));
+  const openCreate = (parentId: string | null) => {
+    const id = `${NEW_TAB_PREFIX}${parentId ?? 'root'}`;
+    setNewStates((prev) => ({ ...prev, [id]: { parentId } }));
     tabs.openTab({
       id,
-      title: parentUuid ? 'New sub-feature' : 'New feature',
-      subtitle: packageId,
+      title: parentId ? 'New sub-feature' : 'New feature',
+      subtitle: parentId ?? undefined,
     });
   };
 
@@ -85,18 +102,18 @@ export function FeaturesPage() {
         if (tabId === COLLECTION_TAB_ID) {
           return (
             <FeaturesCollection
-              packages={packages}
+              features={features}
               error={error?.message}
               onRetry={() => refetch()}
               canAdd={hasPermission('AddFeature')}
               onActivate={(node) =>
                 tabs.openTab({
-                  id: editorTabId(node.feature.uuid),
-                  title: node.feature.featureName,
+                  id: editorTabId(nodeId(node.feature)),
+                  title: node.feature.featureName ?? node.feature.name ?? nodeId(node.feature),
                   subtitle: node.feature.featureId,
                 })
               }
-              onAddRoot={(packageId) => openCreate(packageId, null)}
+              onAddRoot={() => openCreate(null)}
             />
           );
         }
@@ -113,8 +130,7 @@ export function FeaturesPage() {
           return (
             <FeatureEditor
               key={tabId}
-              packages={packages}
-              state={{ mode: 'create', ...ns }}
+              state={{ mode: 'create', parentId: ns.parentId }}
               onClose={() => tabs.closeTab(tabId)}
               onSaved={(node) => {
                 setNewStates((prev) => {
@@ -123,8 +139,8 @@ export function FeaturesPage() {
                   return next;
                 });
                 tabs.replaceTab(tabId, {
-                  id: editorTabId(node.feature.uuid),
-                  title: node.feature.featureName,
+                  id: editorTabId(nodeId(node.feature)),
+                  title: node.feature.featureName ?? node.feature.name ?? nodeId(node.feature),
                   subtitle: node.feature.featureId,
                   closable: true,
                 });
@@ -133,8 +149,8 @@ export function FeaturesPage() {
           );
         }
         if (!tabId.startsWith('editor:')) return null;
-        const uuid = tabId.slice('editor:'.length);
-        const node = findNode(uuid);
+        const id = tabId.slice('editor:'.length);
+        const node = findNode(id);
         if (!node) {
           return (
             <EmptyState
@@ -146,17 +162,16 @@ export function FeaturesPage() {
         return (
           <FeatureEditor
             key={tabId}
-            packages={packages}
             state={{ mode: 'edit', node }}
             onClose={() => tabs.closeTab(tabId)}
             onSaved={(saved) =>
               tabs.renameTab(tabId, {
-                title: saved.feature.featureName,
+                title: saved.feature.featureName ?? saved.feature.name ?? nodeId(saved.feature),
                 subtitle: saved.feature.featureId,
               })
             }
             onDeleted={() => tabs.closeTab(tabId)}
-            onAddSub={(parentUuid) => openCreate(node.packageId, parentUuid)}
+            onAddSub={(parentId) => openCreate(parentId)}
           />
         );
       }}
@@ -165,44 +180,54 @@ export function FeaturesPage() {
 }
 
 function walk(
-  feature: Feature,
-  packageId: string,
-  parentUuid: string | null,
-  uuid: string,
+  feature: FeatureItem | FeatureData,
+  parentId: string | null,
+  id: string,
 ): SelectedNode | null {
-  if (feature.uuid === uuid) return { feature, packageId, parentUuid };
-  for (const c of feature.subFeatures) {
-    const r = walk(c, packageId, feature.uuid, uuid);
+  if (nodeId(feature) === id) return { feature, parentId };
+  for (const c of feature.subFeatures ?? []) {
+    const r = walk(c, nodeId(feature), id);
     if (r) return r;
   }
   return null;
 }
 
 // ---------------------------------------------------------------------------
-// Collection (tree view + selection meta panel)
+// Collection (tree view + selection properties panel)
 // ---------------------------------------------------------------------------
 
 function FeaturesCollection({
-  packages,
+  features,
   error,
   onRetry,
   canAdd,
   onActivate,
   onAddRoot,
 }: {
-  packages: FeaturePackage[];
+  features: FeatureItem[];
   error?: string;
   onRetry: () => void;
   canAdd: boolean;
   onActivate: (n: SelectedNode) => void;
-  onAddRoot: (packageId: string) => void;
+  onAddRoot: () => void;
 }) {
   const [selected, setSelected] = useState<SelectedNode | null>(null);
 
   return (
     <>
       <div className="page-header">
-        <h1 style={{ margin: 0 }}>Features &amp; packages</h1>
+        <h1 style={{ margin: 0 }}>Features</h1>
+        <div className="form-actions">
+          <button
+            type="button"
+            className="btn btn--primary"
+            onClick={onAddRoot}
+            disabled={!canAdd}
+            title={canAdd ? undefined : 'Requires AddFeature'}
+          >
+            + New feature
+          </button>
+        </div>
       </div>
 
       {error && (
@@ -214,20 +239,21 @@ function FeaturesCollection({
 
       <div className="collection-layout">
         <div className="panel" style={{ padding: 'var(--margin-m)' }}>
-          {packages.length === 0 ? (
-            <EmptyState title="No packages" message="No feature packages defined yet." />
+          {features.length === 0 ? (
+            <EmptyState title="No features" message="No features defined yet." />
           ) : (
-            packages.map((pkg) => (
-              <PackageBlock
-                key={pkg.id}
-                pkg={pkg}
-                selectedUuid={selected?.feature.uuid ?? null}
-                onSelect={setSelected}
-                onActivate={onActivate}
-                onAddRoot={() => onAddRoot(pkg.id)}
-                canAdd={canAdd}
-              />
-            ))
+            <ul className="feature-tree">
+              {features.map((f) => (
+                <FeatureTreeNode
+                  key={nodeId(f)}
+                  feature={f}
+                  parentId={null}
+                  selectedId={selected ? nodeId(selected.feature) : null}
+                  onSelect={setSelected}
+                  onActivate={onActivate}
+                />
+              ))}
+            </ul>
           )}
           <div className="collection-layout__hint">
             Double-click a feature (or press Enter) to open the editor in a new tab.
@@ -250,32 +276,34 @@ function FeaturesCollection({
 }
 
 function FeatureProperties({ node }: { node: SelectedNode }) {
-  const { feature, packageId } = node;
+  const { feature } = node;
+  const deps = splitDeps(feature.dependencies);
+  const subFeatures = feature.subFeatures ?? [];
   return (
     <>
       <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
-        <strong style={{ color: 'var(--color-text)' }}>{feature.featureName}</strong> ·{' '}
-        <code>{feature.featureId}</code>
+        <strong style={{ color: 'var(--color-text)' }}>
+          {feature.featureName ?? feature.name ?? nodeId(feature)}
+        </strong>{' '}
+        · <code>{feature.featureId}</code>
       </div>
       <dl className="meta-grid">
-        <dt>UUID</dt>
-        <dd><code>{feature.uuid}</code></dd>
-        <dt>Package</dt>
-        <dd><code>{packageId}</code></dd>
+        <dt>Id</dt>
+        <dd><code>{nodeId(feature)}</code></dd>
         <dt>Optional</dt>
         <dd>{feature.optional ? 'Yes' : 'No'}</dd>
         <dt>Permission</dt>
         <dd>{feature.isPermission ? 'Yes' : 'No'}</dd>
         <dt>Dependencies</dt>
         <dd>
-          {feature.dependencies.length === 0
+          {deps.length === 0
             ? '—'
-            : feature.dependencies.map((d) => (
+            : deps.map((d) => (
                 <span key={d} className="tag">{d}</span>
               ))}
         </dd>
         <dt>Sub-features</dt>
-        <dd>{feature.subFeatures.length}</dd>
+        <dd>{subFeatures.length}</dd>
         {feature.description && (
           <>
             <dt>Description</dt>
@@ -287,81 +315,23 @@ function FeatureProperties({ node }: { node: SelectedNode }) {
   );
 }
 
-function PackageBlock({
-  pkg,
-  selectedUuid,
-  onSelect,
-  onActivate,
-  onAddRoot,
-  canAdd,
-}: {
-  pkg: FeaturePackage;
-  selectedUuid: string | null;
-  onSelect: (n: SelectedNode) => void;
-  onActivate: (n: SelectedNode) => void;
-  onAddRoot: () => void;
-  canAdd: boolean;
-}) {
-  return (
-    <div style={{ marginBottom: 'var(--margin-l)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div>
-          <strong>{pkg.name}</strong>{' '}
-          <span className="panel__subtitle"><code>{pkg.id}</code></span>
-          {pkg.description && (
-            <div className="panel__subtitle">{pkg.description}</div>
-          )}
-        </div>
-        <button
-          type="button"
-          className="btn btn--small"
-          onClick={onAddRoot}
-          disabled={!canAdd}
-          title={canAdd ? undefined : 'Requires AddFeature'}
-        >
-          + Feature
-        </button>
-      </div>
-      {pkg.features.length === 0 ? (
-        <div className="panel__subtitle" style={{ paddingLeft: 'var(--margin-l)' }}>
-          No features.
-        </div>
-      ) : (
-        <ul className="feature-tree">
-          {pkg.features.map((f) => (
-            <FeatureTreeNode
-              key={f.uuid}
-              feature={f}
-              packageId={pkg.id}
-              parentUuid={null}
-              selectedUuid={selectedUuid}
-              onSelect={onSelect}
-              onActivate={onActivate}
-            />
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
-
 function FeatureTreeNode({
   feature,
-  packageId,
-  parentUuid,
-  selectedUuid,
+  parentId,
+  selectedId,
   onSelect,
   onActivate,
 }: {
-  feature: Feature;
-  packageId: string;
-  parentUuid: string | null;
-  selectedUuid: string | null;
+  feature: FeatureItem | FeatureData;
+  parentId: string | null;
+  selectedId: string | null;
   onSelect: (n: SelectedNode) => void;
   onActivate: (n: SelectedNode) => void;
 }) {
-  const isSelected = selectedUuid === feature.uuid;
-  const node: SelectedNode = { feature, packageId, parentUuid };
+  const id = nodeId(feature);
+  const isSelected = selectedId === id;
+  const node: SelectedNode = { feature, parentId };
+  const subFeatures = feature.subFeatures ?? [];
   return (
     <li>
       <button
@@ -380,21 +350,22 @@ function FeatureTreeNode({
           cursor: 'pointer',
         }}
       >
-        <span className="feature-tree__caret">{feature.subFeatures.length ? '▾' : '·'}</span>
-        <span className="feature-tree__name">{feature.featureName}</span>
+        <span className="feature-tree__caret">{subFeatures.length ? '▾' : '·'}</span>
+        <span className="feature-tree__name">
+          {feature.featureName ?? feature.name ?? id}
+        </span>
         <code className="feature-tree__badge">{feature.featureId}</code>
         {feature.optional && <span className="tag">optional</span>}
         {feature.isPermission && <span className="tag">permission</span>}
       </button>
-      {feature.subFeatures.length > 0 && (
+      {subFeatures.length > 0 && (
         <ul>
-          {feature.subFeatures.map((c) => (
+          {subFeatures.map((c) => (
             <FeatureTreeNode
-              key={c.uuid}
+              key={nodeId(c)}
               feature={c}
-              packageId={packageId}
-              parentUuid={feature.uuid}
-              selectedUuid={selectedUuid}
+              parentId={id}
+              selectedId={selectedId}
               onSelect={onSelect}
               onActivate={onActivate}
             />
@@ -410,33 +381,30 @@ function FeatureTreeNode({
 // ---------------------------------------------------------------------------
 
 interface FeatureFormState {
-  uuid: string;
+  id: string;
   featureId: string;
   featureName: string;
   description: string;
   optional: boolean;
   isPermission: boolean;
   dependencies: string;
-  packageId: string;
-  parentUuid: string | null;
+  parentId: string | null;
 }
 
 function FeatureEditor({
-  packages,
   state,
   onClose,
   onSaved,
   onDeleted,
   onAddSub,
 }: {
-  packages: FeaturePackage[];
   state:
-    | { mode: 'create'; packageId: string; parentUuid: string | null }
+    | { mode: 'create'; parentId: string | null }
     | { mode: 'edit'; node: SelectedNode };
   onClose: () => void;
   onSaved: (n: SelectedNode) => void;
   onDeleted?: () => void;
-  onAddSub?: (parentUuid: string) => void;
+  onAddSub?: (parentId: string) => void;
 }) {
   const { hasPermission } = useSession();
 
@@ -444,27 +412,25 @@ function FeatureEditor({
     if (state.mode === 'edit') {
       const f = state.node.feature;
       return {
-        uuid: f.uuid,
-        featureId: f.featureId,
-        featureName: f.featureName,
+        id: nodeId(f),
+        featureId: f.featureId ?? '',
+        featureName: f.featureName ?? f.name ?? '',
         description: f.description ?? '',
-        optional: f.optional,
-        isPermission: f.isPermission,
-        dependencies: f.dependencies.join(', '),
-        packageId: state.node.packageId,
-        parentUuid: state.node.parentUuid,
+        optional: f.optional ?? false,
+        isPermission: f.isPermission ?? false,
+        dependencies: splitDeps(f.dependencies).join(', '),
+        parentId: state.node.parentId,
       };
     }
     return {
-      uuid: '',
+      id: '',
       featureId: '',
       featureName: 'New feature',
       description: '',
       optional: false,
       isPermission: false,
       dependencies: '',
-      packageId: state.packageId,
-      parentUuid: state.parentUuid,
+      parentId: state.parentId,
     };
   }, [state]);
 
@@ -473,18 +439,24 @@ function FeatureEditor({
   const [serverError, setServerError] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const [addFeature, addState] = useMutation<{ featureAdd: Feature }>(FEATURE_ADD, {
-    refetchQueries: [{ query: PACKAGES_LIST }],
+  const [addFeature, addState] = useMutation<{ AddFeature: { id: string } }>(FEATURE_ADD, {
+    refetchQueries: [{ query: FEATURES_LIST, variables: { input: {} } }],
     awaitRefetchQueries: true,
   });
-  const [updateFeature, updateState] = useMutation<{ featureUpdate: Feature }>(FEATURE_UPDATE, {
-    refetchQueries: [{ query: PACKAGES_LIST }],
-    awaitRefetchQueries: true,
-  });
-  const [removeFeature, removeState] = useMutation(FEATURE_REMOVE, {
-    refetchQueries: [{ query: PACKAGES_LIST }],
-    awaitRefetchQueries: true,
-  });
+  const [updateFeature, updateState] = useMutation<{ UpdateFeature: { id: string } }>(
+    FEATURE_UPDATE,
+    {
+      refetchQueries: [{ query: FEATURES_LIST, variables: { input: {} } }],
+      awaitRefetchQueries: true,
+    },
+  );
+  const [removeFeature, removeState] = useMutation<{ RemoveElements: { success: boolean } }>(
+    REMOVE_ELEMENTS,
+    {
+      refetchQueries: [{ query: FEATURES_LIST, variables: { input: {} } }],
+      awaitRefetchQueries: true,
+    },
+  );
 
   const submitting = addState.loading || updateState.loading;
   const isCreate = state.mode === 'create';
@@ -495,7 +467,6 @@ function FeatureEditor({
     const errors: Record<string, string> = {};
     if (!form.featureId.trim()) errors.featureId = 'Feature id is required';
     if (!form.featureName.trim()) errors.featureName = 'Name is required';
-    if (!form.packageId) errors.packageId = 'Package is required';
     setValidation(errors);
     return Object.keys(errors).length === 0;
   };
@@ -504,29 +475,38 @@ function FeatureEditor({
     e.preventDefault();
     setServerError(null);
     if (!validate()) return;
-    const input = {
-      uuid: form.uuid || undefined,
-      featureId: form.featureId.trim(),
+    const featureId = form.featureId.trim();
+    const id = isCreate ? featureId : form.id || featureId;
+    const depsList = form.dependencies
+      .split(/[,;]/)
+      .map((s) => s.trim())
+      .filter(Boolean);
+    const item: FeatureData = {
+      id,
+      featureId,
       featureName: form.featureName.trim(),
+      name: form.featureName.trim(),
       description: form.description.trim(),
       optional: form.optional,
       isPermission: form.isPermission,
-      dependencies: form.dependencies
-        .split(/[,;]/)
-        .map((s) => s.trim())
-        .filter(Boolean),
-      packageId: form.packageId,
-      parentFeatureUuid: form.parentUuid,
+      dependencies: joinDeps(depsList),
     };
+    const input = { id, item };
     try {
       if (isCreate) {
         const res = await addFeature({ variables: { input } });
-        const f = res.data?.featureAdd;
-        if (f) onSaved({ feature: f, packageId: form.packageId, parentUuid: form.parentUuid });
+        const newId = res.data?.AddFeature?.id ?? id;
+        onSaved({
+          feature: { ...item, id: newId },
+          parentId: form.parentId,
+        });
       } else {
         const res = await updateFeature({ variables: { input } });
-        const f = res.data?.featureUpdate;
-        if (f) onSaved({ feature: f, packageId: form.packageId, parentUuid: form.parentUuid });
+        const updatedId = res.data?.UpdateFeature?.id ?? id;
+        onSaved({
+          feature: { ...item, id: updatedId },
+          parentId: form.parentId,
+        });
       }
     } catch (err) {
       setServerError(err instanceof Error ? err.message : 'Save failed');
@@ -537,10 +517,13 @@ function FeatureEditor({
     <form className="form" onSubmit={onSubmit} aria-busy={submitting}>
       <div className="panel__header">
         <div>
-          <h2 className="panel__title">{isCreate ? 'New feature' : form.featureName || 'Edit feature'}</h2>
+          <h2 className="panel__title">
+            {isCreate ? 'New feature' : form.featureName || 'Edit feature'}
+          </h2>
           {!isCreate && (
             <div className="panel__subtitle">
-              <code>{form.featureId}</code> · package <code>{form.packageId}</code>
+              <code>{form.featureId}</code>
+              {form.parentId && <> · parent <code>{form.parentId}</code></>}
             </div>
           )}
         </div>
@@ -553,7 +536,7 @@ function FeatureEditor({
               type="button"
               className="btn"
               disabled={!hasPermission('AddFeature')}
-              onClick={() => onAddSub(form.uuid)}
+              onClick={() => onAddSub(form.id)}
             >
               + Sub-feature
             </button>
@@ -587,7 +570,7 @@ function FeatureEditor({
             id="ft-id"
             value={form.featureId}
             onChange={(e) => setForm({ ...form, featureId: e.target.value })}
-            disabled={!canEdit}
+            disabled={!canEdit || !isCreate}
           />
           {validation.featureId && <span className="error-text">{validation.featureId}</span>}
         </div>
@@ -602,19 +585,6 @@ function FeatureEditor({
           {validation.featureName && (
             <span className="error-text">{validation.featureName}</span>
           )}
-        </div>
-        <div className="form-field">
-          <label htmlFor="ft-pkg">Package</label>
-          <select
-            id="ft-pkg"
-            value={form.packageId}
-            onChange={(e) => setForm({ ...form, packageId: e.target.value })}
-            disabled={!isCreate}
-          >
-            {packages.map((p) => (
-              <option key={p.id} value={p.id}>{p.name}</option>
-            ))}
-          </select>
         </div>
       </div>
 
@@ -668,13 +638,22 @@ function FeatureEditor({
         <ConfirmDialog
           open={confirmDelete}
           title="Remove feature"
-          message={`Remove the feature "${state.node.feature.featureName}" and all its sub-features?`}
+          message={`Remove the feature "${
+            state.node.feature.featureName ?? state.node.feature.name ?? nodeId(state.node.feature)
+          }" and all its sub-features?`}
           confirmLabel="Remove"
           destructive
           onCancel={() => setConfirmDelete(false)}
           onConfirm={async () => {
             setConfirmDelete(false);
-            await removeFeature({ variables: { uuid: state.node.feature.uuid } });
+            await removeFeature({
+              variables: {
+                input: {
+                  collectionId: 'features',
+                  elementIds: [nodeId(state.node.feature)],
+                },
+              },
+            });
             onDeleted?.();
           }}
         />

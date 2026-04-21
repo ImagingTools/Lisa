@@ -14,19 +14,20 @@
  *     used by the QML `MultiDocCollectionPage`.
  *
  * GraphQL operations used:
- *   - ProductsList / ProductItem / ProductAdd / ProductUpdate / ProductRemove
- *   - PackagesList (for the feature picker)
+ *   - ProductsList / ProductAdd / ProductUpdate
+ *   - RemoveElements (generic collection removal, scoped to "products")
+ *   - FeaturesList (for the feature picker)
  */
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import {
-  PACKAGES_LIST,
+  FEATURES_LIST,
   PRODUCTS_LIST,
   PRODUCT_ADD,
-  PRODUCT_REMOVE,
   PRODUCT_UPDATE,
+  REMOVE_ELEMENTS,
 } from '@/api/graphql/operations';
-import type { Feature, FeaturePackage, Product, ProductCategory } from '@/types/domain';
+import type { ProductItem, ProductData, FeatureData, FeatureItem } from '@/types/domain';
 import { useSession } from '@/auth/SessionContext';
 import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
@@ -42,11 +43,15 @@ import {
 } from './featureSelection';
 
 interface ProductsListData {
-  productsList: Product[];
+  ProductsList: {
+    items: ProductItem[];
+  };
 }
 
-interface PackagesListData {
-  packagesList: FeaturePackage[];
+interface FeaturesListData {
+  FeaturesList: {
+    items: FeatureItem[];
+  };
 }
 
 const NEW_TAB_ID = 'new:product';
@@ -54,14 +59,18 @@ const editorTabId = (id: string) => `editor:${id}`;
 
 export function ProductsPage() {
   const { hasPermission } = useSession();
-  const { data, loading, error, refetch } = useQuery<ProductsListData>(PRODUCTS_LIST);
-  const { data: pkgData } = useQuery<PackagesListData>(PACKAGES_LIST);
+  const { data, loading, error, refetch } = useQuery<ProductsListData>(PRODUCTS_LIST, {
+    variables: { input: {} },
+  });
+  const { data: featData } = useQuery<FeaturesListData>(FEATURES_LIST, {
+    variables: { input: {} },
+  });
   const tabs = usePageTabs('products', 'Products');
 
   if (loading && !data) return <CenteredSpinner label="Loading products…" />;
 
-  const products = data?.productsList ?? [];
-  const packages = pkgData?.packagesList ?? [];
+  const products = data?.ProductsList?.items ?? [];
+  const features = featData?.FeaturesList?.items ?? [];
 
   const findProduct = (id: string) => products.find((p) => p.id === id) ?? null;
 
@@ -92,14 +101,14 @@ export function ProductsPage() {
         if (tabId === NEW_TAB_ID) {
           return (
             <ProductEditor
-              packages={packages}
+              features={features}
               mode="create"
               onClose={() => tabs.closeTab(NEW_TAB_ID)}
               onSaved={(saved) =>
                 tabs.replaceTab(NEW_TAB_ID, {
-                  id: editorTabId(saved.id),
-                  title: saved.name,
-                  subtitle: saved.id,
+                  id: editorTabId(saved.id!),
+                  title: saved.name!,
+                  subtitle: saved.id!,
                   closable: true,
                 })
               }
@@ -120,11 +129,11 @@ export function ProductsPage() {
         return (
           <ProductEditor
             product={product}
-            packages={packages}
+            features={features}
             mode="edit"
             onClose={() => tabs.closeTab(tabId)}
             onSaved={(saved) =>
-              tabs.renameTab(tabId, { title: saved.name, subtitle: saved.id })
+              tabs.renameTab(tabId, { title: saved.name!, subtitle: saved.id! })
             }
             onDeleted={() => tabs.closeTab(tabId)}
           />
@@ -146,11 +155,11 @@ function ProductsCollection({
   onActivate,
   onCreate,
 }: {
-  products: Product[];
+  products: ProductItem[];
   error?: string;
   onRetry: () => void;
   canCreate: boolean;
-  onActivate: (p: Product) => void;
+  onActivate: (p: ProductItem) => void;
   onCreate: () => void;
 }) {
   const [search, setSearch] = useState('');
@@ -163,13 +172,13 @@ function ProductsCollection({
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.id.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q),
+        (p.description ?? '').toLowerCase().includes(q),
     );
   }, [products, search]);
 
   const selected = (selectedId && products.find((p) => p.id === selectedId)) || null;
 
-  const columns: Column<Product>[] = useMemo(
+  const columns: Column<ProductItem>[] = useMemo(
     () => [
       {
         key: 'name',
@@ -195,15 +204,15 @@ function ProductsCollection({
       {
         key: 'description',
         header: 'Description',
-        cell: (p) => p.description,
-        sortValue: (p) => p.description.toLowerCase(),
+        cell: (p) => p.description ?? '',
+        sortValue: (p) => (p.description ?? '').toLowerCase(),
         width: 320,
       },
       {
         key: 'licenses',
         header: 'Licenses',
-        cell: (p) => p.licenses.length,
-        sortValue: (p) => p.licenses.length,
+        cell: (p) => p.licenses?.length ?? 0,
+        sortValue: (p) => p.licenses?.length ?? 0,
         width: 100,
       },
     ],
@@ -244,7 +253,7 @@ function ProductsCollection({
 
       <div className="collection-layout">
         <div className="panel" style={{ padding: 0 }}>
-          <DataTable<Product>
+          <DataTable<ProductItem>
             tableId="products"
             ariaLabel="Products list"
             columns={columns}
@@ -269,7 +278,7 @@ function ProductsCollection({
                 <strong style={{ color: 'var(--color-text)' }}>{selected.name}</strong> ·{' '}
                 <code>{selected.id}</code>
               </div>
-              <MetaInfoPanel meta={selected.meta} />
+              <MetaInfoPanel item={selected} />
             </>
           ) : (
             <p className="panel__subtitle">Select a row to see its metadata.</p>
@@ -288,23 +297,23 @@ interface FormState {
   id: string;
   name: string;
   description: string;
-  categoryId: ProductCategory;
+  categoryId: string;
   selection: FeatureSelection;
 }
 
 function ProductEditor({
   product,
-  packages,
+  features,
   mode,
   onClose,
   onSaved,
   onDeleted,
 }: {
-  product?: Product;
-  packages: FeaturePackage[];
+  product?: ProductItem;
+  features: FeatureItem[];
   mode: 'create' | 'edit';
   onClose: () => void;
-  onSaved: (p: Product) => void;
+  onSaved: (p: { id: string; name: string }) => void;
   onDeleted?: () => void;
 }) {
   const { hasPermission } = useSession();
@@ -319,18 +328,21 @@ function ProductEditor({
   const [serverError, setServerError] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const [addProduct, addState] = useMutation<{ productAdd: Product }>(PRODUCT_ADD, {
+  const [addProduct, addState] = useMutation<{ ProductAdd: { id: string } }>(PRODUCT_ADD, {
     refetchQueries: [{ query: PRODUCTS_LIST }],
     awaitRefetchQueries: true,
   });
-  const [updateProduct, updateState] = useMutation<{ productUpdate: Product }>(
+  const [updateProduct, updateState] = useMutation<{ ProductUpdate: { id: string } }>(
     PRODUCT_UPDATE,
     { refetchQueries: [{ query: PRODUCTS_LIST }], awaitRefetchQueries: true },
   );
-  const [removeProduct, removeState] = useMutation(PRODUCT_REMOVE, {
-    refetchQueries: [{ query: PRODUCTS_LIST }],
-    awaitRefetchQueries: true,
-  });
+  const [removeProduct, removeState] = useMutation<{ RemoveElements: { success: boolean } }>(
+    REMOVE_ELEMENTS,
+    {
+      refetchQueries: [{ query: PRODUCTS_LIST }],
+      awaitRefetchQueries: true,
+    },
+  );
 
   const submitting = addState.loading || updateState.loading;
 
@@ -348,23 +360,25 @@ function ProductEditor({
     e.preventDefault();
     setServerError(null);
     if (!validate()) return;
-    const input = {
-      id: mode === 'edit' ? form.id : form.name.trim().replace(/\s+/g, ''),
+    const id = mode === 'edit' ? form.id : form.name.trim().replace(/\s+/g, '');
+    const item: ProductData = {
+      id,
       name: form.name.trim(),
       description: form.description.trim(),
       categoryId: form.categoryId,
       features: serializeFeatureSelection(form.selection),
     };
+    const input = { id, item };
     try {
       if (mode === 'create') {
         const res = await addProduct({ variables: { input } });
-        if (res.data?.productAdd) {
-          setForm((f) => ({ ...f, id: res.data!.productAdd.id }));
-          onSaved(res.data.productAdd);
-        }
+        const newId = res.data?.ProductAdd?.id ?? id;
+        setForm((f) => ({ ...f, id: newId }));
+        onSaved({ id: newId, name: item.name! });
       } else {
         const res = await updateProduct({ variables: { input } });
-        if (res.data?.productUpdate) onSaved(res.data.productUpdate);
+        const updatedId = res.data?.ProductUpdate?.id ?? id;
+        onSaved({ id: updatedId, name: item.name! });
       }
     } catch (err) {
       setServerError(err instanceof Error ? err.message : 'Save failed');
@@ -431,7 +445,7 @@ function ProductEditor({
             id="category"
             value={form.categoryId}
             onChange={(e) =>
-              setForm({ ...form, categoryId: e.target.value as ProductCategory })
+              setForm({ ...form, categoryId: e.target.value })
             }
             disabled={!canEdit}
           >
@@ -458,7 +472,7 @@ function ProductEditor({
         available).
       </div>
       <FeaturePicker
-        packages={packages}
+        features={features}
         selection={form.selection}
         onChange={(selection) => setForm({ ...form, selection })}
       />
@@ -466,11 +480,11 @@ function ProductEditor({
       {mode === 'edit' && product && (
         <>
           <h3>Licenses</h3>
-          {product.licenses.length === 0 ? (
+          {(product.licenses ?? []).length === 0 ? (
             <p style={{ color: 'var(--color-text-muted)' }}>No licenses defined.</p>
           ) : (
             <ul>
-              {product.licenses.map((l) => (
+              {(product.licenses ?? []).map((l) => (
                 <li key={l.id}>
                   <strong>{l.name}</strong> · <code>{l.id}</code>
                 </li>
@@ -478,7 +492,7 @@ function ProductEditor({
             </ul>
           )}
           <h3>Metadata</h3>
-          <MetaInfoPanel meta={product.meta} />
+          <MetaInfoPanel item={product} />
         </>
       )}
 
@@ -492,7 +506,11 @@ function ProductEditor({
           onCancel={() => setConfirmDelete(false)}
           onConfirm={async () => {
             setConfirmDelete(false);
-            await removeProduct({ variables: { id: product.id } });
+            await removeProduct({
+              variables: {
+                input: { collectionId: 'products', elementIds: [product.id] },
+              },
+            });
             onDeleted?.();
           }}
         />
@@ -502,38 +520,28 @@ function ProductEditor({
 }
 
 function FeaturePicker({
-  packages,
+  features,
   selection,
   onChange,
 }: {
-  packages: FeaturePackage[];
+  features: FeatureItem[];
   selection: FeatureSelection;
   onChange: (s: FeatureSelection) => void;
 }) {
-  if (packages.length === 0) {
-    return <p style={{ color: 'var(--color-text-muted)' }}>No feature packages defined.</p>;
+  if (features.length === 0) {
+    return <p style={{ color: 'var(--color-text-muted)' }}>No features defined.</p>;
   }
   return (
-    <div>
-      {packages.map((pkg) => (
-        <details key={pkg.id} open style={{ marginBottom: 'var(--margin-s)' }}>
-          <summary style={{ cursor: 'pointer', fontWeight: 600 }}>
-            {pkg.name}{' '}
-            <span className="panel__subtitle">({pkg.features.length})</span>
-          </summary>
-          <ul className="feature-tree">
-            {pkg.features.map((f) => (
-              <FeatureNode
-                key={f.uuid}
-                feature={f}
-                selection={selection}
-                onChange={onChange}
-              />
-            ))}
-          </ul>
-        </details>
+    <ul className="feature-tree">
+      {features.map((f) => (
+        <FeatureNode
+          key={f.id}
+          feature={f}
+          selection={selection}
+          onChange={onChange}
+        />
       ))}
-    </div>
+    </ul>
   );
 }
 
@@ -542,29 +550,32 @@ function FeatureNode({
   selection,
   onChange,
 }: {
-  feature: Feature;
+  feature: FeatureItem | FeatureData;
   selection: FeatureSelection;
   onChange: (s: FeatureSelection) => void;
 }) {
-  const checked = selection.ids.has(feature.featureId);
+  const featureId = feature.featureId ?? '';
+  const featureName = feature.featureName ?? feature.name ?? featureId;
+  const subFeatures = feature.subFeatures ?? [];
+  const checked = selection.ids.has(featureId);
   return (
     <li>
       <label className="feature-tree__row">
         <input
           type="checkbox"
           checked={checked}
-          onChange={() => onChange(toggleFeatureId(selection, feature.featureId))}
+          onChange={() => onChange(toggleFeatureId(selection, featureId))}
         />
-        <span className="feature-tree__name">{feature.featureName}</span>
-        <code className="feature-tree__badge">{feature.featureId}</code>
+        <span className="feature-tree__name">{featureName}</span>
+        <code className="feature-tree__badge">{featureId}</code>
         {feature.optional && <span className="tag">optional</span>}
         {feature.isPermission && <span className="tag">permission</span>}
       </label>
-      {feature.subFeatures.length > 0 && (
+      {subFeatures.length > 0 && (
         <ul>
-          {feature.subFeatures.map((c) => (
+          {subFeatures.map((c, i) => (
             <FeatureNode
-              key={c.uuid}
+              key={c.id ?? c.featureId ?? i}
               feature={c}
               selection={selection}
               onChange={onChange}

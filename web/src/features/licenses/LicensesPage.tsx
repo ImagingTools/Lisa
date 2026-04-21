@@ -5,20 +5,27 @@
  *   - `ImtCore/Qml/imtlicgui/LicenseCollectionView.qml`  → LicensesCollection
  *   - `ImtCore/Qml/imtlicgui/LicenseEditor.qml`           → LicenseEditor
  *
- * GraphQL ops: LicensesList / LicenseAdd / LicenseUpdate / LicenseRemove,
- *              ProductsList (for the parent-product picker).
+ * GraphQL ops: LicensesList / LicenseAdd / LicenseUpdate / RemoveElements,
+ *              ProductsList (for the parent-product picker),
+ *              FeaturesList (for the feature picker).
  */
 import { useMemo, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import {
+  FEATURES_LIST,
   LICENSES_LIST,
   LICENSE_ADD,
-  LICENSE_REMOVE,
   LICENSE_UPDATE,
-  PACKAGES_LIST,
   PRODUCTS_LIST,
+  REMOVE_ELEMENTS,
 } from '@/api/graphql/operations';
-import type { Feature, FeaturePackage, License, Product } from '@/types/domain';
+import type {
+  FeatureData,
+  FeatureItem,
+  LicenseDefinitionData,
+  LicenseItem,
+  ProductItem,
+} from '@/types/domain';
 import { useSession } from '@/auth/SessionContext';
 import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
@@ -28,37 +35,59 @@ import { DataTable, type Column } from '@/components/DataTable';
 import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
 interface LicensesListData {
-  licensesList: License[];
+  LicensesList: {
+    items: LicenseItem[];
+  };
 }
 interface ProductsListData {
-  productsList: Product[];
+  ProductsList: {
+    items: ProductItem[];
+  };
 }
-interface PackagesListData {
-  packagesList: FeaturePackage[];
+interface FeaturesListData {
+  FeaturesList: {
+    items: FeatureItem[];
+  };
 }
 
 const NEW_TAB_ID = 'new:license';
-const editorTabId = (productId: string, id: string) => `editor:${productId}::${id}`;
+const editorTabId = (id: string) => `editor:${id}`;
+
+/** Split a `;`-delimited feature id list into a clean array. */
+function splitFeatures(s: string | undefined | null): string[] {
+  if (!s) return [];
+  return s.split(';').map((x) => x.trim()).filter((x) => x.length > 0);
+}
+
+/** Join feature ids back into a `;`-delimited string. */
+function joinFeatures(ids: Iterable<string>): string {
+  return [...ids].join(';');
+}
 
 export function LicensesPage() {
   const { hasPermission } = useSession();
-  const { data, loading, error, refetch } = useQuery<LicensesListData>(LICENSES_LIST);
-  const { data: products } = useQuery<ProductsListData>(PRODUCTS_LIST);
-  const { data: packages } = useQuery<PackagesListData>(PACKAGES_LIST);
+  const { data, loading, error, refetch } = useQuery<LicensesListData>(LICENSES_LIST, {
+    variables: { input: {} },
+  });
+  const { data: products } = useQuery<ProductsListData>(PRODUCTS_LIST, {
+    variables: { input: {} },
+  });
+  const { data: featData } = useQuery<FeaturesListData>(FEATURES_LIST, {
+    variables: { input: {} },
+  });
   const tabs = usePageTabs('licenses', 'Licenses');
 
   const allFeatures = useMemo(
-    () => flattenFeatures(packages?.packagesList ?? []),
-    [packages?.packagesList],
+    () => flattenFeatures(featData?.FeaturesList?.items ?? []),
+    [featData?.FeaturesList?.items],
   );
 
   if (loading && !data) return <CenteredSpinner label="Loading licenses…" />;
 
-  const list = data?.licensesList ?? [];
-  const productsList = products?.productsList ?? [];
+  const list = data?.LicensesList?.items ?? [];
+  const productsList = products?.ProductsList?.items ?? [];
 
-  const findLicense = (productId: string, id: string) =>
-    list.find((l) => l.id === id && l.productId === productId) ?? null;
+  const findLicense = (id: string) => list.find((l) => l.id === id) ?? null;
 
   return (
     <PageTabs
@@ -74,9 +103,9 @@ export function LicensesPage() {
               canCreate={hasPermission('AddLicense')}
               onActivate={(l) =>
                 tabs.openTab({
-                  id: editorTabId(l.productId, l.id),
-                  title: l.name,
-                  subtitle: `${l.productId} · ${l.id}`,
+                  id: editorTabId(l.id),
+                  title: l.licenseName,
+                  subtitle: `${l.productId ?? '—'} · ${l.licenseId}`,
                 })
               }
               onCreate={() =>
@@ -94,9 +123,9 @@ export function LicensesPage() {
               onClose={() => tabs.closeTab(NEW_TAB_ID)}
               onSaved={(saved) =>
                 tabs.replaceTab(NEW_TAB_ID, {
-                  id: editorTabId(saved.productId, saved.id),
+                  id: editorTabId(saved.id),
                   title: saved.name,
-                  subtitle: `${saved.productId} · ${saved.id}`,
+                  subtitle: `${saved.productId ?? '—'} · ${saved.licenseId}`,
                   closable: true,
                 })
               }
@@ -104,8 +133,8 @@ export function LicensesPage() {
           );
         }
         if (!tabId.startsWith('editor:')) return null;
-        const [productId, id] = tabId.slice('editor:'.length).split('::');
-        const license = findLicense(productId, id);
+        const id = tabId.slice('editor:'.length);
+        const license = findLicense(id);
         if (!license) {
           return (
             <EmptyState
@@ -124,7 +153,7 @@ export function LicensesPage() {
             onSaved={(saved) =>
               tabs.renameTab(tabId, {
                 title: saved.name,
-                subtitle: `${saved.productId} · ${saved.id}`,
+                subtitle: `${saved.productId ?? '—'} · ${saved.licenseId}`,
               })
             }
             onDeleted={() => tabs.closeTab(tabId)}
@@ -144,17 +173,17 @@ function LicensesCollection({
   onActivate,
   onCreate,
 }: {
-  licenses: License[];
-  products: Product[];
+  licenses: LicenseItem[];
+  products: ProductItem[];
   error?: string;
   onRetry: () => void;
   canCreate: boolean;
-  onActivate: (l: License) => void;
+  onActivate: (l: LicenseItem) => void;
   onCreate: () => void;
 }) {
   const [search, setSearch] = useState('');
   const [productFilter, setProductFilter] = useState<string>('');
-  const [selectedKey, setSelectedKey] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     let out = licenses;
@@ -163,53 +192,52 @@ function LicensesCollection({
       const q = search.trim().toLowerCase();
       out = out.filter(
         (l) =>
-          l.name.toLowerCase().includes(q) ||
-          l.id.toLowerCase().includes(q) ||
-          l.description.toLowerCase().includes(q),
+          l.licenseName.toLowerCase().includes(q) ||
+          l.licenseId.toLowerCase().includes(q) ||
+          (l.description ?? '').toLowerCase().includes(q),
       );
     }
     return out;
   }, [licenses, productFilter, search]);
 
-  const rowKey = (l: License) => `${l.productId}::${l.id}`;
   const selected =
-    (selectedKey && licenses.find((l) => rowKey(l) === selectedKey)) || null;
+    (selectedId && licenses.find((l) => l.id === selectedId)) || null;
 
-  const columns: Column<License>[] = useMemo(
+  const columns: Column<LicenseItem>[] = useMemo(
     () => [
       {
         key: 'name',
         header: 'Name',
-        cell: (l) => l.name,
-        sortValue: (l) => l.name.toLowerCase(),
+        cell: (l) => l.licenseName,
+        sortValue: (l) => l.licenseName.toLowerCase(),
         width: 220,
       },
       {
-        key: 'id',
+        key: 'licenseId',
         header: 'License id',
-        cell: (l) => <code>{l.id}</code>,
-        sortValue: (l) => l.id.toLowerCase(),
+        cell: (l) => <code>{l.licenseId}</code>,
+        sortValue: (l) => l.licenseId.toLowerCase(),
         width: 160,
       },
       {
         key: 'product',
         header: 'Product',
-        cell: (l) => l.productId,
-        sortValue: (l) => l.productId.toLowerCase(),
+        cell: (l) => l.productId ?? '',
+        sortValue: (l) => (l.productId ?? '').toLowerCase(),
         width: 160,
       },
       {
         key: 'description',
         header: 'Description',
-        cell: (l) => l.description,
-        sortValue: (l) => l.description.toLowerCase(),
+        cell: (l) => l.description ?? '',
+        sortValue: (l) => (l.description ?? '').toLowerCase(),
         width: 320,
       },
       {
         key: 'features',
         header: 'Features',
-        cell: (l) => l.features.length,
-        sortValue: (l) => l.features.length,
+        cell: (l) => splitFeatures(l.features).length,
+        sortValue: (l) => splitFeatures(l.features).length,
         width: 100,
       },
     ],
@@ -259,14 +287,14 @@ function LicensesCollection({
 
       <div className="collection-layout">
         <div className="panel" style={{ padding: 0 }}>
-          <DataTable<License>
+          <DataTable<LicenseItem>
             tableId="licenses"
             ariaLabel="Licenses list"
             columns={columns}
             rows={filtered}
-            rowKey={rowKey}
-            selectedKey={selectedKey}
-            onSelect={(l) => setSelectedKey(rowKey(l))}
+            rowKey={(l) => l.id}
+            selectedKey={selectedId}
+            onSelect={(l) => setSelectedId(l.id)}
             onActivate={onActivate}
             emptyMessage={
               search || productFilter
@@ -285,10 +313,10 @@ function LicensesCollection({
           {selected ? (
             <>
               <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
-                <strong style={{ color: 'var(--color-text)' }}>{selected.name}</strong> ·{' '}
-                <code>{selected.productId}</code> · <code>{selected.id}</code>
+                <strong style={{ color: 'var(--color-text)' }}>{selected.licenseName}</strong> ·{' '}
+                <code>{selected.productId ?? '—'}</code> · <code>{selected.licenseId}</code>
               </div>
-              <MetaInfoPanel meta={selected.meta} />
+              <MetaInfoPanel item={selected} />
             </>
           ) : (
             <p className="panel__subtitle">Select a row to see its metadata.</p>
@@ -297,6 +325,13 @@ function LicensesCollection({
       </div>
     </>
   );
+}
+
+interface SavedLicense {
+  id: string;
+  name: string;
+  licenseId: string;
+  productId?: string;
 }
 
 function LicenseEditor({
@@ -309,37 +344,43 @@ function LicenseEditor({
   onDeleted,
 }: {
   mode: 'create' | 'edit';
-  license?: License;
-  products: Product[];
-  allFeatures: Feature[];
+  license?: LicenseItem;
+  products: ProductItem[];
+  allFeatures: FeatureData[];
   onClose: () => void;
-  onSaved: (l: License) => void;
+  onSaved: (l: SavedLicense) => void;
   onDeleted?: () => void;
 }) {
   const { hasPermission } = useSession();
   const [form, setForm] = useState({
-    id: license?.id ?? '',
+    licenseId: license?.licenseId ?? '',
     productId: license?.productId ?? products[0]?.id ?? '',
-    name: license?.name ?? '',
+    name: license?.licenseName ?? '',
     description: license?.description ?? '',
-    features: new Set<string>(license?.features ?? []),
+    features: new Set<string>(splitFeatures(license?.features)),
   });
   const [validation, setValidation] = useState<Record<string, string>>({});
   const [serverError, setServerError] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  const [addLicense, addState] = useMutation<{ licenseAdd: License }>(LICENSE_ADD, {
+  const [addLicense, addState] = useMutation<{ LicenseAdd: { id: string } }>(LICENSE_ADD, {
     refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
     awaitRefetchQueries: true,
   });
-  const [updateLicense, updateState] = useMutation<{ licenseUpdate: License }>(LICENSE_UPDATE, {
-    refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
-    awaitRefetchQueries: true,
-  });
-  const [removeLicense, removeState] = useMutation(LICENSE_REMOVE, {
-    refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
-    awaitRefetchQueries: true,
-  });
+  const [updateLicense, updateState] = useMutation<{ LicenseUpdate: { id: string } }>(
+    LICENSE_UPDATE,
+    {
+      refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
+      awaitRefetchQueries: true,
+    },
+  );
+  const [removeLicense, removeState] = useMutation<{ RemoveElements: { success: boolean } }>(
+    REMOVE_ELEMENTS,
+    {
+      refetchQueries: [{ query: LICENSES_LIST }, { query: PRODUCTS_LIST }],
+      awaitRefetchQueries: true,
+    },
+  );
 
   const submitting = addState.loading || updateState.loading;
 
@@ -347,7 +388,7 @@ function LicenseEditor({
     const errors: Record<string, string> = {};
     if (!form.name.trim()) errors.name = 'Name is required';
     if (!form.productId) errors.productId = 'Product is required';
-    if (mode === 'create' && !form.id.trim()) errors.id = 'License id is required';
+    if (mode === 'create' && !form.licenseId.trim()) errors.licenseId = 'License id is required';
     setValidation(errors);
     return Object.keys(errors).length === 0;
   };
@@ -359,20 +400,36 @@ function LicenseEditor({
     e.preventDefault();
     setServerError(null);
     if (!validate()) return;
-    const input = {
-      id: form.id.trim(),
-      productId: form.productId,
-      name: form.name.trim(),
+    const licenseId = form.licenseId.trim();
+    const id = mode === 'edit' ? (license?.id ?? licenseId) : licenseId;
+    const item: LicenseDefinitionData = {
+      id,
+      licenseId,
+      licenseName: form.name.trim(),
       description: form.description.trim(),
-      features: [...form.features],
+      productId: form.productId,
+      features: joinFeatures(form.features),
     };
+    const input = { id, item };
     try {
       if (mode === 'create') {
         const res = await addLicense({ variables: { input } });
-        if (res.data?.licenseAdd) onSaved(res.data.licenseAdd);
+        const newId = res.data?.LicenseAdd?.id ?? id;
+        onSaved({
+          id: newId,
+          name: item.licenseName!,
+          licenseId,
+          productId: item.productId,
+        });
       } else {
         const res = await updateLicense({ variables: { input } });
-        if (res.data?.licenseUpdate) onSaved(res.data.licenseUpdate);
+        const updatedId = res.data?.LicenseUpdate?.id ?? id;
+        onSaved({
+          id: updatedId,
+          name: item.licenseName!,
+          licenseId,
+          productId: item.productId,
+        });
       }
     } catch (err) {
       setServerError(err instanceof Error ? err.message : 'Save failed');
@@ -388,7 +445,7 @@ function LicenseEditor({
           </h2>
           {mode === 'edit' && (
             <div className="panel__subtitle">
-              <code>{form.id}</code> · product <code>{form.productId}</code>
+              <code>{form.licenseId}</code> · product <code>{form.productId}</code>
             </div>
           )}
         </div>
@@ -423,12 +480,12 @@ function LicenseEditor({
           <label htmlFor="lic-id">License id</label>
           <input
             id="lic-id"
-            value={form.id}
-            onChange={(e) => setForm({ ...form, id: e.target.value })}
+            value={form.licenseId}
+            onChange={(e) => setForm({ ...form, licenseId: e.target.value })}
             readOnly={mode === 'edit'}
             placeholder="e.g. 12.10128"
           />
-          {validation.id && <span className="error-text">{validation.id}</span>}
+          {validation.licenseId && <span className="error-text">{validation.licenseId}</span>}
         </div>
         <div className="form-field">
           <label htmlFor="lic-product">Product</label>
@@ -468,10 +525,12 @@ function LicenseEditor({
 
       <h3 style={{ marginBottom: 0 }}>Features granted by this license</h3>
       <ul className="feature-tree" style={{ maxHeight: 320, overflow: 'auto' }}>
-        {allFeatures.map((f) => {
-          const checked = form.features.has(f.featureId);
+        {allFeatures.map((f, i) => {
+          const featureId = f.featureId ?? '';
+          const featureName = f.featureName ?? f.name ?? featureId;
+          const checked = form.features.has(featureId);
           return (
-            <li key={f.uuid}>
+            <li key={f.id ?? featureId ?? i}>
               <label className="feature-tree__row">
                 <input
                   type="checkbox"
@@ -479,14 +538,15 @@ function LicenseEditor({
                   disabled={!canEdit}
                   onChange={() => {
                     const next = new Set(form.features);
-                    if (checked) next.delete(f.featureId);
-                    else next.add(f.featureId);
+                    if (checked) next.delete(featureId);
+                    else next.add(featureId);
                     setForm({ ...form, features: next });
                   }}
                 />
-                <span className="feature-tree__name">{f.featureName}</span>
-                <code className="feature-tree__badge">{f.featureId}</code>
-                <span className="tag">{f.packageId}</span>
+                <span className="feature-tree__name">{featureName}</span>
+                <code className="feature-tree__badge">{featureId}</code>
+                {f.optional && <span className="tag">optional</span>}
+                {f.isPermission && <span className="tag">permission</span>}
               </label>
             </li>
           );
@@ -496,18 +556,20 @@ function LicenseEditor({
       {mode === 'edit' && license && (
         <>
           <h3>Metadata</h3>
-          <MetaInfoPanel meta={license.meta} />
+          <MetaInfoPanel item={license} />
           <ConfirmDialog
             open={confirmDelete}
             title="Delete license"
-            message={`Delete license "${license.name}" of product "${license.productId}"?`}
+            message={`Delete license "${license.licenseName}" of product "${license.productId ?? '—'}"?`}
             confirmLabel="Delete"
             destructive
             onCancel={() => setConfirmDelete(false)}
             onConfirm={async () => {
               setConfirmDelete(false);
               await removeLicense({
-                variables: { id: license.id, productId: license.productId },
+                variables: {
+                  input: { collectionId: 'licenses', elementIds: [license.id] },
+                },
               });
               onDeleted?.();
             }}
@@ -518,12 +580,13 @@ function LicenseEditor({
   );
 }
 
-function flattenFeatures(packages: FeaturePackage[]): Feature[] {
-  const out: Feature[] = [];
-  const walk = (f: Feature) => {
+/** Recursively flatten FeatureItem trees into a flat list of FeatureData. */
+function flattenFeatures(features: FeatureItem[]): FeatureData[] {
+  const out: FeatureData[] = [];
+  const walk = (f: FeatureData) => {
     out.push(f);
-    f.subFeatures.forEach(walk);
+    (f.subFeatures ?? []).forEach(walk);
   };
-  packages.forEach((p) => p.features.forEach(walk));
+  features.forEach(walk);
   return out;
 }

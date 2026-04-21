@@ -1,34 +1,54 @@
 /**
  * Accounts page (administration).
  *
- * Read-only P0. The QML side ships this behind the `Administration`
- * permission as a simple list (mirroring the SQL `Accounts` table).
+ * Accounts are users in the SDL. This page uses the UsersList query and
+ * the UserAdd / UserUpdate mutations, gated behind the `Administration`
+ * permission.
  *
- * Wrapped in `PageTabs` for layout parity with the other pages, even
- * though there is no editor. Double-clicking a row opens a read-only
- * detail tab.
+ * Layout mirrors other feature pages: a collection tab with a DataTable,
+ * and editor tabs opened on row activation or via "+ New user".
  */
-import { useMemo, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { ACCOUNTS_LIST } from '@/api/graphql/operations';
-import type { Account } from '@/types/domain';
+import { useMemo, useState, type FormEvent } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import {
+  USERS_LIST,
+  USER_ADD,
+  USER_UPDATE,
+} from '@/api/graphql/operations';
+import type { UserItemData, UserData } from '@/types/domain';
+import { useSession } from '@/auth/SessionContext';
 import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { DataTable, type Column } from '@/components/DataTable';
 import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
-interface AccountsListData {
-  accountsList: Account[];
+interface UsersListData {
+  UsersList: {
+    items: UserItemData[];
+  };
 }
 
-const detailTabId = (id: string) => `account:${id}`;
+const NEW_TAB_ID = 'new:user';
+const editorTabId = (id: string) => `editor:${id}`;
+
+function splitDelim(value: string | undefined): string[] {
+  if (!value) return [];
+  return value.split(/[,;\n]/).map((s) => s.trim()).filter(Boolean);
+}
 
 export function AccountsPage() {
-  const { data, loading, error, refetch } = useQuery<AccountsListData>(ACCOUNTS_LIST);
+  const { hasPermission } = useSession();
+  const { data, loading, error, refetch } = useQuery<UsersListData>(USERS_LIST, {
+    variables: { input: {} },
+  });
   const tabs = usePageTabs('accounts', 'Accounts');
 
   if (loading && !data) return <CenteredSpinner label="Loading accounts…" />;
-  const accounts = data?.accountsList ?? [];
+
+  const users = data?.UsersList?.items ?? [];
+  const canAdminister = hasPermission('Administration');
+
+  const findUser = (id: string) => users.find((u) => u.id === id) ?? null;
 
   return (
     <PageTabs
@@ -37,103 +57,151 @@ export function AccountsPage() {
         if (tabId === COLLECTION_TAB_ID) {
           return (
             <AccountsCollection
-              accounts={accounts}
+              users={users}
               error={error?.message}
               onRetry={() => refetch()}
-              onActivate={(a) =>
+              canCreate={canAdminister}
+              onActivate={(u) =>
                 tabs.openTab({
-                  id: detailTabId(a.id),
-                  title: a.name,
-                  subtitle: a.id,
+                  id: editorTabId(u.id),
+                  title: u.name ?? u.id,
+                  subtitle: u.id,
+                })
+              }
+              onCreate={() =>
+                tabs.openTab({ id: NEW_TAB_ID, title: 'New user' })
+              }
+            />
+          );
+        }
+        if (tabId === NEW_TAB_ID) {
+          return (
+            <UserEditor
+              mode="create"
+              canSave={canAdminister}
+              onClose={() => tabs.closeTab(NEW_TAB_ID)}
+              onSaved={(saved) =>
+                tabs.replaceTab(NEW_TAB_ID, {
+                  id: editorTabId(saved.id),
+                  title: saved.name,
+                  subtitle: saved.id,
+                  closable: true,
                 })
               }
             />
           );
         }
-        if (!tabId.startsWith('account:')) return null;
-        const id = tabId.slice('account:'.length);
-        const account = accounts.find((a) => a.id === id);
-        if (!account) {
+        if (!tabId.startsWith('editor:')) return null;
+        const id = tabId.slice('editor:'.length);
+        const user = findUser(id);
+        if (!user) {
           return (
             <EmptyState
-              title="Account not found"
-              message="This account no longer exists. Close this tab to dismiss it."
+              title="User not found"
+              message="This user no longer exists. Close this tab to dismiss it."
             />
           );
         }
         return (
-          <AccountDetail account={account} onClose={() => tabs.closeTab(tabId)} />
+          <UserEditor
+            user={user}
+            mode="edit"
+            canSave={canAdminister}
+            onClose={() => tabs.closeTab(tabId)}
+            onSaved={(saved) =>
+              tabs.renameTab(tabId, { title: saved.name, subtitle: saved.id })
+            }
+          />
         );
       }}
     />
   );
 }
 
+// ---------------------------------------------------------------------------
+// Collection
+// ---------------------------------------------------------------------------
+
 function AccountsCollection({
-  accounts,
+  users,
   error,
   onRetry,
+  canCreate,
   onActivate,
+  onCreate,
 }: {
-  accounts: Account[];
+  users: UserItemData[];
   error?: string;
   onRetry: () => void;
-  onActivate: (a: Account) => void;
+  canCreate: boolean;
+  onActivate: (u: UserItemData) => void;
+  onCreate: () => void;
 }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const columns: Column<Account>[] = useMemo(
+  const columns: Column<UserItemData>[] = useMemo(
     () => [
       {
         key: 'name',
-        header: 'Account',
-        cell: (a) => (
+        header: 'User',
+        cell: (u) => (
           <>
-            <strong>{a.name}</strong>
-            <div className="panel__subtitle"><code>{a.id}</code></div>
+            <strong>{u.name ?? u.id}</strong>
+            <div className="panel__subtitle"><code>{u.id}</code></div>
           </>
         ),
-        sortValue: (a) => a.name.toLowerCase(),
+        sortValue: (u) => (u.name ?? u.id).toLowerCase(),
         width: 220,
       },
       {
-        key: 'type',
-        header: 'Type',
-        cell: (a) => <span className="tag">{a.type}</span>,
-        sortValue: (a) => a.type,
-        width: 110,
-      },
-      {
-        key: 'owner',
-        header: 'Owner',
-        cell: (a) => `${a.ownerFirstName} ${a.ownerLastName}`,
-        sortValue: (a) => `${a.ownerLastName} ${a.ownerFirstName}`.toLowerCase(),
-        width: 180,
-      },
-      {
-        key: 'email',
+        key: 'mail',
         header: 'Email',
-        cell: (a) => <a href={`mailto:${a.ownerMail}`}>{a.ownerMail}</a>,
-        sortValue: (a) => a.ownerMail.toLowerCase(),
+        cell: (u) => (u.mail ? <a href={`mailto:${u.mail}`}>{u.mail}</a> : '—'),
+        sortValue: (u) => (u.mail ?? '').toLowerCase(),
         width: 220,
+      },
+      {
+        key: 'roles',
+        header: 'Roles',
+        cell: (u) => splitDelim(u.roles).join(', ') || '—',
+        sortValue: (u) => (u.roles ?? '').toLowerCase(),
+        width: 200,
+      },
+      {
+        key: 'groups',
+        header: 'Groups',
+        cell: (u) => splitDelim(u.groups).join(', ') || '—',
+        sortValue: (u) => (u.groups ?? '').toLowerCase(),
+        width: 200,
       },
       {
         key: 'description',
         header: 'Description',
-        cell: (a) => a.description ?? '—',
-        sortValue: (a) => (a.description ?? '').toLowerCase(),
+        cell: (u) => u.description ?? '—',
+        sortValue: (u) => (u.description ?? '').toLowerCase(),
         width: 240,
       },
     ],
     [],
   );
 
-  const selected = (selectedId && accounts.find((a) => a.id === selectedId)) || null;
+  const selected = (selectedId && users.find((u) => u.id === selectedId)) || null;
 
   return (
     <>
       <div className="page-header">
         <h1 style={{ margin: 0 }}>Accounts</h1>
+        <div className="form-actions">
+          <button
+            type="button"
+            className="btn btn--primary"
+            disabled={!canCreate}
+            onClick={onCreate}
+            title={canCreate ? undefined : 'Requires Administration'}
+          >
+            + New user
+          </button>
+        </div>
       </div>
       {error && (
         <div className="error-banner" role="alert">
@@ -141,24 +209,24 @@ function AccountsCollection({
           <button className="btn btn--small" onClick={onRetry}>Retry</button>
         </div>
       )}
-      {accounts.length === 0 ? (
-        <EmptyState title="No accounts" message="No accounts have been provisioned." />
+      {users.length === 0 ? (
+        <EmptyState title="No accounts" message="No user accounts have been provisioned." />
       ) : (
         <div className="collection-layout">
           <div className="panel" style={{ padding: 0 }}>
-            <DataTable<Account>
+            <DataTable<UserItemData>
               tableId="accounts"
               ariaLabel="Accounts list"
               columns={columns}
-              rows={accounts}
-              rowKey={(a) => a.id}
+              rows={users}
+              rowKey={(u) => u.id}
               selectedKey={selectedId}
-              onSelect={(a) => setSelectedId(a.id)}
+              onSelect={(u) => setSelectedId(u.id)}
               onActivate={onActivate}
               emptyMessage="No accounts."
             />
             <div className="collection-layout__hint">
-              Double-click a row (or press Enter) to open the account in a new tab.
+              Double-click a row (or press Enter) to open the user in a new tab.
             </div>
           </div>
           <div className="panel">
@@ -167,16 +235,22 @@ function AccountsCollection({
             </h3>
             {selected ? (
               <dl className="meta-grid">
-                <dt>Account</dt>
-                <dd><strong>{selected.name}</strong></dd>
+                <dt>User</dt>
+                <dd><strong>{selected.name ?? selected.id}</strong></dd>
                 <dt>Id</dt>
                 <dd><code>{selected.id}</code></dd>
-                <dt>Type</dt>
-                <dd>{selected.type}</dd>
-                <dt>Owner</dt>
-                <dd>{selected.ownerFirstName} {selected.ownerLastName}</dd>
                 <dt>Email</dt>
-                <dd><a href={`mailto:${selected.ownerMail}`}>{selected.ownerMail}</a></dd>
+                <dd>
+                  {selected.mail ? (
+                    <a href={`mailto:${selected.mail}`}>{selected.mail}</a>
+                  ) : (
+                    '—'
+                  )}
+                </dd>
+                <dt>Roles</dt>
+                <dd>{splitDelim(selected.roles).join(', ') || '—'}</dd>
+                <dt>Groups</dt>
+                <dd>{splitDelim(selected.groups).join(', ') || '—'}</dd>
                 <dt>Description</dt>
                 <dd>{selected.description ?? '—'}</dd>
               </dl>
@@ -190,28 +264,204 @@ function AccountsCollection({
   );
 }
 
-function AccountDetail({ account, onClose }: { account: Account; onClose: () => void }) {
+// ---------------------------------------------------------------------------
+// Editor
+// ---------------------------------------------------------------------------
+
+interface EditorFormState {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+  rolesText: string;
+  groupsText: string;
+}
+
+function UserEditor({
+  user,
+  mode,
+  canSave,
+  onClose,
+  onSaved,
+}: {
+  user?: UserItemData;
+  mode: 'create' | 'edit';
+  canSave: boolean;
+  onClose: () => void;
+  onSaved: (saved: { id: string; name: string }) => void;
+}) {
+  const [form, setForm] = useState<EditorFormState>(() => ({
+    id: user?.id ?? '',
+    name: user?.name ?? '',
+    username: user?.userId ?? '',
+    email: user?.mail ?? '',
+    rolesText: splitDelim(user?.roles).join(', '),
+    groupsText: splitDelim(user?.groups).join(', '),
+  }));
+  const [validation, setValidation] = useState<Record<string, string>>({});
+  const [serverError, setServerError] = useState<string | null>(null);
+
+  const [addUser, addState] = useMutation<{ UserAdd: { id: string } }>(USER_ADD, {
+    refetchQueries: [{ query: USERS_LIST, variables: { input: {} } }],
+    awaitRefetchQueries: true,
+  });
+  const [updateUser, updateState] = useMutation<{ UserUpdate: { id: string } }>(
+    USER_UPDATE,
+    {
+      refetchQueries: [{ query: USERS_LIST, variables: { input: {} } }],
+      awaitRefetchQueries: true,
+    },
+  );
+
+  const submitting = addState.loading || updateState.loading;
+
+  function validate(): boolean {
+    const errors: Record<string, string> = {};
+    if (!form.name.trim()) errors.name = 'Name is required';
+    if (mode === 'create' && !form.id.trim()) errors.id = 'Id is required';
+    setValidation(errors);
+    return Object.keys(errors).length === 0;
+  }
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    setServerError(null);
+    if (!validate()) return;
+
+    const id = mode === 'edit' ? form.id : form.id.trim();
+    const roles = splitDelim(form.rolesText);
+    const groups = splitDelim(form.groupsText);
+    const item: UserData = {
+      id,
+      name: form.name.trim(),
+      username: form.username.trim() || undefined,
+      email: form.email.trim() || undefined,
+      roles,
+      groups,
+    };
+    const input = { id, item };
+    try {
+      if (mode === 'create') {
+        const res = await addUser({ variables: { input } });
+        const newId = res.data?.UserAdd?.id ?? id;
+        setForm((f) => ({ ...f, id: newId }));
+        onSaved({ id: newId, name: item.name ?? newId });
+      } else {
+        const res = await updateUser({ variables: { input } });
+        const updatedId = res.data?.UserUpdate?.id ?? id;
+        onSaved({ id: updatedId, name: item.name ?? updatedId });
+      }
+    } catch (err) {
+      setServerError(err instanceof Error ? err.message : 'Save failed');
+    }
+  }
+
+  const disabled = !canSave;
+
   return (
-    <div className="form">
+    <form className="form" onSubmit={onSubmit} aria-busy={submitting}>
       <div className="panel__header">
         <div>
-          <h2 className="panel__title">{account.name}</h2>
-          <div className="panel__subtitle">
-            <code>{account.id}</code> · <span className="tag">{account.type}</span>
-          </div>
+          <h2 className="panel__title">
+            {mode === 'create' ? 'New user' : form.name || 'Edit user'}
+          </h2>
+          {mode === 'edit' && (
+            <div className="panel__subtitle">
+              <code>{form.id}</code>
+            </div>
+          )}
         </div>
         <div className="form-actions">
-          <button type="button" className="btn" onClick={onClose}>Close</button>
+          <button type="button" className="btn" onClick={onClose} disabled={submitting}>
+            Close
+          </button>
+          {canSave && (
+            <button
+              type="submit"
+              className="btn btn--primary"
+              disabled={submitting || disabled}
+            >
+              {submitting ? 'Saving…' : 'Save'}
+            </button>
+          )}
         </div>
       </div>
-      <dl className="meta-grid">
-        <dt>Owner</dt>
-        <dd>{account.ownerFirstName} {account.ownerLastName}</dd>
-        <dt>Email</dt>
-        <dd><a href={`mailto:${account.ownerMail}`}>{account.ownerMail}</a></dd>
-        <dt>Description</dt>
-        <dd>{account.description ?? '—'}</dd>
-      </dl>
-    </div>
+
+      {!canSave && (
+        <div className="panel__subtitle">
+          Read-only: the <code>Administration</code> permission is required to edit users.
+        </div>
+      )}
+      {serverError && <div className="error-banner">{serverError}</div>}
+
+      <div className="form-row">
+        <div className="form-field" style={{ flex: 1 }}>
+          <label htmlFor="user-id">User id</label>
+          <input
+            id="user-id"
+            value={form.id}
+            onChange={(e) => setForm({ ...form, id: e.target.value })}
+            disabled={disabled || mode === 'edit'}
+            placeholder="Unique user id"
+          />
+          {validation.id && <span className="error-text">{validation.id}</span>}
+        </div>
+        <div className="form-field" style={{ flex: 2 }}>
+          <label htmlFor="user-name">Name</label>
+          <input
+            id="user-name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            disabled={disabled}
+            placeholder="Display name"
+          />
+          {validation.name && <span className="error-text">{validation.name}</span>}
+        </div>
+      </div>
+
+      <div className="form-row">
+        <div className="form-field" style={{ flex: 1 }}>
+          <label htmlFor="user-username">Username</label>
+          <input
+            id="user-username"
+            value={form.username}
+            onChange={(e) => setForm({ ...form, username: e.target.value })}
+            disabled={disabled}
+          />
+        </div>
+        <div className="form-field" style={{ flex: 1 }}>
+          <label htmlFor="user-email">Email</label>
+          <input
+            id="user-email"
+            type="email"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            disabled={disabled}
+          />
+        </div>
+      </div>
+
+      <div className="form-field">
+        <label htmlFor="user-roles">Roles</label>
+        <input
+          id="user-roles"
+          value={form.rolesText}
+          onChange={(e) => setForm({ ...form, rolesText: e.target.value })}
+          disabled={disabled}
+          placeholder="Comma-separated, e.g. Admin, Operator"
+        />
+      </div>
+
+      <div className="form-field">
+        <label htmlFor="user-groups">Groups</label>
+        <input
+          id="user-groups"
+          value={form.groupsText}
+          onChange={(e) => setForm({ ...form, groupsText: e.target.value })}
+          disabled={disabled}
+          placeholder="Comma-separated, e.g. Staff, Support"
+        />
+      </div>
+    </form>
   );
 }
