@@ -399,7 +399,7 @@ cd web
 npm install              # install once
 
 # Development (in-memory mock backend, hot reload)
-npm run dev              # → http://localhost:5173
+npm run dev              # → http://127.0.0.1:5173 (auto-opens in the default browser)
 #   Demo accounts: admin / admin   (full access)
 #                   viewer / view  (read-only)
 
