@@ -12,12 +12,11 @@
 import {
   ApolloClient,
   ApolloLink,
-  HttpLink,
   InMemoryCache,
   type DefaultOptions,
 } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 import { onError } from '@apollo/client/link/error';
+import { createInlineHttpLink } from './inlineHttpLink';
 import { MockLink } from './mock/server';
 
 export interface ClientOptions {
@@ -42,17 +41,15 @@ export function createApolloClient(options: ClientOptions = {}) {
 
   const transport = useMock
     ? new MockLink()
-    : new HttpLink({ uri, credentials: 'include' });
+    : createInlineHttpLink({ uri: uri! });
 
-  const authLink = setContext((_op, { headers }) => {
-    const token = options.getToken?.();
-    return {
-      headers: {
-        ...(headers as Record<string, string> | undefined),
-        ...(token ? { authorization: `Bearer ${token}` } : {}),
-      },
-    };
-  });
+  // Note: we deliberately do NOT add an `Authorization` header link here.
+  // The Lisa server expects auth tokens inline in the GraphQL document
+  // (e.g. `Logout(input: {accessToken: "..."}`), and adding a custom
+  // header would force a CORS preflight (OPTIONS) request, which we want
+  // to avoid. `getToken` is accepted for backwards-compatibility but is
+  // currently unused.
+  void options.getToken;
 
   const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
     if (graphQLErrors) {
@@ -86,7 +83,7 @@ export function createApolloClient(options: ClientOptions = {}) {
   });
 
   return new ApolloClient({
-    link: ApolloLink.from([errorLink, authLink, transport]),
+    link: ApolloLink.from([errorLink, transport]),
     cache,
     defaultOptions,
     connectToDevTools: env?.MODE === 'development',
