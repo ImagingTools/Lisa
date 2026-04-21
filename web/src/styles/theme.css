@@ -1,0 +1,124 @@
+/* Lisa Web — global theme.
+ *
+ * Tokens chosen to mirror the QML `Style` singleton used in
+ * `ImtCore/Qml/imtlicgui/*` (font families, header height, marginM, baseColor,
+ * etc.). The Light scheme is the default to match `LisaWeb.qml` calling
+ * `designProvider.setDesignSchema("Light")`.
+ */
+
+:root {
+  /* layout */
+  --margin-xs: 4px;
+  --margin-s: 8px;
+  --margin-m: 12px;
+  --margin-l: 20px;
+  --margin-xl: 32px;
+  --radius-s: 4px;
+  --radius-m: 6px;
+  --header-height: 56px;
+  --sidebar-width: 240px;
+
+  /* typography */
+  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, sans-serif;
+  --font-family-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-size-s: 12px;
+  --font-size-m: 14px;
+  --font-size-l: 16px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 26px;
+
+  /* light theme tokens (default) */
+  --color-bg: #f5f7fa;
+  --color-bg-elevated: #ffffff;
+  --color-bg-muted: #eef2f6;
+  --color-text: #1c2530;
+  --color-text-muted: #5b6776;
+  --color-text-inverse: #ffffff;
+  --color-border: #d8dee6;
+  --color-primary: #0a6cff;
+  --color-primary-hover: #075edb;
+  --color-primary-soft: #e7f0ff;
+  --color-danger: #d92d20;
+  --color-danger-soft: #fee4e2;
+  --color-warning: #b45309;
+  --color-success: #18794e;
+  --color-success-soft: #ddf4e6;
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+}
+
+[data-theme='dark'] {
+  --color-bg: #0f141b;
+  --color-bg-elevated: #1a2230;
+  --color-bg-muted: #232c3b;
+  --color-text: #e6ebf2;
+  --color-text-muted: #95a3b6;
+  --color-border: #2c3647;
+  --color-primary: #4d92ff;
+  --color-primary-hover: #6ba6ff;
+  --color-primary-soft: #1c2c47;
+  --color-danger: #f97066;
+  --color-danger-soft: #3a1d1d;
+  --color-success: #4ad295;
+  --color-success-soft: #142a22;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-m);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font-family: inherit; }
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.95em;
+  padding: 1px 4px;
+  background: var(--color-bg-muted);
+  border-radius: var(--radius-s);
+}
+
+/* Common reusable classes */
+.empty-state {
+  padding: var(--margin-xl);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.empty-state h2 {
+  color: var(--color-text);
+  margin: 0 0 var(--margin-s) 0;
+}
+
+.error-banner {
+  padding: var(--margin-m);
+  margin-bottom: var(--margin-m);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+  border-radius: var(--radius-s);
+}
+
+.success-banner {
+  padding: var(--margin-m);
+  margin-bottom: var(--margin-m);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  border-radius: var(--radius-s);
+}
