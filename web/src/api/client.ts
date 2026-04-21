@@ -69,12 +69,19 @@ export function createApolloClient(options: ClientOptions = {}) {
 
   const cache = new InMemoryCache({
     typePolicies: {
-      Product: { keyFields: ['id'] },
-      License: { keyFields: ['productId', 'id'] },
-      Feature: { keyFields: ['uuid'] },
-      FeaturePackage: { keyFields: ['id'] },
-      Account: { keyFields: ['id'] },
-      SessionUser: { keyFields: ['id'] },
+      ProductItem: { keyFields: ['id'] },
+      ProductData: { keyFields: ['id'] },
+      LicenseItem: { keyFields: ['id'] },
+      LicenseDefinitionData: { keyFields: ['id'] },
+      LicenseData: { keyFields: ['id'] },
+      FeatureItem: { keyFields: ['id'] },
+      FeatureData: { keyFields: ['id'] },
+      UserItemData: { keyFields: ['id'] },
+      UserData: { keyFields: ['id'] },
+      RoleItemData: { keyFields: ['id'] },
+      RoleData: { keyFields: ['id'] },
+      GroupItemData: { keyFields: ['id'] },
+      GroupData: { keyFields: ['id'] },
     },
   });
 

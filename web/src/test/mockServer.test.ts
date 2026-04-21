@@ -2,10 +2,10 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client';
 import { MockLink, __resetMockStateForTests } from '../api/mock/server';
 import {
-  LOGIN_MUTATION,
+  AUTHORIZATION_QUERY,
   PRODUCTS_LIST,
   PRODUCT_ADD,
-  PRODUCT_REMOVE,
+  REMOVE_ELEMENTS,
   LICENSES_LIST,
 } from '../api/graphql/operations';
 
@@ -14,8 +14,8 @@ function makeClient() {
     link: ApolloLink.from([new MockLink()]),
     cache: new InMemoryCache({
       typePolicies: {
-        Product: { keyFields: ['id'] },
-        License: { keyFields: ['productId', 'id'] },
+        ProductItem: { keyFields: ['id'] },
+        LicenseItem: { keyFields: ['id'] },
       },
     }),
     defaultOptions: { query: { fetchPolicy: 'no-cache' } },
@@ -28,19 +28,20 @@ describe('mock GraphQL backend', () => {
 
   it('login succeeds with valid demo credentials', async () => {
     const client = makeClient();
-    const res = await client.mutate({
-      mutation: LOGIN_MUTATION,
-      variables: { login: 'admin', password: 'admin' },
+    const res = await client.query({
+      query: AUTHORIZATION_QUERY,
+      variables: { input: { login: 'admin', password: 'admin' } },
     });
-    expect(res.data?.login.token).toMatch(/^mock-token-/);
-    expect(res.data?.login.user.permissions).toContain('AddProduct');
+    expect(res.data?.Authorization.token).toMatch(/^mock-token-/);
+    expect(res.data?.Authorization.username).toBe('admin');
+    expect(res.data?.Authorization.permissions).toContain('AddProduct');
   });
 
   it('login fails with bad credentials', async () => {
     const client = makeClient();
-    const res = await client.mutate({
-      mutation: LOGIN_MUTATION,
-      variables: { login: 'admin', password: 'nope' },
+    const res = await client.query({
+      query: AUTHORIZATION_QUERY,
+      variables: { input: { login: 'admin', password: 'nope' } },
       errorPolicy: 'all',
     });
     expect(res.errors?.[0]?.message).toMatch(/Invalid credentials/);
@@ -48,49 +49,54 @@ describe('mock GraphQL backend', () => {
 
   it('lists, adds and removes a product', async () => {
     const client = makeClient();
-    const initial = await client.query({ query: PRODUCTS_LIST });
-    const seedCount = initial.data.productsList.length;
+    const initial = await client.query({ query: PRODUCTS_LIST, variables: { input: {} } });
+    const seedCount = initial.data.ProductsList.items.length;
     expect(seedCount).toBeGreaterThan(0);
 
     const add = await client.mutate({
       mutation: PRODUCT_ADD,
       variables: {
         input: {
-          name: 'Acme Vision',
-          description: 'test product',
-          categoryId: 'Software',
-          features: '',
+          id: 'AcmeVision',
+          item: {
+            name: 'Acme Vision',
+            productName: 'Acme Vision',
+            description: 'test product',
+            categoryId: 'Software',
+            features: '',
+          },
         },
       },
     });
-    expect(add.data?.productAdd.id).toBe('AcmeVision');
+    expect(add.data?.ProductAdd.id).toBe('AcmeVision');
 
-    const after = await client.query({ query: PRODUCTS_LIST });
-    expect(after.data.productsList.length).toBe(seedCount + 1);
+    const after = await client.query({ query: PRODUCTS_LIST, variables: { input: {} } });
+    expect(after.data.ProductsList.items.length).toBe(seedCount + 1);
 
     const removed = await client.mutate({
-      mutation: PRODUCT_REMOVE,
-      variables: { id: 'AcmeVision' },
+      mutation: REMOVE_ELEMENTS,
+      variables: { input: { collectionId: 'products', elementIds: ['AcmeVision'] } },
     });
-    expect(removed.data?.productRemove).toBe(true);
+    expect(removed.data?.RemoveElements.success).toBe(true);
 
-    const final = await client.query({ query: PRODUCTS_LIST });
-    expect(final.data.productsList.length).toBe(seedCount);
+    const final = await client.query({ query: PRODUCTS_LIST, variables: { input: {} } });
+    expect(final.data.ProductsList.items.length).toBe(seedCount);
   });
 
-  it('filters licenses by product id', async () => {
+  it('lists licenses', async () => {
     const client = makeClient();
     const all = await client.query({
       query: LICENSES_LIST,
-      variables: { productId: null },
+      variables: { input: {} },
     });
-    expect(all.data.licensesList.length).toBeGreaterThan(0);
+    expect(all.data.LicensesList.items.length).toBeGreaterThan(0);
+  });
 
-    const rt = await client.query({
-      query: LICENSES_LIST,
-      variables: { productId: 'RTVision.3d' },
-    });
-    expect(rt.data.licensesList.every((l: { productId: string }) => l.productId === 'RTVision.3d'),
-    ).toBe(true);
+  it('stamps __typename on items', async () => {
+    const client = makeClient();
+    const res = await client.query({ query: PRODUCTS_LIST, variables: { input: {} } });
+    const items = res.data.ProductsList.items;
+    expect(items.length).toBeGreaterThan(0);
+    expect(items[0].__typename).toBe('ProductItem');
   });
 });

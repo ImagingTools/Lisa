@@ -4,31 +4,40 @@
  * Implemented as a custom `ApolloLink` that resolves operations by
  * `operationName`. This avoids pulling in `@graphql-tools/schema` while
  * still keeping the request/response shape identical to a real Lisa
- * GraphQL server. Swap `MockLink` for an `HttpLink` (and a
- * `WebSocketLink` for subscriptions) to talk to the real backend.
+ * GraphQL server.
+ *
+ * Updated to match the real ImtCore SDL operations and shapes.
  */
 import { ApolloLink, Observable, type FetchResult, type Operation } from '@apollo/client';
 import type {
-  Account,
-  Feature,
-  FeaturePackage,
-  License,
-  Product,
-  SessionUser,
+  ProductItem,
+  ProductData,
+  LicenseItem,
+  LicenseDefinitionData,
+  FeatureData,
+  UserItemData,
+  UserData,
+  AuthorizationPayload,
 } from '@/types/domain';
-import { seedAccounts, seedLicenses, seedPackages, seedProducts, seedUsers } from './seed';
+import {
+  seedProducts,
+  seedLicenses,
+  seedFeatureItems,
+  seedUsers,
+  seedUserItems,
+} from './seed';
 
 type Mutable<T> = { -readonly [K in keyof T]: T[K] };
 
 interface MockState {
-  products: Product[];
-  licenses: License[];
-  packages: FeaturePackage[];
-  accounts: Account[];
-  currentUser: SessionUser | null;
+  products: ProductItem[];
+  licenses: LicenseItem[];
+  features: FeatureData[];
+  users: UserItemData[];
+  currentAuthPayload: AuthorizationPayload | null;
 }
 
-const STORAGE_KEY = 'lisa-web.mock-state.v2';
+const STORAGE_KEY = 'lisa-web.mock-state.v3';
 
 function loadState(): MockState {
   if (typeof window !== 'undefined') {
@@ -42,9 +51,9 @@ function loadState(): MockState {
   return {
     products: structuredClone(seedProducts),
     licenses: structuredClone(seedLicenses),
-    packages: structuredClone(seedPackages),
-    accounts: structuredClone(seedAccounts),
-    currentUser: null,
+    features: structuredClone(seedFeatureItems),
+    users: structuredClone(seedUserItems),
+    currentAuthPayload: null,
   };
 }
 
@@ -62,61 +71,6 @@ const state: Mutable<MockState> = loadState();
 
 const now = () => new Date().toISOString();
 
-function nextRevision(meta: { revision: number; lastModified: string }) {
-  meta.revision += 1;
-  meta.lastModified = now();
-}
-
-function flattenFeatures(pkgs: FeaturePackage[]): Feature[] {
-  const out: Feature[] = [];
-  const walk = (f: Feature) => {
-    out.push(f);
-    f.subFeatures.forEach(walk);
-  };
-  pkgs.forEach((p) => p.features.forEach(walk));
-  return out;
-}
-
-function findFeatureByUuid(uuid: string): Feature | null {
-  for (const p of state.packages) {
-    for (const f of p.features) {
-      const found = walkFind(f, (x) => x.uuid === uuid);
-      if (found) return found;
-    }
-  }
-  return null;
-}
-
-function walkFind(node: Feature, pred: (f: Feature) => boolean): Feature | null {
-  if (pred(node)) return node;
-  for (const c of node.subFeatures) {
-    const r = walkFind(c, pred);
-    if (r) return r;
-  }
-  return null;
-}
-
-function removeFeatureByUuid(uuid: string): boolean {
-  for (const p of state.packages) {
-    if (p.features.some((f) => f.uuid === uuid)) {
-      p.features = p.features.filter((f) => f.uuid !== uuid);
-      return true;
-    }
-    for (const f of p.features) {
-      if (removeFromTree(f, uuid)) return true;
-    }
-  }
-  return false;
-}
-
-function removeFromTree(node: Feature, uuid: string): boolean {
-  if (node.subFeatures.some((c) => c.uuid === uuid)) {
-    node.subFeatures = node.subFeatures.filter((c) => c.uuid !== uuid);
-    return true;
-  }
-  return node.subFeatures.some((c) => removeFromTree(c, uuid));
-}
-
 // ---------------------------------------------------------------------------
 // Resolvers
 // ---------------------------------------------------------------------------
@@ -124,257 +78,408 @@ function removeFromTree(node: Feature, uuid: string): boolean {
 type Resolver = (vars: Record<string, unknown>) => unknown;
 
 const resolvers: Record<string, Resolver> = {
-  Me: () => ({ me: state.currentUser }),
-
-  Login: ({ login, password }) => {
-    const match = seedUsers.find(
-      (u) => u.user.login === String(login) && u.password === String(password),
-    );
-    if (!match) {
-      throw new Error('Invalid credentials');
-    }
-    state.currentUser = { ...match.user, lastConnection: now() };
+  // Auth (Authorization.sdl)
+  Authorization: ({ input }) => {
+    const { login, password } = input as { login: string; password: string };
+    const match = seedUsers.find((u) => u.payload.username === login && u.password === password);
+    if (!match) throw new Error('Invalid credentials');
+    state.currentAuthPayload = { ...match.payload };
     persist(state);
     return {
-      login: { user: state.currentUser, token: `mock-token-${state.currentUser.id}` },
+      Authorization: state.currentAuthPayload,
+    };
+  },
+
+  GetPermissions: ({ input }) => {
+    const { accessToken } = input as { accessToken: string };
+    // In a real system, validate the token; for mock, just return current user's perms
+    if (!state.currentAuthPayload) {
+      throw new Error('Not authenticated');
+    }
+    const user = seedUsers.find((u) => u.payload.token === accessToken);
+    return {
+      GetPermissions: {
+        permissions: user?.permissions ?? [],
+      },
     };
   },
 
   Logout: () => {
-    state.currentUser = null;
+    state.currentAuthPayload = null;
     persist(state);
-    return { logout: true };
+    return { Logout: { ok: true } };
   },
 
-  // Products -----------------------------------------------------------------
-  ProductsList: () => ({ productsList: state.products }),
-  ProductItem: ({ id }) => ({
-    productItem: state.products.find((p) => p.id === id) ?? null,
+  // Products (Products.sdl)
+  ProductsList: () => ({
+    ProductsList: {
+      items: state.products,
+      notification: { pagesCount: 1, totalCount: state.products.length },
+    },
   }),
-  ProductAdd: ({ input }) => {
-    const i = input as Partial<Product> & {
-      id?: string;
-      name: string;
-      categoryId: Product['categoryId'];
-      features: string;
-      description?: string;
+
+  ProductItem: ({ input }) => {
+    const { id } = input as { id: string };
+    const product = state.products.find((p) => p.id === id);
+    if (!product) throw new Error(`Product '${id}' not found`);
+    const productData: ProductData = {
+      id: product.id,
+      name: product.name,
+      productName: product.productName,
+      description: product.description,
+      productId: product.productId,
+      categoryId: product.categoryId,
+      features: product.features,
     };
-    const id = i.id || i.name.replace(/\s+/g, '');
+    return { ProductItem: productData };
+  },
+
+  ProductAdd: ({ input }) => {
+    const { item } = input as { id: string; item: ProductData };
+    const id = item.id || item.name?.replace(/\s+/g, '') || crypto.randomUUID();
     if (state.products.some((p) => p.id === id)) {
       throw new Error(`Product '${id}' already exists`);
     }
-    const product: Product = {
+    const newProduct: ProductItem = {
       id,
-      name: i.name,
-      description: i.description ?? '',
-      categoryId: i.categoryId,
-      features: i.features ?? '',
+      name: item.name ?? '',
+      productName: item.productName ?? item.name ?? '',
+      typeId: 'Product',
+      productId: item.productId ?? id,
+      categoryId: item.categoryId ?? 'Software',
+      description: item.description ?? '',
+      features: item.features ?? '',
       licenses: [],
-      meta: {
-        uuid: `p-${id}-${Date.now()}`,
-        typeId: 'Product',
-        created: now(),
-        lastModified: now(),
-        owner: state.currentUser?.login ?? 'system',
-        revision: 1,
-      },
+      added: now(),
+      timeStamp: now(),
     };
-    state.products.push(product);
+    state.products.push(newProduct);
     persist(state);
-    return { productAdd: product };
+    return { ProductAdd: { id } };
   },
+
   ProductUpdate: ({ input }) => {
-    const i = input as Partial<Product> & { id: string };
-    const product = state.products.find((p) => p.id === i.id);
-    if (!product) throw new Error(`Product '${i.id}' not found`);
+    const { id: inputId, item } = input as { id: string; item: ProductData };
+    const id = inputId || item.id;
+    const product = state.products.find((p) => p.id === id);
+    if (!product) throw new Error(`Product '${id}' not found`);
     Object.assign(product, {
-      name: i.name ?? product.name,
-      description: i.description ?? product.description,
-      categoryId: i.categoryId ?? product.categoryId,
-      features: i.features ?? product.features,
+      name: item.name ?? product.name,
+      productName: item.productName ?? product.productName,
+      description: item.description ?? product.description,
+      categoryId: item.categoryId ?? product.categoryId,
+      features: item.features ?? product.features,
+      timeStamp: now(),
     });
-    nextRevision(product.meta);
     persist(state);
-    return { productUpdate: product };
-  },
-  ProductRemove: ({ id }) => {
-    const before = state.products.length;
-    state.products = state.products.filter((p) => p.id !== id);
-    state.licenses = state.licenses.filter((l) => l.productId !== id);
-    persist(state);
-    return { productRemove: state.products.length < before };
+    return { ProductUpdate: { id } };
   },
 
-  // Licenses -----------------------------------------------------------------
-  LicensesList: ({ productId }) => ({
-    licensesList: productId
-      ? state.licenses.filter((l) => l.productId === productId)
-      : state.licenses,
+  // Licenses (Licenses.sdl)
+  LicensesList: () => ({
+    LicensesList: {
+      items: state.licenses,
+      notification: { pagesCount: 1, totalCount: state.licenses.length },
+    },
   }),
-  LicenseItem: ({ id, productId }) => ({
-    licenseItem: state.licenses.find((l) => l.id === id && l.productId === productId) ?? null,
-  }),
+
+  LicenseItem: ({ input }) => {
+    const { id } = input as { id: string };
+    const license = state.licenses.find((l) => l.id === id);
+    if (!license) throw new Error(`License '${id}' not found`);
+    const licenseData: LicenseDefinitionData = {
+      id: license.id,
+      licenseName: license.licenseName,
+      description: license.description,
+      productId: license.productId,
+      licenseId: license.licenseId,
+      features: license.features,
+      parentLicenses: license.parentLicenses,
+    };
+    return { LicenseItem: licenseData };
+  },
+
   LicenseAdd: ({ input }) => {
-    const i = input as Omit<License, 'meta'> & { id?: string };
-    const id = i.id || crypto.randomUUID();
-    const license: License = {
+    const { item } = input as { id: string; item: LicenseDefinitionData };
+    const id = item.id || crypto.randomUUID();
+    const newLicense: LicenseItem = {
       id,
-      productId: i.productId,
-      name: i.name,
-      description: i.description ?? '',
-      features: i.features ?? [],
-      meta: {
-        uuid: `l-${id}-${Date.now()}`,
-        typeId: 'License',
-        created: now(),
-        lastModified: now(),
-        owner: state.currentUser?.login ?? 'system',
-        revision: 1,
-      },
+      typeId: 'License',
+      licenseId: item.licenseId ?? id,
+      licenseName: item.licenseName ?? '',
+      description: item.description ?? '',
+      productId: item.productId,
+      features: item.features,
+      parentLicenses: item.parentLicenses,
+      added: now(),
+      timeStamp: now(),
     };
-    state.licenses.push(license);
-    const product = state.products.find((p) => p.id === license.productId);
-    if (product && !product.licenses.some((r) => r.id === license.id)) {
-      product.licenses.push({ productId: license.productId, id: license.id, name: license.name });
-      nextRevision(product.meta);
+    state.licenses.push(newLicense);
+    // Also update the product's embedded licenses array
+    if (item.productId) {
+      const product = state.products.find((p) => p.id === item.productId);
+      if (product) {
+        if (!product.licenses) product.licenses = [];
+        product.licenses.push({
+          id,
+          name: item.licenseName,
+          licenseId: item.licenseId ?? id,
+          licenseName: item.licenseName,
+        });
+      }
     }
     persist(state);
-    return { licenseAdd: license };
+    return { LicenseAdd: { id } };
   },
+
   LicenseUpdate: ({ input }) => {
-    const i = input as Omit<License, 'meta'> & { id: string };
-    const license = state.licenses.find((l) => l.id === i.id && l.productId === i.productId);
-    if (!license) throw new Error(`License '${i.id}' not found`);
+    const { id: inputId, item } = input as { id: string; item: LicenseDefinitionData };
+    const id = inputId || item.id;
+    const license = state.licenses.find((l) => l.id === id);
+    if (!license) throw new Error(`License '${id}' not found`);
     Object.assign(license, {
-      name: i.name ?? license.name,
-      description: i.description ?? license.description,
-      features: i.features ?? license.features,
+      licenseName: item.licenseName ?? license.licenseName,
+      description: item.description ?? license.description,
+      features: item.features ?? license.features,
+      parentLicenses: item.parentLicenses ?? license.parentLicenses,
+      timeStamp: now(),
     });
-    nextRevision(license.meta);
-    const product = state.products.find((p) => p.id === license.productId);
-    const ref = product?.licenses.find((r) => r.id === license.id);
-    if (ref) ref.name = license.name;
-    persist(state);
-    return { licenseUpdate: license };
-  },
-  LicenseRemove: ({ id, productId }) => {
-    const before = state.licenses.length;
-    state.licenses = state.licenses.filter(
-      (l) => !(l.id === id && l.productId === productId),
-    );
-    const product = state.products.find((p) => p.id === productId);
-    if (product) product.licenses = product.licenses.filter((r) => r.id !== id);
-    persist(state);
-    return { licenseRemove: state.licenses.length < before };
-  },
-
-  // Features -----------------------------------------------------------------
-  PackagesList: () => ({ packagesList: state.packages }),
-  FeaturesList: () => ({ featuresList: flattenFeatures(state.packages) }),
-  FeatureItem: ({ uuid }) => ({ featureItem: findFeatureByUuid(String(uuid)) }),
-  GetFeatureDependencies: ({ featureId }) => {
-    const all = flattenFeatures(state.packages);
-    const target = all.find((f) => f.featureId === featureId);
-    return { getFeatureDependencies: target?.dependencies ?? [] };
-  },
-  FeatureAdd: ({ input }) => {
-    const i = input as Partial<Feature> & {
-      featureId: string;
-      featureName: string;
-      packageId: string;
-      parentFeatureUuid?: string | null;
-    };
-    const newFeature: Feature = {
-      uuid: i.uuid || crypto.randomUUID(),
-      featureId: i.featureId,
-      featureName: i.featureName,
-      description: i.description,
-      packageId: i.packageId,
-      optional: i.optional ?? false,
-      isPermission: i.isPermission ?? false,
-      dependencies: i.dependencies ?? [],
-      subFeatures: [],
-    };
-    const pkg = state.packages.find((p) => p.id === i.packageId);
-    if (!pkg) throw new Error(`Unknown package '${i.packageId}'`);
-    if (i.parentFeatureUuid) {
-      const parent = findFeatureByUuid(i.parentFeatureUuid);
-      if (!parent) throw new Error(`Parent feature '${i.parentFeatureUuid}' not found`);
-      parent.subFeatures.push(newFeature);
-    } else {
-      pkg.features.push(newFeature);
+    // Update product's embedded license ref
+    if (license.productId) {
+      const product = state.products.find((p) => p.id === license.productId);
+      const ref = product?.licenses?.find((r) => r.id === id);
+      if (ref) {
+        ref.name = license.licenseName;
+        ref.licenseName = license.licenseName;
+      }
     }
     persist(state);
-    return { featureAdd: newFeature };
-  },
-  FeatureUpdate: ({ input }) => {
-    const i = input as Partial<Feature> & { uuid: string };
-    const target = findFeatureByUuid(i.uuid);
-    if (!target) throw new Error(`Feature '${i.uuid}' not found`);
-    Object.assign(target, {
-      featureId: i.featureId ?? target.featureId,
-      featureName: i.featureName ?? target.featureName,
-      description: i.description ?? target.description,
-      optional: i.optional ?? target.optional,
-      isPermission: i.isPermission ?? target.isPermission,
-      dependencies: i.dependencies ?? target.dependencies,
-    });
-    persist(state);
-    return { featureUpdate: target };
-  },
-  FeatureRemove: ({ uuid }) => {
-    const removed = removeFeatureByUuid(String(uuid));
-    persist(state);
-    return { featureRemove: removed };
+    return { LicenseUpdate: { id } };
   },
 
-  // Accounts -----------------------------------------------------------------
-  AccountsList: () => ({ accountsList: state.accounts }),
+  // Features (Features.sdl)
+  FeaturesList: () => ({
+    FeaturesList: {
+      items: state.features.map((f) => ({
+        id: f.id,
+        name: f.name ?? f.featureName,
+        featureName: f.featureName ?? '',
+        typeId: 'Feature',
+        featureId: f.featureId ?? '',
+        description: f.description,
+        optional: f.optional,
+        isPermission: f.isPermission,
+        dependencies: f.dependencies,
+        added: now(),
+        timeStamp: now(),
+        subFeatures: f.subFeatures,
+      })),
+      notification: { pagesCount: 1, totalCount: state.features.length },
+    },
+  }),
+
+  GetFeatureItem: ({ input }) => {
+    const { id } = input as { id: string };
+    const feature = state.features.find((f) => f.id === id);
+    if (!feature) throw new Error(`Feature '${id}' not found`);
+    return { GetFeatureItem: feature };
+  },
+
+  AddFeature: ({ input }) => {
+    const { item } = input as { id: string; item: FeatureData };
+    const id = item.id || crypto.randomUUID();
+    const newFeature: FeatureData = {
+      id,
+      featureId: item.featureId ?? id,
+      name: item.name ?? item.featureName,
+      featureName: item.featureName ?? '',
+      description: item.description,
+      optional: item.optional ?? false,
+      isPermission: item.isPermission ?? false,
+      dependencies: item.dependencies ?? '',
+      subFeatures: item.subFeatures ?? [],
+    };
+    state.features.push(newFeature);
+    persist(state);
+    return { AddFeature: { id } };
+  },
+
+  UpdateFeature: ({ input }) => {
+    const { id: inputId, item } = input as { id: string; item: FeatureData };
+    const id = inputId || item.id;
+    const feature = state.features.find((f) => f.id === id);
+    if (!feature) throw new Error(`Feature '${id}' not found`);
+    Object.assign(feature, {
+      featureId: item.featureId ?? feature.featureId,
+      name: item.name ?? feature.name,
+      featureName: item.featureName ?? feature.featureName,
+      description: item.description ?? feature.description,
+      optional: item.optional ?? feature.optional,
+      isPermission: item.isPermission ?? feature.isPermission,
+      dependencies: item.dependencies ?? feature.dependencies,
+    });
+    persist(state);
+    return { UpdateFeature: { id } };
+  },
+
+  // Users (Users.sdl)
+  UsersList: () => ({
+    UsersList: {
+      items: state.users,
+      notification: { pagesCount: 1, totalCount: state.users.length },
+    },
+  }),
+
+  UserItem: ({ input }) => {
+    const { id } = input as { id: string };
+    const user = state.users.find((u) => u.id === id);
+    if (!user) throw new Error(`User '${id}' not found`);
+    const userData: UserData = {
+      id: user.id,
+      name: user.name,
+      username: user.userId,
+      email: user.mail,
+      groups: user.groups ? [user.groups] : [],
+      roles: user.roles ? [user.roles] : [],
+      permissions: [],
+    };
+    return { UserItem: userData };
+  },
+
+  UserAdd: ({ input }) => {
+    const { item } = input as { id: string; item: UserData };
+    const id = item.id || crypto.randomUUID();
+    const newUser: UserItemData = {
+      id,
+      typeId: 'User',
+      userId: item.username ?? id,
+      name: item.name ?? '',
+      description: '',
+      mail: item.email ?? '',
+      systemId: 'system-1',
+      systemName: 'Lisa',
+      roles: item.roles?.join(';'),
+      groups: item.groups?.join(';'),
+      added: now(),
+      lastModified: now(),
+    };
+    state.users.push(newUser);
+    persist(state);
+    return { UserAdd: { id } };
+  },
+
+  UserUpdate: ({ input }) => {
+    const { id: inputId, item } = input as { id: string; item: UserData };
+    const id = inputId || item.id;
+    const user = state.users.find((u) => u.id === id);
+    if (!user) throw new Error(`User '${id}' not found`);
+    Object.assign(user, {
+      name: item.name ?? user.name,
+      userId: item.username ?? user.userId,
+      mail: item.email ?? user.mail,
+      roles: item.roles?.join(';') ?? user.roles,
+      groups: item.groups?.join(';') ?? user.groups,
+      lastModified: now(),
+    });
+    persist(state);
+    return { UserUpdate: { id } };
+  },
+
+  // Generic collection operations
+  RemoveElements: ({ input }) => {
+    const { collectionId, elementIds } = input as { collectionId: string; elementIds: string[] };
+    let removed = 0;
+    switch (collectionId) {
+      case 'products':
+        state.products = state.products.filter((p) => {
+          if (elementIds.includes(p.id)) {
+            removed++;
+            return false;
+          }
+          return true;
+        });
+        break;
+      case 'licenses':
+        state.licenses = state.licenses.filter((l) => {
+          if (elementIds.includes(l.id)) {
+            removed++;
+            // Also remove from product's embedded licenses
+            const product = state.products.find((p) => p.id === l.productId);
+            if (product?.licenses) {
+              product.licenses = product.licenses.filter((r) => r.id !== l.id);
+            }
+            return false;
+          }
+          return true;
+        });
+        break;
+      case 'features':
+        state.features = state.features.filter((f) => {
+          if (elementIds.includes(f.id ?? '')) {
+            removed++;
+            return false;
+          }
+          return true;
+        });
+        break;
+      case 'users':
+        state.users = state.users.filter((u) => {
+          if (elementIds.includes(u.id)) {
+            removed++;
+            return false;
+          }
+          return true;
+        });
+        break;
+      default:
+        throw new Error(`Unknown collection '${collectionId}'`);
+    }
+    persist(state);
+    return { RemoveElements: { success: removed > 0 } };
+  },
 };
 
 /**
  * Field → concrete type name map, mirroring the SDL in `../graphql/schema.ts`.
- *
- * Apollo Client's default behaviour (`addTypename: true`) injects a
- * `__typename` field into every selection set; the cache then uses that
- * typename together with the declared `typePolicies.keyFields` to normalise
- * objects. A real GraphQL server would emit `__typename` automatically.
- * The mock resolvers return plain domain objects, so we stamp typenames on
- * them here before handing the response back to Apollo.
  */
 const FIELD_TYPES: Record<string, string> = {
   // Query
-  'Query.me': 'SessionUser',
-  'Query.productsList': 'Product',
-  'Query.productItem': 'Product',
-  'Query.licensesList': 'License',
-  'Query.licenseItem': 'License',
-  'Query.packagesList': 'FeaturePackage',
-  'Query.featuresList': 'Feature',
-  'Query.featureItem': 'Feature',
-  'Query.accountsList': 'Account',
+  'Query.Authorization': 'AuthorizationPayload',
+  'Query.GetPermissions': 'PermissionList',
+  'Query.ProductsList': 'ProductsListPayload',
+  'Query.ProductItem': 'ProductData',
+  'Query.LicensesList': 'LicensesListPayload',
+  'Query.LicenseItem': 'LicenseDefinitionData',
+  'Query.FeaturesList': 'FeaturesListPayload',
+  'Query.GetFeatureItem': 'FeatureData',
+  'Query.UsersList': 'UsersListPayload',
+  'Query.UserItem': 'UserData',
   // Mutation
-  'Mutation.login': 'AuthPayload',
-  'Mutation.productAdd': 'Product',
-  'Mutation.productUpdate': 'Product',
-  'Mutation.licenseAdd': 'License',
-  'Mutation.licenseUpdate': 'License',
-  'Mutation.featureAdd': 'Feature',
-  'Mutation.featureUpdate': 'Feature',
-  // Object field relationships
-  'Product.licenses': 'LicenseRef',
-  'Product.meta': 'DocumentMetaInfo',
-  'License.meta': 'DocumentMetaInfo',
-  'FeaturePackage.features': 'Feature',
-  'Feature.subFeatures': 'Feature',
-  'AuthPayload.user': 'SessionUser',
+  'Mutation.Logout': 'LogoutPayload',
+  'Mutation.ProductAdd': 'AddedNotificationPayload',
+  'Mutation.ProductUpdate': 'UpdatedNotificationPayload',
+  'Mutation.LicenseAdd': 'AddedNotificationPayload',
+  'Mutation.LicenseUpdate': 'UpdatedNotificationPayload',
+  'Mutation.AddFeature': 'AddedNotificationPayload',
+  'Mutation.UpdateFeature': 'UpdatedNotificationPayload',
+  'Mutation.UserAdd': 'AddedNotificationPayload',
+  'Mutation.UserUpdate': 'UpdatedNotificationPayload',
+  'Mutation.RemoveElements': 'RemoveElementsPayload',
+  // Nested objects
+  'ProductsListPayload.items': 'ProductItem',
+  'ProductsListPayload.notification': 'NotificationItem',
+  'ProductItem.licenses': 'LicenseData',
+  'LicensesListPayload.items': 'LicenseItem',
+  'LicensesListPayload.notification': 'NotificationItem',
+  'FeaturesListPayload.items': 'FeatureItem',
+  'FeaturesListPayload.notification': 'NotificationItem',
+  'FeatureItem.subFeatures': 'FeatureData',
+  'FeatureData.subFeatures': 'FeatureData',
+  'UsersListPayload.items': 'UserItemData',
+  'UsersListPayload.notification': 'NotificationItem',
+  'UserData.systemInfos': 'SystemInfo',
 };
 
-/**
- * Stamp `__typename` onto every object in `value` based on `parentType` and
- * the field path, recursing into nested objects and arrays. Scalars, nulls
- * and leaf fields (those not present in `FIELD_TYPES`) are left untouched.
- */
 function attachTypenames(parentType: string, value: unknown): unknown {
   if (value === null || value === undefined) return value;
   if (Array.isArray(value)) {
@@ -390,15 +495,11 @@ function attachTypenames(parentType: string, value: unknown): unknown {
   return out;
 }
 
-/**
- * Restrict the response to only the fields the operation actually selected.
- *
- * Apollo Client validates that every selected field exists on the returned
- * data object, but unrequested fields would produce harmless extras. We
- * still keep the resolver outputs whole for simplicity and let Apollo's
- * normalised cache pick what it needs.
- */
-function shape(name: string, operationKind: 'query' | 'mutation' | 'subscription', vars: Record<string, unknown>): unknown {
+function shape(
+  name: string,
+  operationKind: 'query' | 'mutation' | 'subscription',
+  vars: Record<string, unknown>,
+): unknown {
   const resolver = resolvers[name];
   if (!resolver) {
     throw new Error(`Mock backend has no resolver for operation '${name}'`);
@@ -414,7 +515,6 @@ function shape(name: string, operationKind: 'query' | 'mutation' | 'subscription
   return out;
 }
 
-/** Network latency added to every operation to surface loading states. */
 const NETWORK_DELAY_MS = 80;
 
 export class MockLink extends ApolloLink {
@@ -425,7 +525,8 @@ export class MockLink extends ApolloLink {
         try {
           if (!opName) throw new Error('Operations must be named to use the mock backend');
           const def = operation.query.definitions.find(
-            (d): d is import('graphql').OperationDefinitionNode => d.kind === 'OperationDefinition',
+            (d): d is import('graphql').OperationDefinitionNode =>
+              d.kind === 'OperationDefinition',
           );
           const kind = (def?.operation ?? 'query') as 'query' | 'mutation' | 'subscription';
           const data = shape(opName, kind, operation.variables ?? {});
@@ -443,12 +544,11 @@ export class MockLink extends ApolloLink {
   }
 }
 
-/** Useful in tests to reset the in-memory state. */
 export function __resetMockStateForTests() {
   state.products = structuredClone(seedProducts);
   state.licenses = structuredClone(seedLicenses);
-  state.packages = structuredClone(seedPackages);
-  state.accounts = structuredClone(seedAccounts);
-  state.currentUser = null;
+  state.features = structuredClone(seedFeatureItems);
+  state.users = structuredClone(seedUserItems);
+  state.currentAuthPayload = null;
   if (typeof window !== 'undefined') window.localStorage.removeItem(STORAGE_KEY);
 }

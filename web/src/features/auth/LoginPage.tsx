@@ -7,7 +7,7 @@ interface LocationState {
 }
 
 export function LoginPage() {
-  const { user, login, error, loading } = useSession();
+  const { username, login, error, loading } = useSession();
   const navigate = useNavigate();
   const location = useLocation();
   const [loginName, setLoginName] = useState('admin');
@@ -15,7 +15,7 @@ export function LoginPage() {
   const [submitting, setSubmitting] = useState(false);
   const [localError, setLocalError] = useState<string | null>(null);
 
-  if (user) {
+  if (username) {
     const dest = (location.state as LocationState | null)?.from ?? '/products';
     return <Navigate to={dest} replace />;
   }

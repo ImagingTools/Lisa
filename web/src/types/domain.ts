@@ -1,141 +1,306 @@
 /**
  * Domain types for Lisa.
  *
- * These mirror the entities defined by the Lisa server (see
- * `Impl/LisaServer/Resources/Database/CreateTables.sql`) and the Acf/Partitura
- * domain configuration in `Partitura/LisaVoce.arp/*` and
- * `Partitura/LisaGraphQlVoce.arp/LisaGQLEngine.acc`.
- *
- * They also align with the data shapes produced by the QML
- * `imtlicProductsSdl` / `imtlicLicensesSdl` / `imtlicFeaturesSdl` SDL
- * collections used in `ImtCore/Qml/imtlicgui/*`.
+ * These mirror the GraphQL types defined in ImtCore SDL files
+ * (https://github.com/ImagingTools/ImtCore under Sdl/imtauth/1.0/ and
+ * Sdl/imtlic/1.0/ and Sdl/imtbase/1.0/).
  */
 
-/** Stable string identifier (free-form, not a UUID). */
+/** Stable string identifier. */
 export type Id = string;
 
-/** ISO-8601 timestamp returned by the server. */
-export type Timestamp = string;
+// ===========================================================================
+// Collection infrastructure (imtbase/1.0/ImtCollection.sdl)
+// ===========================================================================
 
-/**
- * Audit / system metadata attached to every persisted document.
- *
- * In QML this is exposed via the `MetaInfo` of `MultiDocCollectionPage` items
- * and via `RevisionInfo` / `DataMetaInfo` on the underlying domain objects.
- */
-export interface DocumentMetaInfo {
-  /** Stable document UUID (separate from the business `id`). */
-  uuid: Id;
-  /** Document type, e.g. `"Product"`, `"License"`, `"Feature"`. */
-  typeId: string;
-  /** Last-modification timestamp. */
-  lastModified: Timestamp;
-  /** Creation timestamp. */
-  created: Timestamp;
-  /** Owner / last editor of the document, if known. */
-  owner?: string;
-  /** Monotonic revision counter incremented on every server-side mutation. */
-  revision: number;
+export interface NotificationItem {
+  pagesCount: number;
+  totalCount?: number;
 }
 
-/** Categorization of a product, mirrored from the QML `categoryComboBox`. */
-export type ProductCategory = 'Software' | 'Hardware';
-
-/** Product entity. */
-export interface Product {
-  id: Id;
-  name: string;
-  description: string;
-  categoryId: ProductCategory;
-  /** License definitions exposed by this product. */
-  licenses: LicenseRef[];
-  /**
-   * Selected feature ids for this product.
-   *
-   * The QML `ProductView` encodes the selection as a `;`-separated string
-   * with optional `<rootUuid>/<featureId>` entries for optional sub-features.
-   * The web app keeps the same encoding to stay binary-compatible with the
-   * existing GraphQL contract; helpers in `features/products/featureSelection.ts`
-   * convert to/from the structured form.
-   */
-  features: string;
-  meta: DocumentMetaInfo;
+export interface CollectionViewParams {
+  count?: number;
+  offset?: number;
+  filterModel?: unknown;
+  documentFilterModel?: unknown;
 }
 
-/** Lightweight reference to a license, used inside `Product.licenses`. */
-export interface LicenseRef {
-  productId: Id;
-  id: Id;
-  name: string;
+// ===========================================================================
+// Auth (imtauth/1.0/Authorization.sdl)
+// ===========================================================================
+
+export interface AuthorizationPayload {
+  userId?: string;
+  username?: string;
+  token?: string;
+  refreshToken?: string;
+  systemId?: string;
+  /** Delimited string of permission IDs (e.g. "perm1;perm2;perm3") */
+  permissions?: string;
 }
 
-/** Feature node — features form a tree (sub-features). */
-export interface Feature {
-  /** Stable UUID (the QML side calls it `ObjectUuid`). */
-  uuid: Id;
-  /** Business feature id, e.g. `"EditFeature"`. */
-  featureId: Id;
-  /** Human-readable feature name. */
-  featureName: string;
-  description?: string;
-  /** Logical package this feature belongs to. */
-  packageId: Id;
-  /** True if the feature is selectable per-license rather than always-on. */
-  optional: boolean;
-  /** True if the feature actually maps to an authorization permission. */
-  isPermission: boolean;
-  /** Other featureIds this feature requires. */
-  dependencies: Id[];
-  /** Sub-features (tree structure). */
-  subFeatures: Feature[];
-  meta?: DocumentMetaInfo;
-}
-
-/** Logical container of features (StandardFramework, RTVisionFramework, …). */
-export interface FeaturePackage {
-  id: Id;
-  name: string;
-  description?: string;
-  features: Feature[];
-  meta?: DocumentMetaInfo;
-}
-
-/** A license definition (a "SKU") for a given product. */
-export interface License {
-  id: Id;
-  productId: Id;
-  name: string;
-  description: string;
-  /** Feature ids granted by this license. */
-  features: Id[];
-  meta: DocumentMetaInfo;
-}
-
-/** End-customer / company / private account. */
-export interface Account {
-  id: Id;
-  name: string;
-  description?: string;
-  type: 'private' | 'company';
-  ownerMail: string;
-  ownerFirstName: string;
-  ownerLastName: string;
-  meta?: DocumentMetaInfo;
-}
-
-/** Authenticated principal (`AuthorizationController` in QML). */
-export interface SessionUser {
-  id: Id;
-  login: string;
-  displayName: string;
-  /** Permission ids granted to the user (see `PermissionsController`). */
+export interface PermissionList {
   permissions: string[];
-  /** Last successful login. */
-  lastConnection?: Timestamp;
 }
 
+// ===========================================================================
+// Users (imtauth/1.0/Users.sdl)
+// ===========================================================================
+
+export interface UserItemData {
+  id: string;
+  typeId: string;
+  userId?: string;
+  name?: string;
+  description?: string;
+  mail?: string;
+  systemId?: string;
+  systemName?: string;
+  roles?: string;
+  groups?: string;
+  added?: string;
+  lastModified?: string;
+  lastConnection?: string;
+}
+
+export interface UsersListPayload {
+  items?: UserItemData[];
+  notification?: NotificationItem;
+}
+
+export interface SystemInfo {
+  id?: string;
+  name?: string;
+  enabled?: boolean;
+}
+
+export interface UserData {
+  id?: string;
+  productId?: string;
+  name?: string;
+  username?: string;
+  password?: string;
+  email?: string;
+  groups?: string[];
+  roles?: string[];
+  permissions?: string[];
+  systemInfos?: SystemInfo[];
+}
+
+// ===========================================================================
+// Roles (imtauth/1.0/Roles.sdl)
+// ===========================================================================
+
+export interface RoleItemData {
+  typeId: string;
+  id: string;
+  roleName: string;
+  roleId?: string;
+  productId?: string;
+  parentRoles?: string;
+  roleDescription?: string;
+  added?: string;
+  lastModified?: string;
+}
+
+export interface RolesListPayload {
+  items?: RoleItemData[];
+  notification?: NotificationItem;
+}
+
+export interface RoleData {
+  id?: string;
+  name?: string;
+  description?: string;
+  roleId?: string;
+  productId?: string;
+  parentRoles?: string[];
+  permissions?: string;
+  isDefault?: boolean;
+  isGuest?: boolean;
+}
+
+// ===========================================================================
+// Groups (imtauth/1.0/Groups.sdl)
+// ===========================================================================
+
+export interface GroupItemData {
+  id: string;
+  typeId: string;
+  name: string;
+  description?: string;
+  roles?: string;
+  users?: string;
+  parentGroups?: string;
+  added?: string;
+  lastModified?: string;
+}
+
+export interface GroupsListPayload {
+  items?: GroupItemData[];
+  notification?: NotificationItem;
+}
+
+export interface GroupData {
+  id?: string;
+  productId?: string;
+  name?: string;
+  description?: string;
+  roles?: string[];
+  users?: string[];
+  parentGroups?: string[];
+}
+
+// ===========================================================================
+// Profile (imtauth/1.0/Profile.sdl)
+// ===========================================================================
+
+export interface RoleInfo {
+  id?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface GroupInfo {
+  id?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface PermissionInfo {
+  id?: string;
+  name?: string;
+  description?: string;
+}
+
+export interface ProfileData {
+  id?: string;
+  systemId?: string;
+  username?: string;
+  name?: string;
+  email?: string;
+  roles?: RoleInfo[];
+  groups?: GroupInfo[];
+  permissions?: PermissionInfo[];
+}
+
+// ===========================================================================
+// Products (imtlic/1.0/Products.sdl)
+// ===========================================================================
+
+export interface LicenseData {
+  id?: string;
+  name?: string;
+  licenseId?: string;
+  licenseName?: string;
+}
+
+export interface ProductItem {
+  id: string;
+  name: string;
+  productName: string;
+  typeId: string;
+  productId: string;
+  categoryId: string;
+  description?: string;
+  features?: string;
+  licenses?: LicenseData[];
+  added?: string;
+  timeStamp?: string;
+}
+
+export interface ProductsListPayload {
+  items?: ProductItem[];
+  notification?: NotificationItem;
+}
+
+export interface ProductData {
+  id?: string;
+  name?: string;
+  productName?: string;
+  description?: string;
+  productId?: string;
+  categoryId?: string;
+  features?: string;
+}
+
+// ===========================================================================
+// Licenses (imtlic/1.0/Licenses.sdl)
+// ===========================================================================
+
+export interface LicenseItem {
+  id: string;
+  typeId: string;
+  licenseId: string;
+  licenseName: string;
+  description?: string;
+  productId?: string;
+  productUuid?: string;
+  parentLicenses?: string;
+  features?: string;
+  added?: string;
+  timeStamp?: string;
+}
+
+export interface LicensesListPayload {
+  items?: LicenseItem[];
+  notification?: NotificationItem;
+}
+
+export interface LicenseDefinitionData {
+  id?: string;
+  licenseName?: string;
+  description?: string;
+  productId?: string;
+  licenseId?: string;
+  features?: string;
+  parentLicenses?: string;
+}
+
+// ===========================================================================
+// Features (imtlic/1.0/Features.sdl)
+// ===========================================================================
+
+export interface FeatureData {
+  id?: string;
+  featureId?: string;
+  name?: string;
+  featureName?: string;
+  description?: string;
+  optional?: boolean;
+  isPermission?: boolean;
+  /** Delimited string of feature IDs (e.g. "feat1;feat2") */
+  dependencies?: string;
+  subFeatures?: FeatureData[];
+}
+
+export interface FeatureItem {
+  id: string;
+  name: string;
+  featureName: string;
+  typeId: string;
+  featureId: string;
+  description?: string;
+  optional?: boolean;
+  isPermission?: boolean;
+  /** Delimited string of feature IDs */
+  dependencies?: string;
+  added?: string;
+  timeStamp?: string;
+  subFeatures?: FeatureData[];
+}
+
+export interface FeaturesListPayload {
+  items?: FeatureItem[];
+  notification?: NotificationItem;
+}
+
+// ===========================================================================
+// Application-level types
+// ===========================================================================
+
 /**
- * The complete set of permission ids known to Lisa (mirrors
+ * The complete set of permission IDs known to Lisa (mirrors
  * `LisaFeatures.h` and `Partitura/LisaVoce.arp/*Permissions.acc`).
  *
  * These are the *command* permissions checked at runtime by the QML side via
@@ -158,6 +323,11 @@ export const PERMISSION_IDS = [
   'EditFeature',
   'ChangeFeature',
   'RemoveFeature',
+  // Users
+  'ViewUsers',
+  'AddUser',
+  'ChangeUser',
+  'RemoveUser',
   // Administration
   'Administration',
 ] as const;

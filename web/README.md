@@ -44,7 +44,39 @@ mirroring the QML `Style` singleton.
 
 ---
 
-## B. Repository Investigation Summary
+## B. GraphQL SDL Contract
+
+The web app now uses the **real GraphQL SDL** from ImtCore as the canonical contract:
+- **Source**: `https://github.com/ImagingTools/ImtCore` under `Sdl/imtauth/1.0/` and `Sdl/imtlic/1.0/` and `Sdl/imtbase/1.0/`
+- **Local copy**: `web/src/api/graphql/sdl/*.sdl.ts` (verbatim from ImtCore@3f0b09b)
+- **Operations**: Defined in `web/src/api/graphql/operations.ts` using the exact operation names from the SDL files
+
+### SDL Mapping
+
+| Concern                       | SDL File(s)                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| Authentication & permissions  | `Sdl/imtauth/1.0/Authorization.sdl` (`Authorization`, `Logout`, `GetPermissions`)               |
+| User management               | `Sdl/imtauth/1.0/Users.sdl` (`UsersList`, `UserItem`, `UserAdd`, `UserUpdate`, `ChangePassword`) |
+| Role management               | `Sdl/imtauth/1.0/Roles.sdl` (`RolesList`, `RoleItem`, `RoleAdd`, `RoleUpdate`)                  |
+| Group management              | `Sdl/imtauth/1.0/Groups.sdl` (`GroupsList`, `GroupItem`, `GroupAdd`, `GroupUpdate`)             |
+| User profiles                 | `Sdl/imtauth/1.0/Profile.sdl` (`GetProfile`, `SetProfile`)                                      |
+| Product management            | `Sdl/imtlic/1.0/Products.sdl` (`ProductsList`, `ProductItem`, `ProductAdd`, `ProductUpdate`)    |
+| License management            | `Sdl/imtlic/1.0/Licenses.sdl` (`LicensesList`, `LicenseItem`, `LicenseAdd`, `LicenseUpdate`)    |
+| Feature management            | `Sdl/imtlic/1.0/Features.sdl` (`FeaturesList`, `GetFeatureItem`, `AddFeature`, `UpdateFeature`) |
+| Collection operations         | `Sdl/imtbase/1.0/ImtCollection.sdl` (`RemoveElements`)                                          |
+
+### Key Contract Observations
+
+1. **List operations** return `{items: [ItemType], notification: {pagesCount, totalCount}}` instead of just arrays
+2. **Add/Update mutations** return `{id: ID!}` (just the ID) instead of the full object — clients must refetch
+3. **License unique key** is `id` (single field), NOT `(productId, id)` — the Apollo cache policy has been corrected
+4. **Authorization is a Query** (not Mutation), returns `AuthorizationPayload {userId, username, token, refreshToken, systemId, permissions}` where `permissions` is a delimited string (e.g. `"perm1;perm2;perm3"`)
+5. **Remove operations** use the generic `RemoveElements(input: {collectionId, elementIds})` mutation
+6. **Feature dependencies** are stored as a delimited `ID` (string) field, not `[ID]`
+
+---
+
+## C. Repository Investigation Summary
 
 | Concern                       | Where it lives (canonical)                                                                                                  |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------- |

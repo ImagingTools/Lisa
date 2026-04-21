@@ -1,40 +1,49 @@
 import { gql } from '@apollo/client';
-import { PRODUCT_FIELDS, LICENSE_FIELDS, FEATURE_TREE, META_FIELDS } from './fragments';
+import {
+  PRODUCT_ITEM_FIELDS,
+  PRODUCT_DATA_FIELDS,
+  LICENSE_ITEM_FIELDS,
+  LICENSE_DEFINITION_DATA_FIELDS,
+  FEATURE_ITEM_FIELDS,
+  FEATURE_DATA_TREE,
+  USER_ITEM_DATA_FIELDS,
+  USER_DATA_FIELDS,
+  ROLE_ITEM_DATA_FIELDS,
+  ROLE_DATA_FIELDS,
+  GROUP_ITEM_DATA_FIELDS,
+  GROUP_DATA_FIELDS,
+} from './fragments';
 
 // ---------------------------------------------------------------------------
 // Auth
 // ---------------------------------------------------------------------------
 
-export const ME_QUERY = gql`
-  query Me {
-    me {
-      id
-      login
-      displayName
+export const AUTHORIZATION_QUERY = gql`
+  query Authorization($input: AuthorizationInput!) {
+    Authorization(input: $input) {
+      userId
+      username
+      token
+      refreshToken
+      systemId
       permissions
-      lastConnection
     }
   }
 `;
 
-export const LOGIN_MUTATION = gql`
-  mutation Login($login: String!, $password: String!) {
-    login(login: $login, password: $password) {
-      token
-      user {
-        id
-        login
-        displayName
-        permissions
-        lastConnection
-      }
+export const GET_PERMISSIONS_QUERY = gql`
+  query GetPermissions($input: TokenInput!) {
+    GetPermissions(input: $input) {
+      permissions
     }
   }
 `;
 
 export const LOGOUT_MUTATION = gql`
-  mutation Logout {
-    logout
+  mutation Logout($input: TokenInput!) {
+    Logout(input: $input) {
+      ok
+    }
   }
 `;
 
@@ -43,44 +52,42 @@ export const LOGOUT_MUTATION = gql`
 // ---------------------------------------------------------------------------
 
 export const PRODUCTS_LIST = gql`
-  ${PRODUCT_FIELDS}
-  query ProductsList {
-    productsList {
-      ...ProductFields
+  ${PRODUCT_ITEM_FIELDS}
+  query ProductsList($input: ProductsListInput) {
+    ProductsList(input: $input) {
+      items {
+        ...ProductItemFields
+      }
+      notification {
+        pagesCount
+        totalCount
+      }
     }
   }
 `;
 
 export const PRODUCT_ITEM = gql`
-  ${PRODUCT_FIELDS}
-  query ProductItem($id: ID!) {
-    productItem(id: $id) {
-      ...ProductFields
+  ${PRODUCT_DATA_FIELDS}
+  query ProductItem($input: ProductItemInput!) {
+    ProductItem(input: $input) {
+      ...ProductDataFields
     }
   }
 `;
 
 export const PRODUCT_ADD = gql`
-  ${PRODUCT_FIELDS}
-  mutation ProductAdd($input: ProductInput!) {
-    productAdd(input: $input) {
-      ...ProductFields
+  mutation ProductAdd($input: ProductDataInput!) {
+    ProductAdd(input: $input) {
+      id
     }
   }
 `;
 
 export const PRODUCT_UPDATE = gql`
-  ${PRODUCT_FIELDS}
-  mutation ProductUpdate($input: ProductInput!) {
-    productUpdate(input: $input) {
-      ...ProductFields
+  mutation ProductUpdate($input: ProductDataInput!) {
+    ProductUpdate(input: $input) {
+      id
     }
-  }
-`;
-
-export const PRODUCT_REMOVE = gql`
-  mutation ProductRemove($id: ID!) {
-    productRemove(id: $id)
   }
 `;
 
@@ -89,119 +96,229 @@ export const PRODUCT_REMOVE = gql`
 // ---------------------------------------------------------------------------
 
 export const LICENSES_LIST = gql`
-  ${LICENSE_FIELDS}
-  query LicensesList($productId: ID) {
-    licensesList(productId: $productId) {
-      ...LicenseFields
+  ${LICENSE_ITEM_FIELDS}
+  query LicensesList($input: LicensesListInput) {
+    LicensesList(input: $input) {
+      items {
+        ...LicenseItemFields
+      }
+      notification {
+        pagesCount
+        totalCount
+      }
     }
   }
 `;
 
 export const LICENSE_ITEM = gql`
-  ${LICENSE_FIELDS}
-  query LicenseItem($id: ID!, $productId: ID!) {
-    licenseItem(id: $id, productId: $productId) {
-      ...LicenseFields
+  ${LICENSE_DEFINITION_DATA_FIELDS}
+  query LicenseItem($input: LicenseItemInput!) {
+    LicenseItem(input: $input) {
+      ...LicenseDefinitionDataFields
     }
   }
 `;
 
 export const LICENSE_ADD = gql`
-  ${LICENSE_FIELDS}
-  mutation LicenseAdd($input: LicenseInput!) {
-    licenseAdd(input: $input) {
-      ...LicenseFields
+  mutation LicenseAdd($input: LicenseDataInput!) {
+    LicenseAdd(input: $input) {
+      id
     }
   }
 `;
 
 export const LICENSE_UPDATE = gql`
-  ${LICENSE_FIELDS}
-  mutation LicenseUpdate($input: LicenseInput!) {
-    licenseUpdate(input: $input) {
-      ...LicenseFields
+  mutation LicenseUpdate($input: LicenseDataInput!) {
+    LicenseUpdate(input: $input) {
+      id
     }
   }
 `;
 
-export const LICENSE_REMOVE = gql`
-  mutation LicenseRemove($id: ID!, $productId: ID!) {
-    licenseRemove(id: $id, productId: $productId)
-  }
-`;
-
 // ---------------------------------------------------------------------------
-// Packages / Features
+// Features
 // ---------------------------------------------------------------------------
 
-export const PACKAGES_LIST = gql`
-  ${FEATURE_TREE}
-  query PackagesList {
-    packagesList {
-      id
-      name
-      description
-      features {
-        ...FeatureTree
+export const FEATURES_LIST = gql`
+  ${FEATURE_ITEM_FIELDS}
+  query FeaturesList($input: FeaturesListInput) {
+    FeaturesList(input: $input) {
+      items {
+        ...FeatureItemFields
+      }
+      notification {
+        pagesCount
+        totalCount
       }
     }
   }
 `;
 
 export const FEATURE_ITEM = gql`
-  ${FEATURE_TREE}
-  ${META_FIELDS}
-  query FeatureItem($uuid: ID!) {
-    featureItem(uuid: $uuid) {
-      ...FeatureTree
+  ${FEATURE_DATA_TREE}
+  query GetFeatureItem($input: FeatureItemInput!) {
+    GetFeatureItem(input: $input) {
+      ...FeatureDataTree
     }
   }
 `;
 
 export const FEATURE_ADD = gql`
-  ${FEATURE_TREE}
-  mutation FeatureAdd($input: FeatureInput!) {
-    featureAdd(input: $input) {
-      ...FeatureTree
+  mutation AddFeature($input: FeatureDataInput!) {
+    AddFeature(input: $input) {
+      id
     }
   }
 `;
 
 export const FEATURE_UPDATE = gql`
-  ${FEATURE_TREE}
-  mutation FeatureUpdate($input: FeatureInput!) {
-    featureUpdate(input: $input) {
-      ...FeatureTree
+  mutation UpdateFeature($input: FeatureDataInput!) {
+    UpdateFeature(input: $input) {
+      id
     }
   }
 `;
 
-export const FEATURE_REMOVE = gql`
-  mutation FeatureRemove($uuid: ID!) {
-    featureRemove(uuid: $uuid)
+// ---------------------------------------------------------------------------
+// Users
+// ---------------------------------------------------------------------------
+
+export const USERS_LIST = gql`
+  ${USER_ITEM_DATA_FIELDS}
+  query UsersList($input: UsersListInput) {
+    UsersList(input: $input) {
+      items {
+        ...UserItemDataFields
+      }
+      notification {
+        pagesCount
+        totalCount
+      }
+    }
   }
 `;
 
-export const GET_FEATURE_DEPENDENCIES = gql`
-  query GetFeatureDependencies($featureId: ID!) {
-    getFeatureDependencies(featureId: $featureId)
+export const USER_ITEM = gql`
+  ${USER_DATA_FIELDS}
+  query UserItem($input: UserItemInput!) {
+    UserItem(input: $input) {
+      ...UserDataFields
+    }
   }
 `;
 
-// ---------------------------------------------------------------------------
-// Accounts
-// ---------------------------------------------------------------------------
-
-export const ACCOUNTS_LIST = gql`
-  query AccountsList {
-    accountsList {
+export const USER_ADD = gql`
+  mutation UserAdd($input: UserDataInput!) {
+    UserAdd(input: $input) {
       id
-      name
-      description
-      type
-      ownerMail
-      ownerFirstName
-      ownerLastName
+    }
+  }
+`;
+
+export const USER_UPDATE = gql`
+  mutation UserUpdate($input: UserDataInput!) {
+    UserUpdate(input: $input) {
+      id
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
+// Roles
+// ---------------------------------------------------------------------------
+
+export const ROLES_LIST = gql`
+  ${ROLE_ITEM_DATA_FIELDS}
+  query RolesList($input: RolesListInput) {
+    RolesList(input: $input) {
+      items {
+        ...RoleItemDataFields
+      }
+      notification {
+        pagesCount
+        totalCount
+      }
+    }
+  }
+`;
+
+export const ROLE_ITEM = gql`
+  ${ROLE_DATA_FIELDS}
+  query RoleItem($input: RoleItemInput!) {
+    RoleItem(input: $input) {
+      ...RoleDataFields
+    }
+  }
+`;
+
+export const ROLE_ADD = gql`
+  mutation RoleAdd($input: RoleDataInput!) {
+    RoleAdd(input: $input) {
+      id
+    }
+  }
+`;
+
+export const ROLE_UPDATE = gql`
+  mutation RoleUpdate($input: RoleDataInput!) {
+    RoleUpdate(input: $input) {
+      id
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
+// Groups
+// ---------------------------------------------------------------------------
+
+export const GROUPS_LIST = gql`
+  ${GROUP_ITEM_DATA_FIELDS}
+  query GroupsList($input: GroupsListInput) {
+    GroupsList(input: $input) {
+      items {
+        ...GroupItemDataFields
+      }
+      notification {
+        pagesCount
+        totalCount
+      }
+    }
+  }
+`;
+
+export const GROUP_ITEM = gql`
+  ${GROUP_DATA_FIELDS}
+  query GroupItem($input: GroupItemInput!) {
+    GroupItem(input: $input) {
+      ...GroupDataFields
+    }
+  }
+`;
+
+export const GROUP_ADD = gql`
+  mutation GroupAdd($input: GroupDataInput!) {
+    GroupAdd(input: $input) {
+      id
+    }
+  }
+`;
+
+export const GROUP_UPDATE = gql`
+  mutation GroupUpdate($input: GroupDataInput!) {
+    GroupUpdate(input: $input) {
+      id
+    }
+  }
+`;
+
+// ---------------------------------------------------------------------------
+// Generic collection operations
+// ---------------------------------------------------------------------------
+
+export const REMOVE_ELEMENTS = gql`
+  mutation RemoveElements($input: RemoveElementsInput!) {
+    RemoveElements(input: $input) {
+      success
     }
   }
 `;

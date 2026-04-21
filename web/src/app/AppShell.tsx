@@ -31,7 +31,7 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 export function AppShell() {
-  const { user, logout, hasPermission } = useSession();
+  const { username, logout, hasPermission } = useSession();
   const { theme, toggle } = useTheme();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useLocalStorage<boolean>(
@@ -104,11 +104,10 @@ export function AppShell() {
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
-          {user && (
+          {username && (
             <div className="app-header__user">
               <span>
-                <strong>{user.displayName}</strong>{' '}
-                <span style={{ color: 'var(--color-text-muted)' }}>({user.login})</span>
+                <strong>{username}</strong>
               </span>
               <button
                 type="button"

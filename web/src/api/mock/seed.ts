@@ -5,194 +5,34 @@
  * canonical Lisa SQL seed). This keeps the dev experience anchored to the
  * exact same packages, features, products and licenses that the C++ server
  * boots with, so the web app behaves identically to QML against a fresh DB.
+ *
+ * Updated to match ImtCore SDL shapes (ProductItem, LicenseItem, FeatureItem, etc.).
  */
 import type {
-  Account,
-  Feature,
-  FeaturePackage,
-  License,
-  Product,
-  SessionUser,
+  ProductItem,
+  LicenseItem,
+  FeatureData,
+  UserItemData,
+  AuthorizationPayload,
 } from '@/types/domain';
 
 const now = () => new Date().toISOString();
 const ts = now();
 
-const meta = (uuid: string, typeId: string, owner = 'system') => ({
-  uuid,
-  typeId,
-  lastModified: ts,
-  created: ts,
-  owner,
-  revision: 1,
-});
-
-const feat = (
-  uuid: string,
-  featureId: string,
-  featureName: string,
-  packageId: string,
-  opts: Partial<Feature> = {},
-): Feature => ({
-  uuid,
-  featureId,
-  featureName,
-  packageId,
-  description: opts.description,
-  optional: opts.optional ?? false,
-  isPermission: opts.isPermission ?? false,
-  dependencies: opts.dependencies ?? [],
-  subFeatures: opts.subFeatures ?? [],
-});
-
-export const seedPackages: FeaturePackage[] = [
-  {
-    id: 'StandardFramework',
-    name: 'Standard Framework',
-    description: 'Common features for all products',
-    features: [
-      feat('f-um', '#UserManagement', 'User Management', 'StandardFramework'),
-      feat('f-de', '#DataExport', 'Data Export', 'StandardFramework'),
-      feat('f-bio', '#BiometricAccess', 'Biometric Authentification', 'StandardFramework'),
-      feat('f-rep', '#Report', 'Report', 'StandardFramework'),
-      feat('f-ms', '#ModelSearch', 'Model Search', 'StandardFramework'),
-      feat('f-auto', '#Automatic', 'Automatic', 'StandardFramework'),
-    ],
-  },
-  {
-    id: 'TCVisionFramework',
-    name: 'TCVision Framework',
-    description: 'Common features for all products of the TCVision family',
-    features: [],
-  },
-  {
-    id: 'RTVisionFramework',
-    name: 'RTVision Framework',
-    description: 'Common features for all products of the RTVision family',
-    features: [
-      feat('f-rov', '#ResultOverview', 'Result Overview', 'RTVisionFramework'),
-      feat('f-pi', '#PatchInspection', 'Patch Inspection', 'RTVisionFramework'),
-    ],
-  },
-  {
-    id: 'RTVision3dFramework',
-    name: 'RTVision.3d Framework',
-    description: 'Common features of the RTV-3D-products',
-    features: [
-      feat('f-pri', '#PrimerInspection', 'Primer Inspection', 'RTVision3dFramework', {
-        optional: true,
-      }),
-      feat('f-vol', '#VolumeInspection', 'Volume Inspection', 'RTVision3dFramework', {
-        optional: true,
-      }),
-      feat('f-tea', '#Teaching', 'Teaching', 'RTVision3dFramework'),
-      feat('f-poc', '#PositionCorrection', 'Position Correction', 'RTVision3dFramework', {
-        optional: true,
-      }),
-    ],
-  },
-];
-
-export const seedProducts: Product[] = [
-  {
-    id: 'TCVision.l',
-    name: 'TCVision.l',
-    description: 'Shell inspection (Liner)',
-    categoryId: 'Software',
-    licenses: [],
-    features: '',
-    meta: meta('p-tcl', 'Product'),
-  },
-  {
-    id: 'TCVision.e',
-    name: 'TCVision.e',
-    description: 'End inspection',
-    categoryId: 'Software',
-    licenses: [],
-    features: '',
-    meta: meta('p-tce', 'Product'),
-  },
-  {
-    id: 'RTVision',
-    name: 'RTVision',
-    description: 'Glue width inspection based in 2D-space',
-    categoryId: 'Software',
-    licenses: [{ productId: 'RTVision', id: '12.1234', name: 'Standard' }],
-    features: '#ResultOverview;#PatchInspection',
-    meta: meta('p-rtv', 'Product'),
-  },
-  {
-    id: 'RTVision.3d',
-    name: 'RTVision.3d',
-    description: 'Complete glue evaluation in 3D-space',
-    categoryId: 'Software',
-    licenses: [
-      { productId: 'RTVision.3d', id: '12.10128', name: 'Standard' },
-      { productId: 'RTVision.3d', id: '12.10135', name: 'Advanced' },
-      { productId: 'RTVision.3d', id: '12.10140', name: 'Position Correction' },
-    ],
-    features: '#Teaching;#VolumeInspection;#PrimerInspection',
-    meta: meta('p-rtv3d', 'Product'),
-  },
-];
-
-export const seedLicenses: License[] = [
-  {
-    id: '12.1234',
-    productId: 'RTVision',
-    name: 'Standard',
-    description: 'Standard license for RTVision product',
-    features: ['#ResultOverview', '#PatchInspection'],
-    meta: meta('l-rtv-std', 'License'),
-  },
-  {
-    id: '12.10128',
-    productId: 'RTVision.3d',
-    name: 'Standard',
-    description: 'Standard license for RTVision.3d product',
-    features: ['#Teaching'],
-    meta: meta('l-rtv3d-std', 'License'),
-  },
-  {
-    id: '12.10135',
-    productId: 'RTVision.3d',
-    name: 'Advanced',
-    description: 'Advanced license for RTVision.3d product',
-    features: ['#Teaching', '#VolumeInspection'],
-    meta: meta('l-rtv3d-adv', 'License'),
-  },
-  {
-    id: '12.10140',
-    productId: 'RTVision.3d',
-    name: 'Position Correction',
-    description: 'Standard + position correction license for RTVision.3d product',
-    features: ['#Teaching', '#PositionCorrection'],
-    meta: meta('l-rtv3d-pc', 'License'),
-  },
-];
-
-export const seedAccounts: Account[] = [
-  {
-    id: 'imt-internal',
-    name: 'ImagingTools (internal)',
-    description: 'Internal demo account',
-    type: 'company',
-    ownerMail: 'admin@imagingtools.local',
-    ownerFirstName: 'Admin',
-    ownerLastName: 'Account',
-  },
-];
-
-/**
- * Seed users with permissions tuned to mirror the QML authorization model.
- */
-export const seedUsers: Array<{ password: string; user: SessionUser }> = [
+// Seed users with credentials (for mock login)
+export const seedUsers: Array<{
+  password: string;
+  payload: AuthorizationPayload;
+  permissions: string[];
+}> = [
   {
     password: 'admin',
-    user: {
-      id: 'u-admin',
-      login: 'admin',
-      displayName: 'Administrator',
+    payload: {
+      userId: 'u-admin',
+      username: 'admin',
+      token: 'mock-token-admin',
+      refreshToken: 'mock-refresh-admin',
+      systemId: 'system-1',
       permissions: [
         'ViewProducts',
         'AddProduct',
@@ -207,19 +47,227 @@ export const seedUsers: Array<{ password: string; user: SessionUser }> = [
         'EditFeature',
         'ChangeFeature',
         'RemoveFeature',
+        'ViewUsers',
+        'AddUser',
+        'ChangeUser',
+        'RemoveUser',
         'Administration',
-      ],
-      lastConnection: ts,
+      ].join(';'),
     },
+    permissions: [
+      'ViewProducts',
+      'AddProduct',
+      'ChangeProduct',
+      'RemoveProduct',
+      'ViewLicenses',
+      'AddLicense',
+      'ChangeLicense',
+      'RemoveLicense',
+      'ViewFeatures',
+      'AddFeature',
+      'EditFeature',
+      'ChangeFeature',
+      'RemoveFeature',
+      'ViewUsers',
+      'AddUser',
+      'ChangeUser',
+      'RemoveUser',
+      'Administration',
+    ],
   },
   {
     password: 'view',
-    user: {
-      id: 'u-viewer',
-      login: 'viewer',
-      displayName: 'Read-only Viewer',
-      permissions: ['ViewProducts', 'ViewLicenses', 'ViewFeatures'],
-      lastConnection: ts,
+    payload: {
+      userId: 'u-viewer',
+      username: 'viewer',
+      token: 'mock-token-viewer',
+      refreshToken: 'mock-refresh-viewer',
+      systemId: 'system-1',
+      permissions: ['ViewProducts', 'ViewLicenses', 'ViewFeatures', 'ViewUsers'].join(';'),
     },
+    permissions: ['ViewProducts', 'ViewLicenses', 'ViewFeatures', 'ViewUsers'],
+  },
+];
+
+// FeatureData tree (matching FeatureData SDL type)
+const feat = (
+  id: string,
+  featureId: string,
+  featureName: string,
+  opts: Partial<FeatureData> = {},
+): FeatureData => ({
+  id,
+  featureId,
+  featureName,
+  name: featureName,
+  description: opts.description,
+  optional: opts.optional ?? false,
+  isPermission: opts.isPermission ?? false,
+  dependencies: opts.dependencies ?? '',
+  subFeatures: opts.subFeatures ?? [],
+});
+
+// Feature packages are flattened into FeatureItems for FeaturesList
+export const seedFeatureItems: FeatureData[] = [
+  // StandardFramework
+  feat('f-um', '#UserManagement', 'User Management'),
+  feat('f-de', '#DataExport', 'Data Export'),
+  feat('f-bio', '#BiometricAccess', 'Biometric Authentification'),
+  feat('f-rep', '#Report', 'Report'),
+  feat('f-ms', '#ModelSearch', 'Model Search'),
+  feat('f-auto', '#Automatic', 'Automatic'),
+  // RTVisionFramework
+  feat('f-rov', '#ResultOverview', 'Result Overview'),
+  feat('f-pi', '#PatchInspection', 'Patch Inspection'),
+  // RTVision3dFramework
+  feat('f-pri', '#PrimerInspection', 'Primer Inspection', { optional: true }),
+  feat('f-vol', '#VolumeInspection', 'Volume Inspection', { optional: true }),
+  feat('f-tea', '#Teaching', 'Teaching'),
+  feat('f-poc', '#PositionCorrection', 'Position Correction', { optional: true }),
+];
+
+export const seedProducts: ProductItem[] = [
+  {
+    id: 'TCVision.l',
+    name: 'TCVision.l',
+    productName: 'TCVision.l',
+    typeId: 'Product',
+    productId: 'TCVision.l',
+    categoryId: 'Software',
+    description: 'Shell inspection (Liner)',
+    features: '',
+    licenses: [],
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: 'TCVision.e',
+    name: 'TCVision.e',
+    productName: 'TCVision.e',
+    typeId: 'Product',
+    productId: 'TCVision.e',
+    categoryId: 'Software',
+    description: 'End inspection',
+    features: '',
+    licenses: [],
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: 'RTVision',
+    name: 'RTVision',
+    productName: 'RTVision',
+    typeId: 'Product',
+    productId: 'RTVision',
+    categoryId: 'Software',
+    description: 'Glue width inspection based in 2D-space',
+    features: '#ResultOverview;#PatchInspection',
+    licenses: [
+      { id: '12.1234', name: 'Standard', licenseId: '12.1234', licenseName: 'Standard' },
+    ],
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: 'RTVision.3d',
+    name: 'RTVision.3d',
+    productName: 'RTVision.3d',
+    typeId: 'Product',
+    productId: 'RTVision.3d',
+    categoryId: 'Software',
+    description: 'Complete glue evaluation in 3D-space',
+    features: '#Teaching;#VolumeInspection;#PrimerInspection',
+    licenses: [
+      { id: '12.10128', name: 'Standard', licenseId: '12.10128', licenseName: 'Standard' },
+      { id: '12.10135', name: 'Advanced', licenseId: '12.10135', licenseName: 'Advanced' },
+      {
+        id: '12.10140',
+        name: 'Position Correction',
+        licenseId: '12.10140',
+        licenseName: 'Position Correction',
+      },
+    ],
+    added: ts,
+    timeStamp: ts,
+  },
+];
+
+export const seedLicenses: LicenseItem[] = [
+  {
+    id: '12.1234',
+    typeId: 'License',
+    licenseId: '12.1234',
+    licenseName: 'Standard',
+    description: 'Standard license for RTVision product',
+    productId: 'RTVision',
+    features: '#ResultOverview;#PatchInspection',
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: '12.10128',
+    typeId: 'License',
+    licenseId: '12.10128',
+    licenseName: 'Standard',
+    description: 'Standard license for RTVision.3d product',
+    productId: 'RTVision.3d',
+    features: '#Teaching',
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: '12.10135',
+    typeId: 'License',
+    licenseId: '12.10135',
+    licenseName: 'Advanced',
+    description: 'Advanced license for RTVision.3d product',
+    productId: 'RTVision.3d',
+    features: '#Teaching;#VolumeInspection',
+    added: ts,
+    timeStamp: ts,
+  },
+  {
+    id: '12.10140',
+    typeId: 'License',
+    licenseId: '12.10140',
+    licenseName: 'Position Correction',
+    description: 'Standard + position correction license for RTVision.3d product',
+    productId: 'RTVision.3d',
+    features: '#Teaching;#PositionCorrection',
+    added: ts,
+    timeStamp: ts,
+  },
+];
+
+export const seedUserItems: UserItemData[] = [
+  {
+    id: 'u-admin',
+    typeId: 'User',
+    userId: 'u-admin',
+    name: 'Administrator',
+    description: 'System administrator',
+    mail: 'admin@imagingtools.local',
+    systemId: 'system-1',
+    systemName: 'Lisa',
+    roles: 'role-admin',
+    groups: 'group-admins',
+    added: ts,
+    lastModified: ts,
+    lastConnection: ts,
+  },
+  {
+    id: 'u-viewer',
+    typeId: 'User',
+    userId: 'u-viewer',
+    name: 'Read-only Viewer',
+    description: 'View-only user',
+    mail: 'viewer@imagingtools.local',
+    systemId: 'system-1',
+    systemName: 'Lisa',
+    roles: 'role-viewer',
+    groups: 'group-viewers',
+    added: ts,
+    lastModified: ts,
+    lastConnection: ts,
   },
 ];

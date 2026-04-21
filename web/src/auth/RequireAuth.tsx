@@ -16,12 +16,12 @@ export function RequireAuth({
   /** Optional permission gate — `PermissionsController.checkPermission(...)` */
   permission?: PermissionId | string;
 }) {
-  const { user, loading, hasPermission } = useSession();
+  const { username, loading, hasPermission } = useSession();
   const location = useLocation();
 
   if (loading) return <CenteredSpinner label="Restoring session…" />;
 
-  if (!user) {
+  if (!username) {
     return <Navigate to="/login" replace state={{ from: location.pathname }} />;
   }
 
