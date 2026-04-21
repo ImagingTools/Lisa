@@ -31,7 +31,8 @@ import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
 import { ConfirmDialog } from '@/components/ConfirmDialog';
 import { MetaInfoPanel } from '@/components/MetaInfoPanel';
-import { DataTable, type Column } from '@/components/DataTable';
+import { type Column } from '@/components/DataTable';
+import { CollectionLayout } from '@/components/CollectionLayout';
 import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
 interface LicensesListData {
@@ -200,9 +201,6 @@ function LicensesCollection({
     return out;
   }, [licenses, productFilter, search]);
 
-  const selected =
-    (selectedId && licenses.find((l) => l.id === selectedId)) || null;
-
   const columns: Column<LicenseItem>[] = useMemo(
     () => [
       {
@@ -245,8 +243,23 @@ function LicensesCollection({
   );
 
   return (
-    <>
-      <div className="page-header">
+    <CollectionLayout<LicenseItem>
+      tableId="licenses"
+      ariaLabel="Licenses list"
+      columns={columns}
+      rows={filtered}
+      rowKey={(l) => l.id}
+      selectedKey={selectedId}
+      onSelect={(l) => setSelectedId(l.id)}
+      onActivate={onActivate}
+      emptyMessage={
+        search || productFilter
+          ? 'No licenses match your filter.'
+          : 'No licenses defined.'
+      }
+      error={error ? `Failed to load licenses: ${error}` : undefined}
+      onRetry={onRetry}
+      toolbar={
         <div className="page-toolbar" style={{ flex: 1 }}>
           <select
             className="search"
@@ -276,54 +289,21 @@ function LicensesCollection({
             + New license
           </button>
         </div>
-      </div>
-
-      {error && (
-        <div className="error-banner" role="alert">
-          Failed to load licenses: {error}{' '}
-          <button className="btn btn--small" onClick={onRetry}>Retry</button>
-        </div>
-      )}
-
-      <div className="collection-layout">
-        <div className="panel" style={{ padding: 0 }}>
-          <DataTable<LicenseItem>
-            tableId="licenses"
-            ariaLabel="Licenses list"
-            columns={columns}
-            rows={filtered}
-            rowKey={(l) => l.id}
-            selectedKey={selectedId}
-            onSelect={(l) => setSelectedId(l.id)}
-            onActivate={onActivate}
-            emptyMessage={
-              search || productFilter
-                ? 'No licenses match your filter.'
-                : 'No licenses defined.'
-            }
-          />
-          <div className="collection-layout__hint">
-            Double-click a row (or press Enter) to open the editor in a new tab.
-          </div>
-        </div>
-        <div className="panel">
-          <h3 className="panel__title" style={{ marginBottom: 'var(--margin-m)' }}>
-            Meta info
-          </h3>
-          {selected ? (
-            <>
-              <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
-                <strong style={{ color: 'var(--color-text)' }}>{selected.licenseName}</strong> ·{' '}
-                <code>{selected.productId ?? '—'}</code> · <code>{selected.licenseId}</code>
-              </div>
-              <MetaInfoPanel item={selected} />
-            </>
-          ) : (
-            <p className="panel__subtitle">Select a row to see its metadata.</p>
-          )}
-        </div>
-      </div>
-    </>
+      }
+      renderDetails={(selected) =>
+        selected ? (
+          <>
+            <div className="panel__subtitle" style={{ marginBottom: 'var(--margin-m)' }}>
+              <strong style={{ color: 'var(--color-text)' }}>{selected.licenseName}</strong> ·{' '}
+              <code>{selected.productId ?? '—'}</code> · <code>{selected.licenseId}</code>
+            </div>
+            <MetaInfoPanel item={selected} />
+          </>
+        ) : (
+          <p className="panel__subtitle">Select a row to see its metadata.</p>
+        )
+      }
+    />
   );
 }
 

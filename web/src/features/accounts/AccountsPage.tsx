@@ -19,7 +19,8 @@ import type { UserItemData, UserData } from '@/types/domain';
 import { useSession } from '@/auth/SessionContext';
 import { CenteredSpinner } from '@/components/feedback/CenteredSpinner';
 import { EmptyState } from '@/components/feedback/EmptyState';
-import { DataTable, type Column } from '@/components/DataTable';
+import { type Column } from '@/components/DataTable';
+import { CollectionLayout } from '@/components/CollectionLayout';
 import { COLLECTION_TAB_ID, PageTabs, usePageTabs } from '@/components/PageTabs';
 
 interface UsersListData {
@@ -185,55 +186,59 @@ function AccountsCollection({
     [],
   );
 
-  const selected = (selectedId && users.find((u) => u.id === selectedId)) || null;
-
   return (
     <>
-      <div className="page-header">
-        <h1 style={{ margin: 0 }}>Accounts</h1>
-        <div className="form-actions">
-          <button
-            type="button"
-            className="btn btn--primary"
-            disabled={!canCreate}
-            onClick={onCreate}
-            title={canCreate ? undefined : 'Requires Administration'}
-          >
-            + New user
-          </button>
-        </div>
-      </div>
-      {error && (
-        <div className="error-banner" role="alert">
-          Failed to load: {error}{' '}
-          <button className="btn btn--small" onClick={onRetry}>Retry</button>
-        </div>
-      )}
-      {users.length === 0 ? (
-        <EmptyState title="No accounts" message="No user accounts have been provisioned." />
-      ) : (
-        <div className="collection-layout">
-          <div className="panel" style={{ padding: 0 }}>
-            <DataTable<UserItemData>
-              tableId="accounts"
-              ariaLabel="Accounts list"
-              columns={columns}
-              rows={users}
-              rowKey={(u) => u.id}
-              selectedKey={selectedId}
-              onSelect={(u) => setSelectedId(u.id)}
-              onActivate={onActivate}
-              emptyMessage="No accounts."
-            />
-            <div className="collection-layout__hint">
-              Double-click a row (or press Enter) to open the user in a new tab.
+      {users.length === 0 && !error ? (
+        <>
+          <div className="page-header">
+            <h1 style={{ margin: 0 }}>Accounts</h1>
+            <div className="form-actions">
+              <button
+                type="button"
+                className="btn btn--primary"
+                disabled={!canCreate}
+                onClick={onCreate}
+                title={canCreate ? undefined : 'Requires Administration'}
+              >
+                + New user
+              </button>
             </div>
           </div>
-          <div className="panel">
-            <h3 className="panel__title" style={{ marginBottom: 'var(--margin-m)' }}>
-              Details
-            </h3>
-            {selected ? (
+          <EmptyState title="No accounts" message="No user accounts have been provisioned." />
+        </>
+      ) : (
+        <CollectionLayout<UserItemData>
+          tableId="accounts"
+          ariaLabel="Accounts list"
+          columns={columns}
+          rows={users}
+          rowKey={(u) => u.id}
+          selectedKey={selectedId}
+          onSelect={(u) => setSelectedId(u.id)}
+          onActivate={onActivate}
+          emptyMessage="No accounts."
+          error={error}
+          onRetry={onRetry}
+          detailsTitle="Details"
+          hint="Double-click a row (or press Enter) to open the user in a new tab."
+          toolbar={
+            <>
+              <h1 style={{ margin: 0 }}>Accounts</h1>
+              <div className="form-actions">
+                <button
+                  type="button"
+                  className="btn btn--primary"
+                  disabled={!canCreate}
+                  onClick={onCreate}
+                  title={canCreate ? undefined : 'Requires Administration'}
+                >
+                  + New user
+                </button>
+              </div>
+            </>
+          }
+          renderDetails={(selected) =>
+            selected ? (
               <dl className="meta-grid">
                 <dt>User</dt>
                 <dd><strong>{selected.name ?? selected.id}</strong></dd>
@@ -256,9 +261,9 @@ function AccountsCollection({
               </dl>
             ) : (
               <p className="panel__subtitle">Select a row to see its details.</p>
-            )}
-          </div>
-        </div>
+            )
+          }
+        />
       )}
     </>
   );
