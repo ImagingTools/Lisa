@@ -48,7 +48,7 @@ describe('createInlineHttpLink', () => {
 
     expect(result).toEqual({ data: { Authorization: { token: 't' } } });
     expect(fetchMock).toHaveBeenCalledTimes(1);
-    const [url, init] = fetchMock.mock.calls[0] as [string, { method: string; headers: Record<string, string>; body: string }];
+    const [url, init] = fetchMock.mock.calls[0] as unknown as [string, { method: string; headers: Record<string, string>; body: string }];
     expect(url).toBe('https://lisa.example/graphql');
     expect(init.method).toBe('POST');
     const headers = init.headers;

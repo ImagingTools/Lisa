@@ -39,9 +39,24 @@ export function createApolloClient(options: ClientOptions = {}) {
   const uri = options.uri ?? env?.VITE_LISA_GRAPHQL_URL;
   const useMock = options.forceMock || !uri;
 
+  // When `VITE_LISA_GRAPHQL_URL` is an absolute URL we route the request
+  // through the same-origin pathname so the Vite dev server proxy
+  // (configured in `vite.config.ts`) forwards it. This avoids CORS entirely
+  // — the browser sees a same-origin POST. In production builds without a
+  // proxy, callers can pass a fully-qualified `uri` directly.
+  let endpoint = uri!;
+  try {
+    const parsed = new URL(uri!);
+    if (typeof window !== 'undefined' && parsed.origin !== window.location.origin) {
+      endpoint = parsed.pathname + parsed.search;
+    }
+  } catch {
+    // Treat as relative path; use as-is.
+  }
+
   const transport = useMock
     ? new MockLink()
-    : createInlineHttpLink({ uri: uri! });
+    : createInlineHttpLink({ uri: endpoint });
 
   // Note: we deliberately do NOT add an `Authorization` header link here.
   // The Lisa server expects auth tokens inline in the GraphQL document

@@ -460,7 +460,7 @@ npm test                 # vitest run (10 tests)
 
 | Variable | Purpose | Default |
 | --- | --- | --- |
-| `VITE_LISA_GRAPHQL_URL` | If set, Apollo uses an `HttpLink` to this URL instead of the in-memory mock. | — (mock) |
+| `VITE_LISA_GRAPHQL_URL` | If set, Apollo sends GraphQL requests to this URL instead of the in-memory mock. In `npm run dev` the Vite dev server automatically proxies the request's pathname to this upstream (so the browser sees a same-origin POST — no CORS preflight, no `Access-Control-Allow-Origin` requirement). | — (mock) |
 
 The mock state is persisted to `localStorage` (`lisa-web.mock-state.v1`);
 clear it from devtools to reset to the seed in `src/api/mock/seed.ts`.
