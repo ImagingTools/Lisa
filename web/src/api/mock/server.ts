@@ -437,6 +437,78 @@ const resolvers: Record<string, Resolver> = {
     persist(state);
     return { RemoveElements: { success: removed > 0 } };
   },
+
+  // PagesData (mirrors QML PagesDataController). The `source` and
+  // `startItem` strings use the canonical QML resource paths so a real Lisa
+  // server returns the same shape — the React port maps them to components
+  // via `src/app/pageRegistry.ts`.
+  PagesData: () => ({
+    PagesData: {
+      items: [
+        {
+          id: 'Products',
+          pageId: 'Products',
+          name: 'Products',
+          icon: 'Product',
+          description: '',
+          source: 'qrc:/qml/imtguigql/GqlCollectionDocManagerPageView.qml',
+          startItem: 'qrc:/qml/imtlicgui/ProductsMultiDocView.qml',
+          priority: 30,
+          alignment: 32,
+          isEnabled: true,
+          isToggled: false,
+          visible: true,
+          status: '',
+        },
+        {
+          id: 'Licenses',
+          pageId: 'Licenses',
+          name: 'Licenses',
+          icon: 'License',
+          description: '',
+          source: 'qrc:/qml/imtguigql/GqlCollectionDocManagerPageView.qml',
+          startItem: 'qrc:/qml/imtlicgui/LicensesMultiDocView.qml',
+          priority: 20,
+          alignment: 32,
+          isEnabled: true,
+          isToggled: false,
+          visible: true,
+          status: '',
+        },
+        {
+          id: 'Features',
+          pageId: 'Features',
+          name: 'Features',
+          icon: 'Feature',
+          description: '',
+          source: 'qrc:/qml/imtguigql/GqlCollectionDocManagerPageView.qml',
+          startItem: 'qrc:/qml/imtlicgui/PackagesMultiDocView.qml',
+          priority: 10,
+          alignment: 32,
+          isEnabled: true,
+          isToggled: false,
+          visible: true,
+          status: '',
+        },
+        {
+          id: 'Accounts',
+          pageId: 'Accounts',
+          name: 'Accounts',
+          icon: 'Account',
+          description: '',
+          source: 'qrc:/qml/imtguigql/GqlCollectionDocManagerPageView.qml',
+          startItem: 'qrc:/qml/imtauthgui/AccountsMultiDocView.qml',
+          priority: 0,
+          alignment: 32,
+          isEnabled: true,
+          isToggled: false,
+          visible: true,
+          status: '',
+        },
+      ],
+      notification: { pagesCount: 1, totalCount: 4 },
+    },
+  }),
 };
 
 /**
@@ -454,6 +526,7 @@ const FIELD_TYPES: Record<string, string> = {
   'Query.GetFeatureItem': 'FeatureData',
   'Query.UsersList': 'UsersListPayload',
   'Query.UserItem': 'UserData',
+  'Query.PagesData': 'PagesDataPayload',
   // Mutation
   'Mutation.Logout': 'LogoutPayload',
   'Mutation.ProductAdd': 'AddedNotificationPayload',
@@ -478,6 +551,8 @@ const FIELD_TYPES: Record<string, string> = {
   'UsersListPayload.items': 'UserItemData',
   'UsersListPayload.notification': 'NotificationItem',
   'UserData.systemInfos': 'SystemInfo',
+  'PagesDataPayload.items': 'PageDataItem',
+  'PagesDataPayload.notification': 'NotificationItem',
 };
 
 function attachTypenames(parentType: string, value: unknown): unknown {

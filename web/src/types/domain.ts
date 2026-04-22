@@ -333,3 +333,37 @@ export const PERMISSION_IDS = [
 ] as const;
 
 export type PermissionId = (typeof PERMISSION_IDS)[number];
+
+// ===========================================================================
+// Navigation pages (PagesDataController)
+// ===========================================================================
+
+/**
+ * One entry in the application's left navigation, returned by the
+ * `PagesData` query. Mirrors the QML `PageDataProvider` attribute set.
+ *
+ * `source` identifies the QML page-shell view (`MultiDocWorkspacePageView.qml`,
+ * `GqlCollectionDocManagerPageView.qml`, `SingleDocumentWorkspacePageView.qml`,
+ * …) — the React port resolves it via a shell registry. `startItem` points at
+ * the actual content view, also resolved via a registry.
+ */
+export interface PageDataItem {
+  id: Id;
+  pageId?: Id;
+  name?: string;
+  icon?: string;
+  description?: string;
+  source?: string;
+  startItem?: string;
+  priority?: number;
+  alignment?: number;
+  isEnabled?: boolean;
+  isToggled?: boolean;
+  visible?: boolean;
+  status?: string;
+}
+
+export interface PagesDataPayload {
+  items: PageDataItem[];
+  notification?: NotificationItem;
+}

@@ -1,43 +1,42 @@
-import type { ComponentType, SVGProps } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
 import { useSession } from '@/auth/SessionContext';
 import { useTheme } from '@/app/ThemeProvider';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import {
-  AccountsIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  FeaturesIcon,
-  LicensesIcon,
   LogoutIcon,
   MoonIcon,
-  ProductsIcon,
   SunIcon,
 } from '@/components/icons';
-import type { PermissionId } from '@/types/domain';
+import { PAGES_DATA_QUERY } from '@/api/graphql/operations';
+import type { PageDataItem, PagesDataPayload } from '@/types/domain';
+import { resolvePageIcon } from '@/app/pageRegistry';
 
-interface NavItem {
-  to: string;
-  label: string;
-  permission: PermissionId;
-  Icon: ComponentType<SVGProps<SVGSVGElement>>;
+interface PagesDataResult {
+  PagesData: PagesDataPayload;
 }
 
-const NAV_ITEMS: NavItem[] = [
-  { to: '/products', label: 'Products', permission: 'ViewProducts', Icon: ProductsIcon },
-  { to: '/licenses', label: 'Licenses', permission: 'ViewLicenses', Icon: LicensesIcon },
-  { to: '/features', label: 'Features', permission: 'ViewFeatures', Icon: FeaturesIcon },
-  { to: '/accounts', label: 'Accounts', permission: 'Administration', Icon: AccountsIcon },
-];
+function sortPages(items: readonly PageDataItem[]): PageDataItem[] {
+  return [...items]
+    .filter((p) => p.visible !== false)
+    .sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0));
+}
 
 export function AppShell() {
-  const { username, logout, hasPermission } = useSession();
+  const { username, logout } = useSession();
   const { theme, toggle } = useTheme();
   const navigate = useNavigate();
   const [collapsed, setCollapsed] = useLocalStorage<boolean>(
     'lisa-web.sidebar.collapsed.v1',
     false,
   );
+
+  const { data } = useQuery<PagesDataResult>(PAGES_DATA_QUERY, {
+    fetchPolicy: 'cache-first',
+  });
+  const pages = sortPages(data?.PagesData?.items ?? []);
 
   const shellClass = `app-shell ${collapsed ? 'is-sidebar-collapsed' : ''}`;
 
@@ -49,30 +48,26 @@ export function AppShell() {
           <span className="app-sidebar__brand-mark" aria-hidden="true">L</span>
         </div>
         <nav className="app-sidebar__nav">
-          {NAV_ITEMS.map(({ to, label, permission, Icon }) => {
-            const allowed = hasPermission(permission);
+          {pages.map((page) => {
+            const Icon = resolvePageIcon(page.icon);
+            const enabled = page.isEnabled !== false;
+            const label = page.name ?? page.id;
             return (
               <NavLink
-                key={to}
-                to={to}
+                key={page.id}
+                to={`/${page.id}`}
                 className={({ isActive }) =>
-                  ['nav-link', isActive ? 'is-active' : '', allowed ? '' : 'is-disabled']
+                  ['nav-link', isActive ? 'is-active' : '', enabled ? '' : 'is-disabled']
                     .filter(Boolean)
                     .join(' ')
                 }
-                aria-disabled={!allowed}
+                aria-disabled={!enabled}
                 onClick={(e) => {
-                  if (!allowed) e.preventDefault();
+                  if (!enabled) e.preventDefault();
                 }}
-                title={
-                  allowed
-                    ? collapsed
-                      ? label
-                      : undefined
-                    : `Requires '${permission}'`
-                }
+                title={collapsed ? label : undefined}
               >
-                <Icon className="nav-link__icon" />
+                {Icon ? <Icon className="nav-link__icon" /> : <span className="nav-link__icon" />}
                 <span className="nav-link__label">{label}</span>
               </NavLink>
             );

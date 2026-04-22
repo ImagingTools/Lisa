@@ -94,6 +94,7 @@ export function createApolloClient(options: ClientOptions = {}) {
       RoleData: { keyFields: ['id'] },
       GroupItemData: { keyFields: ['id'] },
       GroupData: { keyFields: ['id'] },
+      PageDataItem: { keyFields: ['id'] },
     },
   });
 

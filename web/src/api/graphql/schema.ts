@@ -22,6 +22,7 @@ import { ProfileSDL } from './sdl/Profile.sdl';
 import { ProductsSDL } from './sdl/Products.sdl';
 import { LicensesSDL } from './sdl/Licenses.sdl';
 import { FeaturesSDL } from './sdl/Features.sdl';
+import { PagesSDL } from './sdl/Pages.sdl';
 
 export const typeDefs = /* GraphQL */ `
   ${ImtBaseTypesSDL}
@@ -59,6 +60,9 @@ export const typeDefs = /* GraphQL */ `
 
     # Profile
     GetProfile(input: GetProfileInput): ProfileData!
+
+    # Navigation pages (drives the left sidebar)
+    PagesData(input: PagesDataInput): PagesDataPayload!
   }
 
   type Mutation {
@@ -105,4 +109,5 @@ export const typeDefs = /* GraphQL */ `
   ${ProductsSDL}
   ${LicensesSDL}
   ${FeaturesSDL}
+  ${PagesSDL}
 `;

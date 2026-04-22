@@ -7,6 +7,7 @@ import {
   PRODUCT_ADD,
   REMOVE_ELEMENTS,
   LICENSES_LIST,
+  PAGES_DATA_QUERY,
 } from '../api/graphql/operations';
 
 function makeClient() {
@@ -98,5 +99,17 @@ describe('mock GraphQL backend', () => {
     const items = res.data.ProductsList.items;
     expect(items.length).toBeGreaterThan(0);
     expect(items[0].__typename).toBe('ProductItem');
+  });
+
+  it('returns navigation pages via PagesData (drives the sidebar)', async () => {
+    const client = makeClient();
+    const res = await client.query({ query: PAGES_DATA_QUERY });
+    const items = res.data.PagesData.items;
+    const ids = items.map((p: { id: string }) => p.id);
+    expect(ids).toEqual(expect.arrayContaining(['Products', 'Licenses', 'Features', 'Accounts']));
+    const products = items.find((p: { id: string }) => p.id === 'Products');
+    expect(products.source).toMatch(/GqlCollectionDocManagerPageView\.qml$/);
+    expect(products.startItem).toMatch(/ProductsMultiDocView\.qml$/);
+    expect(products.__typename).toBe('PageDataItem');
   });
 });

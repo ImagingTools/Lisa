@@ -322,3 +322,41 @@ export const REMOVE_ELEMENTS = gql`
     }
   }
 `;
+
+// ---------------------------------------------------------------------------
+// Navigation pages
+// ---------------------------------------------------------------------------
+
+/**
+ * `PagesData` — drives the application's primary (left-rail) navigation.
+ *
+ * Mirrors the QML `PagesDataController` (`ImtGuiGqlPck`). Each item carries:
+ *   * `id` / `name` — page identifier and display label
+ *   * `icon` — icon key (resolved via `iconRegistry` on the client)
+ *   * `source` — the page-shell QML view (e.g. `GqlCollectionDocManagerPageView.qml`)
+ *   * `startItem` — the actual page content QML (e.g. `ProductsMultiDocView.qml`)
+ *
+ * The React app maps both `source` and `startItem` to React components via
+ * `pageRegistry.ts` so adding/removing pages is a server-side concern only.
+ */
+export const PAGES_DATA_QUERY = gql`
+  query PagesData {
+    PagesData {
+      items {
+        id
+        pageId
+        name
+        icon
+        description
+        source
+        startItem
+        priority
+        alignment
+        isEnabled
+        isToggled
+        visible
+        status
+      }
+    }
+  }
+`;
