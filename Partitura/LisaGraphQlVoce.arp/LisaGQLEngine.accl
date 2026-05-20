@@ -2,18 +2,18 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="6397" Description="ACF"/>
+            <Version Id="0" Number="6388" Description="ACF"/>
             <Version Id="1" Number="2392" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="395267" Description="Qt Framework"/>
+            <Version Id="1023" Number="395266" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="LisaGQLEngine" X="550" Y="150" Note=""/>
-        <Element ComponentName="LoginStatusSubscriberController" X="575" Y="600" Note=""/>
+        <Element ComponentName="LoginStatusSubscriberController" X="550" Y="525" Note=""/>
         <Element ComponentName="Repositories" X="550" Y="275" Note=""/>
-        <Element ComponentName="SlaveSubscriberController" X="975" Y="400" Note=""/>
+        <Element ComponentName="SlaveSubscriberController" X="550" Y="400" Note=""/>
         <Element ComponentName="SslConfigurationManager" X="225" Y="175" Note=""/>
-        <Element ComponentName="Subscription" X="575" Y="425" Note=""/>
+        <Element ComponentName="Subscription" X="550" Y="675" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Repositories">
