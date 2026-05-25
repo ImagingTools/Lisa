@@ -2,16 +2,16 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="6397" Description="ACF"/>
+            <Version Id="0" Number="6388" Description="ACF"/>
             <Version Id="1" Number="2392" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="395267" Description="Qt Framework"/>
+            <Version Id="1023" Number="395266" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
         <Element Id="LisaGQLEngine" PackageId="ImtGraphQlVoce" ComponentId="GraphQLClientEngine">
-            <Data IsEnabled="true" Flags="1">
+            <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
@@ -48,7 +48,7 @@
             </Data>
         </Element>
         <Element Id="LoginStatusSubscriberController" PackageId="ImtServerGqlPck" ComponentId="ConnectionStatusSubscriberController">
-            <Data IsEnabled="true" Flags="1">
+            <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
@@ -124,7 +124,7 @@
             </Data>
         </Element>
         <Element Id="Subscription" PackageId="ImtClientVoce" ComponentId="SubscriptionManager">
-            <Data IsEnabled="true" Flags="1">
+            <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
@@ -407,6 +407,7 @@
         <Component ExportedId="FeatureRepository" ComponentId="Repositories/FeatureRepository"/>
         <Component ExportedId="LicenseRepository" ComponentId="Repositories/LicenseRepository"/>
         <Component ExportedId="LicensesSubscriberController" ComponentId="Repositories/LicensesSubscriberController"/>
+        <Component ExportedId="LisaLoginStatusSubscriberController" ComponentId="LoginStatusSubscriberController"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
         <Component ExportedId="ProductsSubscriberController" ComponentId="Repositories/ProductsSubscriberController"/>
     </ExportedComponents>
