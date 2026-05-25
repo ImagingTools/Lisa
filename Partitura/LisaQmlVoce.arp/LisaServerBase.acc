@@ -2,9 +2,9 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5436" Description="ACF"/>
-            <Version Id="1" Number="2254" Description="ACF-Solutions"/>
-            <Version Id="1023" Number="395266" Description="Qt Framework"/>
+            <Version Id="0" Number="6397" Description="ACF"/>
+            <Version Id="1" Number="2394" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <Description></Description>
@@ -86,14 +86,14 @@
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="AuthenticationManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/Backup"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/DatabaseEngine"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ExternRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
@@ -105,14 +105,8 @@
                     <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="FeatureContainer" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/FeatureContainer"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="GroupCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/CachedGroupCollection"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="JwtSessionController" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework"/>
+                    <AttributeInfo Id="LanguageConstraints" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaLocalization"/>
                     </AttributeInfo>
                     <AttributeInfo Id="LicenseCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/LicenseSqlRepository"/>
@@ -126,9 +120,6 @@
                     <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/ProductRepository"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="RoleCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/CachedRoleCollection"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ServerConnectionInterface" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/ServerConnectionInterface"/>
                     </AttributeInfo>
@@ -141,8 +132,8 @@
                     <AttributeInfo Id="UserActionManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/UserActionManager"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="UserCollection" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/CachedUserCollection"/>
+                    <AttributeInfo Id="UserSettingsCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/UserSettingsRepository"/>
                     </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
                         <Data IsEnabled="false"/>
