@@ -440,6 +440,7 @@
         <Component ExportedId="FeatureRepository" ComponentId="Repositories/FeatureRepository"/>
         <Component ExportedId="LicenseRepository" ComponentId="Repositories/LicenseRepository"/>
         <Component ExportedId="LicensesSubscriberController" ComponentId="Repositories/LicensesSubscriberController"/>
+        <Component ExportedId="LisaDatabaseConnector" ComponentId="LisaDatabaseConnector"/>
         <Component ExportedId="LisaLoginStatusSubscriberController" ComponentId="LoginStatusSubscriberController"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
         <Component ExportedId="ProductsSubscriberController" ComponentId="Repositories/ProductsSubscriberController"/>
