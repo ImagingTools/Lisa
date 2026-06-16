@@ -2,13 +2,14 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="6397" Description="ACF"/>
-            <Version Id="1" Number="2394" Description="ACF-Solutions"/>
+            <Version Id="0" Number="6435" Description="ACF"/>
+            <Version Id="1" Number="2410" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="AuthorizableServerFramework" X="1025" Y="75" Note=""/>
+        <Element ComponentName="DatabaseEngine" X="425" Y="150" Note=""/>
         <Element ComponentName="Language" X="500" Y="325" Note=""/>
         <Element ComponentName="LisaHandlers" X="800" Y="400" Note=""/>
         <Element ComponentName="LisaLocalization" X="700" Y="225" Note=""/>
@@ -18,17 +19,6 @@
         <Element ComponentName="ServerPageData" X="100" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
-        <EmbededRegistry Id="Migrations">
-            <PositionMap>
-                <Element ComponentName="CompositeMigrationController" X="600" Y="125" Note=""/>
-                <Element ComponentName="MigrationController_0_13" X="575" Y="275" Note=""/>
-                <Element ComponentName="MigrationController_15" X="1025" Y="275" Note=""/>
-                <Element ComponentName="MigrationFilePath" X="800" Y="475" Note=""/>
-                <Element ComponentName="Migration_14" X="200" Y="275" Note=""/>
-                <Element ComponentName="SystemLocation" X="800" Y="625" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
@@ -43,6 +33,17 @@
                 <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
                 <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
                 <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
+        <EmbededRegistry Id="Migrations">
+            <PositionMap>
+                <Element ComponentName="CompositeMigrationController" X="600" Y="125" Note=""/>
+                <Element ComponentName="MigrationController_0_13" X="575" Y="275" Note=""/>
+                <Element ComponentName="MigrationController_15" X="1025" Y="275" Note=""/>
+                <Element ComponentName="MigrationFilePath" X="800" Y="475" Note=""/>
+                <Element ComponentName="Migration_14" X="200" Y="275" Note=""/>
+                <Element ComponentName="SystemLocation" X="800" Y="625" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>
