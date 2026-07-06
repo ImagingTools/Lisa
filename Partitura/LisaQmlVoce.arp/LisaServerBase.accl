@@ -19,6 +19,15 @@
         <Element ComponentName="ServerPageData" X="100" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
+        <EmbededRegistry Id="Observers">
+            <PositionMap>
+                <Element ComponentName="FeatureCollectionChangeNotifier" X="200" Y="225" Note=""/>
+                <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
+                <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
+                <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
+            </PositionMap>
+            <EmbeddedRegistries/>
+        </EmbededRegistry>
         <EmbededRegistry Id="Repositories">
             <PositionMap>
                 <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
@@ -35,15 +44,6 @@
                 <Element ComponentName="MigrationFilePath" X="800" Y="475" Note=""/>
                 <Element ComponentName="Migration_14" X="200" Y="275" Note=""/>
                 <Element ComponentName="SystemLocation" X="800" Y="625" Note=""/>
-            </PositionMap>
-            <EmbeddedRegistries/>
-        </EmbededRegistry>
-        <EmbededRegistry Id="Observers">
-            <PositionMap>
-                <Element ComponentName="FeatureCollectionChangeNotifier" X="200" Y="225" Note=""/>
-                <Element ComponentName="LicenseCollectionChangeNotifier" X="925" Y="225" Note=""/>
-                <Element ComponentName="ProductCollectionChangeNotifier" X="550" Y="225" Note=""/>
-                <Element ComponentName="SlaveSubscriberController" X="575" Y="75" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>
         </EmbededRegistry>

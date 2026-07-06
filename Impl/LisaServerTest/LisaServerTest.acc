@@ -85,6 +85,9 @@
                     <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="SettingsDefaultPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Lisa Server/LisaServerTestSettings.xml"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="VersionInfo"/>
                     </AttributeInfo>
