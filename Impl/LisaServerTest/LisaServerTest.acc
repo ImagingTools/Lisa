@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Acf>
+    <AcfHeader>
+        <VersionInfos>
+            <Version Id="0" Number="6435" Description="ACF"/>
+            <Version Id="1" Number="2410" Description="ACF-Solutions"/>
+            <Version Id="1023" Number="395264" Description="Qt Framework"/>
+        </VersionInfos>
+    </AcfHeader>
+    <Description>Lisa server application</Description>
+    <Keywords></Keywords>
+    <ElementsList>
+        <Element Id="Application" PackageId="ImtCoreVoce" ComponentId="ConsoleApplicationSqlLogFramework">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ApplicationName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ApplicationType" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Server"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CompanyName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="ImagingTools"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ComponentsToInitialize" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaServerBase/HttpServerFramework</Value>
+                                <Value>LisaServerBase/WebSocketServerFramework</Value>
+                                <Value>LisaServerBase/DatabaseEngine</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogLocationType" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="104"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogPath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Lisa Server/LisaServerTestLog.txt"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="MainVersionId" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="1983"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ProductName" Type="Text" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="SqlLogFilePath" Type="String" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa/Lisa Server/LisaServerTestLog.sqlite"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="LisaServerBase" PackageId="LisaQmlVoce" ComponentId="LisaServerBase">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="lisa_test"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="17776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaHttpPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="17788"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="18788"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
+                        <Data IsEnabled="true" Value="18776"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/Log"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="LogPath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/LogFilePath"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="VersionInfo"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="SingletonDocApplication" PackageId="QtGuiPck" ComponentId="SingletonDocApplication">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Application" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/ApplicationInfo"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="RuntimeStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Application/RuntimeStatus"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="VersionInfo" PackageId="LisaVoce" ComponentId="VersionInfo">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
+    </ElementsList>
+    <EmbeddedRegistriesList/>
+    <ExportedInterfaces>
+        <Interface InterfaceId="ibase::IApplication" ComponentId="SingletonDocApplication"/>
+        <Interface InterfaceId="imtlic::IProductInfo" ComponentId="LisaServerBase"/>
+    </ExportedInterfaces>
+    <ExportedComponents/>
+</Acf>

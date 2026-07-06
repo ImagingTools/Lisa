@@ -276,6 +276,21 @@
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="DbName">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="DefaultHttpPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaHttpPort" Type="Integer" ExportId="DefaultPumaHttpPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="DefaultPumaWebSocketPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="DefaultWebSocketPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>

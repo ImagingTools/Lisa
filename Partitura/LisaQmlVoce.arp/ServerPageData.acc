@@ -2,8 +2,8 @@
 <Acf>
     <AcfHeader>
         <VersionInfos>
-            <Version Id="0" Number="5445" Description="ACF"/>
-            <Version Id="1" Number="2257" Description="ACF-Solutions"/>
+            <Version Id="0" Number="6435" Description="ACF"/>
+            <Version Id="1" Number="2410" Description="ACF-Solutions"/>
             <Version Id="1023" Number="395264" Description="Qt Framework"/>
         </VersionInfos>
     </AcfHeader>
@@ -131,7 +131,7 @@
         <Element Id="DatabaseAccessSettings" PackageId="ImtDatabasePck" ComponentId="DatabaseAccessSettings">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DbName" Type="Id" ExportId="">
+                    <AttributeInfo Id="DbName" Type="Id" ExportId="DbName">
                         <Data IsEnabled="true" Value="lisa"/>
                     </AttributeInfo>
                     <AttributeInfo Id="Pasword" Type="Id" ExportId="">
@@ -242,13 +242,19 @@
         <Element Id="Server" PackageId="ImtHttpServerVoce" ComponentId="AuthorizableServerConnectionParams">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="">
+                    <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="DefaultHttpPort">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DefaultPumaHost" Type="String" ExportId="">
                         <Data IsEnabled="true" Value="localhost"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
+                    <AttributeInfo Id="DefaultPumaHttpPort" Type="Integer" ExportId="DefaultPumaHttpPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="DefaultPumaWebSocketPort">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="DefaultWebSocketPort">
                         <Data IsEnabled="true" Value="8776"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
