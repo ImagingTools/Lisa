@@ -47,6 +47,14 @@ set(AUX_INCLUDE_DIR "${BUILDDIR}/Lisa/AuxInclude/${TARGETNAME}/GeneratedFiles")
 include_directories("${AUX_INCLUDE_DIR}/../")
 include_directories("${AUX_INCLUDE_DIR}/")
 
+# Keep ACF link scopes empty: this project still uses the plain
+# target_link_libraries() signature, which must not mix with the keyword
+# signature that unified builds (AcfImtDevAll) enable via the CMake cache.
+set(ACF_QT_MODULE_LINK_SCOPE "")
+set(ACF_LIBRARY_LINK_SCOPE "")
+set(ACF_PACKAGE_LINK_SCOPE "")
+set(ACF_APPLICATION_LINK_SCOPE "")
+
 # Include
 
 add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
