@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 #ifdef WEB_COMPILE
-	Q_INIT_RESOURCE(lisaqmlWeb);
+	Q_INIT_RESOURCE(lisaWeb);
 #endif
 	Q_INIT_RESOURCE(lisaqml);
 	Q_INIT_RESOURCE(LisaLoc);

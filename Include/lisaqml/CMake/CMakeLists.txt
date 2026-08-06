@@ -7,7 +7,7 @@ if(QT_VERSION_MAJOR EQUAL 6)
 	target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core5Compat)
 endif()
 
-set(buildwebdir ${BUILDDIR}/Lisa/Bin/web)
+set(buildwebdir ${BUILDDIR}/Lisa/AuxInclude/Web)
 
 # copy lisa qml from to
 list(APPEND webdirs ${LISADIR}/Include/lisaqml/Qml)
