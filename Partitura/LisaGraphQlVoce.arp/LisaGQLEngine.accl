@@ -8,9 +8,11 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
+        <Element ComponentName="GqlDemultiplexer" X="225" Y="425" Note=""/>
         <Element ComponentName="LisaDatabaseConnector" X="950" Y="150" Note=""/>
         <Element ComponentName="LisaGQLEngine" X="550" Y="150" Note=""/>
         <Element ComponentName="LoginStatusSubscriberController" X="550" Y="525" Note=""/>
+        <Element ComponentName="RemoteFilterableSelectController" X="225" Y="300" Note=""/>
         <Element ComponentName="Repositories" X="550" Y="275" Note=""/>
         <Element ComponentName="SlaveSubscriberController" X="550" Y="400" Note=""/>
         <Element ComponentName="SslConfigurationManager" X="225" Y="175" Note=""/>

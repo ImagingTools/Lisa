@@ -10,6 +10,26 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="GqlDemultiplexer" PackageId="ImtServerGqlPck" ComponentId="GraphQLDemultiplexer">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="GqlRequestHandlers" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>LisaGQLEngine</Value>
+                                <Value>RemoteFilterableSelectController</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="LisaDatabaseConnector" PackageId="ImtDatabasePck" ComponentId="DatabaseConnector">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -100,6 +120,32 @@
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="RemoteFilterableSelectController" PackageId="ImtClientGqlPck" ComponentId="RemoteFilterableSelectController">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ApiClient" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaGQLEngine/ApiClient"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="CollectionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Products</Value>
+                                <Value>Licenses</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -432,7 +478,7 @@
     </EmbeddedRegistriesList>
     <ExportedInterfaces>
         <Interface InterfaceId="imtclientgql::IGqlClient" ComponentId="LisaGQLEngine/ApiClient"/>
-        <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="LisaGQLEngine"/>
+        <Interface InterfaceId="imtgql::IGqlRequestHandler" ComponentId="GqlDemultiplexer"/>
         <Interface InterfaceId="imtgql::IGqlSubscriberController" ComponentId="SlaveSubscriberController"/>
         <Interface InterfaceId="istd::IPolymorphic" ComponentId="LisaGQLEngine/ApiClient"/>
     </ExportedInterfaces>
