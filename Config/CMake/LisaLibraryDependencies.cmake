@@ -60,7 +60,7 @@ endfunction()
 
 
 # --- Libraries --------------------------------------------------------------
-lisa_declare_library_dependencies(lisadb		LINK_SCOPE PUBLIC	ImtCore::imtlic Qt${QT_VERSION_MAJOR}::Sql)
+lisa_declare_library_dependencies(lisadb		LINK_SCOPE PUBLIC	ImtCore::imtlic)
 
 # --- QML web-resource libraries ---------------------------------------------
 if(QT_VERSION_MAJOR EQUAL 6)
@@ -72,23 +72,21 @@ lisa_declare_library_dependencies(LisaLoc		LINK_SCOPE PUBLIC	Acf::icomp)
 
 
 # --- Packages ---------------------------------------------------------------
-lisa_declare_library_dependencies(LisaDbPck	LINK_SCOPE PRIVATE	lisadb ImtCore::imtdb)
+lisa_declare_library_dependencies(LisaDbPck	LINK_SCOPE PRIVATE	lisadb)
 
 # --- Plug-ins ---------------------------------------------------------------
 lisa_declare_library_dependencies(LisaSettingsPlugin	LINK_SCOPE PRIVATE
-	ImtCore::imtserverapp Acf::i2d Acf::ifile Acf::istd Acf::idoc Acf::iser
-	Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Xml)
+	ImtCore::imtserverapp Qt${QT_VERSION_MAJOR}::Xml)
 
 
 # --- Applications -----------------------------------------------------------
 # Web/desktop client.
 lisa_declare_library_dependencies(LisaClient	LINK_SCOPE PRIVATE
-	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc Acf::iqtgui
+	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc
 	ImtCore::imtserverapp ImtCore::imtauthdb ImtCore::imtdeskdb ImtCore::imtchatdb ImtCore::imtlicgql
 	ImtCore::imtauthgql ImtCore::imt2dsdl
 	ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
-	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
-	Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
+	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml)
 
 # LisaServer and its LisaServerTest twin share the same closure.
 foreach(_lisa_server LisaServer LisaServerTest)
@@ -98,13 +96,27 @@ foreach(_lisa_server LisaServer LisaServerTest)
 		ImtCore::imtrepo ImtCore::imtlog ImtCore::imt2dsdl ImtCore::imtchatdb ImtCore::imtdeskdb
 		ImtCore::imtdeskgql ImtCore::imtchatgql
 		ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
-		ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
-		Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets Qt${QT_VERSION_MAJOR}::Sql)
+		ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml)
 endforeach()
 
 lisa_declare_library_dependencies(LisaServerConfigurator	LINK_SCOPE PRIVATE
-	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc Acf::iqtgui
+	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc
 	ImtCore::imtserverapp ImtCore::imtauthdb ImtCore::imtdeskdb ImtCore::imtchatdb ImtCore::imt2dsdl
 	ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
-	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
-	Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets Qt${QT_VERSION_MAJOR}::Sql)
+	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml)
+
+# --- Legacy single-binary / tooling targets (not part of the default in-tree build) ----------
+# QML single-binary client. imtserverapp pulls the imtbase/imtgui/imtqml/imtdb/imtrest/... core.
+lisa_declare_library_dependencies(LisaQmlExe	LINK_SCOPE PRIVATE
+	lisaqml LisaLoc ImtCore::ImtCoreLoc
+	ImtCore::imtserverapp ImtCore::imtlicdb ImtCore::imtrepo ImtCore::imtlicgql ImtCore::imtauthgql
+	ImtCore::imtauthdb ImtCore::imtlog
+	ImtCore::imtcontrolsqml ImtCore::imtguiqml ImtCore::imtstylecontrolsqml ImtCore::imtdocguiqml
+	ImtCore::imtguigqlqml ImtCore::imtauthguiqml ImtCore::imtlicguiqml ImtCore::imtcolguiqml)
+
+lisa_declare_library_dependencies(LisaConverter	LINK_SCOPE PRIVATE
+	lisadb
+	ImtCore::imtauthgui ImtCore::imtlicdb ImtCore::imtlicgui)
+
+lisa_declare_library_dependencies(LisaSdk	LINK_SCOPE PUBLIC
+	ImtCore::imtzip ImtCore::imtlic ImtCore::imtcrypto)
