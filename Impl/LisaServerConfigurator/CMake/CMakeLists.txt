@@ -30,4 +30,20 @@ if(DEFINED WEB_COMPILE AND WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
+if(TARGET ${PROJECT_NAME})
+	target_link_libraries(${PROJECT_NAME} PRIVATE
+		lisaqml
+		LisaLoc
+		ImtCore::ImtCoreLoc
+		ImtCore::imtserverapp
+		ImtCore::imtcontrolsqml
+		ImtCore::imtstylecontrolsqml
+		ImtCore::imtguiqml
+		ImtCore::imtguigqlqml
+		ImtCore::imtauthguiqml
+		ImtCore::imtcolguiqml
+		ImtCore::imtdocguiqml
+		ImtCore::imtlicguiqml)
+endif()
+
 

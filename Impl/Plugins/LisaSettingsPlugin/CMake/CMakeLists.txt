@@ -14,4 +14,8 @@ include(${IMTCOREDIR}/Config/CMake/ImtCore.cmake)
 include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 
 
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	ImtCore::imtserverapp
+	Qt${QT_VERSION_MAJOR}::Xml)
+
 

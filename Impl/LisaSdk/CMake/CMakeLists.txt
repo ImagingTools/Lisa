@@ -14,4 +14,10 @@ include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 ADD_DEFINITIONS(-DUNICODE)
 ADD_DEFINITIONS(-D_UNICODE)
 
+if(TARGET ${PROJECT_NAME})
+	target_link_libraries(${PROJECT_NAME} PUBLIC
+		ImtCore::imtzip
+		ImtCore::imtlic)
+endif()
+
 

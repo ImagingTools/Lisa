@@ -46,3 +46,23 @@ endif()
 
 include(${IACFDIR}/Config/CMake/zlib.cmake)
 
+if(TARGET ${PROJECT_NAME})
+	target_link_libraries(${PROJECT_NAME} PRIVATE
+		lisaqml
+		LisaLoc
+		ImtCore::ImtCoreLoc
+		AcfSln::iservice
+		ImtCore::imtserverapp
+		ImtCore::imtlicdb
+		ImtCore::imtauthdb
+		ImtCore::imtauthgql
+		ImtCore::imtlicgql
+		ImtCore::imtrepo
+		ImtCore::imtlog
+		ImtCore::imtchatdb
+		ImtCore::imtdeskdb
+		ImtCore::imtdeskgql
+		ImtCore::imtchatgql
+		)
+endif()
+
