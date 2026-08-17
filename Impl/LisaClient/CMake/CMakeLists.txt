@@ -34,14 +34,6 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 message(VERBOSE "PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 
-target_link_libraries(${PROJECT_NAME} lisaqml)
-target_link_libraries(${PROJECT_NAME} LisaLoc ImtCoreLoc AcfLoc AcfSlnLoc)
-target_link_libraries(${PROJECT_NAME} imtgui imtauth imtauthdb imtdeskdb imtchatdb imtauthgui imtlic imtlicgui imtrest imtstyle imtqml imtdb imtcom imtdocguiqml imtauthguiqml imtlicguiqml imtguiqml imtlicsdl imtauthsdl imtappsdl imtcolorsdl imt2dsdl)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtservergql imtcol imtguigqlqml imtcolguiqml imtstylecontrolsqml imtcontrolsqml)
-target_link_libraries(${PROJECT_NAME} imtbase imtbasesdl imtserverapp imtservergql imtapp)
-target_link_libraries(${PROJECT_NAME} iqtgui)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
-
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${LISADIR}/Include/lisaqml/Qml")
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml")

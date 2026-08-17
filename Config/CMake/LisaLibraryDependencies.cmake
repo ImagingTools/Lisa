@@ -1,12 +1,7 @@
 # ---------------------------------------------------------------------------
 # Clean, target-based inter-library dependency graph for Lisa.
 #
-# This mirrors the approach introduced for the ACF foundation (Acf) in
-# Config/CMake/AcfLibraryDependencies.cmake, for AcfSln in
-# Config/CMake/AcfSlnLibraryDependencies.cmake, for IAcf in
-# Config/CMake/IAcfLibraryDependencies.cmake, for ImtCore in
-# Config/CMake/ImtCoreLibraryDependencies.cmake and for IotPlatform in
-# Config/CMake/IotPlatformLibraryDependencies.cmake: instead of relying on the
+# Instead of relying on the
 # final executable/package link to resolve symbols and on a hand-tuned build
 # order (the inline target_link_libraries() spread across the per-library CMake
 # files), the dependencies between the Lisa libraries - and their dependencies
@@ -74,3 +69,42 @@ endif()
 
 # --- Arxc-generated static libraries ----------------------------------------
 lisa_declare_library_dependencies(LisaLoc		LINK_SCOPE PUBLIC	Acf::icomp)
+
+
+# --- Packages ---------------------------------------------------------------
+lisa_declare_library_dependencies(LisaDbPck	LINK_SCOPE PRIVATE	lisadb ImtCore::imtdb)
+
+# --- Plug-ins ---------------------------------------------------------------
+lisa_declare_library_dependencies(LisaSettingsPlugin	LINK_SCOPE PRIVATE
+	ImtCore::imtserverapp Acf::i2d Acf::ifile Acf::istd Acf::idoc Acf::iser
+	Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Sql Qt${QT_VERSION_MAJOR}::Xml)
+
+
+# --- Applications -----------------------------------------------------------
+# Web/desktop client.
+lisa_declare_library_dependencies(LisaClient	LINK_SCOPE PRIVATE
+	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc Acf::iqtgui
+	ImtCore::imtserverapp ImtCore::imtauthdb ImtCore::imtdeskdb ImtCore::imtchatdb ImtCore::imtlicgql
+	ImtCore::imtauthgql ImtCore::imt2dsdl
+	ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
+	Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
+
+# LisaServer and its LisaServerTest twin share the same closure.
+foreach(_lisa_server LisaServer LisaServerTest)
+	lisa_declare_library_dependencies(${_lisa_server}	LINK_SCOPE PRIVATE
+		lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc AcfSln::iservice
+		ImtCore::imtserverapp ImtCore::imtlicdb ImtCore::imtauthdb ImtCore::imtauthgql ImtCore::imtlicgql
+		ImtCore::imtrepo ImtCore::imtlog ImtCore::imt2dsdl ImtCore::imtchatdb ImtCore::imtdeskdb
+		ImtCore::imtdeskgql ImtCore::imtchatgql
+		ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
+		ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
+		Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets Qt${QT_VERSION_MAJOR}::Sql)
+endforeach()
+
+lisa_declare_library_dependencies(LisaServerConfigurator	LINK_SCOPE PRIVATE
+	lisaqml LisaLoc ImtCore::ImtCoreLoc Acf::AcfLoc AcfSln::AcfSlnLoc Acf::iqtgui
+	ImtCore::imtserverapp ImtCore::imtauthdb ImtCore::imtdeskdb ImtCore::imtchatdb ImtCore::imt2dsdl
+	ImtCore::imtcontrolsqml ImtCore::imtstylecontrolsqml ImtCore::imtguiqml ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml ImtCore::imtcolguiqml ImtCore::imtdocguiqml ImtCore::imtlicguiqml
+	Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets Qt${QT_VERSION_MAJOR}::Sql)
