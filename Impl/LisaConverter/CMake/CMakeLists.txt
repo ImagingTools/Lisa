@@ -32,11 +32,12 @@ if(WIN32)
 	windeploy(${PROJECT_NAME} "" "${files}")
 endif()
 
-if(TARGET ${PROJECT_NAME})
-	target_link_libraries(${PROJECT_NAME} PRIVATE
-		lisadb
-		ImtCore::imtauthgui
-		ImtCore::imtlicdb
-		ImtCore::imtlicgui)
-endif()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisadb
+	ImtCore::imtauthgui
+	ImtCore::imtlicdb
+	ImtCore::imtlicgui
+)
+
 

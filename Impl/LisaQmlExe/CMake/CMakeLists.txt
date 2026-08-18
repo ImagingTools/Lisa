@@ -51,24 +51,23 @@ else()
 	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME})
 endif()
 
-if(TARGET ${PROJECT_NAME})
-	target_link_libraries(${PROJECT_NAME} PRIVATE
-		lisaqml
-		LisaLoc
-		ImtCore::ImtCoreLoc
-		ImtCore::imtserverapp
-		ImtCore::imtlicdb
-		ImtCore::imtrepo
-		ImtCore::imtlicgql
-		ImtCore::imtauthgql
-		ImtCore::imtauthdb
-		ImtCore::imtlog
-		ImtCore::imtcontrolsqml
-		ImtCore::imtguiqml
-		ImtCore::imtstylecontrolsqml
-		ImtCore::imtdocguiqml
-		ImtCore::imtguigqlqml
-		ImtCore::imtauthguiqml
-		ImtCore::imtlicguiqml
-		ImtCore::imtcolguiqml)
-endif()
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisaqml
+	LisaLoc
+	ImtCore::ImtCoreLoc
+	ImtCore::imtlicdb
+	ImtCore::imtrepo
+	ImtCore::imtlicgql
+	ImtCore::imtauthgql
+	ImtCore::imtauthdb
+	ImtCore::imtlog
+	ImtCore::imtcontrolsqml
+	ImtCore::imtguiqml
+	ImtCore::imtstylecontrolsqml
+	ImtCore::imtdocguiqml
+	ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml
+	ImtCore::imtlicguiqml
+	ImtCore::imtcolguiqml
+)

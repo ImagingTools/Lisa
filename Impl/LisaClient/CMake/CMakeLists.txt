@@ -43,20 +43,23 @@ if(WIN32)
 	unset(listOptions)
 endif()
 
-if(TARGET ${PROJECT_NAME})
-	target_link_libraries(${PROJECT_NAME} PRIVATE
-		lisaqml
-		LisaLoc
-		ImtCore::ImtCoreLoc
-		ImtCore::imtserverapp
-		ImtCore::imtlicgql
-		ImtCore::imtcontrolsqml
-		ImtCore::imtstylecontrolsqml
-		ImtCore::imtguiqml
-		ImtCore::imtguigqlqml
-		ImtCore::imtauthguiqml
-		ImtCore::imtcolguiqml
-		ImtCore::imtdocguiqml
-		ImtCore::imtlicguiqml)
-endif()
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisaqml
+	LisaLoc
+	ImtCore::ImtCoreLoc
+	ImtCore::imtauthdb
+	ImtCore::imtdeskdb
+	ImtCore::imtchatdb
+	ImtCore::imtlicgql
+	ImtCore::imtauthgql
+	ImtCore::imt2dsdl
+	ImtCore::imtcontrolsqml
+	ImtCore::imtstylecontrolsqml
+	ImtCore::imtguiqml
+	ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml
+	ImtCore::imtcolguiqml
+	ImtCore::imtdocguiqml
+	ImtCore::imtlicguiqml
+	)
 
