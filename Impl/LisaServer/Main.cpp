@@ -2,6 +2,7 @@
 #include <imtcore/CApplicationRunner.h>
 #include <imtcore/CImtCoreAuthorizableServerInitializer.h>
 #include <imtcore/CImtCoreDeskInitializer.h>
+#include <imtcore/CImtCoreLicInitializer.h>
 #include <imtlic/IProductInfo.h>
 
 // Lisa includes
@@ -17,8 +18,13 @@ static void InitializeLisaServerResources()
 	Q_INIT_RESOURCE(lisaqml);
 	Q_INIT_RESOURCE(LisaLoc);
 
-	InitializeImtCoreAuthorizableServer();
+	Q_INIT_RESOURCE(imtstylecontrolsqml);
+
 	ImtCoreInitDeskSqlResources();
+	InitializeImtCoreAuthorizableServer();
+	ImtCoreInitStyleResources();
+	ImtCoreInitAuthStyleResources();
+	ImtCoreInitLicStyleResources();
 }
 
 
