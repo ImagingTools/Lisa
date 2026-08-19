@@ -14,7 +14,7 @@ include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 ADD_DEFINITIONS(-DUNICODE)
 ADD_DEFINITIONS(-D_UNICODE)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC
+target_link_libraries(${PROJECT_NAME} ${ACF_LIBRARY_LINK_SCOPE}
 	ImtCore::imtzip
 	ImtCore::imtlic
 	ImtCore::imtcrypto
