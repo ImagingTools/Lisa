@@ -18,16 +18,16 @@ endif()
 
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
-include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
-include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
-include(${ACFDIR}/Config/CMake/AcfStd.cmake)
-
-if(DEFINED WEB_COMPILE AND WEB_COMPILE)
+if(WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
+endif()
+
+if(USE_NEW_WEB)
+	add_compile_definitions(USE_NEW_WEB)
 endif()
 
 if(WIN32)
