@@ -10,9 +10,6 @@ include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 set(TARGET_EXT ".plugin")
 
 include(${ACFDIR}/Config/CMake/SharedLibraryConfig.cmake)
-include(${IMTCOREDIR}/Config/CMake/ImtCore.cmake)
-include(${ACFDIR}/Config/CMake/AcfQt.cmake)
-
 
 target_link_libraries(${PROJECT_NAME} ${ACF_PACKAGE_LINK_SCOPE}
 	ImtCore::imtserverapp

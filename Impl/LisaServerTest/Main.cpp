@@ -12,8 +12,13 @@
 static void InitializeLisaServerTestResources()
 {
 #ifdef WEB_COMPILE
-	Q_INIT_RESOURCE(lisaqmlWeb);
+	#ifdef USE_NEW_WEB
+		Q_INIT_RESOURCE(lisaWeb);
+	#else
+		Q_INIT_RESOURCE(lisaqmlWeb);
+	#endif
 #endif
+
 	Q_INIT_RESOURCE(lisaqml);
 	Q_INIT_RESOURCE(LisaLoc);
 

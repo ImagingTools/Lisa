@@ -21,7 +21,6 @@ getImtCoreQmlWebDirs(webdirs "${buildwebdir}")
 option(USE_NEW_WEB "Use new web compilation (jq_compile_web)" OFF)
 
 if(DEFINED WEB_COMPILE AND WEB_COMPILE)
-	add_compile_definitions(WEB_COMPILE)
 	set(resname "lisa")
 	if(USE_NEW_WEB)
 		set(inputjs "${LISADIR}/Include/lisaqml/lisa.json")
