@@ -35,7 +35,7 @@ endif()
 
 # Enable modern target-based architecture: find_package(ImtCore) provides ImtCore::
 # imported targets (and, transitively, Acf::/AcfSln::/IAcf::) with transitive include
-# dirs and link deps. Legacy global include_directories()/link_directories() are skipped.
+# dirs and link deps. Global include_directories()/link_directories() are skipped.
 set(ACF_MODERN_CMAKE ON)
 
 # Collect Lisa libraries in their own export set. Read by acf_register_library() (from Acf).
@@ -71,17 +71,18 @@ acf_define_link_scope_var(ACF_LIBRARY_LINK_SCOPE     "PUBLIC"  "Link scope used 
 acf_define_link_scope_var(ACF_PACKAGE_LINK_SCOPE     "PRIVATE" "Link scope used by package (Pck) libraries linking their dependencies")
 acf_define_link_scope_var(ACF_APPLICATION_LINK_SCOPE "PRIVATE" "Link scope used by executables linking their dependencies")
 
-# Legacy ACF compatibility: if helper CMake files still use plain
-# target_link_libraries() signatures, force plain mode in this repository too.
-set(LISA_FORCE_PLAIN_TLL "AUTO" CACHE STRING "Force plain target_link_libraries signatures: AUTO|ON|OFF")
-set_property(CACHE LISA_FORCE_PLAIN_TLL PROPERTY STRINGS "AUTO" "ON" "OFF")
-
-
-if(_lisa_force_plain_tll)
-	set(ACF_QT_MODULE_LINK_SCOPE "" CACHE STRING "Link scope used for Qt module dependencies" FORCE)
-	set(ACF_LIBRARY_LINK_SCOPE "" CACHE STRING "Link scope used by Lisa inter-library dependencies" FORCE)
-	set(ACF_PACKAGE_LINK_SCOPE "" CACHE STRING "Link scope used by package (Pck) libraries linking their dependencies" FORCE)
-	set(ACF_APPLICATION_LINK_SCOPE "" CACHE STRING "Link scope used by executables linking their dependencies" FORCE)
+# Enforce modern keyword link scopes even if an old cache contains empty values.
+if("${ACF_QT_MODULE_LINK_SCOPE}" STREQUAL "")
+	set(ACF_QT_MODULE_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used for Qt module dependencies" FORCE)
+endif()
+if("${ACF_LIBRARY_LINK_SCOPE}" STREQUAL "")
+	set(ACF_LIBRARY_LINK_SCOPE "PUBLIC" CACHE STRING "Link scope used by Lisa inter-library dependencies" FORCE)
+endif()
+if("${ACF_PACKAGE_LINK_SCOPE}" STREQUAL "")
+	set(ACF_PACKAGE_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used by package (Pck) libraries linking their dependencies" FORCE)
+endif()
+if("${ACF_APPLICATION_LINK_SCOPE}" STREQUAL "")
+	set(ACF_APPLICATION_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used by executables linking their dependencies" FORCE)
 endif()
 
 # Include
