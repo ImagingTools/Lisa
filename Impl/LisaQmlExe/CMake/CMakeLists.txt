@@ -52,7 +52,7 @@ else()
 endif()
 
 
-target_link_libraries(${PROJECT_NAME} ${ACF_APPLICATION_LINK_SCOPE}
+target_link_libraries(${PROJECT_NAME} PRIVATE
 	lisaqml
 	LisaLoc
 	ImtCore::ImtCoreLoc

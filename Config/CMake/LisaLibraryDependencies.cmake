@@ -14,9 +14,8 @@
 # directories), so a single ImtCore:: dependency transitively provides the full
 # ImtCore, Acf, AcfSln and IAcf header search paths to the consuming library.
 #
-# Lisa uses keyword target_link_libraries() signatures (PUBLIC/PRIVATE/INTERFACE)
-# consistently via ACF_LIBRARY_LINK_SCOPE. For static libraries the dependency
-# still propagates transitively to consumers.
+# Lisa uses explicit PUBLIC/PRIVATE/INTERFACE link scopes. For static libraries
+# the dependency still propagates transitively to consumers.
 #
 # Dependencies are declared *minimally*: each library lists only its direct
 # dependencies; transitive dependencies propagate automatically through the graph.

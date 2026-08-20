@@ -11,7 +11,7 @@ set(TARGET_EXT ".plugin")
 
 include(${ACFDIR}/Config/CMake/SharedLibraryConfig.cmake)
 
-target_link_libraries(${PROJECT_NAME} ${ACF_PACKAGE_LINK_SCOPE}
+target_link_libraries(${PROJECT_NAME} PRIVATE
 	ImtCore::imtserverapp
 	Qt${QT_VERSION_MAJOR}::Xml)
 
