@@ -64,27 +64,6 @@ set(AUX_INCLUDE_DIR "${BUILDDIR}/Lisa/AuxInclude/${TARGETNAME}/GeneratedFiles")
 include_directories("${AUX_INCLUDE_DIR}/../")
 include_directories("${AUX_INCLUDE_DIR}/")
 
-# Link scopes for the modern keyword target_link_libraries() signature. Inter-library
-# dependencies are declared centrally in LisaLibraryDependencies.cmake.
-acf_define_link_scope_var(ACF_QT_MODULE_LINK_SCOPE  "PRIVATE" "Link scope used for Qt module dependencies")
-acf_define_link_scope_var(ACF_LIBRARY_LINK_SCOPE     "PUBLIC"  "Link scope used by Lisa inter-library dependencies")
-acf_define_link_scope_var(ACF_PACKAGE_LINK_SCOPE     "PRIVATE" "Link scope used by package (Pck) libraries linking their dependencies")
-acf_define_link_scope_var(ACF_APPLICATION_LINK_SCOPE "PRIVATE" "Link scope used by executables linking their dependencies")
-
-# Enforce modern keyword link scopes even if an old cache contains empty values.
-if("${ACF_QT_MODULE_LINK_SCOPE}" STREQUAL "")
-	set(ACF_QT_MODULE_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used for Qt module dependencies" FORCE)
-endif()
-if("${ACF_LIBRARY_LINK_SCOPE}" STREQUAL "")
-	set(ACF_LIBRARY_LINK_SCOPE "PUBLIC" CACHE STRING "Link scope used by Lisa inter-library dependencies" FORCE)
-endif()
-if("${ACF_PACKAGE_LINK_SCOPE}" STREQUAL "")
-	set(ACF_PACKAGE_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used by package (Pck) libraries linking their dependencies" FORCE)
-endif()
-if("${ACF_APPLICATION_LINK_SCOPE}" STREQUAL "")
-	set(ACF_APPLICATION_LINK_SCOPE "PRIVATE" CACHE STRING "Link scope used by executables linking their dependencies" FORCE)
-endif()
-
 # Include
 
 add_subdirectory("${INCLUDE_DIR}/lisadb/CMake" "${AUX_INCLUDE_DIR}/lisadb")
