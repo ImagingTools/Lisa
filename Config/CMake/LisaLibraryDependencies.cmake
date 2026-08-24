@@ -26,12 +26,12 @@
 # ---------------------------------------------------------------------------
 
 # --- Libraries --------------------------------------------------------------
-acf_declare_target_dependencies(lisadb		LINK_SCOPE PUBLIC	ImtCore::imtlic)
+declare_target_dependencies(lisadb		LINK_SCOPE PUBLIC	ImtCore::imtlic)
 
 # --- QML web-resource libraries ---------------------------------------------
 if(QT_VERSION_MAJOR EQUAL 6)
-	acf_declare_target_dependencies(lisaqml	LINK_SCOPE PUBLIC	Qt${QT_VERSION_MAJOR}::Core5Compat)
+	declare_target_dependencies(lisaqml	LINK_SCOPE PUBLIC	Qt${QT_VERSION_MAJOR}::Core5Compat)
 endif()
 
 # --- Arxc-generated static libraries ----------------------------------------
-acf_declare_target_dependencies(LisaLoc		LINK_SCOPE PUBLIC	Acf::icomp)
+declare_target_dependencies(LisaLoc		LINK_SCOPE PUBLIC	Acf::icomp)
