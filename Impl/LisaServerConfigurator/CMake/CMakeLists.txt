@@ -19,23 +19,36 @@ endif()
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
-include(${ACFDIR}/Config/CMake/AcfQt.cmake)
-include(${ACFDIR}/Config/CMake/AcfStd.cmake)
-include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
-if(DEFINED WEB_COMPILE AND WEB_COMPILE)
+
+if(WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
-target_link_libraries(${PROJECT_NAME} imtrest imtgui imtqml imtguiqml imtguigql imtauth imtauthdb imtdeskdb imtchatdb imtdb imtfile imtservice imtcom imtauthsdl imtappsdl imtcolorsdl imtgql imt2dsdl)
-target_link_libraries(${PROJECT_NAME} imtstylecontrolsqml imtcontrolsqml imtguigqlqml imtauthguiqml imtcolguiqml imtdocguiqml imtlicguiqml imtauthgui imtstyle imtlicgui)
-target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc AcfLoc AcfSlnLoc)
-target_link_libraries(${PROJECT_NAME} imtbase imtbasesdl imtserverapp imtservergql imtapp)
-target_link_libraries(${PROJECT_NAME} iqtgui)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
+if(USE_NEW_WEB)
+	add_compile_definitions(USE_NEW_WEB)
+endif()
+
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisaqml
+	LisaLoc
+	ImtCore::ImtCoreLoc
+	ImtCore::imtauthdb
+	ImtCore::imtdeskdb
+	ImtCore::imtchatdb
+	ImtCore::imt2dsdl
+	ImtCore::imtcontrolsqml
+	ImtCore::imtstylecontrolsqml
+	ImtCore::imtguiqml
+	ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml
+	ImtCore::imtcolguiqml
+	ImtCore::imtdocguiqml
+	ImtCore::imtlicguiqml
+)
 
 

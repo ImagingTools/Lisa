@@ -36,17 +36,6 @@ if(DEFINED WEB_COMPILE AND WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
 endif()
 
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrest imtrepo imtstyle imtqml imtdb imtfile imtcom imtlicsdl)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtapp imtservice imtlog)
-target_link_libraries(${PROJECT_NAME} imtcontrolsqml imtguiqml imtstylecontrolsqml imtdocguiqml imtguigqlqml imtauthguiqml imtlicguiqml imtcolguiqml)
-target_link_libraries(${PROJECT_NAME} lisaqml ImtCoreLoc LisaLoc imtstylecontrolsqml)
-target_link_libraries(${PROJECT_NAME} iqtgui)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
-
-
-# target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::WebView)
-
 
 if(WIN32)
 	list(APPEND listOptions "--qmldir=${IMTCOREDIR}/Qml")
@@ -61,3 +50,24 @@ if(APPLE)
 else()
 	file(COPY ${PROJECT_SOURCE_DIR}/../../../Build/Migrations DESTINATION ${PROJECT_SOURCE_DIR}/../../../Bin/${CMAKE_BUILD_TYPE}_${TARGETNAME})
 endif()
+
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisaqml
+	LisaLoc
+	ImtCore::ImtCoreLoc
+	ImtCore::imtlicdb
+	ImtCore::imtrepo
+	ImtCore::imtlicgql
+	ImtCore::imtauthgql
+	ImtCore::imtauthdb
+	ImtCore::imtlog
+	ImtCore::imtcontrolsqml
+	ImtCore::imtguiqml
+	ImtCore::imtstylecontrolsqml
+	ImtCore::imtdocguiqml
+	ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml
+	ImtCore::imtlicguiqml
+	ImtCore::imtcolguiqml
+)

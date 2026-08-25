@@ -10,10 +10,14 @@ include(${IMTCOREDIR}/Config/CMake/ImtCore.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 
 
-target_link_libraries(${PROJECT_NAME} imeas iproc)
-target_link_libraries(${PROJECT_NAME} imtbase imtzip imtlic imtcrypto)
 
 ADD_DEFINITIONS(-DUNICODE)
 ADD_DEFINITIONS(-D_UNICODE)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+	ImtCore::imtzip
+	ImtCore::imtlic
+	ImtCore::imtcrypto
+)
 
 

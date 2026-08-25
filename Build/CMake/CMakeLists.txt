@@ -25,14 +25,31 @@ endif()
 if(NOT DEFINED IMTCOREDIR_BUILD)
 	set(IMTCOREDIR_BUILD "$ENV{IMTCOREDIR_BUILD}")
 endif()
+if(IMTCOREDIR_BUILD STREQUAL "")
+	set(IMTCOREDIR_BUILD ${IMTCOREDIR})
+endif()
 
 if(NOT DEFINED PUMADIR)
 	set(PUMADIR "$ENV{PUMADIR}")
 endif()
 
+# Enable modern target-based architecture: find_package(ImtCore) provides ImtCore::
+# imported targets (and, transitively, Acf::/AcfSln::/IAcf::) with transitive include
+# dirs and link deps. Global include_directories()/link_directories() are skipped.
+set(ACF_MODERN_CMAKE ON)
+
+# Collect Lisa libraries in their own export set. Read by acf_register_library() (from Acf).
+set(ACF_PACKAGE_NAME "Lisa")
+
 include(${IMTCOREDIR}/Config/CMake/ImtCoreEnv.cmake)
 include(${IMTCOREDIR}/Config/CMake/PartituraUpgrade.cmake)
 imt_core_upgrade_partitura("${CMAKE_CURRENT_LIST_DIR}/../..")
+
+# Discover the ImtCore package published by its build tree (pulls in Acf/AcfSln/IAcf).
+if(ACF_MODERN_CMAKE AND NOT TARGET ImtCore::imtbase)
+	set(ImtCore_DIR "${IMTCOREDIR_BUILD}/Lib/${CMAKE_BUILD_TYPE}_${TARGETNAME}/cmake" CACHE PATH "Path to the ImtCore build-tree CMake package")
+	find_package(ImtCore REQUIRED GLOBAL)
+endif()
 
 if(NOT DEFINED LISADIR)
 	set(LISADIR "$ENV{LISADIR}")
@@ -46,14 +63,6 @@ set(AUX_INCLUDE_DIR "${BUILDDIR}/Lisa/AuxInclude/${TARGETNAME}/GeneratedFiles")
 
 include_directories("${AUX_INCLUDE_DIR}/../")
 include_directories("${AUX_INCLUDE_DIR}/")
-
-# Keep ACF link scopes empty: this project still uses the plain
-# target_link_libraries() signature, which must not mix with the keyword
-# signature that unified builds (AcfImtDevAll) enable via the CMake cache.
-set(ACF_QT_MODULE_LINK_SCOPE "")
-set(ACF_LIBRARY_LINK_SCOPE "")
-set(ACF_PACKAGE_LINK_SCOPE "")
-set(ACF_APPLICATION_LINK_SCOPE "")
 
 # Include
 
@@ -70,4 +79,8 @@ add_subdirectory("${IMPL_DIR}/LisaClient/CMake" "${AUX_INCLUDE_DIR}/LisaClient")
 add_subdirectory("${IMPL_DIR}/LisaServer/CMake" "${AUX_INCLUDE_DIR}/LisaServer")
 add_subdirectory("${IMPL_DIR}/LisaServerTest/CMake" "${AUX_INCLUDE_DIR}/LisaServerTest")
 add_subdirectory("${IMPL_DIR}/LisaServerConfigurator/CMake" "${AUX_INCLUDE_DIR}/LisaServerConfigurator")
+
+# Declare target-based deps so include paths/link order propagate transitively across Lisa
+# libraries and onto the underlying ImtCore::/Acf::/AcfSln::/IAcf:: libraries.
+include("${CMAKE_CURRENT_LIST_DIR}/../../Config/CMake/LisaLibraryDependencies.cmake")
 

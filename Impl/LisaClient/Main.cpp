@@ -1,23 +1,39 @@
 // ImtCore includes
-#include <imtbase/Init.h>
+#include <imtcore/CApplicationRunner.h>
+#include <imtcore/CImtCoreAuthInitializer.h>
+#include <imtcore/CImtCoreBaseInitializer.h>
+#include <imtcore/CImtCoreLicInitializer.h>
+#include <imtcore/CImtCoreLocalizationInitializer.h>
+#include <imtcore/CImtCoreStyleInitializer.h>
 
 // Lisa includes
 #include <GeneratedFiles/LisaClient/CLisaClient.h>
-#include <GeneratedFiles/imtlicsdl/SDL/1.0/CPP/Features.h>
 
 
-int main(int argc, char *argv[])
+static void InitializeLisaClientResources()
 {
 	Q_INIT_RESOURCE(lisaqml);
 
-	Q_INIT_RESOURCE(imtlicguiqml);
-	Q_INIT_RESOURCE(imtlicguiTheme);
+	ImtCoreInitLocalizationResources();
+	ImtCoreInitBaseResources();
 
-	Q_INIT_RESOURCE(imtlicFeaturesSdl);
-	Q_INIT_RESOURCE(imtlicProductsSdl);
-	Q_INIT_RESOURCE(imtlicLicensesSdl);
+	ImtCoreInitStyleResources();
+	ImtCoreInitAuthStyleResources();
+	ImtCoreInitLicStyleResources();
 
-	return Run<CLisaClient, DefaultImtCoreQmlInitializer>(argc, argv);
+	ImtCoreInitQmlApplicationCoreResources();
+	ImtCoreInitQmlDocumentManagementResources();
+	ImtCoreInitAuthQmlResources();
+	ImtCoreInitLicQmlResources();
+
+	InitializeImtCoreStyle();
 }
 
 
+int main(int argc, char* argv[])
+{
+	InitializeLisaClientResources();
+
+	CLisaClient instance;
+	return imtcore::CApplicationRunner::Run(argc, argv, instance);
+}

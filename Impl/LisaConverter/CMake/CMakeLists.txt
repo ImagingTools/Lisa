@@ -23,9 +23,6 @@ include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
 message(VERBOSE "PROJECT_BINARY_DIR ${IMTCOREDIR}/Bin/web")
 
-target_link_libraries(${PROJECT_NAME} imtbase imtgui imtauth imtauthgui imtlic imtlicdb imtlicgui imtqml imtdb)
-target_link_libraries(${PROJECT_NAME} lisadb)
-
 include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
 include(${ACFDIR}/Config/CMake/AcfStd.cmake)
 
@@ -34,4 +31,13 @@ if(WIN32)
 
 	windeploy(${PROJECT_NAME} "" "${files}")
 endif()
+
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisadb
+	ImtCore::imtauthgui
+	ImtCore::imtlicdb
+	ImtCore::imtlicgui
+)
+
 

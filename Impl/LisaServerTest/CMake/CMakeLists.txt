@@ -18,28 +18,16 @@ endif()
 
 include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
-include(${ACFDIR}/Config/CMake/AcfQt.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
 include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
 
-target_link_libraries(${PROJECT_NAME} lisaqml LisaLoc ImtCoreLoc AcfLoc AcfSlnLoc)
-target_link_libraries(${PROJECT_NAME} imtlicsdl imtappsdl imtauthsdl imtcolorsdl imt2dsdl)
-
-target_link_libraries(${PROJECT_NAME} imtmail imtgui imtauth imtauthgui imtlicdb imtlic imtlicgui imtrepo imtstyle imtqml imtdb imtfile imtcom imtservergql imtcol)
-target_link_libraries(${PROJECT_NAME} imtlicgql imtguigql imtclientgql imtgql imtauthgql imtauthdb imtservice imtlog)
-target_link_libraries(${PROJECT_NAME} imtstylecontrolsqml imtcontrolsqml imtguiqml imtcolguiqml imtdocguiqml imtguigqlqml imtauthguiqml imtlicguiqml)
-target_link_libraries(${PROJECT_NAME} imtserverapp imtbase imtbasesdl imtapp imtrest)
-target_link_libraries(${PROJECT_NAME} imtchat imtchatdb imtdesk imtdeskdb imtdeskgql imtchatgql imtchatsdl imtdesksdl imtdoc)
-target_link_libraries(${PROJECT_NAME} iservice)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::QuickWidgets Qt${QT_VERSION_MAJOR}::WebSockets)
-target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Sql)
-
-include(${ACFDIR}/Config/CMake/AcfStdGui.cmake)
-include(${ACFDIR}/Config/CMake/AcfStd.cmake)
-
-if(DEFINED WEB_COMPILE AND WEB_COMPILE)
+if(WEB_COMPILE)
 	add_compile_definitions(WEB_COMPILE)
+endif()
+
+if(USE_NEW_WEB)
+	add_compile_definitions(USE_NEW_WEB)
 endif()
 
 if(WIN32)
@@ -57,4 +45,30 @@ else()
 endif()
 
 include(${IACFDIR}/Config/CMake/zlib.cmake)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+	lisaqml
+	LisaLoc
+	ImtCore::ImtCoreLoc
+	AcfSln::iservice
+	ImtCore::imtlicdb
+	ImtCore::imtauthdb
+	ImtCore::imtauthgql
+	ImtCore::imtlicgql
+	ImtCore::imtrepo
+	ImtCore::imtlog
+	ImtCore::imt2dsdl
+	ImtCore::imtchatdb
+	ImtCore::imtdeskdb
+	ImtCore::imtdeskgql
+	ImtCore::imtchatgql
+	ImtCore::imtcontrolsqml
+	ImtCore::imtstylecontrolsqml
+	ImtCore::imtguiqml
+	ImtCore::imtguigqlqml
+	ImtCore::imtauthguiqml
+	ImtCore::imtcolguiqml
+	ImtCore::imtdocguiqml
+	ImtCore::imtlicguiqml
+)
 
