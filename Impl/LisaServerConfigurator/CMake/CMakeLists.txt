@@ -21,7 +21,7 @@ include(${ACFDIR}/Config/CMake/CustomBuild.cmake)
 include(${ACFDIR}/Config/CMake/ApplicationConfig.cmake)
 include(${IMTCOREDIR}/Config/CMake/OpenSSL.cmake)
 include(${IMTCOREDIR}/Config/CMake/Quazip.cmake)
-include(${ACFDIR}/Config/CMake/WindeployQt.cmake)
+include(${ACFDIR}/Config/CMake/DeployQt.cmake)
 
 
 if(WEB_COMPILE)
@@ -31,6 +31,10 @@ endif()
 if(USE_NEW_WEB)
 	add_compile_definitions(USE_NEW_WEB)
 endif()
+
+set(DEPLOY_QT_QML_DIRS "${IMTCOREDIR}/Qml")
+deploy_qt(TARGET ${PROJECT_NAME})
+unset(DEPLOY_QT_QML_DIRS)
 
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
