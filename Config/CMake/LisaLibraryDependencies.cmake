@@ -25,6 +25,13 @@
 # targets have been created.
 # ---------------------------------------------------------------------------
 
+# --- SDL generated libraries ------------------------------------------------
+# The SDL code generated into ImtCore::imtbasesdl serializes through
+# imtgql::CGqlParamObject, but ImtCore does not declare that edge, so GNU ld places
+# libimtgql.a before libimtbasesdl.a and leaves those symbols undefined
+# (mirrors AgentinoLibraryDependencies.cmake).
+declare_target_dependencies(ImtCore::imtbasesdl	LINK_SCOPE INTERFACE	ImtCore::imtgql)
+
 # --- Libraries --------------------------------------------------------------
 declare_target_dependencies(lisadb		LINK_SCOPE PUBLIC	ImtCore::imtlic)
 
