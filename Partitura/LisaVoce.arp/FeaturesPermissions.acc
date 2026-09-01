@@ -21,6 +21,14 @@
                                 <Value>PackagesRename</Value>
                                 <Value>PackageUpdate</Value>
                                 <Value>PackageAdd</Value>
+                                <Value>PackageItem</Value>
+                                <Value>PackagesInfo</Value>
+                                <Value>PackagesList</Value>
+                                <Value>PackagesMetaInfo</Value>
+                                <Value>PackagesObjectView</Value>
+                                <Value>CommandsData</Value>
+                                <Value>FeaturesDependencies</Value>
+                                <Value>FeaturesTree</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -36,7 +44,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -52,7 +60,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -68,7 +76,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -84,7 +92,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>AddFeature</Value>
+                                <Value>/FeatureManagement/EditFeature/AddFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -100,7 +108,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -116,7 +124,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ChangeFeature</Value>
+                                <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -132,7 +140,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -148,7 +156,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -164,7 +172,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -180,7 +188,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -196,7 +204,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>RemoveFeature</Value>
+                                <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -212,7 +220,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ChangeFeature</Value>
+                                <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -228,7 +236,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>AddFeature</Value>
+                                <Value>/FeatureManagement/EditFeature/AddFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
