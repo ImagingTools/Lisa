@@ -12,6 +12,7 @@
 
 static void InitializeLisaClientResources()
 {
+	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(lisaqml);
 
 	ImtCoreInitLocalizationResources();
