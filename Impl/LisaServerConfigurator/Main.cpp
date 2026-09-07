@@ -1,5 +1,6 @@
 // ImtCore includes
 #include <imtcore/CApplicationRunner.h>
+#include <imtcore/CImtCoreAuthInitializer.h>
 #include <imtcore/CImtCoreBaseInitializer.h>
 #include <imtcore/CImtCoreLocalizationInitializer.h>
 #include <imtcore/CImtCoreStyleInitializer.h>
@@ -14,12 +15,17 @@
 
 static void InitializeLisaServerConfiguratorResources()
 {
+	Q_INIT_RESOURCE(LisaLoc);
 	Q_INIT_RESOURCE(lisaqml);
 
 	ImtCoreInitLocalizationResources();
 	ImtCoreInitBaseResources();
 	ImtCoreInitStyleResources();
+	ImtCoreInitAuthStyleResources();
+
 	ImtCoreInitQmlApplicationCoreResources();
+	ImtCoreInitQmlDocumentManagementResources();
+	ImtCoreInitAuthQmlResources();
 
 	InitializeImtCoreStyle();
 }
