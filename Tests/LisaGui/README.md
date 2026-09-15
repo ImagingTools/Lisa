@@ -52,8 +52,22 @@ the one running server:
 * **phase 1** - everything except `@mutating`
 * **phase 2** - only `@mutating`, `--workers=1`
 
-The suite passes only if both do. Each phase writes its own `test-results-*`, `junit-report-*.xml` and
-`playwright-report-*` so the second cannot wipe the first's evidence.
+The suite passes only if both do.
+
+Everything a run writes goes under one directory:
+
+    test-output/
+      phase1-readonly/   artifacts/ (only for failures) + junit.xml
+      phase2-mutating/   artifacts/ + junit.xml
+
+Per PHASE because Playwright clears its output dir and truncates its junit file at the start of every
+invocation, so one shared pair would let phase 2 wipe phase 1's evidence. The HTML report is off:
+it duplicates the junit file and the diff PNGs and cost a directory per phase to say it - set
+`PLAYWRIGHT_HTML_OUTPUT_DIR` to bring it back.
+
+Read a run from `test-output/<phase>/junit.xml`. Skip reasons live there and NOT in the terminal:
+Playwright prints a bare `-` for a `test.skip()` in a hook, while the XML carries
+`<property name="skip" value="...">`.
 
 ## Workers
 

@@ -87,7 +87,12 @@ param(
     [string]$SuPassword = "1",
 
     [string]$PsqlPath = "",
-    [string]$JUnitReportPath = (Join-Path $ScriptDir "junit-report.xml"),
+    # Everything a run writes lives under ONE directory, one subfolder per phase:
+    #   test-output/phase1-readonly/{artifacts,junit.xml}
+    #   test-output/phase2-mutating/{artifacts,junit.xml}
+    # Per-PHASE because Playwright clears its output dir and truncates its junit file at the
+    # start of every invocation, so one shared pair would let phase 2 wipe phase 1's evidence.
+    [string]$OutputRoot = (Join-Path $ScriptDir "test-output"),
     [int]$StartupTimeoutSeconds = 120,
 
     [string[]]$PlaywrightArgs = @()
@@ -352,20 +357,14 @@ function Invoke-PlaywrightSuite {
         $env:CI = "true"
         $env:LISA_BASE_URL = "http://localhost:$HttpPort"
         try {
-            # Each phase gets its OWN output dir and junit file: Playwright clears
-            # its output dir and truncates the junit file at the start of every
-            # invocation, so sharing them would let phase 2 wipe phase 1's
-            # screenshots, diffs and results before anyone could look at them.
-            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $ScriptDir "test-results-phase1-readonly"
-            $env:PLAYWRIGHT_JUNIT_OUTPUT = $JUnitReportPath -replace '\.xml$', '-phase1-readonly.xml'
-            $env:PLAYWRIGHT_HTML_OUTPUT_DIR = Join-Path $ScriptDir "playwright-report-phase1-readonly"
+            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $OutputRoot "phase1-readonly/artifacts"
+            $env:PLAYWRIGHT_JUNIT_OUTPUT = Join-Path $OutputRoot "phase1-readonly/junit.xml"
             Write-Step "Playwright phase 1/2: read-only tests"
             & npx playwright test @PlaywrightArgs --grep-invert '@mutating' | Out-Host
             $phase1 = $LASTEXITCODE
 
-            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $ScriptDir "test-results-phase2-mutating"
-            $env:PLAYWRIGHT_JUNIT_OUTPUT = $JUnitReportPath -replace '\.xml$', '-phase2-mutating.xml'
-            $env:PLAYWRIGHT_HTML_OUTPUT_DIR = Join-Path $ScriptDir "playwright-report-phase2-mutating"
+            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $OutputRoot "phase2-mutating/artifacts"
+            $env:PLAYWRIGHT_JUNIT_OUTPUT = Join-Path $OutputRoot "phase2-mutating/junit.xml"
             Write-Step "Playwright phase 2/2: @mutating tests"
             # global-setup runs again on this second invocation (Playwright keeps
             # no memory across CLI runs); LISA_GUI_REUSE_AUTH tells it to skip
@@ -385,7 +384,6 @@ function Invoke-PlaywrightSuite {
             Remove-Item Env:\LISA_BASE_URL -ErrorAction SilentlyContinue
             Remove-Item Env:\PLAYWRIGHT_OUTPUT_DIR -ErrorAction SilentlyContinue
             Remove-Item Env:\PLAYWRIGHT_JUNIT_OUTPUT -ErrorAction SilentlyContinue
-            Remove-Item Env:\PLAYWRIGHT_HTML_OUTPUT_DIR -ErrorAction SilentlyContinue
         }
     }
     finally {
@@ -402,8 +400,7 @@ Write-Host "LisaServerExePath: $LisaServerExePath"
 Write-Host "PumaServerExePath: $PumaServerExePath"
 Write-Host "LisaBackupPath:    $LisaBackupPath"
 Write-Host "PumaBackupPath:    $PumaBackupPath"
-Write-Host "JUnitReportPath:   $($JUnitReportPath -replace '\.xml$', '-phase1-readonly.xml')"
-Write-Host "                   $($JUnitReportPath -replace '\.xml$', '-phase2-mutating.xml')"
+Write-Host "OutputRoot:        $OutputRoot"
 
 try {
     # Stop stale processes from a previous, possibly crashed run before touching

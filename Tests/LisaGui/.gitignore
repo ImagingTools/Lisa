@@ -1,7 +1,5 @@
 node_modules/
 .auth/
-test-results/
-test-results-phase*/
-playwright-report/
-playwright-report-phase*/
-junit-report*.xml
+# Everything a run writes: test-output/<phase>/{artifacts,junit.xml}, and test-output/artifacts for
+# an ad hoc `npx playwright test` that sets no phase of its own.
+test-output/
