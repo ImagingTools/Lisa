@@ -25,6 +25,7 @@ const { refuse } = require('../fixtures/refuse');
 // rewrote them. Reruns cannot collide on it either, because Run-CiTests.ps1 restores both databases
 // before every run.
 const RUN_ID = 'GuiTest';
+const EDIT_FIXTURE = 'RTV.3d License';
 
 function licensesPage(page) {
   return new CollectionPage(page, 'Licenses', { filters: COLLECTION_FILTERS, maskColumns: MASK_COLUMNS });
@@ -40,15 +41,12 @@ async function openNewEditor(page) {
   return new LicenseEditorPage(page);
 }
 
-async function openEditEditor(page, search) {
+async function openEditEditor(page, search = EDIT_FIXTURE) {
   const licenses = licensesPage(page);
   await licenses.reload();
   if (!(await licenses.isAvailable())) refuse('the Licenses page is not in the menu');
   await licenses.open();
-  if (search) await licenses.search(search);
-  // Sorted by "added" before picking a row: the default view is "Last Modified" descending
-  // (LicenseCollectionView.qml), so row 0 moves the moment any @mutating test saves a license.
-  else await licenses.table.sortBy('added');
+  await licenses.search(search);
   // 68 licences come out of the fixture backup, so an empty table is a broken restore, not a
   // collection that legitimately has nothing in it.
   if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');

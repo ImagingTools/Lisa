@@ -340,6 +340,9 @@ function Invoke-PlaywrightSuite {
     Install-PlaywrightIfNeeded
     Sync-GuiTestKit
 
+    & node (Join-Path $ScriptDir "node_modules\imtcore-gui-testkit\scripts\prepare-output.js") $OutputRoot | Out-Host
+    if ($LASTEXITCODE -ne 0) { throw "Failed to prepare GUI test output (exit $LASTEXITCODE)" }
+
     Write-Step "Running Playwright suite"
     Push-Location $ScriptDir
     # Same stderr/NativeCommandError pitfall as psql and pg_restore above, and it bites here too: node
@@ -356,15 +359,14 @@ function Invoke-PlaywrightSuite {
         # forbidOnly - matching how this suite is meant to run unattended.
         $env:CI = "true"
         $env:LISA_BASE_URL = "http://localhost:$HttpPort"
+        $env:PLAYWRIGHT_OUTPUT_ROOT = $OutputRoot
         try {
-            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $OutputRoot "phase1-readonly/artifacts"
-            $env:PLAYWRIGHT_JUNIT_OUTPUT = Join-Path $OutputRoot "phase1-readonly/junit.xml"
+            $env:PLAYWRIGHT_OUTPUT_PHASE = "phase1-readonly"
             Write-Step "Playwright phase 1/2: read-only tests"
             & npx playwright test @PlaywrightArgs --grep-invert '@mutating' | Out-Host
             $phase1 = $LASTEXITCODE
 
-            $env:PLAYWRIGHT_OUTPUT_DIR = Join-Path $OutputRoot "phase2-mutating/artifacts"
-            $env:PLAYWRIGHT_JUNIT_OUTPUT = Join-Path $OutputRoot "phase2-mutating/junit.xml"
+            $env:PLAYWRIGHT_OUTPUT_PHASE = "phase2-mutating"
             Write-Step "Playwright phase 2/2: @mutating tests"
             # global-setup runs again on this second invocation (Playwright keeps
             # no memory across CLI runs); LISA_GUI_REUSE_AUTH tells it to skip
@@ -382,8 +384,8 @@ function Invoke-PlaywrightSuite {
         finally {
             Remove-Item Env:\CI -ErrorAction SilentlyContinue
             Remove-Item Env:\LISA_BASE_URL -ErrorAction SilentlyContinue
-            Remove-Item Env:\PLAYWRIGHT_OUTPUT_DIR -ErrorAction SilentlyContinue
-            Remove-Item Env:\PLAYWRIGHT_JUNIT_OUTPUT -ErrorAction SilentlyContinue
+            Remove-Item Env:\PLAYWRIGHT_OUTPUT_ROOT -ErrorAction SilentlyContinue
+            Remove-Item Env:\PLAYWRIGHT_OUTPUT_PHASE -ErrorAction SilentlyContinue
         }
     }
     finally {
