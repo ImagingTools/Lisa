@@ -8,6 +8,7 @@
 const fixtures = require('../fixtures/test');
 const { defineCollectionSpec } = require('imtcore-gui-testkit/specs/collectionSpec');
 const { COLLECTION_FILTERS, MASK_COLUMNS } = require('../pages');
+const { refuse } = require('../fixtures/refuse');
 
 const { test, expect } = fixtures;
 
@@ -60,7 +61,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     // claim here is "clearing brings the whole collection back", and a count says exactly that.
     ctx.test('clearing every filter brings the whole collection back', async () => {
       const licenses = ctx.collection;
-      test.skip(!(await licenses.table.hasRows()), 'this collection is empty');
+      if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');
 
       // Asserted on the CONTENT of the rows, not on how many there are and not on a picture.
       //
@@ -92,7 +93,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     // actually means is "the column comes out ordered", so that is what it checks, in both directions.
     ctx.test('sort by product id orders the column', async () => {
       const collection = ctx.collection;
-      test.skip(!(await collection.table.hasRows()), 'this collection is empty');
+      if (!(await collection.table.hasRows())) refuse('the Licenses collection came back empty');
 
       // Asserted over the rows that are ON SCREEN, and only in ways that hold for them.
       //
@@ -118,7 +119,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
 
     ctx.test('selecting a row enables Edit', async () => {
       const licenses = ctx.collection;
-      test.skip(!(await licenses.table.hasRows()), 'the license collection is empty');
+      if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');
       await licenses.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'EditButton'], 'Edit should be offered for a selected row');
       await ctx.gui.checkScreenshot(ctx.page, 'licenses-row-selected', await licenses.masks());

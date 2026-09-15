@@ -7,8 +7,14 @@
 //
 // Each subpage is gated independently of the others, so whether one is reachable is asked of the
 // sidebar the client rendered rather than assumed.
+//
+// READ-ONLY, deliberately: nothing here saves. Roles, users and groups live in the PUMA database,
+// which is shared with every other app on this machine and is not Lisa's to write into - and a saved
+// role or group is also state every other worker of this suite then sees, since they are all signed
+// in as the same user. Editors are opened and filled, and left unsaved; what Save does to a role or a
+// group belongs to a suite that owns that database.
 
-const { test, expect, newUserPage } = require('../fixtures/test');
+const { test, newUserPage } = require('../fixtures/test');
 const {
   AdministrationPage,
   RoleCollectionPage,
@@ -19,6 +25,7 @@ const {
   GroupEditorPage,
 } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
+const { refuse } = require('../fixtures/refuse');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -29,13 +36,14 @@ const gui = require('imtcore-gui-testkit/lib/gui');
 // before every run.
 const RUN_ID = 'GuiTest';
 
-/** Land on an Administration subpage, or report that this user cannot reach it. */
+/** Land on an Administration subpage. Not being able to is a failure - see fixtures/refuse.js. */
 async function openSubPage(admin, pageId) {
-  if (!(await admin.isAvailable())) return false;
+  if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
   await admin.open();
-  if (!(await admin.hasSubPage(pageId))) return false;
+  if (!(await admin.hasSubPage(pageId))) {
+    refuse(`the ${pageId} subpage is not in the Administration sidebar`);
+  }
   await admin.openSubPage(pageId);
-  return true;
 }
 
 test.describe('Administration', () => {
@@ -49,7 +57,7 @@ test.describe('Administration', () => {
 
     test('landing', async ({ page, gui: g }) => {
       const admin = new AdministrationPage(page);
-      test.skip(!(await admin.isAvailable()), 'Administration is not available to this user');
+      if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
       await admin.open();
       await admin.expectLoaded();
       await g.checkScreenshot(page, 'administration-landing');
@@ -57,46 +65,42 @@ test.describe('Administration', () => {
   });
 
   test.describe.serial('subpages', () => {
-    let page, admin, available;
+    let page, admin;
 
     test.beforeAll(async ({ browser }, testInfo) => {
       ({ page } = await newUserPage(browser, testInfo));
       admin = new AdministrationPage(page);
       // newUserPage() only opens a blank page - nothing has navigated to the app yet.
       await admin.reload();
-      available = await admin.isAvailable();
-      if (available) await admin.open();
+      if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
+      await admin.open();
     });
 
     test.afterAll(async () => {
       if (page) await page.context().close();
     });
 
-    test.beforeEach(() => {
-      test.skip(!available, 'Administration is not available to this user');
-    });
-
     test('Roles subpage opens', async () => {
-      test.skip(!(await admin.hasSubPage('Roles')), 'Roles is not available to this user');
+      if (!(await admin.hasSubPage('Roles'))) refuse('the Roles subpage is not in the Administration sidebar');
       await admin.openSubPage('Roles');
       await gui.expectVisible(page, ['TableHeaders', 'roleName'], 'the roles table should render');
       await gui.checkScreenshot(page, 'administration-roles-subpage');
     });
 
     test('Users subpage opens', async () => {
-      test.skip(!(await admin.hasSubPage('Users')), 'Users is not available to this user');
+      if (!(await admin.hasSubPage('Users'))) refuse('the Users subpage is not in the Administration sidebar');
       await admin.openSubPage('Users');
       await gui.checkScreenshot(page, 'administration-users-subpage');
     });
 
     test('Groups subpage opens', async () => {
-      test.skip(!(await admin.hasSubPage('Groups')), 'Groups is not available to this user');
+      if (!(await admin.hasSubPage('Groups'))) refuse('the Groups subpage is not in the Administration sidebar');
       await admin.openSubPage('Groups');
       await gui.checkScreenshot(page, 'administration-groups-subpage');
     });
 
     test('a subpage collection filters like any other', async () => {
-      test.skip(!(await admin.hasSubPage('Roles')), 'Roles is not available to this user');
+      if (!(await admin.hasSubPage('Roles'))) refuse('the Roles subpage is not in the Administration sidebar');
       await admin.openSubPage('Roles');
       const roles = new RoleCollectionPage(page);
       await roles.search('su');
@@ -112,21 +116,17 @@ test.describe('Administration', () => {
   // with another spec's tabs - but they still get their own block and their own page, and each one
   // closes what it opened.
   test.describe.serial('role editor', () => {
-    let page, admin, available;
+    let page, admin;
 
     test.beforeAll(async ({ browser }, testInfo) => {
       ({ page } = await newUserPage(browser, testInfo));
       admin = new AdministrationPage(page);
       await admin.reload();
-      available = await openSubPage(admin, 'Roles');
+      await openSubPage(admin, 'Roles');
     });
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!available, 'Roles is not available to this user');
     });
 
     test('New opens an empty role editor', async () => {
@@ -142,43 +142,28 @@ test.describe('Administration', () => {
       await gui.checkScreenshot(page, 'role-editor-new-filled');
     });
 
-    // Self-contained, because the two phases run as separate Playwright invocations: in phase 2 the
-    // two tests above are filtered out, so this one opens the editor and fills it itself.
-    test('save the new role', { tag: '@mutating' }, async () => {
-      const editor = new RoleEditorPage(page);
-      if (!(await gui.dom.isVisible(page, ['RoleNameInput']))) await new RoleCollectionPage(page).newItem();
-      await editor.setRoleName(`${RUN_ID} Role`);
-      await editor.setDescription('Created by the Lisa GUI suite');
-      await editor.save();
-      await gui.checkScreenshot(page, 'role-editor-new-saved');
-    });
-
-    test('the saved role is in the collection', { tag: '@mutating' }, async () => {
+    // Left unsaved, like the user editor below: closing a dirty tab asks first, No discards. That is
+    // also the last word this block has on the document it opened, so nothing is left behind.
+    test('closing the unsaved role discards it', async () => {
       await new RoleEditorPage(page).closeDocument();
-      const roles = new RoleCollectionPage(page);
-      await roles.search(RUN_ID);
-      expect(await roles.table.visibleRowCount(), 'the role just saved should be findable').toBeGreaterThan(0);
-      await gui.checkScreenshot(page, 'role-editor-new-in-collection');
-      await roles.clearAllFilters();
+      await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
+      await gui.clickButton(page, ['NoButton']);
+      await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
     });
   });
 
   test.describe.serial('user editor', () => {
-    let page, admin, available;
+    let page, admin;
 
     test.beforeAll(async ({ browser }, testInfo) => {
       ({ page } = await newUserPage(browser, testInfo));
       admin = new AdministrationPage(page);
       await admin.reload();
-      available = await openSubPage(admin, 'Users');
+      await openSubPage(admin, 'Users');
     });
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!available, 'Users is not available to this user');
     });
 
     test('New opens an empty user editor', async () => {
@@ -206,37 +191,41 @@ test.describe('Administration', () => {
   });
 
   test.describe.serial('group editor', () => {
-    let page, admin, available;
+    let page, admin;
 
     test.beforeAll(async ({ browser }, testInfo) => {
       ({ page } = await newUserPage(browser, testInfo));
       admin = new AdministrationPage(page);
       await admin.reload();
-      available = await openSubPage(admin, 'Groups');
+      await openSubPage(admin, 'Groups');
     });
 
     test.afterAll(async () => {
       if (page) await page.context().close();
     });
 
-    test.beforeEach(() => {
-      test.skip(!available, 'Groups is not available to this user');
-    });
-
     test('New opens an empty group editor', async () => {
       await new GroupCollectionPage(page).newItem();
+      // Guarded, and not only so the editor is on screen: a brand-new document is marked dirty by a
+      // message that arrives AFTER the DOM goes quiet, so a shot taken the moment the tab appears
+      // catches the tab without its "*" and the toolbar without an enabled Save - caught live as a
+      // 496-pixel diff. Waiting for Save to light up waits for that message.
+      await gui.expectVisible(page, ['GroupNameInput'], 'the group editor should open');
+      await gui.expectVisible(page, ['CommandsView', 'SaveButton'], 'a new document is dirty, so Save should be offered');
       await gui.checkScreenshot(page, 'group-editor-new-empty');
     });
 
-    // Opens the editor itself when it is not already open - see the note on the role save above: in
-    // phase 2 the test that opens it is filtered out, so this one cannot lean on it.
-    test('filling and saving a group', { tag: '@mutating' }, async () => {
+    test('filling the General page', async () => {
       const editor = new GroupEditorPage(page);
-      if (!(await gui.dom.isVisible(page, ['GroupNameInput']))) await new GroupCollectionPage(page).newItem();
       await editor.setName(`${RUN_ID} Group`);
       await gui.checkScreenshot(page, 'group-editor-new-filled');
-      await editor.save();
-      await gui.checkScreenshot(page, 'group-editor-new-saved');
+    });
+
+    test('closing the unsaved group discards it', async () => {
+      await new GroupEditorPage(page).closeDocument();
+      await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
+      await gui.clickButton(page, ['NoButton']);
+      await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
     });
   });
 });

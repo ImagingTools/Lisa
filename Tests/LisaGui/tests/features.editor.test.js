@@ -15,6 +15,7 @@
 const { test, expect, newUserPage } = require('../fixtures/test');
 const { CollectionPage, FeatureEditorPage, COLLECTION_FILTERS, MASK_COLUMNS } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
+const { refuse } = require('../fixtures/refuse');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -32,9 +33,9 @@ function featuresPage(page) {
 async function openNewEditor(page) {
   const features = featuresPage(page);
   await features.reload();
-  if (!(await features.isAvailable())) return null;
+  if (!(await features.isAvailable())) refuse('the Features page is not in the menu');
   await features.open();
-  if (!(await features.commands.isAvailable('New'))) return null;
+  if (!(await features.commands.isAvailable('New'))) refuse('the Features collection offers no New command');
   await features.newItem();
   return new FeatureEditorPage(page);
 }
@@ -42,17 +43,28 @@ async function openNewEditor(page) {
 async function openEditEditor(page) {
   const features = featuresPage(page);
   await features.reload();
-  if (!(await features.isAvailable())) return null;
+  if (!(await features.isAvailable())) refuse('the Features page is not in the menu');
   await features.open();
   // Sort by "added" before picking row 0. The default view is sorted by "Last Modified" descending
   // (FeatureCollectionView.qml's Component.onCompleted), so row 0 changes the moment ANY test in this
   // run saves a feature - and the @mutating phase runs serially after the rest. "added" is immutable
   // creation metadata, so it pins row 0 to the same feature whatever else has run.
   await features.table.sortBy('added');
-  if (!(await features.table.hasRows())) return null;
+  // The fixture backup carries 25 features, so an empty table is a broken restore or a broken
+  // collection - never a collection that legitimately has nothing in it.
+  if (!(await features.table.hasRows())) refuse('the Features collection came back empty');
   await features.selectRow(0);
   await features.editItem();
   return new FeatureEditorPage(page);
+}
+
+// The dependencies panel is filled from the SHARED feature collection, which the fixture backup
+// always populates - so an empty one is a broken restore or a panel that did not load, never a
+// legitimate "nothing to pick". Skipping on it would hide both.
+async function requireDependencies(editor) {
+  if (!(await editor.dependencies.hasRows())) {
+    refuse('the dependencies panel is empty, though the shared feature collection is not');
+  }
 }
 
 test.describe('Features / editor', () => {
@@ -67,10 +79,6 @@ test.describe('Features / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'creating a feature is not available to this user');
     });
 
     test('empty new editor', async () => {
@@ -153,10 +161,6 @@ test.describe('Features / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'editing a feature is not available to this user, or the collection is empty');
     });
 
     test('the editor loads the selected feature', async () => {
@@ -246,12 +250,12 @@ test.describe('Features / editor', () => {
 
     test('picking a leaf fills the dependencies panel from the shared feature collection', async () => {
       await editor.subfeatures.selectRow(0);
-      test.skip(!(await editor.dependencies.hasRows()), 'the shared feature collection is empty');
+      await requireDependencies(editor);
       await gui.checkScreenshot(page, 'feature-editor-dependencies-listed');
     });
 
     test('ticking a dependency, then clearing them all', async () => {
-      test.skip(!(await editor.dependencies.hasRows()), 'the shared feature collection is empty');
+      await requireDependencies(editor);
       await editor.dependencies.toggleRow(0);
       await gui.checkScreenshot(page, 'feature-editor-dependency-ticked');
 
@@ -261,7 +265,7 @@ test.describe('Features / editor', () => {
     });
 
     test('the dependencies search filters the list', async () => {
-      test.skip(!(await editor.dependencies.hasRows()), 'the shared feature collection is empty');
+      await requireDependencies(editor);
       const before = await editor.dependencies.rowCount();
       await editor.dependencies.filter('Inspection');
       expect(await editor.dependencies.rowCount(), 'a search should narrow the list').toBeLessThanOrEqual(before);
@@ -317,7 +321,6 @@ test.describe('Features / editor', () => {
     test('reopening shows what was saved', { tag: '@mutating' }, async () => {
       await editor.closeDocument();
       const reopened = await openEditEditor(page);
-      test.skip(!reopened, 'the collection became unavailable');
       await reopened.openSubfeatures();
       await gui.checkScreenshot(page, 'feature-editor-edit-reopened');
     });
@@ -340,7 +343,6 @@ test.describe('Features / editor', () => {
     });
 
     test('a dirty tab asks before closing, and No discards', async () => {
-      test.skip(!editor, 'creating a feature is not available to this user');
       await editor.fillGeneral({ name: `${RUN_ID} Discarded` });
       await editor.closeDocument();
       await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');

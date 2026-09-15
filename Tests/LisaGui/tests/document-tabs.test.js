@@ -9,37 +9,35 @@
 const { test, expect, newUserPage } = require('../fixtures/test');
 const { CollectionPage, FeatureEditorPage, COLLECTION_FILTERS, MASK_COLUMNS } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
+const { refuse } = require('../fixtures/refuse');
 
 function featuresPage(page) {
   return new CollectionPage(page, 'Features', { filters: COLLECTION_FILTERS, maskColumns: MASK_COLUMNS });
 }
 
 test.describe.serial('Document tabs', () => {
-  let page, features, available;
+  let page, features;
 
   test.beforeAll(async ({ browser }, testInfo) => {
     ({ page } = await newUserPage(browser, testInfo));
     features = featuresPage(page);
     await features.reload();
-    available = await features.isAvailable();
-    if (available) await features.open();
+    if (!(await features.isAvailable())) refuse('the Features page is not in the menu');
+    await features.open();
   });
 
   test.afterAll(async () => {
     if (page) await page.context().close();
   });
 
-  test.beforeEach(() => {
-    test.skip(!available, 'Features is not available to this user');
-  });
-
   // Tab0 is the pinned collection tab and has no close button; document tabs are Tab1, Tab2, ...
   test('opening two documents gives two tabs beside the collection tab', async () => {
-    test.skip(!(await features.table.hasRows()), 'the collection is empty');
+    if (!(await features.table.hasRows())) refuse('the Features collection came back empty');
     // Sorted by immutable creation metadata, so the two rows picked below stay the same two however
     // many features earlier @mutating tests have added or touched.
     await features.table.sortBy('added');
-    test.skip((await features.table.visibleRowCount()) < 2, 'two documents need two rows');
+    // 25 features come out of the fixture backup, so fewer than two on screen is a broken restore.
+    if ((await features.table.visibleRowCount()) < 2) refuse('the Features collection shows fewer than two rows');
     await features.selectRow(0);
     await features.editItem();
     await gui.expectVisible(page, ['Tab1'], 'the first document should get a tab');

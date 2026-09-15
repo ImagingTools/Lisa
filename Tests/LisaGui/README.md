@@ -71,31 +71,27 @@ screenshots into a real permission matrix - worth doing, but unrelated to worker
 
 ## Known failures
 
-No failing test. There is a worse problem than a failure, though, and it is open:
+None, and no skips either: 122 passed in phase 1, 12 in phase 2, with every test actually running.
 
-**Tests are skipped silently under load.** `openNewEditor`/`openEditEditor` in the three editor specs
-return `null` when a timed probe (`isAvailable()`, `commands.isAvailable('New')`) does not answer in
-time, and the `beforeEach` then `test.skip`s the whole `describe.serial` - with no message in the
-report. At 4 workers that fires often and unpredictably: four phase-1 runs on identical code and data
-skipped 12, 26, 34 and 48 tests. Run alone, those same files pass 21 of 21. So a green run does NOT
-mean the suite ran.
+Getting there took two fixes, both worth keeping in mind before trusting a green run again.
 
-The cause is that every spec is signed in as the same `su`, and the same cause is behind the two
-screenshot traps below. The fix is fixture users - one per spec that opens documents, the way
-ProLife's suite does it. Until then, `return null` should become a hard failure, so a run that cannot
-open an editor says so instead of reporting success.
+**A crashed auth server used to look like a permission decision.** `PumaServerPgTest.exe` died with an
+access violation mid-run - `imtrest::CWebSocketServerComp::SetConnectionStatus` inserted into a QMap
+from a per-socket thread while the main thread removed from it under a lock. When it went down, Lisa
+had no auth, the client rendered an empty menu, and every availability probe answered "not offered" -
+so the suite reported 12, 26, 34, 48, once 100 tests SKIPPED and called the run green. Fixed in
+ImtCore; the tell, if it ever comes back, is a dump under `%LOCALAPPDATA%CrashDumps` and a teardown
+that stops only the Lisa server because Puma is already gone.
 
-The three tests under "existing document - stored features" (`products.editor.test.js`) and "product
-features" (`licenses.editor.test.js`) were red for a while against a real server defect, and the shape
-they were left in is worth keeping: each sits in its own non-`.serial` block, so a regression there
-fails alone instead of taking the rest of its file's coverage down with it.
+**Availability probes are anchored now.** `dom.isOffered` waits for the SIBLINGS of what it is looking
+for - the other buttons on the bar, the other items in the menu - before answering, so "not offered"
+can no longer mean "not painted yet". The old form was `isVisible(path, 2000)`, and the command bar
+fills on a round-trip that regularly outruns two seconds under four workers.
 
-What they cover: a product stored in the pre-11786 archive format carries its features as a bare list
-of IDs, and nothing else. Turning those back into features needs a `FeatureInfoProvider`, which
-`Lisa/Partitura/LisaVoce.arp/ProductSqlRepository.acc` now hands to the repository's document
-factory (wired from the feature repository in `Repositories.acc` and `LisaServerBase.acc`). Unwire it
-and every fixture product opens with an empty Features page again - and so does every license, whose
-Features page is drawn from its product's feature tree.
+**And nothing skips itself green any more.** `fixtures/refuse.js` is the single way out: this suite
+signs in as `su` with permissions `['*']`, so a missing page, command or fixture row is a defect, and
+it throws. `test.skip` is left only where the answer genuinely varies with the data - a feature with
+no optional parts, a licence whose product has no siblings; 12 places, all named.
 
 ## Adding a test
 

@@ -8,6 +8,7 @@
 const fixtures = require('../fixtures/test');
 const { defineCollectionSpec } = require('imtcore-gui-testkit/specs/collectionSpec');
 const { ProductCollectionPage } = require('../pages');
+const { refuse } = require('../fixtures/refuse');
 
 const { test, expect } = fixtures;
 
@@ -52,7 +53,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     // licenses.collection.test.js.
     ctx.test('sort by category orders the column', async () => {
       const collection = ctx.collection;
-      test.skip(!(await collection.table.hasRows()), 'this collection is empty');
+      if (!(await collection.table.hasRows())) refuse('the Products collection came back empty');
 
       // Asserted over the rows that are ON SCREEN, and only in ways that hold for them.
       //
@@ -90,7 +91,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
 
     ctx.test('export is offered for a selected product', async () => {
       const products = ctx.collection;
-      test.skip(!(await products.table.hasRows()), 'the product collection is empty');
+      if (!(await products.table.hasRows())) refuse('the Products collection came back empty');
       await products.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'ExportButton'], 'Export should be offered for a row');
       // Clicking it opens the native save dialog, outside the DOM - this records the state it is

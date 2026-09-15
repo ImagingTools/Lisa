@@ -15,6 +15,7 @@
 const { test, expect, newUserPage } = require('../fixtures/test');
 const { CollectionPage, LicenseEditorPage, COLLECTION_FILTERS, MASK_COLUMNS } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
+const { refuse } = require('../fixtures/refuse');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -32,9 +33,9 @@ function licensesPage(page) {
 async function openNewEditor(page) {
   const licenses = licensesPage(page);
   await licenses.reload();
-  if (!(await licenses.isAvailable())) return null;
+  if (!(await licenses.isAvailable())) refuse('the Licenses page is not in the menu');
   await licenses.open();
-  if (!(await licenses.commands.isAvailable('New'))) return null;
+  if (!(await licenses.commands.isAvailable('New'))) refuse('the Licenses collection offers no New command');
   await licenses.newItem();
   return new LicenseEditorPage(page);
 }
@@ -42,13 +43,15 @@ async function openNewEditor(page) {
 async function openEditEditor(page, search) {
   const licenses = licensesPage(page);
   await licenses.reload();
-  if (!(await licenses.isAvailable())) return null;
+  if (!(await licenses.isAvailable())) refuse('the Licenses page is not in the menu');
   await licenses.open();
   if (search) await licenses.search(search);
   // Sorted by "added" before picking a row: the default view is "Last Modified" descending
   // (LicenseCollectionView.qml), so row 0 moves the moment any @mutating test saves a license.
   else await licenses.table.sortBy('added');
-  if (!(await licenses.table.hasRows())) return null;
+  // 68 licences come out of the fixture backup, so an empty table is a broken restore, not a
+  // collection that legitimately has nothing in it.
+  if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');
   await licenses.selectRow(0);
   await licenses.editItem();
   return new LicenseEditorPage(page);
@@ -65,10 +68,6 @@ test.describe('Licenses / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'creating a license is not available to this user');
     });
 
     test('empty new editor', async () => {
@@ -162,10 +161,6 @@ test.describe('Licenses / editor', () => {
       if (page) await page.context().close();
     });
 
-    test.beforeEach(() => {
-      test.skip(!editor, 'editing a license is not available to this user, or the collection is empty');
-    });
-
     test('the editor loads the selected license', async () => {
       await editor.openGeneral();
       expect(await editor.licenseName.value(), 'the editor should load the row it was opened on').not.toBe('');
@@ -187,7 +182,6 @@ test.describe('Licenses / editor', () => {
     test('reopening shows what was saved', { tag: '@mutating' }, async () => {
       await editor.closeDocument();
       const reopened = await openEditEditor(page);
-      test.skip(!reopened, 'the collection became unavailable');
       await reopened.openGeneral();
       await gui.checkScreenshot(page, 'license-editor-edit-reopened');
     });
@@ -206,10 +200,6 @@ test.describe('Licenses / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'editing a license is not available to this user, or the collection is empty');
     });
 
     test('an existing license lists the features it grants', async () => {

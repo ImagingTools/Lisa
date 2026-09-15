@@ -12,6 +12,7 @@
 const fixtures = require('../fixtures/test');
 const { defineCollectionSpec } = require('imtcore-gui-testkit/specs/collectionSpec');
 const { COLLECTION_FILTERS, MASK_COLUMNS } = require('../pages');
+const { refuse } = require('../fixtures/refuse');
 
 const { test, expect } = fixtures;
 
@@ -42,7 +43,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   extra: (ctx) => {
     ctx.test('selecting a row enables Edit', async () => {
       const features = ctx.collection;
-      test.skip(!(await features.table.hasRows()), 'the feature collection is empty');
+      if (!(await features.table.hasRows())) refuse('the Features collection came back empty');
       await features.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'EditButton'], 'Edit should be offered for a selected row');
       await ctx.gui.checkScreenshot(ctx.page, 'features-row-selected', await features.masks());

@@ -20,6 +20,7 @@
 const { test, expect, newUserPage } = require('../fixtures/test');
 const { ProductCollectionPage, ProductEditorPage, CATEGORY_SOFTWARE } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
+const { refuse } = require('../fixtures/refuse');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -33,9 +34,9 @@ const RUN_ID = 'GuiTest';
 async function openNewEditor(page) {
   const products = new ProductCollectionPage(page);
   await products.reload();
-  if (!(await products.isAvailable())) return null;
+  if (!(await products.isAvailable())) refuse('the Products page is not in the menu');
   await products.open();
-  if (!(await products.commands.isAvailable('New'))) return null;
+  if (!(await products.commands.isAvailable('New'))) refuse('the Products collection offers no New command');
   await products.newItem();
   return new ProductEditorPage(page);
 }
@@ -43,20 +44,20 @@ async function openNewEditor(page) {
 /**
  * Open the editor on the first row, optionally after narrowing the collection to `search`.
  *
- * Returns null - which the callers turn into a skip - only when the page itself is out of reach for
- * this user. A search that finds NOTHING is a hard failure instead: the term is a product this
- * suite's own fixture backup is known to contain, so "no rows" means the data or the search is
- * broken, not that there is nothing to test. That distinction matters - hasRows()'s default 6s poll
- * once expired before a search had landed, the test skipped, its baseline was left stale, and the
- * next run failed against that stale image instead of against anything real.
+ * Every way out of here is a failure. The page being out of reach is one (see refuse above), and so
+ * is a search that finds nothing: the term is a product this suite's own fixture backup is known to
+ * contain, so "no rows" means the data or the search is broken, not that there is nothing to test.
+ * That distinction matters - hasRows()'s default 6s poll once expired before a search had landed, the
+ * test skipped, its baseline was left stale, and the next run failed against that stale image instead
+ * of against anything real.
  */
 async function openEditEditor(page, search) {
   const products = new ProductCollectionPage(page);
   await products.reload();
-  if (!(await products.isAvailable())) return null;
+  if (!(await products.isAvailable())) refuse('the Products page is not in the menu');
   await products.open();
   if (!search) {
-    if (!(await products.table.hasRows())) return null;
+    if (!(await products.table.hasRows())) refuse('the Products collection came back empty');
   } else {
     await products.search(search);
     if (!(await products.table.hasRows(20000))) {
@@ -79,10 +80,6 @@ test.describe('Products / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'creating a product is not available to this user');
     });
 
     test('empty new editor', async () => {
@@ -200,7 +197,6 @@ test.describe('Products / editor', () => {
     // saved a moment ago come back as an empty list. Asserted as it should behave.
     test('reopening the saved product still shows its feature', { tag: '@mutating' }, async () => {
       const reopened = await openEditEditor(page, RUN_ID);
-      test.skip(!reopened, 'the product collection became unavailable');
       await reopened.openFeatures();
       expect(
         await reopened.features.rowCount(),
@@ -222,10 +218,6 @@ test.describe('Products / editor', () => {
 
     test.afterAll(async () => {
       if (page) await page.context().close();
-    });
-
-    test.beforeEach(() => {
-      test.skip(!editor, 'editing a product is not available to this user, or the collection is empty');
     });
 
     test('the editor loads the selected product', async () => {
@@ -260,7 +252,6 @@ test.describe('Products / editor', () => {
     // repository now wires into its document factory. Without it the page renders "No features
     // added" while the document holds 20 of them.
     test('an existing product lists the features it contains', async () => {
-      test.skip(!editor, 'editing a product is not available to this user, or the collection is empty');
       await editor.openFeatures();
       expect(
         await editor.features.rowCount(),
