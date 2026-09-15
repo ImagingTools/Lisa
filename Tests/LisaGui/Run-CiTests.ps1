@@ -232,27 +232,42 @@ function New-SuperuserIfNeeded {
     } | ConvertTo-Json -Compress
 
     $uri = "http://localhost:$HttpPort/Lisa/graphql"
-    $response = Invoke-RestMethod -Uri $uri -Method Post -ContentType "application/json" -Body $body
 
-    # Warning-level entries are not refusals - the server reports them alongside a perfectly good
-    # payload (seen live: a Warning "Response is invalid" on a call that had already answered
-    # "Superuser already exists"). Treating every `errors` entry as fatal aborted a whole run at the
-    # bootstrap step over one of those. Only a real error, or a payload that actually says it failed,
-    # stops the run.
-    $refusals = @($response.errors | Where-Object { $_ -and $_.extensions.type -ne "Warning" })
-    if ($refusals.Count -gt 0) {
-        throw "CreateSuperuser GraphQL call failed: $($refusals | ConvertTo-Json -Compress)"
+    # Retried, because an open port is not the same as a usable server: Lisa starts accepting on
+    # 17776 before its link to Puma is up, and every auth-backed call until then answers with a
+    # Warning "Response is invalid" and no payload. Measured twice - once here and once by hand.
+    # Anything that is a real refusal still stops the run on the first try.
+    $attempts = 10
+    for ($attempt = 1; $attempt -le $attempts; $attempt++) {
+        $response = Invoke-RestMethod -Uri $uri -Method Post -ContentType "application/json" -Body $body
+
+        # Warning-level entries are not refusals - the server reports them alongside a perfectly good
+        # payload (seen live: a Warning "Response is invalid" on a call that had already answered
+        # "Superuser already exists"). Treating every `errors` entry as fatal aborted a whole run at
+        # the bootstrap step over one of those. Only a real error, or a payload that actually says it
+        # failed, stops the run.
+        $refusals = @($response.errors | Where-Object { $_ -and $_.extensions.type -ne "Warning" })
+        if ($refusals.Count -gt 0) {
+            throw "CreateSuperuser GraphQL call failed: $($refusals | ConvertTo-Json -Compress)"
+        }
+
+        $result = $response.data.CreateSuperuser
+        if ($null -ne $result) {
+            # "Superuser already exists" is expected and harmless - puma.backup carries one.
+            if (-not $result.success -and $result.message -notmatch "already exists") {
+                throw "CreateSuperuser did not succeed: $($result.message)"
+            }
+            Write-Host "CreateSuperuser: $($result.message)"
+            return
+        }
+
+        if ($attempt -lt $attempts) {
+            Write-Host "CreateSuperuser has no payload yet (attempt $attempt/$attempts) - the server is still wiring up; retrying"
+            Start-Sleep -Seconds 3
+        }
     }
 
-    $result = $response.data.CreateSuperuser
-    if ($null -eq $result) {
-        throw "CreateSuperuser returned no payload: $($response | ConvertTo-Json -Compress)"
-    }
-    # "Superuser already exists" is expected and harmless - puma.backup carries one.
-    if (-not $result.success -and $result.message -notmatch "already exists") {
-        throw "CreateSuperuser did not succeed: $($result.message)"
-    }
-    Write-Host "CreateSuperuser: $($result.message)"
+    throw "CreateSuperuser returned no payload after $attempts attempts: $($response | ConvertTo-Json -Compress)"
 }
 
 function Install-PlaywrightIfNeeded {
