@@ -15,7 +15,7 @@ module.exports = createGuiConfig({
 
   mutatingUserKeys: ['su'],
 
-  // Four workers, even though every spec runs as the same single fixture user (`su`).
+  // One worker keeps the suite deterministic: every spec runs as the same fixture user (`su`).
   //
   // ProLife pins one worker per user because ITS server keys the open-documents workspace by userId
   // and fans every open/close out to all of that user's live sessions, so two workers as one user
@@ -25,8 +25,6 @@ module.exports = createGuiConfig({
   // restored no tabs at all. Tabs and view state here are per SESSION, so the collision that forces
   // ProLife's hand does not exist.
   //
-  // Measured on this suite: the read-only phase takes ~250s at four workers against ~540s at one, with
-  // the same three (known-defect) failures either way. The @mutating phase stays serial regardless -
-  // Run-CiTests.ps1 appends --workers=1 to it - because those tests share one database.
-  workers: 4,
+  // The @mutating phase stays serial regardless because those tests share one database.
+  workers: 1,
 });
