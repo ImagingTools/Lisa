@@ -25,8 +25,10 @@ module.exports = defineUsers({
       title: 'Superuser',
       login: 'su',
       // Pre-existing superuser: baked into Tests/Resources/backups/puma.backup, and bootstrapped via
-      // the CreateSuperuser mutation by Run-CiTests.ps1 as a safety net.
-      password: '1',
+      // the CreateSuperuser mutation by Run-CiTests.ps1 as a safety net. Run-CiTests.ps1 exports its
+      // -SuPassword as LISA_GUI_SU_PASSWORD so the GUI login uses the very password it bootstrapped
+      // with; '1' is the default both sides agree on.
+      password: process.env.LISA_GUI_SU_PASSWORD || '1',
       seed: false,
       permissions: ['*'],
     },

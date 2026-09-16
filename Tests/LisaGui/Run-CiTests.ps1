@@ -83,7 +83,8 @@ param(
 
     # Safety net only - puma.backup already carries a working "su" account.
     # The login is always "su" (hardcoded here and in fixtures/users.js); only
-    # the password is configurable.
+    # the password is configurable, and it is handed to Playwright as
+    # LISA_GUI_SU_PASSWORD so the GUI login uses the same value.
     [string]$SuPassword = "1",
 
     [string]$PsqlPath = "",
@@ -359,6 +360,9 @@ function Invoke-PlaywrightSuite {
         # forbidOnly - matching how this suite is meant to run unattended.
         $env:CI = "true"
         $env:LISA_BASE_URL = "http://localhost:$HttpPort"
+        # fixtures/users.js reads this, so the GUI login uses the same password
+        # New-SuperuserIfNeeded bootstrapped with.
+        $env:LISA_GUI_SU_PASSWORD = $SuPassword
         $env:PLAYWRIGHT_OUTPUT_ROOT = $OutputRoot
         try {
             $env:PLAYWRIGHT_OUTPUT_PHASE = "phase1-readonly"
@@ -384,6 +388,7 @@ function Invoke-PlaywrightSuite {
         finally {
             Remove-Item Env:\CI -ErrorAction SilentlyContinue
             Remove-Item Env:\LISA_BASE_URL -ErrorAction SilentlyContinue
+            Remove-Item Env:\LISA_GUI_SU_PASSWORD -ErrorAction SilentlyContinue
             Remove-Item Env:\PLAYWRIGHT_OUTPUT_ROOT -ErrorAction SilentlyContinue
             Remove-Item Env:\PLAYWRIGHT_OUTPUT_PHASE -ErrorAction SilentlyContinue
         }
