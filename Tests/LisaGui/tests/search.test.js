@@ -66,7 +66,7 @@ test.describe.serial('Search', () => {
     const search = new SearchPage(page);
     await search.open();
     await search.search('zzz-no-such-thing-zzz');
-    await search.waitForResults({ allowEmpty: true });
+    await search.waitForResults();
     expect(await search.tabCount(), 'a nonsense term should match nothing').toBe(0);
     await gui.checkScreenshot(page, 'search-global-no-results');
   });
