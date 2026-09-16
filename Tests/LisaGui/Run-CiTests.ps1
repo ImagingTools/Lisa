@@ -77,9 +77,9 @@ param(
     [string]$DbUser = "postgres",
     [string]$DbPassword = "root",
 
-    # The same backups Tests\Startup\01-reset-db.* restores for the container run.
-    [string]$LisaBackupPath = (Join-Path $RepoRoot "Tests\Resources\backups\lisa.backup"),
-    [string]$PumaBackupPath = (Join-Path $RepoRoot "Tests\Resources\backups\puma.backup"),
+    # Backups live with the GUI suite so Tests remains self-contained with LisaGui as its only child.
+    [string]$LisaBackupPath = (Join-Path $ScriptDir "backups\lisa.backup"),
+    [string]$PumaBackupPath = (Join-Path $ScriptDir "backups\puma.backup"),
 
     # Safety net only - puma.backup already carries a working "su" account.
     # The login is always "su" (hardcoded here and in fixtures/users.js); only
