@@ -36,6 +36,9 @@ const { refuse } = require('../fixtures/refuse');
 // before every run.
 const RUN_ID = 'GuiTest';
 
+// The fixture group the Groups screenshot is narrowed to - see the note at that test.
+const GROUP_FIXTURE = 'All Partners';
+
 /** Land on an Administration subpage. Not being able to is a failure - see fixtures/refuse.js. */
 async function openSubPage(admin, pageId) {
   if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
@@ -47,9 +50,27 @@ async function openSubPage(admin, pageId) {
 }
 
 test.describe('Administration', () => {
-  // Its own describe so the reload does not also fire for the shared-page blocks below: an outer
-  // beforeEach runs for nested describes too, booting a whole app instance per nested test that
-  // nothing then uses.
+  // One context, and therefore one Qt/WASM boot, for every block below except 'cold load'. Each used
+  // to take its own, which cost more than the tests inside it. The blocks stay separate - a
+  // describe.serial stops at its first failure, and these are four independent stories - but they no
+  // longer each pay twelve seconds to bring an app up. Every editor block already ends by discarding
+  // the document it opened, and openSubPage() navigates through gui.openPage, which closes leftover
+  // document tabs, so each block still starts from the collection it asked for.
+  let page, admin;
+
+  test.beforeAll(async ({ browser }, testInfo) => {
+    ({ page } = await newUserPage(browser, testInfo));
+    admin = new AdministrationPage(page);
+    // newUserPage() only opens a blank page - this is the one navigation that boots the app.
+    await admin.reload();
+  });
+
+  test.afterAll(async () => {
+    if (page) await page.context().close();
+  });
+
+  // Its own describe, and the only one still on the per-test `page` fixture: a cold load is what it
+  // tests, so it has to arrive on a page nothing has visited.
   test.describe('cold load', () => {
     test.beforeEach(async ({ page }) => {
       await new AdministrationPage(page).reload();
@@ -60,24 +81,17 @@ test.describe('Administration', () => {
       if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
       await admin.open();
       await admin.expectLoaded();
+      // The view container renders long before the subpage inside it does, so the table is what says
+      // the landing has actually finished arriving.
+      await g.expectVisible(page, ['TableHeaders', 'roleName'], 'the roles table should render');
       await g.checkScreenshot(page, 'administration-landing');
     });
   });
 
   test.describe.serial('subpages', () => {
-    let page, admin;
-
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      admin = new AdministrationPage(page);
-      // newUserPage() only opens a blank page - nothing has navigated to the app yet.
-      await admin.reload();
+    test.beforeAll(async () => {
       if (!(await admin.isAvailable())) refuse('the Administration page is not in the menu');
       await admin.open();
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('Roles subpage opens', async () => {
@@ -96,6 +110,14 @@ test.describe('Administration', () => {
     test('Groups subpage opens', async () => {
       if (!(await admin.hasSubPage('Groups'))) refuse('the Groups subpage is not in the Administration sidebar');
       await admin.openSubPage('Groups');
+      // Filtered to one fixture group rather than shot whole: this table's headers carry no objectName,
+      // so there is no way to pin a sort on it, and the server returns the rows in no guaranteed order.
+      const groups = new GroupCollectionPage(page);
+      await groups.clearAllFilters();
+      await groups.search(GROUP_FIXTURE);
+      if ((await groups.table.visibleRowCount()) !== 1) {
+        throw new Error(`the fixture group "${GROUP_FIXTURE}" should match exactly one row - the backup or the search is wrong`);
+      }
       await gui.checkScreenshot(page, 'administration-groups-subpage');
     });
 
@@ -113,20 +135,11 @@ test.describe('Administration', () => {
   //
   // These open DOCUMENT TABS, whose workspace the server keys per user. With one fixture user the
   // whole suite already runs on a single worker (see playwright.config.js), so they cannot collide
-  // with another spec's tabs - but they still get their own block and their own page, and each one
-  // closes what it opened.
+  // with another spec's tabs - and each one still closes what it opened, which is what lets them
+  // share the file's page.
   test.describe.serial('role editor', () => {
-    let page, admin;
-
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      admin = new AdministrationPage(page);
-      await admin.reload();
+    test.beforeAll(async () => {
       await openSubPage(admin, 'Roles');
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('New opens an empty role editor', async () => {
@@ -153,17 +166,8 @@ test.describe('Administration', () => {
   });
 
   test.describe.serial('user editor', () => {
-    let page, admin;
-
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      admin = new AdministrationPage(page);
-      await admin.reload();
+    test.beforeAll(async () => {
       await openSubPage(admin, 'Users');
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('New opens an empty user editor', async () => {
@@ -191,17 +195,8 @@ test.describe('Administration', () => {
   });
 
   test.describe.serial('group editor', () => {
-    let page, admin;
-
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      admin = new AdministrationPage(page);
-      await admin.reload();
+    test.beforeAll(async () => {
       await openSubPage(admin, 'Groups');
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('New opens an empty group editor', async () => {

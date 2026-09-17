@@ -31,9 +31,11 @@ const { refuse } = require('../fixtures/refuse');
 // before every run.
 const RUN_ID = 'GuiTest';
 
+// No reload() in either opener: open() navigates through the menu, and gui.openPage closes whatever
+// document tabs the previous block left behind, which is the only state these need reset. A reload
+// would do the same thing by booting the whole Qt/WASM app again - around twelve seconds per block.
 async function openNewEditor(page) {
   const products = new ProductCollectionPage(page);
-  await products.reload();
   if (!(await products.isAvailable())) refuse('the Products page is not in the menu');
   await products.open();
   if (!(await products.commands.isAvailable('New'))) refuse('the Products collection offers no New command');
@@ -53,33 +55,34 @@ async function openNewEditor(page) {
  */
 async function openEditEditor(page, search) {
   const products = new ProductCollectionPage(page);
-  await products.reload();
   if (!(await products.isAvailable())) refuse('the Products page is not in the menu');
   await products.open();
-  if (!search) {
-    if (!(await products.table.hasRows())) refuse('the Products collection came back empty');
-  } else {
-    await products.search(search);
-    if (!(await products.table.hasRows(20000))) {
-      throw new Error(`the fixture product "${search}" is not in the collection - the backup or the search is wrong`);
-    }
-  }
-  await products.selectRow(0);
+  await products.selectRecord(search);
   await products.editItem();
   return new ProductEditorPage(page);
 }
 
 test.describe('Products / editor', () => {
+  // One context, and therefore one Qt/WASM boot, for the whole file. The blocks below used to take one
+  // each, which cost more than the tests inside them: a block's tests run in under a second on a page
+  // that is already up, against roughly twelve seconds to bring one up.
+  let page;
+
+  test.beforeAll(async ({ browser }, testInfo) => {
+    ({ page } = await newUserPage(browser, testInfo));
+    // newUserPage() only opens a blank page - this is the one navigation that boots the app.
+    await new ProductCollectionPage(page).reload();
+  });
+
+  test.afterAll(async () => {
+    if (page) await page.context().close();
+  });
+
   test.describe.serial('new document', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openNewEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('empty new editor', async () => {
@@ -207,17 +210,12 @@ test.describe('Products / editor', () => {
 
   // --- an existing, fixture-data product ----------------------------------------------------------
   test.describe.serial('existing document', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       // "RTV.3d Software" is the largest fixture product (20 features in its stored document), so it
       // is the clearest subject for "an existing product shows what it contains".
       editor = await openEditEditor(page, 'RTV.3d Software');
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('the editor loads the selected product', async () => {
@@ -233,18 +231,13 @@ test.describe('Products / editor', () => {
     });
   });
 
-  // Its own block and its own page, so a failure here does not take the rename/save coverage in the
-  // serial block above down with it.
+  // Its own block, so a failure here does not take the rename/save coverage in the serial block above
+  // down with it.
   test.describe('existing document - stored features', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openEditEditor(page, 'RTV.3d Software');
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     // This product's stored document is in the pre-11786 archive format, which carries feature IDs

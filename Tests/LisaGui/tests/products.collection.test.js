@@ -32,6 +32,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   requires: 'ViewProducts',
   prefix: 'products',
   createPage: (page) => new ProductCollectionPage(page),
+  stableSort: 'productName',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'RTV.3d' },
     {

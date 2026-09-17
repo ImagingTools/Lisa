@@ -4,8 +4,10 @@
 // one per organization, and Logout. Profile itself is a modal Dialog hosting the same MultiPageView
 // Administration uses, so its subpages are addressable as "Page_<id>".
 //
-// None of this opens a document tab - it is a plain modal - so the default per-test `page` fixture
-// (its own fresh context) is enough, which also means the Logout test cannot affect any other test.
+// None of this opens a document tab - it is a plain modal - so one page serves the whole file. The
+// Logout test is kept LAST because it ends the session: that ordering, not a fresh context per test,
+// is what stops it affecting anything else. A boot per test cost about seventeen seconds each, for
+// three tests that need nothing but a page which is already up.
 //
 // The dialog shots are taken of the DIALOG, not of the page. What sits behind it is a collection
 // table whose column layout and open page live on the SERVER, per user - so a test running beside
@@ -13,11 +15,14 @@
 // 21524-pixel diff. The modal is what these tests are about; the table behind it belongs to the
 // collection specs.
 
-const { test } = require('../fixtures/test');
+const { test, newUserPage } = require('../fixtures/test');
 const { CollectionPage } = require('../pages');
 
 test.describe('User profile', () => {
-  test.beforeEach(async ({ page }) => {
+  let page;
+
+  test.beforeAll(async ({ browser }, testInfo) => {
+    ({ page } = await newUserPage(browser, testInfo));
     // Features rather than Workspace: on a freshly restored database Workspace is legitimately empty,
     // and an empty table makes a poor backdrop for screenshots of a modal drawn over it.
     const features = new CollectionPage(page, 'Features');
@@ -25,10 +30,21 @@ test.describe('User profile', () => {
     if (await features.isAvailable()) await features.open();
   });
 
+  test.afterAll(async () => {
+    if (page) await page.context().close();
+  });
+
+  // The per-test reload used to guarantee each test started with no modal up. Escape is the cheap
+  // equivalent now that the page is shared - a no-op when nothing is open - and it keeps a failure
+  // that leaves a dialog behind from taking the next test down with it.
+  test.beforeEach(async ({ gui }) => {
+    await gui.dismissDialog(page);
+  });
+
   // The account menu is a plain PopupMenuDialog bound to a ListModel, not a ComboBox: its default
   // delegate gives rows no text-based objectName, so they are addressed by position. "Profile" is
   // always first; "Logout" is always last, however many organization rows sit between them.
-  test('opens and switches between profile tabs', async ({ page, gui }) => {
+  test('opens and switches between profile tabs', async ({ gui }) => {
     await gui.openComboPopup(page, ['UserPanelButton']);
     await gui.clickPopupItemByIndex(page, 0); // Profile
     await gui.expectVisible(page, ['Dialog'], 'Profile must open in a modal dialog');
@@ -44,7 +60,7 @@ test.describe('User profile', () => {
 
   // The password card is expanded for real and then collapsed via Cancel, never submitted: a real
   // password change here would break every later test's own login.
-  test('the password card expands and collapses without submitting', async ({ page, gui }) => {
+  test('the password card expands and collapses without submitting', async ({ gui }) => {
     await gui.openComboPopup(page, ['UserPanelButton']);
     await gui.clickPopupItemByIndex(page, 0);
     await gui.expectVisible(page, ['Dialog'], 'Profile must open in a modal dialog');
@@ -58,7 +74,7 @@ test.describe('User profile', () => {
     await gui.dismissDialog(page);
   });
 
-  test('logout returns to the login page', async ({ page, gui }) => {
+  test('logout returns to the login page', async ({ gui }) => {
     await gui.openComboPopup(page, ['UserPanelButton']);
     await gui.clickPopupItemLast(page); // Logout - always the menu's last row
     await gui.expectVisible(page, ['LoginInput'], 'logging out should land back on the login form');

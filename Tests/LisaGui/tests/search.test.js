@@ -18,15 +18,14 @@ test.describe.serial('Search', () => {
 
   test.beforeAll(async ({ browser }, testInfo) => {
     ({ page } = await newUserPage(browser, testInfo));
+    // newUserPage() only opens a blank page - this is the one navigation that boots the app, and the
+    // only one in the file now that the tests below are ordered to leave each other a clean page.
+    await new SearchPage(page).reload();
   });
 
   test.afterAll(async () => {
     // The CONTEXT, not just the page: newUserPage creates one per block.
     if (page) await page.context().close();
-  });
-
-  test.beforeEach(async () => {
-    await new SearchPage(page).reload();
   });
 
   // No availability probe: Search is universal (PagePermissions "*"), so a missing menu button is a
@@ -36,6 +35,30 @@ test.describe.serial('Search', () => {
     await gui.checkScreenshot(page, 'search-view');
   });
 
+  // Runs before the matching search below, not after it, and that ordering is what replaced a reload
+  // in beforeEach - a full Qt/WASM boot per test, to arrive at the same empty Search page this one
+  // needs. It leaves no result tabs behind, so the test after it still starts clean.
+  //
+  // Its baseline carries an ENABLED back arrow, and that is order-dependent: a reload used to bring
+  // the app up on the page the user last had open (server-side, per user), so navigating to Search
+  // added nothing to go back to. Arriving here by menu from the test above does. Reordering this
+  // block will move those pixels again - 61 of them, top centre.
+  //
+  // Driven from the Search page itself, not from a collection page: a term that matches nothing does
+  // not navigate anywhere, and a collection page contributes a "Tab0" of its own (its pinned
+  // collection tab) that tabCount() would count as a result. The Search page has no TabPanel until
+  // there are results, so zero there means zero.
+  test('a term that matches nothing returns no result tabs', async () => {
+    const search = new SearchPage(page);
+    await search.open();
+    await search.search('zzz-no-such-thing-zzz');
+    await search.waitForResults();
+    expect(await search.tabCount(), 'a nonsense term should match nothing').toBe(0);
+    await gui.checkScreenshot(page, 'search-global-no-results');
+  });
+
+  // LAST in the block: it is the only test here that leaves result tabs on screen, and nothing after
+  // it has to care. search() clears the box before typing, so the nonsense term above does not carry.
   test('typing in the global search box auto-navigates to results', async () => {
     // Started from a collection page on purpose: that is where the ambiguity between the global box
     // and the page's own filter box would bite, so driving it from here is what actually proves the
@@ -56,18 +79,5 @@ test.describe.serial('Search', () => {
       await search.clickTab(i);
     }
     await gui.checkScreenshot(page, 'search-global-last-tab');
-  });
-
-  // Driven from the Search page itself, not from a collection page: a term that matches nothing does
-  // not navigate anywhere, and a collection page contributes a "Tab0" of its own (its pinned
-  // collection tab) that tabCount() would count as a result. The Search page has no TabPanel until
-  // there are results, so zero there means zero.
-  test('a term that matches nothing returns no result tabs', async () => {
-    const search = new SearchPage(page);
-    await search.open();
-    await search.search('zzz-no-such-thing-zzz');
-    await search.waitForResults();
-    expect(await search.tabCount(), 'a nonsense term should match nothing').toBe(0);
-    await gui.checkScreenshot(page, 'search-global-no-results');
   });
 });

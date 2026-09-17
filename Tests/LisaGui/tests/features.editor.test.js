@@ -26,13 +26,20 @@ const { refuse } = require('../fixtures/refuse');
 // before every run.
 const RUN_ID = 'GuiTest';
 
+// The fixture feature every "existing document" test edits, addressed by name rather than by row index:
+// the collection's order is the server's, and the sort a header click leaves behind is persisted per
+// session, so row 0 is a different feature depending on what ran before.
+const EDIT_FIXTURE = 'Automatic';
+
 function featuresPage(page) {
   return new CollectionPage(page, 'Features', { filters: COLLECTION_FILTERS, maskColumns: MASK_COLUMNS });
 }
 
+// No reload() in either opener: open() navigates through the menu, and gui.openPage closes whatever
+// document tabs the previous block left behind, which is the only state these need reset. A reload
+// would do the same thing by booting the whole Qt/WASM app again - around twelve seconds per block.
 async function openNewEditor(page) {
   const features = featuresPage(page);
-  await features.reload();
   if (!(await features.isAvailable())) refuse('the Features page is not in the menu');
   await features.open();
   if (!(await features.commands.isAvailable('New'))) refuse('the Features collection offers no New command');
@@ -42,18 +49,9 @@ async function openNewEditor(page) {
 
 async function openEditEditor(page) {
   const features = featuresPage(page);
-  await features.reload();
   if (!(await features.isAvailable())) refuse('the Features page is not in the menu');
   await features.open();
-  // Sort by "added" before picking row 0. The default view is sorted by "Last Modified" descending
-  // (FeatureCollectionView.qml's Component.onCompleted), so row 0 changes the moment ANY test in this
-  // run saves a feature - and the @mutating phase runs serially after the rest. "added" is immutable
-  // creation metadata, so it pins row 0 to the same feature whatever else has run.
-  await features.table.sortBy('added');
-  // The fixture backup carries 25 features, so an empty table is a broken restore or a broken
-  // collection - never a collection that legitimately has nothing in it.
-  if (!(await features.table.hasRows())) refuse('the Features collection came back empty');
-  await features.selectRow(0);
+  await features.selectRecord(EDIT_FIXTURE);
   await features.editItem();
   return new FeatureEditorPage(page);
 }
@@ -68,17 +66,27 @@ async function requireDependencies(editor) {
 }
 
 test.describe('Features / editor', () => {
+  // One context, and therefore one Qt/WASM boot, for the whole file. The blocks below used to take one
+  // each, which cost more than the tests inside them: a block's tests run in under a second on a page
+  // that is already up, against roughly twelve seconds to bring one up.
+  let page;
+
+  test.beforeAll(async ({ browser }, testInfo) => {
+    ({ page } = await newUserPage(browser, testInfo));
+    // newUserPage() only opens a blank page - this is the one navigation that boots the app.
+    await featuresPage(page).reload();
+  });
+
+  test.afterAll(async () => {
+    if (page) await page.context().close();
+  });
+
   // --- NEW document: one continuous feature, steps build on each other in order -------------------
   test.describe.serial('new document', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openNewEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('empty new editor', async () => {
@@ -150,17 +158,41 @@ test.describe('Features / editor', () => {
     });
   });
 
-  // --- EDIT an existing feature, and exercise the sub-feature tree ---------------------------------
-  test.describe.serial('existing document', () => {
-    let page, editor;
+  // --- closing a dirty document -------------------------------------------------------------------
+  //
+  // Placed BEFORE the 'existing document' block, not after it. It ends by screenshotting the
+  // collection the discarded document returns to, and that collection's filter, sort and selected row
+  // are SERVER-side session state - which the blocks now share. 'existing document' opens its subject
+  // via selectRecord, leaving the collection filtered to one selected row, so inheriting from it put
+  // that filtered view in the shot. Inheriting from 'new document' leaves the default view the
+  // baseline was taken on. It discards its own document, so the block after it inherits nothing.
+  test.describe.serial('closing a dirty document', () => {
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      editor = await openEditEditor(page);
+    test.beforeAll(async () => {
+      editor = await openNewEditor(page);
     });
 
-    test.afterAll(async () => {
-      if (page) await page.context().close();
+    test('a dirty tab asks before closing, and No discards', async () => {
+      await editor.fillGeneral({ name: `${RUN_ID} Discarded` });
+      await editor.closeDocument();
+      await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
+      await gui.checkScreenshot(page, 'feature-editor-close-dirty');
+
+      // No = discard. Never Yes here: that would save a throwaway feature into the shared database
+      // from a test that is not tagged @mutating.
+      await gui.clickButton(page, ['NoButton']);
+      await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
+      await gui.checkScreenshot(page, 'feature-editor-close-discarded');
+    });
+  });
+
+  // --- EDIT an existing feature, and exercise the sub-feature tree ---------------------------------
+  test.describe.serial('existing document', () => {
+    let editor;
+
+    test.beforeAll(async () => {
+      editor = await openEditEditor(page);
     });
 
     test('the editor loads the selected feature', async () => {
@@ -326,33 +358,4 @@ test.describe('Features / editor', () => {
     });
   });
 
-  // --- closing a dirty document -------------------------------------------------------------------
-  //
-  // Its own block with a fresh page: it deliberately ends with an unsaved document, which is exactly
-  // the state the blocks above must not inherit.
-  test.describe.serial('closing a dirty document', () => {
-    let page, editor;
-
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
-      editor = await openNewEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
-    });
-
-    test('a dirty tab asks before closing, and No discards', async () => {
-      await editor.fillGeneral({ name: `${RUN_ID} Discarded` });
-      await editor.closeDocument();
-      await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
-      await gui.checkScreenshot(page, 'feature-editor-close-dirty');
-
-      // No = discard. Never Yes here: that would save a throwaway feature into the shared database
-      // from a test that is not tagged @mutating.
-      await gui.clickButton(page, ['NoButton']);
-      await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
-      await gui.checkScreenshot(page, 'feature-editor-close-discarded');
-    });
-  });
 });

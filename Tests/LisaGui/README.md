@@ -85,7 +85,7 @@ screenshots into a real permission matrix - worth doing, but unrelated to worker
 
 ## Known failures
 
-None, and no skips either: 122 passed in phase 1, 12 in phase 2, with every test actually running.
+None, and no skips either: 117 passed in phase 1, 12 in phase 2, with every test actually running.
 
 Getting there took two fixes, both worth keeping in mind before trusting a green run again.
 

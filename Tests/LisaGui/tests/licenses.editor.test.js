@@ -31,9 +31,11 @@ function licensesPage(page) {
   return new CollectionPage(page, 'Licenses', { filters: COLLECTION_FILTERS, maskColumns: MASK_COLUMNS });
 }
 
+// No reload() in either opener: open() navigates through the menu, and gui.openPage closes whatever
+// document tabs the previous block left behind, which is the only state these need reset. A reload
+// would do the same thing by booting the whole Qt/WASM app again - around twelve seconds per block.
 async function openNewEditor(page) {
   const licenses = licensesPage(page);
-  await licenses.reload();
   if (!(await licenses.isAvailable())) refuse('the Licenses page is not in the menu');
   await licenses.open();
   if (!(await licenses.commands.isAvailable('New'))) refuse('the Licenses collection offers no New command');
@@ -43,29 +45,34 @@ async function openNewEditor(page) {
 
 async function openEditEditor(page, search = EDIT_FIXTURE) {
   const licenses = licensesPage(page);
-  await licenses.reload();
   if (!(await licenses.isAvailable())) refuse('the Licenses page is not in the menu');
   await licenses.open();
-  await licenses.search(search);
-  // 68 licences come out of the fixture backup, so an empty table is a broken restore, not a
-  // collection that legitimately has nothing in it.
-  if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');
-  await licenses.selectRow(0);
+  await licenses.selectRecord(search);
   await licenses.editItem();
   return new LicenseEditorPage(page);
 }
 
 test.describe('Licenses / editor', () => {
+  // One context, and therefore one Qt/WASM boot, for the whole file. The blocks below used to take one
+  // each, which cost more than the tests inside them: a block's tests run in under a second on a page
+  // that is already up, against roughly twelve seconds to bring one up.
+  let page;
+
+  test.beforeAll(async ({ browser }, testInfo) => {
+    ({ page } = await newUserPage(browser, testInfo));
+    // newUserPage() only opens a blank page - this is the one navigation that boots the app.
+    await licensesPage(page).reload();
+  });
+
+  test.afterAll(async () => {
+    if (page) await page.context().close();
+  });
+
   test.describe.serial('new document', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openNewEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('empty new editor', async () => {
@@ -148,15 +155,10 @@ test.describe('Licenses / editor', () => {
   });
 
   test.describe.serial('existing document', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openEditEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('the editor loads the selected license', async () => {
@@ -185,19 +187,14 @@ test.describe('Licenses / editor', () => {
     });
   });
 
-  // Their own block and their own page: a describe.serial block stops at its first failure, so
-  // leaving these inside the blocks above would take the inheritance and save coverage down with
-  // them. Not .serial either, so the second assertion is not hidden behind the first.
+  // Their own block: a describe.serial block stops at its first failure, so leaving these inside the
+  // blocks above would take the inheritance and save coverage down with them. Not .serial either, so
+  // the second assertion is not hidden behind the first.
   test.describe('product features', () => {
-    let page, editor;
+    let editor;
 
-    test.beforeAll(async ({ browser }, testInfo) => {
-      ({ page } = await newUserPage(browser, testInfo));
+    test.beforeAll(async () => {
       editor = await openEditEditor(page);
-    });
-
-    test.afterAll(async () => {
-      if (page) await page.context().close();
     });
 
     test('an existing license lists the features it grants', async () => {

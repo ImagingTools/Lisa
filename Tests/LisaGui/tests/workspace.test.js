@@ -20,6 +20,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   filters: { user: 'userId', creationDate: 'CreationDateFilter' },
   // "Last Modified" is when the action happened - different on every run by definition.
   maskColumns: ['timeStamp'],
+  stableSort: 'actionType',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'Created' },
     {

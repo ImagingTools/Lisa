@@ -23,6 +23,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   prefix: 'features',
   filters: COLLECTION_FILTERS,
   maskColumns: MASK_COLUMNS,
+  stableSort: 'featureName',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'Data' },
     {
