@@ -53,10 +53,9 @@ param(
     ),
     [string]$ScriptDir = (Join-Path $RepoRoot "Tests\LisaGui"),
 
-    # Only a Debug build of LisaServerTest.exe exists for these test servers
-    # (there is no Release configuration of them), unlike ProLife's suite,
-    # whose default is Release.
-    [string]$BuildConfig = "Debug_Qt6_VC17_x64",
+    # Release, matching TeamCity (which builds only Release) and the other suites' CI scripts. Locally:
+    # -BuildConfig Debug_Qt6_VC17_x64.
+    [string]$BuildConfig = "Release_Qt6_VC17_x64",
 
     # Puma is checked out as a sibling of Lisa - the same convention PUMADIR/
     # LISADIR already encode.
