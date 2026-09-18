@@ -43,6 +43,7 @@
             <PositionMap>
                 <Element ComponentName="FeatureSqlRepository" X="275" Y="350" Note=""/>
                 <Element ComponentName="LicenseSqlRepository" X="875" Y="350" Note=""/>
+                <Element ComponentName="ProductFeatureInfoProvider" X="575" Y="500" Note=""/>
                 <Element ComponentName="ProductRepository" X="575" Y="350" Note=""/>
             </PositionMap>
             <EmbeddedRegistries/>

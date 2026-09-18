@@ -589,11 +589,23 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="ProductFeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureSqlRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductRepository" PackageId="LisaVoce" ComponentId="ProductSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductFeatureInfoProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>
