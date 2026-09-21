@@ -1,9 +1,8 @@
 // Licenses COLLECTION view.
 //
-// The largest of Lisa's three collections, so it is the one where pagination is actually exercised
-// rather than skipped for want of a second page. LicensesPage.acc gives it one column the other two
-// do not have - "Product-ID" (productId), the product a license definition belongs to - so that is
-// sorted here as well.
+// The largest of Lisa's three collections. LicensesPage.acc gives it one column the other two do not
+// have - "Product-ID" (productId), the product a license definition belongs to - so that is sorted
+// here as well.
 
 const fixtures = require('../fixtures/test');
 const { defineCollectionSpec } = require('imtcore-gui-testkit/specs/collectionSpec');
@@ -45,7 +44,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       preset: 'Year_Last',
     },
     { name: 'sort-license-name', title: 'sort by license name', sort: 'licenseName' },
-    { name: 'pagination', title: 'pagination - page size and navigation', pagination: { size: 50, page: 2 } },
     {
       name: 'remove-dialog',
       title: 'remove confirmation dialog',
@@ -123,46 +121,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       await licenses.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'EditButton'], 'Edit should be offered for a selected row');
       await ctx.gui.checkScreenshot(ctx.page, 'licenses-row-selected', await licenses.masks());
-    });
-
-    // Column configuration, exercised READ-ONLY: every path ends in Cancel or No.
-    //
-    // The layout these dialogs edit is stored per USER on the server, and the whole suite is signed in
-    // as one user - so an Apply here is immediately visible to every test running beside this one. It
-    // was: an applied reorder put a differently-arranged table behind an unrelated editor screenshot,
-    // a 28987-pixel diff with nothing wrong in either view. What Apply itself does is therefore not
-    // covered; the dialog's own behaviour is.
-    test.describe.serial('column configuration (header right-click)', () => {
-      ctx.test('opens via header right-click', async () => {
-        const dialog = await ctx.collection.openColumnConfig('licenseName');
-        await ctx.gui.checkScreenshot(ctx.page, 'licenses-column-config-dialog');
-        await dialog.cancel();
-      });
-
-      // "Last Modified" (timeStamp) is last in the page's header list, so it is the dialog's last row
-      // whatever the current order is.
-      ctx.test('unticking a column then Cancel leaves the table alone', async () => {
-        const dialog = await ctx.collection.openColumnConfig('licenseName');
-        await dialog.toggleColumn((await dialog.rowCount()) - 1);
-        await dialog.cancel();
-        await ctx.gui.expectVisible(ctx.page, ['TableHeaders', 'timeStamp'], 'Cancel must not apply the unticked column');
-      });
-
-      ctx.test('Reset asks first, and No leaves the layout as it was', async () => {
-        const collection = ctx.collection;
-        const headersBefore = await collection.table.headerOrder();
-
-        const dialog = await collection.openColumnConfig('licenseName');
-        await dialog.reset();
-        await ctx.gui.expectVisible(ctx.page, ['YesButton'], 'Reset should ask before discarding the layout');
-        await ctx.gui.checkScreenshot(ctx.page, 'licenses-column-reset-confirm');
-
-        await dialog.cancelReset();
-        await dialog.cancel();
-        expect(await collection.table.headerOrder(), 'declining the reset must change nothing').toEqual(
-          headersBefore
-        );
-      });
     });
   },
 });

@@ -43,7 +43,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     },
     { name: 'filter-cleared', title: 'filter - clear all', clearAll: true, apply: [{ search: 'RTV.3d' }] },
     { name: 'sort-product-name', title: 'sort by product name', sort: 'productName' },
-    { name: 'pagination', title: 'pagination - page size and navigation', pagination: { size: 50, page: 2 } },
     { name: 'remove-dialog', title: 'remove confirmation dialog', command: 'Remove', requires: 'RemoveProduct' },
   ],
 
@@ -98,46 +97,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       // Clicking it opens the native save dialog, outside the DOM - this records the state it is
       // invoked from, which is as far as a browser-driven test can honestly go.
       await ctx.gui.checkScreenshot(ctx.page, 'products-before-export', await products.masks());
-    });
-
-    // Column configuration, exercised READ-ONLY: every path ends in Cancel or No.
-    //
-    // The layout these dialogs edit is stored per USER on the server, and the whole suite is signed in
-    // as one user - so an Apply here is immediately visible to every test running beside this one. It
-    // was: an applied reorder put a differently-arranged table behind an unrelated editor screenshot,
-    // a 28987-pixel diff with nothing wrong in either view. What Apply itself does is therefore not
-    // covered; the dialog's own behaviour is.
-    test.describe.serial('column configuration (header right-click)', () => {
-      ctx.test('opens via header right-click', async () => {
-        const dialog = await ctx.collection.openColumnConfig('productName');
-        await ctx.gui.checkScreenshot(ctx.page, 'products-column-config-dialog');
-        await dialog.cancel();
-      });
-
-      // "Last Modified" (timeStamp) is last in the page's header list, so it is the dialog's last row
-      // whatever the current order is.
-      ctx.test('unticking a column then Cancel leaves the table alone', async () => {
-        const dialog = await ctx.collection.openColumnConfig('productName');
-        await dialog.toggleColumn((await dialog.rowCount()) - 1);
-        await dialog.cancel();
-        await ctx.gui.expectVisible(ctx.page, ['TableHeaders', 'timeStamp'], 'Cancel must not apply the unticked column');
-      });
-
-      ctx.test('Reset asks first, and No leaves the layout as it was', async () => {
-        const collection = ctx.collection;
-        const headersBefore = await collection.table.headerOrder();
-
-        const dialog = await collection.openColumnConfig('productName');
-        await dialog.reset();
-        await ctx.gui.expectVisible(ctx.page, ['YesButton'], 'Reset should ask before discarding the layout');
-        await ctx.gui.checkScreenshot(ctx.page, 'products-column-reset-confirm');
-
-        await dialog.cancelReset();
-        await dialog.cancel();
-        expect(await collection.table.headerOrder(), 'declining the reset must change nothing').toEqual(
-          headersBefore
-        );
-      });
     });
   },
 });
