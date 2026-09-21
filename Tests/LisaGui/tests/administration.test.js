@@ -26,6 +26,7 @@ const {
 } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
 const { refuse } = require('../fixtures/refuse');
+const { waitForTable, documentTabMasks } = require('../pages/settledCollection');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -34,15 +35,6 @@ const { refuse } = require('../fixtures/refuse');
 // exactly what happened while this was Date.now(): the shots only ever 'passed' in the same run that
 // rewrote them. Reruns cannot collide on it either, because Run-CiTests.ps1 restores both databases
 // before every run.
-// The document tab carries a "*" while the document counts as modified, and a brand-new empty
-// editor is NOT reliably one or the other: the same build agent produced a tab with the marker and
-// a baseline without it. So the marker cannot be asserted by a screenshot, and it is masked out of
-// the "new empty editor" shots - what those are documenting is the layout of an empty editor.
-//
-// fixedWidth because the tab is only as wide as its label, and the marker changes that width: a
-// tight mask would leave a sliver of the difference exposed at its own edge.
-const NEW_DOC_TAB_MASK = { path: ['Tab1'], fixedWidth: 260 };
-
 const RUN_ID = 'GuiTest';
 
 // The fixture group the Groups screenshot is narrowed to - see the note at that test.
@@ -91,7 +83,18 @@ test.describe('Administration', () => {
       await admin.open();
       await admin.expectLoaded();
       // The view container renders long before the subpage inside it does, so the table is what says
-      // the landing has actually finished arriving.
+      // the landing has actually finished arriving. On a cold load the agent sometimes never gets
+      // there - two TableHeaders in the DOM and neither visible - so give the view one reload before
+      // asserting. waitForTable never throws; the assertion below still owns the failure message.
+      await waitForTable(
+        page,
+        async () => {
+          await admin.reload();
+          await admin.open();
+          await admin.expectLoaded();
+        },
+        ['TableHeaders', 'roleName']
+      );
       await g.expectVisible(page, ['TableHeaders', 'roleName'], 'the roles table should render');
       await g.checkScreenshot(page, 'administration-landing');
     });
@@ -154,7 +157,7 @@ test.describe('Administration', () => {
     test('New opens an empty role editor', async () => {
       await new RoleCollectionPage(page).newItem();
       await gui.expectVisible(page, ['RoleNameInput'], 'the role editor should open');
-      await gui.checkScreenshot(page, 'role-editor-new-empty', NEW_DOC_TAB_MASK);
+      await gui.checkScreenshot(page, 'role-editor-new-empty', await documentTabMasks(page));
     });
 
     test('filling the role editor derives its id', async () => {
@@ -182,7 +185,7 @@ test.describe('Administration', () => {
     test('New opens an empty user editor', async () => {
       await new UserCollectionPage(page).newItem();
       await gui.expectVisible(page, ['UsernameInput'], 'the user editor should open');
-      await gui.checkScreenshot(page, 'user-editor-new-empty', NEW_DOC_TAB_MASK);
+      await gui.checkScreenshot(page, 'user-editor-new-empty', await documentTabMasks(page));
     });
 
     test('filling the General page', async () => {
@@ -216,7 +219,7 @@ test.describe('Administration', () => {
       // 496-pixel diff. Waiting for Save to light up waits for that message.
       await gui.expectVisible(page, ['GroupNameInput'], 'the group editor should open');
       await gui.expectVisible(page, ['CommandsView', 'SaveButton'], 'a new document is dirty, so Save should be offered');
-      await gui.checkScreenshot(page, 'group-editor-new-empty', NEW_DOC_TAB_MASK);
+      await gui.checkScreenshot(page, 'group-editor-new-empty', await documentTabMasks(page));
     });
 
     test('filling the General page', async () => {
