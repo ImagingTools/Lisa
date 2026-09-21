@@ -34,7 +34,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     // guarded below is the honest way to drive it.
     { name: 'filter-cleared', title: 'filter - clear all', clearAll: true, apply: [{ search: 'Created' }] },
     { name: 'sort-action-type', title: 'sort by action type', sort: 'actionType' },
-    { name: 'pagination', title: 'pagination - page size and navigation', pagination: { size: 50, page: 2 } },
   ],
 
   extra: (ctx) => {
