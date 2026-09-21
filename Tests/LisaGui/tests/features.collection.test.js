@@ -60,7 +60,10 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     test.describe.serial('column configuration (header right-click)', () => {
       ctx.test('opens via header right-click', async () => {
         const dialog = await ctx.collection.openColumnConfig('featureName');
-        await ctx.gui.checkScreenshot(ctx.page, 'features-column-config-dialog');
+        // Masked for the same reason as the editor's close shots: the collection behind the dialog
+        // shows Added/Last Modified in local time, so an agent-minted baseline cannot match a
+        // developer box in another timezone.
+        await ctx.gui.checkScreenshot(ctx.page, 'features-column-config-dialog', await ctx.collection.masks());
         await dialog.cancel();
       });
 

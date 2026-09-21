@@ -177,13 +177,16 @@ test.describe('Features / editor', () => {
       await editor.fillGeneral({ name: `${RUN_ID} Discarded` });
       await editor.closeDocument();
       await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
-      await gui.checkScreenshot(page, 'feature-editor-close-dirty');
+      // Masked: the collection behind the dialog carries Added/Last Modified, which the server renders
+      // in LOCAL time - a baseline minted on the build agent (UTC-6) then differs from a developer box
+      // by the whole offset, 12 hours here, on every row.
+      await gui.checkScreenshot(page, 'feature-editor-close-dirty', await featuresPage(page).masks());
 
       // No = discard. Never Yes here: that would save a throwaway feature into the shared database
       // from a test that is not tagged @mutating.
       await gui.clickButton(page, ['NoButton']);
       await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
-      await gui.checkScreenshot(page, 'feature-editor-close-discarded');
+      await gui.checkScreenshot(page, 'feature-editor-close-discarded', await featuresPage(page).masks());
     });
   });
 
