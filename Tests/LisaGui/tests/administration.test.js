@@ -34,6 +34,15 @@ const { refuse } = require('../fixtures/refuse');
 // exactly what happened while this was Date.now(): the shots only ever 'passed' in the same run that
 // rewrote them. Reruns cannot collide on it either, because Run-CiTests.ps1 restores both databases
 // before every run.
+// The document tab carries a "*" while the document counts as modified, and a brand-new empty
+// editor is NOT reliably one or the other: the same build agent produced a tab with the marker and
+// a baseline without it. So the marker cannot be asserted by a screenshot, and it is masked out of
+// the "new empty editor" shots - what those are documenting is the layout of an empty editor.
+//
+// fixedWidth because the tab is only as wide as its label, and the marker changes that width: a
+// tight mask would leave a sliver of the difference exposed at its own edge.
+const NEW_DOC_TAB_MASK = { path: ['Tab1'], fixedWidth: 260 };
+
 const RUN_ID = 'GuiTest';
 
 // The fixture group the Groups screenshot is narrowed to - see the note at that test.
@@ -145,7 +154,7 @@ test.describe('Administration', () => {
     test('New opens an empty role editor', async () => {
       await new RoleCollectionPage(page).newItem();
       await gui.expectVisible(page, ['RoleNameInput'], 'the role editor should open');
-      await gui.checkScreenshot(page, 'role-editor-new-empty');
+      await gui.checkScreenshot(page, 'role-editor-new-empty', NEW_DOC_TAB_MASK);
     });
 
     test('filling the role editor derives its id', async () => {
@@ -173,7 +182,7 @@ test.describe('Administration', () => {
     test('New opens an empty user editor', async () => {
       await new UserCollectionPage(page).newItem();
       await gui.expectVisible(page, ['UsernameInput'], 'the user editor should open');
-      await gui.checkScreenshot(page, 'user-editor-new-empty');
+      await gui.checkScreenshot(page, 'user-editor-new-empty', NEW_DOC_TAB_MASK);
     });
 
     test('filling the General page', async () => {
@@ -207,7 +216,7 @@ test.describe('Administration', () => {
       // 496-pixel diff. Waiting for Save to light up waits for that message.
       await gui.expectVisible(page, ['GroupNameInput'], 'the group editor should open');
       await gui.expectVisible(page, ['CommandsView', 'SaveButton'], 'a new document is dirty, so Save should be offered');
-      await gui.checkScreenshot(page, 'group-editor-new-empty');
+      await gui.checkScreenshot(page, 'group-editor-new-empty', NEW_DOC_TAB_MASK);
     });
 
     test('filling the General page', async () => {
