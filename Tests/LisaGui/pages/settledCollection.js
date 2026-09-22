@@ -55,11 +55,21 @@ function settled(Base) {
   return class extends Base {
     async clearAllFilters() {
       await super.clearAllFilters();
-      await waitForTable(this.page, async () => {
-        await this.reload();
-        await this.open();
-        await super.clearAllFilters();
-      });
+      // Gate on a ROW, not on "TableHeaders". The header container was too weak a signal: it went
+      // visible while the named column had not rendered, so the reload never fired and the caller's
+      // click failed on the column anyway - which is exactly how the agent still failed after the
+      // first version of this. A visible row means the columns are laid out. Sound here because
+      // clearing filters precedes it, so the collection is unfiltered and Lisa's three always have
+      // data.
+      await waitForTable(
+        this.page,
+        async () => {
+          await this.reload();
+          await this.open();
+          await super.clearAllFilters();
+        },
+        ['TableRow_0']
+      );
       return this;
     }
   };
