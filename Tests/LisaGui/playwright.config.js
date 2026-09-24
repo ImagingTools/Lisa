@@ -19,6 +19,5 @@ module.exports = createGuiConfig({
   // that wall - the table did appear, and the test died in waitForStable with nothing left. Set here
   // rather than per test because the landing tests that need it live in the kit's collectionSpec.
   // A run that needs no reload is unaffected: this is a ceiling, not a delay.
-  timeout: 120_000,
-  workers: 1,
+  timeout: 120_000
 });

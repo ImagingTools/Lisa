@@ -150,7 +150,7 @@ test.describe('Licenses / editor', () => {
       await licenses.open();
       await licenses.search(RUN_ID);
       expect(await licenses.table.visibleRowCount(), 'the license just saved should be findable').toBeGreaterThan(0);
-      await gui.checkScreenshot(page, 'license-editor-new-in-collection', await licenses.masks());
+      await gui.checkScreenshot(page, 'license-editor-new-in-collection', () => licenses.masks());
     });
   });
 

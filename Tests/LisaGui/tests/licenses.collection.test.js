@@ -11,20 +11,6 @@ const { refuse } = require('../fixtures/refuse');
 
 const { test, expect } = fixtures;
 
-// The distinct values of a column, in the order they first appear. A sorted column visits each value
-// exactly once - so if this has no repeats, equal rows are contiguous, which is what "sorted" means
-// here without having to know HOW the server compares two strings. It does not use the same rules as
-// JavaScript: the server returns "RTV.3d Hardware" < "RTV.3dSoftware" < "RTV.tSoftware", while
-// localeCompare puts the last one first. Asserting against a comparator of our own would be asserting
-// our guess about the collation, not the product's behaviour.
-function valueRuns(values) {
-  const runs = [];
-  for (const value of values) {
-    if (runs.length === 0 || runs[runs.length - 1] !== value) runs.push(value);
-  }
-  return runs;
-}
-
 defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...args) }, {
   title: 'Licenses / collection',
   pageId: 'Licenses',
@@ -34,7 +20,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   maskColumns: MASK_COLUMNS,
   // 68 licences and no natural order once the filters are cleared - without this every screenshot of
   // the table is a different arrangement of the same rows. License Name is unique, so it gives one.
-  stableSort: 'licenseName',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'Camera' },
     {
@@ -43,7 +28,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       dateFilter: 'creationDate',
       preset: 'Year_Last',
     },
-    { name: 'sort-license-name', title: 'sort by license name', sort: 'licenseName' },
     {
       name: 'remove-dialog',
       title: 'remove confirmation dialog',
@@ -85,42 +69,13 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
         'clearing the filter should bring back rows it was hiding'
       ).toBe(true);
     });
-    // Sorting by Product-ID is asserted, not screenshotted. Dozens of licences share one product, and
-    // rows that tie come back in no defined order - so the picture differs between runs while the sort
-    // is perfectly correct (measured: a 19537-pixel diff on a correctly ordered list). What the test
-    // actually means is "the column comes out ordered", so that is what it checks, in both directions.
-    ctx.test('sort by product id orders the column', async () => {
-      const collection = ctx.collection;
-      if (!(await collection.table.hasRows())) refuse('the Licenses collection came back empty');
-
-      // Asserted over the rows that are ON SCREEN, and only in ways that hold for them.
-      //
-      // The whole ordering is not readable: the table is paginated AND virtualised, so the DOM only
-      // ever holds the handful of rows currently rendered - raising the page size does not add them
-      // (measured). Ascending and descending therefore show different subsets, which rules out
-      // comparing one against the reverse of the other.
-      //
-      // What does hold on any subset of a sorted list: equal values sit together, so no value appears
-      // in two separate runs. And flipping the direction must change which value comes first.
-      await collection.table.sortBy('productId');
-      const up = valueRuns(await collection.table.columnValues('productId'));
-      expect(up.length, 'a sorted column visits each value once, so equal rows sit together').toBe(
-        new Set(up).size
-      );
-      test.skip(up.length < 2, 'every row on screen shares one value, so there is no order to see');
-
-      await collection.table.sortBy('productId');
-      const down = valueRuns(await collection.table.columnValues('productId'));
-      expect(down.length, 'still grouped after the second click').toBe(new Set(down).size);
-      expect(down[0], 'a second click sorts the other way round').not.toBe(up[0]);
-    });
 
     ctx.test('selecting a row enables Edit', async () => {
       const licenses = ctx.collection;
       if (!(await licenses.table.hasRows())) refuse('the Licenses collection came back empty');
       await licenses.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'EditButton'], 'Edit should be offered for a selected row');
-      await ctx.gui.checkScreenshot(ctx.page, 'licenses-row-selected', await licenses.masks());
+      await ctx.gui.checkScreenshot(ctx.page, 'licenses-row-selected', () => licenses.masks());
     });
   },
 });

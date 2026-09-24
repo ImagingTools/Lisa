@@ -26,7 +26,7 @@ const {
 } = require('../pages');
 const gui = require('imtcore-gui-testkit/lib/gui');
 const { refuse } = require('../fixtures/refuse');
-const { waitForTable, documentTabMasks } = require('../pages/settledCollection');
+const { waitForTable, newEditorMasks } = require('../pages/settledCollection');
 
 // Marker for every row this suite creates, so a fixture row and a test row are never confused.
 //
@@ -157,7 +157,7 @@ test.describe('Administration', () => {
     test('New opens an empty role editor', async () => {
       await new RoleCollectionPage(page).newItem();
       await gui.expectVisible(page, ['RoleNameInput'], 'the role editor should open');
-      await gui.checkScreenshot(page, 'role-editor-new-empty', await documentTabMasks(page));
+      await gui.checkScreenshot(page, 'role-editor-new-empty', () => newEditorMasks(page));
     });
 
     test('filling the role editor derives its id', async () => {
@@ -185,7 +185,7 @@ test.describe('Administration', () => {
     test('New opens an empty user editor', async () => {
       await new UserCollectionPage(page).newItem();
       await gui.expectVisible(page, ['UsernameInput'], 'the user editor should open');
-      await gui.checkScreenshot(page, 'user-editor-new-empty', await documentTabMasks(page));
+      await gui.checkScreenshot(page, 'user-editor-new-empty', () => newEditorMasks(page));
     });
 
     test('filling the General page', async () => {
@@ -219,7 +219,7 @@ test.describe('Administration', () => {
       // 496-pixel diff. Waiting for Save to light up waits for that message.
       await gui.expectVisible(page, ['GroupNameInput'], 'the group editor should open');
       await gui.expectVisible(page, ['CommandsView', 'SaveButton'], 'a new document is dirty, so Save should be offered');
-      await gui.checkScreenshot(page, 'group-editor-new-empty', await documentTabMasks(page));
+      await gui.checkScreenshot(page, 'group-editor-new-empty', () => newEditorMasks(page));
     });
 
     test('filling the General page', async () => {

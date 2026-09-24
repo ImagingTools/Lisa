@@ -248,6 +248,17 @@ function Start-LisaTestServer {
         throw "Server executable not found: $LisaServerExePath"
     }
     $workDir = Split-Path -Parent $LisaServerExePath
+
+    # The server writes every log message to this SQLite file synchronously on its main thread, and
+    # nothing else resets it: it had grown to 345 MB over a day of runs, and the inserts starved the
+    # event loop until pages lost their icons and data. Every run starts from an empty log.
+    $publicDir = if ($env:PUBLIC) { $env:PUBLIC } else { "C:\Users\Public" }
+    $logDir = Join-Path $publicDir "ImagingTools\Lisa\Lisa Server"
+    Get-ChildItem -Path $logDir -Filter "LisaServerTestLog.*" -ErrorAction SilentlyContinue | ForEach-Object {
+        Write-Host "Removing stale server log $($_.Name) ($([math]::Round($_.Length / 1MB, 1)) MB)"
+        Remove-Item -LiteralPath $_.FullName -Force
+    }
+
     $script:lisaProcess = Start-Process -FilePath $LisaServerExePath -WorkingDirectory $workDir -PassThru -WindowStyle Hidden
     Write-Host "Started PID $($script:lisaProcess.Id)"
     Wait-ForPort "LisaServerTest.exe" $script:lisaProcess $HttpPort
