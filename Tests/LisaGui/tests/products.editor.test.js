@@ -193,7 +193,7 @@ test.describe('Products / editor', () => {
       await products.open();
       await products.search(RUN_ID);
       expect(await products.table.visibleRowCount(), 'the product just saved should be findable').toBeGreaterThan(0);
-      await gui.checkScreenshot(page, 'product-editor-new-in-collection', await products.masks());
+      await gui.checkScreenshot(page, 'product-editor-new-in-collection', () => products.masks());
     });
 
     // Reopening is where the ProductItem defect described at the top of this file shows: the features

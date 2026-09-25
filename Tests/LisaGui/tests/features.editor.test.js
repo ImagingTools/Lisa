@@ -154,7 +154,7 @@ test.describe('Features / editor', () => {
       await features.open();
       await features.search(RUN_ID);
       expect(await features.table.visibleRowCount(), 'the feature just saved should be findable').toBeGreaterThan(0);
-      await gui.checkScreenshot(page, 'feature-editor-new-in-collection', await features.masks());
+      await gui.checkScreenshot(page, 'feature-editor-new-in-collection', () => features.masks());
     });
   });
 
@@ -177,16 +177,16 @@ test.describe('Features / editor', () => {
       await editor.fillGeneral({ name: `${RUN_ID} Discarded` });
       await editor.closeDocument();
       await gui.expectVisible(page, ['Dialog'], 'closing a dirty document should ask first');
-      // Masked: the collection behind the dialog carries Added/Last Modified, which the server renders
-      // in LOCAL time - a baseline minted on the build agent (UTC-6) then differs from a developer box
-      // by the whole offset, 12 hours here, on every row.
-      await gui.checkScreenshot(page, 'feature-editor-close-dirty', await featuresPage(page).masks());
+      // Unmasked: what is behind this dialog is the EDITOR, not the collection - there is no timestamp
+      // column on screen to mask, and asking for one makes the mask wait out its settle budget for a
+      // table that is not there.
+      await gui.checkScreenshot(page, 'feature-editor-close-dirty');
 
       // No = discard. Never Yes here: that would save a throwaway feature into the shared database
       // from a test that is not tagged @mutating.
       await gui.clickButton(page, ['NoButton']);
       await gui.expectHidden(page, ['Dialog'], 'the confirm should close');
-      await gui.checkScreenshot(page, 'feature-editor-close-discarded', await featuresPage(page).masks());
+      await gui.checkScreenshot(page, 'feature-editor-close-discarded', () => featuresPage(page).masks());
     });
   });
 

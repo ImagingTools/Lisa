@@ -107,4 +107,15 @@ async function documentTabMasks(page, fixedWidth = 260) {
   return rects.slice(1).map((r) => ({ ...r, fixedWidth }));
 }
 
-module.exports = { settled, waitForTable, documentTabMasks, FIRST_WAIT, RETRY_WAIT };
+/**
+ * Masks for a brand-new server-backed editor: the tab strip plus Save.
+ *
+ * Both show whether the document is dirty, and for a new document that state arrives as a server
+ * notification some time after the editor is on screen - measured as 117 pixels of Save lit in one
+ * run and grey in the next, same build, same test. What these shots document is the empty layout.
+ */
+async function newEditorMasks(page) {
+  return [...(await documentTabMasks(page)), { path: ['CommandsView', 'SaveButton'], padding: 3 }];
+}
+
+module.exports = { settled, waitForTable, documentTabMasks, newEditorMasks, FIRST_WAIT, RETRY_WAIT };

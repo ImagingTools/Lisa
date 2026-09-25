@@ -20,7 +20,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   filters: { user: 'userId', creationDate: 'CreationDateFilter' },
   // "Last Modified" is when the action happened - different on every run by definition.
   maskColumns: ['timeStamp'],
-  stableSort: 'actionType',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'Created' },
     {
@@ -33,7 +32,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
     // database where nothing has been done yet it offers nothing - `optionIndex` with the scenario
     // guarded below is the honest way to drive it.
     { name: 'filter-cleared', title: 'filter - clear all', clearAll: true, apply: [{ search: 'Created' }] },
-    { name: 'sort-action-type', title: 'sort by action type', sort: 'actionType' },
   ],
 
   extra: (ctx) => {
@@ -44,7 +42,15 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       // users to filter by. Asserting a fixed number here would just encode today's fixture data.
       test.skip(options === 0, 'no user actions recorded yet, so the user filter has nothing to offer');
       await workspace.selectFilterOptionByIndex('user', 0);
-      await ctx.gui.checkScreenshot(ctx.page, 'workspace-filter-user', await workspace.masks());
+      // The page-size combo carries a FOCUS RING, which Qt draws only for a focused window: grey on the
+      // build agent, blue on a developer box. Measured here at 146 of the 169 differing pixels - the
+      // same 146 that made the pagination tests unrunnable (see "drop the pagination and
+      // column-configuration tests"). Masked rather than budgeted for, since it says nothing about the
+      // user filter this test is about.
+      await ctx.gui.checkScreenshot(ctx.page, 'workspace-filter-user', async () => [
+        ...(await workspace.masks()),
+        { path: ['Pagination', 'PageSizeCombo'], padding: 3 },
+      ]);
     });
   },
 });

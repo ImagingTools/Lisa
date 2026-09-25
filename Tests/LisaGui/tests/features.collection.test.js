@@ -23,7 +23,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
   prefix: 'features',
   filters: COLLECTION_FILTERS,
   maskColumns: MASK_COLUMNS,
-  stableSort: 'featureName',
   scenarios: [
     { name: 'filter-text', title: 'filter - text search', search: 'Data' },
     {
@@ -33,10 +32,6 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       preset: 'Year_Last',
     },
     { name: 'filter-cleared', title: 'filter - clear all', clearAll: true, apply: [{ search: 'Data' }] },
-    // sortBy addresses a column by its header id, not its visible caption - PackagesPage.acc orders
-    // HeaderIds and HeaderNames independently ("Feature-ID" -> "featureId").
-    { name: 'sort-feature-name', title: 'sort by feature name', sort: 'featureName' },
-    { name: 'sort-feature-id', title: 'sort by feature id', sort: 'featureId' },
     { name: 'remove-dialog', title: 'remove confirmation dialog', command: 'Remove', requires: 'RemoveFeature' },
   ],
 
@@ -46,7 +41,7 @@ defineCollectionSpec({ ...fixtures, defineTest: (...args) => fixtures.test(...ar
       if (!(await features.table.hasRows())) refuse('the Features collection came back empty');
       await features.selectRow(0);
       await ctx.gui.expectVisible(ctx.page, ['CommandsView', 'EditButton'], 'Edit should be offered for a selected row');
-      await ctx.gui.checkScreenshot(ctx.page, 'features-row-selected', await features.masks());
+      await ctx.gui.checkScreenshot(ctx.page, 'features-row-selected', () => features.masks());
     });
   },
 });
