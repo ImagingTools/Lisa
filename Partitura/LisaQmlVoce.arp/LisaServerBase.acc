@@ -48,7 +48,7 @@
                         <Data IsEnabled="true" Value="ServerPageData/FileBasedSslConfiguration"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ThreadsLimit" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
+                        <Data IsEnabled="true" Value="100"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
@@ -553,6 +553,15 @@
         <EmbeddedRegistry Id="Repositories">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="CachedFeatureCollection" PackageId="ImtCorePck" ComponentId="CachedObjectCollection">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureSqlRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="FeatureSqlRepository" PackageId="LisaVoce" ComponentId="FeatureSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -593,7 +602,7 @@
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
-                                    <Data IsEnabled="true" Value="FeatureSqlRepository"/>
+                                    <Data IsEnabled="true" Value="CachedFeatureCollection"/>
                                 </AttributeInfo>
                             </AttributeInfoMap>
                         </Data>
