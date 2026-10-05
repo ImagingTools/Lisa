@@ -8,18 +8,13 @@
         </VersionInfos>
     </AcfHeader>
     <PositionMap>
-        <Element ComponentName="BackupFolder" X="975" Y="575" Note=""/>
-        <Element ComponentName="BackupSettingsRepresentation" X="975" Y="275" Note=""/>
-        <Element ComponentName="DatabaseAccessSettingsRepresentation" X="625" Y="425" Note=""/>
-        <Element ComponentName="DatabaseSettingsRepresentation" X="600" Y="275" Note=""/>
-        <Element ComponentName="PermissionsChecker" X="175" Y="125" Note=""/>
-        <Element ComponentName="PumaConnectionParamRepresentationController" X="225" Y="575" Note=""/>
-        <Element ComponentName="SchedulerParams" X="975" Y="425" Note=""/>
-        <Element ComponentName="ServerConnectionParamRepresentationController" X="225" Y="425" Note=""/>
-        <Element ComponentName="ServerSettingsPermission" X="225" Y="75" Note=""/>
-        <Element ComponentName="ServerSettingsRepresentation" X="225" Y="275" Note=""/>
+        <Element ComponentName="DatabaseAccessSettingsRepresentation" X="450" Y="275" Note=""/>
+        <Element ComponentName="EnableableParamRepresentation" X="975" Y="275" Note=""/>
+        <Element ComponentName="FileNameParamRepresentation" X="800" Y="275" Note=""/>
+        <Element ComponentName="SchedulerParamsRepresentation" X="625" Y="275" Note=""/>
+        <Element ComponentName="SelectionParamRepresentation" X="1150" Y="275" Note=""/>
+        <Element ComponentName="ServerConnectionParamRepresentation" X="225" Y="275" Note=""/>
         <Element ComponentName="SettingsRepresentation" X="600" Y="75" Note=""/>
-        <Element ComponentName="SslConfigurationRepresentation" X="1050" Y="75" Note=""/>
     </PositionMap>
     <EmbeddedRegistries/>
 </Acf>
