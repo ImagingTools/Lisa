@@ -268,6 +268,7 @@
     <ExportedInterfaces>
         <Interface InterfaceId="imtservice::IConnectionCollection" ComponentId="ConnectionCollection"/>
         <Interface InterfaceId="iprm::IParamsSet" ComponentId="Preferences"/>
+        <Interface InterfaceId="iser::ISerializable" ComponentId="Preferences"/>
         <Interface InterfaceId="istd::IChangeable" ComponentId="Preferences"/>
     </ExportedInterfaces>
     <ExportedComponents>
@@ -277,6 +278,8 @@
         <Component ExportedId="FileBasedSslConfiguration" ComponentId="FileBasedSslConfiguration"/>
         <Component ExportedId="PumaConnectionInterface" ComponentId="Server/PumaConnectionInterface"/>
         <Component ExportedId="ServerConnectionInterface" ComponentId="Server/ServerConnectionInterface"/>
+        <Component ExportedId="SettingsFileLoader" ComponentId="FileAutoPersistence/FileLoader"/>
+        <Component ExportedId="SettingsFilePath" ComponentId="FileAutoPersistence/FilePath"/>
         <Component ExportedId="TracingConfiguration" ComponentId="LoggingParams/TracingConfiguration"/>
     </ExportedComponents>
 </Acf>

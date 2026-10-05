@@ -312,6 +312,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="SettingsFileRestart" PackageId="ImtAppPck" ComponentId="SettingsFileRestart">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FileLoader" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/SettingsFileLoader"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FilePath" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/SettingsFilePath"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Settings" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
     </ElementsList>
     <EmbeddedRegistriesList>
         <EmbeddedRegistry Id="Migrations">

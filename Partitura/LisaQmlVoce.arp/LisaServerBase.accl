@@ -17,6 +17,7 @@
         <Element ComponentName="Observers" X="1000" Y="775" Note=""/>
         <Element ComponentName="Repositories" X="125" Y="800" Note=""/>
         <Element ComponentName="ServerPageData" X="100" Y="75" Note=""/>
+        <Element ComponentName="SettingsFileRestart" X="100" Y="250" Note=""/>
     </PositionMap>
     <EmbeddedRegistries>
         <EmbededRegistry Id="Migrations">
