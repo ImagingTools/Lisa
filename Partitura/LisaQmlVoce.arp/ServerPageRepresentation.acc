@@ -10,132 +10,43 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
-        <Element Id="BackupFolder" PackageId="ImtServerAppPck" ComponentId="FileNameParamRepresentationController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="BackupFolder"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Backup Folder"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="BackupSettingsRepresentation" PackageId="ImtServerAppPck" ComponentId="ParamSetRepresentationController">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ParamRepresentationControllers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>SchedulerParams</Value>
-                                <Value>BackupFolder</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
         <Element Id="DatabaseAccessSettingsRepresentation" PackageId="ImtServerAppPck" ComponentId="DatabaseAccessSettingsRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="DatabaseAccessSettings"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Database Access Settings"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="DatabaseSettingsRepresentation" PackageId="ImtServerAppPck" ComponentId="ParamSetRepresentationController">
+        <Element Id="EnableableParamRepresentation" PackageId="ImtServerAppPck" ComponentId="EnableableParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Database"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Database"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ParamRepresentationControllers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>DatabaseAccessSettingsRepresentation</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="PermissionsChecker" PackageId="ImtAuthPck" ComponentId="CheckPermissions">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
-        <Element Id="PumaConnectionParamRepresentationController" PackageId="ImtServerAppPck" ComponentId="ServerConnectionParamRepresentationController">
+        <Element Id="FileNameParamRepresentation" PackageId="ImtServerAppPck" ComponentId="FileNameParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="PumaConnectionInterface"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Puma Connection Interface"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="SchedulerParams" PackageId="ImtServerAppPck" ComponentId="SchedulerParamsRepresentationController">
+        <Element Id="SchedulerParamsRepresentation" PackageId="ImtServerAppPck" ComponentId="SchedulerParamsRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DateFormat" Type="String" ExportId="">
@@ -144,52 +55,15 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="SchedulerParams"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Scheduler"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServerConnectionParamRepresentationController" PackageId="ImtServerAppPck" ComponentId="ServerConnectionParamRepresentationController">
+        <Element Id="SelectionParamRepresentation" PackageId="ImtServerAppPck" ComponentId="SelectionParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ServerConnectionInterface"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Server Connection Interface"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="ServerSettingsPermission" PackageId="ImtServerAppPck" ComponentId="SingleCommandPermissionsProvider">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="CommandId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Server"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ViewServerSettings</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -199,30 +73,13 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ServerSettingsRepresentation" PackageId="ImtServerAppPck" ComponentId="ParamSetRepresentationController">
+        <Element Id="ServerConnectionParamRepresentation" PackageId="ImtServerAppPck" ComponentId="ServerConnectionParamRepresentationController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="Server"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Server"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="ParamRepresentationControllers" Type="Reference[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>ServerConnectionParamRepresentationController</Value>
-                                <Value>PumaConnectionParamRepresentationController</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
@@ -234,36 +91,17 @@
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="ModelId" Type="Id" ExportId="">
-                        <Data IsEnabled="true" Value="ServerSettings"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="Name" Type="Text" ExportId="">
-                        <Data IsEnabled="true" Value="Server Settings"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="ParamRepresentationControllers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ServerSettingsRepresentation</Value>
-                                <Value>DatabaseSettingsRepresentation</Value>
-                                <Value>BackupSettingsRepresentation</Value>
-                                <Value>SslConfigurationRepresentation</Value>
+                                <Value>ServerConnectionParamRepresentation</Value>
+                                <Value>DatabaseAccessSettingsRepresentation</Value>
+                                <Value>SchedulerParamsRepresentation</Value>
+                                <Value>FileNameParamRepresentation</Value>
+                                <Value>EnableableParamRepresentation</Value>
+                                <Value>SelectionParamRepresentation</Value>
                             </Values>
                         </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="TranslationManager" Type="Reference" ExportId="TranslationManager">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                </AttributeInfoMap>
-            </Data>
-        </Element>
-        <Element Id="SslConfigurationRepresentation" PackageId="ImtHttpServerVoce" ComponentId="SslConfigurationRepresentation">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap>
-                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
-                        <Data IsEnabled="false"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                         <Data IsEnabled="false"/>
