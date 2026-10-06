@@ -122,12 +122,6 @@
                     <AttributeInfo Id="AuthenticationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseConnectionChecker" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
                     </AttributeInfo>
