@@ -70,12 +70,6 @@
                     <AttributeInfo Id="DefaultPumaHttpPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="17788"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="18788"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="18776"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/Log"/>
                     </AttributeInfo>
