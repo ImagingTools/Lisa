@@ -10,6 +10,15 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="CachedProductCollection" PackageId="ImtCorePck" ComponentId="CachedObjectCollection">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="ProductCollection">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="CollectionHeadersProvider" PackageId="ImtColPck" ComponentId="CollectionHeadersProvider">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -128,8 +137,8 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
-                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="ProductCollection">
-                        <Data IsEnabled="false"/>
+                    <AttributeInfo Id="ProductCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="CachedProductCollection"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ReplaceableFilterFields" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">

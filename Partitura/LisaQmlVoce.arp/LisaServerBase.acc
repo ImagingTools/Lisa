@@ -48,7 +48,7 @@
                         <Data IsEnabled="true" Value="ServerPageData/FileBasedSslConfiguration"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ThreadsLimit" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="1"/>
+                        <Data IsEnabled="true" Value="100"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
@@ -121,12 +121,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="AuthenticationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="BackupSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/Backup"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DatabaseAccessSettings" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ServerPageData/DatabaseAccessSettings"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DatabaseConnectionChecker" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
@@ -553,6 +547,15 @@
         <EmbeddedRegistry Id="Repositories">
             <Data Description="" Keywords="">
                 <ElementsList>
+                    <Element Id="CachedFeatureCollection" PackageId="ImtCorePck" ComponentId="CachedObjectCollection">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="ObjectCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="FeatureSqlRepository"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="FeatureSqlRepository" PackageId="LisaVoce" ComponentId="FeatureSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
@@ -589,11 +592,23 @@
                             </AttributeInfoMap>
                         </Data>
                     </Element>
+                    <Element Id="ProductFeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="CachedFeatureCollection"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
                     <Element Id="ProductRepository" PackageId="LisaVoce" ComponentId="ProductSqlRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
                                 <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
                                     <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="ProductFeatureInfoProvider"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                                     <Data IsEnabled="false"/>

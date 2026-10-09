@@ -16,6 +16,7 @@
         <Element ComponentName="FeatureOldSqlRepository" X="600" Y="525" Note=""/>
         <Element ComponentName="LicenseOldSqlRepository" X="1025" Y="525" Note=""/>
         <Element ComponentName="LocalSettings" X="825" Y="250" Note=""/>
+        <Element ComponentName="ProductOldFeatureInfoProvider" X="800" Y="380" Note=""/>
         <Element ComponentName="ProductOldSqlRepository" X="800" Y="500" Note=""/>
         <Element ComponentName="VersionInfo" X="950" Y="100" Note=""/>
     </PositionMap>

@@ -137,11 +137,23 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ProductOldFeatureInfoProvider" PackageId="ImtLicensePck" ComponentId="FeatureInfoProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="FeatureOldSqlRepository"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="ProductOldSqlRepository" PackageId="LisaVoce" ComponentId="ProductSqlRepository">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine_old"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="FeatureInfoProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductOldFeatureInfoProvider"/>
                     </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
