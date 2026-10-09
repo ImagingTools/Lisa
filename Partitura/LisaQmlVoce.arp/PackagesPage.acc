@@ -214,10 +214,10 @@
                                 <AttributeInfo Id="ClosePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>AddFeature</Value>
-                                            <Value>ChangeFeature</Value>
-                                            <Value>ViewFeatures</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/AddFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
+                                            <Value>/FeatureManagement/ViewFeatures</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -227,18 +227,18 @@
                                 <AttributeInfo Id="RedoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/AddFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SavePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>AddFeature</Value>
-                                            <Value>ChangeFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/AddFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -251,9 +251,9 @@
                                 <AttributeInfo Id="UndoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ChangeFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/AddFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -308,9 +308,9 @@
                                 <AttributeInfo Id="EditPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ChangeFeature</Value>
-                                            <Value>RemoveFeature</Value>
-                                            <Value>ViewFeatures</Value>
+                                            <Value>/FeatureManagement/EditFeature/ChangeFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
+                                            <Value>/FeatureManagement/ViewFeatures</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -323,7 +323,7 @@
                                 <AttributeInfo Id="NewPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/AddFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -333,7 +333,7 @@
                                 <AttributeInfo Id="RemovePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveFeature</Value>
+                                            <Value>/FeatureManagement/EditFeature/RemoveFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
