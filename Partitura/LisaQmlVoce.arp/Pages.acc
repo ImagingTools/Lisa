@@ -48,8 +48,8 @@
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewFeatures</Value>
-                                <Value>EditFeature</Value>
+                                <Value>/FeatureManagement/ViewFeatures</Value>
+                                <Value>/FeatureManagement/EditFeature</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -80,8 +80,8 @@
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewLicensesDefinition</Value>
-                                <Value>EditLicenseDefinition</Value>
+                                <Value>/LicenseDefinitionManagement/ViewLicensesDefinition</Value>
+                                <Value>/LicenseDefinitionManagement/EditLicenseDefinition</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -211,8 +211,8 @@
                     <AttributeInfo Id="PagePermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>ViewProducts</Value>
-                                <Value>EditProduct</Value>
+                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/EditProduct</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -356,12 +356,12 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewUsers</Value>
-                                            <Value>ViewRoles</Value>
-                                            <Value>ViewGroups</Value>
-                                            <Value>ChangeUser</Value>
-                                            <Value>ChangeRole</Value>
-                                            <Value>ChangeGroups</Value>
+                                            <Value>/Administration/ViewAdministration/ViewUsers</Value>
+                                            <Value>/Administration/ViewAdministration/ViewRoles</Value>
+                                            <Value>/Administration/ViewAdministration/ViewGroups</Value>
+                                            <Value>/Administration/EditAdministration/EditUser/ChangeUser</Value>
+                                            <Value>/Administration/EditAdministration/EditRole/ChangeRole</Value>
+                                            <Value>/Administration/EditAdministration/EditGroup/ChangeGroup</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -380,8 +380,8 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewLicensesDefinition</Value>
-                                            <Value>EditLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/ViewLicensesDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -400,8 +400,8 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewFeatures</Value>
-                                            <Value>EditFeature</Value>
+                                            <Value>/FeatureManagement/ViewFeatures</Value>
+                                            <Value>/FeatureManagement/EditFeature</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -436,8 +436,8 @@
                                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewProducts</Value>
-                                            <Value>EditProduct</Value>
+                                            <Value>/ProductManagement/ViewProducts</Value>
+                                            <Value>/ProductManagement/EditProduct</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>

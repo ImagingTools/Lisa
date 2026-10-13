@@ -202,9 +202,9 @@
                                 <AttributeInfo Id="EditPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ChangeLicenseDefinition</Value>
-                                            <Value>RemoveLicenseDefinition</Value>
-                                            <Value>ViewLicensesDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/ChangeLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/RemoveLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/ViewLicensesDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -223,14 +223,14 @@
                                 <AttributeInfo Id="NewPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/AddLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="RemovePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>RemoveLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/RemoveLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -263,7 +263,7 @@
                                 <AttributeInfo Id="ClosePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ViewLicensesDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/ViewLicensesDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -273,16 +273,16 @@
                                 <AttributeInfo Id="RedoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ChangeLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/ChangeLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SavePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>AddLicenseDefinition</Value>
-                                            <Value>ChangeLicenseDefinition</Value>
-                                            <Value>EditLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/AddLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/ChangeLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -298,7 +298,7 @@
                                 <AttributeInfo Id="UndoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>ChangeLicenseDefinition</Value>
+                                            <Value>/LicenseDefinitionManagement/EditLicenseDefinition/ChangeLicenseDefinition</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
