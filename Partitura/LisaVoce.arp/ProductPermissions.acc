@@ -43,7 +43,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/LicenseDefinitionManagement/ViewLicensesDefinition</Value>
+                                <Value>/LicenseDefinitionManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -59,7 +59,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/EditProduct/AddProduct</Value>
+                                <Value>/ProductManagement/Edit/Add</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -75,7 +75,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -91,7 +91,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -107,7 +107,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
+                                <Value>/ProductManagement/Edit/Change</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -123,7 +123,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -139,7 +139,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -155,7 +155,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -171,7 +171,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/ViewProducts</Value>
+                                <Value>/ProductManagement/View</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -187,7 +187,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/EditProduct/RemoveProduct</Value>
+                                <Value>/ProductManagement/Edit/Remove</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -203,7 +203,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
+                                <Value>/ProductManagement/Edit/Change</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -219,7 +219,7 @@
                     <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
-                                <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
+                                <Value>/ProductManagement/Edit/Change</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>

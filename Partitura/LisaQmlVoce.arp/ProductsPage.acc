@@ -303,7 +303,7 @@
                                 <AttributeInfo Id="ClosePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/ViewProducts</Value>
+                                            <Value>/ProductManagement/View</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -313,18 +313,18 @@
                                 <AttributeInfo Id="RedoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/AddProduct</Value>
-                                            <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
-                                            <Value>/ProductManagement/EditProduct</Value>
+                                            <Value>/ProductManagement/Edit/Add</Value>
+                                            <Value>/ProductManagement/Edit/Change</Value>
+                                            <Value>/ProductManagement/Edit</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
                                 <AttributeInfo Id="SavePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/AddProduct</Value>
-                                            <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
-                                            <Value>/ProductManagement/EditProduct</Value>
+                                            <Value>/ProductManagement/Edit/Add</Value>
+                                            <Value>/ProductManagement/Edit/Change</Value>
+                                            <Value>/ProductManagement/Edit</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -337,9 +337,9 @@
                                 <AttributeInfo Id="UndoPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/AddProduct</Value>
-                                            <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
-                                            <Value>/ProductManagement/EditProduct</Value>
+                                            <Value>/ProductManagement/Edit/Add</Value>
+                                            <Value>/ProductManagement/Edit/Change</Value>
+                                            <Value>/ProductManagement/Edit</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -402,9 +402,9 @@
                                 <AttributeInfo Id="EditPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
-                                            <Value>/ProductManagement/EditProduct/RemoveProduct</Value>
-                                            <Value>/ProductManagement/ViewProducts</Value>
+                                            <Value>/ProductManagement/Edit/Change</Value>
+                                            <Value>/ProductManagement/Edit/Remove</Value>
+                                            <Value>/ProductManagement/View</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -414,8 +414,8 @@
                                 <AttributeInfo Id="ExportPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/ChangeProduct</Value>
-                                            <Value>/ProductManagement/EditProduct/RemoveProduct</Value>
+                                            <Value>/ProductManagement/Edit/Change</Value>
+                                            <Value>/ProductManagement/Edit/Remove</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -431,7 +431,7 @@
                                 <AttributeInfo Id="NewPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/AddProduct</Value>
+                                            <Value>/ProductManagement/Edit/Add</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -441,7 +441,7 @@
                                 <AttributeInfo Id="RemovePermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
-                                            <Value>/ProductManagement/EditProduct/RemoveProduct</Value>
+                                            <Value>/ProductManagement/Edit/Remove</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
