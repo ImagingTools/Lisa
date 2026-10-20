@@ -132,6 +132,9 @@
                             </Values>
                         </Data>
                     </AttributeInfo>
+                    <AttributeInfo Id="ExternalLoginCallbackHandler" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/ExternalLoginCallbackHandler"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="FeatureCollection" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Repositories/FeatureSqlRepository"/>
                     </AttributeInfo>
