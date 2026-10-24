@@ -87,9 +87,6 @@
                     <AttributeInfo Id="DefaultHttpPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="7776"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
-                        <Data IsEnabled="true" Value="8776"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="Application/TextFileLog"/>
                     </AttributeInfo>

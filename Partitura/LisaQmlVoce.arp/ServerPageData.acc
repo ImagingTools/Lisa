@@ -306,12 +306,6 @@
                     <AttributeInfo Id="DefaultPumaHttpPort" Type="Integer" ExportId="DefaultPumaHttpPort">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
-                    <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="DefaultPumaWebSocketPort">
-                        <Data IsEnabled="false"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="DefaultWebSocketPort">
-                        <Data IsEnabled="true" Value="8776"/>
-                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
