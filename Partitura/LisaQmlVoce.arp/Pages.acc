@@ -354,11 +354,17 @@
                                     <Data IsEnabled="true">
                                         <Values>
                                             <Value>/Administration/Users/View</Value>
+                                            <Value>/OrganizationManagement/Members/View</Value>
                                             <Value>/Administration/Roles/View</Value>
+                                            <Value>/OrganizationManagement/Roles/View</Value>
                                             <Value>/Administration/Groups/View</Value>
+                                            <Value>/OrganizationManagement/Groups/View</Value>
                                             <Value>/Administration/Users/Edit/Change</Value>
+                                            <Value>/OrganizationManagement/Members/Edit/Change</Value>
                                             <Value>/Administration/Roles/Edit/Change</Value>
+                                            <Value>/OrganizationManagement/Roles/Edit/Change</Value>
                                             <Value>/Administration/Groups/Edit/Change</Value>
+                                            <Value>/OrganizationManagement/Groups/Edit/Change</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
