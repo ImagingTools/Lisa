@@ -100,6 +100,21 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="LisaServiceInfo" PackageId="ImtClientGqlPck" ComponentId="RemoteServiceInfo">
+            <Data IsEnabled="true" Flags="1">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ServiceId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="AsyncClient" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="LisaGQLEngine/AsyncApiClient"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ConnectionStatus" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="Subscription/ConnectionStatusProvider"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="LoginStatusSubscriberController" PackageId="ImtServerGqlPck" ComponentId="ConnectionStatusSubscriberController">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
@@ -500,6 +515,7 @@
         <Component ExportedId="LicensesSubscriberController" ComponentId="Repositories/LicensesSubscriberController"/>
         <Component ExportedId="LisaDatabaseConnector" ComponentId="LisaDatabaseConnector"/>
         <Component ExportedId="LisaLoginStatusSubscriberController" ComponentId="LoginStatusSubscriberController"/>
+        <Component ExportedId="LisaServiceInfo" ComponentId="LisaServiceInfo"/>
         <Component ExportedId="ProductRepository" ComponentId="Repositories/ProductRepository"/>
         <Component ExportedId="ProductsSubscriberController" ComponentId="Repositories/ProductsSubscriberController"/>
     </ExportedComponents>
