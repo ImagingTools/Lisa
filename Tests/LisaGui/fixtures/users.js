@@ -18,6 +18,9 @@
 
 const { defineUsers } = require('imtcore-gui-testkit/fixtures/defineUsers');
 
+// Seeded users are created by an administrator, so their password must meet the Puma password policy
+const FIXTURE_PASSWORD = 'LisaGui_2026x';
+
 // Everything a seeded fixture user needs to exercise the whole suite, exactly as the SERVER names it:
 // this is GetProductPermissions(productId: "Lisa"), group by group. Do not assemble it by grepping the
 // QML or the .acc files - "EditFeature" appears in Pages.acc's PagePermissions but is not a permission
@@ -69,7 +72,7 @@ module.exports = defineUsers({
       key: 'featuresEditor',
       title: 'Features Editor (isolated)',
       login: 'lisagui_featureseditor',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Features Editor',
       roleId: 'LisaGuiFeaturesEditor',
@@ -80,7 +83,7 @@ module.exports = defineUsers({
       key: 'featuresCollection',
       title: 'Features Collection (isolated)',
       login: 'lisagui_featurescollection',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Features Collection',
       roleId: 'LisaGuiFeaturesCollection',
@@ -91,7 +94,7 @@ module.exports = defineUsers({
       key: 'licensesCollection',
       title: 'Licenses Collection (isolated)',
       login: 'lisagui_licensescollection',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Licenses Collection',
       roleId: 'LisaGuiLicensesCollection',
@@ -102,7 +105,7 @@ module.exports = defineUsers({
       key: 'licensesEditor',
       title: 'Licenses Editor (isolated)',
       login: 'lisagui_licenseseditor',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Licenses Editor',
       roleId: 'LisaGuiLicensesEditor',
@@ -113,7 +116,7 @@ module.exports = defineUsers({
       key: 'productsCollection',
       title: 'Products Collection (isolated)',
       login: 'lisagui_productscollection',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Products Collection',
       roleId: 'LisaGuiProductsCollection',
@@ -124,7 +127,7 @@ module.exports = defineUsers({
       key: 'productsEditor',
       title: 'Products Editor (isolated)',
       login: 'lisagui_productseditor',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Products Editor',
       roleId: 'LisaGuiProductsEditor',
@@ -135,7 +138,7 @@ module.exports = defineUsers({
       key: 'search',
       title: 'Search (isolated)',
       login: 'lisagui_search',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Search',
       roleId: 'LisaGuiSearch',
@@ -146,7 +149,7 @@ module.exports = defineUsers({
       key: 'userProfile',
       title: 'User Profile (isolated)',
       login: 'lisagui_userprofile',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui User Profile',
       roleId: 'LisaGuiUserProfile',
@@ -157,7 +160,7 @@ module.exports = defineUsers({
       key: 'workspace',
       title: 'Workspace (isolated)',
       login: 'lisagui_workspace',
-      password: process.env.LISA_GUI_FIXTURE_PASSWORD || '1',
+      password: process.env.LISA_GUI_FIXTURE_PASSWORD || FIXTURE_PASSWORD,
       seed: true,
       roleName: 'LisaGui Workspace',
       roleId: 'LisaGuiWorkspace',
