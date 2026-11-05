@@ -9,6 +9,7 @@
     </AcfHeader>
     <PositionMap>
         <Element ComponentName="ApplicationHandlers" X="625" Y="150" Note=""/>
+        <Element ComponentName="ExternalLoginCallback" X="900" Y="100" Note=""/>
         <Element ComponentName="Demultiplexer" X="975" Y="150" Note=""/>
         <Element ComponentName="LicensesFilterableSelectController" X="975" Y="475" Note=""/>
         <Element ComponentName="Pages" X="625" Y="325" Note=""/>
