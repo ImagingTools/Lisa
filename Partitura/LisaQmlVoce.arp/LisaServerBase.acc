@@ -32,9 +32,9 @@
                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
-                            <Value>/ProductServer/Watch/Licenses</Value>
-                            <Value>/ProductServer/Watch/Products</Value>
-                            <Value>/ProductServer/Watch/Features</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
                         </Values>
                     </Data>
                 </AttributeInfo>
@@ -50,9 +50,9 @@
                 <AttributeInfo Id="CollectionViewPermissions" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
-                            <Value>/ProductServer/Licenses/View</Value>
-                            <Value>/ProductServer/Products/View</Value>
-                            <Value>/ProductServer/Features/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
                         </Values>
                     </Data>
                 </AttributeInfo>
@@ -68,9 +68,9 @@
                 <AttributeInfo Id="CollectionObjectReadPermissions" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
-                            <Value>/ProductServer/Licenses/View</Value>
-                            <Value>/ProductServer/Products/View</Value>
-                            <Value>/ProductServer/Features/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
                         </Values>
                     </Data>
                 </AttributeInfo>

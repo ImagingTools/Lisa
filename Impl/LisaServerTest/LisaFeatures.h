@@ -30,6 +30,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	featureManagementViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the feature page."));
 	featureManagementViewPageFeatureInfo->SetOptional(false);
 	featureManagementViewPageFeatureInfo->SetIsPermission(true);
+	featureManagementViewPageFeatureInfo->SetRequirements(QByteArray("/FeatureManagement/View").split(';'));
 
 	featureManagementFeatureInfo->InsertSubFeature(featureManagementViewPageFeatureInfo.PopPtr());
 
@@ -105,7 +106,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	featureManagementRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of feature."));
 	featureManagementRevisionsRestoreFeatureInfo->SetOptional(false);
 	featureManagementRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	featureManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/FeatureManagement/Revisions/View").split(';'));
+	featureManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/FeatureManagement/Revisions/View;/FeatureManagement/Edit/Change").split(';'));
 
 	featureManagementRevisionsFeatureInfo->InsertSubFeature(featureManagementRevisionsRestoreFeatureInfo.PopPtr());
 
@@ -139,6 +140,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	productManagementViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the product page."));
 	productManagementViewPageFeatureInfo->SetOptional(false);
 	productManagementViewPageFeatureInfo->SetIsPermission(true);
+	productManagementViewPageFeatureInfo->SetRequirements(QByteArray("/ProductManagement/View").split(';'));
 
 	productManagementFeatureInfo->InsertSubFeature(productManagementViewPageFeatureInfo.PopPtr());
 
@@ -165,6 +167,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	productManagementEditAddFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Add Product"));
 	productManagementEditAddFeatureInfo->SetOptional(false);
 	productManagementEditAddFeatureInfo->SetIsPermission(true);
+	productManagementEditAddFeatureInfo->SetRequirements(QByteArray("/FeatureManagement/View").split(';'));
 
 	productManagementEditFeatureInfo->InsertSubFeature(productManagementEditAddFeatureInfo.PopPtr());
 
@@ -183,6 +186,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	productManagementEditChangeFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Change Product"));
 	productManagementEditChangeFeatureInfo->SetOptional(false);
 	productManagementEditChangeFeatureInfo->SetIsPermission(true);
+	productManagementEditChangeFeatureInfo->SetRequirements(QByteArray("/FeatureManagement/View").split(';'));
 
 	productManagementEditFeatureInfo->InsertSubFeature(productManagementEditChangeFeatureInfo.PopPtr());
 
@@ -214,7 +218,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	productManagementRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of product."));
 	productManagementRevisionsRestoreFeatureInfo->SetOptional(false);
 	productManagementRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	productManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/ProductManagement/Revisions/View").split(';'));
+	productManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/ProductManagement/Revisions/View;/ProductManagement/Edit/Change").split(';'));
 
 	productManagementRevisionsFeatureInfo->InsertSubFeature(productManagementRevisionsRestoreFeatureInfo.PopPtr());
 
@@ -248,6 +252,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	licenseDefinitionManagementViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the license definition page."));
 	licenseDefinitionManagementViewPageFeatureInfo->SetOptional(false);
 	licenseDefinitionManagementViewPageFeatureInfo->SetIsPermission(true);
+	licenseDefinitionManagementViewPageFeatureInfo->SetRequirements(QByteArray("/LicenseDefinitionManagement/View").split(';'));
 
 	licenseDefinitionManagementFeatureInfo->InsertSubFeature(licenseDefinitionManagementViewPageFeatureInfo.PopPtr());
 
@@ -257,6 +262,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	licenseDefinitionManagementViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Licenses Definition"));
 	licenseDefinitionManagementViewFeatureInfo->SetOptional(false);
 	licenseDefinitionManagementViewFeatureInfo->SetIsPermission(true);
+	licenseDefinitionManagementViewFeatureInfo->SetRequirements(QByteArray("/ProductManagement/View;/FeatureManagement/View").split(';'));
 
 	licenseDefinitionManagementFeatureInfo->InsertSubFeature(licenseDefinitionManagementViewFeatureInfo.PopPtr());
 
@@ -323,7 +329,7 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	licenseDefinitionManagementRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of license definition."));
 	licenseDefinitionManagementRevisionsRestoreFeatureInfo->SetOptional(false);
 	licenseDefinitionManagementRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	licenseDefinitionManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/LicenseDefinitionManagement/Revisions/View").split(';'));
+	licenseDefinitionManagementRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/LicenseDefinitionManagement/Revisions/View;/LicenseDefinitionManagement/Edit/Change").split(';'));
 
 	licenseDefinitionManagementRevisionsFeatureInfo->InsertSubFeature(licenseDefinitionManagementRevisionsRestoreFeatureInfo.PopPtr());
 
@@ -341,373 +347,6 @@ static void FillProduct(imtlic::IProductInfo& productInfo){
 	licenseDefinitionManagementFeatureInfo->InsertSubFeature(licenseDefinitionManagementRevisionsFeatureInfo.PopPtr());
 
 	productInfo.AddFeature("a670fc3b-563d-4e46-9b59-ccc6434d206d", *licenseDefinitionManagementFeatureInfo.GetPtr());
-
-	istd::TDelPtr<imtlic::CIdentifiableFeatureInfo> administrationFeatureInfo;
-	administrationFeatureInfo.SetPtr(new imtlic::CIdentifiableFeatureInfo);
-	administrationFeatureInfo->SetObjectUuid("ce4a7f72-5303-4044-b25c-3a02020eebd3");
-	administrationFeatureInfo->SetFeatureId("Administration");
-	administrationFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Administration"));
-	administrationFeatureInfo->SetOptional(false);
-	administrationFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersFeatureInfo;
-	administrationUsersFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersFeatureInfo->SetFeatureId("Users");
-	administrationUsersFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Users"));
-	administrationUsersFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the users."));
-	administrationUsersFeatureInfo->SetOptional(false);
-	administrationUsersFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersViewPageFeatureInfo;
-	administrationUsersViewPageFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersViewPageFeatureInfo->SetFeatureId("ViewPage");
-	administrationUsersViewPageFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Users Page"));
-	administrationUsersViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the users page."));
-	administrationUsersViewPageFeatureInfo->SetOptional(false);
-	administrationUsersViewPageFeatureInfo->SetIsPermission(true);
-
-	administrationUsersFeatureInfo->InsertSubFeature(administrationUsersViewPageFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersViewFeatureInfo;
-	administrationUsersViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersViewFeatureInfo->SetFeatureId("View");
-	administrationUsersViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Users"));
-	administrationUsersViewFeatureInfo->SetOptional(false);
-	administrationUsersViewFeatureInfo->SetIsPermission(true);
-
-	administrationUsersFeatureInfo->InsertSubFeature(administrationUsersViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersViewHistoryFeatureInfo;
-	administrationUsersViewHistoryFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersViewHistoryFeatureInfo->SetFeatureId("ViewHistory");
-	administrationUsersViewHistoryFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View User History"));
-	administrationUsersViewHistoryFeatureInfo->SetOptional(false);
-	administrationUsersViewHistoryFeatureInfo->SetIsPermission(true);
-	administrationUsersViewHistoryFeatureInfo->SetRequirements(QByteArray("/Administration/Users/View").split(';'));
-
-	administrationUsersFeatureInfo->InsertSubFeature(administrationUsersViewHistoryFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersEditFeatureInfo;
-	administrationUsersEditFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersEditFeatureInfo->SetFeatureId("Edit");
-	administrationUsersEditFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Edit User"));
-	administrationUsersEditFeatureInfo->SetOptional(false);
-	administrationUsersEditFeatureInfo->SetIsPermission(true);
-	administrationUsersEditFeatureInfo->SetRequirements(QByteArray("/Administration/Users/View").split(';'));
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersEditAddFeatureInfo;
-	administrationUsersEditAddFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersEditAddFeatureInfo->SetFeatureId("Add");
-	administrationUsersEditAddFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Add User"));
-	administrationUsersEditAddFeatureInfo->SetOptional(false);
-	administrationUsersEditAddFeatureInfo->SetIsPermission(true);
-
-	administrationUsersEditFeatureInfo->InsertSubFeature(administrationUsersEditAddFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersEditChangeFeatureInfo;
-	administrationUsersEditChangeFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersEditChangeFeatureInfo->SetFeatureId("Change");
-	administrationUsersEditChangeFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Change User"));
-	administrationUsersEditChangeFeatureInfo->SetOptional(false);
-	administrationUsersEditChangeFeatureInfo->SetIsPermission(true);
-
-	administrationUsersEditFeatureInfo->InsertSubFeature(administrationUsersEditChangeFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersEditRemoveFeatureInfo;
-	administrationUsersEditRemoveFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersEditRemoveFeatureInfo->SetFeatureId("Remove");
-	administrationUsersEditRemoveFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Remove User"));
-	administrationUsersEditRemoveFeatureInfo->SetOptional(false);
-	administrationUsersEditRemoveFeatureInfo->SetIsPermission(true);
-
-	administrationUsersEditFeatureInfo->InsertSubFeature(administrationUsersEditRemoveFeatureInfo.PopPtr());
-
-	administrationUsersFeatureInfo->InsertSubFeature(administrationUsersEditFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersRevisionsFeatureInfo;
-	administrationUsersRevisionsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersRevisionsFeatureInfo->SetFeatureId("Revisions");
-	administrationUsersRevisionsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Users Revisions"));
-	administrationUsersRevisionsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the revisions of users."));
-	administrationUsersRevisionsFeatureInfo->SetOptional(false);
-	administrationUsersRevisionsFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersRevisionsViewFeatureInfo;
-	administrationUsersRevisionsViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersRevisionsViewFeatureInfo->SetFeatureId("View");
-	administrationUsersRevisionsViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Users Revisions"));
-	administrationUsersRevisionsViewFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows viewing the revisions of users."));
-	administrationUsersRevisionsViewFeatureInfo->SetOptional(false);
-	administrationUsersRevisionsViewFeatureInfo->SetIsPermission(true);
-	administrationUsersRevisionsViewFeatureInfo->SetRequirements(QByteArray("/Administration/Users/View").split(';'));
-
-	administrationUsersRevisionsFeatureInfo->InsertSubFeature(administrationUsersRevisionsViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersRevisionsRestoreFeatureInfo;
-	administrationUsersRevisionsRestoreFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersRevisionsRestoreFeatureInfo->SetFeatureId("Restore");
-	administrationUsersRevisionsRestoreFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Restore Users Revision"));
-	administrationUsersRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of users."));
-	administrationUsersRevisionsRestoreFeatureInfo->SetOptional(false);
-	administrationUsersRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	administrationUsersRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/Administration/Users/Revisions/View").split(';'));
-
-	administrationUsersRevisionsFeatureInfo->InsertSubFeature(administrationUsersRevisionsRestoreFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationUsersRevisionsDeleteFeatureInfo;
-	administrationUsersRevisionsDeleteFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationUsersRevisionsDeleteFeatureInfo->SetFeatureId("Delete");
-	administrationUsersRevisionsDeleteFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Delete Users Revision"));
-	administrationUsersRevisionsDeleteFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows deleting a revision of users."));
-	administrationUsersRevisionsDeleteFeatureInfo->SetOptional(false);
-	administrationUsersRevisionsDeleteFeatureInfo->SetIsPermission(true);
-	administrationUsersRevisionsDeleteFeatureInfo->SetRequirements(QByteArray("/Administration/Users/Revisions/View").split(';'));
-
-	administrationUsersRevisionsFeatureInfo->InsertSubFeature(administrationUsersRevisionsDeleteFeatureInfo.PopPtr());
-
-	administrationUsersFeatureInfo->InsertSubFeature(administrationUsersRevisionsFeatureInfo.PopPtr());
-
-	administrationFeatureInfo->InsertSubFeature(administrationUsersFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesFeatureInfo;
-	administrationRolesFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesFeatureInfo->SetFeatureId("Roles");
-	administrationRolesFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Roles"));
-	administrationRolesFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the roles."));
-	administrationRolesFeatureInfo->SetOptional(false);
-	administrationRolesFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesViewPageFeatureInfo;
-	administrationRolesViewPageFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesViewPageFeatureInfo->SetFeatureId("ViewPage");
-	administrationRolesViewPageFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Roles Page"));
-	administrationRolesViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the roles page."));
-	administrationRolesViewPageFeatureInfo->SetOptional(false);
-	administrationRolesViewPageFeatureInfo->SetIsPermission(true);
-
-	administrationRolesFeatureInfo->InsertSubFeature(administrationRolesViewPageFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesViewFeatureInfo;
-	administrationRolesViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesViewFeatureInfo->SetFeatureId("View");
-	administrationRolesViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Roles"));
-	administrationRolesViewFeatureInfo->SetOptional(false);
-	administrationRolesViewFeatureInfo->SetIsPermission(true);
-
-	administrationRolesFeatureInfo->InsertSubFeature(administrationRolesViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesViewHistoryFeatureInfo;
-	administrationRolesViewHistoryFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesViewHistoryFeatureInfo->SetFeatureId("ViewHistory");
-	administrationRolesViewHistoryFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Role History"));
-	administrationRolesViewHistoryFeatureInfo->SetOptional(false);
-	administrationRolesViewHistoryFeatureInfo->SetIsPermission(true);
-	administrationRolesViewHistoryFeatureInfo->SetRequirements(QByteArray("/Administration/Roles/View").split(';'));
-
-	administrationRolesFeatureInfo->InsertSubFeature(administrationRolesViewHistoryFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesEditFeatureInfo;
-	administrationRolesEditFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesEditFeatureInfo->SetFeatureId("Edit");
-	administrationRolesEditFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Edit Role"));
-	administrationRolesEditFeatureInfo->SetOptional(false);
-	administrationRolesEditFeatureInfo->SetIsPermission(true);
-	administrationRolesEditFeatureInfo->SetRequirements(QByteArray("/Administration/Roles/View").split(';'));
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesEditAddFeatureInfo;
-	administrationRolesEditAddFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesEditAddFeatureInfo->SetFeatureId("Add");
-	administrationRolesEditAddFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Add Role"));
-	administrationRolesEditAddFeatureInfo->SetOptional(false);
-	administrationRolesEditAddFeatureInfo->SetIsPermission(true);
-
-	administrationRolesEditFeatureInfo->InsertSubFeature(administrationRolesEditAddFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesEditChangeFeatureInfo;
-	administrationRolesEditChangeFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesEditChangeFeatureInfo->SetFeatureId("Change");
-	administrationRolesEditChangeFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Change Role"));
-	administrationRolesEditChangeFeatureInfo->SetOptional(false);
-	administrationRolesEditChangeFeatureInfo->SetIsPermission(true);
-
-	administrationRolesEditFeatureInfo->InsertSubFeature(administrationRolesEditChangeFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesEditRemoveFeatureInfo;
-	administrationRolesEditRemoveFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesEditRemoveFeatureInfo->SetFeatureId("Remove");
-	administrationRolesEditRemoveFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Remove Role"));
-	administrationRolesEditRemoveFeatureInfo->SetOptional(false);
-	administrationRolesEditRemoveFeatureInfo->SetIsPermission(true);
-
-	administrationRolesEditFeatureInfo->InsertSubFeature(administrationRolesEditRemoveFeatureInfo.PopPtr());
-
-	administrationRolesFeatureInfo->InsertSubFeature(administrationRolesEditFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesRevisionsFeatureInfo;
-	administrationRolesRevisionsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesRevisionsFeatureInfo->SetFeatureId("Revisions");
-	administrationRolesRevisionsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Roles Revisions"));
-	administrationRolesRevisionsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the revisions of roles."));
-	administrationRolesRevisionsFeatureInfo->SetOptional(false);
-	administrationRolesRevisionsFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesRevisionsViewFeatureInfo;
-	administrationRolesRevisionsViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesRevisionsViewFeatureInfo->SetFeatureId("View");
-	administrationRolesRevisionsViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Roles Revisions"));
-	administrationRolesRevisionsViewFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows viewing the revisions of roles."));
-	administrationRolesRevisionsViewFeatureInfo->SetOptional(false);
-	administrationRolesRevisionsViewFeatureInfo->SetIsPermission(true);
-	administrationRolesRevisionsViewFeatureInfo->SetRequirements(QByteArray("/Administration/Roles/View").split(';'));
-
-	administrationRolesRevisionsFeatureInfo->InsertSubFeature(administrationRolesRevisionsViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesRevisionsRestoreFeatureInfo;
-	administrationRolesRevisionsRestoreFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesRevisionsRestoreFeatureInfo->SetFeatureId("Restore");
-	administrationRolesRevisionsRestoreFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Restore Roles Revision"));
-	administrationRolesRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of roles."));
-	administrationRolesRevisionsRestoreFeatureInfo->SetOptional(false);
-	administrationRolesRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	administrationRolesRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/Administration/Roles/Revisions/View").split(';'));
-
-	administrationRolesRevisionsFeatureInfo->InsertSubFeature(administrationRolesRevisionsRestoreFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationRolesRevisionsDeleteFeatureInfo;
-	administrationRolesRevisionsDeleteFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationRolesRevisionsDeleteFeatureInfo->SetFeatureId("Delete");
-	administrationRolesRevisionsDeleteFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Delete Roles Revision"));
-	administrationRolesRevisionsDeleteFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows deleting a revision of roles."));
-	administrationRolesRevisionsDeleteFeatureInfo->SetOptional(false);
-	administrationRolesRevisionsDeleteFeatureInfo->SetIsPermission(true);
-	administrationRolesRevisionsDeleteFeatureInfo->SetRequirements(QByteArray("/Administration/Roles/Revisions/View").split(';'));
-
-	administrationRolesRevisionsFeatureInfo->InsertSubFeature(administrationRolesRevisionsDeleteFeatureInfo.PopPtr());
-
-	administrationRolesFeatureInfo->InsertSubFeature(administrationRolesRevisionsFeatureInfo.PopPtr());
-
-	administrationFeatureInfo->InsertSubFeature(administrationRolesFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsFeatureInfo;
-	administrationGroupsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsFeatureInfo->SetFeatureId("Groups");
-	administrationGroupsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Groups"));
-	administrationGroupsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the groups."));
-	administrationGroupsFeatureInfo->SetOptional(false);
-	administrationGroupsFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsViewPageFeatureInfo;
-	administrationGroupsViewPageFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsViewPageFeatureInfo->SetFeatureId("ViewPage");
-	administrationGroupsViewPageFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Groups Page"));
-	administrationGroupsViewPageFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows opening the groups page."));
-	administrationGroupsViewPageFeatureInfo->SetOptional(false);
-	administrationGroupsViewPageFeatureInfo->SetIsPermission(true);
-
-	administrationGroupsFeatureInfo->InsertSubFeature(administrationGroupsViewPageFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsViewFeatureInfo;
-	administrationGroupsViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsViewFeatureInfo->SetFeatureId("View");
-	administrationGroupsViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Groups"));
-	administrationGroupsViewFeatureInfo->SetOptional(false);
-	administrationGroupsViewFeatureInfo->SetIsPermission(true);
-
-	administrationGroupsFeatureInfo->InsertSubFeature(administrationGroupsViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsViewHistoryFeatureInfo;
-	administrationGroupsViewHistoryFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsViewHistoryFeatureInfo->SetFeatureId("ViewHistory");
-	administrationGroupsViewHistoryFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Group History"));
-	administrationGroupsViewHistoryFeatureInfo->SetOptional(false);
-	administrationGroupsViewHistoryFeatureInfo->SetIsPermission(true);
-	administrationGroupsViewHistoryFeatureInfo->SetRequirements(QByteArray("/Administration/Groups/View").split(';'));
-
-	administrationGroupsFeatureInfo->InsertSubFeature(administrationGroupsViewHistoryFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsEditFeatureInfo;
-	administrationGroupsEditFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsEditFeatureInfo->SetFeatureId("Edit");
-	administrationGroupsEditFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Edit Group"));
-	administrationGroupsEditFeatureInfo->SetOptional(false);
-	administrationGroupsEditFeatureInfo->SetIsPermission(true);
-	administrationGroupsEditFeatureInfo->SetRequirements(QByteArray("/Administration/Groups/View").split(';'));
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsEditAddFeatureInfo;
-	administrationGroupsEditAddFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsEditAddFeatureInfo->SetFeatureId("Add");
-	administrationGroupsEditAddFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Add Group"));
-	administrationGroupsEditAddFeatureInfo->SetOptional(false);
-	administrationGroupsEditAddFeatureInfo->SetIsPermission(true);
-
-	administrationGroupsEditFeatureInfo->InsertSubFeature(administrationGroupsEditAddFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsEditChangeFeatureInfo;
-	administrationGroupsEditChangeFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsEditChangeFeatureInfo->SetFeatureId("Change");
-	administrationGroupsEditChangeFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Change Group"));
-	administrationGroupsEditChangeFeatureInfo->SetOptional(false);
-	administrationGroupsEditChangeFeatureInfo->SetIsPermission(true);
-
-	administrationGroupsEditFeatureInfo->InsertSubFeature(administrationGroupsEditChangeFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsEditRemoveFeatureInfo;
-	administrationGroupsEditRemoveFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsEditRemoveFeatureInfo->SetFeatureId("Remove");
-	administrationGroupsEditRemoveFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Remove Group"));
-	administrationGroupsEditRemoveFeatureInfo->SetOptional(false);
-	administrationGroupsEditRemoveFeatureInfo->SetIsPermission(true);
-
-	administrationGroupsEditFeatureInfo->InsertSubFeature(administrationGroupsEditRemoveFeatureInfo.PopPtr());
-
-	administrationGroupsFeatureInfo->InsertSubFeature(administrationGroupsEditFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsRevisionsFeatureInfo;
-	administrationGroupsRevisionsFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsRevisionsFeatureInfo->SetFeatureId("Revisions");
-	administrationGroupsRevisionsFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Groups Revisions"));
-	administrationGroupsRevisionsFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Provides access to the revisions of groups."));
-	administrationGroupsRevisionsFeatureInfo->SetOptional(false);
-	administrationGroupsRevisionsFeatureInfo->SetIsPermission(true);
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsRevisionsViewFeatureInfo;
-	administrationGroupsRevisionsViewFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsRevisionsViewFeatureInfo->SetFeatureId("View");
-	administrationGroupsRevisionsViewFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "View Groups Revisions"));
-	administrationGroupsRevisionsViewFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows viewing the revisions of groups."));
-	administrationGroupsRevisionsViewFeatureInfo->SetOptional(false);
-	administrationGroupsRevisionsViewFeatureInfo->SetIsPermission(true);
-	administrationGroupsRevisionsViewFeatureInfo->SetRequirements(QByteArray("/Administration/Groups/View").split(';'));
-
-	administrationGroupsRevisionsFeatureInfo->InsertSubFeature(administrationGroupsRevisionsViewFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsRevisionsRestoreFeatureInfo;
-	administrationGroupsRevisionsRestoreFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsRevisionsRestoreFeatureInfo->SetFeatureId("Restore");
-	administrationGroupsRevisionsRestoreFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Restore Groups Revision"));
-	administrationGroupsRevisionsRestoreFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows restoring a revision of groups."));
-	administrationGroupsRevisionsRestoreFeatureInfo->SetOptional(false);
-	administrationGroupsRevisionsRestoreFeatureInfo->SetIsPermission(true);
-	administrationGroupsRevisionsRestoreFeatureInfo->SetRequirements(QByteArray("/Administration/Groups/Revisions/View").split(';'));
-
-	administrationGroupsRevisionsFeatureInfo->InsertSubFeature(administrationGroupsRevisionsRestoreFeatureInfo.PopPtr());
-
-	istd::TDelPtr<imtlic::CFeatureInfo> administrationGroupsRevisionsDeleteFeatureInfo;
-	administrationGroupsRevisionsDeleteFeatureInfo.SetPtr(new imtlic::CFeatureInfo);
-	administrationGroupsRevisionsDeleteFeatureInfo->SetFeatureId("Delete");
-	administrationGroupsRevisionsDeleteFeatureInfo->SetFeatureName(QT_TRANSLATE_NOOP("Feature", "Delete Groups Revision"));
-	administrationGroupsRevisionsDeleteFeatureInfo->SetFeatureDescription(QT_TRANSLATE_NOOP("Feature", "Allows deleting a revision of groups."));
-	administrationGroupsRevisionsDeleteFeatureInfo->SetOptional(false);
-	administrationGroupsRevisionsDeleteFeatureInfo->SetIsPermission(true);
-	administrationGroupsRevisionsDeleteFeatureInfo->SetRequirements(QByteArray("/Administration/Groups/Revisions/View").split(';'));
-
-	administrationGroupsRevisionsFeatureInfo->InsertSubFeature(administrationGroupsRevisionsDeleteFeatureInfo.PopPtr());
-
-	administrationGroupsFeatureInfo->InsertSubFeature(administrationGroupsRevisionsFeatureInfo.PopPtr());
-
-	administrationFeatureInfo->InsertSubFeature(administrationGroupsFeatureInfo.PopPtr());
-
-	productInfo.AddFeature("ce4a7f72-5303-4044-b25c-3a02020eebd3", *administrationFeatureInfo.GetPtr());
 
 	istd::TDelPtr<imtlic::CIdentifiableFeatureInfo> workspaceManagementFeatureInfo;
 	workspaceManagementFeatureInfo.SetPtr(new imtlic::CIdentifiableFeatureInfo);
