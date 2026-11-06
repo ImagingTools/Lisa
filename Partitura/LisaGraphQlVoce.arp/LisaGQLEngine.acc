@@ -166,9 +166,24 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ServerCredential" PackageId="ImtClientGqlPck" ComponentId="ServerCredentialProvider">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="EnvironmentVariable" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="IMT_LISA_SERVER_CREDENTIAL"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="Repositories" PackageId="" ComponentId="Repositories">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ServerCredentialProvider" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerCredential"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ApiClient" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LisaGQLEngine/ApiClient"/>
                     </AttributeInfo>
@@ -267,6 +282,9 @@
                     <Element Id="FeatureRepository" PackageId="ImtGraphQlVoce" ComponentId="RemoteRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="ServerCredentialProvider" Type="Reference" ExportId="ServerCredentialProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ApiClient" Type="Reference" ExportId="ApiClient">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -339,6 +357,9 @@
                     <Element Id="LicenseRepository" PackageId="ImtGraphQlVoce" ComponentId="RemoteRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="ServerCredentialProvider" Type="Reference" ExportId="ServerCredentialProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ApiClient" Type="Reference" ExportId="ApiClient">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
@@ -422,6 +443,9 @@
                     <Element Id="ProductRepository" PackageId="ImtGraphQlVoce" ComponentId="RemoteRepository">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="ServerCredentialProvider" Type="Reference" ExportId="ServerCredentialProvider">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ApiClient" Type="Reference" ExportId="ApiClient">
                                     <Data IsEnabled="false"/>
                                 </AttributeInfo>
