@@ -26,6 +26,17 @@
                             <Value>OnLicensesCollectionChanged</Value>
                             <Value>OnProductsCollectionChanged</Value>
                             <Value>OnFeaturesCollectionChanged</Value>
+                            <Value>LicenseFeatures</Value>
+                            <Value>LicensesList</Value>
+                            <Value>ProductItem</Value>
+                            <Value>ProductList</Value>
+                            <Value>ProductsInfo</Value>
+                            <Value>ProductsList</Value>
+                            <Value>ProductsMetaInfo</Value>
+                            <Value>ProductsObjectView</Value>
+                            <Value>CommandsData</Value>
+                            <Value>FeaturesList</Value>
+                            <Value>GetFeatureDependencies</Value>
                         </Values>
                     </Data>
                 </AttributeInfo>
@@ -34,6 +45,17 @@
                         <Values>
                             <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
                             <Value>/FeatureManagement/View</Value>
                         </Values>
                     </Data>
@@ -96,6 +118,9 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ServerProductId" Type="Id" ExportId="">
                         <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerTokenManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerTokenReceiver/ServerTokenManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DenyUndeclaredUserSubscriptions" Type="Boolean" ExportId="">
                         <Data IsEnabled="true" Value="true"/>
@@ -222,6 +247,7 @@
                     <AttributeInfo Id="ExternRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>ServerTokenReceiver</Value>
                                 <Value>AuthorizableServerFramework</Value>
                             </Values>
                         </Data>
@@ -354,6 +380,37 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ServerTokenReceiver" PackageId="ImtAuthVoce" ComponentId="ServerTokenReceiver">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ClientProductIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ProLife</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PermissionTree" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PersonalAccessTokenCache" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
