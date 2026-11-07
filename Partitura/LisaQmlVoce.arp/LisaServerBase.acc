@@ -10,9 +10,103 @@
     <Description></Description>
     <Keywords></Keywords>
     <ElementsList>
+        <Element Id="ProductServerRequestPolicy" PackageId="ImtServerGqlPck" ComponentId="ProductServerRequestPolicy">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                <AttributeInfo Id="OpenCommandIds" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>GetApplicationInfo</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>OnLicensesCollectionChanged</Value>
+                            <Value>OnProductsCollectionChanged</Value>
+                            <Value>OnFeaturesCollectionChanged</Value>
+                            <Value>LicenseFeatures</Value>
+                            <Value>LicensesList</Value>
+                            <Value>ProductItem</Value>
+                            <Value>ProductList</Value>
+                            <Value>ProductsInfo</Value>
+                            <Value>ProductsList</Value>
+                            <Value>ProductsMetaInfo</Value>
+                            <Value>ProductsObjectView</Value>
+                            <Value>CommandsData</Value>
+                            <Value>FeaturesList</Value>
+                            <Value>GetFeatureDependencies</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                <AttributeInfo Id="CollectionIds" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>Licenses</Value>
+                            <Value>Products</Value>
+                            <Value>Features</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                <AttributeInfo Id="CollectionViewPermissions" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>/LicenseDefinitionManagement/View</Value>
+                            <Value>/ProductManagement/View</Value>
+                            <Value>/FeatureManagement/View</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                <AttributeInfo Id="ObjectReadCommandIds" Type="Id[]" ExportId="">
+                    <Data IsEnabled="true">
+                        <Values>
+                            <Value>GetObjectData</Value>
+                            <Value>GetElementInfo</Value>
+                            <Value>GetElementMetaInfo</Value>
+                            <Value>GetDataMetaInfo</Value>
+                            <Value>GetObjectTypeId</Value>
+                        </Values>
+                    </Data>
+                </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
         <Element Id="AuthorizableServerFramework" PackageId="ImtHttpServerVoce" ComponentId="AuthorizableServerFramework">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
+                    <AttributeInfo Id="ProductServerRequestPolicy" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductServerRequestPolicy"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerProductId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Lisa"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ServerTokenManager" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerTokenReceiver/ServerTokenManager"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DenyUndeclaredUserSubscriptions" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
                     </AttributeInfo>
@@ -122,12 +216,20 @@
                     <AttributeInfo Id="AuthenticationManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ServiceDependencies" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>AuthorizableServerFramework/AuthServerVersionInfo</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseConnectionChecker" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine/PgSqlDatabaseEngine"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ExternRequestHandlers" Type="Reference[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value>ServerTokenReceiver</Value>
                                 <Value>AuthorizableServerFramework</Value>
                             </Values>
                         </Data>
@@ -260,6 +362,37 @@
                     </AttributeInfo>
                     <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
                         <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="VersionInfo" Type="Reference" ExportId="VersionInfo">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ServerTokenReceiver" PackageId="ImtAuthVoce" ComponentId="ServerTokenReceiver">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="ClientProductIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ProLife</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="DatabaseEngine"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                        <Data IsEnabled="false"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PermissionTree" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework"/>
+                    </AttributeInfo>
+                    <AttributeInfo Id="PersonalAccessTokenCache" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
@@ -446,6 +579,16 @@
                     <Element Id="FeatureCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>/FeatureManagement/View</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -471,6 +614,16 @@
                     <Element Id="LicenseCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>/LicenseDefinitionManagement/View</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -496,6 +649,16 @@
                     <Element Id="ProductCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
+                                    <Data IsEnabled="true">
+                                        <Values>
+                                            <Value>/ProductManagement/View</Value>
+                                        </Values>
+                                    </Data>
+                                </AttributeInfo>
                                 <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
