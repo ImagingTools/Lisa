@@ -13,16 +13,10 @@
         <Element Id="ProductServerRequestPolicy" PackageId="ImtServerGqlPck" ComponentId="ProductServerRequestPolicy">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                <AttributeInfo Id="OpenCommandIds" Type="Id[]" ExportId="">
-                    <Data IsEnabled="true">
-                        <Values>
-                            <Value>GetApplicationInfo</Value>
-                        </Values>
-                    </Data>
-                </AttributeInfo>
                 <AttributeInfo Id="CommandIds" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
+                            <Value>GetApplicationInfo</Value>
                             <Value>OnLicensesCollectionChanged</Value>
                             <Value>OnProductsCollectionChanged</Value>
                             <Value>OnFeaturesCollectionChanged</Value>
@@ -43,6 +37,7 @@
                 <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
+                            <Value></Value>
                             <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/ProductManagement/View</Value>
                             <Value>/FeatureManagement/View</Value>
@@ -78,17 +73,6 @@
                         </Values>
                     </Data>
                 </AttributeInfo>
-                <AttributeInfo Id="ObjectReadCommandIds" Type="Id[]" ExportId="">
-                    <Data IsEnabled="true">
-                        <Values>
-                            <Value>GetObjectData</Value>
-                            <Value>GetElementInfo</Value>
-                            <Value>GetElementMetaInfo</Value>
-                            <Value>GetDataMetaInfo</Value>
-                            <Value>GetObjectTypeId</Value>
-                        </Values>
-                    </Data>
-                </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -103,9 +87,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="ServerTokenManager" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerTokenReceiver/ServerTokenManager"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="DenyUndeclaredUserSubscriptions" Type="Boolean" ExportId="">
-                        <Data IsEnabled="true" Value="true"/>
                     </AttributeInfo>
                     <AttributeInfo Id="ApplicationInfo" Type="Reference" ExportId="ApplicationInfo">
                         <Data IsEnabled="false"/>
@@ -390,9 +371,6 @@
                     </AttributeInfo>
                     <AttributeInfo Id="PermissionTree" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="AuthorizableServerFramework"/>
-                    </AttributeInfo>
-                    <AttributeInfo Id="PersonalAccessTokenCache" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="AuthorizableServerFramework/AuthenticationManager"/>
                     </AttributeInfo>
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="ServerPageData/TracingConfiguration"/>
