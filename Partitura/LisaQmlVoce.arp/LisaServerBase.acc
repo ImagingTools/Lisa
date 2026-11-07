@@ -78,24 +78,6 @@
                         </Values>
                     </Data>
                 </AttributeInfo>
-                <AttributeInfo Id="CollectionEditPermissions" Type="Id[]" ExportId="">
-                    <Data IsEnabled="true">
-                        <Values>
-                            <Value></Value>
-                            <Value></Value>
-                            <Value></Value>
-                        </Values>
-                    </Data>
-                </AttributeInfo>
-                <AttributeInfo Id="CollectionObjectReadPermissions" Type="Id[]" ExportId="">
-                    <Data IsEnabled="true">
-                        <Values>
-                            <Value>/LicenseDefinitionManagement/View</Value>
-                            <Value>/ProductManagement/View</Value>
-                            <Value>/FeatureManagement/View</Value>
-                        </Values>
-                    </Data>
-                </AttributeInfo>
                 <AttributeInfo Id="ObjectReadCommandIds" Type="Id[]" ExportId="">
                     <Data IsEnabled="true">
                         <Values>
@@ -597,6 +579,9 @@
                     <Element Id="FeatureCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
+                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
+                                    <Data IsEnabled="true" Value="true"/>
+                                </AttributeInfo>
                                 <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
