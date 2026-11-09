@@ -22,6 +22,7 @@
                             <Value>OnFeaturesCollectionChanged</Value>
                             <Value>LicenseFeatures</Value>
                             <Value>LicensesList</Value>
+                            <Value>Licenses</Value>
                             <Value>ProductItem</Value>
                             <Value>ProductList</Value>
                             <Value>ProductsInfo</Value>
@@ -41,6 +42,7 @@
                             <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/ProductManagement/View</Value>
                             <Value>/FeatureManagement/View</Value>
+                            <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/LicenseDefinitionManagement/View</Value>
                             <Value>/ProductManagement/View</Value>
@@ -448,6 +450,7 @@
                                             <Value>MigrationController_0_13</Value>
                                             <Value>Migration_14</Value>
                                             <Value>MigrationController_15</Value>
+                                            <Value>MigrationController_16</Value>
                                         </Values>
                                     </Data>
                                 </AttributeInfo>
@@ -498,6 +501,30 @@
                                 </AttributeInfo>
                                 <AttributeInfo Id="To" Type="Integer" ExportId="">
                                     <Data IsEnabled="true" Value="15"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                            </AttributeInfoMap>
+                        </Data>
+                    </Element>
+                    <Element Id="MigrationController_16" PackageId="ImtDatabasePck" ComponentId="MigrationController">
+                        <Data IsEnabled="true" Flags="0">
+                            <AttributeInfoMap>
+                                <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="DatabaseEngine">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="From" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="16"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="Log" Type="Reference" ExportId="Log">
+                                    <Data IsEnabled="false"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="MigrationFolderPath" Type="Reference" ExportId="">
+                                    <Data IsEnabled="true" Value="MigrationFilePath"/>
+                                </AttributeInfo>
+                                <AttributeInfo Id="To" Type="Integer" ExportId="">
+                                    <Data IsEnabled="true" Value="16"/>
                                 </AttributeInfo>
                                 <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="TracingConfiguration">
                                     <Data IsEnabled="false"/>
