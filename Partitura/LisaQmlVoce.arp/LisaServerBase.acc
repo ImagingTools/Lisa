@@ -503,9 +503,6 @@
                     <Element Id="FeatureCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -538,9 +535,6 @@
                     <Element Id="LicenseCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
@@ -573,9 +567,6 @@
                     <Element Id="ProductCollectionChangeNotifier" PackageId="ImtServerGqlPck" ComponentId="ObjectCollectionChangeNotifier">
                         <Data IsEnabled="true" Flags="0">
                             <AttributeInfoMap>
-                                <AttributeInfo Id="OpenToServers" Type="Boolean" ExportId="">
-                                    <Data IsEnabled="true" Value="true"/>
-                                </AttributeInfo>
                                 <AttributeInfo Id="ReadPermissions" Type="Id[]" ExportId="">
                                     <Data IsEnabled="true">
                                         <Values>
