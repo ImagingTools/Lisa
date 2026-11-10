@@ -281,17 +281,9 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
-        <Element Id="ProductServerPolicy" PackageId="LisaQmlVoce" ComponentId="ProductServerPolicy">
-            <Data IsEnabled="true" Flags="0">
-                <AttributeInfoMap/>
-            </Data>
-        </Element>
         <Element Id="ServerTokenReceiver" PackageId="ImtAuthVoce" ComponentId="ServerTokenReceiver">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="Policy" Type="Reference" ExportId="">
-                        <Data IsEnabled="true" Value="ProductServerPolicy"/>
-                    </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine"/>
                     </AttributeInfo>
