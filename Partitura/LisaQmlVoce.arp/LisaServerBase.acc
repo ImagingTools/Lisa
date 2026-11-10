@@ -281,39 +281,16 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ProductServerPolicy" PackageId="LisaQmlVoce" ComponentId="ProductServerPolicy">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap/>
+            </Data>
+        </Element>
         <Element Id="ServerTokenReceiver" PackageId="ImtAuthVoce" ComponentId="ServerTokenReceiver">
             <Data IsEnabled="true" Flags="0">
                 <AttributeInfoMap>
-                    <AttributeInfo Id="CollectionPermissions" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>Licenses=/LicenseDefinitionManagement/View</Value>
-                                <Value>Products=/ProductManagement/View</Value>
-                                <Value>Features=/FeatureManagement/View</Value>
-                            </Values>
-                        </Data>
-                    </AttributeInfo>
-                    <AttributeInfo Id="CommandPermissions" Type="Id[]" ExportId="">
-                        <Data IsEnabled="true">
-                            <Values>
-                                <Value>GetApplicationInfo=</Value>
-                                <Value>OnLicensesCollectionChanged=/LicenseDefinitionManagement/View</Value>
-                                <Value>OnProductsCollectionChanged=/ProductManagement/View</Value>
-                                <Value>OnFeaturesCollectionChanged=/FeatureManagement/View</Value>
-                                <Value>LicenseFeatures=/LicenseDefinitionManagement/View</Value>
-                                <Value>LicensesList=/LicenseDefinitionManagement/View</Value>
-                                <Value>Licenses=/LicenseDefinitionManagement/View</Value>
-                                <Value>ProductItem=/ProductManagement/View</Value>
-                                <Value>ProductList=/ProductManagement/View</Value>
-                                <Value>ProductsInfo=/ProductManagement/View</Value>
-                                <Value>ProductsList=/ProductManagement/View</Value>
-                                <Value>ProductsMetaInfo=/ProductManagement/View</Value>
-                                <Value>ProductsObjectView=/ProductManagement/View</Value>
-                                <Value>CommandsData=/FeatureManagement/View</Value>
-                                <Value>FeaturesList=/FeatureManagement/View</Value>
-                                <Value>GetFeatureDependencies=/FeatureManagement/View</Value>
-                            </Values>
-                        </Data>
+                    <AttributeInfo Id="Policy" Type="Reference" ExportId="">
+                        <Data IsEnabled="true" Value="ProductServerPolicy"/>
                     </AttributeInfo>
                     <AttributeInfo Id="DatabaseEngine" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="DatabaseEngine"/>
