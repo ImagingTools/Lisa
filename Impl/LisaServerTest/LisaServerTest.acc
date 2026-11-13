@@ -73,6 +73,9 @@
                     <AttributeInfo Id="DefaultPumaWebSocketPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="18788"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="DefaultServerTokensEnabled" Type="Boolean" ExportId="">
+                        <Data IsEnabled="true" Value="true"/>
+                    </AttributeInfo>
                     <AttributeInfo Id="DefaultWebSocketPort" Type="Integer" ExportId="">
                         <Data IsEnabled="true" Value="18776"/>
                     </AttributeInfo>
