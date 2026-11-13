@@ -118,6 +118,13 @@
                     <AttributeInfo Id="TracingConfiguration" Type="Reference" ExportId="">
                         <Data IsEnabled="true" Value="LoggingParams/TracingConfiguration"/>
                     </AttributeInfo>
+                    <AttributeInfo Id="ServerTokenConnectionIds" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Lisa</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
                 </AttributeInfoMap>
             </Data>
         </Element>
@@ -225,12 +232,14 @@
                                 <Value>Backup</Value>
                                 <Value>LoggingParams</Value>
                                 <Value>FileBasedSslConfiguration</Value>
+                                <Value>ServerTokens</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
                     <AttributeInfo Id="ParametersDescription" Type="Text[]" ExportId="">
                         <Data IsEnabled="true">
                             <Values>
+                                <Value></Value>
                                 <Value></Value>
                                 <Value></Value>
                                 <Value></Value>
@@ -247,6 +256,7 @@
                                 <Value>Backup</Value>
                                 <Value>Log</Value>
                                 <Value>SslConfiguration</Value>
+                                <Value>ServerTokens</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -258,6 +268,7 @@
                                 <Value>Backup</Value>
                                 <Value>Log</Value>
                                 <Value>SSL Configuration</Value>
+                                <Value>Server Tokens</Value>
                             </Values>
                         </Data>
                     </AttributeInfo>
@@ -315,6 +326,52 @@
                 </AttributeInfoMap>
             </Data>
         </Element>
+        <Element Id="ServerTokens" PackageId="BasePck" ComponentId="ComposedParamsSet">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="Parameters" Type="Reference[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ServerTokensEnabled</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ParametersDescription" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>The servers of products need tokens issued here; disabled, they connect without tokens</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ParametersId" Type="Id[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>ServerTokensEnabled</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="ParametersName" Type="Text[]" ExportId="">
+                        <Data IsEnabled="true">
+                            <Values>
+                                <Value>Enable server tokens</Value>
+                            </Values>
+                        </Data>
+                    </AttributeInfo>
+                    <AttributeInfo Id="TypeId" Type="Id" ExportId="">
+                        <Data IsEnabled="true" Value="Default"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
+        <Element Id="ServerTokensEnabled" PackageId="BasePck" ComponentId="EnableableParam">
+            <Data IsEnabled="true" Flags="0">
+                <AttributeInfoMap>
+                    <AttributeInfo Id="DefaultEnabled" Type="Boolean" ExportId="DefaultServerTokensEnabled">
+                        <Data IsEnabled="true" Value="false"/>
+                    </AttributeInfo>
+                </AttributeInfoMap>
+            </Data>
+        </Element>
     </ElementsList>
     <EmbeddedRegistriesList/>
     <ExportedInterfaces>
@@ -329,6 +386,7 @@
         <Component ExportedId="FileBasedSslConfiguration" ComponentId="FileBasedSslConfiguration"/>
         <Component ExportedId="PumaConnectionInterface" ComponentId="Server/PumaConnectionInterface"/>
         <Component ExportedId="ServerConnectionInterface" ComponentId="Server/ServerConnectionInterface"/>
+        <Component ExportedId="ServerTokensEnabled" ComponentId="ServerTokensEnabled"/>
         <Component ExportedId="TracingConfiguration" ComponentId="LoggingParams/TracingConfiguration"/>
     </ExportedComponents>
 </Acf>
